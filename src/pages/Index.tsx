@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero.jpg";
-import logoAsset from "@/assets/masoon-logo.png.asset.json";
 
 const nav = [
   { id: "unternehmen", label: "Unternehmen" },

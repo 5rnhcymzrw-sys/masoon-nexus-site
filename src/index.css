@@ -4,42 +4,42 @@
 
 @layer base {
   :root {
-    --background: 40 20% 98%;
-    --foreground: 30 10% 12%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
 
-    --card: 40 20% 98%;
-    --card-foreground: 30 10% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
 
-    --popover: 40 20% 98%;
-    --popover-foreground: 30 10% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 30 10% 12%;
-    --primary-foreground: 40 20% 98%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 35 15% 92%;
-    --secondary-foreground: 30 10% 12%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 35 12% 94%;
-    --muted-foreground: 30 6% 42%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 32 22% 75%;
-    --accent-foreground: 30 10% 12%;
+    --accent: 0 0% 92%;
+    --accent-foreground: 0 0% 0%;
 
-    --earth: 28 18% 55%;
-    --earth-light: 32 22% 85%;
-    --stone: 30 8% 35%;
+    --earth: 0 0% 25%;
+    --earth-light: 0 0% 94%;
+    --stone: 0 0% 22%;
 
     --destructive: 0 60% 45%;
-    --destructive-foreground: 40 20% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 30 12% 88%;
-    --input: 30 12% 88%;
-    --ring: 30 10% 12%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 0%;
 
     --radius: 0.125rem;
 
-    --shadow-elegant: 0 30px 80px -30px hsl(30 10% 12% / 0.18);
-    --shadow-subtle: 0 1px 0 0 hsl(30 12% 88%);
+    --shadow-elegant: 0 30px 80px -30px hsl(0 0% 0% / 0.18);
+    --shadow-subtle: 0 1px 0 0 hsl(0 0% 88%);
 
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -56,26 +56,28 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-feature-settings: "ss01", "cv11";
+    font-family: 'Open Sans Condensed', 'Open Sans', system-ui, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-family: 'Bitter', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.005em;
   }
 
   .font-display {
-    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-family: 'Bitter', Georgia, serif;
+    font-weight: 500;
   }
 
   .font-mono-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Open Sans Condensed', 'Open Sans', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-size: 0.7rem;
-    font-weight: 500;
+    letter-spacing: 0.32em;
+    font-size: 0.72rem;
+    font-weight: 700;
   }
 }
 

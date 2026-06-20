@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'Tenorite';
+  src: url('/__l5e/assets-v1/e6fc54f3-4359-4670-aa21-41d96d199646/Tenorite-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tenorite';
+  src: url('/__l5e/assets-v1/fb5bf80b-a100-4c09-9404-952444477f64/Tenorite-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -56,24 +71,24 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Open Sans Condensed', 'Open Sans', system-ui, sans-serif;
-    font-weight: 300;
+    font-family: 'Tenorite', system-ui, sans-serif;
+    font-weight: 400;
     letter-spacing: 0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bitter', Georgia, serif;
-    font-weight: 500;
+    font-family: 'Tenorite', system-ui, sans-serif;
+    font-weight: 700;
     letter-spacing: -0.005em;
   }
 
   .font-display {
-    font-family: 'Bitter', Georgia, serif;
-    font-weight: 500;
+    font-family: 'Tenorite', system-ui, sans-serif;
+    font-weight: 700;
   }
 
   .font-mono-label {
-    font-family: 'Open Sans Condensed', 'Open Sans', sans-serif;
+    font-family: 'Tenorite', system-ui, sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.32em;
     font-size: 0.72rem;

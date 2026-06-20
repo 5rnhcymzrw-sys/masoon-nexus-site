@@ -50,8 +50,7 @@ const Index = () => {
       >
         <div className="container-px flex items-center justify-between h-20">
           <a href="#top" className="flex items-center gap-3 leading-none" aria-label="MASOON TREUHAND">
-            <img src={logoAsset.url} alt="MASOON TREUHAND Logo" className="h-10 w-auto" />
-            <span className="hidden sm:flex flex-col">
+            <span className="flex flex-col">
               <span className="font-display text-base tracking-[0.18em]">MASOON</span>
               <span className="font-mono-label text-muted-foreground mt-1 text-[0.6rem]">Treuhand</span>
             </span>
@@ -361,7 +360,6 @@ const Index = () => {
         <div className="container-px py-20">
           <div className="grid md:grid-cols-12 gap-12 mb-16">
             <div className="md:col-span-5">
-              <img src={logoAsset.url} alt="MASOON TREUHAND" className="h-16 w-auto mb-6 invert" />
               <p className="font-display text-2xl tracking-[0.18em]">MASOON TREUHAND</p>
               <p className="font-mono-label text-background/60 mt-3">Schlüssel zum Erfolg</p>
               <p className="mt-8 text-background/70 max-w-sm leading-relaxed">

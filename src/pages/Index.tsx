@@ -128,9 +128,9 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background" />
         <div className="relative container-px w-full pb-20 md:pb-32">
           <div className="max-w-4xl animate-fade-up">
-            <p className="font-mono-label text-stone mb-8">Treuhand &middot; Emmenbrücke / Luzern</p>
+            <p className="font-mono-label text-stone mb-8">Treuhand &middot; Luzern</p>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-foreground">
-              Treuhand <span className="text-earth">|</span> Beratung <span className="text-earth">|</span> Klarheit
+              Treuhand <span className="text-earth">|</span> Buchhaltung <span className="text-earth">|</span> Steuern <span className="text-earth">|</span> Beratung
             </h1>
             <p className="mt-10 max-w-xl text-lg text-muted-foreground leading-relaxed">
               MASOON TREUHAND begleitet KMU, Selbstständige und Privatpersonen in Luzern und Umgebung —

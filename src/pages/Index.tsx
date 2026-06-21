@@ -234,41 +234,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ÜBER UNS */}
-      <section id="ueber-uns" className="section-y container-px">
-        <div className="grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-5">
-            <p className="font-mono-label text-muted-foreground mb-6">— Über uns</p>
-            <h2 className="font-display text-4xl md:text-5xl leading-tight mb-10">
-              Persönlich. Diskret.<br />Mit Schweizer Handschrift.
-            </h2>
-            <blockquote className="border-l-2 border-earth pl-6 font-display text-2xl italic text-stone">
-              «Schlüssel zum Erfolg.»
-            </blockquote>
-          </div>
-          <div className="lg:col-span-6 lg:col-start-7 space-y-6 text-lg leading-relaxed text-stone">
-            <p>
-              MASOON TREUHAND wurde mit dem Anspruch gegründet, Treuhandarbeit auf ein neues
-              Mass an Klarheit zu heben. Unsere Mandanten profitieren von kurzen Wegen,
-              persönlichem Kontakt und einer Beratung, die unternehmerisch denkt.
-            </p>
-            <p>
-              Wir sind im Raum Luzern verwurzelt und kennen die regionalen Eigenheiten —
-              vom Steueramt über Sozialversicherungen bis zu lokalen Geschäftspraktiken.
-            </p>
-            <div className="pt-6 grid grid-cols-2 gap-8 border-t border-border">
-              <div className="pt-6">
-                <p className="font-display text-4xl">15+</p>
-                <p className="font-mono-label text-muted-foreground mt-2">Jahre Erfahrung</p>
-              </div>
-              <div className="pt-6">
-                <p className="font-display text-4xl">100%</p>
-                <p className="font-mono-label text-muted-foreground mt-2">Persönliche Betreuung</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* WERTE */}
       <section className="bg-foreground text-background">

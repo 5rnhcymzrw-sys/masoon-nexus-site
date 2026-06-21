@@ -293,7 +293,7 @@ const Index = () => {
               <div className="space-y-8">
                 <div>
                   <p className="font-mono-label text-muted-foreground mb-2">Adresse</p>
-                  <p className="text-foreground">MASOON TREUHAND<br />Emmenbrücke, Luzern</p>
+                  <p className="text-foreground">MASOON TREUHAND<br />Täschmattstrasse 19<br />6015 Luzern</p>
                 </div>
                 <div>
                   <p className="font-mono-label text-muted-foreground mb-2">E-Mail</p>
@@ -301,11 +301,20 @@ const Index = () => {
                 </div>
                 <div>
                   <p className="font-mono-label text-muted-foreground mb-2">Telefon</p>
-                  <p>+41 00 000 00 00</p>
+                  <a href="tel:+41799663636" className="link-underline">+41 79 966 36 36</a>
                 </div>
                 <div>
                   <p className="font-mono-label text-muted-foreground mb-2">Web</p>
                   <p>www.masoontreuhand.ch</p>
+                </div>
+                <div className="pt-4 border-t border-border">
+                  <p className="font-mono-label text-muted-foreground mb-3">Öffnungszeiten</p>
+                  <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-foreground">
+                    <span>Montag – Freitag</span>
+                    <span className="text-stone">08.00 – 12.00 Uhr · 13.30 – 17.00 Uhr</span>
+                    <span>Samstag – Sonntag</span>
+                    <span className="text-stone">geschlossen</span>
+                  </div>
                 </div>
               </div>
             </div>

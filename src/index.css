@@ -1,60 +1,45 @@
-@font-face {
-  font-family: 'Tenorite';
-  src: url('/__l5e/assets-v1/e6fc54f3-4359-4670-aa21-41d96d199646/Tenorite-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Tenorite';
-  src: url('/__l5e/assets-v1/fb5bf80b-a100-4c09-9404-952444477f64/Tenorite-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    --background: 40 20% 98%;
+    --foreground: 30 10% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card: 40 20% 98%;
+    --card-foreground: 30 10% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover: 40 20% 98%;
+    --popover-foreground: 30 10% 12%;
 
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 30 10% 12%;
+    --primary-foreground: 40 20% 98%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 35 15% 92%;
+    --secondary-foreground: 30 10% 12%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 35 12% 94%;
+    --muted-foreground: 30 6% 42%;
 
-    --accent: 0 0% 92%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 32 22% 75%;
+    --accent-foreground: 30 10% 12%;
 
-    --earth: 0 0% 25%;
-    --earth-light: 0 0% 94%;
-    --stone: 0 0% 22%;
+    --earth: 28 18% 55%;
+    --earth-light: 32 22% 85%;
+    --stone: 30 8% 35%;
 
     --destructive: 0 60% 45%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 40 20% 98%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 0 0% 0%;
+    --border: 30 12% 88%;
+    --input: 30 12% 88%;
+    --ring: 30 10% 12%;
 
     --radius: 0.125rem;
 
-    --shadow-elegant: 0 30px 80px -30px hsl(0 0% 0% / 0.18);
-    --shadow-subtle: 0 1px 0 0 hsl(0 0% 88%);
+    --shadow-elegant: 0 30px 80px -30px hsl(30 10% 12% / 0.18);
+    --shadow-subtle: 0 1px 0 0 hsl(30 12% 88%);
 
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -71,28 +56,26 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Tenorite', system-ui, sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.01em;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Tenorite', system-ui, sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.005em;
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
 
   .font-display {
-    font-family: 'Tenorite', system-ui, sans-serif;
-    font-weight: 700;
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
   }
 
   .font-mono-label {
-    font-family: 'Tenorite', system-ui, sans-serif;
+    font-family: 'Inter', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.32em;
-    font-size: 0.72rem;
-    font-weight: 700;
+    letter-spacing: 0.22em;
+    font-size: 0.7rem;
+    font-weight: 500;
   }
 }
 

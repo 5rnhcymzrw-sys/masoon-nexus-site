@@ -4,58 +4,30 @@ import heroImg from "@/assets/hero.jpg";
 const nav = [
   { id: "unternehmen", label: "Unternehmen" },
   { id: "dienstleistungen", label: "Dienstleistungen" },
+  { id: "ueber-uns", label: "Über uns" },
   { id: "fachwissen", label: "Fachwissen" },
   { id: "kontakt", label: "Kontakt" },
 ];
 
 const services = [
-  {
-    n: "01",
-    t: "Administration",
-    d: "Wir unterstützen Sie bei administrativen Aufgaben wie Korrespondenz, Offert- und Rechnungswesen, Dokumentenmanagement sowie weiteren organisatorischen Tätigkeiten im Geschäftsalltag.",
-    items: ["Postadministration", "Korrespondenz", "Offert- und Rechnungswesen", "Dokumentenmanagement", "Terminverwaltung"],
-  },
-  {
-    n: "02",
-    t: "Buchhaltung",
-    d: "Wir übernehmen Ihre Finanzbuchhaltung, Debitoren- und Kreditorenbuchhaltung, den Zahlungsverkehr sowie Mehrwertsteuerabrechnungen zuverlässig, effizient und mit höchster Sorgfalt.",
-    items: ["Finanzbuchhaltung", "Debitorenbuchhaltung", "Kreditorenbuchhaltung", "Mehrwertsteuerabrechnungen", "Digitalisierung Buchhaltung"],
-  },
-  {
-    n: "03",
-    t: "Personaladministration",
-    d: "Wir begleiten Ihre Personaladministration von Arbeitsverträgen und Lohnbuchhaltung bis zu Sozialversicherungen, Quellensteuerabrechnungen und Behördenmeldungen.",
-    items: ["Arbeitsverträge", "Lohnbuchhaltung", "Quellensteuerabrechnungen", "Sozialversicherungen", "Lohnausweise"],
-  },
-  {
-    n: "04",
-    t: "Jahresabschluss",
-    d: "Wir erstellen Ihre Zwischen- und Jahresabschlüsse fachgerecht und begleiten Sie bei sämtlichen abschlussrelevanten Fragestellungen mit Präzision und Weitblick.",
-    items: ["Zwischenabschlüsse", "Jahresabschlüsse", "Bilanz und Erfolgsrechnung", "Anhang und Revisionsunterlagen", "Abschlussberatung"],
-  },
-  {
-    n: "05",
-    t: "Steuererklärung",
-    d: "Wir unterstützen Sie bei Steuererklärungen, Veranlagungskontrollen, Einsprachen sowie steuerlichen Fragestellungen und Optimierungsmöglichkeiten.",
-    items: ["Steuererklärungen", "Veranlagungskontrolle", "Einspracheverfahren", "Steueroptimierung", "Steuervertretung"],
-  },
-  {
-    n: "06",
-    t: "Unternehmensberatung",
-    d: "Wir begleiten Sie von der Firmengründung bis zu strategischen unternehmerischen Entscheidungen, strukturellen Veränderungen und weiteren unternehmerischen Fragestellungen.",
-    items: ["Gründungsberatung", "Gesellschaftsgründungen", "Umstrukturierungen", "Umwandlungen", "Liquidationen"],
-  },
+  { n: "01", t: "Administration", d: "Entlastung im Tagesgeschäft. Strukturierte Ablagen, Korrespondenz und administrative Prozesse, die Ihrem Unternehmen Klarheit verschaffen." },
+  { n: "02", t: "Buchhaltung", d: "Finanz-, Debitoren- und Kreditorenbuchhaltung sowie MWST-Abrechnungen. Termingerecht, nachvollziehbar und nach Schweizer Standards geführt." },
+  { n: "03", t: "Personaladministration", d: "Lohnverarbeitung, Sozialversicherungen und Lohnausweise. Diskrete und präzise Betreuung sämtlicher personalrelevanter Vorgänge." },
+  { n: "04", t: "Jahresabschluss", d: "Erstellung des Jahresabschlusses nach OR und steuerlichen Vorgaben. Klare Auswertungen als Grundlage für Ihre Entscheidungen." },
+  { n: "05", t: "Steuererklärung", d: "Steuererklärungen für Privatpersonen, Selbstständige und juristische Personen im Kanton Luzern und der gesamten Schweiz." },
+  { n: "06", t: "Unternehmensberatung", d: "Begleitung bei Gründung, Nachfolge, Restrukturierung und strategischen Fragestellungen. Pragmatisch und auf das Wesentliche fokussiert." },
 ];
 
 const values = [
-  { t: "Diskretion", d: "Vertrauliche Angelegenheiten erfordern höchste Sorgfalt und absolute Verlässlichkeit." },
-  { t: "Präzision", d: "Sorgfältige, strukturierte und fachlich fundierte Treuhandarbeit bis ins Detail." },
-  { t: "Vertrauen", d: "Eine langfristige Zusammenarbeit basiert auf Verlässlichkeit, Klarheit und persönlicher Verantwortung." },
+  { t: "Diskretion", d: "Vertrauliche Mandate verlangen absolute Verschwiegenheit. Ihre Daten und Anliegen bleiben bei uns geschützt." },
+  { t: "Präzision", d: "Sorgfalt in jedem Detail. Wir arbeiten genau, termingerecht und nachvollziehbar." },
+  { t: "Vertrauen", d: "Langfristige Mandate basieren auf Verlässlichkeit. Wir stehen für offene Kommunikation und klare Verantwortung." },
 ];
 
 const insights = [
-  { tag: "Steuern", t: "Checkliste Steuererklärung", d: "Übersicht der wichtigsten Unterlagen und Belege, die Sie für Ihre Steuererklärung im Kanton Luzern bereithalten sollten." },
-  { tag: "Vorsorge", t: "Sozialversicherungen", d: "AHV, IV, EO, ALV, BVG und UVG — die Grundlagen des Schweizer Sozialversicherungssystems verständlich erklärt." },
+  { tag: "Steuern 2026", t: "Steuererklärung im Kanton Luzern — Fristen und Abzüge.", d: "Ein Überblick über die wesentlichen Abzüge und Fristen für Privatpersonen im Kanton Luzern." },
+  { tag: "KMU", t: "Jahresabschluss vorbereiten — die wichtigsten Schritte.", d: "Wie sich KMU strukturiert auf den Jahresabschluss vorbereiten und Überraschungen vermeiden." },
+  { tag: "Lohn", t: "Lohnadministration in der Schweiz — was zählt.", d: "Sozialversicherungen, Quellensteuer und Lohnausweise korrekt verarbeitet." },
 ];
 
 const Index = () => {
@@ -77,11 +49,9 @@ const Index = () => {
         }`}
       >
         <div className="container-px flex items-center justify-between h-20">
-          <a href="#top" className="flex items-center gap-3 leading-none" aria-label="MASOON TREUHAND">
-            <span className="flex flex-col">
-              <span className="font-display text-base tracking-[0.18em]">MASOON</span>
-              <span className="font-mono-label text-muted-foreground mt-1 text-[0.6rem]">Treuhand</span>
-            </span>
+          <a href="#top" className="flex flex-col leading-none">
+            <span className="font-display text-xl tracking-wide">MASOON</span>
+            <span className="font-mono-label text-muted-foreground mt-1">Treuhand</span>
           </a>
           <nav className="hidden lg:flex items-center gap-10">
             {nav.map((n) => (
@@ -128,9 +98,9 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background" />
         <div className="relative container-px w-full pb-20 md:pb-32">
           <div className="max-w-4xl animate-fade-up">
-            <p className="font-mono-label text-stone mb-8">Treuhand &middot; Luzern</p>
+            <p className="font-mono-label text-stone mb-8">Treuhand &middot; Emmenbrücke / Luzern</p>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-foreground">
-              Treuhand <span className="text-earth">|</span> Buchhaltung <span className="text-earth">|</span> Steuern <span className="text-earth">|</span> Beratung
+              Treuhand <span className="text-earth">|</span> Beratung <span className="text-earth">|</span> Klarheit
             </h1>
             <p className="mt-10 max-w-xl text-lg text-muted-foreground leading-relaxed">
               MASOON TREUHAND begleitet KMU, Selbstständige und Privatpersonen in Luzern und Umgebung —
@@ -157,22 +127,19 @@ const Index = () => {
           <div className="lg:col-span-4">
             <p className="font-mono-label text-muted-foreground mb-6">— Unternehmen</p>
             <h2 className="font-display text-4xl md:text-5xl leading-tight">
-              Treuhand mit fachlicher Kompetenz und Qualitätsanspruch.
+              Ein Treuhandbüro mit Sitz in Emmenbrücke.
             </h2>
           </div>
           <div className="lg:col-span-7 lg:col-start-6 space-y-6 text-lg leading-relaxed text-stone">
             <p>
-              MASOON TREUHAND begleitet Unternehmen in treuhänderischen und unternehmerischen
-              Fragestellungen mit fachlicher Kompetenz und einem hohen Qualitätsanspruch.
+              MASOON TREUHAND ist eine Einzelunternehmung im Raum Luzern. Wir verstehen uns als
+              langfristiger Partner unserer Mandanten und bieten umfassende Dienstleistungen in
+              Buchhaltung, Steuern, Lohnadministration und Unternehmensberatung.
             </p>
             <p>
-              Mit modernen digitalen Prozessen, klaren Strukturen und persönlicher Betreuung
-              entwickeln wir effiziente Lösungen, abgestimmt auf die individuellen Anforderungen
-              unserer Kundschaft.
-            </p>
-            <p>
-              Ob Buchhaltung, Lohnadministration, Steuern oder Unternehmensberatung — unser Fokus
-              liegt auf einer zuverlässigen, professionellen und langfristigen Zusammenarbeit.
+              Unser Anspruch ist es, komplexe Sachverhalte verständlich zu machen und Entscheidungen
+              auf eine solide Grundlage zu stellen. Wir arbeiten persönlich, vertraulich und mit
+              Schweizer Sorgfalt.
             </p>
             <div className="pt-8 grid grid-cols-3 gap-6 border-t border-border">
               {[
@@ -219,21 +186,48 @@ const Index = () => {
                   <span className="h-px w-10 bg-foreground/40 mt-3 group-hover:w-16 transition-all duration-500" />
                 </div>
                 <h3 className="font-display text-2xl mb-4">{s.t}</h3>
-                <p className="text-sm text-stone leading-relaxed mb-6">{s.d}</p>
-                <ul className="space-y-2 text-sm text-foreground/80 border-t border-border pt-5">
-                  {s.items.map((it) => (
-                    <li key={it} className="flex gap-3">
-                      <span className="text-muted-foreground">—</span>
-                      <span>{it}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-sm text-stone leading-relaxed">{s.d}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ÜBER UNS */}
+      <section id="ueber-uns" className="section-y container-px">
+        <div className="grid lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-5">
+            <p className="font-mono-label text-muted-foreground mb-6">— Über uns</p>
+            <h2 className="font-display text-4xl md:text-5xl leading-tight mb-10">
+              Persönlich. Diskret.<br />Mit Schweizer Handschrift.
+            </h2>
+            <blockquote className="border-l-2 border-earth pl-6 font-display text-2xl italic text-stone">
+              «Schlüssel zum Erfolg.»
+            </blockquote>
+          </div>
+          <div className="lg:col-span-6 lg:col-start-7 space-y-6 text-lg leading-relaxed text-stone">
+            <p>
+              MASOON TREUHAND wurde mit dem Anspruch gegründet, Treuhandarbeit auf ein neues
+              Mass an Klarheit zu heben. Unsere Mandanten profitieren von kurzen Wegen,
+              persönlichem Kontakt und einer Beratung, die unternehmerisch denkt.
+            </p>
+            <p>
+              Wir sind im Raum Luzern verwurzelt und kennen die regionalen Eigenheiten —
+              vom Steueramt über Sozialversicherungen bis zu lokalen Geschäftspraktiken.
+            </p>
+            <div className="pt-6 grid grid-cols-2 gap-8 border-t border-border">
+              <div className="pt-6">
+                <p className="font-display text-4xl">15+</p>
+                <p className="font-mono-label text-muted-foreground mt-2">Jahre Erfahrung</p>
+              </div>
+              <div className="pt-6">
+                <p className="font-display text-4xl">100%</p>
+                <p className="font-mono-label text-muted-foreground mt-2">Persönliche Betreuung</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* WERTE */}
       <section className="bg-foreground text-background">
@@ -260,14 +254,17 @@ const Index = () => {
           <div>
             <p className="font-mono-label text-muted-foreground mb-6">— Fachwissen</p>
             <h2 className="font-display text-4xl md:text-5xl leading-tight max-w-2xl">
-              Checklisten und Grundlagen für unsere Mandantschaft.
+              Einblicke aus unserer täglichen Arbeit.
             </h2>
           </div>
-          <a href="#kontakt" className="font-mono-label link-underline">Auf Anfrage</a>
+          <a href="#kontakt" className="font-mono-label link-underline">Mehr erfahren</a>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {insights.map((p) => (
-            <article key={p.t} className="group cursor-pointer border border-border p-10 hover:bg-earth-light transition-colors duration-700">
+            <article key={p.t} className="group cursor-pointer">
+              <div className="aspect-[4/3] bg-muted overflow-hidden mb-6">
+                <div className="w-full h-full bg-gradient-to-br from-earth-light via-muted to-secondary group-hover:scale-105 transition-transform duration-700" />
+              </div>
               <p className="font-mono-label text-earth mb-3">{p.tag}</p>
               <h3 className="font-display text-2xl mb-3 leading-snug">{p.t}</h3>
               <p className="text-sm text-stone leading-relaxed">{p.d}</p>
@@ -293,7 +290,7 @@ const Index = () => {
               <div className="space-y-8">
                 <div>
                   <p className="font-mono-label text-muted-foreground mb-2">Adresse</p>
-                  <p className="text-foreground">MASOON TREUHAND<br />Täschmattstrasse 19<br />6015 Luzern</p>
+                  <p className="text-foreground">MASOON TREUHAND<br />Emmenbrücke, Luzern</p>
                 </div>
                 <div>
                   <p className="font-mono-label text-muted-foreground mb-2">E-Mail</p>
@@ -301,20 +298,11 @@ const Index = () => {
                 </div>
                 <div>
                   <p className="font-mono-label text-muted-foreground mb-2">Telefon</p>
-                  <a href="tel:+41799663636" className="link-underline">+41 79 966 36 36</a>
+                  <p>+41 00 000 00 00</p>
                 </div>
                 <div>
                   <p className="font-mono-label text-muted-foreground mb-2">Web</p>
                   <p>www.masoontreuhand.ch</p>
-                </div>
-                <div className="pt-4 border-t border-border">
-                  <p className="font-mono-label text-muted-foreground mb-3">Öffnungszeiten</p>
-                  <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-foreground">
-                    <span>Montag – Freitag</span>
-                    <span className="text-stone">08.00 – 12.00 Uhr · 13.30 – 17.00 Uhr</span>
-                    <span>Samstag – Sonntag</span>
-                    <span className="text-stone">geschlossen</span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -325,8 +313,7 @@ const Index = () => {
             >
               <div className="space-y-8">
                 {[
-                  { id: "nachname", label: "Nachname", type: "text" },
-                  { id: "vorname", label: "Vorname", type: "text" },
+                  { id: "name", label: "Name", type: "text" },
                   { id: "email", label: "E-Mail", type: "email" },
                   { id: "tel", label: "Telefon", type: "tel" },
                 ].map((f) => (
@@ -366,51 +353,22 @@ const Index = () => {
         </div>
       </section>
 
-      {/* IMPRESSUM */}
-      <section id="impressum" className="section-y container-px">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-          <div className="lg:col-span-4">
-            <p className="font-mono-label text-muted-foreground mb-6">— Impressum</p>
-            <h2 className="font-display text-4xl md:text-5xl leading-tight">
-              Rechtliche Hinweise.
-            </h2>
-          </div>
-          <div className="lg:col-span-7 lg:col-start-6 grid sm:grid-cols-2 gap-10 text-stone">
-            <div>
-              <p className="font-mono-label text-muted-foreground mb-3">Verantwortlich</p>
-              <p className="text-foreground">MASOON TREUHAND<br />Gety Galena Masoon<br />Täschmattstrasse 19<br />6015 Luzern<br />Schweiz</p>
-            </div>
-            <div>
-              <p className="font-mono-label text-muted-foreground mb-3">Handelsregister</p>
-              <p className="text-foreground">Eingetragener Firmenname: MASOON TREUHAND<br />Handelsregisteramt Luzern<br />Firmennummer: CHE-429.184.101<br />Referenznummer: CH-100.1.822.832-4</p>
-            </div>
-            <div>
-              <p className="font-mono-label text-muted-foreground mb-3">Haftungsausschluss</p>
-              <p>Die Inhalte dieser Webseite werden mit grösster Sorgfalt erstellt. Dennoch wird keine Gewähr für Richtigkeit, Vollständigkeit und Aktualität übernommen.</p>
-            </div>
-            <div>
-              <p className="font-mono-label text-muted-foreground mb-3">Urheberrechte</p>
-              <p>Sämtliche Inhalte, Texte, Bilder und Dateien auf dieser Webseite sind urheberrechtlich geschützt. Jede Verwendung ohne vorgängige schriftliche Zustimmung ist untersagt.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FOOTER */}
       <footer className="bg-foreground text-background">
         <div className="container-px py-20">
           <div className="grid md:grid-cols-12 gap-12 mb-16">
             <div className="md:col-span-5">
-              <p className="font-display text-2xl tracking-[0.18em]">MASOON TREUHAND</p>
+              <p className="font-display text-3xl">MASOON TREUHAND</p>
               <p className="font-mono-label text-background/60 mt-3">Schlüssel zum Erfolg</p>
               <p className="mt-8 text-background/70 max-w-sm leading-relaxed">
-                Treuhand, Buchhaltung, Steuern und Unternehmensberatung in Luzern und Umgebung.
+                Treuhand, Buchhaltung und Unternehmensberatung in Luzern und Umgebung.
+                Treuhandbüro mit Sitz in Emmenbrücke.
               </p>
             </div>
             <div className="md:col-span-3 md:col-start-7">
               <p className="font-mono-label text-background/50 mb-5">Navigation</p>
               <ul className="space-y-3">
-                {[...nav, { id: "impressum", label: "Impressum" }].map((n) => (
+                {nav.map((n) => (
                   <li key={n.id}>
                     <a href={`#${n.id}`} className="text-background/80 hover:text-background">
                       {n.label}
@@ -422,9 +380,9 @@ const Index = () => {
             <div className="md:col-span-3">
               <p className="font-mono-label text-background/50 mb-5">Kontakt</p>
               <ul className="space-y-3 text-background/80">
-                <li>Täschmattstrasse 19<br />6015 Luzern</li>
-                <li><a href="mailto:info@masoontreuhand.ch" className="hover:text-background">info@masoontreuhand.ch</a></li>
-                <li><a href="tel:+41799663636" className="hover:text-background">+41 79 966 36 36</a></li>
+                <li>Emmenbrücke, Luzern</li>
+                <li>info@masoontreuhand.ch</li>
+                <li>+41 00 000 00 00</li>
                 <li>www.masoontreuhand.ch</li>
               </ul>
             </div>

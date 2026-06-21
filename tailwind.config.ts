@@ -28,8 +28,8 @@ export default {
         stone: "hsl(var(--stone))",
       },
       fontFamily: {
-        display: ["Tenorite", "system-ui", "sans-serif"],
-        sans: ["Tenorite", "system-ui", "sans-serif"],
+        display: ["Cormorant Garamond", "Times New Roman", "serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

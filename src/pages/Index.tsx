@@ -157,19 +157,22 @@ const Index = () => {
           <div className="lg:col-span-4">
             <p className="font-mono-label text-muted-foreground mb-6">— Unternehmen</p>
             <h2 className="font-display text-4xl md:text-5xl leading-tight">
-              Ein Treuhandbüro mit Sitz in Emmenbrücke.
+              Treuhand mit fachlicher Kompetenz und Qualitätsanspruch.
             </h2>
           </div>
           <div className="lg:col-span-7 lg:col-start-6 space-y-6 text-lg leading-relaxed text-stone">
             <p>
-              MASOON TREUHAND ist eine Einzelunternehmung im Raum Luzern. Wir verstehen uns als
-              langfristiger Partner unserer Mandanten und bieten umfassende Dienstleistungen in
-              Buchhaltung, Steuern, Lohnadministration und Unternehmensberatung.
+              MASOON TREUHAND begleitet Unternehmen in treuhänderischen und unternehmerischen
+              Fragestellungen mit fachlicher Kompetenz und einem hohen Qualitätsanspruch.
             </p>
             <p>
-              Unser Anspruch ist es, komplexe Sachverhalte verständlich zu machen und Entscheidungen
-              auf eine solide Grundlage zu stellen. Wir arbeiten persönlich, vertraulich und mit
-              Schweizer Sorgfalt.
+              Mit modernen digitalen Prozessen, klaren Strukturen und persönlicher Betreuung
+              entwickeln wir effiziente Lösungen, abgestimmt auf die individuellen Anforderungen
+              unserer Kundschaft.
+            </p>
+            <p>
+              Ob Buchhaltung, Lohnadministration, Steuern oder Unternehmensberatung — unser Fokus
+              liegt auf einer zuverlässigen, professionellen und langfristigen Zusammenarbeit.
             </p>
             <div className="pt-8 grid grid-cols-3 gap-6 border-t border-border">
               {[

@@ -216,7 +216,15 @@ const Index = () => {
                   <span className="h-px w-10 bg-foreground/40 mt-3 group-hover:w-16 transition-all duration-500" />
                 </div>
                 <h3 className="font-display text-2xl mb-4">{s.t}</h3>
-                <p className="text-sm text-stone leading-relaxed">{s.d}</p>
+                <p className="text-sm text-stone leading-relaxed mb-6">{s.d}</p>
+                <ul className="space-y-2 text-sm text-foreground/80 border-t border-border pt-5">
+                  {s.items.map((it) => (
+                    <li key={it} className="flex gap-3">
+                      <span className="text-muted-foreground">—</span>
+                      <span>{it}</span>
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>

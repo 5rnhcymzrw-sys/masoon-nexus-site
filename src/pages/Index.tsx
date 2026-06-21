@@ -366,6 +366,36 @@ const Index = () => {
         </div>
       </section>
 
+      {/* IMPRESSUM */}
+      <section id="impressum" className="section-y container-px">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
+          <div className="lg:col-span-4">
+            <p className="font-mono-label text-muted-foreground mb-6">— Impressum</p>
+            <h2 className="font-display text-4xl md:text-5xl leading-tight">
+              Rechtliche Hinweise.
+            </h2>
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6 grid sm:grid-cols-2 gap-10 text-stone">
+            <div>
+              <p className="font-mono-label text-muted-foreground mb-3">Verantwortlich</p>
+              <p className="text-foreground">MASOON TREUHAND<br />Gety Galena Masoon<br />Täschmattstrasse 19<br />6015 Luzern<br />Schweiz</p>
+            </div>
+            <div>
+              <p className="font-mono-label text-muted-foreground mb-3">Handelsregister</p>
+              <p className="text-foreground">Eingetragener Firmenname: MASOON TREUHAND<br />Handelsregisteramt Luzern<br />Firmennummer: CHE-429.184.101<br />Referenznummer: CH-100.1.822.832-4</p>
+            </div>
+            <div>
+              <p className="font-mono-label text-muted-foreground mb-3">Haftungsausschluss</p>
+              <p>Die Inhalte dieser Webseite werden mit grösster Sorgfalt erstellt. Dennoch wird keine Gewähr für Richtigkeit, Vollständigkeit und Aktualität übernommen.</p>
+            </div>
+            <div>
+              <p className="font-mono-label text-muted-foreground mb-3">Urheberrechte</p>
+              <p>Sämtliche Inhalte, Texte, Bilder und Dateien auf dieser Webseite sind urheberrechtlich geschützt. Jede Verwendung ohne vorgängige schriftliche Zustimmung ist untersagt.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="bg-foreground text-background">
         <div className="container-px py-20">
@@ -374,14 +404,13 @@ const Index = () => {
               <p className="font-display text-2xl tracking-[0.18em]">MASOON TREUHAND</p>
               <p className="font-mono-label text-background/60 mt-3">Schlüssel zum Erfolg</p>
               <p className="mt-8 text-background/70 max-w-sm leading-relaxed">
-                Treuhand, Buchhaltung und Unternehmensberatung in Luzern und Umgebung.
-                Treuhandbüro mit Sitz in Emmenbrücke.
+                Treuhand, Buchhaltung, Steuern und Unternehmensberatung in Luzern und Umgebung.
               </p>
             </div>
             <div className="md:col-span-3 md:col-start-7">
               <p className="font-mono-label text-background/50 mb-5">Navigation</p>
               <ul className="space-y-3">
-                {nav.map((n) => (
+                {[...nav, { id: "impressum", label: "Impressum" }].map((n) => (
                   <li key={n.id}>
                     <a href={`#${n.id}`} className="text-background/80 hover:text-background">
                       {n.label}
@@ -393,9 +422,9 @@ const Index = () => {
             <div className="md:col-span-3">
               <p className="font-mono-label text-background/50 mb-5">Kontakt</p>
               <ul className="space-y-3 text-background/80">
-                <li>Emmenbrücke, Luzern</li>
-                <li>info@masoontreuhand.ch</li>
-                <li>+41 00 000 00 00</li>
+                <li>Täschmattstrasse 19<br />6015 Luzern</li>
+                <li><a href="mailto:info@masoontreuhand.ch" className="hover:text-background">info@masoontreuhand.ch</a></li>
+                <li><a href="tel:+41799663636" className="hover:text-background">+41 79 966 36 36</a></li>
                 <li>www.masoontreuhand.ch</li>
               </ul>
             </div>

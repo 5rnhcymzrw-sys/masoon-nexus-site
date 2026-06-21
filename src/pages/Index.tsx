@@ -4,30 +4,58 @@ import heroImg from "@/assets/hero.jpg";
 const nav = [
   { id: "unternehmen", label: "Unternehmen" },
   { id: "dienstleistungen", label: "Dienstleistungen" },
-  { id: "ueber-uns", label: "Über uns" },
   { id: "fachwissen", label: "Fachwissen" },
   { id: "kontakt", label: "Kontakt" },
 ];
 
 const services = [
-  { n: "01", t: "Administration", d: "Entlastung im Tagesgeschäft. Strukturierte Ablagen, Korrespondenz und administrative Prozesse, die Ihrem Unternehmen Klarheit verschaffen." },
-  { n: "02", t: "Buchhaltung", d: "Finanz-, Debitoren- und Kreditorenbuchhaltung sowie MWST-Abrechnungen. Termingerecht, nachvollziehbar und nach Schweizer Standards geführt." },
-  { n: "03", t: "Personaladministration", d: "Lohnverarbeitung, Sozialversicherungen und Lohnausweise. Diskrete und präzise Betreuung sämtlicher personalrelevanter Vorgänge." },
-  { n: "04", t: "Jahresabschluss", d: "Erstellung des Jahresabschlusses nach OR und steuerlichen Vorgaben. Klare Auswertungen als Grundlage für Ihre Entscheidungen." },
-  { n: "05", t: "Steuererklärung", d: "Steuererklärungen für Privatpersonen, Selbstständige und juristische Personen im Kanton Luzern und der gesamten Schweiz." },
-  { n: "06", t: "Unternehmensberatung", d: "Begleitung bei Gründung, Nachfolge, Restrukturierung und strategischen Fragestellungen. Pragmatisch und auf das Wesentliche fokussiert." },
+  {
+    n: "01",
+    t: "Administration",
+    d: "Wir unterstützen Sie bei administrativen Aufgaben wie Korrespondenz, Offert- und Rechnungswesen, Dokumentenmanagement sowie weiteren organisatorischen Tätigkeiten im Geschäftsalltag.",
+    items: ["Postadministration", "Korrespondenz", "Offert- und Rechnungswesen", "Dokumentenmanagement", "Terminverwaltung"],
+  },
+  {
+    n: "02",
+    t: "Buchhaltung",
+    d: "Wir übernehmen Ihre Finanzbuchhaltung, Debitoren- und Kreditorenbuchhaltung, den Zahlungsverkehr sowie Mehrwertsteuerabrechnungen zuverlässig, effizient und mit höchster Sorgfalt.",
+    items: ["Finanzbuchhaltung", "Debitorenbuchhaltung", "Kreditorenbuchhaltung", "Mehrwertsteuerabrechnungen", "Digitalisierung Buchhaltung"],
+  },
+  {
+    n: "03",
+    t: "Personaladministration",
+    d: "Wir begleiten Ihre Personaladministration von Arbeitsverträgen und Lohnbuchhaltung bis zu Sozialversicherungen, Quellensteuerabrechnungen und Behördenmeldungen.",
+    items: ["Arbeitsverträge", "Lohnbuchhaltung", "Quellensteuerabrechnungen", "Sozialversicherungen", "Lohnausweise"],
+  },
+  {
+    n: "04",
+    t: "Jahresabschluss",
+    d: "Wir erstellen Ihre Zwischen- und Jahresabschlüsse fachgerecht und begleiten Sie bei sämtlichen abschlussrelevanten Fragestellungen mit Präzision und Weitblick.",
+    items: ["Zwischenabschlüsse", "Jahresabschlüsse", "Bilanz und Erfolgsrechnung", "Anhang und Revisionsunterlagen", "Abschlussberatung"],
+  },
+  {
+    n: "05",
+    t: "Steuererklärung",
+    d: "Wir unterstützen Sie bei Steuererklärungen, Veranlagungskontrollen, Einsprachen sowie steuerlichen Fragestellungen und Optimierungsmöglichkeiten.",
+    items: ["Steuererklärungen", "Veranlagungskontrolle", "Einspracheverfahren", "Steueroptimierung", "Steuervertretung"],
+  },
+  {
+    n: "06",
+    t: "Unternehmensberatung",
+    d: "Wir begleiten Sie von der Firmengründung bis zu strategischen unternehmerischen Entscheidungen, strukturellen Veränderungen und weiteren unternehmerischen Fragestellungen.",
+    items: ["Gründungsberatung", "Gesellschaftsgründungen", "Umstrukturierungen", "Umwandlungen", "Liquidationen"],
+  },
 ];
 
 const values = [
-  { t: "Diskretion", d: "Vertrauliche Mandate verlangen absolute Verschwiegenheit. Ihre Daten und Anliegen bleiben bei uns geschützt." },
-  { t: "Präzision", d: "Sorgfalt in jedem Detail. Wir arbeiten genau, termingerecht und nachvollziehbar." },
-  { t: "Vertrauen", d: "Langfristige Mandate basieren auf Verlässlichkeit. Wir stehen für offene Kommunikation und klare Verantwortung." },
+  { t: "Diskretion", d: "Vertrauliche Angelegenheiten erfordern höchste Sorgfalt und absolute Verlässlichkeit." },
+  { t: "Präzision", d: "Sorgfältige, strukturierte und fachlich fundierte Treuhandarbeit bis ins Detail." },
+  { t: "Vertrauen", d: "Eine langfristige Zusammenarbeit basiert auf Verlässlichkeit, Klarheit und persönlicher Verantwortung." },
 ];
 
 const insights = [
-  { tag: "Steuern 2026", t: "Steuererklärung im Kanton Luzern — Fristen und Abzüge.", d: "Ein Überblick über die wesentlichen Abzüge und Fristen für Privatpersonen im Kanton Luzern." },
-  { tag: "KMU", t: "Jahresabschluss vorbereiten — die wichtigsten Schritte.", d: "Wie sich KMU strukturiert auf den Jahresabschluss vorbereiten und Überraschungen vermeiden." },
-  { tag: "Lohn", t: "Lohnadministration in der Schweiz — was zählt.", d: "Sozialversicherungen, Quellensteuer und Lohnausweise korrekt verarbeitet." },
+  { tag: "Steuern", t: "Checkliste Steuererklärung", d: "Übersicht der wichtigsten Unterlagen und Belege, die Sie für Ihre Steuererklärung im Kanton Luzern bereithalten sollten." },
+  { tag: "Vorsorge", t: "Sozialversicherungen", d: "AHV, IV, EO, ALV, BVG und UVG — die Grundlagen des Schweizer Sozialversicherungssystems verständlich erklärt." },
 ];
 
 const Index = () => {

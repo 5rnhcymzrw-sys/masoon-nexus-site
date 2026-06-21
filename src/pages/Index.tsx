@@ -325,7 +325,8 @@ const Index = () => {
             >
               <div className="space-y-8">
                 {[
-                  { id: "name", label: "Name", type: "text" },
+                  { id: "nachname", label: "Nachname", type: "text" },
+                  { id: "vorname", label: "Vorname", type: "text" },
                   { id: "email", label: "E-Mail", type: "email" },
                   { id: "tel", label: "Telefon", type: "tel" },
                 ].map((f) => (

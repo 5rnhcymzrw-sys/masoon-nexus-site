@@ -260,17 +260,14 @@ const Index = () => {
           <div>
             <p className="font-mono-label text-muted-foreground mb-6">— Fachwissen</p>
             <h2 className="font-display text-4xl md:text-5xl leading-tight max-w-2xl">
-              Einblicke aus unserer täglichen Arbeit.
+              Checklisten und Grundlagen für unsere Mandantschaft.
             </h2>
           </div>
-          <a href="#kontakt" className="font-mono-label link-underline">Mehr erfahren</a>
+          <a href="#kontakt" className="font-mono-label link-underline">Auf Anfrage</a>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {insights.map((p) => (
-            <article key={p.t} className="group cursor-pointer">
-              <div className="aspect-[4/3] bg-muted overflow-hidden mb-6">
-                <div className="w-full h-full bg-gradient-to-br from-earth-light via-muted to-secondary group-hover:scale-105 transition-transform duration-700" />
-              </div>
+            <article key={p.t} className="group cursor-pointer border border-border p-10 hover:bg-earth-light transition-colors duration-700">
               <p className="font-mono-label text-earth mb-3">{p.tag}</p>
               <h3 className="font-display text-2xl mb-3 leading-snug">{p.t}</h3>
               <p className="text-sm text-stone leading-relaxed">{p.d}</p>

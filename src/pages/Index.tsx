@@ -143,6 +143,10 @@ const Index = () => {
 
       {/* UNTERNEHMEN */}
       <section id="unternehmen" className="section-y container-px">
+        <div className="max-w-3xl mb-14">
+          <p className="font-mono-label text-muted-foreground mb-5">— UNTERNEHMEN</p>
+        </div>
+
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7 space-y-6">
@@ -252,7 +256,7 @@ const Index = () => {
       <section id="kontakt" className="section-y container-px border-t border-border">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <p className="font-mono-label text-muted-foreground mb-5">— Kontakt</p>
+            <p className="font-mono-label text-muted-foreground mb-5">— KONTAKT</p>
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight mb-6">
               Sprechen wir über Ihr Anliegen.
             </h2>
@@ -308,12 +312,11 @@ const Index = () => {
       {/* FOOTER */}
       <footer className="bg-foreground text-background">
         <div className="container-px py-16 md:py-20">
-          <div className="grid md:grid-cols-12 gap-10 mb-14">
-            <div className="md:col-span-4">
-              <p className="font-nav text-base tracking-[0.2em]">MASOON TREUHAND</p>
-              <p className="font-mono-label text-background/60 mt-3">Schlüssel zum Erfolg</p>
+          <div className="grid md:grid-cols-3 gap-10 mb-14">
+            <div>
+              <p className="font-nav text-sm tracking-[0.22em]">MASOON TREUHAND</p>
             </div>
-            <div className="md:col-span-4">
+            <div>
               <p className="font-mono-label text-background/60 mb-4">Kontakt</p>
               <ul className="space-y-1 text-sm text-background/85">
                 <li>MASOON TREUHAND</li>
@@ -324,14 +327,16 @@ const Index = () => {
                 <li><a href="tel:+41799663636" className="hover:text-background">+41 79 966 36 36</a></li>
               </ul>
             </div>
-            <div className="md:col-span-4">
+            <div>
               <p className="font-mono-label text-background/60 mb-4">Öffnungszeiten</p>
               <ul className="space-y-1 text-sm text-background/85">
-                <li>Montag–Freitag 08.00–12.00 <span className="text-background/50">|</span> 13.00–17.00 Uhr</li>
-                <li>Samstag–Sonntag geschlossen</li>
+                <li>Montag–Freitag</li>
+                <li>08.00–12.00 <span className="text-background/50">|</span> 13.00–17.00 Uhr</li>
+                <li className="pt-2">Samstag–Sonntag geschlossen</li>
               </ul>
             </div>
           </div>
+
           <div className="pt-8 border-t border-background/15 flex flex-col md:flex-row justify-between gap-3 text-xs text-background/60">
             <p>2026 MASOON TREUHAND <span className="mx-1">|</span> Alle Rechte vorbehalten.</p>
             <p className="flex gap-4">

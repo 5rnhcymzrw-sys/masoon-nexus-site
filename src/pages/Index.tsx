@@ -1,33 +1,120 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import heroImg from "@/assets/hero.jpg";
 
 const nav = [
   { id: "unternehmen", label: "Unternehmen" },
   { id: "dienstleistungen", label: "Dienstleistungen" },
-  { id: "ueber-uns", label: "Über uns" },
   { id: "fachwissen", label: "Fachwissen" },
   { id: "kontakt", label: "Kontakt" },
 ];
 
 const services = [
-  { n: "01", t: "Administration", d: "Entlastung im Tagesgeschäft. Strukturierte Ablagen, Korrespondenz und administrative Prozesse, die Ihrem Unternehmen Klarheit verschaffen." },
-  { n: "02", t: "Buchhaltung", d: "Finanz-, Debitoren- und Kreditorenbuchhaltung sowie MWST-Abrechnungen. Termingerecht, nachvollziehbar und nach Schweizer Standards geführt." },
-  { n: "03", t: "Personaladministration", d: "Lohnverarbeitung, Sozialversicherungen und Lohnausweise. Diskrete und präzise Betreuung sämtlicher personalrelevanter Vorgänge." },
-  { n: "04", t: "Jahresabschluss", d: "Erstellung des Jahresabschlusses nach OR und steuerlichen Vorgaben. Klare Auswertungen als Grundlage für Ihre Entscheidungen." },
-  { n: "05", t: "Steuererklärung", d: "Steuererklärungen für Privatpersonen, Selbstständige und juristische Personen im Kanton Luzern und der gesamten Schweiz." },
-  { n: "06", t: "Unternehmensberatung", d: "Begleitung bei Gründung, Nachfolge, Restrukturierung und strategischen Fragestellungen. Pragmatisch und auf das Wesentliche fokussiert." },
+  {
+    n: "01",
+    t: "Administration",
+    d: "Wir unterstützen Sie bei administrativen Aufgaben wie Korrespondenz, Offert- und Rechnungswesen, Dokumentenmanagement sowie weiteren organisatorischen Tätigkeiten im Geschäftsalltag.",
+    items: [
+      "Postadministration",
+      "Korrespondenz",
+      "Offert- und Rechnungswesen",
+      "Dokumentenmanagement",
+      "Terminverwaltung",
+    ],
+  },
+  {
+    n: "02",
+    t: "Buchhaltung",
+    d: "Wir übernehmen Ihre Finanzbuchhaltung, Debitoren- und Kreditorenbuchhaltung, den Zahlungsverkehr sowie Mehrwertsteuerabrechnungen zuverlässig, effizient und mit höchster Sorgfalt.",
+    items: [
+      "Finanzbuchhaltung",
+      "Debitorenbuchhaltung",
+      "Kreditorenbuchhaltung",
+      "Mehrwertsteuerabrechnungen",
+      "Digitalisierung Buchhaltung",
+    ],
+  },
+  {
+    n: "03",
+    t: "Personaladministration",
+    d: "Wir begleiten Ihre Personaladministration von Arbeitsverträgen und Lohnbuchhaltung bis zu Sozialversicherungen, Quellensteuerabrechnungen und Behördenmeldungen.",
+    items: [
+      "Arbeitsverträge",
+      "Lohnbuchhaltung",
+      "Quellensteuerabrechnungen",
+      "Sozialversicherungen",
+      "Lohnausweise",
+    ],
+  },
+  {
+    n: "04",
+    t: "Jahresabschluss",
+    d: "Wir erstellen Ihre Zwischen- und Jahresabschlüsse fachgerecht und begleiten Sie bei sämtlichen abschlussrelevanten Fragestellungen mit Präzision und Weitblick.",
+    items: [
+      "Zwischenabschlüsse",
+      "Jahresabschlüsse",
+      "Bilanz und Erfolgsrechnung",
+      "Anhang und Revisionsunterlagen",
+      "Abschlussberatung",
+    ],
+  },
+  {
+    n: "05",
+    t: "Steuererklärung",
+    d: "Wir unterstützen Sie bei Steuererklärungen, Veranlagungskontrollen, Einsprachen sowie steuerlichen Fragestellungen und Optimierungsmöglichkeiten.",
+    items: [
+      "Steuererklärungen",
+      "Veranlagungskontrolle",
+      "Einspracheverfahren",
+      "Steueroptimierung",
+      "Steuervertretung",
+    ],
+  },
+  {
+    n: "06",
+    t: "Unternehmensberatung",
+    d: "Wir begleiten Sie von der Firmengründung bis zu strategischen unternehmerischen Entscheidungen, strukturellen Veränderungen und weiteren unternehmerischen Fragestellungen.",
+    items: [
+      "Gründungsberatung",
+      "Gesellschaftsgründungen",
+      "Umstrukturierungen",
+      "Umwandlungen",
+      "Liquidationen",
+    ],
+  },
 ];
 
 const values = [
-  { t: "Diskretion", d: "Vertrauliche Mandate verlangen absolute Verschwiegenheit. Ihre Daten und Anliegen bleiben bei uns geschützt." },
-  { t: "Präzision", d: "Sorgfalt in jedem Detail. Wir arbeiten genau, termingerecht und nachvollziehbar." },
-  { t: "Vertrauen", d: "Langfristige Mandate basieren auf Verlässlichkeit. Wir stehen für offene Kommunikation und klare Verantwortung." },
+  {
+    n: "01",
+    t: "Diskretion",
+    d: "Vertrauliche Angelegenheiten erfordern höchste Sorgfalt und absolute Verlässlichkeit.",
+  },
+  {
+    n: "02",
+    t: "Präzision",
+    d: "Sorgfältige, strukturierte und fachlich fundierte Treuhandarbeit bis ins Detail.",
+  },
+  {
+    n: "03",
+    t: "Vertrauen",
+    d: "Eine langfristige Zusammenarbeit entsteht durch Klarheit, Verlässlichkeit und transparente Kommunikation.",
+  },
 ];
 
 const insights = [
-  { tag: "Steuern 2026", t: "Steuererklärung im Kanton Luzern — Fristen und Abzüge.", d: "Ein Überblick über die wesentlichen Abzüge und Fristen für Privatpersonen im Kanton Luzern." },
-  { tag: "KMU", t: "Jahresabschluss vorbereiten — die wichtigsten Schritte.", d: "Wie sich KMU strukturiert auf den Jahresabschluss vorbereiten und Überraschungen vermeiden." },
-  { tag: "Lohn", t: "Lohnadministration in der Schweiz — was zählt.", d: "Sozialversicherungen, Quellensteuer und Lohnausweise korrekt verarbeitet." },
+  { n: "01", t: "Checkliste Steuererklärung", d: "Welche Unterlagen für eine vollständige Steuererklärung benötigt werden." },
+  { n: "02", t: "Jahresabschluss vorbereiten", d: "Worauf Unternehmen vor dem Jahresabschluss achten sollten." },
+  { n: "03", t: "Buchhaltung digitalisieren", d: "Wie digitale Prozesse die Buchhaltung effizienter und übersichtlicher machen." },
+  { n: "04", t: "Lohnadministration", d: "Was bei Löhnen, Sozialversicherungen und Personalunterlagen wichtig ist." },
+  { n: "05", t: "Mehrwertsteuer", d: "Wichtige Punkte zur MWST-Pflicht, Abrechnung und Fristen." },
+  { n: "06", t: "Unternehmen gründen", d: "Welche administrativen und treuhänderischen Schritte bei der Gründung relevant sind." },
 ];
 
 const Index = () => {
@@ -61,7 +148,7 @@ const Index = () => {
             ))}
           </nav>
           <a href="#kontakt" className="hidden lg:inline-flex font-mono-label border border-foreground px-5 py-3 hover:bg-foreground hover:text-background transition-colors duration-500">
-            Termin anfragen
+            Kontakt aufnehmen
           </a>
           <button
             aria-label="Menu"
@@ -90,7 +177,7 @@ const Index = () => {
       <section id="top" className="relative min-h-screen flex items-end overflow-hidden">
         <img
           src={heroImg}
-          alt="Luzern Landschaft im Morgenlicht"
+          alt="MASOON Treuhand"
           className="absolute inset-0 w-full h-full object-cover"
           width={1920}
           height={1280}
@@ -98,13 +185,15 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background" />
         <div className="relative container-px w-full pb-20 md:pb-32">
           <div className="max-w-4xl animate-fade-up">
-            <p className="font-mono-label text-stone mb-8">Treuhand &middot; Emmenbrücke / Luzern</p>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-foreground">
-              Treuhand <span className="text-earth">|</span> Beratung <span className="text-earth">|</span> Klarheit
+            <p className="font-mono-label text-stone mb-8">— MASOON TREUHAND</p>
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground">
+              Treuhand <span className="text-earth">|</span> Buchhaltung <span className="text-earth">|</span> Steuern <span className="text-earth">|</span> Beratung
             </h1>
-            <p className="mt-10 max-w-xl text-lg text-muted-foreground leading-relaxed">
-              MASOON TREUHAND begleitet KMU, Selbstständige und Privatpersonen in Luzern und Umgebung —
-              mit Diskretion, Präzision und unternehmerischem Weitblick.
+            <p className="mt-10 max-w-2xl text-lg text-stone leading-relaxed">
+              Treuhandlösungen, die präzise auf Ihre unternehmerischen Anforderungen abgestimmt sind.
+            </p>
+            <p className="mt-6 max-w-2xl text-base text-muted-foreground leading-relaxed">
+              Auf der Basis von Diskretion, Präzision und Vertrauen begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch durch alle Phasen Ihres Geschäftslebens.
             </p>
             <div className="mt-12 flex flex-wrap items-center gap-6">
               <a href="#dienstleistungen" className="font-mono-label bg-foreground text-background px-7 py-4 hover:bg-stone transition-colors duration-500">
@@ -127,229 +216,212 @@ const Index = () => {
           <div className="lg:col-span-4">
             <p className="font-mono-label text-muted-foreground mb-6">— Unternehmen</p>
             <h2 className="font-display text-4xl md:text-5xl leading-tight">
-              Ein Treuhandbüro mit Sitz in Emmenbrücke.
+              Treuhand mit Struktur und Anspruch.
             </h2>
+            <p className="mt-6 text-lg text-stone leading-relaxed">
+              Wir schaffen klare Grundlagen für eine zuverlässige und langfristige Zusammenarbeit.
+            </p>
           </div>
           <div className="lg:col-span-7 lg:col-start-6 space-y-6 text-lg leading-relaxed text-stone">
             <p>
-              MASOON TREUHAND ist eine Einzelunternehmung im Raum Luzern. Wir verstehen uns als
-              langfristiger Partner unserer Mandanten und bieten umfassende Dienstleistungen in
-              Buchhaltung, Steuern, Lohnadministration und Unternehmensberatung.
+              MASOON TREUHAND begleitet Unternehmen in treuhänderischen und betriebswirtschaftlichen Fragestellungen mit fachlicher Kompetenz und hohem Qualitätsanspruch.
             </p>
             <p>
-              Unser Anspruch ist es, komplexe Sachverhalte verständlich zu machen und Entscheidungen
-              auf eine solide Grundlage zu stellen. Wir arbeiten persönlich, vertraulich und mit
-              Schweizer Sorgfalt.
+              Mit modernen digitalen Prozessen, klaren Strukturen und persönlicher Betreuung entwickeln wir effiziente Lösungen, abgestimmt auf die individuellen Anforderungen unserer Mandanten.
             </p>
-            <div className="pt-8 grid grid-cols-3 gap-6 border-t border-border">
-              {[
-                ["KMU", "Kleinst- und Kleinunternehmen"],
-                ["Selbstständige", "Einzelfirmen und Freischaffende"],
-                ["Privat", "Privatpersonen und Familien"],
-              ].map(([t, d]) => (
-                <div key={t}>
-                  <p className="font-display text-2xl mt-6">{t}</p>
-                  <p className="text-sm text-muted-foreground mt-2">{d}</p>
-                </div>
-              ))}
+            <p>
+              Ob Buchhaltung, Lohnadministration, Steuern oder Unternehmensberatung, unser Fokus liegt auf einer professionellen Mandatsbetreuung mit klaren Abläufen und hoher Verlässlichkeit.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* WERTE */}
+      <section className="bg-secondary">
+        <div className="container-px section-y">
+          <div className="grid lg:grid-cols-12 gap-12 mb-16">
+            <div className="lg:col-span-5">
+              <p className="font-mono-label text-muted-foreground mb-6">— Werte</p>
+              <h2 className="font-display text-4xl md:text-5xl leading-tight">
+                Diese Werte prägen unsere Treuhandarbeit.
+              </h2>
             </div>
+            <div className="lg:col-span-6 lg:col-start-7 flex items-end">
+              <p className="text-lg text-stone leading-relaxed">
+                Wir arbeiten verbindlich, sorgfältig und mit klarem Anspruch an Qualität, damit jedes Mandat sauber und verlässlich geführt wird.
+              </p>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-3 border-t border-l border-border">
+            {values.map((v) => (
+              <div key={v.t} className="border-r border-b border-border p-10 bg-background">
+                <span className="font-mono-label text-muted-foreground">{v.n}</span>
+                <h3 className="font-display text-3xl mt-8 mb-4">{v.t}</h3>
+                <p className="text-stone leading-relaxed">{v.d}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* DIENSTLEISTUNGEN */}
-      <section id="dienstleistungen" className="bg-secondary">
+      <section id="dienstleistungen" className="section-y container-px">
+        <div className="grid lg:grid-cols-12 gap-12 mb-16">
+          <div className="lg:col-span-5">
+            <p className="font-mono-label text-muted-foreground mb-6">— Dienstleistungen</p>
+            <h2 className="font-display text-4xl md:text-5xl leading-tight">
+              Treuhand mit klarer Struktur.
+            </h2>
+          </div>
+          <div className="lg:col-span-6 lg:col-start-7 flex items-end">
+            <p className="text-lg text-stone leading-relaxed">
+              Von der laufenden Administration bis zum Jahresabschluss, die Leistungen sind auf eine saubere, effiziente und nachvollziehbare Mandatsführung ausgerichtet.
+            </p>
+          </div>
+        </div>
+
+        <Accordion type="single" collapsible className="border-t border-border">
+          {services.map((s) => (
+            <AccordionItem key={s.n} value={s.n} className="border-b border-border">
+              <AccordionTrigger className="py-8 hover:no-underline group">
+                <div className="flex items-baseline gap-8 text-left w-full">
+                  <span className="font-mono-label text-muted-foreground w-10 shrink-0">{s.n}</span>
+                  <span className="font-display text-2xl md:text-3xl">{s.t}</span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="pb-10">
+                <div className="grid md:grid-cols-12 gap-8 pl-0 md:pl-[72px]">
+                  <p className="md:col-span-7 text-stone leading-relaxed text-base">{s.d}</p>
+                  <ul className="md:col-span-5 space-y-2">
+                    {s.items.map((it) => (
+                      <li key={it} className="flex gap-3 text-stone">
+                        <span className="text-earth">—</span>
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </section>
+
+      {/* FACHWISSEN */}
+      <section id="fachwissen" className="bg-secondary">
         <div className="container-px section-y">
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
+          <div className="grid lg:grid-cols-12 gap-12 mb-16">
             <div className="lg:col-span-5">
-              <p className="font-mono-label text-muted-foreground mb-6">— Dienstleistungen</p>
+              <p className="font-mono-label text-muted-foreground mb-6">— Fachwissen</p>
               <h2 className="font-display text-4xl md:text-5xl leading-tight">
-                Sechs Kompetenzen.<br />Ein verlässlicher Partner.
+                Einblicke aus unserer täglichen Arbeit.
               </h2>
             </div>
             <div className="lg:col-span-6 lg:col-start-7 flex items-end">
               <p className="text-lg text-stone leading-relaxed">
-                Vom täglichen Buchungsgeschäft bis zur strategischen Beratung — wir
-                betreuen Mandate ganzheitlich und in enger Abstimmung.
+                Wir zeigen ausgewählte Fachthemen verständlich und praxisnah, mit Fokus auf klare Entscheidungen und sichere Abläufe im Geschäftsalltag.
               </p>
             </div>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-3 border-t border-l border-border">
-            {services.map((s) => (
-              <article
-                key={s.n}
-                className="border-r border-b border-border p-10 group bg-background hover:bg-earth-light transition-colors duration-700"
-              >
+            {insights.map((p) => (
+              <article key={p.n} className="border-r border-b border-border p-10 bg-background group">
                 <div className="flex items-start justify-between mb-10">
-                  <span className="font-mono-label text-muted-foreground">{s.n}</span>
+                  <span className="font-mono-label text-muted-foreground">{p.n}</span>
                   <span className="h-px w-10 bg-foreground/40 mt-3 group-hover:w-16 transition-all duration-500" />
                 </div>
-                <h3 className="font-display text-2xl mb-4">{s.t}</h3>
-                <p className="text-sm text-stone leading-relaxed">{s.d}</p>
+                <h3 className="font-display text-2xl mb-4 leading-snug">{p.t}</h3>
+                <p className="text-sm text-stone leading-relaxed mb-8">{p.d}</p>
+                <span className="font-mono-label link-underline">— Mehr erfahren</span>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ÜBER UNS */}
-      <section id="ueber-uns" className="section-y container-px">
-        <div className="grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-5">
-            <p className="font-mono-label text-muted-foreground mb-6">— Über uns</p>
-            <h2 className="font-display text-4xl md:text-5xl leading-tight mb-10">
-              Persönlich. Diskret.<br />Mit Schweizer Handschrift.
-            </h2>
-            <blockquote className="border-l-2 border-earth pl-6 font-display text-2xl italic text-stone">
-              «Schlüssel zum Erfolg.»
-            </blockquote>
-          </div>
-          <div className="lg:col-span-6 lg:col-start-7 space-y-6 text-lg leading-relaxed text-stone">
-            <p>
-              MASOON TREUHAND wurde mit dem Anspruch gegründet, Treuhandarbeit auf ein neues
-              Mass an Klarheit zu heben. Unsere Mandanten profitieren von kurzen Wegen,
-              persönlichem Kontakt und einer Beratung, die unternehmerisch denkt.
-            </p>
-            <p>
-              Wir sind im Raum Luzern verwurzelt und kennen die regionalen Eigenheiten —
-              vom Steueramt über Sozialversicherungen bis zu lokalen Geschäftspraktiken.
-            </p>
-            <div className="pt-6 grid grid-cols-2 gap-8 border-t border-border">
-              <div className="pt-6">
-                <p className="font-display text-4xl">15+</p>
-                <p className="font-mono-label text-muted-foreground mt-2">Jahre Erfahrung</p>
-              </div>
-              <div className="pt-6">
-                <p className="font-display text-4xl">100%</p>
-                <p className="font-mono-label text-muted-foreground mt-2">Persönliche Betreuung</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WERTE */}
-      <section className="bg-foreground text-background">
-        <div className="container-px section-y">
-          <p className="font-mono-label text-background/60 mb-6">— Werte</p>
-          <h2 className="font-display text-4xl md:text-5xl mb-16 max-w-2xl">
-            Drei Prinzipien, die unsere Arbeit prägen.
-          </h2>
-          <div className="grid md:grid-cols-3 gap-px bg-background/10">
-            {values.map((v, i) => (
-              <div key={v.t} className="bg-foreground p-10">
-                <span className="font-mono-label text-background/50">0{i + 1}</span>
-                <h3 className="font-display text-3xl mt-8 mb-4 text-background">{v.t}</h3>
-                <p className="text-background/70 leading-relaxed">{v.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FACHWISSEN */}
-      <section id="fachwissen" className="section-y container-px">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
-          <div>
-            <p className="font-mono-label text-muted-foreground mb-6">— Fachwissen</p>
-            <h2 className="font-display text-4xl md:text-5xl leading-tight max-w-2xl">
-              Einblicke aus unserer täglichen Arbeit.
-            </h2>
-          </div>
-          <a href="#kontakt" className="font-mono-label link-underline">Mehr erfahren</a>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {insights.map((p) => (
-            <article key={p.t} className="group cursor-pointer">
-              <div className="aspect-[4/3] bg-muted overflow-hidden mb-6">
-                <div className="w-full h-full bg-gradient-to-br from-earth-light via-muted to-secondary group-hover:scale-105 transition-transform duration-700" />
-              </div>
-              <p className="font-mono-label text-earth mb-3">{p.tag}</p>
-              <h3 className="font-display text-2xl mb-3 leading-snug">{p.t}</h3>
-              <p className="text-sm text-stone leading-relaxed">{p.d}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
       {/* KONTAKT */}
-      <section id="kontakt" className="bg-secondary">
-        <div className="container-px section-y">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-            <div className="lg:col-span-5">
-              <p className="font-mono-label text-muted-foreground mb-6">— Kontakt</p>
-              <h2 className="font-display text-4xl md:text-5xl leading-tight mb-10">
-                Sprechen wir<br />über Ihr Anliegen.
-              </h2>
-              <p className="text-lg text-stone leading-relaxed mb-12 max-w-md">
-                Ein unverbindliches Erstgespräch klärt, wie wir Sie am besten unterstützen können.
-                Wir antworten in der Regel innert eines Werktages.
-              </p>
+      <section id="kontakt" className="section-y container-px">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
+          <div className="lg:col-span-5">
+            <p className="font-mono-label text-muted-foreground mb-6">— Kontakt</p>
+            <h2 className="font-display text-4xl md:text-5xl leading-tight mb-8 whitespace-pre-line">
+              {"Sprechen wir\nüber Ihr Anliegen."}
+            </h2>
+            <p className="text-lg text-stone leading-relaxed mb-12 max-w-md">
+              Wir nehmen uns Zeit für Ihre Anfrage und klären gemeinsam, welche Unterstützung für Ihr Unternehmen sinnvoll ist.
+            </p>
 
-              <div className="space-y-8">
-                <div>
-                  <p className="font-mono-label text-muted-foreground mb-2">Adresse</p>
-                  <p className="text-foreground">MASOON TREUHAND<br />Emmenbrücke, Luzern</p>
+            <div className="space-y-8">
+              <div>
+                <p className="font-mono-label text-muted-foreground mb-3">Kontakt</p>
+                <p className="text-foreground leading-relaxed">
+                  MASOON TREUHAND<br />
+                  Täschmattstrasse 19<br />
+                  6015 Luzern
+                </p>
+                <div className="mt-4 space-y-1">
+                  <p><a href="mailto:info@masoontreuhand.ch" className="link-underline">info@masoontreuhand.ch</a></p>
+                  <p><a href="tel:+41799663636" className="link-underline">+41 79 966 36 36</a></p>
+                  <p className="text-muted-foreground">www.masoontreuhand.ch</p>
                 </div>
-                <div>
-                  <p className="font-mono-label text-muted-foreground mb-2">E-Mail</p>
-                  <a href="mailto:info@masoontreuhand.ch" className="link-underline">info@masoontreuhand.ch</a>
-                </div>
-                <div>
-                  <p className="font-mono-label text-muted-foreground mb-2">Telefon</p>
-                  <p>+41 00 000 00 00</p>
-                </div>
-                <div>
-                  <p className="font-mono-label text-muted-foreground mb-2">Web</p>
-                  <p>www.masoontreuhand.ch</p>
+              </div>
+              <div>
+                <p className="font-mono-label text-muted-foreground mb-3">Öffnungszeiten</p>
+                <div className="grid grid-cols-[max-content_1fr] gap-x-8 gap-y-1 text-foreground">
+                  <span>Montag–Freitag</span><span>08.00–12.00 | 13.00–17.00 Uhr</span>
+                  <span>Samstag–Sonntag</span><span>geschlossen</span>
                 </div>
               </div>
             </div>
+          </div>
 
-            <form
-              className="lg:col-span-6 lg:col-start-7 bg-background p-10 md:p-14 shadow-elegant"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <div className="space-y-8">
-                {[
-                  { id: "name", label: "Name", type: "text" },
-                  { id: "email", label: "E-Mail", type: "email" },
-                  { id: "tel", label: "Telefon", type: "tel" },
-                ].map((f) => (
-                  <div key={f.id}>
-                    <label htmlFor={f.id} className="font-mono-label text-muted-foreground block mb-3">
-                      {f.label}
-                    </label>
-                    <input
-                      id={f.id}
-                      type={f.type}
-                      className="w-full border-0 border-b border-border bg-transparent py-3 focus:outline-none focus:border-foreground transition-colors"
-                    />
-                  </div>
-                ))}
-                <div>
-                  <label htmlFor="msg" className="font-mono-label text-muted-foreground block mb-3">
-                    Nachricht
+          <form
+            className="lg:col-span-6 lg:col-start-7 bg-secondary p-10 md:p-14"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <p className="font-display text-2xl mb-3">Kontaktformular</p>
+            <p className="text-stone mb-10 leading-relaxed">
+              Bitte füllen Sie das folgende Kontaktformular aus. Wir melden uns zeitnah bei Ihnen.
+            </p>
+            <div className="space-y-8">
+              {[
+                { id: "nachname", label: "Nachname", type: "text" },
+                { id: "vorname", label: "Vorname", type: "text" },
+                { id: "email", label: "E-Mail", type: "email" },
+                { id: "tel", label: "Telefon", type: "tel" },
+              ].map((f) => (
+                <div key={f.id}>
+                  <label htmlFor={f.id} className="font-mono-label text-muted-foreground block mb-3">
+                    {f.label}
                   </label>
-                  <textarea
-                    id="msg"
-                    rows={4}
-                    className="w-full border-0 border-b border-border bg-transparent py-3 focus:outline-none focus:border-foreground transition-colors resize-none"
+                  <input
+                    id={f.id}
+                    type={f.type}
+                    className="w-full border-0 border-b border-border bg-transparent py-3 focus:outline-none focus:border-foreground transition-colors"
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="font-mono-label bg-foreground text-background px-8 py-4 hover:bg-stone transition-colors duration-500 w-full md:w-auto"
-                >
-                  Nachricht senden
-                </button>
-                <p className="text-xs text-muted-foreground">
-                  Mit dem Absenden bestätigen Sie, dass wir Sie zur Bearbeitung Ihrer Anfrage kontaktieren dürfen.
-                </p>
+              ))}
+              <div>
+                <label htmlFor="msg" className="font-mono-label text-muted-foreground block mb-3">
+                  Nachricht
+                </label>
+                <textarea
+                  id="msg"
+                  rows={4}
+                  className="w-full border-0 border-b border-border bg-transparent py-3 focus:outline-none focus:border-foreground transition-colors resize-none"
+                />
               </div>
-            </form>
-          </div>
+              <button
+                type="submit"
+                className="font-mono-label bg-foreground text-background px-8 py-4 hover:bg-stone transition-colors duration-500 w-full md:w-auto"
+              >
+                Nachricht senden
+              </button>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Mit dem Absenden bestätigen Sie, dass wir Sie zur Bearbeitung Ihrer Anfrage kontaktieren dürfen.
+              </p>
+            </div>
+          </form>
         </div>
       </section>
 
@@ -360,10 +432,6 @@ const Index = () => {
             <div className="md:col-span-5">
               <p className="font-display text-3xl">MASOON TREUHAND</p>
               <p className="font-mono-label text-background/60 mt-3">Schlüssel zum Erfolg</p>
-              <p className="mt-8 text-background/70 max-w-sm leading-relaxed">
-                Treuhand, Buchhaltung und Unternehmensberatung in Luzern und Umgebung.
-                Treuhandbüro mit Sitz in Emmenbrücke.
-              </p>
             </div>
             <div className="md:col-span-3 md:col-start-7">
               <p className="font-mono-label text-background/50 mb-5">Navigation</p>
@@ -379,17 +447,21 @@ const Index = () => {
             </div>
             <div className="md:col-span-3">
               <p className="font-mono-label text-background/50 mb-5">Kontakt</p>
-              <ul className="space-y-3 text-background/80">
-                <li>Emmenbrücke, Luzern</li>
+              <ul className="space-y-2 text-background/80">
+                <li>MASOON TREUHAND</li>
+                <li>Täschmattstrasse 19</li>
+                <li>6015 Luzern</li>
                 <li>info@masoontreuhand.ch</li>
-                <li>+41 00 000 00 00</li>
-                <li>www.masoontreuhand.ch</li>
+                <li>+41 79 966 36 36</li>
               </ul>
             </div>
           </div>
-          <div className="pt-10 border-t border-background/15 flex flex-col md:flex-row justify-between gap-4 text-xs text-background/50">
-            <p>© {new Date().getFullYear()} MASOON TREUHAND. Alle Rechte vorbehalten.</p>
-            <p>Treuhand Luzern · Buchhaltung Luzern · Steuererklärung Luzern · KMU Beratung</p>
+          <div className="pt-10 border-t border-background/15 flex flex-col md:flex-row justify-between gap-4 text-xs text-background/60">
+            <p>2026 MASOON TREUHAND | Alle Rechte vorbehalten.</p>
+            <p className="flex gap-6">
+              <Link to="/impressum" className="hover:text-background">Impressum</Link>
+              <Link to="/datenschutz" className="hover:text-background">Datenschutz</Link>
+            </p>
           </div>
         </div>
       </footer>

@@ -143,17 +143,13 @@ const Index = () => {
 
       {/* UNTERNEHMEN */}
       <section id="unternehmen" className="section-y container-px">
-        <div className="max-w-3xl mb-14">
-          <p className="font-mono-label text-muted-foreground mb-5">— UNTERNEHMEN</p>
-        </div>
-
-
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7 space-y-6">
-            <p className="font-mono-label text-muted-foreground">— Unternehmen</p>
-            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight">
+            <p className="font-mono-label text-muted-foreground mb-4">— UNTERNEHMEN</p>
+            <h2 className="font-display text-2xl md:text-3xl lg:text-[2.25rem] leading-tight">
               Treuhand mit Struktur und Anspruch.
             </h2>
+
             <p className="text-base md:text-lg text-stone leading-relaxed">
               Wir schaffen klare Grundlagen für eine zuverlässige und langfristige Zusammenarbeit.
             </p>

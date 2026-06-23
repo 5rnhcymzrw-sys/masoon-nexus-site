@@ -28,7 +28,7 @@ export default {
         stone: "hsl(var(--stone))",
       },
       fontFamily: {
-        display: ["Cormorant Garamond", "Times New Roman", "serif"],
+        display: ["Inter", "system-ui", "sans-serif"],
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {

@@ -116,48 +116,40 @@ const Index = () => {
       </header>
 
       {/* HERO */}
-      <section id="top" className="bg-background pt-16 md:pt-[76px]">
-        <div className="grid lg:grid-cols-2 min-h-[calc(100vh-76px)]">
-          {/* Text left */}
-          <div className="flex items-center px-6 md:px-12 lg:px-20 py-20 lg:py-0 bg-[hsl(var(--secondary)/0.4)]">
-            <div className="max-w-md space-y-10">
-              <div className="space-y-5">
-                <h1 className="font-display text-[1.5rem] md:text-[1.7rem] font-medium tracking-[0.08em] uppercase text-foreground">
-                  MASOON TREUHAND
-                </h1>
-                <p className="font-nav text-[0.7rem] tracking-[0.28em] text-muted-foreground">
-                  TREUHAND <span className="text-border mx-1.5">|</span> BERATUNG <span className="text-border mx-1.5">|</span> KLARHEIT
-                </p>
-              </div>
-              <p className="text-base text-stone leading-[1.85] font-light">
+      <section id="top" className="relative pt-16 md:pt-[76px]">
+        <div className="relative w-full h-[88vh] min-h-[560px] max-h-[820px] overflow-hidden">
+          <img
+            src={heroImg.url}
+            alt="MASOON Treuhand"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* dezentes Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/45 via-foreground/15 to-transparent" />
+          <div className="absolute inset-0 container-px flex items-end pb-16 md:pb-24">
+            <div className="max-w-2xl text-background">
+              <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-medium tracking-[0.04em] leading-tight">
+                MASOON TREUHAND
+              </h1>
+              <p className="font-nav text-background/85 tracking-[0.22em] text-[0.78rem] md:text-[0.85rem] mt-5">
+                TREUHAND <span className="text-background/50 mx-2">|</span> BERATUNG <span className="text-background/50 mx-2">|</span> KLARHEIT
+              </p>
+              <p className="mt-8 text-base md:text-lg text-background/90 leading-[1.8] max-w-xl font-light">
                 MASOON TREUHAND begleitet Unternehmen mit fachlicher Klarheit, Diskretion und Präzision durch alle Phasen ihres Geschäftslebens.
               </p>
-              <div className="w-12 h-px bg-accent/70" />
             </div>
-          </div>
-          {/* Image right */}
-          <div className="relative w-full h-[55vh] lg:h-auto min-h-[420px] overflow-hidden">
-            <img
-              src={heroImg.url}
-              alt="MASOON Treuhand"
-              className="w-full h-full object-cover"
-              width={1200}
-              height={1600}
-            />
           </div>
         </div>
       </section>
-
-
 
       {/* UNTERNEHMEN */}
       <section id="unternehmen" className="section-y container-px">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7 space-y-6">
-            <p className="font-mono-label text-muted-foreground">— Unternehmen</p>
-            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight">
+            <p className="font-mono-label text-muted-foreground mb-4">— UNTERNEHMEN</p>
+            <h2 className="font-display text-2xl md:text-3xl lg:text-[2.25rem] leading-tight">
               Treuhand mit Struktur und Anspruch.
             </h2>
+
             <p className="text-base md:text-lg text-stone leading-relaxed">
               Wir schaffen klare Grundlagen für eine zuverlässige und langfristige Zusammenarbeit.
             </p>
@@ -180,109 +172,87 @@ const Index = () => {
       </section>
 
       {/* WERTE */}
-      <section className="container-px section-y border-t border-border">
-        <div className="max-w-3xl mb-14">
-          <p className="font-mono-label text-muted-foreground mb-5">— Werte</p>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight mb-6">
-            Diese Werte prägen unsere Treuhandarbeit.
-          </h2>
-          <p className="text-base md:text-lg text-stone leading-relaxed">
-            Wir arbeiten verbindlich, sorgfältig und mit klarem Anspruch an Qualität, damit jedes Mandat sauber und verlässlich geführt wird.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-10 md:gap-14 border-t border-border pt-12">
-          {values.map((v) => (
-            <div key={v.t}>
-              <span className="font-mono-label text-muted-foreground">{v.n}</span>
-              <h3 className="font-display text-xl md:text-2xl mt-5 mb-4">{v.t}</h3>
-              <p className="text-stone leading-relaxed text-sm md:text-base">{v.d}</p>
-            </div>
-          ))}
+      <section className="bg-[hsl(var(--surface))]">
+        <div className="container-px section-y">
+          <div className="max-w-3xl mb-14">
+            <p className="font-mono-label text-muted-foreground mb-5">— WERTE</p>
+            <h2 className="font-display text-2xl md:text-3xl lg:text-[2.25rem] leading-tight mb-6">
+              Diese Werte prägen unsere Treuhandarbeit.
+            </h2>
+            <p className="text-base md:text-lg text-stone leading-relaxed">
+              Wir arbeiten verbindlich, sorgfältig und mit klarem Anspruch an Qualität, damit jedes Mandat sauber und verlässlich geführt wird.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-10 md:gap-14 border-t border-border pt-12">
+            {values.map((v) => (
+              <div key={v.t}>
+                <span className="font-mono-label text-muted-foreground">{v.n}</span>
+                <h3 className="font-display text-xl md:text-2xl mt-5 mb-4">{v.t}</h3>
+                <p className="text-stone leading-relaxed text-sm md:text-base">{v.d}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
+
       {/* DIENSTLEISTUNGEN */}
-      <section id="dienstleistungen" className="section-y container-px border-t border-border">
+      <section id="dienstleistungen" className="section-y container-px">
         <div className="max-w-3xl mb-14">
-          <p className="font-mono-label text-muted-foreground mb-5">— Dienstleistungen</p>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight mb-6">
+          <p className="font-mono-label text-muted-foreground mb-5">— DIENSTLEISTUNGEN</p>
+          <h2 className="font-display text-2xl md:text-3xl lg:text-[2.25rem] leading-tight mb-6">
             Treuhand mit klarer Struktur.
           </h2>
           <p className="text-base md:text-lg text-stone leading-relaxed">
             Von der laufenden Administration bis zum Jahresabschluss, die Leistungen sind auf eine saubere, effiziente und nachvollziehbare Mandatsführung ausgerichtet.
           </p>
         </div>
-        <div className="border-t border-border">
-          {services.map((s) => {
-            const open = openService === s.n;
-            return (
-              <div key={s.n} className="border-b border-border py-10 md:py-12">
-                <div className="grid md:grid-cols-12 gap-6 md:gap-10">
-                  <div className="md:col-span-2">
-                    <span className="font-mono-label text-muted-foreground">{s.n}</span>
-                  </div>
-                  <div className="md:col-span-4">
-                    <h3 className="font-display text-xl md:text-2xl leading-snug">{s.t}</h3>
-                  </div>
-                  <div className="md:col-span-6">
-                    <p className="text-base text-stone leading-[1.8]">{s.d}</p>
-                    {open && (
-                      <ul className="mt-5 space-y-2 text-sm text-stone">
-                        {s.items.map((it) => (
-                          <li key={it} className="flex gap-3">
-                            <span className="text-foreground/40">—</span>
-                            <span>{it}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    <button
-                      type="button"
-                      onClick={() => setOpenService(open ? null : s.n)}
-                      className="font-mono-label link-underline mt-6 inline-block text-foreground"
-                    >
-                      {open ? "— Weniger anzeigen" : "— Mehr anzeigen"}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-      </section>
-
-      {/* FACHWISSEN */}
-      <section id="fachwissen" className="section-y container-px border-t border-border">
-        <div className="max-w-3xl mb-14">
-          <p className="font-mono-label text-muted-foreground mb-5">— Fachwissen</p>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight mb-6">
-            Einblicke aus unserer täglichen Arbeit.
-          </h2>
-          <p className="text-base md:text-lg text-stone leading-relaxed">
-            Wir zeigen ausgewählte Fachthemen verständlich und praxisnah, mit Fokus auf klare Entscheidungen und sichere Abläufe im Geschäftsalltag.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
-          {insights.map((p) => (
-            <article key={p.n} className="flex flex-col group">
-              <span className="font-mono-label text-muted-foreground mb-4">{p.n}</span>
-              <div className="aspect-[4/3] w-full overflow-hidden mb-5 bg-secondary">
-                <img src={p.img} alt={p.t} className="w-full h-full object-cover" />
-              </div>
-              <h3 className="font-display text-lg md:text-xl mb-3 leading-snug">{p.t}</h3>
-              <p className="text-sm text-stone leading-relaxed mb-5">{p.d}</p>
-              <a href="#" className="font-mono-label link-underline self-start">— Mehr erfahren</a>
-            </article>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 border-t border-l border-border">
+          {services.map((s) => (
+            <div key={s.n} className="border-r border-b border-border p-8 lg:p-10 flex flex-col min-h-[280px]">
+              <span className="font-mono-label text-muted-foreground">{s.n}</span>
+              <h3 className="font-display text-xl md:text-[1.4rem] mt-5 mb-4 leading-snug">{s.t}</h3>
+              <p className="text-sm md:text-[0.95rem] text-stone leading-[1.75]">{s.d}</p>
+            </div>
           ))}
         </div>
       </section>
+
+
+      {/* FACHWISSEN */}
+      <section id="fachwissen" className="bg-[hsl(var(--surface))]">
+        <div className="container-px section-y">
+          <div className="max-w-3xl mb-14">
+            <p className="font-mono-label text-muted-foreground mb-5">— FACHWISSEN</p>
+            <h2 className="font-display text-2xl md:text-3xl lg:text-[2.25rem] leading-tight mb-6">
+              Einblicke aus unserer täglichen Arbeit.
+            </h2>
+            <p className="text-base md:text-lg text-stone leading-relaxed">
+              Wir zeigen ausgewählte Fachthemen verständlich und praxisnah, mit Fokus auf klare Entscheidungen und sichere Abläufe im Geschäftsalltag.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14 border-t border-border pt-12">
+            {insights.map((p) => (
+              <article key={p.n} className="flex flex-col">
+                <div className="aspect-[16/10] w-full overflow-hidden mb-6 bg-secondary">
+                  <img src={p.img} alt={p.t} className="w-full h-full object-cover" />
+                </div>
+                <span className="font-mono-label text-muted-foreground mb-3">{p.n}</span>
+                <h3 className="font-display text-lg md:text-xl mb-3 leading-snug">{p.t}</h3>
+                <p className="text-sm text-stone leading-[1.75] mb-5">{p.d}</p>
+                <a href="#" className="font-mono-label link-underline self-start">— Mehr erfahren</a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* KONTAKT */}
       <section id="kontakt" className="section-y container-px border-t border-border">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <p className="font-mono-label text-muted-foreground mb-5">— Kontakt</p>
+            <p className="font-mono-label text-muted-foreground mb-5">— KONTAKT</p>
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight mb-6">
               Sprechen wir über Ihr Anliegen.
             </h2>
@@ -338,12 +308,11 @@ const Index = () => {
       {/* FOOTER */}
       <footer className="bg-foreground text-background">
         <div className="container-px py-16 md:py-20">
-          <div className="grid md:grid-cols-12 gap-10 mb-14">
-            <div className="md:col-span-4">
-              <p className="font-nav text-base tracking-[0.2em]">MASOON TREUHAND</p>
-              <p className="font-mono-label text-background/60 mt-3">Schlüssel zum Erfolg</p>
+          <div className="grid md:grid-cols-3 gap-10 mb-14">
+            <div>
+              <p className="font-nav text-sm tracking-[0.22em]">MASOON TREUHAND</p>
             </div>
-            <div className="md:col-span-4">
+            <div>
               <p className="font-mono-label text-background/60 mb-4">Kontakt</p>
               <ul className="space-y-1 text-sm text-background/85">
                 <li>MASOON TREUHAND</li>
@@ -354,14 +323,16 @@ const Index = () => {
                 <li><a href="tel:+41799663636" className="hover:text-background">+41 79 966 36 36</a></li>
               </ul>
             </div>
-            <div className="md:col-span-4">
+            <div>
               <p className="font-mono-label text-background/60 mb-4">Öffnungszeiten</p>
               <ul className="space-y-1 text-sm text-background/85">
-                <li>Montag–Freitag 08.00–12.00 <span className="text-background/50">|</span> 13.00–17.00 Uhr</li>
-                <li>Samstag–Sonntag geschlossen</li>
+                <li>Montag–Freitag</li>
+                <li>08.00–12.00 <span className="text-background/50">|</span> 13.00–17.00 Uhr</li>
+                <li className="pt-2">Samstag–Sonntag geschlossen</li>
               </ul>
             </div>
           </div>
+
           <div className="pt-8 border-t border-background/15 flex flex-col md:flex-row justify-between gap-3 text-xs text-background/60">
             <p>2026 MASOON TREUHAND <span className="mx-1">|</span> Alle Rechte vorbehalten.</p>
             <p className="flex gap-4">

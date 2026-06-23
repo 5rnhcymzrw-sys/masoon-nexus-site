@@ -4,38 +4,41 @@
 
 @layer base {
   :root {
-    /* Warm white / beige / greige / dark brown / subtle gold */
-    --background: 36 28% 95%;        /* warm off-white */
-    --foreground: 25 18% 12%;        /* dark brown / near-black */
+    /* MASOON Palette: Greige / Taupe / Schiefer / Schwarz */
+    --background: 40 12% 88%;          /* very light greige / off-white */
+    --foreground: 0 0% 17%;            /* #2B2B2B */
 
-    --card: 36 28% 95%;
-    --card-foreground: 25 18% 12%;
+    --surface: 40 12% 81%;             /* #D5D1C9 ruhige Sektionen */
+    --surface-2: 30 6% 74%;            /* #C3BEBA Flächen */
 
-    --popover: 36 28% 95%;
-    --popover-foreground: 25 18% 12%;
+    --card: 40 12% 88%;
+    --card-foreground: 0 0% 17%;
 
-    --primary: 25 18% 12%;
-    --primary-foreground: 36 28% 95%;
+    --popover: 40 12% 88%;
+    --popover-foreground: 0 0% 17%;
 
-    --secondary: 34 20% 88%;         /* beige */
-    --secondary-foreground: 25 18% 12%;
+    --primary: 0 0% 17%;
+    --primary-foreground: 40 12% 92%;
 
-    --muted: 34 14% 84%;             /* greige */
-    --muted-foreground: 30 8% 38%;
+    --secondary: 30 6% 74%;            /* #C3BEBA */
+    --secondary-foreground: 0 0% 17%;
 
-    --accent: 38 30% 50%;            /* subtle gold */
-    --accent-foreground: 36 28% 95%;
+    --muted: 40 10% 84%;
+    --muted-foreground: 218 6% 35%;    /* #55585F */
 
-    --earth: 32 12% 55%;
-    --earth-light: 34 14% 84%;
-    --stone: 30 8% 38%;
+    --accent: 38 5% 50%;               /* #868279 Akzente / Linien */
+    --accent-foreground: 40 12% 92%;
+
+    --earth: 38 5% 50%;
+    --earth-light: 30 6% 74%;
+    --stone: 218 6% 35%;               /* #55585F */
 
     --destructive: 0 50% 38%;
-    --destructive-foreground: 36 28% 95%;
+    --destructive-foreground: 40 12% 92%;
 
-    --border: 32 10% 78%;            /* hairline */
-    --input: 32 10% 78%;
-    --ring: 25 18% 12%;
+    --border: 38 5% 62%;               /* hairline taupe */
+    --input: 38 5% 62%;
+    --ring: 0 0% 17%;
 
     --radius: 0;
 
@@ -45,6 +48,7 @@
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
+
 
 
 @layer base {

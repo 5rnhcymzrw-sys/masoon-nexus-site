@@ -115,28 +115,32 @@ const Index = () => {
         )}
       </header>
 
-      {/* HERO */}
+      {/* HERO – Split Screen */}
       <section id="top" className="relative pt-16 md:pt-[76px]">
-        <div className="relative w-full h-[88vh] min-h-[560px] max-h-[820px] overflow-hidden">
-          <img
-            src={heroImg.url}
-            alt="MASOON Treuhand"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          {/* dezentes Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/45 via-foreground/15 to-transparent" />
-          <div className="absolute inset-0 container-px flex items-end pb-16 md:pb-24">
-            <div className="max-w-2xl text-background">
-              <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-medium tracking-[0.04em] leading-tight">
-                MASOON TREUHAND
+        <div className="grid lg:grid-cols-2 min-h-[calc(100vh-76px)]">
+          {/* Text links */}
+          <div className="flex items-center bg-background">
+            <div className="px-6 md:px-12 lg:px-20 py-20 lg:py-0 max-w-xl">
+              <p className="font-mono-label text-muted-foreground mb-8">— KANZLEI FÜR TREUHAND</p>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-foreground">
+                MASOON<br />TREUHAND
               </h1>
-              <p className="font-nav text-background/85 tracking-[0.22em] text-[0.78rem] md:text-[0.85rem] mt-5">
-                TREUHAND <span className="text-background/50 mx-2">|</span> BERATUNG <span className="text-background/50 mx-2">|</span> KLARHEIT
+              <div className="hairline my-10 max-w-[120px]" />
+              <p className="font-nav text-muted-foreground tracking-[0.24em] text-[0.78rem]">
+                TREUHAND <span className="text-border mx-2">|</span> BERATUNG <span className="text-border mx-2">|</span> KLARHEIT
               </p>
-              <p className="mt-8 text-base md:text-lg text-background/90 leading-[1.8] max-w-xl font-light">
+              <p className="mt-10 text-base md:text-lg text-stone leading-[1.85] font-light">
                 MASOON TREUHAND begleitet Unternehmen mit fachlicher Klarheit, Diskretion und Präzision durch alle Phasen ihres Geschäftslebens.
               </p>
             </div>
+          </div>
+          {/* Bild rechts */}
+          <div className="relative min-h-[420px] lg:min-h-0 overflow-hidden">
+            <img
+              src={heroImg.url}
+              alt="MASOON Treuhand"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>

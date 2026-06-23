@@ -8,49 +8,49 @@
        MASOON DESIGN SYSTEM — Zentrale Farbpalette
        Nur diese 5 Farben sind erlaubt. Hier zentral anpassen:
        --------------------------------------------------------------------- */
-    --color-bg-main:    #D5D1C9;   /* Haupt-Hintergrund */
-    --color-bg-section: #C3BEBA;   /* Abwechselnde Sektionen / Flächen */
-    --color-line:       #868279;   /* Linien, Akzente, dezente Trenner */
-    --color-text-soft:  #55585F;   /* Sekundärer Text */
-    --color-text:       #2B2B2B;   /* Primärer Text / dunkle Flächen */
+    --color-bg-main:    #F4F1EC;   /* Elfenbein – Haupt-Hintergrund */
+    --color-bg-section: #E2DDD3;   /* Sand – Abwechselnde Sektionen */
+    --color-line:       #8A7E6A;   /* Bronze/Taupe – Linien & Akzente */
+    --color-text-soft:  #3A3A3A;   /* Sekundärer Text */
+    --color-text:       #111111;   /* Anthrazit – Primärer Text */
 
     /* =====================================================================
        Mapping auf shadcn / Tailwind Tokens (nicht ändern — nutzt Palette)
        --------------------------------------------------------------------- */
-    --background: 40 12% 88%;          /* #D5D1C9 */
-    --foreground: 0 0% 17%;            /* #2B2B2B */
+    --background: 39 23% 94%;          /* #F4F1EC */
+    --foreground: 0 0% 7%;             /* #111111 */
 
-    --surface: 40 12% 88%;             /* #D5D1C9 */
-    --surface-2: 30 5% 75%;            /* #C3BEBA */
+    --surface: 39 23% 94%;             /* #F4F1EC */
+    --surface-2: 36 19% 86%;           /* #E2DDD3 */
 
-    --card: 40 12% 88%;
-    --card-foreground: 0 0% 17%;
+    --card: 39 23% 94%;
+    --card-foreground: 0 0% 7%;
 
-    --popover: 40 12% 88%;
-    --popover-foreground: 0 0% 17%;
+    --popover: 39 23% 94%;
+    --popover-foreground: 0 0% 7%;
 
-    --primary: 0 0% 17%;               /* #2B2B2B */
-    --primary-foreground: 40 12% 88%;
+    --primary: 0 0% 7%;
+    --primary-foreground: 39 23% 94%;
 
-    --secondary: 30 5% 75%;            /* #C3BEBA */
-    --secondary-foreground: 0 0% 17%;
+    --secondary: 36 19% 86%;
+    --secondary-foreground: 0 0% 7%;
 
-    --muted: 30 5% 75%;                /* #C3BEBA */
-    --muted-foreground: 218 6% 35%;    /* #55585F */
+    --muted: 36 19% 86%;
+    --muted-foreground: 0 0% 23%;      /* #3A3A3A */
 
-    --accent: 38 5% 50%;               /* #868279 */
-    --accent-foreground: 40 12% 88%;
+    --accent: 38 14% 48%;              /* #8A7E6A */
+    --accent-foreground: 39 23% 94%;
 
-    --earth: 38 5% 50%;                /* #868279 */
-    --earth-light: 30 5% 75%;          /* #C3BEBA */
-    --stone: 218 6% 35%;               /* #55585F */
+    --earth: 38 14% 48%;
+    --earth-light: 36 19% 86%;
+    --stone: 0 0% 23%;
 
-    --destructive: 0 0% 17%;
-    --destructive-foreground: 40 12% 88%;
+    --destructive: 0 0% 7%;
+    --destructive-foreground: 39 23% 94%;
 
-    --border: 38 5% 50%;               /* #868279 */
-    --input: 38 5% 50%;
-    --ring: 0 0% 17%;
+    --border: 38 14% 48%;
+    --input: 38 14% 48%;
+    --ring: 0 0% 7%;
 
     --radius: 0;
 
@@ -80,15 +80,15 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 500;
     letter-spacing: -0.01em;
   }
 
   .font-display {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 500;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.005em;
   }
 
   .font-nav {

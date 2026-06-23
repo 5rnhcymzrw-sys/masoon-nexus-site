@@ -77,18 +77,18 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-foreground text-background border-b border-accent/40">
-        <div className="container-px flex items-center justify-between h-16 md:h-[72px]">
-          <a href="#top" className="font-nav text-background text-[0.72rem] md:text-[0.78rem] tracking-[0.1em]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
+        <div className="container-px flex items-center justify-between h-16 md:h-[76px]">
+          <a href="#top" className="font-nav text-foreground text-[0.74rem] md:text-[0.8rem] tracking-[0.2em]">
             MASOON TREUHAND
           </a>
-          <nav className="hidden lg:flex items-center font-nav text-background/85 tracking-[0.1em] text-[0.72rem]">
+          <nav className="hidden lg:flex items-center font-nav text-muted-foreground tracking-[0.2em] text-[0.7rem]">
             {nav.map((n, i) => (
               <span key={n.id} className="flex items-center">
-                <a href={`#${n.id}`} className="px-4 hover:text-background transition-colors">
+                <a href={`#${n.id}`} className="px-4 hover:text-foreground transition-colors">
                   {n.label}
                 </a>
-                {i < nav.length - 1 && <span className="text-background/55">|</span>}
+                {i < nav.length - 1 && <span className="text-border">|</span>}
               </span>
             ))}
           </nav>
@@ -97,16 +97,16 @@ const Index = () => {
             className="lg:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setMenuOpen((v) => !v)}
           >
-            <span className={`h-px w-6 bg-background transition-transform ${menuOpen ? "translate-y-1.5 rotate-45" : ""}`} />
-            <span className={`h-px w-6 bg-background transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`h-px w-6 bg-background transition-transform ${menuOpen ? "-translate-y-1.5 -rotate-45" : ""}`} />
+            <span className={`h-px w-6 bg-foreground transition-transform ${menuOpen ? "translate-y-1.5 rotate-45" : ""}`} />
+            <span className={`h-px w-6 bg-foreground transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`h-px w-6 bg-foreground transition-transform ${menuOpen ? "-translate-y-1.5 -rotate-45" : ""}`} />
           </button>
         </div>
         {menuOpen && (
-          <div className="lg:hidden border-t border-accent/40 bg-foreground">
-            <nav className="container-px flex flex-col py-6 gap-5 font-nav tracking-[0.1em]">
+          <div className="lg:hidden border-t border-border bg-background">
+            <nav className="container-px flex flex-col py-6 gap-5 font-nav tracking-[0.2em]">
               {nav.map((n) => (
-                <a key={n.id} href={`#${n.id}`} onClick={() => setMenuOpen(false)} className="text-background/85">
+                <a key={n.id} href={`#${n.id}`} onClick={() => setMenuOpen(false)} className="text-foreground">
                   {n.label}
                 </a>
               ))}
@@ -116,30 +116,38 @@ const Index = () => {
       </header>
 
       {/* HERO */}
-      <section id="top" className="bg-background pt-28 md:pt-32 pb-16 md:pb-24">
-        <div className="container-px">
-          <div className="w-full mb-16 md:mb-20">
+      <section id="top" className="bg-background pt-16 md:pt-[76px]">
+        <div className="grid lg:grid-cols-2 min-h-[calc(100vh-76px)]">
+          {/* Text left */}
+          <div className="flex items-center px-6 md:px-12 lg:px-20 py-20 lg:py-0 bg-[hsl(var(--secondary)/0.4)]">
+            <div className="max-w-md space-y-10">
+              <div className="space-y-5">
+                <h1 className="font-display text-[1.5rem] md:text-[1.7rem] font-medium tracking-[0.08em] uppercase text-foreground">
+                  MASOON TREUHAND
+                </h1>
+                <p className="font-nav text-[0.7rem] tracking-[0.28em] text-muted-foreground">
+                  TREUHAND <span className="text-border mx-1.5">|</span> BERATUNG <span className="text-border mx-1.5">|</span> KLARHEIT
+                </p>
+              </div>
+              <p className="text-base text-stone leading-[1.85] font-light">
+                MASOON TREUHAND begleitet Unternehmen mit fachlicher Klarheit, Diskretion und Präzision durch alle Phasen ihres Geschäftslebens.
+              </p>
+              <div className="w-12 h-px bg-accent/70" />
+            </div>
+          </div>
+          {/* Image right */}
+          <div className="relative w-full h-[55vh] lg:h-auto min-h-[420px] overflow-hidden">
             <img
               src={heroImg.url}
               alt="MASOON Treuhand"
-              className="w-full h-[58vh] min-h-[420px] max-h-[640px] object-cover"
-              width={1600}
-              height={900}
+              className="w-full h-full object-cover"
+              width={1200}
+              height={1600}
             />
-          </div>
-          <div className="max-w-3xl">
-            <p className="font-display text-[1.35rem] md:text-[1.55rem] leading-tight font-medium tracking-[0.02em]">
-              MASOON TREUHAND
-            </p>
-            <p className="font-nav text-foreground/75 tracking-[0.18em] text-[0.72rem] md:text-[0.78rem] mt-5">
-              TREUHAND <span className="text-foreground/30 mx-2">|</span> BERATUNG <span className="text-foreground/30 mx-2">|</span> KLARHEIT
-            </p>
-            <p className="mt-10 text-base md:text-[1.02rem] text-stone leading-[1.85] max-w-2xl">
-              MASOON TREUHAND begleitet Unternehmen mit fachlicher Klarheit, Diskretion und Präzision durch alle Phasen ihres Geschäftslebens.
-            </p>
           </div>
         </div>
       </section>
+
 
 
       {/* UNTERNEHMEN */}

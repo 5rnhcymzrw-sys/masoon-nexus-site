@@ -172,103 +172,81 @@ const Index = () => {
       </section>
 
       {/* WERTE */}
-      <section className="container-px section-y border-t border-border">
-        <div className="max-w-3xl mb-14">
-          <p className="font-mono-label text-muted-foreground mb-5">— Werte</p>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight mb-6">
-            Diese Werte prägen unsere Treuhandarbeit.
-          </h2>
-          <p className="text-base md:text-lg text-stone leading-relaxed">
-            Wir arbeiten verbindlich, sorgfältig und mit klarem Anspruch an Qualität, damit jedes Mandat sauber und verlässlich geführt wird.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-10 md:gap-14 border-t border-border pt-12">
-          {values.map((v) => (
-            <div key={v.t}>
-              <span className="font-mono-label text-muted-foreground">{v.n}</span>
-              <h3 className="font-display text-xl md:text-2xl mt-5 mb-4">{v.t}</h3>
-              <p className="text-stone leading-relaxed text-sm md:text-base">{v.d}</p>
-            </div>
-          ))}
+      <section className="bg-[hsl(var(--surface))]">
+        <div className="container-px section-y">
+          <div className="max-w-3xl mb-14">
+            <p className="font-mono-label text-muted-foreground mb-5">— WERTE</p>
+            <h2 className="font-display text-2xl md:text-3xl lg:text-[2.25rem] leading-tight mb-6">
+              Diese Werte prägen unsere Treuhandarbeit.
+            </h2>
+            <p className="text-base md:text-lg text-stone leading-relaxed">
+              Wir arbeiten verbindlich, sorgfältig und mit klarem Anspruch an Qualität, damit jedes Mandat sauber und verlässlich geführt wird.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-10 md:gap-14 border-t border-border pt-12">
+            {values.map((v) => (
+              <div key={v.t}>
+                <span className="font-mono-label text-muted-foreground">{v.n}</span>
+                <h3 className="font-display text-xl md:text-2xl mt-5 mb-4">{v.t}</h3>
+                <p className="text-stone leading-relaxed text-sm md:text-base">{v.d}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
+
       {/* DIENSTLEISTUNGEN */}
-      <section id="dienstleistungen" className="section-y container-px border-t border-border">
+      <section id="dienstleistungen" className="section-y container-px">
         <div className="max-w-3xl mb-14">
-          <p className="font-mono-label text-muted-foreground mb-5">— Dienstleistungen</p>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight mb-6">
+          <p className="font-mono-label text-muted-foreground mb-5">— DIENSTLEISTUNGEN</p>
+          <h2 className="font-display text-2xl md:text-3xl lg:text-[2.25rem] leading-tight mb-6">
             Treuhand mit klarer Struktur.
           </h2>
           <p className="text-base md:text-lg text-stone leading-relaxed">
             Von der laufenden Administration bis zum Jahresabschluss, die Leistungen sind auf eine saubere, effiziente und nachvollziehbare Mandatsführung ausgerichtet.
           </p>
         </div>
-        <div className="border-t border-border">
-          {services.map((s) => {
-            const open = openService === s.n;
-            return (
-              <div key={s.n} className="border-b border-border py-10 md:py-12">
-                <div className="grid md:grid-cols-12 gap-6 md:gap-10">
-                  <div className="md:col-span-2">
-                    <span className="font-mono-label text-muted-foreground">{s.n}</span>
-                  </div>
-                  <div className="md:col-span-4">
-                    <h3 className="font-display text-xl md:text-2xl leading-snug">{s.t}</h3>
-                  </div>
-                  <div className="md:col-span-6">
-                    <p className="text-base text-stone leading-[1.8]">{s.d}</p>
-                    {open && (
-                      <ul className="mt-5 space-y-2 text-sm text-stone">
-                        {s.items.map((it) => (
-                          <li key={it} className="flex gap-3">
-                            <span className="text-foreground/40">—</span>
-                            <span>{it}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    <button
-                      type="button"
-                      onClick={() => setOpenService(open ? null : s.n)}
-                      className="font-mono-label link-underline mt-6 inline-block text-foreground"
-                    >
-                      {open ? "— Weniger anzeigen" : "— Mehr anzeigen"}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-      </section>
-
-      {/* FACHWISSEN */}
-      <section id="fachwissen" className="section-y container-px border-t border-border">
-        <div className="max-w-3xl mb-14">
-          <p className="font-mono-label text-muted-foreground mb-5">— Fachwissen</p>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight mb-6">
-            Einblicke aus unserer täglichen Arbeit.
-          </h2>
-          <p className="text-base md:text-lg text-stone leading-relaxed">
-            Wir zeigen ausgewählte Fachthemen verständlich und praxisnah, mit Fokus auf klare Entscheidungen und sichere Abläufe im Geschäftsalltag.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
-          {insights.map((p) => (
-            <article key={p.n} className="flex flex-col group">
-              <span className="font-mono-label text-muted-foreground mb-4">{p.n}</span>
-              <div className="aspect-[4/3] w-full overflow-hidden mb-5 bg-secondary">
-                <img src={p.img} alt={p.t} className="w-full h-full object-cover" />
-              </div>
-              <h3 className="font-display text-lg md:text-xl mb-3 leading-snug">{p.t}</h3>
-              <p className="text-sm text-stone leading-relaxed mb-5">{p.d}</p>
-              <a href="#" className="font-mono-label link-underline self-start">— Mehr erfahren</a>
-            </article>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 border-t border-l border-border">
+          {services.map((s) => (
+            <div key={s.n} className="border-r border-b border-border p-8 lg:p-10 flex flex-col min-h-[280px]">
+              <span className="font-mono-label text-muted-foreground">{s.n}</span>
+              <h3 className="font-display text-xl md:text-[1.4rem] mt-5 mb-4 leading-snug">{s.t}</h3>
+              <p className="text-sm md:text-[0.95rem] text-stone leading-[1.75]">{s.d}</p>
+            </div>
           ))}
         </div>
       </section>
+
+
+      {/* FACHWISSEN */}
+      <section id="fachwissen" className="bg-[hsl(var(--surface))]">
+        <div className="container-px section-y">
+          <div className="max-w-3xl mb-14">
+            <p className="font-mono-label text-muted-foreground mb-5">— FACHWISSEN</p>
+            <h2 className="font-display text-2xl md:text-3xl lg:text-[2.25rem] leading-tight mb-6">
+              Einblicke aus unserer täglichen Arbeit.
+            </h2>
+            <p className="text-base md:text-lg text-stone leading-relaxed">
+              Wir zeigen ausgewählte Fachthemen verständlich und praxisnah, mit Fokus auf klare Entscheidungen und sichere Abläufe im Geschäftsalltag.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14 border-t border-border pt-12">
+            {insights.map((p) => (
+              <article key={p.n} className="flex flex-col">
+                <div className="aspect-[16/10] w-full overflow-hidden mb-6 bg-secondary">
+                  <img src={p.img} alt={p.t} className="w-full h-full object-cover" />
+                </div>
+                <span className="font-mono-label text-muted-foreground mb-3">{p.n}</span>
+                <h3 className="font-display text-lg md:text-xl mb-3 leading-snug">{p.t}</h3>
+                <p className="text-sm text-stone leading-[1.75] mb-5">{p.d}</p>
+                <a href="#" className="font-mono-label link-underline self-start">— Mehr erfahren</a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* KONTAKT */}
       <section id="kontakt" className="section-y container-px border-t border-border">

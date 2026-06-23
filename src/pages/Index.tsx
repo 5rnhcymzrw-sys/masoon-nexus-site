@@ -172,7 +172,7 @@ const Index = () => {
       </section>
 
       {/* WERTE */}
-      <section className="bg-[hsl(var(--surface))]">
+      <section className="bg-[hsl(var(--surface-2))]">
         <div className="container-px section-y">
           <div className="max-w-3xl mb-14">
             <p className="font-mono-label text-muted-foreground mb-5">— WERTE</p>
@@ -220,7 +220,7 @@ const Index = () => {
 
 
       {/* FACHWISSEN */}
-      <section id="fachwissen" className="bg-[hsl(var(--surface))]">
+      <section id="fachwissen" className="bg-[hsl(var(--surface-2))]">
         <div className="container-px section-y">
           <div className="max-w-3xl mb-14">
             <p className="font-mono-label text-muted-foreground mb-5">— FACHWISSEN</p>

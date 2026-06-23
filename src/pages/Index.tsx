@@ -116,31 +116,31 @@ const Index = () => {
       </header>
 
       {/* HERO */}
-      <section id="top" className="bg-background pt-28 md:pt-32 pb-14 md:pb-20 overflow-hidden">
-        <div className="container-px grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-20 items-end min-h-[calc(100vh-9rem)]">
-          <div className="max-w-[720px] pb-4 md:pb-8">
-            <p className="font-display text-[1.55rem] md:text-[1.75rem] leading-tight font-semibold tracking-[0.01em]">MASOON TREUHAND</p>
-            <p className="font-nav text-foreground/85 tracking-[0.08em] text-[0.72rem] md:text-[0.78rem] mt-4">
-              TREUHAND <span className="text-foreground/40 mx-2">|</span> BUCHHALTUNG <span className="text-foreground/40 mx-2">|</span> STEUERN <span className="text-foreground/40 mx-2">|</span> BERATUNG
-            </p>
-            <h1 className="font-display text-[1.28rem] md:text-[1.5rem] lg:text-[1.7rem] leading-[1.38] text-foreground mt-16 md:mt-20 font-normal tracking-normal">
-              Treuhandlösungen <span className="text-foreground/40 mx-1">|</span> die präzise auf Ihre unternehmerischen Anforderungen abgestimmt sind.
-            </h1>
-            <p className="mt-7 text-base md:text-[1.04rem] text-stone leading-[1.75]">
-              Auf der Basis von Diskretion <span className="text-foreground/40 mx-1">|</span> Präzision <span className="text-foreground/40 mx-1">|</span> Vertrauen begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch durch alle Phasen Ihres Geschäftslebens.
-            </p>
-          </div>
-          <div className="w-full">
+      <section id="top" className="bg-background pt-28 md:pt-32 pb-16 md:pb-24">
+        <div className="container-px">
+          <div className="w-full mb-16 md:mb-20">
             <img
               src={heroImg.url}
               alt="MASOON Treuhand"
-              className="w-full h-[54vh] min-h-[390px] max-h-[620px] object-cover"
-              width={1122}
-              height={990}
+              className="w-full h-[58vh] min-h-[420px] max-h-[640px] object-cover"
+              width={1600}
+              height={900}
             />
+          </div>
+          <div className="max-w-3xl">
+            <p className="font-display text-[1.35rem] md:text-[1.55rem] leading-tight font-medium tracking-[0.02em]">
+              MASOON TREUHAND
+            </p>
+            <p className="font-nav text-foreground/75 tracking-[0.18em] text-[0.72rem] md:text-[0.78rem] mt-5">
+              TREUHAND <span className="text-foreground/30 mx-2">|</span> BERATUNG <span className="text-foreground/30 mx-2">|</span> KLARHEIT
+            </p>
+            <p className="mt-10 text-base md:text-[1.02rem] text-stone leading-[1.85] max-w-2xl">
+              MASOON TREUHAND begleitet Unternehmen mit fachlicher Klarheit, Diskretion und Präzision durch alle Phasen ihres Geschäftslebens.
+            </p>
           </div>
         </div>
       </section>
+
 
       {/* UNTERNEHMEN */}
       <section id="unternehmen" className="section-y container-px">
@@ -204,35 +204,44 @@ const Index = () => {
             Von der laufenden Administration bis zum Jahresabschluss, die Leistungen sind auf eine saubere, effiziente und nachvollziehbare Mandatsführung ausgerichtet.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 border-t border-l border-border">
+        <div className="border-t border-border">
           {services.map((s) => {
             const open = openService === s.n;
             return (
-              <div key={s.n} className="border-r border-b border-border p-8 lg:p-10 flex flex-col">
-                <span className="font-mono-label text-muted-foreground">{s.n}</span>
-                <h3 className="font-display text-xl md:text-2xl mt-5 mb-4">{s.t}</h3>
-                <p className="text-sm md:text-base text-stone leading-relaxed">{s.d}</p>
-                {open && (
-                  <ul className="mt-5 space-y-2 text-sm text-stone">
-                    {s.items.map((it) => (
-                      <li key={it} className="flex gap-3">
-                        <span className="text-foreground/40">—</span>
-                        <span>{it}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                <button
-                  type="button"
-                  onClick={() => setOpenService(open ? null : s.n)}
-                  className="font-mono-label link-underline self-start mt-6 text-foreground"
-                >
-                  {open ? "— Weniger anzeigen" : "— Mehr anzeigen"}
-                </button>
+              <div key={s.n} className="border-b border-border py-10 md:py-12">
+                <div className="grid md:grid-cols-12 gap-6 md:gap-10">
+                  <div className="md:col-span-2">
+                    <span className="font-mono-label text-muted-foreground">{s.n}</span>
+                  </div>
+                  <div className="md:col-span-4">
+                    <h3 className="font-display text-xl md:text-2xl leading-snug">{s.t}</h3>
+                  </div>
+                  <div className="md:col-span-6">
+                    <p className="text-base text-stone leading-[1.8]">{s.d}</p>
+                    {open && (
+                      <ul className="mt-5 space-y-2 text-sm text-stone">
+                        {s.items.map((it) => (
+                          <li key={it} className="flex gap-3">
+                            <span className="text-foreground/40">—</span>
+                            <span>{it}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => setOpenService(open ? null : s.n)}
+                      className="font-mono-label link-underline mt-6 inline-block text-foreground"
+                    >
+                      {open ? "— Weniger anzeigen" : "— Mehr anzeigen"}
+                    </button>
+                  </div>
+                </div>
               </div>
             );
           })}
         </div>
+
       </section>
 
       {/* FACHWISSEN */}
@@ -251,7 +260,7 @@ const Index = () => {
             <article key={p.n} className="flex flex-col group">
               <span className="font-mono-label text-muted-foreground mb-4">{p.n}</span>
               <div className="aspect-[4/3] w-full overflow-hidden mb-5 bg-secondary">
-                <img src={p.img} alt={p.t} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                <img src={p.img} alt={p.t} className="w-full h-full object-cover" />
               </div>
               <h3 className="font-display text-lg md:text-xl mb-3 leading-snug">{p.t}</h3>
               <p className="text-sm text-stone leading-relaxed mb-5">{p.d}</p>

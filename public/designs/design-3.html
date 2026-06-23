@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<title>Design 3 — MASOON TREUHAND</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root{--bg:#fbfaf7;--ink:#0a0a0a;--mute:#6b6258;--line:#d9d2c4;--beige:#ece4d3}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;line-height:1.65;font-size:17px}
+  .sans{font-family:-apple-system,"Helvetica Neue",Arial,sans-serif}
+  header.top{background:#0a0a0a;color:#f5f1ea;padding:22px 56px;display:flex;justify-content:space-between;align-items:center;font-family:-apple-system,sans-serif}
+  header.top .brand{font-size:13px;letter-spacing:.4em}
+  header.top nav{display:flex;gap:36px}
+  header.top nav a{color:inherit;text-decoration:none;font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.85}
+  .container{max-width:1140px;margin:0 auto;padding:0 56px}
+  section{padding:128px 0;border-bottom:1px solid var(--line)}
+  .hero{padding:160px 0 128px;text-align:center;position:relative}
+  .hero::before{content:"— MASOON TREUHAND";font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:.4em;color:var(--mute);display:block;margin-bottom:64px}
+  h1{font-size:88px;line-height:1.04;font-weight:400;margin:0 auto 36px;letter-spacing:-.015em;max-width:1000px}
+  h1 em{font-style:italic;color:#3a2e1c}
+  .sub{font-size:20px;color:#2e2a24;max-width:760px;margin:0 auto;line-height:1.6}
+  .pipe{font-family:-apple-system,sans-serif;letter-spacing:.35em;text-transform:uppercase;font-size:12px;color:var(--mute);margin-top:64px;display:inline-block;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;width:100%;max-width:760px}
+  .pipe span{margin:0 18px}
+  .marker{font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--mute);margin-bottom:32px}
+  .chapter{display:grid;grid-template-columns:200px 1fr;gap:64px;align-items:start}
+  .chapter .label{position:sticky;top:24px;font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+  h2{font-size:52px;font-weight:400;margin:0 0 24px;line-height:1.1;letter-spacing:-.01em}
+  .lead{font-size:21px;color:#2e2a24;max-width:760px;font-style:italic}
+  h3{font-size:24px;font-weight:500;margin:0 0 12px;letter-spacing:-.005em}
+  p{margin:0 0 14px}
+  .body-cols{column-count:2;column-gap:48px;margin-top:36px;font-size:17px;max-width:920px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:64px}
+  .item{border-top:2px solid var(--ink);padding-top:24px}
+  .num{font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:.4em;color:var(--mute);margin-bottom:18px;display:block}
+  details{margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
+  details summary{cursor:pointer;font-family:-apple-system,sans-serif;color:var(--mute);letter-spacing:.25em;text-transform:uppercase;font-size:10px;list-style:none}
+  details ul{margin:14px 0 0;padding-left:0;list-style:none;font-size:15px}
+  details li{padding:6px 0;border-bottom:1px dotted var(--line)}
+  .insight-row{display:grid;grid-template-columns:60px 220px 1fr 160px;gap:32px;padding:28px 0;border-top:1px solid var(--line);align-items:baseline}
+  .insight-row:last-child{border-bottom:1px solid var(--line)}
+  .insight-row .num{margin:0;font-family:-apple-system,sans-serif;font-size:13px;color:var(--ink);letter-spacing:.2em}
+  .insight-row h3{margin:0;font-size:22px}
+  .insight-row p{margin:0;font-size:16px;color:#2e2a24}
+  .insight-row a{font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:3px;text-decoration:none;color:var(--ink);justify-self:end}
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:96px}
+  form{display:grid;gap:18px;font-family:-apple-system,sans-serif}
+  form input,form textarea{border:0;border-bottom:1px solid var(--ink);background:transparent;padding:14px 0;font:inherit;font-size:15px}
+  form textarea{min-height:140px;resize:vertical}
+  form button{margin-top:20px;background:var(--ink);color:#fff;border:0;padding:18px 36px;font-size:11px;letter-spacing:.35em;text-transform:uppercase;cursor:pointer;justify-self:start}
+  .note{font-size:13px;color:var(--mute);margin-top:14px;font-family:-apple-system,sans-serif}
+  footer{background:#0a0a0a;color:#cfc8bb;padding:80px 56px 32px;font-family:-apple-system,sans-serif}
+  footer .cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:64px;max-width:1140px;margin:0 auto;font-size:14px;line-height:1.9}
+  footer h4{font-size:10px;letter-spacing:.4em;color:#fff;margin:0 0 16px;font-weight:500}
+  footer .bottom{max-width:1140px;margin:48px auto 0;padding-top:24px;border-top:1px solid #2a2a2a;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:#8a8273}
+  footer a{color:inherit;margin-left:32px;text-decoration:none}
+</style></head>
+<body>
+<header class="top">
+  <div class="brand">MASOON TREUHAND</div>
+  <nav>
+    <a href="#u">Unternehmen</a>
+    <a href="#d">Dienstleistungen</a>
+    <a href="#f">Fachwissen</a>
+    <a href="#k">Kontakt</a>
+  </nav>
+</header>
+
+<div class="container">
+  <section class="hero" style="border-bottom:1px solid var(--line)">
+    <h1>Treuhandlösungen, die präzise auf Ihre <em>unternehmerischen</em> Anforderungen abgestimmt sind.</h1>
+    <p class="sub">Auf der Basis von Diskretion, Präzision und Vertrauen begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch durch alle Phasen Ihres Geschäftslebens.</p>
+    <div class="pipe"><span>Treuhand</span>·<span>Buchhaltung</span>·<span>Steuern</span>·<span>Beratung</span></div>
+  </section>
+
+  <section id="u">
+    <div class="chapter">
+      <div class="label">— Unternehmen</div>
+      <div>
+        <h2>Treuhand mit Struktur und Anspruch.</h2>
+        <p class="lead">Wir schaffen klare Grundlagen für eine zuverlässige und langfristige Zusammenarbeit.</p>
+        <div class="body-cols">
+          <p>MASOON TREUHAND begleitet Unternehmen in treuhänderischen und betriebswirtschaftlichen Fragestellungen mit fachlicher Kompetenz und hohem Qualitätsanspruch.</p>
+          <p>Mit modernen digitalen Prozessen, klaren Strukturen und persönlicher Betreuung entwickeln wir effiziente Lösungen, abgestimmt auf die individuellen Anforderungen unserer Mandanten.</p>
+          <p>Ob Buchhaltung, Lohnadministration, Steuern oder Unternehmensberatung, unser Fokus liegt auf einer professionellen Mandatsbetreuung mit klaren Abläufen und hoher Verlässlichkeit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="chapter">
+      <div class="label">— Werte</div>
+      <div>
+        <h2>Diese Werte prägen unsere Treuhandarbeit.</h2>
+        <p class="lead">Wir arbeiten verbindlich, sorgfältig und mit klarem Anspruch an Qualität, damit jedes Mandat sauber und verlässlich geführt wird.</p>
+        <div class="grid3">
+          <div class="item"><span class="num">01</span><h3>Diskretion</h3><p>Vertrauliche Angelegenheiten erfordern höchste Sorgfalt und absolute Verlässlichkeit.</p></div>
+          <div class="item"><span class="num">02</span><h3>Präzision</h3><p>Sorgfältige, strukturierte und fachlich fundierte Treuhandarbeit bis ins Detail.</p></div>
+          <div class="item"><span class="num">03</span><h3>Vertrauen</h3><p>Eine langfristige Zusammenarbeit entsteht durch Klarheit, Verlässlichkeit und transparente Kommunikation.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="d">
+    <div class="chapter">
+      <div class="label">— Dienstleistungen</div>
+      <div>
+        <h2>Treuhand mit klarer Struktur.</h2>
+        <p class="lead">Von der laufenden Administration bis zum Jahresabschluss, die Leistungen sind auf eine saubere, effiziente und nachvollziehbare Mandatsführung ausgerichtet.</p>
+        <div class="grid3">
+          <div class="item"><span class="num">01</span><h3>Administration</h3><p>Wir unterstützen Sie bei administrativen Aufgaben wie Korrespondenz, Offert- und Rechnungswesen, Dokumentenmanagement sowie weiteren organisatorischen Tätigkeiten im Geschäftsalltag.</p>
+            <details><summary>Leistungen</summary><ul><li>Postadministration</li><li>Korrespondenz</li><li>Offert- und Rechnungswesen</li><li>Dokumentenmanagement</li><li>Terminverwaltung</li></ul></details></div>
+          <div class="item"><span class="num">02</span><h3>Buchhaltung</h3><p>Wir übernehmen Ihre Finanzbuchhaltung, Debitoren- und Kreditorenbuchhaltung, den Zahlungsverkehr sowie Mehrwertsteuerabrechnungen zuverlässig, effizient und mit höchster Sorgfalt.</p>
+            <details><summary>Leistungen</summary><ul><li>Finanzbuchhaltung</li><li>Debitorenbuchhaltung</li><li>Kreditorenbuchhaltung</li><li>Mehrwertsteuerabrechnungen</li><li>Digitalisierung Buchhaltung</li></ul></details></div>
+          <div class="item"><span class="num">03</span><h3>Personaladministration</h3><p>Wir begleiten Ihre Personaladministration von Arbeitsverträgen und Lohnbuchhaltung bis zu Sozialversicherungen, Quellensteuerabrechnungen und Behördenmeldungen.</p>
+            <details><summary>Leistungen</summary><ul><li>Arbeitsverträge</li><li>Lohnbuchhaltung</li><li>Quellensteuerabrechnungen</li><li>Sozialversicherungen</li><li>Lohnausweise</li></ul></details></div>
+          <div class="item"><span class="num">04</span><h3>Jahresabschluss</h3><p>Wir erstellen Ihre Zwischen- und Jahresabschlüsse fachgerecht und begleiten Sie bei sämtlichen abschlussrelevanten Fragestellungen mit Präzision und Weitblick.</p>
+            <details><summary>Leistungen</summary><ul><li>Zwischenabschlüsse</li><li>Jahresabschlüsse</li><li>Bilanz und Erfolgsrechnung</li><li>Anhang und Revisionsunterlagen</li><li>Abschlussberatung</li></ul></details></div>
+          <div class="item"><span class="num">05</span><h3>Steuererklärung</h3><p>Wir unterstützen Sie bei Steuererklärungen, Veranlagungskontrollen, Einsprachen sowie steuerlichen Fragestellungen und Optimierungsmöglichkeiten.</p>
+            <details><summary>Leistungen</summary><ul><li>Steuererklärungen</li><li>Veranlagungskontrolle</li><li>Einspracheverfahren</li><li>Steueroptimierung</li><li>Steuervertretung</li></ul></details></div>
+          <div class="item"><span class="num">06</span><h3>Unternehmensberatung</h3><p>Wir begleiten Sie von der Firmengründung bis zu strategischen unternehmerischen Entscheidungen, strukturellen Veränderungen und weiteren unternehmerischen Fragestellungen.</p>
+            <details><summary>Leistungen</summary><ul><li>Gründungsberatung</li><li>Gesellschaftsgründungen</li><li>Umstrukturierungen</li><li>Umwandlungen</li><li>Liquidationen</li></ul></details></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="f">
+    <div class="chapter">
+      <div class="label">— Fachwissen</div>
+      <div>
+        <h2>Einblicke aus unserer täglichen Arbeit.</h2>
+        <p class="lead">Wir zeigen ausgewählte Fachthemen verständlich und praxisnah, mit Fokus auf klare Entscheidungen und sichere Abläufe im Geschäftsalltag.</p>
+        <div style="margin-top:48px">
+          <div class="insight-row"><span class="num">01</span><h3>Checkliste Steuererklärung</h3><p>Welche Unterlagen für eine vollständige Steuererklärung benötigt werden.</p><a href="#">Mehr erfahren</a></div>
+          <div class="insight-row"><span class="num">02</span><h3>Jahresabschluss vorbereiten</h3><p>Worauf Unternehmen vor dem Jahresabschluss achten sollten.</p><a href="#">Mehr erfahren</a></div>
+          <div class="insight-row"><span class="num">03</span><h3>Buchhaltung digitalisieren</h3><p>Wie digitale Prozesse die Buchhaltung effizienter und übersichtlicher machen.</p><a href="#">Mehr erfahren</a></div>
+          <div class="insight-row"><span class="num">04</span><h3>Lohnadministration</h3><p>Was bei Löhnen, Sozialversicherungen und Personalunterlagen wichtig ist.</p><a href="#">Mehr erfahren</a></div>
+          <div class="insight-row"><span class="num">05</span><h3>Mehrwertsteuer</h3><p>Wichtige Punkte zur MWST-Pflicht, Abrechnung und Fristen.</p><a href="#">Mehr erfahren</a></div>
+          <div class="insight-row"><span class="num">06</span><h3>Unternehmen gründen</h3><p>Welche administrativen und treuhänderischen Schritte bei der Gründung relevant sind.</p><a href="#">Mehr erfahren</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="k" style="border-bottom:0">
+    <div class="chapter">
+      <div class="label">— Kontakt</div>
+      <div>
+        <div class="contact">
+          <div>
+            <h2>Sprechen wir über Ihr Anliegen.</h2>
+            <p class="lead">Wir nehmen uns Zeit für Ihre Anfrage und klären gemeinsam, welche Unterstützung für Ihr Unternehmen sinnvoll ist.</p>
+          </div>
+          <div>
+            <h3 style="font-family:-apple-system,sans-serif;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);font-weight:500">Kontaktformular</h3>
+            <p style="font-size:14px;color:var(--mute);margin-bottom:24px;font-family:-apple-system,sans-serif">Bitte füllen Sie das folgende Kontaktformular aus. Wir melden uns zeitnah bei Ihnen.</p>
+            <form onsubmit="event.preventDefault();alert('Vorschau — Formular nicht aktiv.')">
+              <input placeholder="Nachname" required>
+              <input placeholder="Vorname" required>
+              <input placeholder="E-Mail" type="email" required>
+              <input placeholder="Telefon">
+              <textarea placeholder="Nachricht" required></textarea>
+              <button>Nachricht senden</button>
+              <div class="note">Mit dem Absenden bestätigen Sie, dass wir Sie zur Bearbeitung Ihrer Anfrage kontaktieren dürfen.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="cols">
+    <div>
+      <h4>KONTAKT</h4>
+      <div>MASOON TREUHAND</div>
+      <div>Täschmattstrasse 19</div>
+      <div>6015 Luzern</div>
+    </div>
+    <div>
+      <h4>ERREICHBARKEIT</h4>
+      <div>www.masoontreuhand.ch</div>
+      <div>info@masoontreuhand.ch</div>
+      <div>+41 79 966 36 36</div>
+    </div>
+    <div>
+      <h4>ÖFFNUNGSZEITEN</h4>
+      <div>Montag–Freitag &nbsp; 08.00–12.00 &nbsp; 13.00–17.00 Uhr</div>
+      <div>Samstag–Sonntag &nbsp; geschlossen</div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div>2026 MASOON TREUHAND · Alle Rechte vorbehalten.</div>
+    <div><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+  </div>
+</footer>
+</body></html>

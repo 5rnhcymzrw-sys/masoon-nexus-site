@@ -61,13 +61,23 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-    font-weight: 400;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 500;
     letter-spacing: -0.01em;
   }
 
   .font-display {
-    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .font-nav {
+    font-family: 'Inter', system-ui, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    font-weight: 500;
   }
 
   .font-mono-label {

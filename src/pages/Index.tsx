@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import heroImg from "@/assets/hero.jpg";
+import heroImg from "@/assets/preview/a12.png.asset.json";
 import unternehmenImg from "@/assets/preview/01.png.asset.json";
 import insight1 from "@/assets/preview/a01.jpg.asset.json";
 import insight2 from "@/assets/preview/a02.png.asset.json";
@@ -71,35 +71,24 @@ const insights = [
 ];
 
 const Index = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openService, setOpenService] = useState<string | null>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "bg-background/95 backdrop-blur-md border-b border-border" : "bg-background/70 backdrop-blur-sm"
-        }`}
-      >
-        <div className="container-px flex items-center justify-between h-16 md:h-20">
-          <a href="#top" className="font-nav text-foreground text-[0.85rem] md:text-[0.95rem] tracking-[0.18em]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-foreground text-background border-b border-accent/40">
+        <div className="container-px flex items-center justify-between h-16 md:h-[72px]">
+          <a href="#top" className="font-nav text-background text-[0.72rem] md:text-[0.78rem] tracking-[0.1em]">
             MASOON TREUHAND
           </a>
-          <nav className="hidden lg:flex items-center font-nav text-foreground/85">
+          <nav className="hidden lg:flex items-center font-nav text-background/85 tracking-[0.1em] text-[0.72rem]">
             {nav.map((n, i) => (
               <span key={n.id} className="flex items-center">
-                <a href={`#${n.id}`} className="px-5 hover:text-foreground transition-colors">
+                <a href={`#${n.id}`} className="px-4 hover:text-background transition-colors">
                   {n.label}
                 </a>
-                {i < nav.length - 1 && <span className="text-foreground/40">|</span>}
+                {i < nav.length - 1 && <span className="text-background/55">|</span>}
               </span>
             ))}
           </nav>
@@ -108,16 +97,16 @@ const Index = () => {
             className="lg:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setMenuOpen((v) => !v)}
           >
-            <span className={`h-px w-6 bg-foreground transition-transform ${menuOpen ? "translate-y-1.5 rotate-45" : ""}`} />
-            <span className={`h-px w-6 bg-foreground transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`h-px w-6 bg-foreground transition-transform ${menuOpen ? "-translate-y-1.5 -rotate-45" : ""}`} />
+            <span className={`h-px w-6 bg-background transition-transform ${menuOpen ? "translate-y-1.5 rotate-45" : ""}`} />
+            <span className={`h-px w-6 bg-background transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`h-px w-6 bg-background transition-transform ${menuOpen ? "-translate-y-1.5 -rotate-45" : ""}`} />
           </button>
         </div>
         {menuOpen && (
-          <div className="lg:hidden border-t border-border bg-background animate-fade-in">
-            <nav className="container-px flex flex-col py-6 gap-5 font-nav">
+          <div className="lg:hidden border-t border-accent/40 bg-foreground">
+            <nav className="container-px flex flex-col py-6 gap-5 font-nav tracking-[0.1em]">
               {nav.map((n) => (
-                <a key={n.id} href={`#${n.id}`} onClick={() => setMenuOpen(false)} className="text-foreground/80">
+                <a key={n.id} href={`#${n.id}`} onClick={() => setMenuOpen(false)} className="text-background/85">
                   {n.label}
                 </a>
               ))}
@@ -127,27 +116,28 @@ const Index = () => {
       </header>
 
       {/* HERO */}
-      <section id="top" className="relative min-h-screen flex items-end overflow-hidden">
-        <img
-          src={heroImg}
-          alt="MASOON Treuhand"
-          className="absolute inset-0 w-full h-full object-cover"
-          width={1920}
-          height={1280}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background" />
-        <div className="relative container-px w-full pb-20 md:pb-28">
-          <div className="max-w-4xl animate-fade-up">
-            <p className="font-nav text-foreground tracking-[0.2em] text-sm md:text-base">MASOON TREUHAND</p>
-            <p className="font-nav text-foreground/80 tracking-[0.2em] text-xs md:text-sm mt-3">
+      <section id="top" className="bg-background pt-28 md:pt-32 pb-14 md:pb-20 overflow-hidden">
+        <div className="container-px grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-20 items-end min-h-[calc(100vh-9rem)]">
+          <div className="max-w-[720px] pb-4 md:pb-8">
+            <p className="font-display text-[1.55rem] md:text-[1.75rem] leading-tight font-semibold tracking-[0.01em]">MASOON TREUHAND</p>
+            <p className="font-nav text-foreground/85 tracking-[0.08em] text-[0.72rem] md:text-[0.78rem] mt-4">
               TREUHAND <span className="text-foreground/40 mx-2">|</span> BUCHHALTUNG <span className="text-foreground/40 mx-2">|</span> STEUERN <span className="text-foreground/40 mx-2">|</span> BERATUNG
             </p>
-            <h1 className="font-display text-2xl md:text-4xl lg:text-5xl leading-[1.2] text-foreground mt-10 font-normal">
+            <h1 className="font-display text-[1.28rem] md:text-[1.5rem] lg:text-[1.7rem] leading-[1.38] text-foreground mt-16 md:mt-20 font-normal tracking-normal">
               Treuhandlösungen <span className="text-foreground/40 mx-1">|</span> die präzise auf Ihre unternehmerischen Anforderungen abgestimmt sind.
             </h1>
-            <p className="mt-8 max-w-2xl text-base md:text-lg text-stone leading-relaxed">
+            <p className="mt-7 text-base md:text-[1.04rem] text-stone leading-[1.75]">
               Auf der Basis von Diskretion <span className="text-foreground/40 mx-1">|</span> Präzision <span className="text-foreground/40 mx-1">|</span> Vertrauen begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch durch alle Phasen Ihres Geschäftslebens.
             </p>
+          </div>
+          <div className="w-full">
+            <img
+              src={heroImg.url}
+              alt="MASOON Treuhand"
+              className="w-full h-[54vh] min-h-[390px] max-h-[620px] object-cover"
+              width={1122}
+              height={990}
+            />
           </div>
         </div>
       </section>

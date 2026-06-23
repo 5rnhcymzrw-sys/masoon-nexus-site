@@ -4,12 +4,24 @@
 
 @layer base {
   :root {
-    /* MASOON Palette: Greige / Taupe / Schiefer / Schwarz */
-    --background: 40 12% 88%;          /* very light greige / off-white */
+    /* =====================================================================
+       MASOON DESIGN SYSTEM — Zentrale Farbpalette
+       Nur diese 5 Farben sind erlaubt. Hier zentral anpassen:
+       --------------------------------------------------------------------- */
+    --color-bg-main:    #D5D1C9;   /* Haupt-Hintergrund */
+    --color-bg-section: #C3BEBA;   /* Abwechselnde Sektionen / Flächen */
+    --color-line:       #868279;   /* Linien, Akzente, dezente Trenner */
+    --color-text-soft:  #55585F;   /* Sekundärer Text */
+    --color-text:       #2B2B2B;   /* Primärer Text / dunkle Flächen */
+
+    /* =====================================================================
+       Mapping auf shadcn / Tailwind Tokens (nicht ändern — nutzt Palette)
+       --------------------------------------------------------------------- */
+    --background: 40 12% 88%;          /* #D5D1C9 */
     --foreground: 0 0% 17%;            /* #2B2B2B */
 
-    --surface: 40 12% 81%;             /* #D5D1C9 ruhige Sektionen */
-    --surface-2: 30 6% 74%;            /* #C3BEBA Flächen */
+    --surface: 40 12% 88%;             /* #D5D1C9 */
+    --surface-2: 30 5% 75%;            /* #C3BEBA */
 
     --card: 40 12% 88%;
     --card-foreground: 0 0% 17%;
@@ -17,27 +29,27 @@
     --popover: 40 12% 88%;
     --popover-foreground: 0 0% 17%;
 
-    --primary: 0 0% 17%;
-    --primary-foreground: 40 12% 92%;
+    --primary: 0 0% 17%;               /* #2B2B2B */
+    --primary-foreground: 40 12% 88%;
 
-    --secondary: 30 6% 74%;            /* #C3BEBA */
+    --secondary: 30 5% 75%;            /* #C3BEBA */
     --secondary-foreground: 0 0% 17%;
 
-    --muted: 40 10% 84%;
+    --muted: 30 5% 75%;                /* #C3BEBA */
     --muted-foreground: 218 6% 35%;    /* #55585F */
 
-    --accent: 38 5% 50%;               /* #868279 Akzente / Linien */
-    --accent-foreground: 40 12% 92%;
+    --accent: 38 5% 50%;               /* #868279 */
+    --accent-foreground: 40 12% 88%;
 
-    --earth: 38 5% 50%;
-    --earth-light: 30 6% 74%;
+    --earth: 38 5% 50%;                /* #868279 */
+    --earth-light: 30 5% 75%;          /* #C3BEBA */
     --stone: 218 6% 35%;               /* #55585F */
 
-    --destructive: 0 50% 38%;
-    --destructive-foreground: 40 12% 92%;
+    --destructive: 0 0% 17%;
+    --destructive-foreground: 40 12% 88%;
 
-    --border: 38 5% 62%;               /* hairline taupe */
-    --input: 38 5% 62%;
+    --border: 38 5% 50%;               /* #868279 */
+    --input: 38 5% 50%;
     --ring: 0 0% 17%;
 
     --radius: 0;
@@ -47,6 +59,7 @@
 
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
   }
+
 }
 
 

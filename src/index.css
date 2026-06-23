@@ -4,47 +4,48 @@
 
 @layer base {
   :root {
-    /* Greige / Beton palette */
-    --background: 40 12% 81%;        /* #D5D1C9 */
-    --foreground: 0 0% 11%;          /* #1C1C1C */
+    /* Warm white / beige / greige / dark brown / subtle gold */
+    --background: 36 28% 95%;        /* warm off-white */
+    --foreground: 25 18% 12%;        /* dark brown / near-black */
 
-    --card: 40 12% 84%;
-    --card-foreground: 0 0% 11%;
+    --card: 36 28% 95%;
+    --card-foreground: 25 18% 12%;
 
-    --popover: 40 12% 84%;
-    --popover-foreground: 0 0% 11%;
+    --popover: 36 28% 95%;
+    --popover-foreground: 25 18% 12%;
 
-    --primary: 0 0% 11%;             /* #1C1C1C */
-    --primary-foreground: 40 12% 88%;
+    --primary: 25 18% 12%;
+    --primary-foreground: 36 28% 95%;
 
-    --secondary: 35 6% 73%;          /* #BFBAB6 */
-    --secondary-foreground: 0 0% 11%;
+    --secondary: 34 20% 88%;         /* beige */
+    --secondary-foreground: 25 18% 12%;
 
-    --muted: 38 9% 78%;
-    --muted-foreground: 218 7% 31%;  /* #4B4E54 */
+    --muted: 34 14% 84%;             /* greige */
+    --muted-foreground: 30 8% 38%;
 
-    --accent: 43 6% 53%;             /* #8C8880 */
-    --accent-foreground: 40 12% 95%;
+    --accent: 38 30% 50%;            /* subtle gold */
+    --accent-foreground: 36 28% 95%;
 
-    --earth: 43 6% 53%;              /* #8C8880 */
-    --earth-light: 35 6% 73%;
-    --stone: 218 7% 31%;             /* #4B4E54 */
+    --earth: 32 12% 55%;
+    --earth-light: 34 14% 84%;
+    --stone: 30 8% 38%;
 
-    --destructive: 0 60% 40%;
-    --destructive-foreground: 40 12% 95%;
+    --destructive: 0 50% 38%;
+    --destructive-foreground: 36 28% 95%;
 
-    --border: 43 6% 60%;             /* lighter #8C8880 for hairlines */
-    --input: 43 6% 60%;
-    --ring: 0 0% 11%;
+    --border: 32 10% 78%;            /* hairline */
+    --input: 32 10% 78%;
+    --ring: 25 18% 12%;
 
-    --radius: 0.125rem;
+    --radius: 0;
 
-    --shadow-elegant: 0 30px 80px -30px hsl(30 10% 12% / 0.18);
-    --shadow-subtle: 0 1px 0 0 hsl(30 12% 88%);
+    --shadow-elegant: none;
+    --shadow-subtle: none;
 
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
+
 
 @layer base {
   * {

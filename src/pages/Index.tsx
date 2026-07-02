@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import heroImg from "@/assets/portraits/v01.png.asset.json";
+import heroImg from "@/assets/portraits/s01.png.asset.json";
 import unternehmenImg from "@/assets/portraits/a01-2.png.asset.json";
 import insight1 from "@/assets/preview/a01.jpg.asset.json";
 import insight2 from "@/assets/preview/a02.png.asset.json";
@@ -117,33 +117,44 @@ const Index = () => {
         )}
       </header>
 
-      {/* HERO – Split Screen */}
-      <section id="top" className="relative pt-16 md:pt-[76px]">
-        <div className="grid lg:grid-cols-2 min-h-[calc(100vh-76px)]">
-          <div className="flex items-center bg-background">
-            <div className="px-6 md:px-12 lg:px-20 py-20 lg:py-0 max-w-xl">
-              <p className="font-mono-label text-muted-foreground mb-8">— MASOON TREUHAND</p>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-foreground">
-                MASOON<br />TREUHAND
+      {/* HERO – Full-width background image with text overlay */}
+      <section id="top" className="relative min-h-screen w-full overflow-hidden">
+        <img
+          src={heroImg.url}
+          alt="MASOON Treuhand"
+          className="absolute inset-0 w-full h-full object-cover object-[70%_center]"
+        />
+        {/* Warm espresso gradient overlay for legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1A1614]/90 via-[#1A1614]/70 to-[#1A1614]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1614]/60 via-transparent to-transparent" />
+
+        <div className="relative z-10 min-h-screen flex items-center">
+          <div className="container-px w-full pt-32 pb-24">
+            <div className="max-w-2xl text-[#EFE9DE]">
+              <p className="font-mono-label text-[#DCD3C2]/80 mb-10">— MASOON TREUHAND</p>
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
+                Schlüssel<br />zum Erfolg.
               </h1>
-              <div className="hairline my-10 max-w-[120px]" />
-              <p className="font-nav text-muted-foreground tracking-[0.22em] text-[0.78rem]">
-                TREUHAND <span className="text-border mx-2">|</span> BUCHHALTUNG <span className="text-border mx-2">|</span> STEUERN <span className="text-border mx-2">|</span> BERATUNG
+              <div className="h-px bg-[#DCD3C2]/40 my-10 max-w-[140px]" />
+              <p className="font-nav text-[#DCD3C2] tracking-[0.24em] text-[0.78rem]">
+                TREUHAND <span className="text-[#DCD3C2]/50 mx-2">|</span> BUCHHALTUNG <span className="text-[#DCD3C2]/50 mx-2">|</span> STEUERN <span className="text-[#DCD3C2]/50 mx-2">|</span> BERATUNG
               </p>
-              <p className="mt-10 text-base md:text-lg text-stone leading-[1.85] font-light">
-                Auf der Basis von <span className="font-medium text-foreground">Diskretion</span> | <span className="font-medium text-foreground">Präzision</span> | <span className="font-medium text-foreground">Vertrauen</span> begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch durch alle Phasen Ihres Geschäftslebens.
+              <p className="mt-10 text-base md:text-lg leading-[1.85] font-light text-[#EFE9DE]/85 max-w-xl">
+                Auf der Basis von <span className="text-[#EFE9DE] font-normal">Diskretion</span> <span className="text-[#DCD3C2]/50">|</span> <span className="text-[#EFE9DE] font-normal">Präzision</span> <span className="text-[#DCD3C2]/50">|</span> <span className="text-[#EFE9DE] font-normal">Vertrauen</span> begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch durch alle Phasen Ihres Geschäftslebens.
               </p>
+              <div className="mt-14 flex flex-wrap gap-4">
+                <a href="#dienstleistungen" className="font-mono-label bg-[#EFE9DE] text-[#1A1614] px-8 py-4 hover:bg-[#DCD3C2] transition-colors duration-500">
+                  DIENSTLEISTUNGEN
+                </a>
+                <a href="#kontakt" className="font-mono-label border border-[#EFE9DE]/60 text-[#EFE9DE] px-8 py-4 hover:bg-[#EFE9DE] hover:text-[#1A1614] transition-colors duration-500">
+                  KONTAKT
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="relative min-h-[420px] lg:min-h-0 overflow-hidden">
-            <img
-              src={heroImg.url}
-              alt="MASOON Treuhand"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
           </div>
         </div>
       </section>
+
 
       {/* UNTERNEHMEN */}
       <section id="unternehmen" className="section-y container-px">

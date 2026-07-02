@@ -8,49 +8,47 @@
        MASOON DESIGN SYSTEM — Zentrale Farbpalette
        Nur diese 5 Farben sind erlaubt. Hier zentral anpassen:
        --------------------------------------------------------------------- */
-    --color-bg-main:    #F4F1EC;   /* Elfenbein – Haupt-Hintergrund */
-    --color-bg-section: #E2DDD3;   /* Sand – Abwechselnde Sektionen */
-    --color-line:       #8A7E6A;   /* Bronze/Taupe – Linien & Akzente */
-    --color-text-soft:  #3A3A3A;   /* Sekundärer Text */
-    --color-text:       #111111;   /* Anthrazit – Primärer Text */
+    --color-bg-main:    #EFE9DE;
+    --color-bg-section: #DCD3C2;
+    --color-line:       #8B7A63;
+    --color-text-soft:  #3B2E22;
+    --color-text:       #1A1614;
 
-    /* =====================================================================
-       Mapping auf shadcn / Tailwind Tokens (nicht ändern — nutzt Palette)
-       --------------------------------------------------------------------- */
-    --background: 39 23% 94%;          /* #F4F1EC */
-    --foreground: 0 0% 7%;             /* #111111 */
+    --background: 40 27% 90%;
+    --foreground: 20 12% 9%;
 
-    --surface: 39 23% 94%;             /* #F4F1EC */
-    --surface-2: 36 19% 86%;           /* #E2DDD3 */
+    --surface: 40 27% 90%;
+    --surface-2: 37 26% 81%;
 
-    --card: 39 23% 94%;
-    --card-foreground: 0 0% 7%;
+    --card: 40 27% 90%;
+    --card-foreground: 20 12% 9%;
 
-    --popover: 39 23% 94%;
-    --popover-foreground: 0 0% 7%;
+    --popover: 40 27% 90%;
+    --popover-foreground: 20 12% 9%;
 
-    --primary: 0 0% 7%;
-    --primary-foreground: 39 23% 94%;
+    --primary: 24 27% 18%;
+    --primary-foreground: 40 27% 90%;
 
-    --secondary: 36 19% 86%;
-    --secondary-foreground: 0 0% 7%;
+    --secondary: 37 26% 81%;
+    --secondary-foreground: 24 27% 18%;
 
-    --muted: 36 19% 86%;
-    --muted-foreground: 0 0% 23%;      /* #3A3A3A */
+    --muted: 37 26% 81%;
+    --muted-foreground: 24 27% 25%;
 
-    --accent: 38 14% 48%;              /* #8A7E6A */
-    --accent-foreground: 39 23% 94%;
+    --accent: 32 17% 47%;
+    --accent-foreground: 40 27% 90%;
 
-    --earth: 38 14% 48%;
-    --earth-light: 36 19% 86%;
-    --stone: 0 0% 23%;
+    --earth: 32 17% 47%;
+    --earth-light: 37 26% 81%;
+    --stone: 24 27% 25%;
 
-    --destructive: 0 0% 7%;
-    --destructive-foreground: 39 23% 94%;
+    --destructive: 20 12% 9%;
+    --destructive-foreground: 40 27% 90%;
 
-    --border: 38 14% 48%;
-    --input: 38 14% 48%;
-    --ring: 0 0% 7%;
+    --border: 32 17% 55%;
+    --input: 32 17% 55%;
+    --ring: 24 27% 18%;
+
 
     --radius: 0;
 

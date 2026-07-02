@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import heroImg from "@/assets/preview/a12.png.asset.json";
-import unternehmenImg from "@/assets/preview/01.png.asset.json";
+import heroImg from "@/assets/portraits/v01.png.asset.json";
+import unternehmenImg from "@/assets/portraits/a01-2.png.asset.json";
 import insight1 from "@/assets/preview/a01.jpg.asset.json";
 import insight2 from "@/assets/preview/a02.png.asset.json";
 import insight3 from "@/assets/preview/a06.png.asset.json";

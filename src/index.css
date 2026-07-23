@@ -4,63 +4,46 @@
 
 @layer base {
   :root {
-    /* =====================================================================
-       MASOON DESIGN SYSTEM — Zentrale Farbpalette
-       Nur diese 5 Farben sind erlaubt. Hier zentral anpassen:
-       --------------------------------------------------------------------- */
-    --color-bg-main:    #EFE9DE;
-    --color-bg-section: #DCD3C2;
-    --color-line:       #8B7A63;
-    --color-text-soft:  #3B2E22;
-    --color-text:       #1A1614;
+    --background: 40 20% 98%;
+    --foreground: 30 10% 12%;
 
-    --background: 40 27% 90%;
-    --foreground: 20 12% 9%;
+    --card: 40 20% 98%;
+    --card-foreground: 30 10% 12%;
 
-    --surface: 40 27% 90%;
-    --surface-2: 37 26% 81%;
+    --popover: 40 20% 98%;
+    --popover-foreground: 30 10% 12%;
 
-    --card: 40 27% 90%;
-    --card-foreground: 20 12% 9%;
+    --primary: 30 10% 12%;
+    --primary-foreground: 40 20% 98%;
 
-    --popover: 40 27% 90%;
-    --popover-foreground: 20 12% 9%;
+    --secondary: 35 15% 92%;
+    --secondary-foreground: 30 10% 12%;
 
-    --primary: 24 27% 18%;
-    --primary-foreground: 40 27% 90%;
+    --muted: 35 12% 94%;
+    --muted-foreground: 30 6% 42%;
 
-    --secondary: 37 26% 81%;
-    --secondary-foreground: 24 27% 18%;
+    --accent: 32 22% 75%;
+    --accent-foreground: 30 10% 12%;
 
-    --muted: 37 26% 81%;
-    --muted-foreground: 24 27% 25%;
+    --earth: 28 18% 55%;
+    --earth-light: 32 22% 85%;
+    --stone: 30 8% 35%;
 
-    --accent: 32 17% 47%;
-    --accent-foreground: 40 27% 90%;
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 40 20% 98%;
 
-    --earth: 32 17% 47%;
-    --earth-light: 37 26% 81%;
-    --stone: 24 27% 25%;
+    --border: 30 12% 88%;
+    --input: 30 12% 88%;
+    --ring: 30 10% 12%;
 
-    --destructive: 20 12% 9%;
-    --destructive-foreground: 40 27% 90%;
+    --radius: 0.125rem;
 
-    --border: 32 17% 55%;
-    --input: 32 17% 55%;
-    --ring: 24 27% 18%;
-
-
-    --radius: 0;
-
-    --shadow-elegant: none;
-    --shadow-subtle: none;
+    --shadow-elegant: 0 30px 80px -30px hsl(30 10% 12% / 0.18);
+    --shadow-subtle: 0 1px 0 0 hsl(30 12% 88%);
 
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
   }
-
 }
-
-
 
 @layer base {
   * {
@@ -78,23 +61,13 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 500;
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-weight: 400;
     letter-spacing: -0.01em;
   }
 
   .font-display {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 500;
-    letter-spacing: -0.005em;
-  }
-
-  .font-nav {
-    font-family: 'Inter', system-ui, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-size: 0.78rem;
-    font-weight: 500;
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
   }
 
   .font-mono-label {

@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# MASOON TREUHAND Website
 
-TODO: Document your project here
+Statische Website und GitHub-Pages-Vorschau.

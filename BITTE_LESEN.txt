@@ -1,0 +1,6 @@
+MASOON TREUHAND – vollständige mehrseitige Website
+
+1. ZIP-Datei vollständig entpacken.
+2. index.html öffnen.
+3. Die Navigation führt zu den eigenen Seiten:
+   Startseite, Unternehmen, Dienstleistungen, Ablauf, Fachwissen und Kontakt.

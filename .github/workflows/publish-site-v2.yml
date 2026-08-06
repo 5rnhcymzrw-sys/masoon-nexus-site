@@ -1,0 +1,45 @@
+name: Publish MASOON website v2
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    if: ${{ !contains(github.event.head_commit.message, '[site-published]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Extract website package
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f MASOON_TREUHAND_Mehrseitige_Website_1zu1.zip
+          rm -rf kontakt ablauf datenschutz impressum assets fachwissen images unternehmen dienstleistungen
+          unzip -o MASOON_TREUHAND_Mehrseitige_Website_1zu1.zip -d .
+          touch .nojekyll
+          rm -f MASOON_TREUHAND_Mehrseitige_Website_1zu1.zip BITTE_LESEN.txt
+
+      - name: Commit published files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Publish MASOON TREUHAND website [site-published]"
+          git pull --rebase origin main
+          git push origin main

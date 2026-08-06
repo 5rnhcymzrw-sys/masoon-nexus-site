@@ -15,11 +15,15 @@ jobs:
   extract:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout latest main
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Extract website
         run: |
+          test -f MASOON_TREUHAND_Mehrseitige_Website_1zu1.zip
           rm -rf kontakt ablauf datenschutz impressum assets fachwissen images unternehmen dienstleistungen
           rm -f hero1.png logo-white.png portrait-unternehmen.png portrait-kontakt.png BITTE_LESEN.txt
           unzip -o MASOON_TREUHAND_Mehrseitige_Website_1zu1.zip -d .
@@ -36,4 +40,5 @@ jobs:
             exit 0
           fi
           git commit -m "Publish MASOON TREUHAND website [skip ci]"
-          git push
+          git pull --rebase origin main
+          git push origin main

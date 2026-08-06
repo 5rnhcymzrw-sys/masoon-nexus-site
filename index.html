@@ -5,152 +5,177 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>MASOON TREUHAND</title>
   <style>
-    html,body{margin:0;width:100%;height:100%;background:#111;font-family:Arial,sans-serif}
-    #site{display:block;width:100%;height:100%;border:0;background:#fff}
-    #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#111;color:#fff;z-index:10;letter-spacing:.08em;font-size:14px}
-    #error{display:none;position:fixed;inset:0;padding:40px;background:#f4f1ec;color:#222;z-index:20;box-sizing:border-box;font-size:16px;line-height:1.6}
+    html,body{height:100%;margin:0;background:#111;font-family:Arial,sans-serif}
+    body{overflow:hidden}
+    #status{position:fixed;inset:0;display:grid;place-items:center;color:#fff;background:#111;z-index:2;font-size:14px;letter-spacing:.04em}
+    iframe{width:100%;height:100%;border:0;display:block;background:#fff}
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 </head>
 <body>
-  <div id="loading">WEBSITE WIRD GELADEN …</div>
-  <div id="error"></div>
-  <iframe id="site" title="MASOON TREUHAND"></iframe>
-<script>
-(() => {
-  const ZIP_NAME = 'MASOON_TREUHAND_Mehrseitige_Website_1zu1.zip';
-  const frame = document.getElementById('site');
-  const loading = document.getElementById('loading');
-  const errorBox = document.getElementById('error');
-  let zip;
-  const urls = new Map();
-  const htmlFiles = new Set();
+  <div id="status">Website wird geladen …</div>
+  <iframe id="site" title="MASOON TREUHAND Website" sandbox="allow-scripts allow-forms allow-popups allow-downloads allow-same-origin"></iframe>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script>
+  (() => {
+    const ZIP_NAME = 'MASOON_TREUHAND_Mehrseitige_Website_1zu1.zip';
+    const frame = document.getElementById('site');
+    const status = document.getElementById('status');
+    let zip;
+    const dataUrlCache = new Map();
+    const textCache = new Map();
 
-  const mime = path => {
-    const ext = path.split('.').pop().toLowerCase();
-    return ({css:'text/css',js:'application/javascript',png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',svg:'image/svg+xml',woff2:'font/woff2',woff:'font/woff',ico:'image/x-icon',txt:'text/plain',html:'text/html'})[ext] || 'application/octet-stream';
-  };
+    const mime = path => {
+      const ext = path.split('.').pop().toLowerCase();
+      return ({png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',webp:'image/webp',svg:'image/svg+xml',woff2:'font/woff2',woff:'font/woff',css:'text/css',js:'text/javascript',ico:'image/x-icon'})[ext] || 'application/octet-stream';
+    };
 
-  const cleanPath = p => {
-    p = decodeURIComponent((p || '').split('#')[0].split('?')[0]);
-    const out = [];
-    for (const part of p.replace(/^\/+/, '').split('/')) {
-      if (!part || part === '.') continue;
-      if (part === '..') out.pop(); else out.push(part);
-    }
-    return out.join('/');
-  };
+    const clean = path => path.replace(/^\/+/, '').replace(/\?.*$/, '').replace(/#.*$/, '');
+    const baseDir = path => path.includes('/') ? path.slice(0, path.lastIndexOf('/') + 1) : '';
+    const resolvePath = (fromFile, ref) => {
+      if (!ref || /^(?:data:|https?:|mailto:|tel:|javascript:|#)/i.test(ref)) return ref;
+      const base = 'https://zip.local/' + baseDir(fromFile);
+      return clean(decodeURIComponent(new URL(ref, base).pathname));
+    };
 
-  const resolvePath = (baseFile, relative) => {
-    if (!relative || /^(?:[a-z]+:|#|\/\/)/i.test(relative)) return null;
-    const baseDir = baseFile.includes('/') ? baseFile.slice(0, baseFile.lastIndexOf('/') + 1) : '';
-    return cleanPath(relative.startsWith('/') ? relative : baseDir + relative);
-  };
-
-  const rewriteCss = (css, cssPath) => css.replace(/url\(\s*(['"]?)([^)'"\s]+)\1\s*\)/g, (all, q, raw) => {
-    if (/^(?:data:|#|https?:|\/\/)/i.test(raw)) return all;
-    const path = resolvePath(cssPath, raw);
-    return path && urls.has(path) ? `url("${urls.get(path)}")` : all;
-  });
-
-  async function prepareZip() {
-    const response = await fetch(ZIP_NAME + '?v=' + Date.now(), {cache:'no-store'});
-    if (!response.ok) throw new Error('ZIP-Datei konnte nicht geladen werden (' + response.status + ').');
-    zip = await JSZip.loadAsync(await response.arrayBuffer());
-    const names = Object.keys(zip.files).filter(n => !zip.files[n].dir);
-    names.forEach(n => { if (/\.html?$/i.test(n)) htmlFiles.add(cleanPath(n)); });
-
-    for (const name of names) {
-      const path = cleanPath(name);
-      if (/\.(?:html?|css)$/i.test(path)) continue;
-      const blob = await zip.file(name).async('blob');
-      urls.set(path, URL.createObjectURL(new Blob([blob], {type:mime(path)})));
+    async function getText(path) {
+      path = clean(path);
+      if (textCache.has(path)) return textCache.get(path);
+      const file = zip.file(path);
+      if (!file) throw new Error('Datei fehlt: ' + path);
+      const text = await file.async('text');
+      textCache.set(path, text);
+      return text;
     }
 
-    for (const name of names.filter(n => /\.css$/i.test(n))) {
-      const path = cleanPath(name);
-      const css = rewriteCss(await zip.file(name).async('text'), path);
-      urls.set(path, URL.createObjectURL(new Blob([css], {type:'text/css'})));
+    async function getDataUrl(path) {
+      path = clean(path);
+      if (dataUrlCache.has(path)) return dataUrlCache.get(path);
+      const file = zip.file(path);
+      if (!file) return null;
+      const bytes = await file.async('uint8array');
+      const blob = new Blob([bytes], {type:mime(path)});
+      const url = await new Promise((resolve,reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+      dataUrlCache.set(path, url);
+      return url;
     }
-  }
 
-  function routeFromHash() {
-    const raw = location.hash.replace(/^#/, '');
-    if (!raw) return 'index.html';
-    const decoded = cleanPath(decodeURIComponent(raw));
-    if (htmlFiles.has(decoded)) return decoded;
-    if (htmlFiles.has(decoded + '/index.html')) return decoded + '/index.html';
-    return 'index.html';
-  }
+    async function rewriteCss(css, cssFile) {
+      const re = /url\(\s*(['"]?)([^)'"\s]+)\1\s*\)/g;
+      let out = '', last = 0;
+      for (const match of css.matchAll(re)) {
+        out += css.slice(last, match.index);
+        const ref = match[2];
+        if (/^(?:data:|https?:|#)/i.test(ref)) {
+          out += match[0];
+        } else {
+          const target = resolvePath(cssFile, ref);
+          const data = await getDataUrl(target);
+          out += data ? `url("${data}")` : match[0];
+        }
+        last = match.index + match[0].length;
+      }
+      return out + css.slice(last);
+    }
 
-  function setRoute(path) {
-    path = cleanPath(path || 'index.html');
-    if (!htmlFiles.has(path) && htmlFiles.has(path + '/index.html')) path += '/index.html';
-    if (!htmlFiles.has(path)) path = 'index.html';
-    const next = '#' + encodeURIComponent(path);
-    if (location.hash === next) render(path); else location.hash = next;
-  }
+    async function render(pagePath, pushHash = true) {
+      pagePath = clean(pagePath || 'index.html');
+      if (!pagePath || pagePath.endsWith('/')) pagePath += 'index.html';
+      if (!zip.file(pagePath)) pagePath = 'index.html';
+      status.style.display = 'grid';
+      status.textContent = 'Website wird geladen …';
 
-  async function render(pagePath) {
-    try {
-      loading.style.display = 'flex';
-      const file = zip.file(pagePath);
-      if (!file) throw new Error('Seite nicht gefunden: ' + pagePath);
-      const source = await file.async('text');
+      const source = await getText(pagePath);
       const doc = new DOMParser().parseFromString(source, 'text/html');
 
-      doc.querySelectorAll('link[rel="preload"]').forEach(el => el.remove());
-      doc.querySelectorAll('style').forEach(el => { el.textContent = rewriteCss(el.textContent, pagePath); });
+      doc.querySelectorAll('link[rel="stylesheet"], link[as="font"]').forEach(el => el.remove());
+      doc.querySelectorAll('style').forEach(el => { el.dataset.rewrite = '1'; });
 
-      doc.querySelectorAll('[src]').forEach(el => {
-        const path = resolvePath(pagePath, el.getAttribute('src'));
-        if (path && urls.has(path)) el.setAttribute('src', urls.get(path));
-      });
+      const cssPath = 'assets/index-CZfMKxM_.css';
+      const css = await rewriteCss(await getText(cssPath), cssPath);
+      const style = doc.createElement('style');
+      style.textContent = css;
+      doc.head.appendChild(style);
 
-      doc.querySelectorAll('[srcset]').forEach(el => {
-        el.setAttribute('srcset', el.getAttribute('srcset').split(',').map(item => {
-          const bits = item.trim().split(/\s+/);
-          const path = resolvePath(pagePath, bits[0]);
-          if (path && urls.has(path)) bits[0] = urls.get(path);
-          return bits.join(' ');
-        }).join(', '));
-      });
+      for (const el of [...doc.querySelectorAll('style[data-rewrite="1"]')]) {
+        el.textContent = await rewriteCss(el.textContent, pagePath);
+      }
 
-      doc.querySelectorAll('link[href]').forEach(el => {
-        const path = resolvePath(pagePath, el.getAttribute('href'));
-        if (path && urls.has(path)) el.setAttribute('href', urls.get(path));
-      });
-
-      doc.querySelectorAll('a[href]').forEach(a => {
-        const href = a.getAttribute('href');
-        if (!href || /^(?:mailto:|tel:|https?:|\/\/|#)/i.test(href)) return;
-        const path = resolvePath(pagePath, href);
-        if (path && (htmlFiles.has(path) || htmlFiles.has(path + '/index.html'))) {
-          a.dataset.zipRoute = htmlFiles.has(path) ? path : path + '/index.html';
-          a.setAttribute('href', '#');
+      for (const el of [...doc.querySelectorAll('[src]')]) {
+        const ref = el.getAttribute('src');
+        if (!ref || /^(?:data:|https?:)/i.test(ref)) continue;
+        const target = resolvePath(pagePath, ref);
+        if (target.endsWith('.js')) {
+          el.remove();
+          continue;
         }
-      });
+        const data = await getDataUrl(target);
+        if (data) el.setAttribute('src', data);
+        el.removeAttribute('srcset');
+      }
+
+      for (const el of [...doc.querySelectorAll('link[href]')]) {
+        const rel = (el.getAttribute('rel') || '').toLowerCase();
+        if (!/icon/.test(rel)) continue;
+        const target = resolvePath(pagePath, el.getAttribute('href'));
+        const data = await getDataUrl(target);
+        if (data) el.setAttribute('href', data);
+      }
+
+      for (const a of [...doc.querySelectorAll('a[href]')]) {
+        const href = a.getAttribute('href');
+        if (!href || /^(?:mailto:|tel:|https?:|#)/i.test(href)) continue;
+        let target = resolvePath(pagePath, href);
+        if (!target) target = 'index.html';
+        if (target.endsWith('/')) target += 'index.html';
+        if (target.endsWith('.html')) {
+          a.setAttribute('href', '#');
+          a.setAttribute('data-zip-target', target);
+        }
+      }
+
+      const siteJs = await getText('assets/site.js');
+      const script = doc.createElement('script');
+      script.textContent = siteJs;
+      doc.body.appendChild(script);
 
       const bridge = doc.createElement('script');
-      bridge.textContent = "document.addEventListener('click',function(e){var a=e.target.closest('a[data-zip-route]');if(a){e.preventDefault();parent.postMessage({type:'masoon-route',path:a.dataset.zipRoute},'*');}});";
+      bridge.textContent = `document.addEventListener('click',function(e){const a=e.target.closest('a[data-zip-target]');if(!a)return;e.preventDefault();parent.postMessage({type:'zip-nav',target:a.dataset.zipTarget},'*');});`;
       doc.body.appendChild(bridge);
 
       frame.srcdoc = '<!doctype html>\n' + doc.documentElement.outerHTML;
-      frame.onload = () => { loading.style.display = 'none'; try { frame.contentWindow.scrollTo(0,0); } catch(e) {} };
-      document.title = doc.title || 'MASOON TREUHAND';
-    } catch (err) { showError(err); }
-  }
+      frame.onload = () => { status.style.display = 'none'; };
+      if (pushHash) {
+        const nextHash = pagePath === 'index.html' ? '' : '#' + pagePath;
+        if (location.hash !== nextHash) history.pushState(null, '', location.pathname + nextHash);
+      }
+    }
 
-  function showError(err) {
-    loading.style.display = 'none';
-    errorBox.style.display = 'block';
-    errorBox.innerHTML = '<h2>Die Website konnte nicht geladen werden.</h2><p>' + String(err.message || err) + '</p><p>Bitte mit <strong>Ctrl + F5</strong> neu laden.</p>';
-  }
+    window.addEventListener('message', e => {
+      if (e.data && e.data.type === 'zip-nav') render(e.data.target, true).catch(showError);
+    });
+    window.addEventListener('popstate', () => render(location.hash.slice(1) || 'index.html', false).catch(showError));
 
-  window.addEventListener('message', e => { if (e.data && e.data.type === 'masoon-route') setRoute(e.data.path); });
-  window.addEventListener('hashchange', () => { if (zip) render(routeFromHash()); });
-  prepareZip().then(() => render(routeFromHash())).catch(showError);
-})();
-</script>
+    function showError(err) {
+      console.error(err);
+      status.style.display = 'grid';
+      status.textContent = 'Die Website konnte nicht geladen werden. Bitte Seite neu laden.';
+    }
+
+    async function start() {
+      if (!window.JSZip) throw new Error('JSZip konnte nicht geladen werden.');
+      const response = await fetch(ZIP_NAME, {cache:'no-store'});
+      if (!response.ok) throw new Error('Website-Paket fehlt: ' + response.status);
+      zip = await JSZip.loadAsync(await response.arrayBuffer());
+      await render(location.hash.slice(1) || 'index.html', false);
+    }
+
+    start().catch(showError);
+  })();
+  </script>
 </body>
 </html>

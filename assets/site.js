@@ -11,6 +11,75 @@
     document.head.appendChild(fontFix);
   }
 
+  const editorParams = new URLSearchParams(location.search);
+  if (editorParams.get('edit') === '1') {
+    const storageKey = `masoon-preview:${location.pathname}`;
+    const editableSelector = 'main h1, main h2, main h3, main p, main li, main a, footer h2, footer h3, footer p, footer li, footer a';
+    const editable = [...document.querySelectorAll(editableSelector)]
+      .filter(el => !el.closest('nav') && !el.closest('form') && el.textContent.trim());
+
+    const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+    editable.forEach((el, index) => {
+      el.dataset.masoonEditId = String(index);
+      if (Object.prototype.hasOwnProperty.call(saved, index)) el.innerHTML = saved[index];
+    });
+
+    const editorStyle = document.createElement('style');
+    editorStyle.textContent = `
+      body.masoon-editing [data-masoon-edit-id]{outline:1px dashed rgba(183,156,111,.85);outline-offset:4px;cursor:text;}
+      body.masoon-editing [data-masoon-edit-id]:focus{outline:2px solid #b79c6f;background:rgba(255,255,255,.08);}
+      .masoon-editor{position:fixed;right:18px;bottom:18px;z-index:2147483647;display:flex;gap:8px;padding:10px;background:rgba(20,20,20,.94);border:1px solid rgba(255,255,255,.22);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.28);font-family:Arial,sans-serif}
+      .masoon-editor button{appearance:none;border:1px solid rgba(255,255,255,.35);background:#fff;color:#111;padding:9px 12px;border-radius:7px;font-size:13px;cursor:pointer}
+      .masoon-editor button[data-action="reset"]{background:transparent;color:#fff}
+      .masoon-editor__status{position:fixed;right:18px;bottom:78px;z-index:2147483647;background:#111;color:#fff;padding:8px 10px;border-radius:7px;font:12px Arial,sans-serif;opacity:0;transform:translateY(4px);transition:.2s}
+      .masoon-editor__status.is-visible{opacity:1;transform:none}
+    `;
+    document.head.appendChild(editorStyle);
+
+    const panel = document.createElement('div');
+    panel.className = 'masoon-editor';
+    panel.innerHTML = '<button type="button" data-action="toggle">Bearbeiten</button><button type="button" data-action="save">Speichern</button><button type="button" data-action="reset">Zurücksetzen</button>';
+    document.body.appendChild(panel);
+
+    const status = document.createElement('div');
+    status.className = 'masoon-editor__status';
+    document.body.appendChild(status);
+
+    const showStatus = message => {
+      status.textContent = message;
+      status.classList.add('is-visible');
+      clearTimeout(showStatus.timer);
+      showStatus.timer = setTimeout(() => status.classList.remove('is-visible'), 1800);
+    };
+
+    let editing = false;
+    const setEditing = enabled => {
+      editing = enabled;
+      document.body.classList.toggle('masoon-editing', enabled);
+      editable.forEach(el => {
+        el.contentEditable = enabled ? 'true' : 'false';
+        el.spellcheck = enabled;
+      });
+      panel.querySelector('[data-action="toggle"]').textContent = enabled ? 'Bearbeiten beenden' : 'Bearbeiten';
+    };
+
+    panel.addEventListener('click', event => {
+      const action = event.target.dataset.action;
+      if (!action) return;
+      if (action === 'toggle') setEditing(!editing);
+      if (action === 'save') {
+        const values = {};
+        editable.forEach((el, index) => values[index] = el.innerHTML);
+        localStorage.setItem(storageKey, JSON.stringify(values));
+        showStatus('Vorschau gespeichert');
+      }
+      if (action === 'reset') {
+        localStorage.removeItem(storageKey);
+        location.reload();
+      }
+    });
+  }
+
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
   if (toggle && nav) {

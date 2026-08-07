@@ -14,6 +14,55 @@
   navLineStyle.textContent = `.site-nav a:after{height:1px!important;background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important;}`;
   document.head.appendChild(navLineStyle);
 
+  const syncServiceTypographyFromExpectation = () => {
+    const referenceTitle = document.querySelector('.expectation-editorial .expectation-editorial__item h3');
+    const referenceText = document.querySelector('.expectation-editorial .expectation-editorial__item p');
+    if (!referenceTitle || !referenceText) return;
+
+    const titleStyle = getComputedStyle(referenceTitle);
+    const textStyle = getComputedStyle(referenceText);
+
+    const titleProperties = [
+      'font-family',
+      'font-size',
+      'font-weight',
+      'font-style',
+      'font-stretch',
+      'line-height',
+      'letter-spacing',
+      'text-transform'
+    ];
+
+    const textProperties = [
+      'font-family',
+      'font-size',
+      'font-weight',
+      'font-style',
+      'font-stretch',
+      'line-height',
+      'letter-spacing',
+      'text-transform'
+    ];
+
+    document.querySelectorAll('.home-values__item h3, .home-values__item h3 strong').forEach(element => {
+      titleProperties.forEach(property => {
+        element.style.setProperty(property, titleStyle.getPropertyValue(property), 'important');
+      });
+    });
+
+    document.querySelectorAll('.home-values__item p').forEach(element => {
+      textProperties.forEach(property => {
+        element.style.setProperty(property, textStyle.getPropertyValue(property), 'important');
+      });
+    });
+  };
+
+  syncServiceTypographyFromExpectation();
+  requestAnimationFrame(syncServiceTypographyFromExpectation);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncServiceTypographyFromExpectation).catch(() => {});
+  }
+
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
   if (toggle && nav) {

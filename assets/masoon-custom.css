@@ -37,7 +37,14 @@
 /* STARTSEITE: Zusammenarbeit */
 .expectation-editorial .expectation-editorial__grid {
   margin-left: 0 !important;
-  transform: translateX(-100px) !important;
+  transform: translateX(-220px) !important;
+  text-align: left !important;
+}
+
+.expectation-editorial .expectation-editorial__item,
+.expectation-editorial .expectation-editorial__item h3,
+.expectation-editorial .expectation-editorial__item p {
+  text-align: left !important;
 }
 
 .expectation-editorial .expectation-editorial__item h3 {

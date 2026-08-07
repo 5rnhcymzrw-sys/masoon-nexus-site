@@ -22,18 +22,18 @@
     .home-hero__services .sep{display:inline-block;margin:0 15px;letter-spacing:0}
     .section-label{margin-bottom:30px!important}
 
-    /* Zusammenarbeit: eine klare gemeinsame Inhaltsachse */
+    /* Zusammenarbeit: klare Editorial-Struktur */
     .expectation-editorial{padding-left:max(32px,calc((100vw - 1320px)/2))!important;padding-right:max(32px,calc((100vw - 1320px)/2))!important}
     .expectation-editorial .expectation-compass__heading{width:100%!important;max-width:860px!important;margin:0 0 64px 0!important}
-    .expectation-editorial .expectation-compass__heading .global-title{max-width:650px!important}
     .expectation-editorial .expectation-editorial__grid{width:min(100%,860px)!important;margin:0!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:54px 72px!important}
-    .expectation-editorial .expectation-editorial__more{width:min(100%,860px)!important;margin:54px 0 0 0!important}
+    .expectation-editorial .expectation-editorial__more{width:min(100%,860px)!important;margin:54px 0 0!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:72px!important}
+    .expectation-editorial .expectation-editorial__more .text-link{grid-column:2!important;justify-self:start!important}
 
     @media (max-width:960px){
       .expectation-editorial .expectation-compass__heading,.expectation-editorial .expectation-editorial__grid,.expectation-editorial .expectation-editorial__more{width:100%!important;max-width:760px!important;margin-left:0!important;margin-right:0!important}
     }
     @media (max-width:800px){.global-title{font-size:48px!important}.home-hero__services{font-size:11px!important;letter-spacing:.1em!important;margin-top:1.25rem}.home-hero__services .sep{margin:0 12px}.expectation-editorial{padding-left:24px!important;padding-right:24px!important}}
-    @media (max-width:640px){.expectation-editorial .expectation-editorial__grid{grid-template-columns:1fr!important;gap:38px!important}.expectation-editorial .expectation-editorial__more{margin-top:42px!important}}
+    @media (max-width:640px){.expectation-editorial .expectation-editorial__grid,.expectation-editorial .expectation-editorial__more{grid-template-columns:1fr!important;gap:38px!important}.expectation-editorial .expectation-editorial__more{margin-top:42px!important}.expectation-editorial .expectation-editorial__more .text-link{grid-column:1!important}}
   </style>
 
 <style id="global-heading-system">

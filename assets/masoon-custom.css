@@ -34,21 +34,18 @@ main > section:not(.home-hero) {
   letter-spacing: 0.10em !important;
 }
 
-/* STARTSEITE: Zusammenarbeit als Referenz für Dienstleistungs-Titel */
-.expectation-editorial .expectation-editorial__item h3,
+/* STARTSEITE: Dienstleistungen werden an Zusammenarbeit angeglichen. Zusammenarbeit selbst wird hier NICHT überschrieben. */
 .home-values__item h3,
 .home-values__item h3 strong {
-  font-family: var(--font-bitter), Georgia, serif !important;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important;
   font-size: 24px !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   line-height: 1.12 !important;
   letter-spacing: -0.01em !important;
   margin: 0 0 22px !important;
   padding-bottom: 0 !important;
 }
 
-/* STARTSEITE: Zusammenarbeit als Referenz für Dienstleistungs-Fliesstext */
-.expectation-editorial .expectation-editorial__item p,
 .home-values__item p {
   font-family: var(--font-inter), Arial, sans-serif !important;
   font-size: inherit !important;

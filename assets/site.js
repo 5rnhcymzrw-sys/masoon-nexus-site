@@ -1,4 +1,8 @@
 (() => {
+  const navLineStyle = document.createElement('style');
+  navLineStyle.textContent = `.site-nav a:after{background:rgba(255,255,255,.48)!important;}`;
+  document.head.appendChild(navLineStyle);
+
   if (location.pathname.includes('/unternehmen/')) {
     const fontFix = document.createElement('style');
     fontFix.textContent = `

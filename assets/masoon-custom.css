@@ -35,13 +35,16 @@ main > section:not(.home-hero) {
 }
 
 .home-values__item h3,
-.home-values__item h3 strong {
+.home-values__item h3 strong,
+.expectation-editorial .expectation-editorial__item h3 {
   font-weight: 700 !important;
   line-height: 1.12 !important;
-  margin: 0 0 14px !important;
+  margin: 0 0 22px !important;
+  padding-bottom: 0 !important;
 }
 
-.home-values__item p {
+.home-values__item p,
+.expectation-editorial .expectation-editorial__item p {
   margin-top: 0 !important;
   line-height: 1.55 !important;
 }
@@ -64,12 +67,6 @@ main > section:not(.home-hero) {
   text-align: left !important;
 }
 
-.expectation-editorial .expectation-editorial__item h3 {
-  font-weight: 700 !important;
-  margin: 0 0 22px !important;
-  padding-bottom: 0 !important;
-}
-
 .expectation-editorial .expectation-editorial__item h3::after {
   content: '' !important;
   display: block !important;
@@ -80,10 +77,6 @@ main > section:not(.home-hero) {
   opacity: 1 !important;
   box-shadow: none !important;
   border: 0 !important;
-}
-
-.expectation-editorial .expectation-editorial__item p {
-  line-height: 1.55 !important;
 }
 
 @media (max-width: 1050px) {

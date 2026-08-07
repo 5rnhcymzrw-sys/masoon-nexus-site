@@ -20,6 +20,8 @@ main > section:not(.home-hero) {
   flex-direction: column !important;
   justify-content: flex-start !important;
   position: relative !important;
+  min-height: 285px !important;
+  padding: 34px 36px !important;
 }
 
 .home-values__item .service-number {

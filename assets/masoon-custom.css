@@ -1,0 +1,52 @@
+/*
+  MASOON TREUHAND
+  Saubere Anpassungsdatei für schnelle Designkorrekturen.
+
+  Wichtig:
+  Diese Datei wird nach der komprimierten Haupt-CSS geladen.
+  Änderungen an Abständen, Schriftstärken, Farben und Positionen erfolgen künftig hier.
+*/
+
+/* STARTSEITE: Dienstleistungs-Kacheln */
+.home-values__item .service-number {
+  display: block !important;
+  position: relative !important;
+  top: -14px !important;
+  margin: 0 0 4px !important;
+  font-family: var(--font-inter), Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.10em !important;
+}
+
+.home-values__item h3,
+.home-values__item h3 strong {
+  font-family: var(--font-bitter), Georgia, serif !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.01em !important;
+  margin: 0 0 14px !important;
+}
+
+.home-values__item p {
+  margin-top: 0 !important;
+}
+
+/* STARTSEITE: Zusammenarbeit */
+.expectation-editorial .expectation-editorial__grid {
+  margin-left: 0 !important;
+  transform: translateX(-100px) !important;
+}
+
+.expectation-editorial .expectation-editorial__item h3 {
+  font-weight: 700 !important;
+}
+
+@media (max-width: 1050px) {
+  .expectation-editorial .expectation-editorial__grid {
+    transform: none !important;
+    margin-left: 0 !important;
+  }
+}

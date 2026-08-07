@@ -1,6 +1,6 @@
 (() => {
   const navLineStyle = document.createElement('style');
-  navLineStyle.textContent = `.site-nav a:after{background:rgba(255,255,255,.48)!important;}`;
+  navLineStyle.textContent = `.site-nav a:after{background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important;}`;
   document.head.appendChild(navLineStyle);
 
   if (location.pathname.includes('/unternehmen/')) {

@@ -62,7 +62,7 @@
 .expectation-editorial .expectation-editorial__item h3::after {
   content: '' !important;
   display: block !important;
-  width: 42px !important;
+  width: 120px !important;
   height: 1px !important;
   margin-top: 10px !important;
   background: #b8b8b8 !important;

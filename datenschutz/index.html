@@ -394,12 +394,77 @@
     margin-bottom: 0 !important;
     max-width: 650px !important;
   }
+
   .section-label,
   .expectation-compass__heading .section-label,
   .mandate-faq__heading .section-label,
   .process-section .section-heading .section-label {
     margin-bottom: 30px !important;
   }
+
+  /* Startseite: Zusammenarbeit sauber als Editorial-Raster */
+  .expectation-editorial {
+    display: grid !important;
+    grid-template-columns: 390px minmax(0, 1fr) !important;
+    column-gap: 110px !important;
+    row-gap: 0 !important;
+    align-items: start !important;
+    padding: 118px max(32px, calc((100vw - 1320px) / 2)) 120px !important;
+  }
+
+  .expectation-editorial .expectation-compass__heading {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    max-width: 390px !important;
+    margin: 0 !important;
+  }
+
+  .expectation-editorial .expectation-editorial__grid {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 112px 0 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(260px, 1fr)) !important;
+    gap: 64px 72px !important;
+  }
+
+  .expectation-editorial .expectation-editorial__item {
+    max-width: 360px !important;
+    margin: 0 !important;
+  }
+
+  .expectation-editorial .expectation-editorial__more {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 58px 0 0 !important;
+    display: block !important;
+  }
+
+  .expectation-editorial .expectation-editorial__more .text-link {
+    display: inline-block !important;
+    justify-self: auto !important;
+  }
+
+  @media (max-width: 1050px) {
+    .expectation-editorial {
+      grid-template-columns: 330px minmax(0, 1fr) !important;
+      column-gap: 64px !important;
+    }
+    .expectation-editorial .expectation-compass__heading {
+      max-width: 330px !important;
+    }
+    .expectation-editorial .expectation-editorial__grid {
+      grid-template-columns: 1fr !important;
+      gap: 38px !important;
+      margin-top: 88px !important;
+    }
+  }
+
   @media (max-width: 800px) {
     .home-hero h1,
     .home-values .section-heading h2,
@@ -420,6 +485,28 @@
     .mandate-faq__heading h2 {
       font-size: 48px !important;
       line-height: 1.05 !important;
+    }
+
+    .expectation-editorial {
+      grid-template-columns: 1fr !important;
+      row-gap: 48px !important;
+      padding: 82px 24px 90px !important;
+    }
+    .expectation-editorial .expectation-compass__heading,
+    .expectation-editorial .expectation-editorial__grid,
+    .expectation-editorial .expectation-editorial__more {
+      grid-column: 1 !important;
+      grid-row: auto !important;
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+    }
+    .expectation-editorial .expectation-editorial__grid {
+      grid-template-columns: 1fr !important;
+      gap: 38px !important;
+    }
+    .expectation-editorial .expectation-editorial__more {
+      margin-top: 6px !important;
     }
   }
 </style>

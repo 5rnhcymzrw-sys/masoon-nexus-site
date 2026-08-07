@@ -34,9 +34,10 @@ main > section:not(.home-hero) {
   letter-spacing: 0.10em !important;
 }
 
+/* STARTSEITE: Zusammenarbeit als Referenz für Dienstleistungs-Titel */
+.expectation-editorial .expectation-editorial__item h3,
 .home-values__item h3,
-.home-values__item h3 strong,
-.expectation-editorial .expectation-editorial__item h3 {
+.home-values__item h3 strong {
   font-family: var(--font-bitter), Georgia, serif !important;
   font-size: 24px !important;
   font-weight: 700 !important;
@@ -46,9 +47,12 @@ main > section:not(.home-hero) {
   padding-bottom: 0 !important;
 }
 
-.home-values__item p,
-.expectation-editorial .expectation-editorial__item p {
+/* STARTSEITE: Zusammenarbeit als Referenz für Dienstleistungs-Fliesstext */
+.expectation-editorial .expectation-editorial__item p,
+.home-values__item p {
   font-family: var(--font-inter), Arial, sans-serif !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
   margin-top: 0 !important;
   line-height: 1.55 !important;
 }

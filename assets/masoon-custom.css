@@ -8,6 +8,12 @@
   Keine Änderungen an der Kopfzeile.
 */
 
+/* EINHEITLICHER ABSCHNITTSABSTAND */
+main > section:not(.home-hero) {
+  padding-top: 120px !important;
+  padding-bottom: 120px !important;
+}
+
 /* STARTSEITE: Dienstleistungs-Kacheln */
 .home-values__item {
   display: flex !important;
@@ -42,7 +48,8 @@
 
 /* STARTSEITE: Zusammenarbeit */
 .expectation-editorial {
-  padding-top: 126px !important;
+  padding-top: 120px !important;
+  padding-bottom: 120px !important;
 }
 
 .expectation-editorial .expectation-editorial__grid {

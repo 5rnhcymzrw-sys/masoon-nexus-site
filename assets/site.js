@@ -3,6 +3,10 @@
   navLineStyle.textContent = `.site-nav a:after{background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important;}`;
   document.head.appendChild(navLineStyle);
 
+  const sectionLabelStyle = document.createElement('style');
+  sectionLabelStyle.textContent = `.section-label{font-family:var(--font-inter),Arial,sans-serif!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:.16em!important;text-transform:uppercase!important;}`;
+  document.head.appendChild(sectionLabelStyle);
+
   if (location.pathname.includes('/unternehmen/')) {
     const fontFix = document.createElement('style');
     fontFix.textContent = `

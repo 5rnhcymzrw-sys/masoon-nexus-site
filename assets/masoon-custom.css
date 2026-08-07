@@ -2,26 +2,39 @@
   MASOON TREUHAND
   Zentrale Anpassungsdatei für schnelle Designkorrekturen.
 
-  Regel:
-  Kopfzeile und Fachwissen bleiben typografische Ausnahmen.
-  Alle anderen Bereiche werden hier vereinheitlicht.
+  VERBINDLICHES TYPOGRAFIE-SYSTEM
+  1. Grosse Titel: Cormorant Garamond
+  2. Kleine Titel / Kartentitel: Bitter
+  3. Kopfzeile und Fliesstext: Inter
+  4. Fachwissen: bewusste Ausnahme, bleibt unverändert
 */
 
 :root {
-  --masoon-title-font: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
-  --masoon-heading-font: var(--font-bitter), Bitter, Georgia, serif;
-  --masoon-body-font: var(--font-inter), Inter, Arial, sans-serif;
+  --masoon-large-title-font: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --masoon-small-title-font: var(--font-bitter), Bitter, Georgia, serif;
+  --masoon-nav-body-font: var(--font-inter), Inter, Arial, sans-serif;
   --masoon-line: #b8b8b8;
   --masoon-copper: #b8834f;
 }
 
-/* Grundsystem ohne Kopfzeile und ohne Fachwissen-Karten */
-main :not(.home-paths):not(.home-paths *) {
-  font-synthesis: weight;
+/* 3. Kopfzeile und Fliesstext: gleiche Schriftart */
+body,
+main p,
+main li,
+main address,
+main label,
+main input,
+main textarea,
+main button,
+footer p,
+footer li,
+footer address,
+footer a {
+  font-family: var(--masoon-nav-body-font) !important;
 }
 
 .section-label {
-  font-family: var(--masoon-body-font) !important;
+  font-family: var(--masoon-nav-body-font) !important;
   font-size: 11px !important;
   font-weight: 500 !important;
   line-height: 1.65 !important;
@@ -29,15 +42,7 @@ main :not(.home-paths):not(.home-paths *) {
   text-transform: uppercase !important;
 }
 
-main p,
-main li,
-footer p,
-footer li,
-footer address {
-  font-family: var(--masoon-body-font) !important;
-}
-
-/* Grosse Seiten- und Abschnittstitel */
+/* 1. Grosse Titel: überall einheitlich, Fachwissen bleibt ausgenommen */
 .home-hero h1,
 .home-values .section-heading h2,
 .expectation-compass__heading h2,
@@ -51,16 +56,15 @@ footer address {
 .services-table-heading h2,
 .service-principles h2,
 .process-details h2,
-.knowledge-note h2,
 .mandate-faq__heading h2 {
-  font-family: var(--masoon-title-font) !important;
+  font-family: var(--masoon-large-title-font) !important;
   font-size: 60px !important;
   font-weight: 400 !important;
   line-height: 1.05 !important;
   letter-spacing: -0.02em !important;
 }
 
-/* Einheitliche Kartentitel ausser Fachwissen */
+/* 2. Kleine Titel / Kartentitel: überall einheitlich, Fachwissen bleibt ausgenommen */
 .home-values__item h3,
 .home-values__item h3 strong,
 .expectation-editorial__item h3,
@@ -69,12 +73,22 @@ footer address {
 .mandate-faq summary,
 .contact-section h2,
 .footer-main h2 {
-  font-family: var(--masoon-heading-font) !important;
+  font-family: var(--masoon-small-title-font) !important;
   font-size: 24px !important;
   font-weight: 700 !important;
   line-height: 1.12 !important;
   letter-spacing: -0.01em !important;
   margin-top: 0 !important;
+}
+
+/* 4. Fachwissen: bewusst ausgenommen */
+.home-paths,
+.home-paths *,
+.knowledge-grid,
+.knowledge-grid *,
+.article-detail,
+.article-detail * {
+  font-family: inherit;
 }
 
 /* STARTSEITE: Dienstleistungs-Kacheln */
@@ -90,7 +104,7 @@ footer address {
   position: relative !important;
   top: -24px !important;
   margin: 0 0 -8px !important;
-  font-family: var(--masoon-heading-font) !important;
+  font-family: var(--masoon-small-title-font) !important;
   font-size: 24px !important;
   font-weight: 700 !important;
   line-height: 1.12 !important;
@@ -142,7 +156,7 @@ footer address {
 
 /* DIENSTLEISTUNGEN: Nummern und Karten */
 .service-card > span {
-  font-family: var(--masoon-heading-font) !important;
+  font-family: var(--masoon-small-title-font) !important;
   font-size: 24px !important;
   font-weight: 700 !important;
   line-height: 1.12 !important;
@@ -197,7 +211,6 @@ footer address {
   .services-table-heading h2,
   .service-principles h2,
   .process-details h2,
-  .knowledge-note h2,
   .mandate-faq__heading h2 {
     font-size: 48px !important;
   }

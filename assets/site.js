@@ -2,10 +2,11 @@
   if (location.pathname.includes('/unternehmen/')) {
     const fontFix = document.createElement('style');
     fontFix.textContent = `
-      @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('/masoon-nexus-site/assets/_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2') format('woff2');}
-      @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500 700;font-display:swap;src:url('/masoon-nexus-site/assets/_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2') format('woff2');}
-      @font-face{font-family:'Bitter';font-style:normal;font-weight:400 700;font-display:swap;src:url('/masoon-nexus-site/assets/_vinext_fonts/bitter-cce6d5fc59e8/bitter-822c205b.woff2') format('woff2');}
-      body{--font-inter:'Inter',sans-serif;--font-cormorant:'Cormorant Garamond',serif;--font-bitter:'Bitter',serif;}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('../assets/_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2') format('woff2');}
+      @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500 600;font-display:swap;src:url('../assets/_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2') format('woff2');}
+      @font-face{font-family:'Bitter';font-style:normal;font-weight:400 700;font-display:swap;src:url('../assets/_vinext_fonts/bitter-cce6d5fc59e8/bitter-822c205b.woff2') format('woff2');}
+      body{--font-inter:'Inter',Arial,sans-serif;--font-cormorant:'Cormorant Garamond',Georgia,serif;--font-bitter:'Bitter',Georgia,serif;}
+      .expectation-compass__heading h2,.expectation-editorial__item h3{font-family:'Cormorant Garamond',Georgia,serif!important;}
     `;
     document.head.appendChild(fontFix);
   }

@@ -16,7 +16,7 @@
   document.head.appendChild(serviceCardSizeStyle);
 
   const collaborationLayoutStyle = document.createElement('style');
-  collaborationLayoutStyle.textContent = `.expectation-editorial .expectation-editorial__grid{margin-left:auto!important;margin-right:0!important;}@media(max-width:960px){.expectation-editorial .expectation-editorial__grid{margin-left:0!important;margin-right:0!important;}}`;
+  collaborationLayoutStyle.textContent = `.expectation-editorial .expectation-editorial__grid{margin-left:auto!important;margin-right:0!important;}.expectation-editorial .expectation-editorial__more{margin-left:auto!important;margin-right:0!important;width:min(100%,860px)!important;}@media(max-width:960px){.expectation-editorial .expectation-editorial__grid,.expectation-editorial .expectation-editorial__more{margin-left:0!important;margin-right:0!important;}}`;
   document.head.appendChild(collaborationLayoutStyle);
 
   if (location.pathname.includes('/unternehmen/')) {

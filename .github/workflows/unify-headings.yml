@@ -66,7 +66,7 @@ jobs:
             }
             .expectation-editorial .expectation-editorial__grid {
               width: min(100%, 860px) !important;
-              margin: 0 0 0 210px !important;
+              margin: 0 !important;
               display: grid !important;
               grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
               gap: 54px 72px !important;
@@ -87,7 +87,7 @@ jobs:
 
             @media (max-width: 1050px) {
               .expectation-editorial .expectation-editorial__grid {
-                margin-left: 110px !important;
+                margin-left: 0 !important;
                 width: min(100%, 760px) !important;
               }
             }

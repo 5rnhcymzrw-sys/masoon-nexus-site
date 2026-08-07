@@ -13,6 +13,16 @@
 
   const editorParams = new URLSearchParams(location.search);
   if (editorParams.get('edit') === '1') {
+    document.querySelectorAll('a[href]').forEach(link => {
+      try {
+        const url = new URL(link.href, location.href);
+        if (url.origin === location.origin && url.pathname.includes('/masoon-nexus-site/')) {
+          url.searchParams.set('edit', '1');
+          link.href = url.href;
+        }
+      } catch (_) {}
+    });
+
     const storageKey = `masoon-preview:${location.pathname}`;
     const editableSelector = 'main h1, main h2, main h3, main p, main li, main a, footer h2, footer h3, footer p, footer li, footer a';
     const editable = [...document.querySelectorAll(editableSelector)]

@@ -1,0 +1,36 @@
+name: Publish real MASOON website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository without external actions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" repo
+          cd repo
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Restore and extract website package
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd repo
+          git show 8aa874cb619d480408c4348f4449ec468a726b3e:MASOON_TREUHAND_Mehrseitige_Website_1zu1.zip > /tmp/site.zip
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          unzip -q /tmp/site.zip -d .
+          touch .nojekyll
+          rm -f BITTE_LESEN.txt
+          git add -A
+          git commit -m "Publish complete MASOON TREUHAND website" || true
+          git push origin main

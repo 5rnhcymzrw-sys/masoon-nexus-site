@@ -11,6 +11,10 @@
   serviceTextStyle.textContent = `.home-values__item p{line-height:1.55!important;}`;
   document.head.appendChild(serviceTextStyle);
 
+  const collaborationLayoutStyle = document.createElement('style');
+  collaborationLayoutStyle.textContent = `.expectation-editorial .expectation-editorial__grid{margin-left:auto!important;margin-right:0!important;}@media(max-width:960px){.expectation-editorial .expectation-editorial__grid{margin-left:0!important;margin-right:0!important;}}`;
+  document.head.appendChild(collaborationLayoutStyle);
+
   if (location.pathname.includes('/unternehmen/')) {
     const fontFix = document.createElement('style');
     fontFix.textContent = `

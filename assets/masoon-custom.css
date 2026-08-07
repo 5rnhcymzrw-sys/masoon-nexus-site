@@ -14,7 +14,6 @@
   --masoon-small-title-font: var(--font-bitter), Bitter, Georgia, serif;
   --masoon-nav-body-font: var(--font-inter), Inter, Arial, sans-serif;
   --masoon-line: #b8b8b8;
-  --masoon-copper: #b8834f;
 }
 
 /* 3. Kopfzeile und Fliesstext: gleiche Schriftart */
@@ -127,7 +126,7 @@ footer a {
 /* STARTSEITE: Zusammenarbeit */
 .expectation-editorial .expectation-editorial__grid {
   margin-left: 0 !important;
-  transform: translateX(-220px) !important;
+  transform: none !important;
   text-align: left !important;
 }
 
@@ -139,15 +138,17 @@ footer a {
 
 .expectation-editorial .expectation-editorial__item h3 {
   margin: 0 0 22px !important;
+  padding-bottom: 0 !important;
 }
 
 .expectation-editorial .expectation-editorial__item h3::after {
-  content: '';
-  display: block;
-  width: 42px;
-  height: 1px;
-  margin-top: 10px;
-  background: var(--masoon-copper);
+  content: '' !important;
+  display: block !important;
+  width: 42px !important;
+  height: 1px !important;
+  margin-top: 10px !important;
+  background: var(--masoon-line) !important;
+  opacity: 1 !important;
 }
 
 .expectation-editorial .expectation-editorial__item p {
@@ -182,19 +183,6 @@ footer a {
 .process-details h3::after {
   box-shadow: none !important;
   border: 0 !important;
-}
-
-@media (max-width: 1200px) {
-  .expectation-editorial .expectation-editorial__grid {
-    transform: translateX(-120px) !important;
-  }
-}
-
-@media (max-width: 1050px) {
-  .expectation-editorial .expectation-editorial__grid {
-    transform: none !important;
-    margin-left: 0 !important;
-  }
 }
 
 @media (max-width: 800px) {

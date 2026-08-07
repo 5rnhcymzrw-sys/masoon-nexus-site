@@ -7,6 +7,10 @@
   sectionLabelStyle.textContent = `.section-label{font-family:var(--font-inter),Arial,sans-serif!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:.16em!important;text-transform:uppercase!important;}`;
   document.head.appendChild(sectionLabelStyle);
 
+  const serviceTextStyle = document.createElement('style');
+  serviceTextStyle.textContent = `.home-values__item p{line-height:1.55!important;}`;
+  document.head.appendChild(serviceTextStyle);
+
   if (location.pathname.includes('/unternehmen/')) {
     const fontFix = document.createElement('style');
     fontFix.textContent = `

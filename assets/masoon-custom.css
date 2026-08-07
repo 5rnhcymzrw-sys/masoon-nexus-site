@@ -42,8 +42,8 @@
 
 /* STARTSEITE: Zusammenarbeit */
 .expectation-editorial .expectation-editorial__grid {
-  margin-left: 0 !important;
-  transform: translateX(0px) !important;
+  margin-left: 170px !important;
+  transform: none !important;
   text-align: left !important;
 }
 

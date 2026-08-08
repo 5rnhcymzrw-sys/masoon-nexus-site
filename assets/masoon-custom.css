@@ -83,8 +83,8 @@ main > section:not(.home-hero) {
   letter-spacing: 0.16em !important;
   text-transform: uppercase !important;
   color: var(--stone) !important;
-  border-bottom: 0 !important;
-  padding-bottom: 0 !important;
+  border-bottom: 1px solid currentColor !important;
+  padding-bottom: 5px !important;
 }
 
 /* STARTSEITE: Zusammenarbeit */

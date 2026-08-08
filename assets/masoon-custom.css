@@ -75,7 +75,7 @@ main > section:not(.home-hero) {
   font-family: var(--font-inter), Arial, sans-serif !important;
   font-size: 11px !important;
   font-weight: 500 !important;
-  line-height: 1 !important;
+  line-height: 1.65 !important;
   letter-spacing: 0.16em !important;
   text-transform: uppercase !important;
   color: var(--stone) !important;

@@ -64,6 +64,15 @@ main > section:not(.home-hero) {
   text-align: left !important;
 }
 
+.home-values__items + p {
+  text-align: right !important;
+  margin-top: 2.2rem !important;
+}
+
+.home-values__items + p .text-link {
+  display: inline-block !important;
+}
+
 /* STARTSEITE: Zusammenarbeit */
 .expectation-editorial {
   padding-top: 120px !important;

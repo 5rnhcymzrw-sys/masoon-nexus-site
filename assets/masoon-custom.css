@@ -121,11 +121,15 @@ main > section:not(.home-hero) {
 .home-paths__grid a strong {
   display: block !important;
   order: 1 !important;
-  font-size: 0 !important;
-  line-height: 0 !important;
-  margin: 0 0 22px !important;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.01em !important;
+  margin: 0 0 14px !important;
   padding: 0 !important;
-  color: transparent !important;
+  color: var(--ink) !important;
+  text-align: left !important;
 }
 
 .home-paths__grid a strong::after {
@@ -133,7 +137,7 @@ main > section:not(.home-hero) {
   display: block !important;
   width: 48px !important;
   height: 1px !important;
-  margin-top: 0 !important;
+  margin-top: 10px !important;
   background: #8f8a82 !important;
   opacity: 1 !important;
   box-shadow: none !important;
@@ -143,13 +147,13 @@ main > section:not(.home-hero) {
 .home-paths__grid a span {
   display: block !important;
   order: 2 !important;
-  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important;
-  font-size: 24px !important;
+  font-family: var(--font-inter), Arial, sans-serif !important;
+  font-size: 11px !important;
   font-weight: 500 !important;
-  line-height: 1.12 !important;
-  letter-spacing: -0.01em !important;
-  color: var(--ink) !important;
-  text-transform: none !important;
+  line-height: 1.65 !important;
+  letter-spacing: 0.16em !important;
+  color: var(--stone) !important;
+  text-transform: uppercase !important;
   margin: 0 !important;
   padding: 0 !important;
   text-align: left !important;

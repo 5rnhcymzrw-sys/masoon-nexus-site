@@ -76,6 +76,15 @@ main > section:not(.home-hero) {
   grid-column: 3 !important;
   justify-self: start !important;
   display: inline-block !important;
+  font-family: var(--font-inter), Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: var(--stone) !important;
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 /* STARTSEITE: Zusammenarbeit */

@@ -18,22 +18,25 @@ main > section:not(.home-hero) {
 .home-values__item {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
   position: relative !important;
   min-height: 285px !important;
   padding: 34px 36px !important;
+  text-align: left !important;
 }
 
 .home-values__item .service-number {
   display: block !important;
   position: relative !important;
-  top: -14px !important;
-  margin: 0 0 4px !important;
+  top: 0 !important;
+  margin: 0 0 12px !important;
   font-family: var(--font-inter), Arial, sans-serif !important;
   font-size: 11px !important;
   font-weight: 600 !important;
   line-height: 1 !important;
   letter-spacing: 0.10em !important;
+  text-align: left !important;
 }
 
 /* STARTSEITE: Dienstleistungen werden an Zusammenarbeit angeglichen. Zusammenarbeit selbst wird hier NICHT überschrieben. */
@@ -46,6 +49,7 @@ main > section:not(.home-hero) {
   letter-spacing: -0.01em !important;
   margin: 0 0 22px !important;
   padding-bottom: 0 !important;
+  text-align: left !important;
 }
 
 .home-values__item p {
@@ -54,6 +58,7 @@ main > section:not(.home-hero) {
   font-weight: inherit !important;
   margin-top: 0 !important;
   line-height: 1.55 !important;
+  text-align: left !important;
 }
 
 /* STARTSEITE: Zusammenarbeit */

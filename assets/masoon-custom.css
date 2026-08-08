@@ -84,6 +84,86 @@ main > section:not(.home-hero) {
   padding-bottom: 5px !important;
 }
 
+/* STARTSEITE: Fachwissen unten an Dienstleistungen angeglichen */
+.home-paths__grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 28px !important;
+}
+
+.home-paths__grid a {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  position: relative !important;
+  min-height: 285px !important;
+  padding: 34px 36px !important;
+  text-align: left !important;
+  background: #ece9e3 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.home-paths__grid a:nth-child(2) {
+  background: #dedbd4 !important;
+}
+
+.home-paths__grid a:nth-child(3) {
+  background: #d5d1c9 !important;
+}
+
+.home-paths__grid a span,
+.home-paths__grid a i {
+  display: none !important;
+}
+
+.home-paths__grid a strong {
+  display: block !important;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.01em !important;
+  margin: 0 0 22px !important;
+  padding-bottom: 0 !important;
+  color: var(--ink) !important;
+  text-align: left !important;
+}
+
+.home-paths__grid a strong::after {
+  content: '' !important;
+  display: block !important;
+  width: 48px !important;
+  height: 1px !important;
+  margin-top: 10px !important;
+  background: #8f8a82 !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.home-paths > p {
+  display: block !important;
+  margin-top: 2.2rem !important;
+  padding-left: 36px !important;
+  text-align: left !important;
+}
+
+.home-paths > p .text-link {
+  display: inline-block !important;
+  font-family: var(--font-inter), Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  line-height: 1.65 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: var(--stone) !important;
+  border-bottom: 1px solid currentColor !important;
+  padding-bottom: 5px !important;
+}
+
 /* STARTSEITE: Zusammenarbeit */
 .expectation-editorial {
   padding-top: 120px !important;
@@ -115,6 +195,10 @@ main > section:not(.home-hero) {
 }
 
 @media (max-width: 1050px) {
+  .home-paths__grid {
+    grid-template-columns: 1fr !important;
+  }
+
   .expectation-editorial .expectation-editorial__grid {
     transform: none !important;
     margin-left: 0 !important;

@@ -67,6 +67,7 @@ main > section:not(.home-hero) {
 .home-values__items + p {
   display: block !important;
   margin-top: 2.2rem !important;
+  padding-left: 36px !important;
   text-align: left !important;
 }
 

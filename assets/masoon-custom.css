@@ -65,11 +65,16 @@ main > section:not(.home-hero) {
 }
 
 .home-values__items + p {
-  text-align: right !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 28px !important;
   margin-top: 2.2rem !important;
+  text-align: left !important;
 }
 
 .home-values__items + p .text-link {
+  grid-column: 3 !important;
+  justify-self: start !important;
   display: inline-block !important;
 }
 
@@ -104,6 +109,14 @@ main > section:not(.home-hero) {
 }
 
 @media (max-width: 1050px) {
+  .home-values__items + p {
+    display: block !important;
+  }
+
+  .home-values__items + p .text-link {
+    grid-column: auto !important;
+  }
+
   .expectation-editorial .expectation-editorial__grid {
     transform: none !important;
     margin-left: 0 !important;

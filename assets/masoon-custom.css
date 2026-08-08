@@ -27,16 +27,7 @@ main > section:not(.home-hero) {
 }
 
 .home-values__item .service-number {
-  display: block !important;
-  position: relative !important;
-  top: 0 !important;
-  margin: 0 0 12px !important;
-  font-family: var(--font-inter), Arial, sans-serif !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  line-height: 1 !important;
-  letter-spacing: 0.10em !important;
-  text-align: left !important;
+  display: none !important;
 }
 
 /* STARTSEITE: Dienstleistungen werden an Zusammenarbeit angeglichen. Zusammenarbeit selbst wird hier NICHT überschrieben. */
@@ -50,6 +41,18 @@ main > section:not(.home-hero) {
   margin: 0 0 22px !important;
   padding-bottom: 0 !important;
   text-align: left !important;
+}
+
+.home-values__item h3::after {
+  content: '' !important;
+  display: block !important;
+  width: 48px !important;
+  height: 1px !important;
+  margin-top: 10px !important;
+  background: #8f8a82 !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+  border: 0 !important;
 }
 
 .home-values__item p {

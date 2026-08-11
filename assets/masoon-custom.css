@@ -40,7 +40,7 @@ main > section:not(.home-hero) {
 .home-values__item h3 strong {
   font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important;
   font-size: 24px !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   line-height: 1.12 !important;
   letter-spacing: -0.01em !important;
   margin: 0 0 22px !important;

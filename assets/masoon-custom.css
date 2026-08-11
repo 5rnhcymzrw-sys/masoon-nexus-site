@@ -140,12 +140,16 @@ main > section:not(.home-hero) {
 /* Zweite Fachwissen-Kachel: exakt zwei Zeilen */
 .home-paths__grid a:nth-child(2) strong {
   font-size: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
 }
 
 .home-paths__grid a:nth-child(2) strong::before {
   content: 'Die passende\A Unternehmensform wählen';
-  white-space: pre-line;
+  white-space: pre !important;
   display: block;
+  width: 100%;
+  max-width: none;
   font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   font-size: 28px;
   font-weight: 500;

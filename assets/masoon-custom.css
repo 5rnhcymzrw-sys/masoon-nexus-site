@@ -55,6 +55,13 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
   flex-direction:column!important;
   align-items:center!important;
 }
+.footer-main h2,
+.footer-main p,
+.footer-main address {
+  width:180px!important;
+  max-width:180px!important;
+  text-align:left!important;
+}
 .footer-main h2 {
   margin:0 0 17px!important;
   font-family:var(--font-inter),Arial,sans-serif!important;
@@ -64,8 +71,6 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
   letter-spacing:.14em!important;
   text-transform:uppercase!important;
   color:rgba(255,255,255,.90)!important;
-  text-align:left!important;
-  width:max-content!important;
 }
 .footer-main h2::after { content:''!important; display:block!important; width:42px!important; height:1px!important; margin:11px 0 0!important; background:rgba(255,255,255,.34)!important; }
 .footer-main p,.footer-main address {
@@ -74,8 +79,6 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
   font-weight:400!important;
   line-height:1.65!important;
   color:rgba(255,255,255,.82)!important;
-  text-align:left!important;
-  width:max-content!important;
 }
 .footer-main a { color:rgba(255,255,255,.82)!important; }
 .footer-bottom > div {display:inline-block!important;white-space:nowrap!important}.footer-bottom > div > span[aria-hidden='true']{display:inline!important;margin:0!important;padding:0!important}

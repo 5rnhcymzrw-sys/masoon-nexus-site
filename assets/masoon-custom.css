@@ -15,7 +15,8 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
 .home-values .section-heading,
 .home-paths__heading,
 .expectation-editorial .expectation-compass__heading {
-  margin-bottom:64px!important;
+  margin:0 0 64px!important;
+  max-width:650px!important;
 }
 .home-values .section-label,
 .home-paths .section-label,
@@ -27,6 +28,7 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
   line-height:1.65!important;
   letter-spacing:.16em!important;
   text-transform:uppercase!important;
+  margin-top:0!important;
   margin-bottom:30px!important;
 }
 .home-values .section-heading h2,
@@ -38,6 +40,8 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
   font-weight:400!important;
   line-height:1.05!important;
   letter-spacing:-.02em!important;
+  max-width:650px!important;
+  margin:0!important;
 }
 .home-values__item h3,
 .home-values__item h3 strong,
@@ -74,6 +78,13 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
   box-shadow:none!important;
   border:0!important;
 }
+.home-values__items + p,
+.home-paths > p {
+  display:block!important;
+  margin-top:2.2rem!important;
+  padding-left:0!important;
+  text-align:left!important;
+}
 .home-values__items + p .text-link,
 .home-paths>p .text-link,
 .home-contact-band .text-link {
@@ -89,14 +100,19 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
   padding-bottom:5px!important;
   text-align:left!important;
 }
+.home-contact-band > div {
+  align-items:flex-start!important;
+  text-align:left!important;
+}
+.home-contact-band .text-link {
+  margin-top:2.2rem!important;
+}
 
 .home-values__item { display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important;position:relative!important;min-height:285px!important;padding:34px 36px!important;text-align:left!important; }
 .home-values__item .service-number { display:none!important; }
 .home-values__item h3,.home-values__item h3 strong {font-family:var(--font-cormorant),'Cormorant Garamond',Georgia,serif!important;font-size:24px!important;font-weight:500!important;line-height:1.12!important;letter-spacing:-.01em!important;margin:0 0 14px!important;padding-bottom:0!important;text-align:left!important}
 .home-values__item h3::after {content:''!important;display:block!important;width:48px!important;height:1px!important;margin-top:10px!important;background:#8f8a82!important;opacity:1!important;box-shadow:none!important;border:0!important}
 .home-values__item p {font-family:var(--font-inter),Arial,sans-serif!important;font-size:15px!important;font-weight:400!important;margin:0!important;line-height:1.65!important;text-align:left!important}
-.home-values__items + p {display:block!important;margin-top:2.2rem!important;padding-left:0!important;text-align:left!important}
-.home-values__items + p .text-link {display:inline-block!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:var(--stone)!important;border-bottom:1px solid currentColor!important;padding-bottom:5px!important}
 
 .home-paths__grid {display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:28px!important}
 .home-paths__grid a {display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important;position:relative!important;min-height:285px!important;padding:34px 36px!important;text-align:left!important;background:#ece9e3!important;border:0!important;border-radius:0!important;box-shadow:none!important}
@@ -105,7 +121,6 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
 .home-paths__grid a:nth-child(2) strong{font-size:0!important;width:100%!important;max-width:none!important}.home-paths__grid a:nth-child(2) strong::before{content:'Die passende\A Unternehmensform wählen';white-space:pre!important;display:block;width:100%;max-width:none;font-family:var(--font-cormorant),'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:500;line-height:1.12;letter-spacing:-.01em;color:var(--ink)}
 .home-paths__grid a strong::after{content:''!important;display:block!important;width:48px!important;height:1px!important;margin-top:10px!important;background:#8f8a82!important;opacity:1!important;box-shadow:none!important;border:0!important}
 .home-paths__grid a span{display:block!important;order:2!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:.16em!important;color:var(--stone)!important;text-transform:uppercase!important;margin:0!important;padding:0!important;text-align:left!important}
-.home-paths>p{display:block!important;margin-top:2.2rem!important;padding-left:0!important;text-align:left!important}.home-paths>p .text-link{display:inline-block!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:var(--stone)!important;border-bottom:1px solid currentColor!important;padding-bottom:5px!important}
 
 .expectation-editorial{padding-top:120px!important;padding-bottom:120px!important}.expectation-editorial .expectation-editorial__grid{margin-left:170px!important;transform:none!important;text-align:left!important}.expectation-editorial .expectation-editorial__item,.expectation-editorial .expectation-editorial__item h3,.expectation-editorial .expectation-editorial__item p{text-align:left!important}.expectation-editorial .expectation-editorial__item h3{font-family:var(--font-cormorant),'Cormorant Garamond',Georgia,serif!important;font-size:24px!important;font-weight:500!important;line-height:1.12!important;letter-spacing:-.01em!important;margin:0 0 14px!important}.expectation-editorial .expectation-editorial__item p{font-family:var(--font-inter),Arial,sans-serif!important;font-size:15px!important;font-weight:400!important;line-height:1.65!important;margin:0!important}.expectation-editorial .expectation-editorial__item h3::after{content:''!important;display:block!important;width:48px!important;height:1px!important;margin-top:10px!important;background:#8f8a82!important;opacity:1!important;box-shadow:none!important;border:0!important}
 

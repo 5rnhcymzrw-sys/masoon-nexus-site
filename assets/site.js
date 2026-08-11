@@ -63,6 +63,33 @@
     document.fonts.ready.then(syncServiceTypographyFromExpectation).catch(() => {});
   }
 
+  const syncFooterToNavigation = () => {
+    const navigation = document.querySelector('.site-nav');
+    const footerMain = document.querySelector('.footer-main');
+    if (!navigation || !footerMain) return;
+
+    const rect = navigation.getBoundingClientRect();
+    if (window.innerWidth <= 800 || rect.width < 1) {
+      footerMain.style.removeProperty('width');
+      footerMain.style.removeProperty('max-width');
+      footerMain.style.removeProperty('margin-left');
+      footerMain.style.removeProperty('margin-right');
+      return;
+    }
+
+    footerMain.style.setProperty('width', `${rect.width}px`, 'important');
+    footerMain.style.setProperty('max-width', 'none', 'important');
+    footerMain.style.setProperty('margin-left', `${rect.left}px`, 'important');
+    footerMain.style.setProperty('margin-right', '0', 'important');
+  };
+
+  syncFooterToNavigation();
+  requestAnimationFrame(syncFooterToNavigation);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncFooterToNavigation).catch(() => {});
+  }
+  window.addEventListener('resize', syncFooterToNavigation);
+
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
   if (toggle && nav) {

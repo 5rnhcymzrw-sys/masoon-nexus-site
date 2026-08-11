@@ -235,15 +235,16 @@ main > section:not(.home-hero) {
   border: 0 !important;
 }
 
-/* FOOTER: gleicher Abstand um die Trennlinie wie links */
+/* FOOTER: exakt derselbe Abstand wie bei «MASOON TREUHAND | Alle Rechte vorbehalten.» */
 .footer-bottom > div {
-  display: flex !important;
-  align-items: center !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
 }
 
 .footer-bottom > div > span[aria-hidden='true'] {
-  display: inline-block !important;
-  margin: 0 6px !important;
+  display: inline !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 @media (max-width: 1050px) {

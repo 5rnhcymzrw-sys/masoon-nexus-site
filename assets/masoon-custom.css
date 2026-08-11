@@ -55,10 +55,11 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
   -webkit-backdrop-filter:none!important;
   display:flex!important;
   flex-direction:column!important;
+  align-items:flex-start!important;
 }
-.footer-main > div:first-child { align-items:flex-start!important; }
-.footer-main > div:nth-child(2) { align-items:center!important; }
-.footer-main > div:last-child { align-items:flex-end!important; }
+.footer-main > div:first-child,
+.footer-main > div:nth-child(2),
+.footer-main > div:last-child { align-items:flex-start!important; }
 .footer-main h2,
 .footer-main p,
 .footer-main address {

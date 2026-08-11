@@ -35,15 +35,15 @@ main > section:not(.home-hero) {
   display: none !important;
 }
 
-/* STARTSEITE: Dienstleistungen werden an Zusammenarbeit angeglichen. Zusammenarbeit selbst wird hier NICHT überschrieben. */
+/* STARTSEITE: Dienstleistungen exakt an Zusammenarbeit angeglichen */
 .home-values__item h3,
 .home-values__item h3 strong {
   font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif !important;
   font-size: 24px !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   line-height: 1.12 !important;
   letter-spacing: -0.01em !important;
-  margin: 0 0 22px !important;
+  margin: 0 0 14px !important;
   padding-bottom: 0 !important;
   text-align: left !important;
 }
@@ -62,10 +62,10 @@ main > section:not(.home-hero) {
 
 .home-values__item p {
   font-family: var(--font-inter), Arial, sans-serif !important;
-  font-size: inherit !important;
-  font-weight: inherit !important;
-  margin-top: 0 !important;
-  line-height: 1.55 !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+  line-height: 1.65 !important;
   text-align: left !important;
 }
 

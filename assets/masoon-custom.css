@@ -137,6 +137,23 @@ main > section:not(.home-hero) {
   text-align: left !important;
 }
 
+/* Zweite Fachwissen-Kachel: exakt zwei Zeilen */
+.home-paths__grid a:nth-child(2) strong {
+  font-size: 0 !important;
+}
+
+.home-paths__grid a:nth-child(2) strong::before {
+  content: 'Die passende\A Unternehmensform wählen';
+  white-space: pre-line;
+  display: block;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
 .home-paths__grid a strong::after {
   content: '' !important;
   display: block !important;

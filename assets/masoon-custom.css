@@ -8,6 +8,11 @@
   Keine Änderungen an der Kopfzeile.
 */
 
+/* STARTSEITE: Hero-Bild so positionieren, dass das Gesicht auch auf breiten Bildschirmen sichtbar bleibt */
+.home-hero {
+  background-position: 50% 50%, 50% 50%, 50% 12% !important;
+}
+
 /* EINHEITLICHER ABSCHNITTSABSTAND */
 main > section:not(.home-hero) {
   padding-top: 120px !important;

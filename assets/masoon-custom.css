@@ -9,8 +9,8 @@
 */
 
 .home-hero {
-  background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url("../hero 2.png")!important;
-  background-position:50% 50%,50% 50%,50% 50%!important;
+  background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url(../hero1.png)!important;
+  background-position:50% 50%,50% 50%,50% 12%!important;
   background-size:cover!important;
 }
 main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 120px !important; }
@@ -202,4 +202,14 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
     row-gap:12px!important
   }
   .footer-main>div,.footer-main>div:first-child,.footer-main>div:nth-child(2),.footer-main>div:last-child{padding:0!important;align-items:flex-start!important}
+}
+
+/* STARTSEITE: Architektur als ruhiges Zwischenbanner */
+.home-architecture-banner {
+  min-height:520px!important;
+  padding:0!important;
+  background-image:linear-gradient(rgba(8,8,8,.08),rgba(8,8,8,.08)),url("../hero 2.png")!important;
+  background-position:center center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
 }

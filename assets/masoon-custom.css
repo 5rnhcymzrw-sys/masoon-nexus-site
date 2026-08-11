@@ -30,15 +30,15 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
 
 .expectation-editorial{padding-top:120px!important;padding-bottom:120px!important}.expectation-editorial .expectation-editorial__grid{margin-left:170px!important;transform:none!important;text-align:left!important}.expectation-editorial .expectation-editorial__item,.expectation-editorial .expectation-editorial__item h3,.expectation-editorial .expectation-editorial__item p{text-align:left!important}.expectation-editorial .expectation-editorial__item h3::after{content:''!important;display:block!important;width:48px!important;height:1px!important;margin-top:10px!important;background:#8f8a82!important;opacity:1!important;box-shadow:none!important;border:0!important}
 
-/* FOOTER: exakt von STARTSEITE bis KONTAKT, Inhalt je Spalte linksbuendig */
+/* FOOTER: exakt von STARTSEITE bis KONTAKT, Kontakt exakt mittig */
 .site-footer { background-color:rgba(8,8,8,.46)!important; background-blend-mode:multiply!important; }
 .footer-main {
   width:min(calc(100% - 64px),700px)!important;
   margin:0 auto!important;
   padding:82px 0 56px!important;
   display:grid!important;
-  grid-template-columns:repeat(3,minmax(0,1fr))!important;
-  column-gap:28px!important;
+  grid-template-columns:1fr auto 1fr!important;
+  column-gap:0!important;
   align-items:start!important;
 }
 .footer-main > div,.footer-main > div:first-child,.footer-main > div:last-child {

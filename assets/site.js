@@ -64,12 +64,15 @@
   }
 
   const syncFooterToNavigation = () => {
-    const navigation = document.querySelector('.site-nav');
+    const firstNavLink = document.querySelector('.site-nav a:first-child');
+    const lastNavLink = document.querySelector('.site-nav a:last-child');
     const footerMain = document.querySelector('.footer-main');
-    if (!navigation || !footerMain) return;
+    if (!firstNavLink || !lastNavLink || !footerMain) return;
 
-    const rect = navigation.getBoundingClientRect();
-    if (window.innerWidth <= 800 || rect.width < 1) {
+    const firstRect = firstNavLink.getBoundingClientRect();
+    const lastRect = lastNavLink.getBoundingClientRect();
+
+    if (window.innerWidth <= 800 || firstRect.width < 1 || lastRect.width < 1) {
       footerMain.style.removeProperty('width');
       footerMain.style.removeProperty('max-width');
       footerMain.style.removeProperty('margin-left');
@@ -77,9 +80,12 @@
       return;
     }
 
-    footerMain.style.setProperty('width', `${rect.width}px`, 'important');
+    const left = firstRect.left;
+    const right = lastRect.right;
+
+    footerMain.style.setProperty('width', `${right - left}px`, 'important');
     footerMain.style.setProperty('max-width', 'none', 'important');
-    footerMain.style.setProperty('margin-left', `${rect.left}px`, 'important');
+    footerMain.style.setProperty('margin-left', `${left}px`, 'important');
     footerMain.style.setProperty('margin-right', '0', 'important');
   };
 

@@ -1,0 +1,32 @@
+name: Switch logo references
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  switch-logo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Replace logo references
+        shell: bash
+        run: |
+          find . -type f -name '*.html' -print0 | xargs -0 sed -i 's/logo-white\.png/white_logo_transparent_background.png/g'
+      - name: Commit changes
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No logo references left to replace."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.html' */*.html
+          git commit -m "Use new logo filename everywhere"
+          git push

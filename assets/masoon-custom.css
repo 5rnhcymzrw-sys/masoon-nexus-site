@@ -30,6 +30,11 @@ main > section:not(.home-hero) { padding-top: 120px !important; padding-bottom: 
 
 .expectation-editorial{padding-top:120px!important;padding-bottom:120px!important}.expectation-editorial .expectation-editorial__grid{margin-left:170px!important;transform:none!important;text-align:left!important}.expectation-editorial .expectation-editorial__item,.expectation-editorial .expectation-editorial__item h3,.expectation-editorial .expectation-editorial__item p{text-align:left!important}.expectation-editorial .expectation-editorial__item h3::after{content:''!important;display:block!important;width:48px!important;height:1px!important;margin-top:10px!important;background:#8f8a82!important;opacity:1!important;box-shadow:none!important;border:0!important}
 
+/* LOGO: klar im Vordergrund und rein weiss */
+.site-header { isolation:isolate!important; }
+.brand { z-index:100!important; opacity:1!important; filter:none!important; mix-blend-mode:normal!important; }
+.brand img { position:relative!important; z-index:2!important; opacity:1!important; filter:brightness(0) invert(1)!important; mix-blend-mode:normal!important; }
+
 /* FOOTER: drei gleich grosse Spalten, ohne sichtbare Kastenlinien */
 .site-footer { background-color:rgba(8,8,8,.46)!important; background-blend-mode:multiply!important; }
 .footer-main {

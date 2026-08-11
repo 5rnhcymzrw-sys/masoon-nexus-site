@@ -14,6 +14,26 @@
   navLineStyle.textContent = `.site-nav a:after{height:1px!important;background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important;}`;
   document.head.appendChild(navLineStyle);
 
+  const normalizeLinkArrows = () => {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      if (/[↗↑]/.test(node.nodeValue || '')) {
+        node.nodeValue = node.nodeValue.replace(/[↗↑]\uFE0F?/g, '↗︎');
+      }
+    });
+
+    document.querySelectorAll('.text-link span[aria-hidden="true"], .home-paths__grid i[aria-hidden="true"]').forEach(element => {
+      element.style.setProperty('font-family', 'Arial, Helvetica, sans-serif', 'important');
+      element.style.setProperty('font-style', 'normal', 'important');
+      element.style.setProperty('font-weight', '400', 'important');
+    });
+  };
+
+  normalizeLinkArrows();
+  requestAnimationFrame(normalizeLinkArrows);
+
   const syncServiceTypographyFromExpectation = () => {
     const referenceTitle = document.querySelector('.expectation-editorial .expectation-editorial__item h3');
     const referenceText = document.querySelector('.expectation-editorial .expectation-editorial__item p');

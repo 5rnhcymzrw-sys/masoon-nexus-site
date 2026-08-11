@@ -1,0 +1,51 @@
+name: Architecture banner preview
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  apply-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply homepage preview
+        shell: python
+        run: |
+          from pathlib import Path
+
+          css_path = Path('assets/masoon-custom.css')
+          css = css_path.read_text(encoding='utf-8')
+          css = css.replace(
+              'background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url("../hero 2.png")!important;\n  background-position:50% 50%,50% 50%,50% 50%!important;',
+              'background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url(../hero1.png)!important;\n  background-position:50% 50%,50% 50%,50% 12%!important;'
+          )
+          banner_css = '''\n/* STARTSEITE: Architektur als ruhiges Zwischenbanner */\n.home-architecture-banner {\n  min-height:520px!important;\n  padding:0!important;\n  background-image:linear-gradient(rgba(8,8,8,.08),rgba(8,8,8,.08)),url("../hero 2.png")!important;\n  background-position:center center!important;\n  background-size:cover!important;\n  background-repeat:no-repeat!important;\n}\n'''
+          if '.home-architecture-banner {' not in css:
+              css += banner_css
+          css_path.write_text(css, encoding='utf-8')
+
+          html_path = Path('index.html')
+          html = html_path.read_text(encoding='utf-8')
+          banner_html = '    <section class="home-architecture-banner" aria-label="Architektur"></section>\n\n'
+          marker = '    <section class="home-paths">'
+          if 'home-architecture-banner' not in html:
+              html = html.replace(marker, banner_html + marker, 1)
+          html_path.write_text(html, encoding='utf-8')
+      - name: Commit preview
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "Preview already applied."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html assets/masoon-custom.css
+          git commit -m "Porträt Hero mit Architektur Zwischenbanner"
+          git push

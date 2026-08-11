@@ -235,6 +235,17 @@ main > section:not(.home-hero) {
   border: 0 !important;
 }
 
+/* FOOTER: gleicher Abstand um die Trennlinie wie links */
+.footer-bottom > div {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.footer-bottom > div > span[aria-hidden='true'] {
+  display: inline-block !important;
+  margin: 0 6px !important;
+}
+
 @media (max-width: 1050px) {
   .home-paths__grid {
     grid-template-columns: 1fr !important;

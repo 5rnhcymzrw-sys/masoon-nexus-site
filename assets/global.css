@@ -7,77 +7,12 @@
 html,body{max-width:100%;overflow-x:hidden}
 
 /* Einheitliches Typografiesystem */
-.section-label,
-.article-meta,
-.card-number,
-.details-action{
-  font-family:var(--font-inter)!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  line-height:1.65!important;
-  letter-spacing:.16em!important;
-  text-transform:uppercase!important;
-}
-
-.global-title,
-.home-values .section-heading h2,
-.expectation-compass__heading h2,
-.home-paths__heading h2,
-.home-contact-band h2,
-.home-company__copy h2,
-.services-section .section-heading h1,
-.section-heading h1,
-.section-heading h2,
-.page-hero h1,
-.contact-section h1,
-.legal-page h1,
-.article-detail h1,
-.service-page__heading h1,
-.services-table-heading h2,
-.service-principles h2,
-.process-details h2,
-.knowledge-note h2,
-.mandate-faq__heading h2{
-  font-family:var(--font-cormorant)!important;
-  font-size:60px!important;
-  font-weight:400!important;
-  line-height:1.05!important;
-  letter-spacing:-.02em!important;
-  max-width:650px!important;
-}
-
-.home-values__item h3,
-.home-paths__grid strong,
-.expectation-editorial__item h3,
-.services-section .service-card h2{
-  font-family:var(--font-cormorant)!important;
-  font-size:24px!important;
-  font-weight:500!important;
-  line-height:1.12!important;
-  letter-spacing:-.01em!important;
-}
-
-.home-values__item p,
-.expectation-editorial__item p,
-.home-company__copy .prose,
-.home-company__copy .prose p,
-.services-section .service-card summary p,
-.services-section .service-card li,
-.service-intro,
-.service-intro p{
-  font-family:var(--font-inter)!important;
-  font-size:15px!important;
-  font-weight:400!important;
-  line-height:1.65!important;
-  letter-spacing:normal!important;
-}
-
-/* Einheitliche Abstände */
+.section-label,.article-meta,.card-number,.details-action{font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:.16em!important;text-transform:uppercase!important}
+.global-title,.home-values .section-heading h2,.expectation-compass__heading h2,.home-paths__heading h2,.home-contact-band h2,.home-company__copy h2,.services-section .section-heading h1,.section-heading h1,.section-heading h2,.page-hero h1,.contact-section h1,.legal-page h1,.article-detail h1,.service-page__heading h1,.services-table-heading h2,.service-principles h2,.process-details h2,.knowledge-note h2,.mandate-faq__heading h2{font-family:var(--font-cormorant)!important;font-size:60px!important;font-weight:400!important;line-height:1.05!important;letter-spacing:-.02em!important;max-width:650px!important}
+.home-values__item h3,.home-paths__grid strong,.expectation-editorial__item h3,.services-section .service-card h2{font-family:var(--font-cormorant)!important;font-size:24px!important;font-weight:500!important;line-height:1.12!important;letter-spacing:-.01em!important}
+.home-values__item p,.expectation-editorial__item p,.home-company__copy .prose,.home-company__copy .prose p,.services-section .service-card summary p,.services-section .service-card li,.service-intro,.service-intro p{font-family:var(--font-inter)!important;font-size:15px!important;font-weight:400!important;line-height:1.65!important;letter-spacing:normal!important}
 .section-label{margin-top:0!important;margin-bottom:30px!important}
-.home-values .section-heading,
-.home-paths__heading,
-.expectation-editorial .expectation-compass__heading,
-.services-section .section-heading{margin:0 0 64px!important;max-width:650px!important}
+.home-values .section-heading,.home-paths__heading,.expectation-editorial .expectation-compass__heading,.services-section .section-heading{margin:0 0 64px!important;max-width:650px!important}
 
 /* Startseite */
 .home-hero{background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url('../hero1.png')!important;background-position:50% 50%,50% 50%,50% 12%!important;background-size:cover!important;background-repeat:no-repeat!important}
@@ -85,9 +20,7 @@ html,body{max-width:100%;overflow-x:hidden}
 .home-values__item{min-height:285px!important;padding:34px 36px!important;text-align:left!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important}
 .home-values__item .service-number{display:none!important}
 .home-values__item h3{margin:0 0 14px!important}
-.home-values__item h3::after,
-.home-paths__grid strong::after,
-.expectation-editorial__item h3::after{content:''!important;display:block!important;width:48px!important;height:1px!important;margin-top:10px!important;background:#8f8a82!important;border:0!important}
+.home-values__item h3::after,.home-paths__grid strong::after,.expectation-editorial__item h3::after{content:''!important;display:block!important;width:48px!important;height:1px!important;margin-top:10px!important;background:#8f8a82!important;border:0!important}
 
 /* Unternehmen */
 .home-company__copy .section-label{margin-bottom:30px!important}
@@ -113,21 +46,36 @@ html,body{max-width:100%;overflow-x:hidden}
 .services-main>.expectation-editorial .expectation-editorial__item h3{margin:0 0 14px!important;text-align:left!important}
 .services-main>.expectation-editorial .expectation-editorial__item p{margin:0!important;text-align:left!important}
 
-/* Header und Footer konsistent */
+/* Header */
 .site-header{isolation:isolate!important}
 .brand{z-index:100!important;opacity:1!important;filter:none!important;mix-blend-mode:normal!important}
 .brand img{position:relative!important;z-index:2!important;opacity:1!important;filter:brightness(0) invert(1)!important;mix-blend-mode:normal!important}
 .site-nav a:after{height:1px!important;background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important}
-.footer-main h2{font-family:var(--font-inter)!important;font-size:11px!important;font-weight:600!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important}
-.footer-main p,.footer-main address{font-family:var(--font-inter)!important;font-size:12px!important;font-weight:400!important;line-height:1.65!important}
+
+/* FOOTER: 1:1 wie auf der Startseite – auf allen Seiten */
+.site-footer{background-color:rgba(8,8,8,.46)!important;background-blend-mode:multiply!important}
+.footer-main{width:min(calc(100% - 64px),700px)!important;margin:0 auto!important;padding:82px 0 56px!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;column-gap:0!important;align-items:stretch!important}
+.footer-main>div,.footer-main>div:first-child,.footer-main>div:last-child{min-height:150px!important;width:100%!important;max-width:none!important;padding:0!important;box-sizing:border-box!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important}
+.footer-main>div:first-child,.footer-main>div:nth-child(2),.footer-main>div:last-child{align-items:flex-start!important}
+.footer-main h2,.footer-main p,.footer-main address{width:max-content!important;max-width:100%!important;text-align:left!important}
+.footer-main h2{margin:0 0 17px!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:11px!important;font-weight:600!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:rgba(255,255,255,.90)!important}
+.footer-main h2::after{content:''!important;display:block!important;width:48px!important;height:1px!important;margin:10px 0 0!important;background:rgba(255,255,255,.34)!important}
+.footer-main p,.footer-main address{font-family:var(--font-inter),Arial,sans-serif!important;font-size:12px!important;font-weight:400!important;line-height:1.65!important;color:rgba(255,255,255,.82)!important;margin:0!important}
+.footer-main a{color:rgba(255,255,255,.82)!important}
+.footer-bottom{width:min(100% - 64px,1320px)!important;margin:0 auto!important}
+.footer-bottom>div{display:inline-block!important;white-space:nowrap!important}
+.footer-bottom>div>span[aria-hidden='true']{display:inline!important;margin:0!important;padding:0!important}
 
 @media(max-width:1050px){.services-section .services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.services-main>.expectation-editorial .expectation-editorial__grid{width:min(100%,760px)!important}}
 @media(max-width:800px){
-  .global-title,.home-values .section-heading h2,.expectation-compass__heading h2,.home-paths__heading h2,.home-contact-band h2,.home-company__copy h2,.services-section .section-heading h1,.section-heading h1,.section-heading h2,.page-hero h1,.contact-section h1,.legal-page h1,.article-detail h1,.service-page__heading h1,.services-table-heading h2,.service-principles h2,.process-details h2,.knowledge-note h2,.mandate-faq__heading h2{font-size:48px!important;line-height:1.05!important}
-  .services-section{width:min(100% - 36px,1320px)!important;padding-top:82px!important;padding-bottom:92px!important}
-  .services-main>.expectation-editorial{padding:68px 24px 76px!important}
-  .services-main>.expectation-editorial .expectation-compass__heading{margin-bottom:48px!important}
-  .services-main>.expectation-editorial .expectation-editorial__grid{width:100%!important;grid-template-columns:1fr!important;gap:38px!important}
-  .services-main>.expectation-editorial .expectation-editorial__item{max-width:none!important}
+.global-title,.home-values .section-heading h2,.expectation-compass__heading h2,.home-paths__heading h2,.home-contact-band h2,.home-company__copy h2,.services-section .section-heading h1,.section-heading h1,.section-heading h2,.page-hero h1,.contact-section h1,.legal-page h1,.article-detail h1,.service-page__heading h1,.services-table-heading h2,.service-principles h2,.process-details h2,.knowledge-note h2,.mandate-faq__heading h2{font-size:48px!important;line-height:1.05!important}
+.services-section{width:min(100% - 36px,1320px)!important;padding-top:82px!important;padding-bottom:92px!important}
+.services-main>.expectation-editorial{padding:68px 24px 76px!important}
+.services-main>.expectation-editorial .expectation-compass__heading{margin-bottom:48px!important}
+.services-main>.expectation-editorial .expectation-editorial__grid{width:100%!important;grid-template-columns:1fr!important;gap:38px!important}
+.services-main>.expectation-editorial .expectation-editorial__item{max-width:none!important}
+.footer-main{width:min(100% - 48px,700px)!important;margin:0 auto!important;grid-template-columns:1fr!important;row-gap:12px!important}
+.footer-main>div,.footer-main>div:first-child,.footer-main>div:nth-child(2),.footer-main>div:last-child{padding:0!important;align-items:flex-start!important}
+.footer-bottom{width:min(100% - 48px,1320px)!important}
 }
 @media(max-width:560px){.services-section .services-grid{grid-template-columns:1fr}}

@@ -18,6 +18,14 @@
     document.head.appendChild(companyCustom);
   }
 
+  const isServices = location.pathname.includes('/dienstleistungen/');
+  if (isServices && !document.querySelector('link[href*="dienstleistungen-custom.css"]')) {
+    const servicesCustom = document.createElement('link');
+    servicesCustom.rel = 'stylesheet';
+    servicesCustom.href = `${basePath}assets/dienstleistungen-custom.css?v=20260812-1`;
+    document.head.appendChild(servicesCustom);
+  }
+
   const fixImagePaths = () => {
     const logo = document.querySelector('.brand img');
     if (logo) {

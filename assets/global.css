@@ -8,10 +8,43 @@ body{font-family:var(--font-inter)!important;font-size:var(--body-size)!importan
 .section-label,.article-meta,.card-number,.details-action,.value>span{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important}
 .section-label{margin:0 0 30px!important;display:flex!important;align-items:center!important;gap:16px!important}
 .section-label:before{content:''!important;display:block!important;width:30px!important;flex:0 0 30px!important;height:1px!important;background:currentColor!important}
-/* Abschnittslabels dürfen nie von Fliesstext-Regeln vergrössert werden */
 body p.section-label{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important}
 
-.global-title,.section-heading h1,.section-heading h2,.page-hero h1,.contact-section h1,.legal-page h1,.article-detail h1,.service-page__heading h1,.services-table-heading h2,.service-principles h2,.process-details h2,.knowledge-note h2,.mandate-faq__heading h2,.home-values .section-heading h2,.home-paths__heading h2,.home-contact-band h2,.home-company__copy h2,.expectation-compass__heading h2,.services-section .section-heading h1{font-family:var(--font-cormorant)!important;font-size:var(--title-size)!important;font-weight:400!important;line-height:1.05!important;letter-spacing:-.02em!important;max-width:var(--title-width)!important;margin-top:0!important}
+/* GROSSE TITEL: EINZIGE REFERENZ = STARTSEITE */
+.global-title,
+.section-heading h1,
+.section-heading h2,
+.page-hero h1,
+.page-hero h2,
+.contact-section h1,
+.contact-section h2,
+.legal-page h1,
+.article-detail h1,
+.service-page__heading h1,
+.services-table-heading h2,
+.service-principles>div:first-child h2,
+.service-principles h2,
+.process-details h2,
+.knowledge-note h2,
+.mandate-faq__heading h2,
+.home-company__copy h2,
+.home-values .section-heading h2,
+.home-expectations__heading h2,
+.home-paths__heading h2,
+.home-contact-band h2,
+.expectation-compass__heading h2,
+.services-section .section-heading h1,
+.process-section .section-heading h1,
+.knowledge-section .section-heading h1,
+.contact-facts__heading h2{
+  font-family:var(--font-cormorant)!important;
+  font-size:var(--title-size)!important;
+  font-weight:400!important;
+  line-height:1.05!important;
+  letter-spacing:-.02em!important;
+  max-width:var(--title-width)!important;
+  margin-top:0!important;
+}
 
 .home-values__item h3,.home-paths__grid strong,.expectation-editorial__item h3,.services-section .service-card h2,.process-card h2,.service-principles__items h3{font-family:var(--font-cormorant)!important;font-size:var(--card-title)!important;font-weight:500!important;line-height:1.12!important;letter-spacing:-.01em!important}
 
@@ -19,7 +52,6 @@ body p.section-label{font-family:var(--font-inter)!important;font-size:var(--lab
 
 .section-heading,.home-values .section-heading,.home-paths__heading,.services-section .section-heading,.process-section .section-heading,.contact-section .section-heading,.page-hero .section-heading,.legal-page .section-heading,.service-page__heading,.mandate-faq__heading{max-width:var(--title-width)!important;margin-bottom:64px!important}
 
-/* Zusammenarbeit: immer über die volle Bildschirmbreite */
 .expectation-editorial{display:block!important;position:relative!important;left:50%!important;width:100vw!important;max-width:none!important;margin-left:-50vw!important;margin-right:-50vw!important;padding:82px var(--section-x) 92px!important;box-sizing:border-box!important}
 .expectation-editorial .expectation-compass__heading{width:100%!important;max-width:var(--title-width)!important;margin:0 0 64px!important}
 .expectation-editorial .expectation-editorial__grid{width:min(100%,860px)!important;margin:0!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:54px 72px!important;transform:none!important;text-align:left!important}
@@ -46,6 +78,7 @@ body p.section-label{font-family:var(--font-inter)!important;font-size:var(--lab
 .home-company__copy h2{margin-bottom:30px!important}
 .home-company__copy h2 span{font:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;transform:none!important}
 
+/* Fachwissen: nur die Kacheltitel bleiben bewusst anders */
 .knowledge-section .article-card h2{min-height:110px!important;margin:0 0 18px!important;font-family:Georgia,'Times New Roman',serif!important;font-size:25px!important;font-weight:700!important;line-height:1.1!important;letter-spacing:-.02em!important;text-transform:none!important;max-width:none!important}
 .knowledge-section .article-meta{font-family:var(--font-inter)!important;font-size:10px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:.16em!important;text-transform:uppercase!important;margin-bottom:42px!important}
 

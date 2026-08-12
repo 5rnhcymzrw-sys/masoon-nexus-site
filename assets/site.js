@@ -14,9 +14,30 @@
   if (isCompany && !document.querySelector('link[href*="unternehmen-custom.css"]')) {
     const companyCustom = document.createElement('link');
     companyCustom.rel = 'stylesheet';
-    companyCustom.href = `${basePath}assets/unternehmen-custom.css?v=20260812-3`;
+    companyCustom.href = `${basePath}assets/unternehmen-custom.css?v=20260812-4`;
     document.head.appendChild(companyCustom);
   }
+
+  const fixImagePaths = () => {
+    const logo = document.querySelector('.brand img');
+    if (logo) {
+      logo.removeAttribute('srcset');
+      logo.removeAttribute('sizes');
+      logo.src = `${basePath}white_logo_transparent_background.png?v=20260812-4`;
+    }
+
+    if (isCompany) {
+      const portrait = document.querySelector('.home-company__image-primary');
+      if (portrait) {
+        portrait.removeAttribute('srcset');
+        portrait.removeAttribute('sizes');
+        portrait.src = `${basePath}portrait-unternehmen.png?v=20260812-4`;
+      }
+    }
+  };
+
+  fixImagePaths();
+  requestAnimationFrame(fixImagePaths);
 
   const navLineStyle = document.createElement('style');
   navLineStyle.textContent = `.site-nav a:after{height:1px!important;background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important;}`;

@@ -10,11 +10,6 @@
     document.head.appendChild(globalStyle);
   }
 
-  /* Fachwissen: Metazeile wieder in ursprünglicher kleiner Grösse */
-  const fachwissenMetaStyle = document.createElement('style');
-  fachwissenMetaStyle.textContent = `.article-card .article-meta{font-size:10px!important;line-height:1.65!important;letter-spacing:.12em!important;font-weight:500!important;}`;
-  document.head.appendChild(fachwissenMetaStyle);
-
   /* Zusammenarbeit: nur Formatierung vereinheitlichen, Inhalte pro Seite beibehalten */
   document.querySelectorAll('.expectation-editorial').forEach(section => {
     section.classList.add('mandate-compass', 'expectation-compass', 'expectation-editorial');

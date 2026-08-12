@@ -6,9 +6,14 @@
   if (!document.querySelector('link[href*="assets/global.css"]')) {
     const globalStyle = document.createElement('link');
     globalStyle.rel = 'stylesheet';
-    globalStyle.href = `${basePath}assets/global.css?v=20260812-10`;
+    globalStyle.href = `${basePath}assets/global.css?v=20260812-11`;
     document.head.appendChild(globalStyle);
   }
+
+  /* Fachwissen: Metazeile wieder in ursprünglicher kleiner Grösse */
+  const fachwissenMetaStyle = document.createElement('style');
+  fachwissenMetaStyle.textContent = `.article-card .article-meta{font-size:10px!important;line-height:1.65!important;letter-spacing:.12em!important;font-weight:500!important;}`;
+  document.head.appendChild(fachwissenMetaStyle);
 
   /* Zusammenarbeit: nur Formatierung vereinheitlichen, Inhalte pro Seite beibehalten */
   document.querySelectorAll('.expectation-editorial').forEach(section => {

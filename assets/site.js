@@ -22,16 +22,16 @@
   if (isServices && !document.querySelector('link[href*="dienstleistungen-custom.css"]')) {
     const servicesCustom = document.createElement('link');
     servicesCustom.rel = 'stylesheet';
-    servicesCustom.href = `${basePath}assets/dienstleistungen-custom.css?v=20260812-1`;
+    servicesCustom.href = `${basePath}assets/dienstleistungen-custom.css?v=20260812-2`;
     document.head.appendChild(servicesCustom);
   }
 
   const fixImagePaths = () => {
-    const logo = document.querySelector('.brand img');
+    const logo = document.querySelector('.brand img, .site-logo img');
     if (logo) {
       logo.removeAttribute('srcset');
       logo.removeAttribute('sizes');
-      logo.src = `${basePath}white_logo_transparent_background.png?v=20260812-4`;
+      logo.src = `${basePath}white_logo_transparent_background.png?v=20260812-5`;
     }
 
     if (isCompany) {
@@ -39,7 +39,7 @@
       if (portrait) {
         portrait.removeAttribute('srcset');
         portrait.removeAttribute('sizes');
-        portrait.src = `${basePath}portrait-unternehmen.png?v=20260812-4`;
+        portrait.src = `${basePath}portrait-unternehmen.png?v=20260812-5`;
       }
     }
   };

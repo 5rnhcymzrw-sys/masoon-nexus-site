@@ -1,4 +1,4 @@
-/* DIENSTLEISTUNGEN: Schriftwerte der Startseite */
+/* DIENSTLEISTUNGEN: Reparatur der Kopfzeile und Schriftwerte der Startseite */
 
 @font-face {
   font-family:'Inter';
@@ -14,6 +14,62 @@
   font-weight:400 700;
   font-display:swap;
   src:url('_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2') format('woff2');
+}
+
+html,
+body {
+  max-width:100%!important;
+  overflow-x:hidden!important;
+}
+
+/* Die Dienstleistungsseite verwendet site-logo statt brand und besitzt keinen header-inner. */
+body > .site-header {
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  width:100%!important;
+  padding:0 max(32px,calc((100vw - 1320px)/2))!important;
+  box-sizing:border-box!important;
+}
+
+body > .site-header > .site-logo {
+  z-index:100!important;
+  position:absolute!important;
+  top:0!important;
+  left:max(32px,calc((100vw - 1320px)/2))!important;
+  width:244px!important;
+  height:136px!important;
+  padding:16px 24px 20px!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:0 0 22px 22px!important;
+  background:linear-gradient(145deg,#262624b8,#06060594)!important;
+  box-shadow:0 20px 42px #0003!important;
+  -webkit-backdrop-filter:blur(16px)!important;
+  backdrop-filter:blur(16px)!important;
+  font-size:0!important;
+}
+
+body > .site-header > .site-logo img {
+  display:block!important;
+  width:216px!important;
+  max-width:216px!important;
+  height:auto!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  opacity:1!important;
+  filter:brightness(0) invert(1)!important;
+  transform:translateY(-4px)!important;
+}
+
+body > .site-header > .site-nav {
+  margin-left:auto!important;
+}
+
+body > main {
+  padding-top:88px!important;
 }
 
 .service-page__heading .section-label,
@@ -89,6 +145,22 @@
 }
 
 @media (max-width:800px) {
+  body > .site-header {
+    padding:0 24px!important;
+  }
+
+  body > .site-header > .site-logo {
+    left:24px!important;
+    width:190px!important;
+    height:118px!important;
+    padding:14px 20px 18px!important;
+  }
+
+  body > .site-header > .site-logo img {
+    width:165px!important;
+    max-width:165px!important;
+  }
+
   .service-page__heading h1,
   .service-page ~ .expectation-editorial .expectation-compass__heading h2 {
     font-size:48px!important;

@@ -1,0 +1,54 @@
+/* UNTERNEHMEN: Schriftwerte der Startseite */
+.home-company__copy .section-label {
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1.65!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+  margin-top:0!important;
+  margin-bottom:30px!important;
+}
+
+.home-company__copy h2 {
+  font-family:var(--font-cormorant),'Cormorant Garamond',Georgia,serif!important;
+  font-size:60px!important;
+  font-weight:400!important;
+  line-height:1.05!important;
+  letter-spacing:-.02em!important;
+  max-width:650px!important;
+  margin:0!important;
+}
+
+.home-company__copy h2 span {
+  font:inherit!important;
+  line-height:inherit!important;
+  letter-spacing:inherit!important;
+}
+
+.home-company__copy .prose,
+.home-company__copy .prose p {
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:15px!important;
+  font-weight:400!important;
+  line-height:1.65!important;
+  letter-spacing:normal!important;
+}
+
+.home-company__caption strong,
+.home-company__caption span {
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  line-height:1.5!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+}
+.home-company__caption strong { font-weight:600!important; }
+.home-company__caption span { font-weight:400!important; }
+
+@media (max-width:800px) {
+  .home-company__copy h2 {
+    font-size:48px!important;
+    line-height:1.05!important;
+  }
+}

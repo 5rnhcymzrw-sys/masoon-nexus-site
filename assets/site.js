@@ -6,7 +6,7 @@
   if (!document.querySelector('link[href*="assets/global.css"]')) {
     const globalStyle = document.createElement('link');
     globalStyle.rel = 'stylesheet';
-    globalStyle.href = `${basePath}assets/global.css?v=20260812-9`;
+    globalStyle.href = `${basePath}assets/global.css?v=20260812-10`;
     document.head.appendChild(globalStyle);
   }
 

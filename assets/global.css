@@ -5,25 +5,20 @@
 html,body{max-width:100%;overflow-x:hidden}
 body{font-family:var(--font-inter)!important;font-size:var(--body-size)!important;line-height:1.65!important}
 
-/* Kleine Abschnittstitel – kompakt wie auf der ursprünglichen Startseite */
 .section-label,.article-meta,.card-number,.details-action,.value>span{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important}
 .section-label{margin:0 0 30px!important;display:flex!important;align-items:center!important;gap:16px!important}
 .section-label:before{content:''!important;display:block!important;width:30px!important;flex:0 0 30px!important;height:1px!important;background:currentColor!important}
 
-/* Haupt- und Abschnittstitel – Startseite ist Vorlage */
 .global-title,.section-heading h1,.section-heading h2,.page-hero h1,.contact-section h1,.legal-page h1,.article-detail h1,.service-page__heading h1,.services-table-heading h2,.service-principles h2,.process-details h2,.knowledge-note h2,.mandate-faq__heading h2,.home-values .section-heading h2,.home-paths__heading h2,.home-contact-band h2,.home-company__copy h2,.expectation-compass__heading h2,.services-section .section-heading h1{font-family:var(--font-cormorant)!important;font-size:var(--title-size)!important;font-weight:400!important;line-height:1.05!important;letter-spacing:-.02em!important;max-width:var(--title-width)!important;margin-top:0!important}
 
-/* Wiederkehrende Kachel- und Zwischentitel */
 .home-values__item h3,.home-paths__grid strong,.expectation-editorial__item h3,.services-section .service-card h2,.process-card h2,.service-principles__items h3{font-family:var(--font-cormorant)!important;font-size:var(--card-title)!important;font-weight:500!important;line-height:1.12!important;letter-spacing:-.01em!important}
 
-/* Fliesstext – überall identisch */
 .page-main p,.home-values__item p,.expectation-editorial__item p,.home-company__copy .prose,.home-company__copy .prose p,.services-section .service-card summary p,.services-section .service-card li,.service-intro,.service-intro p,.process-section p,.contact-section p,.legal-page p,.article-detail p,.service-page p,.mandate-faq p,.process-details p{font-family:var(--font-inter)!important;font-size:var(--body-size)!important;font-weight:400!important;line-height:1.65!important;letter-spacing:normal!important}
 
-/* Einheitliche Titelabstände */
 .section-heading,.home-values .section-heading,.home-paths__heading,.services-section .section-heading,.process-section .section-heading,.contact-section .section-heading,.page-hero .section-heading,.legal-page .section-heading,.service-page__heading,.mandate-faq__heading{max-width:var(--title-width)!important;margin-bottom:64px!important}
 
-/* Zusammenarbeit – exakt dieselbe Geometrie auf jeder Seite, Inhalte bleiben individuell */
-.expectation-editorial{display:block!important;width:100%!important;padding:82px var(--section-x) 92px!important;box-sizing:border-box!important}
+/* Zusammenarbeit: immer über die volle Bildschirmbreite */
+.expectation-editorial{display:block!important;position:relative!important;left:50%!important;width:100vw!important;max-width:none!important;margin-left:-50vw!important;margin-right:-50vw!important;padding:82px var(--section-x) 92px!important;box-sizing:border-box!important}
 .expectation-editorial .expectation-compass__heading{width:100%!important;max-width:var(--title-width)!important;margin:0 0 64px!important}
 .expectation-editorial .expectation-editorial__grid{width:min(100%,860px)!important;margin:0!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:54px 72px!important;transform:none!important;text-align:left!important}
 .expectation-editorial .expectation-editorial__item{max-width:360px!important;margin:0!important;text-align:left!important}
@@ -31,7 +26,6 @@ body{font-family:var(--font-inter)!important;font-size:var(--body-size)!importan
 .expectation-editorial .expectation-editorial__item p{margin:0!important;text-align:left!important}
 .expectation-editorial .expectation-editorial__more{display:none!important}
 
-/* Dienstleistungen */
 .services-main{min-height:100vh}
 .services-section{width:min(100% - 64px,var(--content-width))!important;margin:0 auto!important;padding-top:118px!important;padding-bottom:120px!important}
 .services-section .section-heading{max-width:760px!important}
@@ -40,7 +34,6 @@ body{font-family:var(--font-inter)!important;font-size:var(--body-size)!importan
 .services-section .service-card h2{margin:0 0 14px!important}
 .services-section .service-card summary p{margin:0!important}
 
-/* Startseite schützen */
 .home-hero{background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url('../hero1.png')!important;background-position:50% 50%,50% 50%,50% 12%!important;background-size:cover!important;background-repeat:no-repeat!important}
 .home-hero__content{display:block!important}
 .home-values__item{min-height:285px!important;padding:34px 36px!important;text-align:left!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important}
@@ -51,17 +44,14 @@ body{font-family:var(--font-inter)!important;font-size:var(--body-size)!importan
 .home-company__copy h2{margin-bottom:30px!important}
 .home-company__copy h2 span{font:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;transform:none!important}
 
-/* Fachwissen – einzige bewusste typografische Ausnahme: Kacheltitel */
 .knowledge-section .article-card h2{min-height:110px!important;margin:0 0 18px!important;font-family:Georgia,'Times New Roman',serif!important;font-size:25px!important;font-weight:700!important;line-height:1.1!important;letter-spacing:-.02em!important;text-transform:none!important;max-width:none!important}
 .knowledge-section .article-meta{font-family:var(--font-inter)!important;font-size:10px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:.16em!important;text-transform:uppercase!important;margin-bottom:42px!important}
 
-/* Header */
 .site-header{isolation:isolate!important}
 .brand{z-index:100!important;opacity:1!important;filter:none!important;mix-blend-mode:normal!important}
 .brand img{position:relative!important;z-index:2!important;opacity:1!important;filter:brightness(0) invert(1)!important;mix-blend-mode:normal!important}
 .site-nav a:after{height:1px!important;background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important}
 
-/* Eine Fusszeile auf allen Seiten */
 .site-footer{background-image:linear-gradient(#0a0a09e0,#0a0a09e0),url('../hero1.png')!important;background-position:center,72% 18%!important;background-size:cover!important;color:#fff!important}
 .footer-main{width:min(700px,calc(50% - 32px))!important;margin-left:50%!important;margin-right:0!important;padding:82px 0 56px!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;column-gap:0!important;align-items:start!important}
 .footer-main>div{min-height:150px!important;width:100%!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important}

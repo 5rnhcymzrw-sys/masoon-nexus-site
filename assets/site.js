@@ -10,6 +10,14 @@
     document.head.appendChild(custom);
   }
 
+  const isCompany = location.pathname.includes('/unternehmen/');
+  if (isCompany && !document.querySelector('link[href*="unternehmen-custom.css"]')) {
+    const companyCustom = document.createElement('link');
+    companyCustom.rel = 'stylesheet';
+    companyCustom.href = `${basePath}assets/unternehmen-custom.css?v=20260812-1`;
+    document.head.appendChild(companyCustom);
+  }
+
   const navLineStyle = document.createElement('style');
   navLineStyle.textContent = `.site-nav a:after{height:1px!important;background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important;}`;
   document.head.appendChild(navLineStyle);

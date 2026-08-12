@@ -14,13 +14,17 @@
   if (isCompany && !document.querySelector('link[href*="unternehmen-custom.css"]')) {
     const companyCustom = document.createElement('link');
     companyCustom.rel = 'stylesheet';
-    companyCustom.href = `${basePath}assets/unternehmen-custom.css?v=20260812-1`;
+    companyCustom.href = `${basePath}assets/unternehmen-custom.css?v=20260812-2`;
     document.head.appendChild(companyCustom);
   }
 
   const navLineStyle = document.createElement('style');
   navLineStyle.textContent = `.site-nav a:after{height:1px!important;background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important;}`;
   document.head.appendChild(navLineStyle);
+
+  const heroRollbackStyle = document.createElement('style');
+  heroRollbackStyle.textContent = `.home-hero{background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url("${basePath}hero1.png")!important;background-position:50% 50%,50% 50%,50% 12%!important;background-size:cover!important;background-repeat:no-repeat!important}.home-hero__content{display:block!important}`;
+  document.head.appendChild(heroRollbackStyle);
 
   const normalizeLinkArrows = () => {
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);

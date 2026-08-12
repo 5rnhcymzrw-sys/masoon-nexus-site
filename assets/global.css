@@ -100,6 +100,9 @@ body p.section-label{font-family:var(--font-inter)!important;font-size:var(--lab
 .footer-bottom>div a{color:inherit!important;font:inherit!important}
 .footer-bottom>div>span{margin:0!important;padding:0!important}
 
+/* Kontakt: Abschnitt «Für eine erste Einschätzung» entfernt */
+.contact-section + .mandate-compass.mandate-editorial{display:none!important}
+
 @media(max-width:1050px){.services-section .services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.expectation-editorial .expectation-editorial__grid{width:min(100%,760px)!important}}
 @media(max-width:800px){:root{--title-size:var(--title-mobile);--section-x:24px}.services-section{width:min(100% - 36px,var(--content-width))!important;padding-top:82px!important;padding-bottom:92px!important}.expectation-editorial{padding:68px 24px 76px!important}.expectation-editorial .expectation-compass__heading{margin-bottom:48px!important}.expectation-editorial .expectation-editorial__grid{width:100%!important;margin:0!important;grid-template-columns:1fr!important;gap:38px!important}.expectation-editorial .expectation-editorial__item{max-width:none!important}.footer-main{width:min(700px,calc(100% - 48px))!important;margin:0 auto!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}.footer-bottom{width:min(100% - 48px,var(--content-width))!important}}
 @media(max-width:560px){.services-section .services-grid{grid-template-columns:1fr}.footer-main{grid-template-columns:1fr!important;row-gap:12px!important}.footer-bottom{flex-direction:column!important;justify-content:center!important;align-items:flex-start!important;padding:20px 0!important}}

@@ -1,10 +1,26 @@
 /* UNTERNEHMEN: Schriftwerte der Startseite */
 
+@font-face {
+  font-family:'Masoon Cormorant';
+  font-style:normal;
+  font-weight:400 700;
+  font-display:swap;
+  src:url('_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2') format('woff2');
+}
+
+@font-face {
+  font-family:'Masoon Inter';
+  font-style:normal;
+  font-weight:100 900;
+  font-display:swap;
+  src:url('_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2') format('woff2');
+}
+
 .home-company__copy .section-label,
 .home-company + .home-values .section-label,
 .home-company + .home-values + .expectation-editorial .section-label,
 .home-company ~ .home-contact-band .section-label {
-  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-family:'Masoon Inter',Arial,sans-serif!important;
   font-size:11px!important;
   font-weight:500!important;
   line-height:1.65!important;
@@ -18,7 +34,7 @@
 .home-company + .home-values .section-heading h2,
 .home-company + .home-values + .expectation-editorial .expectation-compass__heading h2,
 .home-company ~ .home-contact-band h2 {
-  font-family:var(--font-cormorant),'Cormorant Garamond',Georgia,serif!important;
+  font-family:'Masoon Cormorant',Georgia,serif!important;
   font-size:60px!important;
   font-weight:400!important;
   line-height:1.05!important;
@@ -33,7 +49,9 @@
 }
 
 .home-company__copy h2 span {
-  font:inherit!important;
+  font-family:inherit!important;
+  font-size:inherit!important;
+  font-weight:inherit!important;
   line-height:inherit!important;
   letter-spacing:inherit!important;
   transform:none!important;
@@ -43,7 +61,7 @@
 .home-company__copy .prose p,
 .home-company + .home-values .home-values__item p,
 .home-company + .home-values + .expectation-editorial .expectation-editorial__item p {
-  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-family:'Masoon Inter',Arial,sans-serif!important;
   font-size:15px!important;
   font-weight:400!important;
   line-height:1.65!important;
@@ -52,7 +70,7 @@
 
 .home-company + .home-values .home-values__item h3,
 .home-company + .home-values + .expectation-editorial .expectation-editorial__item h3 {
-  font-family:var(--font-cormorant),'Cormorant Garamond',Georgia,serif!important;
+  font-family:'Masoon Cormorant',Georgia,serif!important;
   font-size:24px!important;
   font-weight:500!important;
   line-height:1.12!important;
@@ -61,7 +79,7 @@
 
 .home-company__caption strong,
 .home-company__caption span {
-  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-family:'Masoon Inter',Arial,sans-serif!important;
   font-size:11px!important;
   line-height:1.5!important;
   letter-spacing:.14em!important;

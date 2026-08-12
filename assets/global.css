@@ -13,6 +13,38 @@ html,body{max-width:100%;overflow-x:hidden}
 .section-label{margin-top:0!important;margin-bottom:30px!important}
 .home-values .section-heading,.home-paths__heading,.expectation-editorial .expectation-compass__heading,.services-section .section-heading{margin:0 0 64px!important;max-width:650px!important}
 
+/* Einheitliche Grundwerte für Unterseiten */
+.page-main .section-label,
+.process-section .section-label,
+.contact-section .section-label,
+.legal-page .section-label,
+.article-detail .section-label,
+.service-page__heading .section-label,
+.mandate-faq__heading .section-label{font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:.16em!important;text-transform:uppercase!important;margin-top:0!important;margin-bottom:30px!important}
+
+.page-main p,
+.process-section p,
+.contact-section p,
+.legal-page p,
+.article-detail p,
+.service-page p,
+.mandate-faq p,
+.process-details p{font-family:var(--font-inter)!important;font-size:15px!important;font-weight:400!important;line-height:1.65!important;letter-spacing:normal!important}
+
+.process-section .section-heading,
+.contact-section .section-heading,
+.page-hero .section-heading,
+.legal-page .section-heading,
+.service-page__heading,
+.mandate-faq__heading{max-width:650px!important;margin-bottom:64px!important}
+
+/* Fachwissen: Kacheltitel bewusst unverändert lassen */
+.knowledge-grid h2,.knowledge-grid h3,
+.knowledge-card h2,.knowledge-card h3,
+.article-grid h2,.article-grid h3,
+.article-card h2,.article-card h3,
+.fachwissen-grid h2,.fachwissen-grid h3{font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important}
+
 .home-hero{background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url('../hero1.png')!important;background-position:50% 50%,50% 50%,50% 12%!important;background-size:cover!important;background-repeat:no-repeat!important}
 .home-hero__content{display:block!important}
 .home-values__item{min-height:285px!important;padding:34px 36px!important;text-align:left!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important}

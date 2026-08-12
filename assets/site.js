@@ -6,28 +6,13 @@
   if (!document.querySelector('link[href*="assets/global.css"]')) {
     const globalStyle = document.createElement('link');
     globalStyle.rel = 'stylesheet';
-    globalStyle.href = `${basePath}assets/global.css?v=20260812-8`;
+    globalStyle.href = `${basePath}assets/global.css?v=20260812-9`;
     document.head.appendChild(globalStyle);
   }
 
-  /* ZUSAMMENARBEIT: eine einzige Vorlage, exakt wie auf der Startseite */
-  const collaborationHtml = `
-    <div class="expectation-compass__heading">
-      <p class="section-label">Zusammenarbeit</p>
-      <h2>Was Sie von uns erwarten können.</h2>
-    </div>
-    <div class="expectation-editorial__grid">
-      <article class="expectation-editorial__item"><h3>Persönliche Betreuung</h3><p>Sie haben eine feste Ansprechperson, die Ihr Unternehmen und Ihr Mandat kennt.</p></article>
-      <article class="expectation-editorial__item"><h3>Entlastung im Geschäftsalltag</h3><p>Wir übernehmen die vereinbarten administrativen und treuhänderischen Aufgaben, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.</p></article>
-      <article class="expectation-editorial__item"><h3>Digitale Zusammenarbeit</h3><p>Moderne Prozesse ermöglichen einen einfachen, sicheren und weitgehend papierlosen Austausch Ihrer Unterlagen.</p></article>
-      <article class="expectation-editorial__item"><h3>Vorausschauende Begleitung</h3><p>Wir weisen Sie rechtzeitig auf wichtige Fristen, Handlungsbedarf und mögliche steuerliche Gestaltungsmöglichkeiten hin.</p></article>
-      <article class="expectation-editorial__item"><h3>Fachliche Einordnung</h3><p>Sie erhalten verständliche und fundierte Einschätzungen zu finanziellen, steuerlichen und unternehmerischen Fragestellungen.</p></article>
-      <article class="expectation-editorial__item"><h3>Langfristige Kontinuität</h3><p>Wir begleiten Ihr Unternehmen über den laufenden Geschäftsalltag hinaus auch bei Veränderungen und wichtigen Entscheidungen.</p></article>
-    </div>`;
-
+  /* Zusammenarbeit: nur Formatierung vereinheitlichen, Inhalte pro Seite beibehalten */
   document.querySelectorAll('.expectation-editorial').forEach(section => {
-    section.className = 'mandate-compass expectation-compass expectation-editorial';
-    section.innerHTML = collaborationHtml;
+    section.classList.add('mandate-compass', 'expectation-compass', 'expectation-editorial');
   });
 
   /* EINE zentrale Fusszeile für die gesamte Website */
@@ -45,7 +30,6 @@
   if (existingFooter) existingFooter.outerHTML = footerHtml;
   else document.body.insertAdjacentHTML('beforeend', footerHtml);
 
-  /* Nur technische Pfadkorrekturen */
   const logo = document.querySelector('.brand img, .site-logo img');
   if (logo) {
     logo.removeAttribute('srcset');

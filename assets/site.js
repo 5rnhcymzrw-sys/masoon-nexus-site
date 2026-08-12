@@ -14,7 +14,7 @@
   if (isCompany && !document.querySelector('link[href*="unternehmen-custom.css"]')) {
     const companyCustom = document.createElement('link');
     companyCustom.rel = 'stylesheet';
-    companyCustom.href = `${basePath}assets/unternehmen-custom.css?v=20260812-2`;
+    companyCustom.href = `${basePath}assets/unternehmen-custom.css?v=20260812-3`;
     document.head.appendChild(companyCustom);
   }
 

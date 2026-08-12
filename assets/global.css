@@ -38,12 +38,19 @@ html,body{max-width:100%;overflow-x:hidden}
 .service-page__heading,
 .mandate-faq__heading{max-width:650px!important;margin-bottom:64px!important}
 
-/* Fachwissen: Kacheltitel bewusst unverändert lassen */
-.knowledge-grid h2,.knowledge-grid h3,
-.knowledge-card h2,.knowledge-card h3,
-.article-grid h2,.article-grid h3,
-.article-card h2,.article-card h3,
-.fachwissen-grid h2,.fachwissen-grid h3{font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important}
+/* Fachwissen: Kacheltitel exakt wie vor der Vereinheitlichung */
+.article-card h2{
+  min-height:110px!important;
+  margin:0 0 18px!important;
+  font-family:Georgia,'Times New Roman',serif!important;
+  font-size:25px!important;
+  font-weight:700!important;
+  line-height:1.1!important;
+  letter-spacing:-.02em!important;
+  text-transform:none!important;
+  max-width:none!important;
+}
+.article-card h3{font:inherit}
 
 .home-hero{background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url('../hero1.png')!important;background-position:50% 50%,50% 50%,50% 12%!important;background-size:cover!important;background-repeat:no-repeat!important}
 .home-hero__content{display:block!important}

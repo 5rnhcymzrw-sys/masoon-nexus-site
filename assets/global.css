@@ -1,0 +1,133 @@
+/* MASOON TREUHAND – zentrale Gestaltungsdatei */
+
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2') format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 700;font-display:swap;src:url('_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2') format('woff2')}
+
+:root{--font-inter:'Inter',Arial,sans-serif;--font-cormorant:'Cormorant Garamond',Georgia,serif}
+html,body{max-width:100%;overflow-x:hidden}
+
+/* Einheitliches Typografiesystem */
+.section-label,
+.article-meta,
+.card-number,
+.details-action{
+  font-family:var(--font-inter)!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1.65!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+
+.global-title,
+.home-values .section-heading h2,
+.expectation-compass__heading h2,
+.home-paths__heading h2,
+.home-contact-band h2,
+.home-company__copy h2,
+.services-section .section-heading h1,
+.section-heading h1,
+.section-heading h2,
+.page-hero h1,
+.contact-section h1,
+.legal-page h1,
+.article-detail h1,
+.service-page__heading h1,
+.services-table-heading h2,
+.service-principles h2,
+.process-details h2,
+.knowledge-note h2,
+.mandate-faq__heading h2{
+  font-family:var(--font-cormorant)!important;
+  font-size:60px!important;
+  font-weight:400!important;
+  line-height:1.05!important;
+  letter-spacing:-.02em!important;
+  max-width:650px!important;
+}
+
+.home-values__item h3,
+.home-paths__grid strong,
+.expectation-editorial__item h3,
+.services-section .service-card h2{
+  font-family:var(--font-cormorant)!important;
+  font-size:24px!important;
+  font-weight:500!important;
+  line-height:1.12!important;
+  letter-spacing:-.01em!important;
+}
+
+.home-values__item p,
+.expectation-editorial__item p,
+.home-company__copy .prose,
+.home-company__copy .prose p,
+.services-section .service-card summary p,
+.services-section .service-card li,
+.service-intro,
+.service-intro p{
+  font-family:var(--font-inter)!important;
+  font-size:15px!important;
+  font-weight:400!important;
+  line-height:1.65!important;
+  letter-spacing:normal!important;
+}
+
+/* Einheitliche Abstände */
+.section-label{margin-top:0!important;margin-bottom:30px!important}
+.home-values .section-heading,
+.home-paths__heading,
+.expectation-editorial .expectation-compass__heading,
+.services-section .section-heading{margin:0 0 64px!important;max-width:650px!important}
+
+/* Startseite */
+.home-hero{background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url('../hero1.png')!important;background-position:50% 50%,50% 50%,50% 12%!important;background-size:cover!important;background-repeat:no-repeat!important}
+.home-hero__content{display:block!important}
+.home-values__item{min-height:285px!important;padding:34px 36px!important;text-align:left!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important}
+.home-values__item .service-number{display:none!important}
+.home-values__item h3{margin:0 0 14px!important}
+.home-values__item h3::after,
+.home-paths__grid strong::after,
+.expectation-editorial__item h3::after{content:''!important;display:block!important;width:48px!important;height:1px!important;margin-top:10px!important;background:#8f8a82!important;border:0!important}
+
+/* Unternehmen */
+.home-company__copy .section-label{margin-bottom:30px!important}
+.home-company__copy h2{margin-top:0!important;margin-bottom:30px!important}
+.home-company__copy h2 span{font:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;transform:none!important}
+.home-company__caption strong,.home-company__caption span{font-family:var(--font-inter)!important;font-size:11px!important;line-height:1.5!important;letter-spacing:.14em!important;text-transform:uppercase!important}
+.home-company__caption strong{font-weight:600!important}.home-company__caption span{font-weight:400!important}
+
+/* Dienstleistungen */
+.services-main{min-height:100vh}
+.services-section{width:min(100% - 64px,1320px)!important;margin:0 auto!important;padding-top:118px!important;padding-bottom:120px!important}
+.services-section .section-heading{max-width:760px!important}
+.service-intro{max-width:660px;margin-top:30px}
+.service-intro,.service-intro p{color:var(--body-copy,#6b5f55)!important;margin-bottom:0!important}
+.services-section .services-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.services-section .service-card{min-width:0}
+.services-section .service-card h2{margin:0 0 14px!important}
+.services-section .service-card summary p{color:#373733!important;margin:0!important}
+.services-main>.expectation-editorial{display:block!important;padding:82px max(32px,calc((100vw - 1320px)/2)) 92px!important}
+.services-main>.expectation-editorial .expectation-compass__heading{width:100%!important;max-width:650px!important;margin:0 0 64px!important}
+.services-main>.expectation-editorial .expectation-editorial__grid{width:min(100%,860px)!important;margin:0!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:54px 72px!important;transform:none!important;text-align:left!important}
+.services-main>.expectation-editorial .expectation-editorial__item{max-width:360px!important;margin:0!important;text-align:left!important}
+.services-main>.expectation-editorial .expectation-editorial__item h3{margin:0 0 14px!important;text-align:left!important}
+.services-main>.expectation-editorial .expectation-editorial__item p{margin:0!important;text-align:left!important}
+
+/* Header und Footer konsistent */
+.site-header{isolation:isolate!important}
+.brand{z-index:100!important;opacity:1!important;filter:none!important;mix-blend-mode:normal!important}
+.brand img{position:relative!important;z-index:2!important;opacity:1!important;filter:brightness(0) invert(1)!important;mix-blend-mode:normal!important}
+.site-nav a:after{height:1px!important;background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important}
+.footer-main h2{font-family:var(--font-inter)!important;font-size:11px!important;font-weight:600!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important}
+.footer-main p,.footer-main address{font-family:var(--font-inter)!important;font-size:12px!important;font-weight:400!important;line-height:1.65!important}
+
+@media(max-width:1050px){.services-section .services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.services-main>.expectation-editorial .expectation-editorial__grid{width:min(100%,760px)!important}}
+@media(max-width:800px){
+  .global-title,.home-values .section-heading h2,.expectation-compass__heading h2,.home-paths__heading h2,.home-contact-band h2,.home-company__copy h2,.services-section .section-heading h1,.section-heading h1,.section-heading h2,.page-hero h1,.contact-section h1,.legal-page h1,.article-detail h1,.service-page__heading h1,.services-table-heading h2,.service-principles h2,.process-details h2,.knowledge-note h2,.mandate-faq__heading h2{font-size:48px!important;line-height:1.05!important}
+  .services-section{width:min(100% - 36px,1320px)!important;padding-top:82px!important;padding-bottom:92px!important}
+  .services-main>.expectation-editorial{padding:68px 24px 76px!important}
+  .services-main>.expectation-editorial .expectation-compass__heading{margin-bottom:48px!important}
+  .services-main>.expectation-editorial .expectation-editorial__grid{width:100%!important;grid-template-columns:1fr!important;gap:38px!important}
+  .services-main>.expectation-editorial .expectation-editorial__item{max-width:none!important}
+}
+@media(max-width:560px){.services-section .services-grid{grid-template-columns:1fr}}

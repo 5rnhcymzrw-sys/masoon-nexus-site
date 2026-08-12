@@ -2,160 +2,28 @@
   const pathParts = location.pathname.split('/').filter(Boolean);
   const basePath = pathParts[0] === 'masoon-nexus-site' ? '/masoon-nexus-site/' : '/';
 
-  const isKnowledge = location.pathname.includes('/fachwissen/');
-  if (!isKnowledge && !document.querySelector('link[href$="masoon-custom.css"]')) {
-    const custom = document.createElement('link');
-    custom.rel = 'stylesheet';
-    custom.href = `${basePath}assets/masoon-custom.css`;
-    document.head.appendChild(custom);
+  /* Eine einzige zentrale Gestaltungsdatei */
+  if (!document.querySelector('link[href*="assets/global.css"]')) {
+    const globalStyle = document.createElement('link');
+    globalStyle.rel = 'stylesheet';
+    globalStyle.href = `${basePath}assets/global.css?v=20260812-1`;
+    document.head.appendChild(globalStyle);
   }
 
-  const isCompany = location.pathname.includes('/unternehmen/');
-  if (isCompany && !document.querySelector('link[href*="unternehmen-custom.css"]')) {
-    const companyCustom = document.createElement('link');
-    companyCustom.rel = 'stylesheet';
-    companyCustom.href = `${basePath}assets/unternehmen-custom.css?v=20260812-4`;
-    document.head.appendChild(companyCustom);
+  /* Nur technische Pfadkorrekturen, keine Gestaltung */
+  const logo = document.querySelector('.brand img, .site-logo img');
+  if (logo) {
+    logo.removeAttribute('srcset');
+    logo.removeAttribute('sizes');
+    logo.src = `${basePath}white_logo_transparent_background.png`;
   }
 
-  const isServices = location.pathname.includes('/dienstleistungen/');
-  if (isServices && !document.querySelector('link[href*="dienstleistungen-custom.css"]')) {
-    const servicesCustom = document.createElement('link');
-    servicesCustom.rel = 'stylesheet';
-    servicesCustom.href = `${basePath}assets/dienstleistungen-custom.css?v=20260812-2`;
-    document.head.appendChild(servicesCustom);
+  const portrait = document.querySelector('.home-company__image-primary');
+  if (portrait) {
+    portrait.removeAttribute('srcset');
+    portrait.removeAttribute('sizes');
+    portrait.src = `${basePath}portrait-unternehmen.png`;
   }
-
-  const fixImagePaths = () => {
-    const logo = document.querySelector('.brand img, .site-logo img');
-    if (logo) {
-      logo.removeAttribute('srcset');
-      logo.removeAttribute('sizes');
-      logo.src = `${basePath}white_logo_transparent_background.png?v=20260812-5`;
-    }
-
-    if (isCompany) {
-      const portrait = document.querySelector('.home-company__image-primary');
-      if (portrait) {
-        portrait.removeAttribute('srcset');
-        portrait.removeAttribute('sizes');
-        portrait.src = `${basePath}portrait-unternehmen.png?v=20260812-5`;
-      }
-    }
-  };
-
-  fixImagePaths();
-  requestAnimationFrame(fixImagePaths);
-
-  const navLineStyle = document.createElement('style');
-  navLineStyle.textContent = `.site-nav a:after{height:1px!important;background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important;}`;
-  document.head.appendChild(navLineStyle);
-
-  const heroRollbackStyle = document.createElement('style');
-  heroRollbackStyle.textContent = `.home-hero{background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url("${basePath}hero1.png")!important;background-position:50% 50%,50% 50%,50% 12%!important;background-size:cover!important;background-repeat:no-repeat!important}.home-hero__content{display:block!important}`;
-  document.head.appendChild(heroRollbackStyle);
-
-  const normalizeLinkArrows = () => {
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-    const nodes = [];
-    while (walker.nextNode()) nodes.push(walker.currentNode);
-    nodes.forEach(node => {
-      if (/[↗↑]/.test(node.nodeValue || '')) {
-        node.nodeValue = node.nodeValue.replace(/[↗↑]\uFE0F?/g, '↗︎');
-      }
-    });
-
-    document.querySelectorAll('.text-link span[aria-hidden="true"], .home-paths__grid i[aria-hidden="true"]').forEach(element => {
-      element.style.setProperty('font-family', 'Arial, Helvetica, sans-serif', 'important');
-      element.style.setProperty('font-style', 'normal', 'important');
-      element.style.setProperty('font-weight', '400', 'important');
-    });
-  };
-
-  normalizeLinkArrows();
-  requestAnimationFrame(normalizeLinkArrows);
-
-  const syncServiceTypographyFromExpectation = () => {
-    const referenceTitle = document.querySelector('.expectation-editorial .expectation-editorial__item h3');
-    const referenceText = document.querySelector('.expectation-editorial .expectation-editorial__item p');
-    if (!referenceTitle || !referenceText) return;
-
-    const titleStyle = getComputedStyle(referenceTitle);
-    const textStyle = getComputedStyle(referenceText);
-
-    const titleProperties = [
-      'font-family',
-      'font-size',
-      'font-weight',
-      'font-style',
-      'font-stretch',
-      'line-height',
-      'letter-spacing',
-      'text-transform'
-    ];
-
-    const textProperties = [
-      'font-family',
-      'font-size',
-      'font-weight',
-      'font-style',
-      'font-stretch',
-      'line-height',
-      'letter-spacing',
-      'text-transform'
-    ];
-
-    document.querySelectorAll('.home-values__item h3, .home-values__item h3 strong').forEach(element => {
-      titleProperties.forEach(property => {
-        element.style.setProperty(property, titleStyle.getPropertyValue(property), 'important');
-      });
-    });
-
-    document.querySelectorAll('.home-values__item p').forEach(element => {
-      textProperties.forEach(property => {
-        element.style.setProperty(property, textStyle.getPropertyValue(property), 'important');
-      });
-    });
-  };
-
-  syncServiceTypographyFromExpectation();
-  requestAnimationFrame(syncServiceTypographyFromExpectation);
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(syncServiceTypographyFromExpectation).catch(() => {});
-  }
-
-  const syncFooterToNavigation = () => {
-    const firstNavLink = document.querySelector('.site-nav a:first-child');
-    const lastNavLink = document.querySelector('.site-nav a:last-child');
-    const footerMain = document.querySelector('.footer-main');
-    if (!firstNavLink || !lastNavLink || !footerMain) return;
-
-    const firstRect = firstNavLink.getBoundingClientRect();
-    const lastRect = lastNavLink.getBoundingClientRect();
-
-    if (window.innerWidth <= 800 || firstRect.width < 1 || lastRect.width < 1) {
-      footerMain.style.removeProperty('width');
-      footerMain.style.removeProperty('max-width');
-      footerMain.style.removeProperty('margin-left');
-      footerMain.style.removeProperty('margin-right');
-      return;
-    }
-
-    const left = firstRect.left;
-    const right = lastRect.right;
-
-    footerMain.style.setProperty('width', `${right - left}px`, 'important');
-    footerMain.style.setProperty('max-width', 'none', 'important');
-    footerMain.style.setProperty('margin-left', `${left}px`, 'important');
-    footerMain.style.setProperty('margin-right', '0', 'important');
-  };
-
-  syncFooterToNavigation();
-  requestAnimationFrame(syncFooterToNavigation);
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(syncFooterToNavigation).catch(() => {});
-  }
-  window.addEventListener('resize', syncFooterToNavigation);
 
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');

@@ -1,4 +1,4 @@
-/* DIENSTLEISTUNGEN: Reparatur der Kopfzeile und Schriftwerte der Startseite */
+/* DIENSTLEISTUNGEN: Standardstruktur und Schriftwerte der Startseite */
 
 @font-face {
   font-family:'Inter';
@@ -16,65 +16,36 @@
   src:url('_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2') format('woff2');
 }
 
+:root {
+  --font-inter:'Inter',Arial,sans-serif;
+  --font-cormorant:'Cormorant Garamond',Georgia,serif;
+}
+
 html,
 body {
-  max-width:100%!important;
-  overflow-x:hidden!important;
+  max-width:100%;
+  overflow-x:hidden;
 }
 
-/* Die Dienstleistungsseite verwendet site-logo statt brand und besitzt keinen header-inner. */
-body > .site-header {
-  display:flex!important;
-  align-items:center!important;
-  justify-content:flex-end!important;
-  width:100%!important;
-  padding:0 max(32px,calc((100vw - 1320px)/2))!important;
-  box-sizing:border-box!important;
+.services-main {
+  min-height:100vh;
 }
 
-body > .site-header > .site-logo {
-  z-index:100!important;
-  position:absolute!important;
-  top:0!important;
-  left:max(32px,calc((100vw - 1320px)/2))!important;
-  width:244px!important;
-  height:136px!important;
-  padding:16px 24px 20px!important;
-  display:grid!important;
-  place-items:center!important;
-  overflow:hidden!important;
-  border:0!important;
-  border-radius:0 0 22px 22px!important;
-  background:linear-gradient(145deg,#262624b8,#06060594)!important;
-  box-shadow:0 20px 42px #0003!important;
-  -webkit-backdrop-filter:blur(16px)!important;
-  backdrop-filter:blur(16px)!important;
-  font-size:0!important;
+.services-section {
+  width:min(100% - 64px,1320px)!important;
+  margin:0 auto!important;
+  padding-top:118px!important;
+  padding-bottom:120px!important;
 }
 
-body > .site-header > .site-logo img {
-  display:block!important;
-  width:216px!important;
-  max-width:216px!important;
-  height:auto!important;
-  max-height:100%!important;
-  object-fit:contain!important;
-  opacity:1!important;
-  filter:brightness(0) invert(1)!important;
-  transform:translateY(-4px)!important;
+.services-section .section-heading {
+  max-width:760px!important;
+  margin:0 0 64px!important;
 }
 
-body > .site-header > .site-nav {
-  margin-left:auto!important;
-}
-
-body > main {
-  padding-top:88px!important;
-}
-
-.service-page__heading .section-label,
-.service-page ~ .expectation-editorial .section-label {
-  font-family:'Inter',Arial,sans-serif!important;
+.services-section .section-label,
+.services-main .expectation-editorial .section-label {
+  font-family:var(--font-inter)!important;
   font-size:11px!important;
   font-weight:500!important;
   line-height:1.65!important;
@@ -84,29 +55,45 @@ body > main {
   margin-bottom:30px!important;
 }
 
-.service-page__heading h1,
-.service-page ~ .expectation-editorial .expectation-compass__heading h2 {
-  font-family:'Cormorant Garamond',Georgia,serif!important;
+.services-section .section-heading h1,
+.services-main .expectation-editorial .expectation-compass__heading h2 {
+  font-family:var(--font-cormorant)!important;
   font-size:60px!important;
   font-weight:400!important;
   line-height:1.05!important;
   letter-spacing:-.02em!important;
   max-width:650px!important;
-  margin-top:0!important;
-  margin-bottom:0!important;
+  margin:0!important;
 }
 
-.service-page__intro,
-.service-page__intro p {
-  font-family:'Inter',Arial,sans-serif!important;
+.service-intro {
+  max-width:660px;
+  margin-top:30px;
+}
+
+.service-intro,
+.service-intro p {
+  color:var(--body-copy,#6b5f55)!important;
+  font-family:var(--font-inter)!important;
   font-size:15px!important;
   font-weight:400!important;
   line-height:1.65!important;
   letter-spacing:normal!important;
+  margin-bottom:0!important;
 }
 
-.service-card > span {
-  font-family:'Inter',Arial,sans-serif!important;
+.services-section .services-grid {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:28px;
+}
+
+.services-section .service-card {
+  min-width:0;
+}
+
+.services-section .service-card .card-number {
+  color:var(--stone,#868279)!important;
+  font-family:var(--font-inter)!important;
   font-size:11px!important;
   font-weight:500!important;
   line-height:1.65!important;
@@ -114,20 +101,23 @@ body > main {
   text-transform:uppercase!important;
 }
 
-.service-card h2,
-.service-page ~ .expectation-editorial .expectation-editorial__item h3 {
-  font-family:'Cormorant Garamond',Georgia,serif!important;
+.services-section .service-card h2,
+.services-main .expectation-editorial .expectation-editorial__item h3 {
+  font-family:var(--font-cormorant)!important;
   font-size:24px!important;
   font-weight:500!important;
   line-height:1.12!important;
   letter-spacing:-.01em!important;
 }
 
-.service-card > p,
-.service-card details,
-.service-card details li,
-.service-page ~ .expectation-editorial .expectation-editorial__item p {
-  font-family:'Inter',Arial,sans-serif!important;
+.services-section .service-card h2 {
+  margin:0 0 14px!important;
+}
+
+.services-section .service-card summary p,
+.services-section .service-card li,
+.services-main .expectation-editorial .expectation-editorial__item p {
+  font-family:var(--font-inter)!important;
   font-size:15px!important;
   font-weight:400!important;
   line-height:1.65!important;
@@ -135,8 +125,14 @@ body > main {
   text-transform:none!important;
 }
 
-.service-card summary {
-  font-family:'Inter',Arial,sans-serif!important;
+.services-section .service-card summary p {
+  color:#373733!important;
+  margin:0!important;
+}
+
+.services-section .service-card .details-action {
+  color:var(--stone,#868279)!important;
+  font-family:var(--font-inter)!important;
   font-size:11px!important;
   font-weight:500!important;
   line-height:1.65!important;
@@ -144,26 +140,41 @@ body > main {
   text-transform:uppercase!important;
 }
 
+.services-main .expectation-editorial .expectation-compass__heading {
+  max-width:650px!important;
+  margin:0 0 64px!important;
+}
+
+.services-main .expectation-editorial .expectation-editorial__item h3 {
+  margin:0 0 14px!important;
+}
+
+.services-main .expectation-editorial .expectation-editorial__item p {
+  margin:0!important;
+}
+
+@media (max-width:1050px) {
+  .services-section .services-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
 @media (max-width:800px) {
-  body > .site-header {
-    padding:0 24px!important;
+  .services-section {
+    width:min(100% - 36px,1320px)!important;
+    padding-top:82px!important;
+    padding-bottom:92px!important;
   }
 
-  body > .site-header > .site-logo {
-    left:24px!important;
-    width:190px!important;
-    height:118px!important;
-    padding:14px 20px 18px!important;
-  }
-
-  body > .site-header > .site-logo img {
-    width:165px!important;
-    max-width:165px!important;
-  }
-
-  .service-page__heading h1,
-  .service-page ~ .expectation-editorial .expectation-compass__heading h2 {
+  .services-section .section-heading h1,
+  .services-main .expectation-editorial .expectation-compass__heading h2 {
     font-size:48px!important;
     line-height:1.05!important;
+  }
+}
+
+@media (max-width:560px) {
+  .services-section .services-grid {
+    grid-template-columns:1fr;
   }
 }

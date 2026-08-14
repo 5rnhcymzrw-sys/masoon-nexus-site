@@ -58,5 +58,15 @@
 
   <footer class="site-footer" data-parallax-background="true"></footer>
   <script defer src="../assets/site.js"></script>
+  <script>
+    document.querySelectorAll('.contact-form input, .contact-form textarea').forEach(field => {
+      field.addEventListener('invalid', () => {
+        field.setCustomValidity('Bitte füllen Sie dieses Feld aus.');
+      });
+      field.addEventListener('input', () => {
+        field.setCustomValidity('');
+      });
+    });
+  </script>
 </body>
 </html>

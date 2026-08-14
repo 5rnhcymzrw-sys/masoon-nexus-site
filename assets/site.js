@@ -15,6 +15,7 @@
   requestedStyle.textContent = `
     .section-label::before{display:none!important;content:none!important}
     .card-number,.service-number,.article-meta,.details-action,.article-action,.text-link{font-family:var(--font-inter,Arial,sans-serif)!important;font-size:var(--label-size,11px)!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important}
+    .services-section .service-card li{font-size:var(--label-size,11px)!important}
     .details-action,.article-action{display:inline-block!important}
     .details-action::before,.article-action::before,.details-action::after,.article-action::after{display:none!important;content:none!important}
     .details-action::after{display:inline!important;content:' +'!important}

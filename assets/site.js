@@ -79,6 +79,17 @@
     });
   });
 
+  /* Unveröffentlichte Beiträge dürfen nicht auf dieselbe Übersicht zurückführen. */
+  document.querySelectorAll('.knowledge-section .article-card a').forEach(link => {
+    const target = new URL(link.href, location.href);
+    if (target.pathname === location.pathname) {
+      const status = document.createElement('span');
+      status.className = 'article-status';
+      status.textContent = 'Beitrag in Vorbereitung';
+      link.replaceWith(status);
+    }
+  });
+
   const updateScrollEffects = () => {
     document.querySelectorAll('[data-parallax]').forEach(el => {
       const factor = Number(el.dataset.parallax || 20);
@@ -98,11 +109,17 @@
   window.addEventListener('resize', updateScrollEffects);
 
   const form = document.querySelector('.contact-form');
-  if (form) form.addEventListener('submit', event => {
-    event.preventDefault();
-    const data = new FormData(form);
-    const subject = encodeURIComponent('Kontaktanfrage über die Website');
-    const body = encodeURIComponent(`Nachname: ${data.get('nachname') || ''}\nVorname: ${data.get('vorname') || ''}\nE-Mail: ${data.get('email') || ''}\nTelefon: ${data.get('telefon') || ''}\n\n${data.get('nachricht') || ''}`);
-    window.location.href = `mailto:info@masoontreuhand.ch?subject=${subject}&body=${body}`;
-  });
+  if (form) {
+    const note = form.querySelector('.form-note');
+    if (note) note.textContent = 'Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer vorbereiteten Nachricht. Bitte senden Sie diese dort ab.';
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const subject = encodeURIComponent('Kontaktanfrage über die Website');
+      const body = encodeURIComponent(`Nachname: ${data.get('nachname') || ''}\nVorname: ${data.get('vorname') || ''}\nE-Mail: ${data.get('email') || ''}\nTelefon: ${data.get('telefon') || ''}\n\n${data.get('nachricht') || ''}`);
+      const status = form.querySelector('.form-status');
+      if (status) status.textContent = 'Ihr E-Mail-Programm wird geöffnet. Bitte senden Sie die vorbereitete Nachricht dort ab.';
+      window.location.href = `mailto:info@masoontreuhand.ch?subject=${subject}&body=${body}`;
+    });
+  }
 })();

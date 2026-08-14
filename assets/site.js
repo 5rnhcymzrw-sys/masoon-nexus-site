@@ -26,6 +26,7 @@
     .text-link>span[aria-hidden="true"]::before,.text-link>span[aria-hidden="true"]::after{display:none!important;content:none!important}
     .home-paths__grid a{justify-content:center!important;align-items:flex-start!important;text-align:left!important}
     .knowledge-section .article-action{margin-top:18px!important;font-family:var(--font-inter,Arial,sans-serif)!important;font-size:var(--label-size,11px)!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:#868279!important}
+    .site-footer{background-position:center,50% 80%!important}
   `;
   document.head.appendChild(requestedStyle);
 

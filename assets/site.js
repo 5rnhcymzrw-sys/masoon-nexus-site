@@ -15,6 +15,7 @@
   requestedStyle.textContent = `
     .section-label::before{display:none!important;content:none!important}
     .card-number,.service-number{font-size:var(--label-size,11px)!important;line-height:1.4!important}
+    .details-action,.article-action,.text-link{font-family:var(--font-inter,Arial,sans-serif)!important;font-size:var(--label-size,11px)!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important}
     .details-action,.article-action{display:inline-block!important}
     .details-action::before,.article-action::before,.details-action::after,.article-action::after{display:none!important;content:none!important}
     .details-action::after{display:inline!important;content:' +'!important}
@@ -22,7 +23,7 @@
     .text-link>span[aria-hidden="true"]{position:static!important;display:inline!important;width:auto!important;height:auto!important;margin-left:4px!important;font-size:inherit!important;line-height:inherit!important;vertical-align:baseline!important}
     .text-link>span[aria-hidden="true"]::before,.text-link>span[aria-hidden="true"]::after{display:none!important;content:none!important}
     .home-paths__grid a{justify-content:center!important;align-items:flex-start!important;text-align:left!important}
-    .knowledge-section .article-action{margin-top:18px!important;font-family:var(--font-inter,Arial,sans-serif)!important;font-size:11px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#868279!important}
+    .knowledge-section .article-action{margin-top:18px!important;font-family:var(--font-inter,Arial,sans-serif)!important;font-size:var(--label-size,11px)!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:#868279!important}
   `;
   document.head.appendChild(requestedStyle);
 

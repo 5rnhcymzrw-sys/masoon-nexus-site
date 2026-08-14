@@ -2,7 +2,7 @@
   width: 100% !important;
   max-width: none !important;
   margin: 0 !important;
-  padding: 88px 0 96px !important;
+  padding: 88px 0 126px !important;
   background: #0b0b0b !important;
 }
 
@@ -50,7 +50,7 @@
   z-index: 1 !important;
   width: 47% !important;
   min-height: 760px !important;
-  padding: 118px 52px 38px 0 !important;
+  padding: 126px 52px 30px 0 !important;
   box-sizing: border-box !important;
   color: #fff !important;
   background: transparent !important;
@@ -171,7 +171,7 @@
   height: 700px !important;
   min-height: 0 !important;
   margin: 0 !important;
-  padding: 58px 54px 46px !important;
+  padding: 66px 54px 38px !important;
   box-sizing: border-box !important;
   display: block !important;
   background: #fff !important;

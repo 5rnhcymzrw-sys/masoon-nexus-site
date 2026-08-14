@@ -6,7 +6,7 @@
   if (!document.querySelector('link[href*="assets/global.css"]')) {
     const globalStyle = document.createElement('link');
     globalStyle.rel = 'stylesheet';
-    globalStyle.href = `${basePath}assets/global.css?v=20260814-2`;
+    globalStyle.href = `${basePath}assets/global.css?v=20260814-3`;
     document.head.appendChild(globalStyle);
   }
 
@@ -14,21 +14,6 @@
   document.querySelectorAll('.expectation-editorial').forEach(section => {
     section.classList.add('mandate-compass', 'expectation-compass', 'expectation-editorial');
   });
-
-  /* EINE zentrale Fusszeile für die gesamte Website */
-  const footerHtml = `
-    <footer class="site-footer" data-parallax-background="true">
-      <div class="footer-main">
-        <div><h2>Unternehmen</h2><address>MASOON TREUHAND<br />Täschmattstrasse 19<br />6015 Luzern</address></div>
-        <div><h2>Kontakt</h2><p><a href="mailto:info@masoontreuhand.ch">info@masoontreuhand.ch</a><br /><a href="tel:+41799663636">+41 79 966 36 36</a></p></div>
-        <div><h2>Öffnungszeiten</h2><p>Montag–Freitag<br />08.00–12.00 Uhr<br />13.00–17.00 Uhr</p></div>
-      </div>
-      <div class="footer-bottom"><span>© 2026 MASOON TREUHAND | Alle Rechte vorbehalten.</span><div><a href="${basePath}impressum/index.html">Impressum</a><span aria-hidden="true"> | </span><a href="${basePath}datenschutz/index.html">Datenschutz</a></div></div>
-    </footer>`;
-
-  const existingFooter = document.querySelector('.site-footer');
-  if (existingFooter) existingFooter.outerHTML = footerHtml;
-  else document.body.insertAdjacentHTML('beforeend', footerHtml);
 
   const logo = document.querySelector('.brand img, .site-logo img');
   if (logo) {

@@ -254,6 +254,8 @@
   justify-content: space-between !important;
   width: 220px !important;
   height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
   margin: 2px 0 0 !important;
   padding: 0 18px !important;
   border: 0 !important;

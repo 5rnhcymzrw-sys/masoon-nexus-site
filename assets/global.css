@@ -31,5 +31,5 @@ body{font-family:var(--font-inter)!important;font-size:var(--body-size)!importan
 /* Ablauf: einheitlicher Abschnittsrhythmus */
 .process-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
 .process-card .process-arrow{display:none!important}
-.process-grid+.expectation-editorial{margin-top:36px!important}
+.process-grid+.expectation-editorial{margin-top:126px!important}
 @media(max-width:800px){.process-grid{grid-template-columns:1fr!important}.process-grid+.expectation-editorial{margin-top:24px!important}}

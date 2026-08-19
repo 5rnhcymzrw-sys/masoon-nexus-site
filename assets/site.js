@@ -2,7 +2,6 @@
   const pathParts = location.pathname.split('/').filter(Boolean);
   const basePath = pathParts[0] === 'masoon-nexus-site' ? '/masoon-nexus-site/' : '/';
 
-  /* Eine einzige zentrale Gestaltungsdatei */
   if (!document.querySelector('link[href*="assets/global.css"]')) {
     const globalStyle = document.createElement('link');
     globalStyle.rel = 'stylesheet';
@@ -10,25 +9,32 @@
     document.head.appendChild(globalStyle);
   }
 
-  /* Nur die ausdrücklich gewünschten globalen Anpassungen */
+  /* Design-Branch: ein einziges UI-System für alle Seiten */
+  if (!document.querySelector('link[href*="assets/editorial-v1.css"]')) {
+    const editorialStyle = document.createElement('link');
+    editorialStyle.rel = 'stylesheet';
+    editorialStyle.href = `${basePath}assets/editorial-v1.css?v=20260819-1`;
+    document.head.appendChild(editorialStyle);
+  }
+
   const requestedStyle = document.createElement('style');
   requestedStyle.textContent = `
-    .section-label::before{display:none!important;content:none!important}
     .card-number,.service-number,.article-meta,.details-action,.article-action,.text-link{font-family:var(--font-inter,Arial,sans-serif)!important;font-size:var(--label-size,11px)!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important}
     .details-action,.article-action{display:inline-block!important}
     .details-action::before,.article-action::before,.details-action::after,.article-action::after{display:none!important;content:none!important}
     .details-action::after{display:inline!important;content:' +'!important}
     .article-action::after{display:inline!important;content:' ↗'!important;font-size:12px!important}
-    .text-link,.details-action,.article-action{text-decoration:none!important;border-bottom:0!important;box-shadow:none!important;transition:color .18s ease!important}
-    .text-link:hover,.details-action:hover,.article-action:hover{color:#868279!important}
-    .text-link::before,.text-link::after{display:none!important;content:none!important;border:0!important}
-    .text-link>span[aria-hidden="true"]{position:static!important;display:inline!important;width:auto!important;height:auto!important;margin-left:4px!important;font-size:12px!important;line-height:inherit!important;vertical-align:baseline!important;border:0!important;text-decoration:none!important}
-    .text-link>span[aria-hidden="true"]::before,.text-link>span[aria-hidden="true"]::after{display:none!important;content:none!important}
-    .home-paths__grid a{justify-content:center!important;align-items:flex-start!important;text-align:left!important}
-    .knowledge-section .article-action{margin-top:18px!important;font-family:var(--font-inter,Arial,sans-serif)!important;font-size:var(--label-size,11px)!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:#868279!important}
-    .site-footer{background-position:center,50% 80%!important}
+    .text-link,.details-action,.article-action{text-decoration:none!important;box-shadow:none!important}
   `;
   document.head.appendChild(requestedStyle);
+
+  /* Startseite: typografischer Hero statt Standard-Claim */
+  const homeTitle = document.querySelector('.home .home-hero .global-title');
+  if (homeTitle) {
+    homeTitle.innerHTML = `
+      <span class="hero-word">TREUHAND</span>
+      <span class="hero-claim"><span>mit Struktur</span><span>und Anspruch.</span></span>`;
+  }
 
   /* Eine einzige zentrale Fusszeile für alle Seiten */
   const footer = document.querySelector('.site-footer');
@@ -58,7 +64,6 @@
       </div>`;
   }
 
-  /* Zusammenarbeit: nur Formatierung vereinheitlichen, Inhalte pro Seite beibehalten */
   document.querySelectorAll('.expectation-editorial').forEach(section => {
     section.classList.add('mandate-compass', 'expectation-compass', 'expectation-editorial');
   });
@@ -75,6 +80,16 @@
     portrait.removeAttribute('srcset');
     portrait.removeAttribute('sizes');
     portrait.src = `${basePath}portrait-unternehmen.png`;
+  }
+
+  /* Kontakt: reduzierte Form ohne Icons, passend zum UI-System */
+  const companyField = document.querySelector('.contact-form input[name="unternehmen"]');
+  if (companyField) companyField.closest('label')?.remove();
+  const messageField = document.querySelector('.contact-form textarea[name="anliegen"]');
+  if (messageField) {
+    messageField.name = 'nachricht';
+    const label = messageField.closest('label');
+    if (label) label.childNodes[0].nodeValue = 'Nachricht';
   }
 
   const toggle = document.querySelector('.menu-toggle');
@@ -112,7 +127,6 @@
     });
   });
 
-  /* Fachwissen: Aktionshinweis für die künftig verlinkten Beiträge */
   document.querySelectorAll('.knowledge-section .article-card').forEach(card => {
     if (!card.querySelector('.article-action')) {
       const action = document.createElement('span');
@@ -122,7 +136,6 @@
     }
   });
 
-  /* Unveröffentlichte Beiträge dürfen nicht auf dieselbe Übersicht zurückführen. */
   document.querySelectorAll('.knowledge-section .article-card a').forEach(link => {
     const target = new URL(link.href, location.href);
     if (target.pathname === location.pathname) {
@@ -140,11 +153,6 @@
       const progress = (window.innerHeight / 2 - (rect.top + rect.height / 2)) / window.innerHeight;
       const y = Math.max(-factor, Math.min(factor, progress * factor));
       el.style.setProperty('--parallax-y', `${y}px`);
-    });
-    document.querySelectorAll('[data-parallax-background]').forEach(el => {
-      const rect = el.getBoundingClientRect();
-      const y = Math.max(-80, Math.min(80, (window.innerHeight / 2 - rect.top) * 0.05));
-      el.style.setProperty('--parallax-background-y', `${y}px`);
     });
   };
   updateScrollEffects();

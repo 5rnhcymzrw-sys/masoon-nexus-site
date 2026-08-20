@@ -7,6 +7,9 @@
   .process-section>.process-grid>.process-card{padding:22px 0!important}
 }
 
+/* Ablauf-Titel gleich gross wie FAQ-Titel */
+.process-section>.section-heading h1{font-size:var(--title-size)!important}
+
 /* FAQ im bestehenden dunklen Abschnitt */
 .process-section>.faq-editorial{display:block!important;position:relative!important;left:50%!important;width:100vw!important;max-width:none!important;margin-left:-50vw!important;margin-right:-50vw!important;padding:82px var(--section-x) 92px!important;box-sizing:border-box!important;color:#fff!important}
 .process-section>.faq-editorial .expectation-compass__heading{width:100%!important;max-width:650px!important;margin:0 0 64px!important}

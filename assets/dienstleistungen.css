@@ -129,22 +129,8 @@ html body .services-main .services-section .services-grid > .service-card:nth-of
   margin:0!important;
 }
 
-/* Erste Reihe: Mehr anzeigen immer exakt auf derselben Höhe */
+/* Geöffnete Karten 01–03 immer gleich hoch wie die längste Karte 03 */
 @media(min-width:1051px){
-  .services-section .services-grid > .service-card:nth-child(-n+3) > summary{
-    position:relative!important;
-    min-height:360px!important;
-    box-sizing:border-box!important;
-    padding-bottom:54px!important;
-  }
-  .services-section .services-grid > .service-card:nth-child(-n+3) > summary .details-action{
-    position:absolute!important;
-    left:0!important;
-    bottom:0!important;
-    margin-top:0!important;
-  }
-
-  /* Geöffnete Karten 01–03 immer gleich hoch */
   .services-section .services-grid > .service-card:nth-child(-n+3)[open]{
     height:690px!important;
     min-height:690px!important;

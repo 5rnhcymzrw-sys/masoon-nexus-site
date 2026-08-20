@@ -91,6 +91,18 @@ html body .services-main .services-section .services-grid > .service-card:nth-of
   padding:4px 0!important;
 }
 
+/* Gedankenstriche passend zur jeweiligen Zahlenfarbe */
+.services-section .service-card li::before{
+  color:#99989c!important;
+}
+.services-section .service-card:nth-child(1) li::before,
+.services-section .service-card:nth-child(5) li::before{
+  color:#19191b!important;
+}
+.services-section .service-card:nth-child(3) li::before{
+  color:#c2c1c4!important;
+}
+
 /* Browser-Marker der Details-Felder vollständig ausblenden */
 .services-section .service-card summary{
   list-style:none!important;

@@ -1,8 +1,8 @@
 /* Ablauf: mehr vertikaler Raum für vier Schritte */
 @media (min-width:1001px){
-  .process-section::before{height:760px!important}
-  .process-section>.section-heading{min-height:546px!important}
-  .process-section>.process-grid{height:760px!important;grid-template-rows:repeat(4,minmax(0,1fr))!important;padding-top:42px!important;padding-bottom:42px!important}
-  .process-section>.process-grid::after{top:54px!important;bottom:54px!important}
-  .process-section>.process-grid>.process-card{padding:26px 0!important}
+  .process-section::before{height:700px!important}
+  .process-section>.section-heading{min-height:486px!important}
+  .process-section>.process-grid{height:700px!important;grid-template-rows:repeat(4,minmax(0,1fr))!important;padding-top:36px!important;padding-bottom:36px!important}
+  .process-section>.process-grid::after{top:48px!important;bottom:48px!important}
+  .process-section>.process-grid>.process-card{padding:22px 0!important}
 }

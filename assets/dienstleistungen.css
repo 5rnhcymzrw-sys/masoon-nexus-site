@@ -2,6 +2,9 @@
 .services-section .service-card .card-number{
   color:#99989c!important;
   margin-bottom:18px!important;
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
 }
 .services-section .service-card:nth-child(1) .card-number,
 .services-section .service-card:nth-child(5) .card-number{
@@ -40,7 +43,7 @@ html body .services-main .services-section .services-grid > .service-card[open] 
   filter:none!important;
 }
 
-/* Nr. 02 explizit gegen alte dunkle Overrides absichern */
+/* Nr. 02 explizit gegen alte dunkle/unsichtbare Overrides absichern */
 html body .services-main .services-section .services-grid > .service-card:nth-of-type(2),
 html body .services-main .services-section .services-grid > .service-card:nth-of-type(2):hover,
 html body .services-main .services-section .services-grid > .service-card:nth-of-type(2)[open],
@@ -54,10 +57,24 @@ html body .services-main .services-section .services-grid > .service-card:nth-of
 }
 html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) h2,
 html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) p,
-html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) li{
-  color:#171715!important;
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) li,
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) .card-number,
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) .details-action{
   opacity:1!important;
   visibility:visible!important;
+}
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) h2,
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) p,
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) li{
+  color:#171715!important;
+}
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) .card-number{
+  display:block!important;
+  color:#99989c!important;
+}
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) .details-action{
+  display:inline-block!important;
+  color:#868279!important;
 }
 
 .services-section .service-card h2,
@@ -74,10 +91,13 @@ html body .services-main .services-section .services-grid > .service-card:nth-of
 .services-section .service-card .details-action,
 .services-section .service-card:hover .details-action,
 .services-section .service-card[open] .details-action{
+  display:inline-block!important;
   color:#868279!important;
+  opacity:1!important;
+  visibility:visible!important;
 }
 
-/* Dienstleistungen: Fliesstext und Tätigkeiten */
+/* Dienstleistungen: Fliesstext und Tätigkeiten exakt gleicher Textrhythmus */
 .services-section .service-card summary p{
   font-size:14.5px!important;
   line-height:1.65!important;
@@ -88,7 +108,8 @@ html body .services-main .services-section .services-grid > .service-card:nth-of
   font-size:14.5px!important;
   line-height:1.65!important;
   border-top:none!important;
-  padding:4px 0!important;
+  padding:0!important;
+  margin:0!important;
 }
 
 /* Gedankenstriche passend zur jeweiligen Zahlenfarbe */

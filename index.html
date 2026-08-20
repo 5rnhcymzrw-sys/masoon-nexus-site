@@ -14,14 +14,22 @@
 
   <link rel="stylesheet" href="assets/global.css?v=20260814-15" />
   <style>
-    .home-values__item{border-left:8px solid #99989c!important}
+    .home-values__item{
+      border-left:8px solid #99989c!important;
+      background:#fff!important;
+      background-color:#fff!important;
+      background-image:none!important;
+      min-height:285px!important;
+      padding:42px 36px!important;
+      justify-content:flex-start!important;
+    }
     .home-values__item:nth-child(1),
     .home-values__item:nth-child(5){border-left-color:#19191b!important}
     .home-values__item:nth-child(3){border-left-color:#c2c1c4!important}
 
     .home-values__item .service-number{
       display:block!important;
-      margin:0 0 18px!important;
+      margin:0 0 12px!important;
       font-family:var(--font-cormorant),Georgia,serif!important;
       font-size:28px!important;
       font-weight:500!important;
@@ -32,6 +40,10 @@
     .home-values__item:nth-child(1) .service-number,
     .home-values__item:nth-child(5) .service-number{color:#19191b!important}
     .home-values__item:nth-child(3) .service-number{color:#c2c1c4!important}
+
+    .home-values__item h3{margin:0 0 22px!important}
+    .home-values__item h3::after{content:none!important;display:none!important}
+    .home-values__item p{margin:0!important}
 
     .home-values__all-services{
       color:#171715!important;

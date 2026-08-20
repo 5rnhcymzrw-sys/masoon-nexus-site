@@ -54,11 +54,19 @@
   line-height:1.55!important;
 }
 
-/* Verirrten Marker/Punkt unter dem Dienstleistungsraster ausblenden */
-.services-section .services-grid + ::marker,
-.services-section > ::marker{
-  content:''!important;
+/* Browser-Marker der Details-Felder vollständig ausblenden */
+.services-section .service-card summary{
+  list-style:none!important;
 }
+.services-section .service-card summary::marker{
+  content:''!important;
+  font-size:0!important;
+}
+.services-section .service-card summary::-webkit-details-marker{
+  display:none!important;
+}
+
+/* Leere Listen/Elemente unter dem Dienstleistungsraster ausblenden */
 .services-section > li:empty,
 .services-section > ul:empty,
 .services-section > ol:empty{

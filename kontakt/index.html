@@ -45,11 +45,11 @@
 
       <form class="contact-form contact-split__form">
         <p class="contact-split__form-label">Kontaktformular</p>
-        <label>Name<input autocomplete="name" name="name" required /></label>
+        <label>Nachname<input autocomplete="family-name" name="nachname" required /></label>
+        <label>Vorname<input autocomplete="given-name" name="vorname" required /></label>
         <label>E-Mail<input autocomplete="email" name="email" required type="email" /></label>
         <label>Telefon<input autocomplete="tel" name="telefon" type="tel" /></label>
-        <label>Unternehmen<input autocomplete="organization" name="unternehmen" /></label>
-        <label class="contact-split__message">Anliegen<textarea name="anliegen" required rows="5"></textarea></label>
+        <label class="contact-split__message">Nachricht<textarea name="nachricht" required rows="5"></textarea></label>
         <button type="submit">Nachricht senden <span aria-hidden="true">→</span></button>
         <p aria-live="polite" class="form-status"></p>
       </form>

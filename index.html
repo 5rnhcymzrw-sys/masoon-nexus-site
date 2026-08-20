@@ -56,16 +56,23 @@
     .home-values__all-services:link,
     .home-values__all-services:visited,
     .home-values__all-services:active{
+      position:relative!important;
+      display:inline-block!important;
       color:#171715!important;
       background:transparent!important;
       background-color:transparent!important;
       background-image:none!important;
       text-decoration:none!important;
-      border-bottom:0!important;
+      border:0!important;
       padding-bottom:14px!important;
       box-shadow:none!important;
       outline-color:currentColor;
       transition:box-shadow .18s ease!important;
+    }
+    .home-values__all-services::before,
+    .home-values__all-services::after{
+      content:none!important;
+      display:none!important;
     }
     .home-values__all-services:hover,
     .home-values__all-services:focus-visible,

@@ -10,6 +10,18 @@
   color:#c2c1c4!important;
 }
 
+/* Dienstleistungen: kräftige Linien passend zur jeweiligen Zahlenfarbe */
+.services-section .service-card{
+  border-left:8px solid #99989c!important;
+}
+.services-section .service-card:nth-child(1),
+.services-section .service-card:nth-child(5){
+  border-left-color:#19191b!important;
+}
+.services-section .service-card:nth-child(3){
+  border-left-color:#c2c1c4!important;
+}
+
 /* Dienstleistungen: Beschreibungstexte kompakter */
 .services-section .service-card summary p{
   font-size:13px!important;

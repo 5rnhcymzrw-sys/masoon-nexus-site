@@ -98,8 +98,7 @@ html body .services-main .services-section .services-grid > .service-card:nth-of
 }
 
 /* Dienstleistungen: kompakter, konsistenter Inhaltsrhythmus */
-.services-section .service-card,
-.services-section .service-card[open]{
+.services-section .service-card{
   min-height:0!important;
 }
 .services-section .service-card summary,
@@ -128,6 +127,16 @@ html body .services-main .services-section .services-grid > .service-card:nth-of
   border-top:none!important;
   padding:0!important;
   margin:0!important;
+}
+
+/* Geöffnete Karten 01–03 immer gleich hoch wie die längste Karte 03 */
+@media(min-width:1051px){
+  .services-section .services-grid > .service-card:nth-child(-n+3)[open]{
+    height:690px!important;
+    min-height:690px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
 }
 
 /* Gedankenstriche passend zur Zahlenfarbe, kürzer und dezenter */

@@ -7,20 +7,22 @@
   .process-section>.process-grid>.process-card{padding:22px 0!important}
 }
 
-/* FAQ im bestehenden hellen Abschnitt */
-.process-section>.faq-editorial{display:block!important;position:relative!important;left:50%!important;width:100vw!important;max-width:none!important;margin-left:-50vw!important;margin-right:-50vw!important;padding:82px var(--section-x) 92px!important;box-sizing:border-box!important}
+/* FAQ im bestehenden dunklen Abschnitt */
+.process-section>.faq-editorial{display:block!important;position:relative!important;left:50%!important;width:100vw!important;max-width:none!important;margin-left:-50vw!important;margin-right:-50vw!important;padding:82px var(--section-x) 92px!important;box-sizing:border-box!important;color:#fff!important}
 .process-section>.faq-editorial .expectation-compass__heading{width:100%!important;max-width:650px!important;margin:0 0 64px!important}
-.faq-editorial__list{width:min(100%,980px)!important;margin:0!important;border-top:1px solid #d9d7d2!important}
-.faq-editorial__list details{margin:0!important;border-bottom:1px solid #d9d7d2!important;background:transparent!important}
+.process-section>.faq-editorial .expectation-compass__heading .section-label{color:rgba(255,255,255,.72)!important}
+.process-section>.faq-editorial .expectation-compass__heading h2{color:#fff!important}
+.faq-editorial__list{width:min(100%,980px)!important;margin:0!important;border-top:1px solid rgba(255,255,255,.42)!important}
+.faq-editorial__list details{margin:0!important;border-bottom:1px solid rgba(255,255,255,.42)!important;background:transparent!important}
 .faq-editorial__list summary{list-style:none!important;cursor:pointer!important;display:grid!important;grid-template-columns:220px minmax(0,1fr) 28px!important;gap:24px!important;align-items:center!important;min-height:96px!important;padding:20px 0!important;transform:none!important}
 .faq-editorial__list summary::-webkit-details-marker{display:none!important}
-.faq-editorial__list summary>span:first-child{font-family:var(--font-cormorant)!important;font-size:22px!important;font-weight:500!important;line-height:1.08!important;color:#232227!important}
-.faq-editorial__list summary>span:nth-child(2){font-family:var(--font-inter)!important;font-size:15px!important;font-weight:400!important;line-height:1.55!important;color:#5b5a5e!important}
+.faq-editorial__list summary>span:first-child{font-family:var(--font-cormorant)!important;font-size:22px!important;font-weight:500!important;line-height:1.08!important;color:rgba(255,255,255,.82)!important}
+.faq-editorial__list summary>span:nth-child(2){font-family:var(--font-inter)!important;font-size:15px!important;font-weight:400!important;line-height:1.55!important;color:rgba(255,255,255,.92)!important}
 .faq-editorial__toggle{position:relative!important;width:18px!important;height:18px!important;justify-self:end!important}
-.faq-editorial__toggle::before,.faq-editorial__toggle::after{content:''!important;position:absolute!important;left:50%!important;top:50%!important;width:16px!important;height:1px!important;background:#232227!important;transform:translate(-50%,-50%)!important}
+.faq-editorial__toggle::before,.faq-editorial__toggle::after{content:''!important;position:absolute!important;left:50%!important;top:50%!important;width:16px!important;height:1px!important;background:#fff!important;transform:translate(-50%,-50%)!important}
 .faq-editorial__toggle::after{transform:translate(-50%,-50%) rotate(90deg)!important;transition:transform .18s ease!important}
 .faq-editorial__list details[open] .faq-editorial__toggle::after{transform:translate(-50%,-50%) rotate(0)!important}
-.faq-editorial__list details>p{max-width:700px!important;margin:0 52px 0 244px!important;padding:0 0 30px!important;color:#5b5a5e!important;font-family:var(--font-inter)!important;font-size:15px!important;line-height:1.65!important}
+.faq-editorial__list details>p{max-width:700px!important;margin:0 52px 0 244px!important;padding:0 0 30px!important;color:rgba(255,255,255,.82)!important;font-family:var(--font-inter)!important;font-size:15px!important;line-height:1.65!important}
 @media(max-width:800px){
   .process-section>.faq-editorial{padding:68px 24px 76px!important}
   .process-section>.faq-editorial .expectation-compass__heading{margin-bottom:48px!important}

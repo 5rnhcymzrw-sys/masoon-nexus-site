@@ -1,0 +1,7 @@
+/* Einheitliche Fliesstextgrösse */
+main p:not(.section-label):not(.article-meta):not(.form-status):not(.form-note){
+  font-size:14.5px!important;
+}
+.services-section .service-card li{
+  font-size:14.5px!important;
+}

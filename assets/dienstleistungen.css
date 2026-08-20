@@ -10,3 +10,9 @@
 .services-section .service-card:nth-child(6) .card-number{
   color:#c2c1c4!important;
 }
+
+/* Dienstleistungen: Beschreibungstexte kompakter */
+.services-section .service-card summary p{
+  font-size:13px!important;
+  line-height:1.55!important;
+}

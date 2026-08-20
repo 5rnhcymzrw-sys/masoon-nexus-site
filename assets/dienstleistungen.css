@@ -129,16 +129,6 @@ html body .services-main .services-section .services-grid > .service-card:nth-of
   margin:0!important;
 }
 
-/* Geöffnete Karten 01–03 immer gleich hoch wie die längste Karte 03 */
-@media(min-width:1051px){
-  .services-section .services-grid > .service-card:nth-child(-n+3)[open]{
-    height:690px!important;
-    min-height:690px!important;
-    box-sizing:border-box!important;
-    overflow:hidden!important;
-  }
-}
-
 /* Gedankenstriche passend zur Zahlenfarbe, kürzer und dezenter */
 .services-section .service-card li::before{
   content:'—'!important;

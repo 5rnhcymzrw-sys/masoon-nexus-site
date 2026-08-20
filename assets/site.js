@@ -112,6 +112,17 @@
     });
   });
 
+  /* Dienstleistungen: Beschriftung dem geöffneten Zustand anpassen */
+  document.querySelectorAll('.services-section .service-card').forEach(card => {
+    const action = card.querySelector('.details-action');
+    if (!action) return;
+    const updateAction = () => {
+      action.textContent = card.open ? 'Weniger anzeigen' : 'Mehr anzeigen';
+    };
+    updateAction();
+    card.addEventListener('toggle', updateAction);
+  });
+
   /* Fachwissen: Aktionshinweis für die künftig verlinkten Beiträge */
   document.querySelectorAll('.knowledge-section .article-card').forEach(card => {
     if (!card.querySelector('.article-action')) {

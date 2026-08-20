@@ -24,19 +24,42 @@
 }
 
 /* Alle Dienstleistungsfelder bleiben in jedem Zustand weiss */
-.services-section .service-card,
-.services-section .service-card:hover,
-.services-section .service-card[open],
-.services-section .service-card summary,
-.services-section .service-card:hover summary,
-.services-section .service-card[open] summary,
-.services-section .service-card ul,
-.services-section .service-card:hover ul,
-.services-section .service-card[open] ul{
+html body .services-main .services-section .services-grid > .service-card,
+html body .services-main .services-section .services-grid > .service-card:hover,
+html body .services-main .services-section .services-grid > .service-card[open],
+html body .services-main .services-section .services-grid > .service-card > summary,
+html body .services-main .services-section .services-grid > .service-card:hover > summary,
+html body .services-main .services-section .services-grid > .service-card[open] > summary,
+html body .services-main .services-section .services-grid > .service-card > ul,
+html body .services-main .services-section .services-grid > .service-card:hover > ul,
+html body .services-main .services-section .services-grid > .service-card[open] > ul{
   background:#fff!important;
   background-color:#fff!important;
+  background-image:none!important;
   color:#171715!important;
+  filter:none!important;
 }
+
+/* Nr. 02 explizit gegen alte dunkle Overrides absichern */
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2),
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2):hover,
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2)[open],
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) > summary,
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) > ul{
+  background:#fff!important;
+  background-color:#fff!important;
+  background-image:none!important;
+  color:#171715!important;
+  opacity:1!important;
+}
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) h2,
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) p,
+html body .services-main .services-section .services-grid > .service-card:nth-of-type(2) li{
+  color:#171715!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+
 .services-section .service-card h2,
 .services-section .service-card summary p,
 .services-section .service-card li,
@@ -71,13 +94,21 @@
 }
 .services-section .service-card summary::marker{
   content:''!important;
+  display:none!important;
   font-size:0!important;
 }
 .services-section .service-card summary::-webkit-details-marker{
   display:none!important;
 }
 
-/* Leere Listen/Elemente unter dem Dienstleistungsraster ausblenden */
+/* Keine dekorativen Punkte unter dem Raster */
+.services-section::before,
+.services-section::after,
+.services-section .services-grid::before,
+.services-section .services-grid::after{
+  content:none!important;
+  display:none!important;
+}
 .services-section > li:empty,
 .services-section > ul:empty,
 .services-section > ol:empty{

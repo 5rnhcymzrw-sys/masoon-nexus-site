@@ -14,8 +14,6 @@
 /* Dienstleistungen: kräftige Linien passend zur jeweiligen Zahlenfarbe */
 .services-section .service-card{
   border-left:8px solid #99989c!important;
-  background:#fff!important;
-  color:#171715!important;
 }
 .services-section .service-card:nth-child(1),
 .services-section .service-card:nth-child(5){
@@ -25,12 +23,23 @@
   border-left-color:#c2c1c4!important;
 }
 
-/* Alle Zustände bleiben weiss */
+/* Alle Dienstleistungsfelder bleiben in jedem Zustand weiss */
+.services-section .service-card,
 .services-section .service-card:hover,
-.services-section .service-card[open]{
+.services-section .service-card[open],
+.services-section .service-card summary,
+.services-section .service-card:hover summary,
+.services-section .service-card[open] summary,
+.services-section .service-card ul,
+.services-section .service-card:hover ul,
+.services-section .service-card[open] ul{
   background:#fff!important;
+  background-color:#fff!important;
   color:#171715!important;
 }
+.services-section .service-card h2,
+.services-section .service-card summary p,
+.services-section .service-card li,
 .services-section .service-card:hover h2,
 .services-section .service-card:hover summary p,
 .services-section .service-card:hover li,
@@ -39,10 +48,12 @@
 .services-section .service-card[open] li{
   color:#171715!important;
 }
+.services-section .service-card .details-action,
 .services-section .service-card:hover .details-action,
 .services-section .service-card[open] .details-action{
   color:#868279!important;
 }
+.services-section .service-card li,
 .services-section .service-card:hover li,
 .services-section .service-card[open] li{
   border-top-color:#1717151f!important;

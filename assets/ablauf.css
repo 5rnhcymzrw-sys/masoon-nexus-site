@@ -15,8 +15,8 @@
 .process-section>.faq-editorial .expectation-compass__heading{width:100%!important;max-width:650px!important;margin:0 0 64px!important}
 .process-section>.faq-editorial .expectation-compass__heading .section-label{color:rgba(255,255,255,.72)!important}
 .process-section>.faq-editorial .expectation-compass__heading h2{color:#fff!important}
-.faq-editorial__list{width:min(100%,980px)!important;margin:0!important;border-top:1px solid rgba(255,255,255,.42)!important}
-.faq-editorial__list details{margin:0!important;border-bottom:1px solid rgba(255,255,255,.42)!important;background:transparent!important}
+.faq-editorial__list{width:min(100%,980px)!important;margin:0!important;border-top:1px solid rgba(222,221,224,.22)!important}
+.faq-editorial__list details{margin:0!important;border-bottom:1px solid rgba(222,221,224,.22)!important;background:transparent!important}
 .faq-editorial__list summary{list-style:none!important;cursor:pointer!important;display:grid!important;grid-template-columns:220px minmax(0,1fr) 28px!important;gap:24px!important;align-items:center!important;min-height:96px!important;padding:20px 0!important;transform:none!important}
 .faq-editorial__list summary::-webkit-details-marker{display:none!important}
 .faq-editorial__list summary>span:first-child{font-family:var(--font-cormorant)!important;font-size:22px!important;font-weight:500!important;line-height:1.08!important;color:rgba(255,255,255,.82)!important}

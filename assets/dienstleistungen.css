@@ -1,0 +1,12 @@
+/* Dienstleistungen: Zahlenfarben wie im Ablauf */
+.services-section .service-card .card-number{
+  color:#99989c!important;
+}
+.services-section .service-card:nth-child(1) .card-number,
+.services-section .service-card:nth-child(4) .card-number{
+  color:#19191b!important;
+}
+.services-section .service-card:nth-child(3) .card-number,
+.services-section .service-card:nth-child(6) .card-number{
+  color:#c2c1c4!important;
+}

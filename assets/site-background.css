@@ -1,12 +1,12 @@
-/* Gemeinsamer Hintergrund für die Hauptseiten */
+/* Gemeinsamer Hintergrund für die Hauptseiten – Bild 1:1 sichtbar */
 body.site-page-bg{
-  background-color:#f1f1f1!important;
+  background-color:#fff!important;
   background-image:url("../W07-bg.jpg")!important;
   background-size:cover!important;
   background-position:center top!important;
   background-repeat:repeat-y!important;
   background-attachment:fixed!important;
-  background-blend-mode:multiply!important;
+  background-blend-mode:normal!important;
 }
 body.site-page-bg>.page-main,
 body.site-page-bg .page-main{background:transparent!important}
@@ -16,4 +16,4 @@ body.site-page-bg .home-company,
 body.site-page-bg .home-values,
 body.site-page-bg .home-values__inner,
 body.site-page-bg .contact-split-page{background:transparent!important}
-@media(max-width:800px){body.site-page-bg{background-attachment:scroll!important;background-size:auto 100vh!important}}
+@media(max-width:800px){body.site-page-bg{background-attachment:scroll!important;background-size:cover!important}}

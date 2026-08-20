@@ -16,7 +16,6 @@
   border-left:8px solid #99989c!important;
   background:#fff!important;
   color:#171715!important;
-  transition:background-color .18s ease,color .18s ease!important;
 }
 .services-section .service-card:nth-child(1),
 .services-section .service-card:nth-child(5){
@@ -26,25 +25,27 @@
   border-left-color:#c2c1c4!important;
 }
 
-/* Hover und geöffneter Zustand: schwarz statt beige */
+/* Alle Zustände bleiben weiss */
 .services-section .service-card:hover,
 .services-section .service-card[open]{
-  background:#000!important;
-  color:#fff!important;
+  background:#fff!important;
+  color:#171715!important;
 }
 .services-section .service-card:hover h2,
 .services-section .service-card:hover summary p,
-.services-section .service-card:hover .details-action,
 .services-section .service-card:hover li,
 .services-section .service-card[open] h2,
 .services-section .service-card[open] summary p,
-.services-section .service-card[open] .details-action,
 .services-section .service-card[open] li{
-  color:#fff!important;
+  color:#171715!important;
+}
+.services-section .service-card:hover .details-action,
+.services-section .service-card[open] .details-action{
+  color:#868279!important;
 }
 .services-section .service-card:hover li,
 .services-section .service-card[open] li{
-  border-top-color:rgba(255,255,255,.2)!important;
+  border-top-color:#1717151f!important;
 }
 
 /* Dienstleistungen: Beschreibungstexte kompakter */

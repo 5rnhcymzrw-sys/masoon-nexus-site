@@ -312,3 +312,13 @@ html body .home-values__all-services:focus-visible span{
 html body .site-nav a::after{
   bottom:21px!important;
 }
+
+/* Desktop: Fliesstext beginnt direkt unter dem Kacheltitel */
+@media(min-width:801px){
+  html body .home>.home-values .home-values__item p,
+  html body .services-section .service-card summary p{
+    grid-column:2!important;
+    grid-row:2!important;
+    margin-top:28px!important;
+  }
+}

@@ -122,3 +122,18 @@ html body .process-section>.faq-editorial .faq-editorial__list summary{
 html body .process-section>.faq-editorial .faq-editorial__list details>p{
   display:block!important;
 }
+
+/* Mandat: lange, feine Trennlinie unter dem FAQ-Titel */
+html body .process-section>.faq-editorial .expectation-compass__heading{
+  position:relative!important;
+  max-width:none!important;
+}
+html body .process-section>.faq-editorial .expectation-compass__heading::after{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-32px;
+  height:1px;
+  background:rgba(255,255,255,.22);
+}

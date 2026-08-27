@@ -660,3 +660,22 @@ html body .expectation-editorial .expectation-editorial__item::after{
   content:none!important;
   display:none!important;
 }
+
+
+/* Zusammenarbeit: keine Linie nach dem Fliesstext */
+html body .expectation-editorial .expectation-editorial__item p{
+  border-top:0!important;
+  border-right:0!important;
+  border-bottom:0!important;
+  border-left:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:none!important;
+}
+html body .expectation-editorial .expectation-editorial__item p::before,
+html body .expectation-editorial .expectation-editorial__item p::after{
+  content:none!important;
+  display:none!important;
+  border:0!important;
+  background:none!important;
+}

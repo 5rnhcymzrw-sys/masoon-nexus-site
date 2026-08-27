@@ -514,3 +514,15 @@ html body .contact-split__form-label::after{
 html body .footer-main h2::after{
   margin-top:13px!important;
 }
+
+
+/* Kacheltitel auf allen Seiten etwas kräftiger */
+html body .home-values__item h3,
+html body .home-paths__grid strong,
+html body .article-card h2,
+html body .services-section .service-card h2,
+html body .process-card h2,
+html body .expectation-editorial__item h3,
+html body .service-principles__items h3{
+  font-weight:600!important;
+}

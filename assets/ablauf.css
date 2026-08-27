@@ -57,3 +57,52 @@
     grid-row:1!important;
   }
 }
+
+
+/* Mandat: Fragen im gleichen ruhigen Raster wie Unternehmen – Zusammenarbeit */
+@media(min-width:801px){
+  html body .process-section>.faq-editorial .faq-editorial__list{
+    width:100%!important;
+    max-width:none!important;
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:54px 56px!important;
+    border-top:0!important;
+  }
+}
+html body .process-section>.faq-editorial .faq-editorial__list details{
+  border:0!important;
+}
+html body .process-section>.faq-editorial .faq-editorial__list summary{
+  min-height:0!important;
+  padding:0!important;
+  grid-template-columns:minmax(0,1fr) 22px!important;
+  gap:16px!important;
+  align-items:start!important;
+}
+html body .process-section>.faq-editorial .faq-editorial__list summary>span:nth-child(2){
+  font-family:var(--font-cormorant)!important;
+  font-size:24px!important;
+  font-weight:600!important;
+  line-height:1.08!important;
+  color:#fff!important;
+}
+html body .process-section>.faq-editorial .faq-editorial__toggle{
+  width:18px!important;
+  height:18px!important;
+  margin-top:4px!important;
+}
+html body .process-section>.faq-editorial .faq-editorial__list details>p{
+  max-width:none!important;
+  margin:18px 38px 0 0!important;
+  padding:0!important;
+  color:rgba(255,255,255,.82)!important;
+}
+@media(max-width:800px){
+  html body .process-section>.faq-editorial .faq-editorial__list{
+    border-top:0!important;
+  }
+  html body .process-section>.faq-editorial .faq-editorial__list details{
+    padding:0 0 36px!important;
+  }
+}

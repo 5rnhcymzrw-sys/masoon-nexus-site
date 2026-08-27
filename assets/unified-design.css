@@ -691,7 +691,7 @@ html body .knowledge-section .articles-grid>.article-card:first-child h2{
 /* Fachwissen: alle Beitragstitel redaktionell in Georgia mit Linie und Fliesstext */
 html body .knowledge-section .articles-grid>.article-card h2{
   min-height:0!important;
-  margin:0 0 18px!important;
+  margin:0 0 12px!important;
   font-family:Georgia,'Times New Roman',serif!important;
   font-weight:700!important;
 }

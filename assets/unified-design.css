@@ -587,3 +587,17 @@ html body .home-company__copy h1 span,
 html body .home-company__copy h2 span{
   display:block!important;
 }
+
+
+/* Unternehmen Desktop: Porträt ausgewogen zur Höhe des Textbereichs */
+@media(min-width:801px){
+  html body .home-company__image{
+    width:440px!important;
+    height:565px!important;
+    min-height:565px!important;
+  }
+  html body .home-company__image-primary{
+    width:92%!important;
+    height:92%!important;
+  }
+}

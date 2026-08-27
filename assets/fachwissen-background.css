@@ -42,3 +42,11 @@ body.light-pattern-page-bg .home-contact-band{
   background:rgba(255,255,255,.72)!important;
   background-image:none!important;
 }
+
+/* Startseite: der Hauptcontainer und das Kontaktband dürfen das Bild nicht überdecken */
+body.light-pattern-page-bg .home,
+body.light-pattern-page-bg .home>.home-contact-band{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}

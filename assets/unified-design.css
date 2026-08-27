@@ -627,3 +627,19 @@ html body.light-pattern-page-bg .services-main>.services-section{
     margin-bottom:64px!important;
   }
 }
+
+
+/* Zusammenarbeit: Linien direkt unter den Titeln, nicht unter den Bereichen */
+html body .expectation-editorial .expectation-editorial__item{
+  border-bottom:0!important;
+  box-shadow:none!important;
+}
+html body .expectation-editorial .expectation-editorial__item h3::after{
+  content:''!important;
+  display:block!important;
+  width:100%!important;
+  height:1px!important;
+  margin-top:13px!important;
+  background:rgba(255,255,255,.28)!important;
+  border:0!important;
+}

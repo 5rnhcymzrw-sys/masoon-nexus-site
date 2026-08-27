@@ -619,3 +619,11 @@ html body.light-pattern-page-bg .services-main>.services-section{
   background-image:none!important;
   box-shadow:none!important;
 }
+
+
+/* Dienstleistungs Hauptseite: Titelabstand wie Startseite und Fachwissen */
+@media(min-width:801px){
+  html body .services-main>.services-section>.section-heading{
+    margin-bottom:64px!important;
+  }
+}

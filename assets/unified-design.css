@@ -573,3 +573,10 @@ html body.light-pattern-page-bg .expectation-editorial .expectation-editorial__i
     max-width:none!important;
   }
 }
+
+
+/* Unternehmen: Fliesstextfarbe wie bei Werte */
+html body.light-pattern-page-bg .home-company__copy .prose,
+html body.light-pattern-page-bg .home-company__copy .prose p{
+  color:#373733!important;
+}

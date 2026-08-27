@@ -162,3 +162,14 @@ body{font-family:var(--font-inter)!important;font-size:var(--body-size)!importan
   background-color:#0a0a09e0!important;
   background-image:none!important;
 }
+
+/* Einheitliche dunkle Farbe für Kopfzeile und Fusszeile */
+:root{
+  --site-header-footer:#0a0a09e0;
+}
+.site-header:not(.site-header--overlay),
+.site-footer{
+  background:var(--site-header-footer)!important;
+  background-color:var(--site-header-footer)!important;
+  background-image:none!important;
+}

@@ -27,3 +27,18 @@ body.light-pattern-page-bg .home>.home-contact-band{
     background-size:cover!important;
   }
 }
+
+/* Beige Flächen entfernen und Hintergrundbild sichtbar halten */
+body.light-pattern-page-bg .home-company::before,
+body.light-pattern-page-bg .home-paths::before{
+  background:transparent!important;
+  background-image:none!important;
+}
+body.light-pattern-page-bg .home-values__item,
+body.light-pattern-page-bg .home-paths__grid a,
+body.light-pattern-page-bg .article-card,
+body.light-pattern-page-bg .knowledge-note,
+body.light-pattern-page-bg .home-contact-band{
+  background:rgba(255,255,255,.72)!important;
+  background-image:none!important;
+}

@@ -366,3 +366,28 @@ html body .site-nav a::after{
     margin-top:18px!important;
   }
 }
+
+/* Desktop: sichtbaren Titelabstand auf beiden Dienstleistungsrastern exakt angleichen */
+@media(min-width:801px){
+  html body .home>.home-values .home-values__item{
+    grid-template-rows:auto auto!important;
+    row-gap:0!important;
+  }
+  html body .services-section .service-card summary{
+    grid-template-rows:auto auto 1fr!important;
+    row-gap:0!important;
+  }
+  html body .home>.home-values .home-values__item h3,
+  html body .services-section .service-card h2{
+    margin-bottom:0!important;
+  }
+  html body .home>.home-values .home-values__item p,
+  html body .services-section .service-card summary p{
+    align-self:start!important;
+    margin-top:18px!important;
+  }
+  html body .services-section .service-card .details-action{
+    grid-row:3!important;
+    align-self:end!important;
+  }
+}

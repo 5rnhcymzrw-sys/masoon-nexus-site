@@ -1,0 +1,20 @@
+/* Hintergrund ausschliesslich für die Seite Fachwissen */
+body.fachwissen-page-bg{
+  background-color:#fff!important;
+  background-image:url("../W07-fachwissen.svg")!important;
+  background-size:cover!important;
+  background-position:center top!important;
+  background-repeat:repeat-y!important;
+  background-attachment:fixed!important;
+}
+body.fachwissen-page-bg>.page-main,
+body.fachwissen-page-bg .page-main,
+body.fachwissen-page-bg .knowledge-section{
+  background:transparent!important;
+}
+@media(max-width:800px){
+  body.fachwissen-page-bg{
+    background-attachment:scroll!important;
+    background-size:cover!important;
+  }
+}

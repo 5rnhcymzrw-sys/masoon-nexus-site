@@ -14,7 +14,11 @@ body.light-pattern-page-bg .services-section,
 body.light-pattern-page-bg .process-section,
 body.light-pattern-page-bg .home-company,
 body.light-pattern-page-bg .home-values,
-body.light-pattern-page-bg .home-values__inner{
+body.light-pattern-page-bg .home-values__inner,
+body.light-pattern-page-bg .home>.home-values,
+body.light-pattern-page-bg .home>.expectation-editorial,
+body.light-pattern-page-bg .home>.home-paths,
+body.light-pattern-page-bg .home>.home-contact-band{
   background:transparent!important;
 }
 @media(max-width:800px){

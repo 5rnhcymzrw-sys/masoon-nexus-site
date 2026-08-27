@@ -322,3 +322,11 @@ html body .site-nav a::after{
     margin-top:28px!important;
   }
 }
+
+/* Desktop: nur Abstand zwischen Kacheltitel und Fliesstext verkleinern */
+@media(min-width:801px){
+  html body .home>.home-values .home-values__item p,
+  html body .services-section .service-card summary p{
+    margin-top:14px!important;
+  }
+}

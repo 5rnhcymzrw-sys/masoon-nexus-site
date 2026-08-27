@@ -679,3 +679,10 @@ html body .expectation-editorial .expectation-editorial__item p::after{
   border:0!important;
   background:none!important;
 }
+
+
+/* Fachwissen Test: erster Beitragstitel in kräftiger Georgia */
+html body .knowledge-section .articles-grid>.article-card:first-child h2{
+  font-family:Georgia,'Times New Roman',serif!important;
+  font-weight:700!important;
+}

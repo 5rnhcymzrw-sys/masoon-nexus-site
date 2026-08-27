@@ -226,3 +226,14 @@ html body .services-section .service-card h2{
     column-gap:16px!important;
   }
 }
+
+/* Desktop: kompaktere Dienstleistungskacheln */
+@media(min-width:801px){
+  html body .home>.home-values .home-values__item{
+    min-height:260px!important;
+  }
+  html body .services-section .services-grid>.service-card,
+  html body .services-section .services-grid>.service-card>summary{
+    min-height:340px!important;
+  }
+}

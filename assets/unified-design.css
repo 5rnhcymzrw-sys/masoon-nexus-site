@@ -526,3 +526,15 @@ html body .expectation-editorial__item h3,
 html body .service-principles__items h3{
   font-weight:600!important;
 }
+
+
+/* Schriftstärke 600 gegen ältere spezifische Kachelregeln durchsetzen */
+html body .home>.home-values .home-values__item h3,
+html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card h2,
+html body .process-section .process-grid>.process-card h2,
+html body .home>.home-paths .home-paths__grid strong,
+html body .knowledge-section .articles-grid>.article-card h2,
+html body .expectation-editorial .expectation-editorial__item h3,
+html body .service-principles .service-principles__items h3{
+  font-weight:600!important;
+}

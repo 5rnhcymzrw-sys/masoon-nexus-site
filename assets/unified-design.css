@@ -756,3 +756,11 @@ html body .contact-split__form-label::before{
   border:0!important;
   line-height:1!important;
 }
+
+
+/* Bereichstitel: untere Linie entfernen, nur der lange Strich davor bleibt */
+html body .section-label::after,
+html body .contact-split__form-label::after{
+  content:none!important;
+  display:none!important;
+}

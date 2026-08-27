@@ -553,3 +553,9 @@ html body .expectation-editorial .expectation-editorial__item h3::after{
 html body .expectation-editorial .expectation-editorial__item p{
   margin-top:18px!important;
 }
+
+
+/* Zusammenarbeit: Fliesstext im gleichen Grau wie die Fusszeile */
+html body.light-pattern-page-bg .expectation-editorial .expectation-editorial__item p{
+  color:rgba(255,255,255,.82)!important;
+}

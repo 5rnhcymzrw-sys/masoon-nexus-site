@@ -1,5 +1,5 @@
-/* Hintergrund ausschliesslich für die Seite Fachwissen */
-body.fachwissen-page-bg{
+/* Heller Bildhintergrund für ausgewählte Hauptseiten */
+body.light-pattern-page-bg{
   background-color:#fff!important;
   background-image:url("../W07-fachwissen.svg")!important;
   background-size:cover!important;
@@ -7,13 +7,18 @@ body.fachwissen-page-bg{
   background-repeat:repeat-y!important;
   background-attachment:fixed!important;
 }
-body.fachwissen-page-bg>.page-main,
-body.fachwissen-page-bg .page-main,
-body.fachwissen-page-bg .knowledge-section{
+body.light-pattern-page-bg>.page-main,
+body.light-pattern-page-bg .page-main,
+body.light-pattern-page-bg .knowledge-section,
+body.light-pattern-page-bg .services-section,
+body.light-pattern-page-bg .process-section,
+body.light-pattern-page-bg .home-company,
+body.light-pattern-page-bg .home-values,
+body.light-pattern-page-bg .home-values__inner{
   background:transparent!important;
 }
 @media(max-width:800px){
-  body.fachwissen-page-bg{
+  body.light-pattern-page-bg{
     background-attachment:scroll!important;
     background-size:cover!important;
   }

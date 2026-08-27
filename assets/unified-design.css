@@ -499,3 +499,12 @@ html body .home-values__all-services.home-values__all-services.home-values__all-
 html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible::after{
   transform:scaleX(1)!important;
 }
+
+
+/* Kleine Bereichstitel: Linie auf allen Seiten mit 13 Pixel Abstand */
+html body .section-label::after{
+  top:calc(1.4em + 13px)!important;
+}
+html body .contact-split__form-label::after{
+  margin-top:13px!important;
+}

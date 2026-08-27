@@ -308,9 +308,9 @@ html body .home-values__all-services:focus-visible span{
   transform:translate(2px,-2px)!important;
 }
 
-/* Navigationslinie mit 10 Pixel Abstand zum Text */
+/* Navigationslinie mit 13 Pixel Abstand zum Text */
 html body .site-nav a::after{
-  bottom:21px!important;
+  bottom:18px!important;
 }
 
 /* Desktop: Fliesstext beginnt direkt unter dem Kacheltitel */

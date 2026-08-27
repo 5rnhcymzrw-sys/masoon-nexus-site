@@ -580,3 +580,10 @@ html body.light-pattern-page-bg .home-company__copy .prose,
 html body.light-pattern-page-bg .home-company__copy .prose p{
   color:#373733!important;
 }
+
+
+/* Unternehmen Haupttitel: drei feste Zeilen mit korrekten Wortabständen */
+html body .home-company__copy h1 span,
+html body .home-company__copy h2 span{
+  display:block!important;
+}

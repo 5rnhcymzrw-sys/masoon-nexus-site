@@ -610,3 +610,12 @@ html body .home-company__copy h2 span{
     padding-right:0!important;
   }
 }
+
+
+/* Dienstleistungs Hauptseite: grosse weisse Bereichsfläche entfernen */
+html body.light-pattern-page-bg .services-main>.services-section{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}

@@ -436,3 +436,51 @@ html body .site-nav a::after{
     margin:18px 0 0!important;
   }
 }
+
+/* Textlink Effekt auf allen Seiten ohne lokale Ausnahmen */
+html body .text-link.text-link.text-link.text-link,
+html body .home-values__all-services.home-values__all-services.home-values__all-services{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  border-bottom:0!important;
+  box-shadow:none!important;
+}
+html body .text-link.text-link.text-link.text-link:hover,
+html body .text-link.text-link.text-link.text-link:focus-visible,
+html body .text-link.text-link.text-link.text-link:active,
+html body .home-values__all-services.home-values__all-services.home-values__all-services:hover,
+html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible,
+html body .home-values__all-services.home-values__all-services.home-values__all-services:active{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  border-bottom:0!important;
+  box-shadow:none!important;
+  color:inherit!important;
+}
+html body .text-link.text-link.text-link.text-link::after,
+html body .home-values__all-services.home-values__all-services.home-values__all-services::after{
+  content:''!important;
+  display:block!important;
+  position:absolute!important;
+  right:auto!important;
+  bottom:0!important;
+  left:0!important;
+  width:100%!important;
+  height:1px!important;
+  background:#b8b8b8!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  transform:scaleX(0)!important;
+  transform-origin:left center!important;
+  transition:transform .2s ease!important;
+}
+html body .text-link.text-link.text-link.text-link:hover::after,
+html body .text-link.text-link.text-link.text-link:focus-visible::after,
+html body .home-values__all-services.home-values__all-services.home-values__all-services:hover::after,
+html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible::after{
+  transform:scaleX(1)!important;
+}

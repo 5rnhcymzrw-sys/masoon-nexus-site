@@ -707,3 +707,34 @@ html body .knowledge-section .articles-grid>.article-card h2::after{
 html body .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
   margin-top:0!important;
 }
+
+
+/* Einheitliche kurze Linien zwischen kleinen Titeln und nachfolgendem Text */
+html body .home-values__item h3::after,
+html body .home-paths__grid strong::after,
+html body .expectation-editorial__item h3::after,
+html body .knowledge-section .article-card h2::after,
+html body .service-principles__items h3::after{
+  content:''!important;
+  display:block!important;
+  width:48px!important;
+  height:1px!important;
+  margin-top:11px!important;
+  background:#868279!important;
+  border:0!important;
+}
+html body .home-values__item h3,
+html body .expectation-editorial__item h3,
+html body .knowledge-section .article-card h2,
+html body .service-principles__items h3{
+  margin-bottom:11px!important;
+}
+html body .home-values__item p,
+html body .expectation-editorial__item p,
+html body .knowledge-section .article-card>p:not(.article-meta),
+html body .service-principles__items article>p{
+  margin-top:0!important;
+}
+html body .home-paths__grid strong+span{
+  margin-top:11px!important;
+}

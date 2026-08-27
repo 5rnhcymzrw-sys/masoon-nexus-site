@@ -50,3 +50,10 @@ body.light-pattern-page-bg .home>.home-contact-band{
   background-color:transparent!important;
   background-image:none!important;
 }
+
+/* Startseite: alle Abschnitte nach dem ersten Startbereich zeigen das Hintergrundbild */
+body.light-pattern-page-bg .home>section:not(.home-hero){
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}

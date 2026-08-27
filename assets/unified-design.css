@@ -484,3 +484,18 @@ html body .home-values__all-services.home-values__all-services.home-values__all-
 html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible::after{
   transform:scaleX(1)!important;
 }
+
+/* Textlinks: kurze Linie sichtbar, bei Hover vollständig */
+html body .text-link.text-link.text-link.text-link::after,
+html body .home-values__all-services.home-values__all-services.home-values__all-services::after{
+  height:1px!important;
+  background:#868279!important;
+  transform:scaleX(.22)!important;
+  transform-origin:left center!important;
+}
+html body .text-link.text-link.text-link.text-link:hover::after,
+html body .text-link.text-link.text-link.text-link:focus-visible::after,
+html body .home-values__all-services.home-values__all-services.home-values__all-services:hover::after,
+html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible::after{
+  transform:scaleX(1)!important;
+}

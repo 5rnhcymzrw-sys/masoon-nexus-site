@@ -772,3 +772,11 @@ html body .contact-split__form-label::before{
   content:none!important;
   display:none!important;
 }
+
+
+/* Bereichstitel: kurze untere Linie wieder anzeigen */
+html body .section-label::after,
+html body .contact-split__form-label::after{
+  content:''!important;
+  display:block!important;
+}

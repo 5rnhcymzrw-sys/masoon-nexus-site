@@ -1,0 +1,138 @@
+/* MASOON TREUHAND – einheitliche visuelle Gestaltung */
+:root{
+  --mt-black:#0b0b0b;
+  --mt-ink:#171715;
+  --mt-text:#4f4e4b;
+  --mt-line:rgba(23,23,21,.14);
+  --mt-surface:rgba(255,255,255,.78);
+  --mt-surface-open:rgba(255,255,255,.88);
+}
+
+/* Kopf und Fusszeile */
+.site-header,
+.site-header.site-header--overlay,
+.site-footer{
+  background:var(--mt-black)!important;
+  background-color:var(--mt-black)!important;
+  background-image:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+
+/* Helle Inhaltsseiten */
+body.light-pattern-page-bg,
+body.light-pattern-page-bg .page-main,
+body.light-pattern-page-bg .home{
+  color:var(--mt-ink)!important;
+}
+body.light-pattern-page-bg .page-main,
+body.light-pattern-page-bg .home,
+body.light-pattern-page-bg .home-company,
+body.light-pattern-page-bg .home-company::before,
+body.light-pattern-page-bg .home-values,
+body.light-pattern-page-bg .home-values__inner,
+body.light-pattern-page-bg .services-section,
+body.light-pattern-page-bg .process-section,
+body.light-pattern-page-bg .knowledge-section,
+body.light-pattern-page-bg .home-paths,
+body.light-pattern-page-bg .home-paths::before,
+body.light-pattern-page-bg .home-contact-band,
+body.light-pattern-page-bg .services-closing{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}
+
+/* Einheitliche Kacheln */
+html body.light-pattern-page-bg .home-values__item,
+html body.light-pattern-page-bg .home-paths__grid a,
+html body.light-pattern-page-bg .article-card,
+html body.light-pattern-page-bg .knowledge-note,
+html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card,
+html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card:hover{
+  background:var(--mt-surface)!important;
+  background-color:var(--mt-surface)!important;
+  background-image:none!important;
+  border:1px solid var(--mt-line)!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card[open]{
+  background:var(--mt-surface-open)!important;
+  background-color:var(--mt-surface-open)!important;
+}
+html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card>summary,
+html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card>ul,
+html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card[open]>summary,
+html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card[open]>ul{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}
+
+/* Einheitliche dunkle Inhaltsbereiche */
+body.light-pattern-page-bg .expectation-editorial,
+body.light-pattern-page-bg .faq-editorial{
+  color:#fff!important;
+  background:var(--mt-black)!important;
+  background-color:var(--mt-black)!important;
+  background-image:none!important;
+}
+body.light-pattern-page-bg .expectation-editorial h2,
+body.light-pattern-page-bg .expectation-editorial h3,
+body.light-pattern-page-bg .expectation-editorial p,
+body.light-pattern-page-bg .expectation-editorial .section-label,
+body.light-pattern-page-bg .faq-editorial h2,
+body.light-pattern-page-bg .faq-editorial p,
+body.light-pattern-page-bg .faq-editorial .section-label{
+  color:#fff!important;
+}
+body.light-pattern-page-bg .expectation-editorial h3::after{
+  background:rgba(255,255,255,.48)!important;
+}
+
+/* Einheitliche Linien und Kartenabstände */
+body.light-pattern-page-bg .home-values__items,
+body.light-pattern-page-bg .home-paths__grid,
+body.light-pattern-page-bg .articles-grid{
+  gap:22px!important;
+}
+body.light-pattern-page-bg .services-grid{
+  gap:22px!important;
+  background:transparent!important;
+  border:0!important;
+}
+body.light-pattern-page-bg .home-values__item{
+  border-left:1px solid var(--mt-line)!important;
+}
+body.light-pattern-page-bg .home-values__item h3::after,
+body.light-pattern-page-bg .home-paths__grid strong::after{
+  background:#868279!important;
+}
+
+/* Kontaktseite bleibt bewusst dunkel */
+body:not(.light-pattern-page-bg) .contact-split-page,
+body:not(.light-pattern-page-bg) .contact-split{
+  background:var(--mt-black)!important;
+  background-color:var(--mt-black)!important;
+  background-image:none!important;
+}
+body:not(.light-pattern-page-bg) .contact-split__form{
+  background:#fff!important;
+}
+
+/* Leerer früherer Bildtrenner wird nicht mehr als eigener Stilbruch gezeigt */
+body.light-pattern-page-bg .home-architecture-banner{
+  display:none!important;
+}
+
+@media(max-width:800px){
+  body.light-pattern-page-bg .home-values__items,
+  body.light-pattern-page-bg .home-paths__grid,
+  body.light-pattern-page-bg .articles-grid,
+  body.light-pattern-page-bg .services-grid{
+    gap:16px!important;
+  }
+}

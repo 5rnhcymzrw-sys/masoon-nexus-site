@@ -217,3 +217,12 @@ html body .services-section .service-card h2{
     letter-spacing:-.04em!important;
   }
 }
+
+/* Desktop: kompakter Abstand zwischen Zahl und Titel */
+@media(min-width:801px){
+  html body .home>.home-values .home-values__item,
+  html body .services-section .service-card summary{
+    grid-template-columns:max-content minmax(0,1fr)!important;
+    column-gap:16px!important;
+  }
+}

@@ -136,21 +136,3 @@ body.light-pattern-page-bg .home-architecture-banner{
     gap:16px!important;
   }
 }
-
-/* Einheitliche Farbe für kleine Titel, Kategorien und Aktionen */
-html body .section-label,
-html body .article-meta,
-html body .details-action,
-html body .text-link,
-html body .home-values__all-services,
-html body .home-paths__grid span,
-html body .knowledge-section .article-status,
-html body .services-closing__label,
-html body .contact-split__form-label,
-html body .contact-split__form label,
-html body .contact-fact>div>span,
-html body .footer-main h2,
-html body.light-pattern-page-bg .expectation-editorial .section-label,
-html body.light-pattern-page-bg .faq-editorial .section-label{
-  color:#868279!important;
-}

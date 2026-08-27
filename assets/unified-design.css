@@ -601,3 +601,12 @@ html body .home-company__copy h2 span{
     height:92%!important;
   }
 }
+
+
+/* Dienstleistungs Hauptseite: linker Startpunkt wie auf der Startseite */
+@media(min-width:801px){
+  html body .services-main>.services-section{
+    padding-left:0!important;
+    padding-right:0!important;
+  }
+}

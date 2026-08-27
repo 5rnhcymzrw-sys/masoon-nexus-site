@@ -559,3 +559,17 @@ html body .expectation-editorial .expectation-editorial__item p{
 html body.light-pattern-page-bg .expectation-editorial .expectation-editorial__item p{
   color:rgba(255,255,255,.82)!important;
 }
+
+
+/* Desktop Zusammenarbeit: drei Spalten, zwei Reihen */
+@media(min-width:801px){
+  html body .expectation-editorial .expectation-editorial__grid{
+    width:100%!important;
+    max-width:none!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:54px 56px!important;
+  }
+  html body .expectation-editorial .expectation-editorial__item{
+    max-width:none!important;
+  }
+}

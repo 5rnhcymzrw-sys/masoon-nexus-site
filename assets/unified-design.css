@@ -136,3 +136,11 @@ body.light-pattern-page-bg .home-architecture-banner{
     gap:16px!important;
   }
 }
+
+/* Kacheltexte auf Startseite und Unternehmen vertikal mittig, linksbündig */
+html body.light-pattern-page-bg .home-values__item{
+  justify-content:center!important;
+  align-content:center!important;
+  align-items:flex-start!important;
+  text-align:left!important;
+}

@@ -307,3 +307,8 @@ html body .home-values__all-services:hover span,
 html body .home-values__all-services:focus-visible span{
   transform:translate(2px,-2px)!important;
 }
+
+/* Navigationslinie mit 10 Pixel Abstand zum Text */
+html body .site-nav a::after{
+  bottom:21px!important;
+}

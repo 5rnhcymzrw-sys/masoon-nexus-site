@@ -356,3 +356,13 @@ html body .site-nav a::after{
     margin-top:14px!important;
   }
 }
+
+/* Desktop: Fliesstext unter Zahl und Titel über die ganze Kachelbreite */
+@media(min-width:801px){
+  html body .home>.home-values .home-values__item p,
+  html body .services-section .service-card summary p{
+    grid-column:1 / -1!important;
+    grid-row:2!important;
+    margin-top:18px!important;
+  }
+}

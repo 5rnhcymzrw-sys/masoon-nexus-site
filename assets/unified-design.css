@@ -395,6 +395,8 @@ html body .site-nav a::after{
 /* Desktop: Fachwissen Kacheln auf der Startseite gleich hoch wie Werte */
 @media(min-width:801px){
   html body .home>.home-paths .home-paths__grid a{
+    box-sizing:border-box!important;
+    height:285px!important;
     min-height:285px!important;
   }
 }

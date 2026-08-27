@@ -764,3 +764,11 @@ html body .contact-split__form-label::after{
   content:none!important;
   display:none!important;
 }
+
+
+/* Bereichstitel: Gedankenstrich wieder entfernen */
+html body .section-label::before,
+html body .contact-split__form-label::before{
+  content:none!important;
+  display:none!important;
+}

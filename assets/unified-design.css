@@ -144,3 +144,13 @@ html body.light-pattern-page-bg .home-values__item{
   align-items:flex-start!important;
   text-align:left!important;
 }
+
+/* Zahlen der Startseiten Kacheln wie auf der Dienstleistungsseite */
+html body.light-pattern-page-bg .home>.home-values .home-values__item .service-number{
+  font-size:46px!important;
+}
+@media(max-width:800px){
+  html body.light-pattern-page-bg .home>.home-values .home-values__item .service-number{
+    font-size:38px!important;
+  }
+}

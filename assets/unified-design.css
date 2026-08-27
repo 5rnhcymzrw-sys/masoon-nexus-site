@@ -698,9 +698,9 @@ html body .knowledge-section .articles-grid>.article-card h2{
 html body .knowledge-section .articles-grid>.article-card h2::after{
   content:''!important;
   display:block!important;
-  width:100%!important;
+  width:48px!important;
   height:1px!important;
-  margin-top:13px!important;
+  margin-top:10px!important;
   background:#868279!important;
   border:0!important;
 }

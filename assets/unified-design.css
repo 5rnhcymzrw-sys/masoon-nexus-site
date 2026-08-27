@@ -180,3 +180,40 @@ html body .process-card h2{
   position:relative!important;
   top:3px!important;
 }
+
+/* Dienstleistungskacheln auf Startseite und Hauptseite identisch */
+@media(min-width:801px){
+  html body .home>.home-values .home-values__item,
+  html body .services-section .service-card summary{
+    grid-template-columns:70px minmax(0,1fr)!important;
+    column-gap:20px!important;
+  }
+  html body .home>.home-values .home-values__item .service-number,
+  html body .services-section .service-card .card-number{
+    font-size:46px!important;
+    line-height:.9!important;
+    letter-spacing:-.04em!important;
+  }
+}
+html body .home>.home-values .home-values__item h3,
+html body .services-section .service-card h2{
+  font-size:24px!important;
+  font-weight:500!important;
+  line-height:1.08!important;
+  align-self:center!important;
+  position:relative!important;
+  top:3px!important;
+}
+@media(max-width:800px){
+  html body .home>.home-values .home-values__item,
+  html body .services-section .service-card summary{
+    grid-template-columns:56px minmax(0,1fr)!important;
+    column-gap:18px!important;
+  }
+  html body .home>.home-values .home-values__item .service-number,
+  html body .services-section .service-card .card-number{
+    font-size:38px!important;
+    line-height:.9!important;
+    letter-spacing:-.04em!important;
+  }
+}

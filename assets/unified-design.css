@@ -391,3 +391,10 @@ html body .site-nav a::after{
     align-self:end!important;
   }
 }
+
+/* Desktop: Fachwissen Kacheln auf der Startseite gleich hoch wie Dienstleistungen */
+@media(min-width:801px){
+  html body .home>.home-paths .home-paths__grid a{
+    min-height:260px!important;
+  }
+}

@@ -128,3 +128,55 @@ html body .process-section>.faq-editorial .faq-editorial__list summary{
   padding-bottom:14px!important;
   border-bottom:1px solid rgba(255,255,255,.22)!important;
 }
+
+
+/* Ablauf: drei ruhige Kacheln wie Fachwissen auf der Startseite, ohne Umrandung */
+@media(min-width:801px){
+  html body.light-pattern-page-bg .process-section>.process-grid{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:22px!important;
+  }
+  html body.light-pattern-page-bg .process-section>.process-grid>.process-card{
+    box-sizing:border-box!important;
+    height:285px!important;
+    min-height:285px!important;
+    padding:36px!important;
+    display:grid!important;
+    grid-template-columns:max-content minmax(0,1fr)!important;
+    grid-template-rows:auto 1fr!important;
+    column-gap:20px!important;
+    row-gap:0!important;
+    align-content:center!important;
+    background:rgba(255,255,255,.78)!important;
+    background-image:none!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  html body.light-pattern-page-bg .process-section>.process-grid>.process-card .card-number{
+    grid-column:1!important;
+    grid-row:1!important;
+    align-self:center!important;
+    margin:0!important;
+    font-size:46px!important;
+    line-height:.9!important;
+    letter-spacing:-.04em!important;
+  }
+  html body.light-pattern-page-bg .process-section>.process-grid>.process-card h2{
+    grid-column:2!important;
+    grid-row:1!important;
+    align-self:center!important;
+    margin:0!important;
+    font-size:24px!important;
+    font-weight:600!important;
+    line-height:1.08!important;
+    position:relative!important;
+    top:3px!important;
+  }
+  html body.light-pattern-page-bg .process-section>.process-grid>.process-card p{
+    grid-column:1 / -1!important;
+    grid-row:2!important;
+    align-self:start!important;
+    margin:18px 0 0!important;
+  }
+}

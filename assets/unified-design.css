@@ -508,3 +508,9 @@ html body .section-label::after{
 html body .contact-split__form-label::after{
   margin-top:13px!important;
 }
+
+
+/* Fusszeilentitel: Linie ebenfalls mit 13 Pixel Abstand */
+html body .footer-main h2::after{
+  margin-top:13px!important;
+}

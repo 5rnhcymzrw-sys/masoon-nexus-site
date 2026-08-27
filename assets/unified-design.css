@@ -246,3 +246,64 @@ html body .services-section .service-card h2{
     column-gap:20px!important;
   }
 }
+
+/* Textlinks: feine Linie wie in der Kopfzeile */
+html body .text-link,
+html body .home-values__all-services{
+  position:relative!important;
+  display:inline-block!important;
+  padding-bottom:10px!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  color:inherit!important;
+  box-shadow:none!important;
+  text-decoration:none!important;
+}
+html body .text-link::before,
+html body .home-values__all-services::before{
+  content:none!important;
+  display:none!important;
+}
+html body .text-link::after,
+html body .home-values__all-services::after{
+  content:''!important;
+  display:block!important;
+  position:absolute!important;
+  right:auto!important;
+  bottom:0!important;
+  left:0!important;
+  width:100%!important;
+  height:1px!important;
+  background:#b8b8b8!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  transform:scaleX(0)!important;
+  transform-origin:left center!important;
+  transition:transform .2s ease!important;
+}
+html body .text-link:hover,
+html body .text-link:focus-visible,
+html body .home-values__all-services:hover,
+html body .home-values__all-services:focus-visible{
+  background:transparent!important;
+  background-color:transparent!important;
+  color:inherit!important;
+  box-shadow:none!important;
+}
+html body .text-link:hover::after,
+html body .text-link:focus-visible::after,
+html body .home-values__all-services:hover::after,
+html body .home-values__all-services:focus-visible::after{
+  transform:scaleX(1)!important;
+}
+html body .text-link span,
+html body .home-values__all-services span{
+  display:inline-block!important;
+  transition:transform .2s ease!important;
+}
+html body .text-link:hover span,
+html body .text-link:focus-visible span,
+html body .home-values__all-services:hover span,
+html body .home-values__all-services:focus-visible span{
+  transform:translate(2px,-2px)!important;
+}

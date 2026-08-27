@@ -330,3 +330,29 @@ html body .site-nav a::after{
     margin-top:14px!important;
   }
 }
+
+/* Desktop: feste Anordnung Zahl und Titel oben, Fliesstext direkt darunter */
+@media(min-width:801px){
+  html body .home>.home-values .home-values__item,
+  html body .services-section .service-card summary{
+    row-gap:0!important;
+  }
+  html body .home>.home-values .home-values__item .service-number,
+  html body .services-section .service-card .card-number{
+    grid-column:1!important;
+    grid-row:1!important;
+    align-self:center!important;
+  }
+  html body .home>.home-values .home-values__item h3,
+  html body .services-section .service-card h2{
+    grid-column:2!important;
+    grid-row:1!important;
+    align-self:center!important;
+  }
+  html body .home>.home-values .home-values__item p,
+  html body .services-section .service-card summary p{
+    grid-column:2!important;
+    grid-row:2!important;
+    margin-top:14px!important;
+  }
+}

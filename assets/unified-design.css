@@ -643,3 +643,20 @@ html body .expectation-editorial .expectation-editorial__item h3::after{
   background:rgba(255,255,255,.28)!important;
   border:0!important;
 }
+
+
+/* Zusammenarbeit: sämtliche unteren Trennlinien entfernen */
+html body .expectation-editorial .expectation-editorial__grid,
+html body .expectation-editorial .expectation-editorial__item{
+  border-top:0!important;
+  border-right:0!important;
+  border-bottom:0!important;
+  border-left:0!important;
+  box-shadow:none!important;
+  background-image:none!important;
+}
+html body .expectation-editorial .expectation-editorial__item::before,
+html body .expectation-editorial .expectation-editorial__item::after{
+  content:none!important;
+  display:none!important;
+}

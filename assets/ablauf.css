@@ -106,3 +106,19 @@ html body .process-section>.faq-editorial .faq-editorial__list details>p{
     padding:0 0 36px!important;
   }
 }
+
+
+/* Mandat: Fragen und Antworten dauerhaft sichtbar, ohne Plus */
+html body .process-section>.faq-editorial .faq-editorial__list summary{
+  cursor:default!important;
+  pointer-events:none!important;
+}
+html body .process-section>.faq-editorial .faq-editorial__toggle{
+  display:none!important;
+}
+html body .process-section>.faq-editorial .faq-editorial__list summary{
+  grid-template-columns:minmax(0,1fr)!important;
+}
+html body .process-section>.faq-editorial .faq-editorial__list details>p{
+  display:block!important;
+}

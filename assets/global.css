@@ -155,3 +155,10 @@ body{font-family:var(--font-inter)!important;font-size:var(--body-size)!importan
   .services-section>.services-grid{gap:18px!important;background:transparent!important;border:0!important}
   .services-section>.services-grid>.service-card{border:1px solid rgba(23,23,21,.14)}
 }
+
+/* Fusszeile in derselben Farbe wie die Kopfzeile */
+.site-footer{
+  background:#0a0a09e0!important;
+  background-color:#0a0a09e0!important;
+  background-image:none!important;
+}

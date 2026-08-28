@@ -1071,3 +1071,17 @@ html body .process-section .process-card h2,
 html body .service-principles .service-principles__items h3{
   -webkit-text-stroke:0!important;
 }
+
+
+/* Kleine Titel: ursprüngliche Cormorant Garamond Schrift wiederherstellen */
+html body .home>.home-values .home-values__item h3,
+html body .home>.home-paths .home-paths__grid strong,
+html body .page-main>.home-values .home-values__item h3,
+html body .expectation-editorial .expectation-editorial__item h3,
+html body .services-main .services-section .service-card h2,
+html body .process-section .process-card h2,
+html body .service-principles .service-principles__items h3{
+  font-family:var(--font-cormorant),Georgia,serif!important;
+  font-weight:600!important;
+  -webkit-text-stroke:0!important;
+}

@@ -1082,6 +1082,7 @@ html body .services-main .services-section .service-card h2,
 html body .process-section .process-card h2,
 html body .service-principles .service-principles__items h3{
   font-family:var(--font-cormorant),Georgia,serif!important;
+  font-size:24px!important;
   font-weight:600!important;
   -webkit-text-stroke:0!important;
 }

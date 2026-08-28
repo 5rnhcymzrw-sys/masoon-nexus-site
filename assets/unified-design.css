@@ -857,3 +857,22 @@ html body .home-values .section-heading h2{
     font-size:50px!important;
   }
 }
+
+
+/* Werte, Dienstleistungen und Fachwissen: grosse Titel verbindlich angleichen */
+html body .home-values .section-heading h2,
+html body .home-paths__heading h2,
+html body .services-section>.section-heading h1,
+html body .knowledge-section>.section-heading h1{
+  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-weight:400!important;
+  -webkit-text-stroke:.25px currentColor!important;
+}
+@media(min-width:801px){
+  html body .home-values .section-heading h2,
+  html body .home-paths__heading h2,
+  html body .services-section>.section-heading h1,
+  html body .knowledge-section>.section-heading h1{
+    font-size:50px!important;
+  }
+}

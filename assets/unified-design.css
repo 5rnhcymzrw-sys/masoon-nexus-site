@@ -876,3 +876,15 @@ html body .knowledge-section>.section-heading h1{
     font-size:50px!important;
   }
 }
+
+
+/* Zusammenarbeit: kurze Linien unter den sechs Titeln */
+html body .expectation-editorial .expectation-editorial__item h3::after{
+  content:''!important;
+  display:block!important;
+  width:48px!important;
+  height:1px!important;
+  margin-top:11px!important;
+  background:#868279!important;
+  border:0!important;
+}

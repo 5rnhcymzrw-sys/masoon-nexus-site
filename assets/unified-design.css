@@ -782,8 +782,8 @@ html body .contact-split__form-label::after{
 }
 
 
-/* Startseite Dienstleistungen: Haupttitel in PT Serif Pro */
+/* Startseite Dienstleistungen: Haupttitel in PT Serif Regular */
 html body .home>.home-values .section-heading .global-title{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
-  font-weight:600!important;
+  font-weight:400!important;
 }

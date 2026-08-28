@@ -1119,3 +1119,9 @@ html body .legal-page .prose h2,
 html body .article-body h2{
   line-height:1.12!important;
 }
+
+
+/* Fachwissen Hauptseite: ursprünglicher Zeilenabstand 1.1 */
+html body .knowledge-section .articles-grid>.article-card h2{
+  line-height:1.1!important;
+}

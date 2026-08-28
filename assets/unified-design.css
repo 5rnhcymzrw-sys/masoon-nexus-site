@@ -888,3 +888,29 @@ html body .expectation-editorial .expectation-editorial__item h3::after{
   background:#868279!important;
   border:0!important;
 }
+
+
+/* Alle kurzen Linien verbindlich 48 Pixel */
+html body .section-label::after,
+html body .contact-split__form-label::after,
+html body .footer-main h2::after,
+html body .home-values__item h3::after,
+html body .home-paths__grid strong::after,
+html body .expectation-editorial__item h3::after,
+html body .knowledge-section .article-card h2::after,
+html body .service-principles__items h3::after{
+  width:48px!important;
+  max-width:48px!important;
+}
+
+/* Kurze Linien unter Textlinks ebenfalls 48 Pixel */
+html body .text-link.text-link.text-link.text-link::after,
+html body .home-values__all-services.home-values__all-services.home-values__all-services::after,
+html body .text-link.text-link.text-link.text-link:hover::after,
+html body .text-link.text-link.text-link.text-link:focus-visible::after,
+html body .home-values__all-services.home-values__all-services.home-values__all-services:hover::after,
+html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible::after{
+  width:48px!important;
+  max-width:48px!important;
+  transform:none!important;
+}

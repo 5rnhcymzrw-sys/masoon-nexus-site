@@ -1086,3 +1086,19 @@ html body .service-principles .service-principles__items h3{
   font-weight:600!important;
   -webkit-text-stroke:0!important;
 }
+
+
+/* Dienstleistungs Hauptseite: kurze Linien wie auf der Startseite */
+html body .services-main .services-section .service-card h2::after{
+  content:''!important;
+  display:block!important;
+  width:48px!important;
+  max-width:48px!important;
+  height:1px!important;
+  margin:11px 0 0!important;
+  background:#868279!important;
+  border:0!important;
+}
+html body .services-main .services-section .service-card>summary>p{
+  margin-top:11px!important;
+}

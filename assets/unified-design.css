@@ -1033,3 +1033,12 @@ html body .home>.home-paths .home-paths__grid strong{
   font-weight:400!important;
   -webkit-text-stroke:.2px currentColor!important;
 }
+
+
+/* Fachwissen Hauptseite: ursprüngliche Beitragstitel wiederherstellen */
+html body .knowledge-section .articles-grid>.article-card h2{
+  font-family:Georgia,'Times New Roman',serif!important;
+  font-size:24px!important;
+  font-weight:700!important;
+  -webkit-text-stroke:0!important;
+}

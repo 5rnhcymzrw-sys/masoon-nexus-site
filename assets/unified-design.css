@@ -998,6 +998,6 @@ html body .contact-split__form-label::after{
 /* Startseite Dienstleistungen: sechs Kacheltitel wie Haupttitel */
 html body .home>.home-values .home-values__item h3{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
-  font-size:22px!important;
+  font-size:20px!important;
   font-weight:400!important;
 }

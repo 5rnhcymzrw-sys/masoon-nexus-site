@@ -1024,3 +1024,12 @@ html body .knowledge-section .articles-grid>.article-card h2{
   font-weight:400!important;
   -webkit-text-stroke:.2px currentColor!important;
 }
+
+
+/* Startseite Fachwissen: Kacheltitel ebenfalls in PT Serif 20 Pixel */
+html body .home>.home-paths .home-paths__grid strong{
+  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-size:20px!important;
+  font-weight:400!important;
+  -webkit-text-stroke:.2px currentColor!important;
+}

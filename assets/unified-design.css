@@ -782,8 +782,8 @@ html body .contact-split__form-label::after{
 }
 
 
-/* Startseite Dienstleistungen: Haupttitel in Inter Bold */
+/* Startseite Dienstleistungen: Haupttitel in PT Serif Pro Bold */
 html body .home>.home-values .section-heading .global-title{
-  font-family:Inter,Arial,sans-serif!important;
+  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-weight:700!important;
 }

@@ -914,3 +914,57 @@ html body .home-values__all-services.home-values__all-services.home-values__all-
   max-width:48px!important;
   transform:none!important;
 }
+
+
+/* Alle Titellinien: oben und unten je 11 Pixel Abstand */
+html body .section-label,
+html body .contact-split__form-label{
+  display:block!important;
+  margin-bottom:11px!important;
+}
+html body .section-label::after,
+html body .contact-split__form-label::after{
+  position:static!important;
+  top:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  left:auto!important;
+  display:block!important;
+  width:48px!important;
+  max-width:48px!important;
+  height:1px!important;
+  margin:11px 0 0!important;
+}
+
+html body .home-values__item h3::after,
+html body .home-paths__grid strong::after,
+html body .expectation-editorial__item h3::after,
+html body .knowledge-section .article-card h2::after,
+html body .service-principles__items h3::after,
+html body .footer-main h2::after{
+  width:48px!important;
+  max-width:48px!important;
+  height:1px!important;
+  margin:11px 0 0!important;
+}
+
+html body .home-values__item h3,
+html body .expectation-editorial__item h3,
+html body .knowledge-section .article-card h2,
+html body .service-principles__items h3,
+html body .footer-main h2{
+  margin-bottom:11px!important;
+}
+
+html body .home-values__item p,
+html body .expectation-editorial__item p,
+html body .knowledge-section .article-card>p:not(.article-meta),
+html body .service-principles__items article>p,
+html body .footer-main h2+p,
+html body .footer-main h2+address{
+  margin-top:0!important;
+}
+
+html body .home-paths__grid strong+span{
+  margin-top:11px!important;
+}

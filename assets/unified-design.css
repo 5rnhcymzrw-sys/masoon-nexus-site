@@ -780,3 +780,10 @@ html body .contact-split__form-label::after{
   content:''!important;
   display:block!important;
 }
+
+
+/* Startseite Dienstleistungen: Haupttitel in Inter Bold */
+html body .home>.home-values .section-heading .global-title{
+  font-family:Inter,Arial,sans-serif!important;
+  font-weight:700!important;
+}

@@ -1042,3 +1042,14 @@ html body .knowledge-section .articles-grid>.article-card h2{
   font-weight:700!important;
   -webkit-text-stroke:0!important;
 }
+
+
+/* Kleine Titel: neutraler Buchstabenabstand für bessere Lesbarkeit */
+html body .home>.home-values .home-values__item h3,
+html body .home>.home-paths .home-paths__grid strong,
+html body .page-main>.home-values .home-values__item h3,
+html body .expectation-editorial .expectation-editorial__item h3,
+html body .services-main .services-section .service-card h2,
+html body .knowledge-section .articles-grid>.article-card h2{
+  letter-spacing:0!important;
+}

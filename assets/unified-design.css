@@ -1105,3 +1105,17 @@ html body .services-main .services-section .service-card h2::after{
 html body .services-main .services-section .service-card>summary>p{
   margin-top:23px!important;
 }
+
+
+/* Alle kleinen Titel: einheitlicher Zeilenabstand 1.12 */
+html body .home-values__item h3,
+html body .home-paths__grid strong,
+html body .expectation-editorial__item h3,
+html body .services-section .service-card h2,
+html body .process-card h2,
+html body .service-principles__items h3,
+html body .knowledge-section .article-card h2,
+html body .legal-page .prose h2,
+html body .article-body h2{
+  line-height:1.12!important;
+}

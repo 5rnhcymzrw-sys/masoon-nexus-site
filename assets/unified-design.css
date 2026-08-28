@@ -788,3 +788,11 @@ html body .home .global-title{
   font-weight:400!important;
   -webkit-text-stroke:.25px currentColor!important;
 }
+
+
+/* Startseite Desktop: alle grossen Titel 50 Pixel */
+@media(min-width:801px){
+  html body .home .global-title{
+    font-size:50px!important;
+  }
+}

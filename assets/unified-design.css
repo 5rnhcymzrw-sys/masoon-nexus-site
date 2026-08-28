@@ -968,3 +968,28 @@ html body .footer-main h2+address{
 html body .home-paths__grid strong+span{
   margin-top:11px!important;
 }
+
+
+/* Kleine Bereichstitel: ursprüngliche Abstände wiederherstellen */
+html body .section-label{
+  display:flex!important;
+  align-items:center!important;
+  margin:0 0 30px!important;
+}
+html body .section-label::after{
+  position:absolute!important;
+  top:calc(1.4em + 13px)!important;
+  right:auto!important;
+  bottom:auto!important;
+  left:0!important;
+  margin:0!important;
+}
+
+html body .contact-split__form-label{
+  display:block!important;
+  margin:0 0 36px!important;
+}
+html body .contact-split__form-label::after{
+  position:static!important;
+  margin:13px 0 0!important;
+}

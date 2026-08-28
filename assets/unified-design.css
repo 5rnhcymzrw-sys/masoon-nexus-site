@@ -782,17 +782,65 @@ html body .contact-split__form-label::after{
 }
 
 
-/* Startseite: alle grossen Titel in PT Serif Regular */
-html body .home .global-title{
+/* Alle grossen Seitentitel in PT Serif Regular */
+html body .global-title,
+html body .section-heading h1,
+html body .section-heading h2,
+html body .page-hero h1,
+html body .page-hero h2,
+html body .contact-section h1,
+html body .contact-section h2,
+html body .legal-page h1,
+html body .article-detail h1,
+html body .service-page__heading h1,
+html body .services-table-heading h2,
+html body .service-principles>div:first-child h2,
+html body .process-details h2,
+html body .knowledge-note h2,
+html body .mandate-faq__heading h2,
+html body .home-company__copy h1,
+html body .home-company__copy h2,
+html body .home-expectations__heading h2,
+html body .home-paths__heading h2,
+html body .home-contact-band h2,
+html body .expectation-compass__heading h2,
+html body .contact-facts__heading h2,
+html body .contact-split__info h1,
+html body .services-closing h2,
+html body .expectation-editorial__heading h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-weight:400!important;
   -webkit-text-stroke:.25px currentColor!important;
 }
 
 
-/* Startseite Desktop: alle grossen Titel 50 Pixel */
+/* Alle grossen Seitentitel auf dem Desktop: 50 Pixel */
 @media(min-width:801px){
-  html body .home .global-title{
+  html body .global-title,
+  html body .section-heading h1,
+  html body .section-heading h2,
+  html body .page-hero h1,
+  html body .page-hero h2,
+  html body .contact-section h1,
+  html body .contact-section h2,
+  html body .legal-page h1,
+  html body .article-detail h1,
+  html body .service-page__heading h1,
+  html body .services-table-heading h2,
+  html body .service-principles>div:first-child h2,
+  html body .process-details h2,
+  html body .knowledge-note h2,
+  html body .mandate-faq__heading h2,
+  html body .home-company__copy h1,
+  html body .home-company__copy h2,
+  html body .home-expectations__heading h2,
+  html body .home-paths__heading h2,
+  html body .home-contact-band h2,
+  html body .expectation-compass__heading h2,
+  html body .contact-facts__heading h2,
+  html body .contact-split__info h1,
+  html body .services-closing h2,
+  html body .expectation-editorial__heading h2{
     font-size:50px!important;
   }
 }

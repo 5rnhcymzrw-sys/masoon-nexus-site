@@ -1125,3 +1125,31 @@ html body .article-body h2{
 html body .knowledge-section .articles-grid>.article-card h2{
   line-height:1.1!important;
 }
+
+
+/* CTA Links: waagrechter Pfeil und dezente Vergrösserung */
+html body .text-link,
+html body .home-values__all-services{
+  transform-origin:left center!important;
+  transition:transform .2s ease!important;
+}
+html body .text-link:hover,
+html body .text-link:focus-visible,
+html body .home-values__all-services:hover,
+html body .home-values__all-services:focus-visible{
+  transform:scale(1.025)!important;
+}
+html body .text-link:active,
+html body .home-values__all-services:active{
+  transform:scale(1.01)!important;
+}
+html body .text-link span,
+html body .home-values__all-services span{
+  transition:transform .2s ease!important;
+}
+html body .text-link:hover span,
+html body .text-link:focus-visible span,
+html body .home-values__all-services:hover span,
+html body .home-values__all-services:focus-visible span{
+  transform:translateX(4px)!important;
+}

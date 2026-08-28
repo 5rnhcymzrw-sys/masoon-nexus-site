@@ -1012,3 +1012,14 @@ html body .home>.home-values .home-values__item h3{
 html body .home>.home-values .home-values__item h3{
   top:7px!important;
 }
+
+
+/* Kacheltitel bei Unternehmen, Zusammenarbeit, Dienstleistungen und Fachwissen in PT Serif */
+html body .page-main>.home-values .home-values__item h3,
+html body .expectation-editorial .expectation-editorial__item h3,
+html body .services-main .services-section .service-card h2,
+html body .knowledge-section .articles-grid>.article-card h2{
+  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-weight:400!important;
+  -webkit-text-stroke:.2px currentColor!important;
+}

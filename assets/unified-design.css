@@ -844,3 +844,16 @@ html body .expectation-editorial__heading h2{
     font-size:50px!important;
   }
 }
+
+
+/* Werte Bereich: grosser Titel ausdrücklich angleichen */
+html body .home-values .section-heading h2{
+  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-weight:400!important;
+  -webkit-text-stroke:.25px currentColor!important;
+}
+@media(min-width:801px){
+  html body .home-values .section-heading h2{
+    font-size:50px!important;
+  }
+}

@@ -79,6 +79,17 @@
 
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
+
+  const alignFooterWithNavigation = () => {
+    if (!nav || window.innerWidth <= 1050) {
+      document.documentElement.style.removeProperty('--footer-nav-width');
+      return;
+    }
+    document.documentElement.style.setProperty('--footer-nav-width', `${nav.getBoundingClientRect().width}px`);
+  };
+  alignFooterWithNavigation();
+  window.addEventListener('resize', alignFooterWithNavigation);
+
   if (toggle && nav) {
     toggle.addEventListener('click', () => {
       const open = nav.classList.toggle('site-nav--open');

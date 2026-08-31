@@ -16,6 +16,17 @@ html body .services-main .services-section .services-grid>.service-card:nth-of-t
 html body.light-pattern-page-bg .services-main .services-section .services-grid{
   gap:22px!important;
 }
+
+/* Kontaktlink: gleicher Effekt wie die übrigen CTA Textlinks */
+html body .services-closing__links .text-link{
+  box-shadow:none!important;
+  transition:transform .2s ease!important;
+}
+html body .services-closing__links .text-link:hover,
+html body .services-closing__links .text-link:focus-visible,
+html body .services-closing__links .text-link:active{
+  box-shadow:none!important;
+}
 html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card,
 html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card:hover{
   min-height:360px!important;

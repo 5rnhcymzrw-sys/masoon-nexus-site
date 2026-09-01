@@ -397,3 +397,16 @@ html body .home .site-header.home-header--compact{
 html body .home>.home-values .section-heading h2{
   font-family:var(--font-bitter),Georgia,serif!important;
 }
+
+/* Originale Bitter Regular für den Startseiten-Dienstleistungstitel */
+@font-face{
+  font-family:'Bitter Original';
+  src:url('fonts/Bitter-Regular.ttf') format('truetype');
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}
+html body .home>.home-values .section-heading h2{
+  font-family:'Bitter Original',Georgia,serif!important;
+  font-weight:400!important;
+}

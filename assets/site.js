@@ -156,4 +156,39 @@
   window.addEventListener('resize', updateScrollEffects);
 
 
+  /* Startseite: vollständiges Logo oben, Schriftlogo beim Hochscrollen */
+  const homeHeader = document.querySelector('.home .site-header');
+  const homeLogo = document.querySelector('.home .brand img');
+  if (homeHeader && homeLogo) {
+    const fullLogoSrc = `${basePath}logo-basic-9.png`;
+    const wordLogoSrc = `${basePath}masoon-wordmark.png`;
+    let previousScrollY = window.scrollY;
+    let headerTicking = false;
+
+    const updateHomeHeader = () => {
+      const currentScrollY = Math.max(0, window.scrollY);
+      if (currentScrollY <= 12) {
+        homeHeader.classList.remove('home-header--compact', 'home-header--hidden');
+        homeLogo.src = fullLogoSrc;
+      } else if (currentScrollY > previousScrollY + 4) {
+        homeHeader.classList.add('home-header--compact', 'home-header--hidden');
+        homeLogo.src = wordLogoSrc;
+      } else if (currentScrollY < previousScrollY - 4) {
+        homeHeader.classList.add('home-header--compact');
+        homeHeader.classList.remove('home-header--hidden');
+        homeLogo.src = wordLogoSrc;
+      }
+      previousScrollY = currentScrollY;
+      headerTicking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!headerTicking) {
+        window.requestAnimationFrame(updateHomeHeader);
+        headerTicking = true;
+      }
+    }, { passive: true });
+  }
+  /* Ende richtungsabhängige Startseiten-Kopfzeile */
+
 })();

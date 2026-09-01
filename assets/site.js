@@ -49,10 +49,10 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 MASOON TREUHAND | Alle Rechte vorbehalten.</span>
+        <span>© 2026 MASOON TREUHAND · Alle Rechte vorbehalten.</span>
         <div>
           <a href="${basePath}impressum/index.html">Impressum</a>
-          <span aria-hidden="true"> | </span>
+          <span aria-hidden="true"> · </span>
           <a href="${basePath}datenschutz/index.html">Datenschutz</a>
         </div>
       </div>`;

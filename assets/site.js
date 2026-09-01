@@ -114,15 +114,6 @@
     reveals.forEach(el => observer.observe(el));
   } else reveals.forEach(el => el.classList.add('is-visible'));
 
-  document.querySelectorAll('.mandate-faq details').forEach(details => {
-    details.addEventListener('toggle', () => {
-      if (!details.open) return;
-      document.querySelectorAll('.mandate-faq details[open]').forEach(other => {
-        if (other !== details) other.open = false;
-      });
-    });
-  });
-
   /* Fachwissen: Aktionshinweis für die künftig verlinkten Beiträge */
   document.querySelectorAll('.knowledge-section .article-card').forEach(card => {
     if (!card.querySelector('.article-action')) {

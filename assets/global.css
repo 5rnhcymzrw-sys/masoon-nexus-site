@@ -240,3 +240,35 @@ html body .home .site-header.home-header--compact .site-nav a{padding-bottom:10p
   html body .home .site-header.home-header--compact{height:105px!important}
   html body .home .site-header.home-header--compact .brand{width:min(300px,62vw)!important;margin:auto!important}
 }
+
+/* Startseite: Wortlogo exakt im weissen Feld zentrieren */
+@media(min-width:801px){
+  html body .home .site-header .brand{
+    position:absolute!important;
+    top:112px!important;
+    left:50%!important;
+    margin:0!important;
+    transform:translateX(-50%)!important;
+  }
+  html body .home .site-header.home-header--compact .brand{
+    top:42px!important;
+    left:50%!important;
+    margin:0!important;
+    transform:translateX(-50%)!important;
+  }
+}
+@media(max-width:800px){
+  html body .home .site-header .brand{
+    position:absolute!important;
+    top:72px!important;
+    left:50%!important;
+    margin:0!important;
+    transform:translateX(-50%)!important;
+  }
+  html body .home .site-header.home-header--compact .brand{
+    top:42px!important;
+    left:50%!important;
+    margin:0!important;
+    transform:translateX(-50%)!important;
+  }
+}

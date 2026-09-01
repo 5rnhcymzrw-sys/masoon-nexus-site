@@ -18,7 +18,7 @@
     .details-action,.article-action{display:inline-block!important}
     .details-action::before,.article-action::before,.details-action::after,.article-action::after{display:none!important;content:none!important}
     .details-action::after{display:inline!important;content:' +'!important}
-    .article-action::after{display:inline!important;content:' ↗'!important;font-size:12px!important}
+    .article-action::after{display:inline-block!important;content:'›'!important;margin-left:10px!important;font-size:20px!important;font-weight:300!important;line-height:.7!important;vertical-align:-2px!important}
     .text-link,.details-action,.article-action{text-decoration:none!important;border-bottom:0!important;box-shadow:none!important;transition:color .18s ease!important}
     .text-link:hover,.details-action:hover,.article-action:hover{color:#868279!important}
     .text-link::before,.text-link::after{display:none!important;content:none!important;border:0!important}

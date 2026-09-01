@@ -193,3 +193,4 @@ body{font-family:var(--font-inter)!important;font-size:var(--body-size)!importan
   }
 }
 .site-footer::before{content:'';display:block;width:100%;height:100px;background:#fff}
+.footer-main h2::after{content:none!important;display:none!important}

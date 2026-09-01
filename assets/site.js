@@ -6,7 +6,7 @@
   if (!document.querySelector('link[href*="assets/global.css"]')) {
     const globalStyle = document.createElement('link');
     globalStyle.rel = 'stylesheet';
-    globalStyle.href = `${basePath}assets/global.css?v=20260814-3`;
+    globalStyle.href = `${basePath}assets/global.css?v=20260901-4`;
     document.head.appendChild(globalStyle);
   }
 
@@ -36,13 +36,11 @@
     footer.innerHTML = `
       <div class="footer-main">
         <div>
-          <h2>Navigation</h2>
-          <p><a href="${basePath}index.html">Startseite</a><br /><a href="${basePath}unternehmen/index.html">Unternehmen</a><br /><a href="${basePath}dienstleistungen/index.html">Dienstleistungen</a><br /><a href="${basePath}fachwissen/index.html">Fachwissen</a><br /><a href="${basePath}kontakt/index.html">Kontakt</a></p>
-        </div>
-        <div>
           <h2>Unternehmen</h2>
           <address>MASOON TREUHAND<br />Täschmattstrasse 19<br />6015 Luzern</address>
-          <h2 style="margin-top:24px!important">Kontakt</h2>
+        </div>
+        <div>
+          <h2>Kontakt</h2>
           <p><a href="mailto:info@masoontreuhand.ch">info@masoontreuhand.ch</a><br /><a href="tel:+41799663636">+41 79 966 36 36</a></p>
         </div>
         <div>
@@ -81,16 +79,6 @@
 
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
-
-  const alignFooterWithNavigation = () => {
-    if (!nav || window.innerWidth <= 1050) {
-      document.documentElement.style.removeProperty('--footer-nav-width');
-      return;
-    }
-    document.documentElement.style.setProperty('--footer-nav-width', `${nav.getBoundingClientRect().width}px`);
-  };
-  alignFooterWithNavigation();
-  window.addEventListener('resize', alignFooterWithNavigation);
 
   if (toggle && nav) {
     toggle.addEventListener('click', () => {

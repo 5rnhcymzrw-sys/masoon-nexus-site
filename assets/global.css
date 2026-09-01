@@ -392,3 +392,8 @@ html body .home .site-header.home-header--compact{
     max-height:none!important;
   }
 }
+
+/* Startseite Dienstleistungen: Schrift des MASOON-Schriftlogos */
+html body .home>.home-values .section-heading h2{
+  font-family:var(--font-bitter),Georgia,serif!important;
+}

@@ -6,7 +6,7 @@
   if (!document.querySelector('link[href*="assets/global.css"]')) {
     const globalStyle = document.createElement('link');
     globalStyle.rel = 'stylesheet';
-    globalStyle.href = `${basePath}assets/global.css?v=20260901-4`;
+    globalStyle.href = `${basePath}assets/global.css?v=20260901-5`;
     document.head.appendChild(globalStyle);
   }
 
@@ -79,6 +79,16 @@
 
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
+
+  const alignFooterWithNavigation = () => {
+    if (!nav || window.innerWidth <= 1050) {
+      document.documentElement.style.removeProperty('--footer-nav-width');
+      return;
+    }
+    document.documentElement.style.setProperty('--footer-nav-width', `${nav.getBoundingClientRect().width}px`);
+  };
+  alignFooterWithNavigation();
+  window.addEventListener('resize', alignFooterWithNavigation);
 
   if (toggle && nav) {
     toggle.addEventListener('click', () => {

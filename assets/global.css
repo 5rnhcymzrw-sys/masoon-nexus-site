@@ -153,11 +153,10 @@ html body .services-closing h2,html body .contact-split__info h1{letter-spacing:
 .footer-main h2::after{content:none!important;display:none!important}
 
 @media(min-width:801px){
-  html body .site-header{height:140px!important}
-  html body .header-inner{align-items:flex-end!important;padding-bottom:24px!important}
-  html body .site-nav{padding-bottom:0!important}
-  html body .site-nav a{padding:0 0 18px!important}
-  html body .site-nav a::after{bottom:0!important}
-  html body .page-main{padding-top:140px!important}
-  html body .brand img{filter:invert(1)!important}
+  html body .home .site-header{height:140px!important}
+  html body .home .header-inner{align-items:flex-end!important;padding-bottom:24px!important}
+  html body .home .site-nav{padding-bottom:0!important}
+  html body .home .site-nav a{padding:0 0 18px!important}
+  html body .home .site-nav a::after{bottom:0!important}
+  html body .home .brand img{filter:invert(1)!important}
 }

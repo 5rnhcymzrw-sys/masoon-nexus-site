@@ -272,3 +272,60 @@ html body .home .site-header.home-header--compact .site-nav a{padding-bottom:10p
     transform:translateX(-50%)!important;
   }
 }
+
+/* Startseite: vorheriges Logo, Kopfzeile ohne Scroll-Effekte */
+html body .home .site-header.site-header--overlay{
+  position:absolute!important;
+  height:300px!important;
+  transform:none!important;
+  transition:none!important;
+}
+html body .home .site-header.home-header--hidden,
+html body .home .site-header.home-header--compact{
+  position:absolute!important;
+  height:300px!important;
+  transform:none!important;
+}
+@media(min-width:801px){
+  html body .home .site-header .brand,
+  html body .home .site-header.home-header--compact .brand{
+    position:absolute!important;
+    top:35px!important;
+    left:50%!important;
+    width:315px!important;
+    height:180px!important;
+    margin:0!important;
+    padding:8px 0!important;
+    transform:translateX(-50%)!important;
+  }
+  html body .home .site-header .brand img,
+  html body .home .site-header.home-header--compact .brand img{
+    width:285px!important;
+    height:auto!important;
+    max-height:148px!important;
+    object-fit:contain!important;
+  }
+}
+@media(max-width:800px){
+  html body .home .site-header.site-header--overlay,
+  html body .home .site-header.home-header--hidden,
+  html body .home .site-header.home-header--compact{height:210px!important}
+  html body .home .site-header .brand,
+  html body .home .site-header.home-header--compact .brand{
+    position:absolute!important;
+    top:18px!important;
+    left:50%!important;
+    width:235px!important;
+    height:140px!important;
+    margin:0!important;
+    padding:6px 0!important;
+    transform:translateX(-50%)!important;
+  }
+  html body .home .site-header .brand img,
+  html body .home .site-header.home-header--compact .brand img{
+    width:220px!important;
+    height:auto!important;
+    max-height:128px!important;
+    object-fit:contain!important;
+  }
+}

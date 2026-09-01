@@ -32,7 +32,6 @@ body.light-pattern-page-bg .home-company::before,
 body.light-pattern-page-bg .home-values,
 body.light-pattern-page-bg .home-values__inner,
 body.light-pattern-page-bg .services-section,
-body.light-pattern-page-bg .process-section,
 body.light-pattern-page-bg .knowledge-section,
 body.light-pattern-page-bg .home-paths,
 body.light-pattern-page-bg .home-paths::before,
@@ -160,7 +159,6 @@ html body .home-values__item h3,
 html body .home-paths__grid strong,
 html body .article-card h2,
 html body .services-section .service-card h2,
-html body .process-card h2,
 html body .expectation-editorial__item h3{
   font-size:24px!important;
 }
@@ -169,14 +167,11 @@ html body .expectation-editorial__item h3{
 html body .home>.home-values .home-values__item .service-number,
 html body .home>.home-values .home-values__item h3,
 html body .services-section .service-card .card-number,
-html body .services-section .service-card h2,
-html body .process-card .card-number,
-html body .process-card h2{
+html body .services-section .service-card h2{
   align-self:center!important;
 }
 html body .home>.home-values .home-values__item h3,
-html body .services-section .service-card h2,
-html body .process-card h2{
+html body .services-section .service-card h2{
   position:relative!important;
   top:3px!important;
 }
@@ -523,7 +518,6 @@ html body .home-values__item h3,
 html body .home-paths__grid strong,
 html body .article-card h2,
 html body .services-section .service-card h2,
-html body .process-card h2,
 html body .expectation-editorial__item h3,
 html body .service-principles__items h3{
   font-weight:600!important;
@@ -533,7 +527,6 @@ html body .service-principles__items h3{
 /* Schriftstärke 600 gegen ältere spezifische Kachelregeln durchsetzen */
 html body .home>.home-values .home-values__item h3,
 html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card h2,
-html body .process-section .process-grid>.process-card h2,
 html body .home>.home-paths .home-paths__grid strong,
 html body .knowledge-section .articles-grid>.article-card h2,
 html body .expectation-editorial .expectation-editorial__item h3,
@@ -795,9 +788,7 @@ html body .article-detail h1,
 html body .service-page__heading h1,
 html body .services-table-heading h2,
 html body .service-principles>div:first-child h2,
-html body .process-details h2,
 html body .knowledge-note h2,
-html body .mandate-faq__heading h2,
 html body .home-company__copy h1,
 html body .home-company__copy h2,
 html body .home-expectations__heading h2,
@@ -828,9 +819,7 @@ html body .expectation-editorial__heading h2{
   html body .service-page__heading h1,
   html body .services-table-heading h2,
   html body .service-principles>div:first-child h2,
-  html body .process-details h2,
   html body .knowledge-note h2,
-  html body .mandate-faq__heading h2,
   html body .home-company__copy h1,
   html body .home-company__copy h2,
   html body .home-expectations__heading h2,
@@ -1050,7 +1039,6 @@ html body .home>.home-paths .home-paths__grid strong,
 html body .page-main>.home-values .home-values__item h3,
 html body .expectation-editorial .expectation-editorial__item h3,
 html body .services-main .services-section .service-card h2,
-html body .process-section .process-card h2,
 html body .service-principles .service-principles__items h3{
   letter-spacing:0!important;
 }
@@ -1067,7 +1055,6 @@ html body .home>.home-paths .home-paths__grid strong,
 html body .page-main>.home-values .home-values__item h3,
 html body .expectation-editorial .expectation-editorial__item h3,
 html body .services-main .services-section .service-card h2,
-html body .process-section .process-card h2,
 html body .service-principles .service-principles__items h3{
   -webkit-text-stroke:0!important;
 }
@@ -1079,7 +1066,6 @@ html body .home>.home-paths .home-paths__grid strong,
 html body .page-main>.home-values .home-values__item h3,
 html body .expectation-editorial .expectation-editorial__item h3,
 html body .services-main .services-section .service-card h2,
-html body .process-section .process-card h2,
 html body .service-principles .service-principles__items h3{
   font-family:var(--font-cormorant),Georgia,serif!important;
   font-size:24px!important;
@@ -1112,7 +1098,6 @@ html body .home-values__item h3,
 html body .home-paths__grid strong,
 html body .expectation-editorial__item h3,
 html body .services-section .service-card h2,
-html body .process-card h2,
 html body .service-principles__items h3,
 html body .knowledge-section .article-card h2,
 html body .legal-page .prose h2,

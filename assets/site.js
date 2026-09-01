@@ -36,11 +36,13 @@
     footer.innerHTML = `
       <div class="footer-main">
         <div>
-          <h2>Unternehmen</h2>
-          <address>MASOON TREUHAND<br />Täschmattstrasse 19<br />6015 Luzern</address>
+          <h2>Navigation</h2>
+          <p><a href="${basePath}index.html">Startseite</a><br /><a href="${basePath}unternehmen/index.html">Unternehmen</a><br /><a href="${basePath}dienstleistungen/index.html">Dienstleistungen</a><br /><a href="${basePath}fachwissen/index.html">Fachwissen</a><br /><a href="${basePath}kontakt/index.html">Kontakt</a></p>
         </div>
         <div>
-          <h2>Kontakt</h2>
+          <h2>Unternehmen</h2>
+          <address>MASOON TREUHAND<br />Täschmattstrasse 19<br />6015 Luzern</address>
+          <h2 style="margin-top:24px!important">Kontakt</h2>
           <p><a href="mailto:info@masoontreuhand.ch">info@masoontreuhand.ch</a><br /><a href="tel:+41799663636">+41 79 966 36 36</a></p>
         </div>
         <div>

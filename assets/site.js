@@ -68,7 +68,7 @@
     logo.removeAttribute('srcset');
     logo.removeAttribute('sizes');
     logo.src = document.querySelector('.home')
-      ? `${basePath}logo-basic-9.png`
+      ? `${basePath}masoon-wordmark.png`
       : `${basePath}white_logo_transparent_background.png`;
   }
 
@@ -154,4 +154,31 @@
   updateScrollEffects();
   window.addEventListener('scroll', updateScrollEffects, { passive: true });
   window.addEventListener('resize', updateScrollEffects);
+  /* Startseite: Kopfzeile nach Scrollrichtung ein- und ausblenden */
+  const homeHeader = document.querySelector('.home .site-header');
+  if (homeHeader) {
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    const updateHomeHeader = () => {
+      const currentScrollY = Math.max(0, window.scrollY);
+      if (currentScrollY <= 12) {
+        homeHeader.classList.remove('home-header--compact', 'home-header--hidden');
+      } else if (currentScrollY > lastScrollY + 4) {
+        homeHeader.classList.add('home-header--compact', 'home-header--hidden');
+      } else if (currentScrollY < lastScrollY - 4) {
+        homeHeader.classList.add('home-header--compact');
+        homeHeader.classList.remove('home-header--hidden');
+      }
+      lastScrollY = currentScrollY;
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHomeHeader);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+  /* Ende Startseiten-Kopfzeile */
+
 })();

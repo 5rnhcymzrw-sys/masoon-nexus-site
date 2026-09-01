@@ -158,7 +158,7 @@ html body .services-closing h2,html body .contact-split__info h1{letter-spacing:
   html body .home .site-nav{padding-bottom:0!important}
   html body .home .site-nav a{padding:0 0 18px!important}
   html body .home .site-nav a::after{bottom:0!important}
-  html body .home .brand{width:340px!important;height:180px!important;padding:8px 0!important;background:transparent!important;box-shadow:none!important;border-radius:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-  html body .home .brand img{width:310px!important;max-height:160px!important;object-fit:contain!important;filter:none!important;transform:none!important}
+  html body .home .brand{width:315px!important;height:180px!important;padding:8px 0!important;background:transparent!important;box-shadow:none!important;border-radius:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  html body .home .brand img{width:285px!important;max-height:148px!important;object-fit:contain!important;filter:none!important;transform:none!important}
   html body .home .home-hero{min-height:calc(100svh - 180px)!important;margin-top:180px!important}
 }

@@ -1024,9 +1024,9 @@ html body.light-pattern-page-bg .expectation-editorial .section-label{
 /* Dienstleistungen: Abschlusskasten-Grösse an Fachwissen angepasst */
 @media(min-width:801px){
   html body .services-closing{
-    height:500px!important;
-    min-height:500px!important;
-    max-height:500px!important;
+    height:463.25px!important;
+    min-height:463.25px!important;
+    max-height:463.25px!important;
     box-sizing:border-box!important;
   }
 }

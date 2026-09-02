@@ -38,7 +38,7 @@
         <span>© 2026 MASOON TREUHAND</span>
         <a href="${basePath}disclaimer/index.html">Disclaimer</a>
         <a href="${basePath}impressum/index.html">Impressum</a>
-        <span>Datenschutz</span>
+        <a href="${basePath}datenschutz/index.html">Datenschutz</a>
         <span>Kontakt</span>
       </div>`;
   }

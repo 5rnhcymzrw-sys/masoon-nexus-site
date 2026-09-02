@@ -36,7 +36,7 @@
     footer.innerHTML = `
       <div class="footer-simple">
         <span>© 2026 MASOON TREUHAND</span>
-        <span>Disclaimer</span>
+        <a href="${basePath}disclaimer/index.html">Disclaimer</a>
         <span>Impressum</span>
         <span>Datenschutz</span>
         <span>Kontakt</span>

@@ -1019,3 +1019,15 @@ html body.light-pattern-page-bg .expectation-editorial p,
 html body.light-pattern-page-bg .expectation-editorial .section-label{
   color:#171715!important;
 }
+
+
+/* Fachwissen und Dienstleistungen: identische Abschlusskasten-Grösse */
+@media(min-width:801px){
+  html body .knowledge-note,
+  html body .services-closing{
+    height:500px!important;
+    min-height:500px!important;
+    max-height:500px!important;
+    box-sizing:border-box!important;
+  }
+}

@@ -463,3 +463,10 @@ html body .home>.home-values .section-heading h2{
   font-weight:600!important;
   font-synthesis:weight!important;
 }
+
+/* Startseite: Dienstleistungstitel exakt wie Fachwissen-Titel */
+html body .home>.home-values .section-heading h2{
+  font-family:var(--font-cormorant)!important;
+  font-weight:400!important;
+  font-style:normal!important;
+}

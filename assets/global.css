@@ -645,3 +645,10 @@ html body .home>.home-values .section-heading h2{
     top:112px!important;
   }
 }
+
+/* Rückgängig: Navigationshöhe vor der 27-px-Verschiebung */
+@media(min-width:801px){
+  html body .home .site-header:not(.home-header--compact) .site-nav{
+    top:139px!important;
+  }
+}

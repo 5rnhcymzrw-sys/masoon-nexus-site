@@ -861,7 +861,7 @@ html body .site-footer::before{
   left:0!important;
   width:100%!important;
   height:8px!important;
-  background:linear-gradient(90deg,#0a0a09 0%,#c2c2c2 100%)!important;
+  background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
 }
 html body .site-footer::after{content:none!important;display:none!important}
 html body .site-footer .footer-simple{

@@ -912,6 +912,10 @@ html body .site-footer .footer-simple>*{
   letter-spacing:.1em!important;
   text-transform:uppercase!important;
   font-style:normal!important;
+  font-synthesis:none!important;
+  -webkit-font-smoothing:antialiased!important;
+  -moz-osx-font-smoothing:grayscale!important;
+  text-rendering:geometricPrecision!important;
 }
 
 

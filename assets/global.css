@@ -659,3 +659,10 @@ html body .home>.home-values .section-heading h2{
     top:147px!important;
   }
 }
+
+/* Startseite: nur Navigationstitel 0.1 px nach oben */
+@media(min-width:801px){
+  html body .home .site-header:not(.home-header--compact) .site-nav{
+    top:146.9px!important;
+  }
+}

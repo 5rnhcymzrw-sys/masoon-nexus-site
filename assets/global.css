@@ -980,3 +980,13 @@ html body .home .home-values__item p{
     transform:translateX(-50%)!important;
   }
 }
+
+
+/* Startseite Dienstleistungen: 45 px Seitenabstand */
+@media(min-width:801px){
+  html body .home .home-values__inner{
+    width:min(calc(100% - 90px),1320px)!important;
+    margin-right:auto!important;
+    margin-left:auto!important;
+  }
+}

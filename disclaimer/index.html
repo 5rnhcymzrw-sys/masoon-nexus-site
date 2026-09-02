@@ -61,12 +61,17 @@ html body .disclaimer-card .prose a{
     var nav=document.getElementById('site-navigation');
     var text=document.querySelector('.disclaimer-card .prose');
     if(!nav||!text)return;
-    nav.style.transform='none';
+    nav.style.setProperty('transform','none','important');
+    nav.style.removeProperty('left');
+    nav.style.removeProperty('position');
+    nav.style.removeProperty('margin');
     if(window.innerWidth<=800)return;
-    var difference=text.getBoundingClientRect().left-nav.getBoundingClientRect().left;
-    nav.style.transform='translateX('+difference+'px)';
+    var textLeft=text.getBoundingClientRect().left;
+    nav.style.setProperty('position','absolute','important');
+    nav.style.setProperty('left',textLeft+'px','important');
+    nav.style.setProperty('margin','0','important');
   }
-  window.addEventListener('load',function(){requestAnimationFrame(alignDisclaimerNavigation);});
+  window.addEventListener('load',function(){requestAnimationFrame(alignDisclaimerNavigation);setTimeout(alignDisclaimerNavigation,300);});
   window.addEventListener('resize',alignDisclaimerNavigation);
 })();
 </script>

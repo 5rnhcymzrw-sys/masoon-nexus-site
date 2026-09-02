@@ -1075,3 +1075,15 @@ html body.light-pattern-page-bg .expectation-editorial .section-label{
 html body header.site-header.home-page-header::after{
   background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
 }
+
+
+/* Gesamte Website: Navigation an rechter Inhaltsspalte ausrichten */
+@media(min-width:801px){
+  html body>header.site-header .header-inner{
+    justify-content:flex-start!important;
+  }
+  html body>header.site-header nav#site-navigation{
+    margin-left:503px!important;
+    margin-right:0!important;
+  }
+}

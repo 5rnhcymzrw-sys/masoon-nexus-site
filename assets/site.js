@@ -49,7 +49,7 @@
   });
 
   const logo = document.querySelector('.brand img, .site-logo img');
-  if (logo) {
+  if (logo && !logo.hasAttribute('data-preserve-logo')) {
     logo.removeAttribute('srcset');
     logo.removeAttribute('sizes');
     logo.src = `${basePath}company-logo-transparent-3.png?v=20260902-1`;

@@ -1138,3 +1138,9 @@ html body .home-values__all-services:hover span,
 html body .home-values__all-services:focus-visible span{
   transform:translateX(4px)!important;
 }
+
+
+/* Startseite Dienstleistungen: Titel-Text-Abstand wie bei Fachwissen */
+html body main.home .home-values .home-values__inner .home-values__items .home-values__item p{
+  margin-top:12px!important;
+}

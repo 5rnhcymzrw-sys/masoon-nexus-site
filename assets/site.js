@@ -75,7 +75,7 @@
     if (window.innerWidth <= 800) return;
 
     const reference = document.querySelector(
-      '.disclaimer-card .prose, .home-contact-band>div, .services-closing__inner, .knowledge-note>div, .contact-split__form'
+      '.disclaimer-card .prose, .home-contact-band>div, .services-closing__inner, .knowledge-note>div'
     );
     const targetLeft = reference
       ? reference.getBoundingClientRect().left

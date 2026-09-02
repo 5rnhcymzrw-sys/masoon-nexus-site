@@ -975,5 +975,8 @@ html body .home .home-values__item p{
 @media(min-width:801px){
   html body .site-header.home-page-header .brand{
     top:108px!important;
+    right:auto!important;
+    left:50%!important;
+    transform:translateX(-50%)!important;
   }
 }

@@ -624,3 +624,10 @@ html body .home>.home-values .section-heading h2{
     top:139px!important;
   }
 }
+
+/* Startseite: Navigation exakt auf Höhe von MASOON TREUHAND */
+@media(min-width:801px){
+  html body .home .site-header:not(.home-header--compact) .site-nav{
+    top:112px!important;
+  }
+}

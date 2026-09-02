@@ -1072,6 +1072,6 @@ html body.light-pattern-page-bg .expectation-editorial .section-label{
 
 
 /* Startseite Hero-Linie: Farbverlauf wie Kontaktbutton */
-html body main.home>header.site-header::after{
+html body header.site-header.home-page-header::after{
   background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
 }

@@ -666,3 +666,14 @@ html body .home>.home-values .section-heading h2{
     top:146.9px!important;
   }
 }
+
+/* Startseite: unteren Leerraum des grossen weissen Headers verkleinern */
+@media(min-width:801px){
+  html body .home .site-header.site-header--overlay:not(.home-header--compact){
+    height:220px!important;
+  }
+  html body .home .home-hero{
+    min-height:calc(100svh - 220px)!important;
+    margin-top:220px!important;
+  }
+}

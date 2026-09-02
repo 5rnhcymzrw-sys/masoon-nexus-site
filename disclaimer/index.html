@@ -10,8 +10,10 @@
 <style>
 html body .disclaimer-card{
   width:100%!important;
+  height:463.25px!important;
   min-height:463.25px!important;
-  padding:92px 72px!important;
+  max-height:463.25px!important;
+  padding:67.5px 72px!important;
   display:grid!important;
   grid-template-columns:.7fr 1.3fr!important;
   gap:80px!important;
@@ -33,7 +35,9 @@ html body .disclaimer-card .prose{
 }
 @media(max-width:800px){
   html body .disclaimer-card{
+    height:auto!important;
     min-height:0!important;
+    max-height:none!important;
     padding:62px 26px!important;
     grid-template-columns:1fr!important;
     gap:34px!important;

@@ -954,3 +954,9 @@ html body header.site-header.site-header--overlay{
 html body .services-main .services-section .service-card h2::after{
   top:calc(100% + 10.875px)!important;
 }
+
+
+/* Startseite Dienstleistungen: Titel-Text-Abstand wie bei Fachwissen */
+html body .home .home-values__item p{
+  margin-top:12px!important;
+}

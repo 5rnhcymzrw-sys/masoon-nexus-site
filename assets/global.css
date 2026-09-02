@@ -596,3 +596,10 @@ html body .home>.home-values .section-heading h2{
     transform:translateX(-50%)!important;
   }
 }
+
+/* Startseite: Logo 110 px weiter links feinjustieren */
+@media(min-width:801px){
+  html body .home .site-header:not(.home-header--compact) .brand{
+    left:calc(var(--section-x) + 215px)!important;
+  }
+}

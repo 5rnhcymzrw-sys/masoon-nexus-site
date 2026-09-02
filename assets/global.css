@@ -638,3 +638,10 @@ html body .home>.home-values .section-heading h2{
     top:82px!important;
   }
 }
+
+/* Rückgängig: vorherige Navigationshöhe wiederherstellen */
+@media(min-width:801px){
+  html body .home .site-header:not(.home-header--compact) .site-nav{
+    top:112px!important;
+  }
+}

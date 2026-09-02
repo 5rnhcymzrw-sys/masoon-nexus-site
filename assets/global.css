@@ -588,3 +588,11 @@ html body .home>.home-values .section-heading h2{
     transform:none!important;
   }
 }
+
+/* Startseite: Logo mittig über dem Hero Titel ausrichten */
+@media(min-width:801px){
+  html body .home .site-header:not(.home-header--compact) .brand{
+    left:calc(var(--section-x) + (var(--title-width) / 2))!important;
+    transform:translateX(-50%)!important;
+  }
+}

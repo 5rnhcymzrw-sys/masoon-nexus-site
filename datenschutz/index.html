@@ -17,7 +17,7 @@ html body .disclaimer-card{
   display:grid!important;
   grid-template-columns:.7fr 1.3fr!important;
   gap:80px!important;
-  align-items:start!important;
+  align-items:baseline!important;
   box-sizing:border-box!important;
   background:transparent!important;
   background-color:transparent!important;
@@ -28,12 +28,12 @@ html body .disclaimer-card{
 }
 html body .disclaimer-card h1{
   margin:0!important;
-  align-self:start!important;
+  align-self:baseline!important;
 }
 html body .disclaimer-card .prose{
   margin:0!important;
-  align-self:start!important;
-  transform:none!important;
+  align-self:baseline!important;
+  transform:translateY(-14px)!important;
 }
 html body .legal-page .disclaimer-card{
   height:auto!important;
@@ -65,6 +65,16 @@ html body .disclaimer-card .prose a{
     padding:62px 26px!important;
     grid-template-columns:1fr!important;
     gap:34px!important;
+  }
+}
+
+@media(min-width:801px){
+  html body>header.site-header .header-inner{
+    justify-content:flex-start!important;
+  }
+  html body>header.site-header nav#site-navigation{
+    margin-left:503px!important;
+    margin-right:0!important;
   }
 }
 </style>

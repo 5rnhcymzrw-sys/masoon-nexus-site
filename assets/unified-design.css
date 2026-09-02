@@ -1157,3 +1157,15 @@ html body.light-pattern-page-bg .expectation-editorial .section-label{
 html body.light-pattern-page-bg .expectation-editorial .expectation-editorial__item h3::after{
   background:#8f8a82!important;
 }
+
+
+/* Startseite Dienstleistungen: Punkt und Kachel-Unterlinien entfernen */
+html body main.home>.home-values .section-heading>.section-label::before,
+html body main.home>.home-values .section-heading>.section-label::marker{
+  content:none!important;
+  display:none!important;
+}
+html body main.home>.home-values .home-values__item h3::after{
+  content:none!important;
+  display:none!important;
+}

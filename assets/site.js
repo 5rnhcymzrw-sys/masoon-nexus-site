@@ -36,13 +36,13 @@
     footer.innerHTML = `
       <div class="footer-simple">
         <span>© 2026 MASOON TREUHAND</span>
-        <span aria-hidden="true">|</span>
+        <span aria-hidden="true">·</span>
         <span>Disclaimer</span>
-        <span aria-hidden="true">|</span>
+        <span aria-hidden="true">·</span>
         <a href="${basePath}impressum/index.html">Impressum</a>
-        <span aria-hidden="true">|</span>
+        <span aria-hidden="true">·</span>
         <a href="${basePath}datenschutz/index.html">Datenschutz</a>
-        <span aria-hidden="true">|</span>
+        <span aria-hidden="true">·</span>
         <a href="${basePath}kontakt/index.html">Kontakt</a>
       </div>`;
   }

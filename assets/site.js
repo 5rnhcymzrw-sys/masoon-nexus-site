@@ -35,7 +35,7 @@
   if (footer) {
     footer.innerHTML = `
       <div class="footer-simple">
-        <span>© 2026 MASOON TREUHAND | DISCLAIMER | IMPRESSUM | DATENSCHUTZ | KONTAKT</span>
+        <span>© 2026 MASOON TREUHAND · DISCLAIMER · IMPRESSUM · DATENSCHUTZ · KONTAKT</span>
       </div>`;
   }
 

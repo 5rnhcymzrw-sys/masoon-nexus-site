@@ -1192,6 +1192,8 @@ html body.light-pattern-page-bg .knowledge-note>.section-label,
 html body.light-pattern-page-bg .services-closing>.section-label,
 html body.light-pattern-page-bg main.home>.home-contact-band>.section-label{
   align-self:center!important;
+  justify-self:start!important;
+  place-self:center start!important;
   margin:0!important;
   padding:0!important;
   display:block!important;

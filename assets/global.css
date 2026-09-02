@@ -969,3 +969,11 @@ html body .services-main .services-section .service-card h2::after{
 html body .home .home-values__item p{
   margin-top:12px!important;
 }
+
+
+/* Startseite: Logo-Kasten direkt unter der Farbverlaufslinie im Hero */
+@media(min-width:801px){
+  html body .site-header.home-page-header .brand{
+    top:108px!important;
+  }
+}

@@ -55,12 +55,15 @@ html body .disclaimer-card .prose a{
 }
 
 @media(min-width:801px){
-  html body>header.site-header .header-inner{
-    justify-content:flex-start!important;
-  }
   html body>header.site-header nav#site-navigation{
-    margin-left:503px!important;
-    margin-right:0!important;
+    position:absolute!important;
+    left:calc(35vw + 83.5px)!important;
+    margin:0!important;
+  }
+}
+@media(min-width:1291px){
+  html body>header.site-header nav#site-navigation{
+    left:calc(50vw - 110.15px)!important;
   }
 }
 </style>

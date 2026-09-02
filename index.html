@@ -21,298 +21,58 @@
       html body .home>.home-values .home-values__item,
       html body .home>.home-paths .home-paths__grid a{padding-left:42px!important;padding-right:42px!important}
     }
-    .home-values__item{
-      border-left:8px solid #99989c!important;
-      background:#fff!important;
-      background-color:#fff!important;
-      background-image:none!important;
-      min-height:285px!important;
-      padding:42px 36px!important;
-      justify-content:flex-start!important;
-      display:grid!important;
-      grid-template-columns:58px minmax(0,1fr)!important;
-      grid-template-rows:auto auto!important;
-      column-gap:18px!important;
-      row-gap:30px!important;
-      align-content:start!important;
-      align-items:start!important;
-    }
-    .home-values__item:nth-child(1),
-    .home-values__item:nth-child(5){border-left-color:#19191b!important}
-    .home-values__item:nth-child(3){border-left-color:#c2c1c4!important}
-
-    .home-values__item .service-number{
-      grid-column:1!important;
-      grid-row:1!important;
-      align-self:center!important;
-      display:block!important;
-      margin:0!important;
-      font-family:var(--font-cormorant),Georgia,serif!important;
-      font-size:28px!important;
-      font-weight:500!important;
-      line-height:1!important;
-      letter-spacing:-.02em!important;
-      color:#99989c!important;
-    }
-    .home-values__item:nth-child(1) .service-number,
-    .home-values__item:nth-child(5) .service-number{color:#19191b!important}
-    .home-values__item:nth-child(3) .service-number{color:#c2c1c4!important}
-
-    .home-values__item h3{
-      grid-column:2!important;
-      grid-row:1!important;
-      align-self:center!important;
-      margin:0!important;
-      font-family:var(--font-cormorant),Georgia,serif!important;
-      font-size:24px!important;
-      font-weight:500!important;
-      line-height:1.12!important;
-      letter-spacing:-.01em!important;
-    }
-    .home-values__item h3{position:relative!important}
-    .home-values__item h3::after{
-      content:''!important;
-      display:block!important;
-      position:absolute!important;
-      top:calc(100% + 1px)!important;
-      left:0!important;
-      width:48px!important;
-      height:1px!important;
-      margin:0!important;
-      background:#868279!important;
-      border:0!important;
-    }
-    .home-values__item p{
-      grid-column:1 / -1!important;
-      grid-row:2!important;
-      margin:0!important;
-      font-family:var(--font-inter),Arial,sans-serif!important;
-      font-size:14.5px!important;
-      font-weight:400!important;
-      line-height:1.65!important;
-      letter-spacing:normal!important;
-    }
-
-    .home-values__all-services,
-    .home-values__all-services:link,
-    .home-values__all-services:visited,
-    .home-values__all-services:active,
-    .home-values__all-services:focus{
-      position:relative!important;
-      display:inline-block!important;
-      font-family:var(--font-inter),Arial,sans-serif!important;
-      font-size:11px!important;
-      font-weight:500!important;
-      letter-spacing:.08em!important;
-      text-transform:uppercase!important;
-      color:#171715!important;
-      background:transparent!important;
-      background-color:transparent!important;
-      background-image:none!important;
-      text-decoration:none!important;
-      border:0!important;
-      padding-bottom:14px!important;
-      box-shadow:none!important;
-      -webkit-tap-highlight-color:transparent!important;
-      transition:box-shadow .18s ease,color .18s ease!important;
-    }
-    .home-values__all-services::before,
-    .home-values__all-services::after{
-      content:none!important;
-      display:none!important;
-    }
-    .home-values__all-services:hover,
-    .home-values__all-services:focus-visible{
-      color:#171715!important;
-      background:transparent!important;
-      background-color:transparent!important;
-      box-shadow:inset 0 -8px 0 #19191b!important;
-    }
+    .home-values__item{border-left:8px solid #99989c!important;background:#fff!important;background-color:#fff!important;background-image:none!important;min-height:285px!important;padding:42px 36px!important;justify-content:flex-start!important;display:grid!important;grid-template-columns:58px minmax(0,1fr)!important;grid-template-rows:auto auto!important;column-gap:18px!important;row-gap:30px!important;align-content:start!important;align-items:start!important}
+    .home-values__item:nth-child(1),.home-values__item:nth-child(5){border-left-color:#19191b!important}.home-values__item:nth-child(3){border-left-color:#c2c1c4!important}
+    .home-values__item .service-number{grid-column:1!important;grid-row:1!important;align-self:center!important;display:block!important;margin:0!important;font-family:var(--font-cormorant),Georgia,serif!important;font-size:28px!important;font-weight:500!important;line-height:1!important;letter-spacing:-.02em!important;color:#99989c!important}
+    .home-values__item:nth-child(1) .service-number,.home-values__item:nth-child(5) .service-number{color:#19191b!important}.home-values__item:nth-child(3) .service-number{color:#c2c1c4!important}
+    .home-values__item h3{grid-column:2!important;grid-row:1!important;align-self:center!important;margin:0!important;font-family:var(--font-cormorant),Georgia,serif!important;font-size:24px!important;font-weight:500!important;line-height:1.12!important;letter-spacing:-.01em!important;position:relative!important}
+    .home-values__item h3::after{content:''!important;display:block!important;position:absolute!important;top:calc(100% + 1px)!important;left:0!important;width:48px!important;height:1px!important;margin:0!important;background:#868279!important;border:0!important}
+    .home-values__item p{grid-column:1 / -1!important;grid-row:2!important;margin:0!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:14.5px!important;font-weight:400!important;line-height:1.65!important;letter-spacing:normal!important}
+    .home-values__all-services,.home-values__all-services:link,.home-values__all-services:visited,.home-values__all-services:active,.home-values__all-services:focus{position:relative!important;display:inline-block!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:11px!important;font-weight:500!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:#171715!important;background:transparent!important;background-color:transparent!important;background-image:none!important;text-decoration:none!important;border:0!important;padding-bottom:14px!important;box-shadow:none!important;-webkit-tap-highlight-color:transparent!important;transition:box-shadow .18s ease,color .18s ease!important}
+    .home-values__all-services::before,.home-values__all-services::after{content:none!important;display:none!important}.home-values__all-services:hover,.home-values__all-services:focus-visible{color:#171715!important;background:transparent!important;background-color:transparent!important;box-shadow:inset 0 -8px 0 #19191b!important}
   </style>
 <link rel="stylesheet" href="assets/unified-design.css?v=20260828-35" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400&display=swap" rel="stylesheet" />
+<style>@media (min-width:801px){html body .home>.home-values,html body .home>.home-paths{padding-bottom:50px!important}html body .home-contact-band{padding-bottom:126px!important}}</style>
 <style>
-  @media (min-width:801px){
-    html body .home>.home-values,
-    html body .home>.home-paths{padding-bottom:50px!important}
-    html body .home-contact-band{padding-bottom:126px!important}
-  }
-  </style>
-  <style>
-    html body .home-action-button{display:inline-flex!important;align-items:center!important;box-sizing:border-box!important;width:auto!important;height:auto!important;margin:2px 0 0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#868279!important;text-decoration:none!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important}
-    html body .home-action-button:hover,html body .home-action-button:focus-visible,html body .home-action-button:active{background:transparent!important;box-shadow:none!important;color:#868279!important;text-decoration:none!important}
-    html body .home-action-button span{display:inline-block!important;margin-left:10px!important;font-size:20px!important;font-weight:300!important;line-height:.7!important;letter-spacing:0!important;vertical-align:-2px!important}
-    html body .home-contact-band .home-action-button{position:relative!important;z-index:0!important;transition:color .22s ease!important}
-    html body .home-contact-band .home-action-button::before{content:''!important;position:absolute!important;z-index:-1!important;inset:-30px -38px!important;display:block!important;border-radius:50%!important;background:radial-gradient(ellipse at 32% 42%,rgba(243,232,212,.9) 0%,rgba(232,229,223,.7) 34%,rgba(199,203,211,.52) 58%,rgba(141,150,168,.34) 74%,rgba(141,150,168,0) 100%)!important;filter:blur(16px)!important;transform:scale(.88)!important;opacity:0!important;transition:opacity .25s ease,transform .25s ease!important}
-    html body .home-contact-band .home-action-button:hover,html body .home-contact-band .home-action-button:focus-visible{color:#171715!important}
-    html body .home-contact-band .home-action-button:hover::before,html body .home-contact-band .home-action-button:focus-visible::before{opacity:1!important;transform:scale(1)!important}
-    html body .home-paths>p .home-action-button{position:relative!important;z-index:0!important;transition:color .22s ease!important}
-    html body .home-paths>p .home-action-button::before{content:''!important;position:absolute!important;z-index:-1!important;inset:-14px -20px!important;display:block!important;border-radius:999px!important;background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;box-shadow:0 4px 0 rgba(23,23,21,.12)!important;opacity:0!important;transition:opacity .22s ease!important}
-    html body .home-paths>p .home-action-button:hover,html body .home-paths>p .home-action-button:focus-visible{color:#171715!important}
-    html body .home-paths>p .home-action-button:hover::before,html body .home-paths>p .home-action-button:focus-visible::before{opacity:1!important}
-    html body .home-values .home-action-button{position:relative!important;z-index:0!important;transition:color .22s ease!important}
-    html body .home-values .home-action-button::before{content:''!important;position:absolute!important;z-index:-1!important;inset:-14px -20px!important;display:block!important;border:2px solid transparent!important;border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;background:transparent!important;opacity:0!important;transition:opacity .22s ease!important}
-    html body .home-values .home-action-button:hover,html body .home-values .home-action-button:focus-visible{color:#171715!important}
-    html body .home-values .home-action-button:hover::before,html body .home-values .home-action-button:focus-visible::before{opacity:1!important}
-  </style>
+html body .home-action-button{display:inline-flex!important;align-items:center!important;box-sizing:border-box!important;width:auto!important;height:auto!important;margin:2px 0 0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#868279!important;text-decoration:none!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important}
+html body .home-action-button:hover,html body .home-action-button:focus-visible,html body .home-action-button:active{background:transparent!important;box-shadow:none!important;color:#868279!important;text-decoration:none!important}
+html body .home-action-button span{display:inline-block!important;margin-left:10px!important;font-size:20px!important;font-weight:300!important;line-height:.7!important;letter-spacing:0!important;vertical-align:-2px!important}
+html body .home-contact-band .home-action-button,html body .home-paths>p .home-action-button,html body .home-values .home-action-button{position:relative!important;z-index:0!important;transition:color .22s ease!important}
+html body .home-contact-band .home-action-button::before{content:''!important;position:absolute!important;z-index:-1!important;inset:-30px -38px!important;display:block!important;border-radius:50%!important;background:radial-gradient(ellipse at 32% 42%,rgba(243,232,212,.9) 0%,rgba(232,229,223,.7) 34%,rgba(199,203,211,.52) 58%,rgba(141,150,168,.34) 74%,rgba(141,150,168,0) 100%)!important;filter:blur(16px)!important;transform:scale(.88)!important;opacity:0!important;transition:opacity .25s ease,transform .25s ease!important}
+html body .home-contact-band .home-action-button:hover,html body .home-contact-band .home-action-button:focus-visible,html body .home-paths>p .home-action-button:hover,html body .home-paths>p .home-action-button:focus-visible,html body .home-values .home-action-button:hover,html body .home-values .home-action-button:focus-visible{color:#171715!important}
+html body .home-contact-band .home-action-button:hover::before,html body .home-contact-band .home-action-button:focus-visible::before{opacity:1!important;transform:scale(1)!important}
+html body .home-paths>p .home-action-button::before{content:''!important;position:absolute!important;z-index:-1!important;inset:-14px -20px!important;display:block!important;border-radius:999px!important;background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;box-shadow:0 4px 0 rgba(23,23,21,.12)!important;opacity:0!important;transition:opacity .22s ease!important}
+html body .home-paths>p .home-action-button:hover::before,html body .home-paths>p .home-action-button:focus-visible::before{opacity:1!important}
+html body .home-values .home-action-button::before{content:''!important;position:absolute!important;z-index:-1!important;inset:-14px -20px!important;display:block!important;border:2px solid transparent!important;border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;background:transparent!important;opacity:0!important;transition:opacity .22s ease!important}
+html body .home-values .home-action-button:hover::before,html body .home-values .home-action-button:focus-visible::before{opacity:1!important}
+</style>
 <style>@media(min-width:801px){html body>header.site-header .header-inner{justify-content:center!important}html body>header.site-header nav#site-navigation{margin:0!important}}</style>
 <style>
-  /* Startseite: kleine Abschnittstitel ohne Linie, mit mittigem Punkt */
-  html body .home>.home-values .section-heading>.section-label,
-  html body .home>.home-paths .home-paths__heading>.section-label,
-  html body .home>.home-contact-band>.section-label{
-    position:relative!important;
-    display:inline-block!important;
-    width:max-content!important;
-    padding:0 0 17px!important;
-  }
-  html body .home>.home-values .section-heading>.section-label::before,
-  html body .home>.home-paths .home-paths__heading>.section-label::before,
-  html body .home>.home-contact-band>.section-label::before{
-    content:none!important;
-    display:none!important;
-  }
-  html body .home>.home-values .section-heading>.section-label::after,
-  html body .home>.home-paths .home-paths__heading>.section-label::after,
-  html body .home>.home-contact-band>.section-label::after{
-    content:'·'!important;
-    position:absolute!important;
-    top:auto!important;
-    right:auto!important;
-    bottom:0!important;
-    left:50%!important;
-    width:auto!important;
-    height:auto!important;
-    margin:0!important;
-    background:none!important;
-    color:currentColor!important;
-    font:inherit!important;
-    line-height:1!important;
-    transform:translateX(-50%)!important;
-  }
+/* Startseite: kleine Abschnittstitel ohne Linie, Punkt links */
+html body .home>.home-values .section-heading>.section-label,
+html body .home>.home-paths .home-paths__heading>.section-label,
+html body .home>.home-contact-band>.section-label{position:relative!important;display:inline-block!important;width:max-content!important;padding:0 0 17px!important}
+html body .home>.home-values .section-heading>.section-label::before,
+html body .home>.home-paths .home-paths__heading>.section-label::before,
+html body .home>.home-contact-band>.section-label::before{content:none!important;display:none!important}
+html body .home>.home-values .section-heading>.section-label::after,
+html body .home>.home-paths .home-paths__heading>.section-label::after,
+html body .home>.home-contact-band>.section-label::after{content:'·'!important;position:absolute!important;top:auto!important;right:auto!important;bottom:0!important;left:0!important;width:auto!important;height:auto!important;margin:0!important;background:none!important;color:currentColor!important;font:inherit!important;line-height:1!important;transform:none!important}
 </style>
 </head>
-
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq light-pattern-page-bg">
-  <header class="site-header" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important"><div class="header-inner"><button aria-controls="site-navigation" aria-expanded="false" class="menu-toggle" type="button"><span></span><span></span><span></span><span class="sr-only">Menü öffnen</span></button><nav aria-label="Hauptnavigation" class="site-nav" id="site-navigation"><a aria-current="page" class="active" href="index.html">Startseite</a><a class="" href="unternehmen/index.html">Unternehmen</a><a class="" href="dienstleistungen/index.html">Dienstleistungen</a><a class="" href="fachwissen/index.html">Fachwissen</a><a class="" href="kontakt/index.html">Kontakt</a></nav></div></header>
-  <main class="home">
-
-    <section class="home-hero">
-      <div class="home-hero__content">
-        <h1 class="global-title">Treuhand mit<br />Struktur und<br />Anspruch.</h1>
-        <p class="home-hero__services" style="margin-top:30px">Auf der Basis von Diskretion, Präzision und Vertrauen<br />begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch<br />durch alle Phasen Ihres Geschäftslebens.</p>
-      </div>
-    </section>
-
-    <section class="home-values">
-      <div class="home-values__inner">
-        <div class="section-heading">
-          <p class="section-label">Dienstleistungen</p>
-          <h2 class="global-title">Treuhandlösungen für Ihren Geschäftsalltag.</h2>
-        </div>
-
-        <div class="home-values__items">
-          <article class="home-values__item">
-            <span class="service-number">01</span>
-            <h3>Administration</h3>
-            <p>Strukturierte Unterstützung bei administrativen Aufgaben und laufenden Geschäftsprozessen.</p>
-          </article>
-
-          <article class="home-values__item">
-            <span class="service-number">02</span>
-            <h3>Buchhaltung</h3>
-            <p>Übersichtliche und zuverlässige Führung Ihrer Finanzbuchhaltung.</p>
-          </article>
-
-          <article class="home-values__item">
-            <span class="service-number">03</span>
-            <h3>Personaladministration</h3>
-            <p>Professionelle Abwicklung von Löhnen, Sozialversicherungen und Personalmutationen.</p>
-          </article>
-
-          <article class="home-values__item">
-            <span class="service-number">04</span>
-            <h3>Jahresabschluss</h3>
-            <p>Sorgfältige Vorbereitung und Erstellung von Zwischen- und Jahresabschlüssen.</p>
-          </article>
-
-          <article class="home-values__item">
-            <span class="service-number">05</span>
-            <h3>Steuererklärung</h3>
-            <p>Steuererklärungen für Privatpersonen und Unternehmen inklusive Veranlagungskontrolle.</p>
-          </article>
-
-          <article class="home-values__item">
-            <span class="service-number">06</span>
-            <h3>Unternehmensberatung</h3>
-            <p>Begleitung bei Gründungen, Umstrukturierungen und weiteren unternehmerischen Fragen.</p>
-          </article>
-        </div>
-
-        <p style="margin-top:2.2rem">
-          <a class="home-action-button" href="dienstleistungen/index.html">Alle Dienstleistungen ansehen <span aria-hidden="true">›</span></a>
-        </p>
-      </div>
-    </section>
-
-    <section class="home-architecture-banner" aria-label="Architektur"></section>
-
-    <section class="home-paths">
-      <div class="home-paths__heading">
-        <p class="section-label">Fachwissen</p>
-        <h2 class="global-title">Fachliche Orientierung zu ausgewählten Themen.</h2>
-      </div>
-
-      <div class="home-paths__grid">
-        <a href="fachwissen/index.html"><span>Steuern</span><strong>Steuererklärung richtig vorbereiten</strong></a>
-        <a href="fachwissen/index.html"><span>Unternehmen</span><strong>Die passende Unternehmensform wählen</strong></a>
-        <a href="fachwissen/index.html"><span>Buchhaltung</span><strong>Was eine saubere Buchhaltung ausmacht</strong></a>
-      </div>
-
-      <p style="margin-top:2.2rem">
-        <a class="home-action-button" href="fachwissen/index.html">Alle Beiträge ansehen <span aria-hidden="true">›</span></a>
-      </p>
-    </section>
-
-    <section class="home-contact-band">
-      <p class="section-label">Kontakt</p>
-      <div>
-        <h2 class="global-title">Verlässliche Treuhandlösungen<br />für Ihr Unternehmen.</h2>
-        <a class="home-action-button" href="kontakt/index.html">Kontakt aufnehmen <span aria-hidden="true">›</span></a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important" data-parallax-background="true">
-    <div class="footer-main">
-      <div>
-        <h2>Unternehmen</h2>
-        <address>MASOON TREUHAND<br />Täschmattstrasse 19<br />6015 Luzern</address>
-      </div>
-
-      <div>
-        <h2>Kontakt</h2>
-        <p><a href="mailto:info@masoontreuhand.ch">info@masoontreuhand.ch</a><br /><a href="tel:+41799663636">+41 79 966 36 36</a></p>
-      </div>
-
-      <div>
-        <h2>Öffnungszeiten</h2>
-        <p>Montag–Freitag<br />08.00–12.00 Uhr<br />13.00–17.00 Uhr</p>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 MASOON TREUHAND · Alle Rechte vorbehalten.</span>
-      <div>
-        <a href="impressum/index.html">Impressum</a>
-        <span aria-hidden="true"> · </span>
-        <a href="datenschutz/index.html">Datenschutz</a>
-      </div>
-    </div>
-  </footer>
-
-  <script defer src="assets/site.js?v=20260902-16"></script>
+<header class="site-header" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important"><div class="header-inner"><button aria-controls="site-navigation" aria-expanded="false" class="menu-toggle" type="button"><span></span><span></span><span></span><span class="sr-only">Menü öffnen</span></button><nav aria-label="Hauptnavigation" class="site-nav" id="site-navigation"><a aria-current="page" class="active" href="index.html">Startseite</a><a href="unternehmen/index.html">Unternehmen</a><a href="dienstleistungen/index.html">Dienstleistungen</a><a href="fachwissen/index.html">Fachwissen</a><a href="kontakt/index.html">Kontakt</a></nav></div></header>
+<main class="home">
+<section class="home-hero"><div class="home-hero__content"><h1 class="global-title">Treuhand mit<br />Struktur und<br />Anspruch.</h1><p class="home-hero__services" style="margin-top:30px">Auf der Basis von Diskretion, Präzision und Vertrauen<br />begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch<br />durch alle Phasen Ihres Geschäftslebens.</p></div></section>
+<section class="home-values"><div class="home-values__inner"><div class="section-heading"><p class="section-label">Dienstleistungen</p><h2 class="global-title">Treuhandlösungen für Ihren Geschäftsalltag.</h2></div><div class="home-values__items"><article class="home-values__item"><span class="service-number">01</span><h3>Administration</h3><p>Strukturierte Unterstützung bei administrativen Aufgaben und laufenden Geschäftsprozessen.</p></article><article class="home-values__item"><span class="service-number">02</span><h3>Buchhaltung</h3><p>Übersichtliche und zuverlässige Führung Ihrer Finanzbuchhaltung.</p></article><article class="home-values__item"><span class="service-number">03</span><h3>Personaladministration</h3><p>Professionelle Abwicklung von Löhnen, Sozialversicherungen und Personalmutationen.</p></article><article class="home-values__item"><span class="service-number">04</span><h3>Jahresabschluss</h3><p>Sorgfältige Vorbereitung und Erstellung von Zwischen- und Jahresabschlüssen.</p></article><article class="home-values__item"><span class="service-number">05</span><h3>Steuererklärung</h3><p>Steuererklärungen für Privatpersonen und Unternehmen inklusive Veranlagungskontrolle.</p></article><article class="home-values__item"><span class="service-number">06</span><h3>Unternehmensberatung</h3><p>Begleitung bei Gründungen, Umstrukturierungen und weiteren unternehmerischen Fragen.</p></article></div><p style="margin-top:2.2rem"><a class="home-action-button" href="dienstleistungen/index.html">Alle Dienstleistungen ansehen <span aria-hidden="true">›</span></a></p></div></section>
+<section class="home-architecture-banner" aria-label="Architektur"></section>
+<section class="home-paths"><div class="home-paths__heading"><p class="section-label">Fachwissen</p><h2 class="global-title">Fachliche Orientierung zu ausgewählten Themen.</h2></div><div class="home-paths__grid"><a href="fachwissen/index.html"><span>Steuern</span><strong>Steuererklärung richtig vorbereiten</strong></a><a href="fachwissen/index.html"><span>Unternehmen</span><strong>Die passende Unternehmensform wählen</strong></a><a href="fachwissen/index.html"><span>Buchhaltung</span><strong>Was eine saubere Buchhaltung ausmacht</strong></a></div><p style="margin-top:2.2rem"><a class="home-action-button" href="fachwissen/index.html">Alle Beiträge ansehen <span aria-hidden="true">›</span></a></p></section>
+<section class="home-contact-band"><p class="section-label">Kontakt</p><div><h2 class="global-title">Verlässliche Treuhandlösungen<br />für Ihr Unternehmen.</h2><a class="home-action-button" href="kontakt/index.html">Kontakt aufnehmen <span aria-hidden="true">›</span></a></div></section>
+</main>
+<footer class="site-footer" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important" data-parallax-background="true"><div class="footer-main"><div><h2>Unternehmen</h2><address>MASOON TREUHAND<br />Täschmattstrasse 19<br />6015 Luzern</address></div><div><h2>Kontakt</h2><p><a href="mailto:info@masoontreuhand.ch">info@masoontreuhand.ch</a><br /><a href="tel:+41799663636">+41 79 966 36 36</a></p></div><div><h2>Öffnungszeiten</h2><p>Montag–Freitag<br />08.00–12.00 Uhr<br />13.00–17.00 Uhr</p></div></div><div class="footer-bottom"><span>© 2026 MASOON TREUHAND · Alle Rechte vorbehalten.</span><div><a href="impressum/index.html">Impressum</a><span aria-hidden="true"> · </span><a href="datenschutz/index.html">Datenschutz</a></div></div></footer>
+<script defer src="assets/site.js?v=20260902-16"></script>
 </body>
 </html>

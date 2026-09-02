@@ -470,3 +470,12 @@ html body .home>.home-values .section-heading h2{
   font-weight:400!important;
   font-style:normal!important;
 }
+
+/* Startseite: Dienstleistungstitel exakt wie der Fachwissen-Titel */
+html body .home>.home-values .section-heading h2{
+  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-weight:400!important;
+  font-style:normal!important;
+  letter-spacing:normal!important;
+  line-height:1.05!important;
+}

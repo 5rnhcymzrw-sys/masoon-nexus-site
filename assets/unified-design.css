@@ -1178,3 +1178,32 @@ html body.light-pattern-page-bg main.home>.home-contact-band{
   background-color:var(--mt-surface)!important;
   background-image:none!important;
 }
+
+
+/* Abschlusskästen: transparent, kleine Titel mittig und ohne Zeichen */
+html body.light-pattern-page-bg .knowledge-note,
+html body.light-pattern-page-bg .services-closing,
+html body.light-pattern-page-bg main.home>.home-contact-band{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}
+html body.light-pattern-page-bg .knowledge-note>.section-label,
+html body.light-pattern-page-bg .services-closing>.section-label,
+html body.light-pattern-page-bg main.home>.home-contact-band>.section-label{
+  align-self:center!important;
+  margin:0!important;
+  padding:0!important;
+  display:block!important;
+  position:static!important;
+  gap:0!important;
+}
+html body.light-pattern-page-bg .knowledge-note>.section-label::before,
+html body.light-pattern-page-bg .knowledge-note>.section-label::after,
+html body.light-pattern-page-bg .services-closing>.section-label::before,
+html body.light-pattern-page-bg .services-closing>.section-label::after,
+html body.light-pattern-page-bg main.home>.home-contact-band>.section-label::before,
+html body.light-pattern-page-bg main.home>.home-contact-band>.section-label::after{
+  content:none!important;
+  display:none!important;
+}

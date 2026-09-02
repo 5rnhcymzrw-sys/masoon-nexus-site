@@ -876,12 +876,6 @@ html body .site-footer .footer-simple{
   justify-content:center!important;
   gap:clamp(18px,2.2vw,34px)!important;
   color:#fff!important;
-  font-family:var(--font-inter)!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  line-height:1.5!important;
-  letter-spacing:.1em!important;
-  text-transform:uppercase!important;
 }
 html body .site-footer .footer-simple a{color:#fff!important;text-decoration:none!important}
 html body .site-footer .footer-simple>*{position:relative!important}
@@ -907,7 +901,8 @@ html body .site-footer .footer-simple>*+*::before{
 }
 
 
-/* Fusszeilenschrift exakt wie Kopfzeilennavigation */
+/* Gemeinsame Typografie für Hauptnavigation und Fusszeile */
+html body .site-nav a,
 html body .site-footer .footer-simple,
 html body .site-footer .footer-simple>*{
   font-family:var(--font-inter)!important;

@@ -998,7 +998,8 @@ html body .home .home-values__item p{
   html body .footer-bottom{
     width:min(100% - 64px,1227px)!important;
   }
-  html body .home-contact-band{
+  html body .home-contact-band,
+  html body .expectation-editorial{
     padding-right:max(32px,calc((100% - 1227px)/2))!important;
     padding-left:max(32px,calc((100% - 1227px)/2))!important;
   }

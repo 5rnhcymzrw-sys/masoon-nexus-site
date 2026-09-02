@@ -983,7 +983,7 @@ html body .home .home-values__item p{
 
 
 /* Startseite Dienstleistungen: 80 px Seitenabstand */
-@media(min-width:801px){
+@media(min-width:601px){
   html body .home .home-values__inner{
     width:min(calc(100% - 160px),1320px)!important;
     margin-right:auto!important;

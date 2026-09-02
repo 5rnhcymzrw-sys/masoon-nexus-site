@@ -35,11 +35,11 @@
   if (footer) {
     footer.innerHTML = `
       <div class="footer-simple">
-        <span>© 2026 MASOON TREUHAND</span>
+        <a href="${basePath}index.html">© 2026 MASOON TREUHAND</a>
         <a href="${basePath}disclaimer/index.html">Disclaimer</a>
         <a href="${basePath}impressum/index.html">Impressum</a>
         <a href="${basePath}datenschutz/index.html">Datenschutz</a>
-        <span>Kontakt</span>
+        <a href="${basePath}kontakt/index.html">Kontakt</a>
       </div>`;
   }
 

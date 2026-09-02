@@ -949,3 +949,9 @@ html body header.site-header.site-header--overlay{
     transform:translate(-50%,-50%)!important;
   }
 }
+
+
+/* Dienstleistungen: Trennlinie exakt mittig zwischen Titel und Beschreibung */
+html body .services-main .services-section .service-card h2::after{
+  top:calc(100% + 10.875px)!important;
+}

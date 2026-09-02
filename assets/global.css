@@ -889,7 +889,7 @@ html body .site-footer .footer-simple a{color:#fff!important;text-decoration:non
     width:min(100% - 36px,1320px)!important;
     padding:24px 0!important;
     flex-wrap:wrap!important;
-    justify-content:flex-start!important;
+    justify-content:center!important;
     row-gap:8px!important;
   }
 }

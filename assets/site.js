@@ -35,11 +35,7 @@
   if (footer) {
     footer.innerHTML = `
       <div class="footer-simple">
-        <a href="${basePath}">Startseite</a>
-        <a href="${basePath}unternehmen/index.html">Unternehmen</a>
-        <a href="${basePath}dienstleistungen/index.html">Dienstleistungen</a>
-        <a href="${basePath}fachwissen/index.html">Fachwissen</a>
-        <a href="${basePath}kontakt/index.html">Kontakt</a>
+        <span>© 2026 MASOON TREUHAND | DISCLAIMER | IMPRESSUM | DATENSCHUTZ | KONTAKT</span>
       </div>`;
   }
 

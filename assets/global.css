@@ -691,3 +691,11 @@ html body .home .site-header.site-header--overlay:not(.home-header--compact)::be
   height:12px!important;
   background:#0a0a09!important;
 }
+
+
+/* Startseite: Kopfzeile ohne Scroll-Effekt */
+html body .home .site-header.site-header--overlay{
+  position:absolute!important;
+  transform:none!important;
+  transition:none!important;
+}

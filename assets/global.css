@@ -983,13 +983,22 @@ html body .home .home-values__item p{
 
 
 
-/* Startseite: einheitlicher seitlicher Leerraum für Dienstleistungen, Fachwissen und Kontakt */
+/* Gesamte Website: einheitliche Inhaltsbreite und seitlicher Leerraum */
 @media(min-width:801px){
-  html body .home>.home-values>.home-values__inner,
-  html body .home>.home-paths{
+  html body .header-inner,
+  html body .home-hero__content,
+  html body .home-company,
+  html body .home-values__inner,
+  html body .home-paths,
+  html body .section,
+  html body .services-closing,
+  html body .contact-split,
+  html body .legal-page,
+  html body .article-detail,
+  html body .footer-bottom{
     width:min(100% - 64px,1227px)!important;
   }
-  html body .home>.home-contact-band{
+  html body .home-contact-band{
     padding-right:max(32px,calc((100% - 1227px)/2))!important;
     padding-left:max(32px,calc((100% - 1227px)/2))!important;
   }

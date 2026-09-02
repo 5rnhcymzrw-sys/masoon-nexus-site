@@ -1021,9 +1021,8 @@ html body.light-pattern-page-bg .expectation-editorial .section-label{
 }
 
 
-/* Fachwissen und Dienstleistungen: identische Abschlusskasten-Grösse */
+/* Dienstleistungen: Abschlusskasten-Grösse an Fachwissen angepasst */
 @media(min-width:801px){
-  html body .knowledge-note,
   html body .services-closing{
     height:500px!important;
     min-height:500px!important;

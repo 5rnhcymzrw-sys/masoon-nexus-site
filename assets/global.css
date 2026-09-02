@@ -449,3 +449,17 @@ html body .home>.home-values .section-heading h2{
   font-family:'Bitter Original',Georgia,serif!important;
   font-weight:600!important;
 }
+
+/* Korrektur: funktionierende Bitter Datei statt Ersatzschrift */
+@font-face{
+  font-family:'Bitter SemiBold Web';
+  src:url('fonts/Bitter-Medium.ttf') format('truetype');
+  font-style:normal;
+  font-weight:500 600;
+  font-display:swap;
+}
+html body .home>.home-values .section-heading h2{
+  font-family:'Bitter SemiBold Web',Georgia,serif!important;
+  font-weight:600!important;
+  font-synthesis:weight!important;
+}

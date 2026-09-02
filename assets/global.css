@@ -983,9 +983,14 @@ html body .home .home-values__item p{
 
 
 
-/* Startseite Dienstleistungen: angepasster seitlicher Leerraum */
+/* Startseite: einheitlicher seitlicher Leerraum für Dienstleistungen, Fachwissen und Kontakt */
 @media(min-width:801px){
-  html body .home>.home-values>.home-values__inner{
+  html body .home>.home-values>.home-values__inner,
+  html body .home>.home-paths{
     width:min(100% - 64px,1227px)!important;
+  }
+  html body .home>.home-contact-band{
+    padding-right:max(32px,calc((100% - 1227px)/2))!important;
+    padding-left:max(32px,calc((100% - 1227px)/2))!important;
   }
 }

@@ -114,8 +114,8 @@ html body .services-closing h2,html body .contact-split__info h1{letter-spacing:
 
 /* Fusszeile in derselben Farbe wie die Kopfzeile */
 .site-footer{
-  background:#242423!important;
-  background-color:#242423!important;
+  background:#000!important;
+  background-color:#000!important;
   background-image:none!important;
 }
 
@@ -706,8 +706,8 @@ html body .site-header,
 html body .site-header.site-header--overlay{
   height:100px!important;
   color:#fff!important;
-  background:#242423!important;
-  background-color:#242423!important;
+  background:#000!important;
+  background-color:#000!important;
   border-bottom:1px solid #ffffff29!important;
   position:fixed!important;
   top:0!important;
@@ -790,8 +790,8 @@ html body main.home>header.site-header.site-header--overlay{
   height:100px!important;
   min-height:100px!important;
   color:#fff!important;
-  background:#242423!important;
-  background-color:#242423!important;
+  background:#000!important;
+  background-color:#000!important;
   position:fixed!important;
 }
 html body main.home>header.site-header.site-header--overlay .header-inner{

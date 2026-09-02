@@ -573,3 +573,18 @@ html body .home>.home-values .section-heading h2{
     padding:0 0 25px!important;
   }
 }
+
+/* Startseite: Navigation rechts neben dem Logo */
+@media(min-width:801px){
+  html body .home .site-header:not(.home-header--compact) .site-nav{
+    top:107px!important;
+    right:max(32px,calc((100vw - var(--content-width))/2))!important;
+    bottom:auto!important;
+    left:auto!important;
+    width:max-content!important;
+    justify-content:flex-end!important;
+    margin:0!important;
+    padding:0!important;
+    transform:none!important;
+  }
+}

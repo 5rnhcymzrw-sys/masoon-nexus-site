@@ -843,7 +843,8 @@ html body main.home>section.home-hero{
 /* Einheitliche schlichte Fusszeile wie die Kopfzeile */
 html body .site-footer{
   position:relative!important;
-  min-height:100px!important;
+  height:108px!important;
+  min-height:108px!important;
   margin:0!important;
   padding:8px 0 0!important;
   color:#fff!important;
@@ -867,7 +868,8 @@ html body .site-footer .footer-simple{
   position:relative!important;
   z-index:2!important;
   width:min(100% - 64px,1320px)!important;
-  min-height:92px!important;
+  height:100px!important;
+  min-height:100px!important;
   margin:0 auto!important;
   display:flex!important;
   align-items:center!important;

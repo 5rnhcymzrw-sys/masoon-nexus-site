@@ -883,8 +883,9 @@ html body .site-footer .footer-simple{
   letter-spacing:.1em!important;
   text-transform:uppercase!important;
 }
-html body .site-footer .footer-simple a{color:#fff!important;text-decoration:none!important;position:relative!important}
-html body .site-footer .footer-simple a+a::before{
+html body .site-footer .footer-simple a{color:#fff!important;text-decoration:none!important}
+html body .site-footer .footer-simple>*{position:relative!important}
+html body .site-footer .footer-simple>*+*::before{
   content:'·'!important;
   display:block!important;
   position:absolute!important;

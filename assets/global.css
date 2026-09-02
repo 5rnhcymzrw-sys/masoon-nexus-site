@@ -699,3 +699,87 @@ html body .home .site-header.site-header--overlay{
   transform:none!important;
   transition:none!important;
 }
+
+
+/* Einheitliche Kopfzeile wie auf Unternehmen */
+html body .site-header,
+html body .site-header.site-header--overlay{
+  height:100px!important;
+  color:#fff!important;
+  background:#0a0a09e0!important;
+  background-color:#0a0a09e0!important;
+  border-bottom:1px solid #ffffff29!important;
+  position:fixed!important;
+  top:0!important;
+  right:0!important;
+  left:0!important;
+  transform:none!important;
+  transition:none!important;
+  backdrop-filter:blur(8px)!important;
+  -webkit-backdrop-filter:blur(8px)!important;
+}
+html body .site-header::before{content:none!important;display:none!important}
+html body .site-header::after{
+  content:''!important;
+  position:fixed!important;
+  z-index:49!important;
+  top:100px!important;
+  right:0!important;
+  left:0!important;
+  width:100%!important;
+  height:8px!important;
+  background:linear-gradient(90deg,#0a0a09 0%,#c2c2c2 100%)!important;
+}
+html body .page-main{padding-top:100px!important}
+html body main.home{padding-top:100px!important}
+html body .home .home-hero{margin-top:0!important;min-height:calc(100svh - 100px)!important}
+@media(min-width:801px){
+  html body .site-header .header-inner,
+  html body .home .site-header:not(.home-header--compact) .header-inner{
+    position:relative!important;
+    width:min(100% - 64px,1320px)!important;
+    height:100%!important;
+    margin:0 auto!important;
+    padding:0!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+  }
+  html body .site-header .brand,
+  html body .home .site-header:not(.home-header--compact) .brand{
+    position:absolute!important;
+    top:0!important;
+    right:auto!important;
+    left:0!important;
+    width:244px!important;
+    height:124px!important;
+    margin:0!important;
+    padding:16px 24px 20px!important;
+    transform:none!important;
+    background:linear-gradient(145deg,#262624b8,#06060594)!important;
+    border-radius:0 0 22px 22px!important;
+    box-shadow:0 20px 42px #0003!important;
+    backdrop-filter:blur(16px)!important;
+    -webkit-backdrop-filter:blur(16px)!important;
+  }
+  html body .site-header .brand img,
+  html body .home .site-header:not(.home-header--compact) .brand img{
+    width:216px!important;
+    height:auto!important;
+    max-height:none!important;
+    object-fit:contain!important;
+    filter:none!important;
+    transform:translateY(-14px)!important;
+  }
+  html body .site-header .site-nav,
+  html body .home .site-header:not(.home-header--compact) .site-nav{
+    position:static!important;
+    width:auto!important;
+    margin-left:auto!important;
+    padding:0!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    transform:none!important;
+  }
+}

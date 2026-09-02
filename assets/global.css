@@ -631,3 +631,10 @@ html body .home>.home-values .section-heading h2{
     top:112px!important;
   }
 }
+
+/* Startseite: Oberkante der Navigation an MASOON TREUHAND angleichen */
+@media(min-width:801px){
+  html body .home .site-header:not(.home-header--compact) .site-nav{
+    top:82px!important;
+  }
+}

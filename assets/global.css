@@ -910,7 +910,6 @@ html body .site-footer .footer-simple,
 html body .site-footer .footer-simple>*{
   font-family:var(--font-inter)!important;
   font-size:11px!important;
-  font-weight:500!important;
   line-height:1.65!important;
   letter-spacing:.1em!important;
   text-transform:uppercase!important;
@@ -919,6 +918,14 @@ html body .site-footer .footer-simple>*{
   -webkit-font-smoothing:antialiased!important;
   -moz-osx-font-smoothing:grayscale!important;
   text-rendering:geometricPrecision!important;
+}
+
+html body .site-nav a{
+  font-weight:500!important;
+}
+html body .site-footer .footer-simple,
+html body .site-footer .footer-simple>*{
+  font-weight:400!important;
 }
 
 

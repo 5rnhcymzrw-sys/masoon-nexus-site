@@ -410,3 +410,16 @@ html body .home>.home-values .section-heading h2{
   font-family:'Bitter Original',Georgia,serif!important;
   font-weight:400!important;
 }
+
+/* Startseite Dienstleistungen: Bitter ExtraBold */
+@font-face{
+  font-family:'Bitter Original';
+  src:url('fonts/Bitter-ExtraBold.ttf') format('truetype');
+  font-style:normal;
+  font-weight:800;
+  font-display:swap;
+}
+html body .home>.home-values .section-heading h2{
+  font-family:'Bitter Original',Georgia,serif!important;
+  font-weight:800!important;
+}

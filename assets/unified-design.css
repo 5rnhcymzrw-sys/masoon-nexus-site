@@ -1217,6 +1217,10 @@ html body.light-pattern-page-bg main.home>.home-contact-band>.section-label::aft
   html body.light-pattern-page-bg main.home>.home-contact-band{
     position:relative!important;
   }
+  html body.light-pattern-page-bg .services-closing>.services-closing__inner,
+  html body.light-pattern-page-bg main.home>.home-contact-band>div{
+    grid-column:2!important;
+  }
   html body.light-pattern-page-bg .services-closing>.section-label,
   html body.light-pattern-page-bg main.home>.home-contact-band>.section-label{
     position:absolute!important;

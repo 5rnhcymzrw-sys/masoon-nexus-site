@@ -70,7 +70,7 @@
     logo.src = document.querySelector('.home')
       ? `${basePath}logo-basic-9.png`
       : window.location.pathname.includes('/unternehmen/')
-        ? `${basePath}company-logo-white-3.png?v=20260902-1`
+        ? `${basePath}company-logo-transparent-3.png?v=20260902-1`
         : `${basePath}white_logo_transparent_background.png`;
   }
 

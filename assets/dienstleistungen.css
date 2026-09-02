@@ -74,3 +74,11 @@ html body.light-pattern-page-bg .services-main .services-section .services-grid>
     padding:0 24px 28px!important;
   }
 }
+
+
+/* Dienstleistungsseite: 180 px Seitenabstand auf grossen Bildschirmen */
+@media(min-width:1201px){
+  html body.light-pattern-page-bg .services-main>.services-section{
+    width:calc(100% - 360px)!important;
+  }
+}

@@ -983,9 +983,9 @@ html body .home .home-values__item p{
 
 
 
-/* Startseite Dienstleistungen: 30 Prozent mehr seitlicher Leerraum */
+/* Startseite Dienstleistungen: angepasster seitlicher Leerraum */
 @media(min-width:801px){
   html body .home>.home-values>.home-values__inner{
-    width:min(100% - 64px,1156px)!important;
+    width:min(100% - 64px,1227px)!important;
   }
 }

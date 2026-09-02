@@ -65,6 +65,34 @@
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
 
+  /* Navigation auf allen Seiten an der rechten Inhaltslinie ausrichten */
+  const alignNavigationWithContent = () => {
+    if (!nav) return;
+    nav.style.removeProperty('position');
+    nav.style.removeProperty('left');
+    nav.style.removeProperty('margin');
+    nav.style.removeProperty('transform');
+    if (window.innerWidth <= 800) return;
+
+    const reference = document.querySelector(
+      '.disclaimer-card .prose, .home-contact-band>div, .services-closing__inner, .knowledge-note>div, .contact-split__form'
+    );
+    const targetLeft = reference
+      ? reference.getBoundingClientRect().left
+      : Math.max(32, (window.innerWidth - 1227) / 2) + 503;
+
+    nav.style.setProperty('position', 'absolute', 'important');
+    nav.style.setProperty('margin', '0', 'important');
+    const parentLeft = nav.offsetParent ? nav.offsetParent.getBoundingClientRect().left : 0;
+    nav.style.setProperty('left', `${targetLeft - parentLeft}px`, 'important');
+  };
+  requestAnimationFrame(alignNavigationWithContent);
+  window.addEventListener('load', () => {
+    requestAnimationFrame(alignNavigationWithContent);
+    setTimeout(alignNavigationWithContent, 300);
+  });
+  window.addEventListener('resize', alignNavigationWithContent);
+
   const alignFooterWithNavigation = () => {
     if (!nav || window.innerWidth <= 800) {
       document.documentElement.style.removeProperty('--footer-nav-width');

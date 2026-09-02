@@ -1004,3 +1004,18 @@ html body .home .home-values__item p{
     padding-left:max(32px,calc((100% - 1227px)/2))!important;
   }
 }
+
+
+/* Zusammenarbeit: schwarze Fläche entfernen und Schriften schwarz */
+html body.light-pattern-page-bg .expectation-editorial{
+  color:#171715!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}
+html body.light-pattern-page-bg .expectation-editorial h2,
+html body.light-pattern-page-bg .expectation-editorial h3,
+html body.light-pattern-page-bg .expectation-editorial p,
+html body.light-pattern-page-bg .expectation-editorial .section-label{
+  color:#171715!important;
+}

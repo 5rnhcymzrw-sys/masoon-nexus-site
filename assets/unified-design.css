@@ -1144,3 +1144,16 @@ html body .home-values__all-services:focus-visible span{
 html body main.home .home-values .home-values__inner .home-values__items .home-values__item p{
   margin-top:12px!important;
 }
+
+
+/* Zusammenarbeit auf hellem Hintergrund: sämtliche Texte und Linien dunkel */
+html body.light-pattern-page-bg .expectation-editorial,
+html body.light-pattern-page-bg .expectation-editorial h2,
+html body.light-pattern-page-bg .expectation-editorial h3,
+html body.light-pattern-page-bg .expectation-editorial p,
+html body.light-pattern-page-bg .expectation-editorial .section-label{
+  color:#171715!important;
+}
+html body.light-pattern-page-bg .expectation-editorial .expectation-editorial__item h3::after{
+  background:#8f8a82!important;
+}

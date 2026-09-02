@@ -453,7 +453,7 @@ html body .home>.home-values .section-heading h2{
 /* Korrektur: funktionierende Bitter Datei statt Ersatzschrift */
 @font-face{
   font-family:'Bitter SemiBold Web';
-  src:url('fonts/Bitter-Medium.ttf') format('truetype');
+  src:url('fonts/Bitter-Medium.ttf?v=20260902-1') format('truetype');
   font-style:normal;
   font-weight:500 600;
   font-display:swap;

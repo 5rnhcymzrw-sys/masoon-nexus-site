@@ -878,7 +878,10 @@ html body .site-footer .footer-simple{
   color:#fff!important;
 }
 html body .site-footer .footer-simple a{color:#fff!important;text-decoration:none!important}
-html body .site-footer .footer-simple>*{position:relative!important}
+html body .site-footer .footer-simple>*{
+  position:relative!important;
+  transform:translateY(var(--footer-type-phase,0px))!important;
+}
 html body .site-footer .footer-simple>*+*::before{
   content:'·'!important;
   display:block!important;

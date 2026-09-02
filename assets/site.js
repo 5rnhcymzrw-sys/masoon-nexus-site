@@ -66,11 +66,25 @@
   const nav = document.querySelector('.site-nav');
 
   const alignFooterWithNavigation = () => {
-    if (!nav || window.innerWidth <= 1050) {
+    if (!nav || window.innerWidth <= 800) {
       document.documentElement.style.removeProperty('--footer-nav-width');
+      document.documentElement.style.removeProperty('--footer-type-phase');
       return;
     }
     document.documentElement.style.setProperty('--footer-nav-width', `${nav.getBoundingClientRect().width}px`);
+
+    const navLabel = nav.querySelector('a');
+    const footerLabel = footer?.querySelector('.footer-simple > *');
+    if (navLabel && footerLabel) {
+      document.documentElement.style.setProperty('--footer-type-phase', '0px');
+      const textTop = element => {
+        const range = document.createRange();
+        range.selectNodeContents(element);
+        return range.getBoundingClientRect().top;
+      };
+      const phaseDelta = ((textTop(navLabel) - textTop(footerLabel) + .5) % 1 + 1) % 1 - .5;
+      document.documentElement.style.setProperty('--footer-type-phase', `${phaseDelta}px`);
+    }
   };
   alignFooterWithNavigation();
   window.addEventListener('resize', alignFooterWithNavigation);

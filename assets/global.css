@@ -1030,3 +1030,42 @@ html body.light-pattern-page-bg .expectation-editorial .section-label{
     box-sizing:border-box!important;
   }
 }
+
+
+/* Startseite Kontakt: Abschlusskasten wie Fachwissen und Dienstleistungen */
+@media(min-width:801px){
+  html body main.home>.home-contact-band{
+    width:min(100% - 64px,1227px)!important;
+    height:463.25px!important;
+    min-height:463.25px!important;
+    max-height:463.25px!important;
+    margin:118px auto 126px!important;
+    padding:126px 72px!important;
+    display:grid!important;
+    grid-template-columns:.7fr 1.3fr!important;
+    gap:80px!important;
+    box-sizing:border-box!important;
+    background:var(--mt-surface)!important;
+    background-color:var(--mt-surface)!important;
+    background-image:none!important;
+    border:1px solid var(--mt-line)!important;
+    box-shadow:none!important;
+  }
+}
+@media(max-width:800px){
+  html body main.home>.home-contact-band{
+    width:min(100% - 36px,1227px)!important;
+    height:auto!important;
+    margin:82px auto 126px!important;
+    padding:62px 26px!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:52px!important;
+    box-sizing:border-box!important;
+    background:var(--mt-surface)!important;
+    background-color:var(--mt-surface)!important;
+    background-image:none!important;
+    border:1px solid var(--mt-line)!important;
+    box-shadow:none!important;
+  }
+}

@@ -69,7 +69,9 @@
     logo.removeAttribute('sizes');
     logo.src = document.querySelector('.home')
       ? `${basePath}logo-basic-9.png`
-      : `${basePath}white_logo_transparent_background.png`;
+      : window.location.pathname.includes('/unternehmen/')
+        ? `${basePath}logo-basic-3.png?v=20260902-2`
+        : `${basePath}white_logo_transparent_background.png`;
   }
 
   const portrait = document.querySelector('.home-company__image-primary');

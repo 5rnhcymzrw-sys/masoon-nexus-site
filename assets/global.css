@@ -876,7 +876,7 @@ html body .site-footer .footer-simple{
   justify-content:center!important;
   gap:12px!important;
   color:#fff!important;
-  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-family:var(--font-inter)!important;
   font-size:11px!important;
   font-weight:500!important;
   line-height:1.5!important;
@@ -898,7 +898,7 @@ html body .site-footer .footer-simple a{color:#fff!important;text-decoration:non
 /* Fusszeilenschrift exakt wie Kopfzeilennavigation */
 html body .site-footer .footer-simple,
 html body .site-footer .footer-simple>*{
-  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-family:var(--font-inter)!important;
   font-size:11px!important;
   font-weight:500!important;
   line-height:1.65!important;

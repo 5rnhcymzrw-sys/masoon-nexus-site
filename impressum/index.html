@@ -47,8 +47,12 @@ html body .disclaimer-card .prose h2{
 html body .disclaimer-card .prose h2{
   display:grid!important;
   grid-template-columns:auto minmax(0,1fr)!important;
-  column-gap:0!important;
-  align-items:center!important;
+  column-gap:8px!important;
+  align-items:start!important;
+}
+html body .disclaimer-card .prose h2>span:last-child{
+  display:block!important;
+  transform:translateY(2px)!important;
 }
 html body .disclaimer-card .prose h2 .impressum-number{
   font-family:var(--font-cormorant),Georgia,serif!important;

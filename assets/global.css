@@ -436,3 +436,16 @@ html body .home>.home-values .section-heading h2{
   font-family:'Bitter Original',Georgia,serif!important;
   font-weight:700!important;
 }
+
+/* Startseite Dienstleistungen: Bitter SemiBold */
+@font-face{
+  font-family:'Bitter Original';
+  src:url('fonts/Bitter-SemiBold.ttf') format('truetype');
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+}
+html body .home>.home-values .section-heading h2{
+  font-family:'Bitter Original',Georgia,serif!important;
+  font-weight:600!important;
+}

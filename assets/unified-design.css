@@ -1170,3 +1170,11 @@ html body main.home>.home-values .home-values__item h3::after{
   content:none!important;
   display:none!important;
 }
+
+
+/* Startseite Kontakt: gleicher Kastenhintergrund wie Dienstleistungen */
+html body.light-pattern-page-bg main.home>.home-contact-band{
+  background:var(--mt-surface)!important;
+  background-color:var(--mt-surface)!important;
+  background-image:none!important;
+}

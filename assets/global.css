@@ -769,7 +769,7 @@ html body .home .home-hero{margin-top:0!important;min-height:calc(100svh - 100px
     max-height:none!important;
     object-fit:contain!important;
     filter:none!important;
-    transform:translateY(-1px)!important;
+    transform:translateY(-14px)!important;
   }
   html body .site-header .site-nav,
   html body .home .site-header:not(.home-header--compact) .site-nav{
@@ -821,7 +821,7 @@ html body main.home>header.site-header.site-header--overlay .header-inner{
     height:auto!important;
     max-height:none!important;
     filter:none!important;
-    transform:translateY(-1px)!important;
+    transform:translateY(-14px)!important;
   }
   html body main.home>header.site-header.site-header--overlay nav#site-navigation{
     position:static!important;

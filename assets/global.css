@@ -479,3 +479,17 @@ html body .home>.home-values .section-heading h2{
   letter-spacing:normal!important;
   line-height:1.05!important;
 }
+
+/* Startseite: vollständiges Logo wieder links */
+@media(min-width:801px){
+  html body .home .site-header:not(.home-header--compact) .brand{
+    left:max(32px,calc((100vw - var(--content-width))/2))!important;
+    transform:none!important;
+  }
+}
+@media(max-width:800px){
+  html body .home .site-header:not(.home-header--compact) .brand{
+    left:22px!important;
+    transform:none!important;
+  }
+}

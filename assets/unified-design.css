@@ -1209,3 +1209,20 @@ html body.light-pattern-page-bg main.home>.home-contact-band>.section-label::aft
   content:none!important;
   display:none!important;
 }
+
+
+/* Kontakt-Abschlusskästen: kleine Titel exakt auf Kastenmitte wie Einordnung */
+@media(min-width:801px){
+  html body.light-pattern-page-bg .services-closing,
+  html body.light-pattern-page-bg main.home>.home-contact-band{
+    position:relative!important;
+  }
+  html body.light-pattern-page-bg .services-closing>.section-label,
+  html body.light-pattern-page-bg main.home>.home-contact-band>.section-label{
+    position:absolute!important;
+    top:50%!important;
+    left:72px!important;
+    margin:0!important;
+    transform:translateY(-50%)!important;
+  }
+}

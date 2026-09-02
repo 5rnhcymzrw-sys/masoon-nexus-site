@@ -68,8 +68,9 @@ html body .disclaimer-card .prose a{
     if(window.innerWidth<=800)return;
     var textLeft=text.getBoundingClientRect().left;
     nav.style.setProperty('position','absolute','important');
-    nav.style.setProperty('left',textLeft+'px','important');
     nav.style.setProperty('margin','0','important');
+    var parentLeft=nav.offsetParent ? nav.offsetParent.getBoundingClientRect().left : 0;
+    nav.style.setProperty('left',(textLeft-parentLeft)+'px','important');
   }
   window.addEventListener('load',function(){requestAnimationFrame(alignDisclaimerNavigation);setTimeout(alignDisclaimerNavigation,300);});
   window.addEventListener('resize',alignDisclaimerNavigation);

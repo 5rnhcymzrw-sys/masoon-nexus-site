@@ -1579,9 +1579,9 @@ html body.site-light-page .company-legal-card .home-company__copy{
 }
 
 
-/* Unternehmen Desktop: sichtbarer Innenraum von Fotooberkante bis Namensschildunterkante exakt ausgleichen */
+/* Unternehmen Desktop: sichtbarer Innenraum entspricht oben und unten exakt den 60.5 Pixeln des Werte-Kastens */
 @media(min-width:801px){
   html body.site-light-page .company-legal-section .company-legal-card{
-    padding:20px 72px 42.032px!important;
+    padding:32.34px 72px 54.372px!important;
   }
 }

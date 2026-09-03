@@ -2199,3 +2199,49 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
     font-size:22px!important;
   }
 }
+
+
+/* Fachwissen: graues Logo mit Datum am oberen Kartenrand */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
+  position:relative!important;
+}
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-date-mark{
+  position:absolute!important;
+  top:18px!important;
+  right:22px!important;
+  width:92px!important;
+  height:54px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  pointer-events:none!important;
+  z-index:1!important;
+}
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-date-mark>img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  filter:grayscale(1)!important;
+  opacity:.16!important;
+}
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-date-mark>time{
+  position:relative!important;
+  z-index:1!important;
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1.4!important;
+  letter-spacing:.11em!important;
+  color:#6f6b63!important;
+}
+@media(max-width:800px){
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-date-mark{
+    top:14px!important;
+    right:16px!important;
+    width:86px!important;
+    height:48px!important;
+  }
+}

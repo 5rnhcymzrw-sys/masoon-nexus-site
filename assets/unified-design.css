@@ -1686,9 +1686,9 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   }
   html body.site-light-page .services-main .services-section .services-grid>.service-card{
     align-self:start!important;
-    height:360px!important;
-    min-height:360px!important;
-    max-height:360px!important;
+    height:342px!important;
+    min-height:342px!important;
+    max-height:342px!important;
     box-sizing:border-box!important;
     overflow:hidden!important;
   }

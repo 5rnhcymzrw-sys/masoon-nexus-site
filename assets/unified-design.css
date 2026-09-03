@@ -1653,3 +1653,13 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
     font-size:36px!important;
   }
 }
+
+/* Dienstleistungen Hauptseite: Tätigkeiten wie Fliesstext */
+html body.site-light-page .services-main .services-section .services-grid>.service-card li{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:14px!important;
+  font-weight:290!important;
+  line-height:1.65!important;
+  letter-spacing:normal!important;
+  color:#484a4f!important;
+}

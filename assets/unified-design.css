@@ -1882,3 +1882,23 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-
   margin:30px 0 0!important;
   padding-top:0!important;
 }
+
+/* Alle kleinen Titel und Textaktionen: Typografie wie die Kopfzeilen-Navigation, Farbe Beige */
+html body main .section-label,
+html body main .article-meta,
+html body main .details-action,
+html body main .text-link,
+html body main .home-values__all-services,
+html body main .collaboration-legal-section__label,
+html body main .contact-split__form-label,
+html body main .home-paths__grid span,
+html body main .article-card>a,
+html body .site-footer .footer-main h2{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1.65!important;
+  letter-spacing:.1em!important;
+  text-transform:uppercase!important;
+  color:#868279!important;
+}

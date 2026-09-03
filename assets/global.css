@@ -555,3 +555,21 @@ html body footer.site-footer .footer-simple,
 html body footer.site-footer .footer-simple *{
   font-weight:500!important;
 }
+
+
+/* Aktiver Navigationstitel: Fusszeilenverlauf ohne Unterlinie */
+html body .site-header .site-nav a.active,
+html body .site-header .site-nav a[aria-current="page"]{
+  color:transparent!important;
+  background:linear-gradient(110deg,#8d96a8 0%,#c7cbd3 34%,#e8e5df 62%,#f3e8d4 100%)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  text-decoration:none!important;
+  border-bottom:0!important;
+  box-shadow:none!important;
+}
+html body .site-header .site-nav a.active::after,
+html body .site-header .site-nav a[aria-current="page"]::after{
+  content:none!important;
+  display:none!important;
+}

@@ -1624,3 +1624,32 @@ html body.site-light-page .services-main .services-section>.section-heading>.sec
 html body.site-light-page .services-main>.services-closing>.section-label{
   color:#868279!important;
 }
+
+/* Dienstleistungen Hauptseite: Kartentypografie wie Werte */
+html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
+  font-family:var(--font-cormorant),Georgia,serif!important;
+  font-size:22px!important;
+  font-weight:600!important;
+  line-height:1.08!important;
+  letter-spacing:-.01em!important;
+  text-transform:none!important;
+  color:#171715!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>p{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:14px!important;
+  font-weight:290!important;
+  line-height:1.65!important;
+  letter-spacing:normal!important;
+  color:#484a4f!important;
+}
+@media(min-width:801px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
+    font-size:44px!important;
+  }
+}
+@media(max-width:800px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
+    font-size:36px!important;
+  }
+}

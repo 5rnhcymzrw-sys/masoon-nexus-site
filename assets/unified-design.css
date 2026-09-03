@@ -2091,3 +2091,20 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
   padding-bottom:4px!important;
   transform:translateY(-3px)!important;
 }
+
+
+/* Alle kleinen Bereichstitel: exakt wie KONTAKT im grossen DL-Kasten */
+html body main .section-label,
+html body main .article-meta,
+html body.site-light-page .collaboration-legal-section__label,
+html body main .contact-split__form-label,
+html body main .home-paths__grid span,
+html body .site-footer .footer-main h2{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1.4!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+  color:#868279!important;
+}

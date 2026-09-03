@@ -2253,3 +2253,9 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card.a
   background:#c2c1c4!important;
   background-color:#c2c1c4!important;
 }
+
+
+/* Fachwissen: Pfeil bei Beitrag anzeigen optisch 1 Pixel hoeher */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-action.article-action::after{
+  transform:translateY(calc(-50% - 1px))!important;
+}

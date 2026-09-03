@@ -2188,3 +2188,14 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
     padding-top:58px!important;
   }
 }
+
+
+/* Fachwissen Hauptseite: Kacheltitel 2 Pixel kleiner, oberer Abstand bleibt 58 Pixel */
+@media(min-width:801px){
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
+    padding-top:58px!important;
+  }
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>h2{
+    font-size:22px!important;
+  }
+}

@@ -1698,3 +1698,14 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
     box-sizing:border-box!important;
   }
 }
+
+/* Dienstleistungen Hauptseite: geöffnete Karten auf Höhe von Kasten 03 */
+@media(min-width:1051px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
+    height:625px!important;
+    min-height:625px!important;
+    max-height:625px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+}

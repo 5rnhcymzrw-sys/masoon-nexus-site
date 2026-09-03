@@ -21,9 +21,17 @@
 
 /* Helle Inhaltsseiten */
 body.site-light-page{
-  background:#fff!important;
   background-color:#fff!important;
-  background-image:none!important;
+  background-image:url("../site-lines-background.svg")!important;
+  background-size:cover!important;
+  background-position:center top!important;
+  background-repeat:repeat-y!important;
+  background-attachment:fixed!important;
+}
+@media(max-width:800px){
+  body.site-light-page{
+    background-attachment:scroll!important;
+  }
 }
 body.site-light-page,
 body.site-light-page .page-main,
@@ -119,8 +127,8 @@ body.site-light-page .home-paths__grid strong::after{
 /* Kontaktseite: heller Seitenhintergrund mit dunklem Formular */
 body.site-light-page .contact-split-page,
 body.site-light-page .contact-split{
-  background:#fff!important;
-  background-color:#fff!important;
+  background:transparent!important;
+  background-color:transparent!important;
   background-image:none!important;
 }
 body.site-light-page .contact-split__form{

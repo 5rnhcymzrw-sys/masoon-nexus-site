@@ -1258,3 +1258,10 @@ html body.site-light-page .expectation-editorial .expectation-editorial__item p{
   font-weight:290!important;
   color:#484a4f!important;
 }
+
+
+/* Unternehmen: kleine Bereichstitel farblich vereinheitlichen */
+html body.site-light-page .home-company__copy > .section-label,
+html body.site-light-page .home-values .section-heading > .section-label{
+  color:#868279!important;
+}

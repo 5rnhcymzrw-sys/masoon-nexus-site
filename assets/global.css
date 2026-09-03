@@ -555,3 +555,8 @@ html body footer.site-footer .footer-simple,
 html body footer.site-footer .footer-simple *{
   font-weight:500!important;
 }
+
+html body.datenschutz-page footer.site-footer .footer-simple,
+html body.datenschutz-page footer.site-footer .footer-simple *{
+  font-weight:400!important;
+}

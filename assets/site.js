@@ -158,6 +158,31 @@
     }
   });
 
+  /* Dienstleistungskarten: Öffnen und schliessen nur über «Mehr anzeigen» */
+  document.querySelectorAll('.services-section .service-card').forEach(card => {
+    const summary = card.querySelector('summary');
+    const action = summary?.querySelector('.details-action');
+    if (!summary || !action) return;
+
+    summary.tabIndex = -1;
+    action.tabIndex = 0;
+    action.setAttribute('role', 'button');
+    action.setAttribute('aria-expanded', String(card.open));
+
+    summary.addEventListener('click', event => {
+      if (!event.target.closest('.details-action')) event.preventDefault();
+    });
+    action.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      card.open = !card.open;
+      action.setAttribute('aria-expanded', String(card.open));
+    });
+    card.addEventListener('toggle', () => {
+      action.setAttribute('aria-expanded', String(card.open));
+    });
+  });
+
   const updateScrollEffects = () => {
     document.querySelectorAll('[data-parallax]').forEach(el => {
       const factor = Number(el.dataset.parallax || 20);

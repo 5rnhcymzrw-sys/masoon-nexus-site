@@ -1293,6 +1293,37 @@ html body.site-light-page .collaboration-legal-section .collaboration-legal-card
   border-radius:0!important;
   box-shadow:none!important;
 }
+html body.site-light-page .collaboration-legal-card__heading{
+  margin:0!important;
+  align-self:baseline!important;
+}
+html body.site-light-page .collaboration-legal-card__eyebrow{
+  position:relative!important;
+  width:max-content!important;
+  margin:0 0 30px!important;
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1.4!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+  color:#868279!important;
+}
+html body.site-light-page .collaboration-legal-card__eyebrow::before{
+  content:none!important;
+  display:none!important;
+}
+html body.site-light-page .collaboration-legal-card__eyebrow::after{
+  content:''!important;
+  position:absolute!important;
+  top:calc(1.4em + 13px)!important;
+  left:0!important;
+  display:block!important;
+  width:48px!important;
+  height:1px!important;
+  margin:0!important;
+  background:#9a948b!important;
+}
 html body.site-light-page .collaboration-legal-card__title{
   margin:0!important;
   align-self:baseline!important;

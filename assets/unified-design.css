@@ -1421,3 +1421,20 @@ html body.site-light-page .collaboration-legal-card__prose{
 html body.site-light-page .collaboration-legal-card__prose{
   transform:translateY(-14px)!important;
 }
+
+
+/* Werte: rechter Textblock exakt wie Zusammenarbeit ausrichten */
+html body.site-light-page .values-legal-section .collaboration-legal-card__prose{
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  justify-self:stretch!important;
+  align-self:baseline!important;
+  transform:translateY(-14px)!important;
+}
+html body.site-light-page .values-legal-section .collaboration-legal-card__item,
+html body.site-light-page .values-legal-section .collaboration-legal-card__item h3,
+html body.site-light-page .values-legal-section .collaboration-legal-card__item p{
+  margin-left:0!important;
+  padding-left:0!important;
+}

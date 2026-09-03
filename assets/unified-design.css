@@ -1733,3 +1733,9 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   position:relative!important;
   top:-3px!important;
 }
+
+/* Dienstleistungen Hauptseite: Fliesstext ebenfalls 3 Pixel höher */
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>p{
+  position:relative!important;
+  top:-3px!important;
+}

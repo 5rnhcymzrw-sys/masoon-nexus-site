@@ -2224,3 +2224,11 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
 html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
   transform:translateY(-1px)!important;
 }
+
+
+/* Fachwissen Hauptseite: oberer Kachelabstand 6 Pixel grösser */
+@media(min-width:801px){
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
+    padding-top:48px!important;
+  }
+}

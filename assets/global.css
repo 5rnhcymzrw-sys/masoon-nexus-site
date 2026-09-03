@@ -848,8 +848,8 @@ html body .site-footer{
   margin:0!important;
   padding:8px 0 0!important;
   color:#fff!important;
-  background:#000!important;
-  background-color:#000!important;
+  background:#2b2b2b!important;
+  background-color:#2b2b2b!important;
   background-image:none!important;
 }
 html body .site-footer::before{

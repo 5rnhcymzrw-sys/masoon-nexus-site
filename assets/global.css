@@ -1167,3 +1167,16 @@ html body footer.site-footer .footer-simple{
   padding-bottom:0!important;
   align-items:center!important;
 }
+
+
+/* Kleine Übertitel: dekorative Linien und Punkte entfernen */
+html body .section-label.section-label.section-label.section-label.section-label::before,
+html body .section-label.section-label.section-label.section-label.section-label::after,
+html body .section-label.section-label.section-label.section-label.section-label::marker{
+  content:none!important;
+  display:none!important;
+  width:0!important;
+  height:0!important;
+  margin:0!important;
+  background:none!important;
+}

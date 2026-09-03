@@ -1752,3 +1752,25 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
 html body.site-light-page .services-main .services-section .services-grid>.service-card li::before{
   top:.825em!important;
 }
+
+/* Fachwissen Hauptseite: Bereichstitel wie auf der Unternehmensseite */
+html body.site-light-page .knowledge-section>.section-heading>.section-label,
+html body.site-light-page .knowledge-section>.knowledge-note>.section-label{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1.4!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+  color:#868279!important;
+}
+
+/* Fachwissen Hauptseite: Titelabstand im Einordnungskasten wie bei Unternehmen */
+html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
+  margin-bottom:0!important;
+  padding-bottom:0!important;
+}
+html body.site-light-page .knowledge-section>.knowledge-note>div>h2+p{
+  margin-top:30px!important;
+  padding-top:0!important;
+}

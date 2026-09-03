@@ -2123,3 +2123,37 @@ html body .site-footer .footer-main h2{
   color:#868279!important;
   opacity:1!important;
 }
+
+
+/* Fachwissen-Kaesten: exakt gleiche Aussenmasse wie DL-Hauptseite */
+@media(min-width:1051px){
+  html body.site-light-page .knowledge-section{
+    width:min(100% - 64px,1227px)!important;
+  }
+  html body.site-light-page .knowledge-section .articles-grid{
+    display:grid!important;
+    width:100%!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:16px!important;
+  }
+}
+@media(min-width:801px) and (max-width:1050px){
+  html body.site-light-page .knowledge-section{
+    width:min(100% - 64px,1227px)!important;
+  }
+  html body.site-light-page .knowledge-section .articles-grid{
+    display:grid!important;
+    width:100%!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:16px!important;
+  }
+}
+@media(min-width:801px){
+  html body.site-light-page .knowledge-section .articles-grid>.article-card{
+    box-sizing:border-box!important;
+    width:100%!important;
+    height:351px!important;
+    min-height:351px!important;
+    max-height:351px!important;
+  }
+}

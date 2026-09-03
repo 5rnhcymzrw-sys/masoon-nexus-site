@@ -1180,3 +1180,10 @@ html body .section-label.section-label.section-label.section-label.section-label
   margin:0!important;
   background:none!important;
 }
+
+
+/* Fusszeilentext: auf allen Seiten exakt wie Kopfzeilennavigation gewichtet */
+html body footer.site-footer .footer-simple,
+html body footer.site-footer .footer-simple *{
+  font-weight:500!important;
+}

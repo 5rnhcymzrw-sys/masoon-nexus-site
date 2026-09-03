@@ -1607,7 +1607,7 @@ html body.site-light-page .collaboration-legal-section:not(.company-legal-sectio
 }
 
 
-/* Unternehmen: kleine Titel im Werte-Kasten auf 20 Pixel */
+/* Unternehmen: kleine Titel im Werte-Kasten auf 22 Pixel */
 html body.site-light-page .values-legal-section .collaboration-legal-card__item h3{
-  font-size:20px!important;
+  font-size:22px!important;
 }

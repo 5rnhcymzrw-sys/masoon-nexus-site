@@ -2094,19 +2094,19 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
 
 
 /* Alle kleinen Titel und Aktionen: exakt wie KONTAKT im grossen DL-Kasten */
-html body main .section-label,
-html body main .article-meta,
-html body.site-light-page .collaboration-legal-section__label,
-html body main .contact-split__form-label,
-html body main .home-paths__grid span,
-html body main .home-action-button,
-html body main .home-values__all-services,
-html body main .details-action,
-html body main .article-action,
-html body main .article-card>a,
-html body main .services-contact-button,
-html body main .text-link,
-html body .site-footer .footer-main h2{
+html body main .section-label.section-label.section-label.section-label.section-label.section-label,
+html body main .article-meta.article-meta.article-meta.article-meta.article-meta.article-meta,
+html body .collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label,
+html body main .contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label,
+html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid span,
+html body main .home-action-button.home-action-button.home-action-button.home-action-button.home-action-button.home-action-button,
+html body main .home-values__all-services.home-values__all-services.home-values__all-services.home-values__all-services.home-values__all-services.home-values__all-services,
+html body main .details-action.details-action.details-action.details-action.details-action.details-action,
+html body main .article-action.article-action.article-action.article-action.article-action.article-action,
+html body main .article-card.article-card.article-card.article-card.article-card.article-card>a,
+html body main .services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button,
+html body main .text-link.text-link.text-link.text-link.text-link.text-link,
+html body .site-footer.site-footer.site-footer.site-footer.site-footer.site-footer .footer-main h2{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-style:normal!important;

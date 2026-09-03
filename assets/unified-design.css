@@ -1725,16 +1725,32 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   background-image:none!important;
 }
 
-/* Dienstleistungen Hauptseite: Innenabstand überall 46 Pixel */
+/* Dienstleistungen Hauptseite: Zahl und Titel gemeinsam 3 Pixel höher */
+html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
+  top:0!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
+  position:relative!important;
+  top:-3px!important;
+}
+
+/* Dienstleistungen Hauptseite: Fliesstext ebenfalls 3 Pixel höher */
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>p{
+  position:relative!important;
+  top:-3px!important;
+}
+
+/* Dienstleistungen Hauptseite: Mehr anzeigen ebenfalls 3 Pixel höher */
+html body.site-light-page .services-main .services-section .services-grid>.service-card .details-action{
+  position:relative!important;
+  top:-3px!important;
+}
+
+/* Dienstleistungen Hauptseite: gleicher sichtbarer Innenabstand */
 @media(min-width:1051px){
   html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
   html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
-    padding:46px!important;
-  }
-  html body.site-light-page .services-main .services-section .services-grid>.service-card h2,
-  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number,
-  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>p,
-  html body.site-light-page .services-main .services-section .services-grid>.service-card .details-action{
-    top:0!important;
+    padding-left:39px!important;
+    padding-right:39px!important;
   }
 }

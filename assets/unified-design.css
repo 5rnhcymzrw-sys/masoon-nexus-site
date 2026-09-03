@@ -1559,10 +1559,13 @@ html body.site-light-page .company-legal-card .home-company__copy{
 }
 
 
-/* Unternehmen Desktop: kompletter Porträtblock exakt 30 Prozent kleiner */
+/* Unternehmen Desktop: Porträt 10 Prozent kleiner; Fotofläche allein vertikal zentriert */
 @media(min-width:801px){
   html body.site-light-page .company-legal-card .home-company__image{
-    transform:scale(.7)!important;
+    transform:translateY(20.25px) scale(.9)!important;
     transform-origin:center center!important;
+  }
+  html body.site-light-page .company-legal-card .home-company__image-primary{
+    box-shadow:none!important;
   }
 }

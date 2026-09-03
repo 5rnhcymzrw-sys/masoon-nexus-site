@@ -16,10 +16,11 @@
   <style>
     html body.site-light-page main.article-main{padding:234px 0 126px!important}
     .article-overline,.article-shell{width:91%!important;max-width:1227px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important}
-    .article-overline{display:grid!important;grid-template-columns:34% 66%!important;align-items:end!important;margin-bottom:28px!important}
-    .article-overline .section-label,.article-overline .article-page-date{margin:0!important}
-    .article-shell{padding:70px 72px!important;border:1px solid #d7d5d1!important;display:grid!important;grid-template-columns:34% 66%!important;align-items:start!important}
-    .article-column{grid-column:2!important}
+     .article-overline{display:block!important;margin-bottom:28px!important;text-align:left!important}
+    .article-overline .section-label{margin:0 0 18px!important}
+    .article-overline .article-page-date{margin:0!important}
+    .article-shell{padding:70px 72px!important;border:1px solid #d7d5d1!important;display:block!important;text-align:left!important}
+    .article-column{margin-left:0!important;margin-right:0!important}
     .article-column,.article-hero,.article-body{width:100%!important;max-width:none!important;margin:0!important}
     .article-hero{padding-bottom:72px;border-bottom:1px solid #d7d5d1}
     .article-hero .section-label{margin-bottom:38px!important;color:#868279!important}
@@ -41,10 +42,8 @@
     @media(min-width:801px){.article-title{font-size:45px!important}}
     @media(max-width:800px){
       html body.site-light-page main.article-main{padding:170px 0 96px!important}
-      .article-overline{grid-template-columns:1fr!important;gap:18px!important;margin-bottom:24px!important}
-      .article-overline .article-page-date{grid-column:1!important}
-      .article-shell{width:91%!important;padding:52px 26px!important;grid-template-columns:1fr!important}
-      .article-column{grid-column:1!important}
+      .article-overline{margin-bottom:24px!important}
+      .article-shell{width:91%!important;padding:52px 26px!important;display:block!important}
       .article-hero{padding-bottom:54px}
       .article-title{font-size:var(--title-size)!important}
       .article-lead{font-size:14px!important}

@@ -1569,3 +1569,11 @@ html body.site-light-page .company-legal-card .home-company__copy{
     box-shadow:none!important;
   }
 }
+
+
+/* Unternehmen: Leerraum nach dem MASOON-TREUHAND-Kasten exakt 30 Prozent kleiner */
+@media(min-width:801px){
+  html body.site-light-page .company-legal-section{
+    padding-bottom:50.4px!important;
+  }
+}

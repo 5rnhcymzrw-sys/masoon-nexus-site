@@ -1678,3 +1678,17 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
 html body.site-light-page .services-main .services-section .services-grid>.service-card li:last-child{
   margin-bottom:0!important;
 }
+
+/* Dienstleistungen Hauptseite: geschlossene Karten 10 Prozent kleiner */
+@media(min-width:1051px){
+  html body.site-light-page .services-main .services-section .services-grid{
+    align-items:start!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open]),
+  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open])>summary{
+    height:351px!important;
+    min-height:351px!important;
+    max-height:351px!important;
+    box-sizing:border-box!important;
+  }
+}

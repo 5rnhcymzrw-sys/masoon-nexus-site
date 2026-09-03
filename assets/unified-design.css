@@ -1670,3 +1670,11 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   top:-9px!important;
   margin-top:0!important;
 }
+
+/* Dienstleistungen Hauptseite: Tätigkeitsabstand 1 Pixel kleiner */
+html body.site-light-page .services-main .services-section .services-grid>.service-card li{
+  margin-bottom:4px!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card li:last-child{
+  margin-bottom:0!important;
+}

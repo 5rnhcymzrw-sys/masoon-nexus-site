@@ -1666,5 +1666,7 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
 
 /* Dienstleistungen Hauptseite: Abstand Aktion zu Tätigkeiten */
 html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
-  margin-top:-21px!important;
+  position:relative!important;
+  top:-15px!important;
+  margin-top:0!important;
 }

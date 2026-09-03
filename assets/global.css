@@ -1076,3 +1076,34 @@ html body header.site-header.home-page-header::after{
   background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
 }
 
+
+/* Einheitliche Kopf- und Fusszeile auf allen Seiten */
+html body header.site-header,
+html body header.site-header.site-header--overlay{
+  height:108px!important;
+  min-height:108px!important;
+}
+html body header.site-header::after{
+  top:108px!important;
+}
+html body header.site-header .header-inner{
+  height:108px!important;
+  min-height:108px!important;
+}
+html body .page-main,
+html body main.home{
+  padding-top:108px!important;
+}
+html body .site-footer{
+  height:108px!important;
+  min-height:108px!important;
+  padding:0!important;
+}
+html body .site-footer .footer-simple{
+  height:108px!important;
+  min-height:108px!important;
+  padding-top:8px!important;
+  padding-bottom:0!important;
+  box-sizing:border-box!important;
+  align-items:center!important;
+}

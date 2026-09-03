@@ -1514,13 +1514,13 @@ html body.site-light-page .company-legal-card .home-company__copy .prose p:last-
 }
 
 
-/* Unternehmen: eindeutiger Abstand von 21 Pixel zwischen Titel und Fliesstext */
+/* Unternehmen: eindeutiger Abstand von 30 Pixel zwischen Titel und Fliesstext */
 html body.site-light-page .company-legal-card .home-company__copy h1{
   margin-bottom:0!important;
   padding-bottom:0!important;
 }
 html body.site-light-page .company-legal-card .home-company__copy .prose{
-  margin-top:21px!important;
+  margin-top:30px!important;
   padding-top:0!important;
 }
 
@@ -1536,4 +1536,24 @@ html body.site-light-page .company-legal-section .company-legal-card{
 html body.site-light-page .company-legal-card .home-company__image,
 html body.site-light-page .company-legal-card .home-company__copy{
   align-self:center!important;
+}
+
+
+/* Unternehmen Desktop: Porträtblock exakt in der ursprünglichen Hochformat-Komposition */
+@media(min-width:801px){
+  html body.site-light-page .company-legal-card .home-company__image{
+    width:440px!important;
+    height:565px!important;
+    min-height:565px!important;
+    position:relative!important;
+  }
+  html body.site-light-page .company-legal-card .home-company__image-primary{
+    width:92%!important;
+    height:92%!important;
+    position:absolute!important;
+    top:0!important;
+    right:0!important;
+    object-fit:cover!important;
+    object-position:center 18%!important;
+  }
 }

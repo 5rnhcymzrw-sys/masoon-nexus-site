@@ -1579,9 +1579,9 @@ html body.site-light-page .company-legal-card .home-company__copy{
 }
 
 
-/* Unternehmen Desktop: nur Kastenhöhe oben um die gemessenen 40.5 Pixel reduzieren */
+/* Unternehmen Desktop: sichtbarer Innenraum von Fotooberkante bis Namensschildunterkante exakt ausgleichen */
 @media(min-width:801px){
   html body.site-light-page .company-legal-section .company-legal-card{
-    padding:20px 72px 60.5px!important;
+    padding:20px 72px 43.4px!important;
   }
 }

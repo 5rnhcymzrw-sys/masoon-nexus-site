@@ -1378,13 +1378,13 @@ html body.site-light-page .collaboration-legal-card__item:last-child p{
 }
 
 
-/* Zusammenarbeit: Titel und erster Punkt an derselben Oberkante */
+/* Zusammenarbeit: Titel und Einleitung auf derselben Grundlinie */
 html body.site-light-page .collaboration-legal-section .collaboration-legal-card{
-  align-items:start!important;
+  align-items:baseline!important;
 }
 html body.site-light-page .collaboration-legal-card__heading,
 html body.site-light-page .collaboration-legal-card__prose{
-  align-self:start!important;
+  align-self:baseline!important;
 }
 html body.site-light-page .collaboration-legal-card__prose{
   transform:none!important;

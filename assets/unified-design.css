@@ -1585,3 +1585,11 @@ html body.site-light-page .company-legal-card .home-company__copy{
     padding:32.34px 72px 54.372px!important;
   }
 }
+
+
+/* Unternehmen: Abstand nach dem Werte-Kasten exakt wie nach MASOON TREUHAND */
+@media(min-width:801px){
+  html body.site-light-page .values-legal-section{
+    padding-bottom:15.12px!important;
+  }
+}

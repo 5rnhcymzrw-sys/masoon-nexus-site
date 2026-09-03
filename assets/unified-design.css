@@ -1684,8 +1684,14 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   html body.site-light-page .services-main .services-section .services-grid{
     align-items:start!important;
   }
-  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open]),
-  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open])>summary{
+  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open]){
+    height:351px!important;
+    min-height:351px!important;
+    max-height:351px!important;
+    box-sizing:border-box!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
     height:351px!important;
     min-height:351px!important;
     max-height:351px!important;

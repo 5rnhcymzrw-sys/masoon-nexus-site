@@ -1514,9 +1514,14 @@ html body.site-light-page .company-legal-card .home-company__copy .prose p:last-
 }
 
 
-/* Unternehmen: Abstand Haupttitel zu Fliesstext um 30 Prozent reduziert */
+/* Unternehmen: eindeutiger Abstand von 21 Pixel zwischen Titel und Fliesstext */
 html body.site-light-page .company-legal-card .home-company__copy h1{
-  margin-bottom:21px!important;
+  margin-bottom:0!important;
+  padding-bottom:0!important;
+}
+html body.site-light-page .company-legal-card .home-company__copy .prose{
+  margin-top:21px!important;
+  padding-top:0!important;
 }
 
 

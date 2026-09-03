@@ -1678,3 +1678,23 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
 html body.site-light-page .services-main .services-section .services-grid>.service-card li:last-child{
   margin-bottom:0!important;
 }
+
+/* Dienstleistungen Hauptseite: unabhängige einheitliche Kartenhöhen */
+@media(min-width:801px){
+  html body.site-light-page .services-main .services-section .services-grid{
+    align-items:start!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card{
+    align-self:start!important;
+    height:360px!important;
+    min-height:360px!important;
+    max-height:360px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
+    height:670px!important;
+    min-height:670px!important;
+    max-height:670px!important;
+  }
+}

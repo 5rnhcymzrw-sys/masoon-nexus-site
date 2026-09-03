@@ -856,7 +856,7 @@ html body .site-footer::before{
   content:''!important;
   position:absolute!important;
   z-index:1!important;
-  top:0!important;
+  top:-8px!important;
   right:0!important;
   left:0!important;
   width:100%!important;
@@ -1102,7 +1102,7 @@ html body .site-footer{
 html body .site-footer .footer-simple{
   height:108px!important;
   min-height:108px!important;
-  padding-top:8px!important;
+  padding-top:0!important;
   padding-bottom:0!important;
   box-sizing:border-box!important;
   align-items:center!important;

@@ -1815,3 +1815,25 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-
   letter-spacing:normal!important;
   color:#171715!important;
 }
+
+/* Fachwissen Einordnung: Abmessungen 1:1 wie der grosse DL-Kasten */
+html body.site-light-page .knowledge-section>.knowledge-note{
+  box-sizing:border-box!important;
+  width:min(calc(100vw - 64px),1227px)!important;
+  height:463px!important;
+  min-height:463px!important;
+  max-height:463px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding:126px 72px!important;
+  grid-template-columns:.7fr 1.3fr!important;
+  gap:80px!important;
+}
+@media(max-width:800px){
+  html body.site-light-page .knowledge-section>.knowledge-note{
+    width:min(calc(100vw - 36px),1227px)!important;
+    padding:62px 26px!important;
+    grid-template-columns:1fr!important;
+    gap:52px!important;
+  }
+}

@@ -1559,10 +1559,10 @@ html body.site-light-page .company-legal-card .home-company__copy{
 }
 
 
-/* Unternehmen Desktop: Porträt 10 Prozent kleiner; sichtbarer Block von Fotooberkante bis Namensschildunterkante zentriert */
+/* Unternehmen Desktop: Porträt 10 Prozent kleiner; ursprüngliche Position beibehalten */
 @media(min-width:801px){
   html body.site-light-page .company-legal-card .home-company__image{
-    transform:translateY(8.55px) scale(.9)!important;
+    transform:translateY(20.25px) scale(.9)!important;
     transform-origin:center center!important;
   }
   html body.site-light-page .company-legal-card .home-company__image-primary{
@@ -1575,5 +1575,13 @@ html body.site-light-page .company-legal-card .home-company__copy{
 @media(min-width:801px){
   html body.site-light-page .company-legal-section{
     padding-bottom:50.4px!important;
+  }
+}
+
+
+/* Unternehmen Desktop: nur Kastenhöhe oben um die gemessenen 40.5 Pixel reduzieren */
+@media(min-width:801px){
+  html body.site-light-page .company-legal-section .company-legal-card{
+    padding:20px 72px 60.5px!important;
   }
 }

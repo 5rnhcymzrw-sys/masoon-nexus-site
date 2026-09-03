@@ -1107,3 +1107,49 @@ html body .site-footer .footer-simple{
   box-sizing:border-box!important;
   align-items:center!important;
 }
+
+/* Einheitliches Textlogo mit Schlüssel in sämtlichen Kopfzeilen */
+@media(min-width:801px){
+  html body header.site-header .header-inner .home-text-logo{
+    position:absolute!important;
+    z-index:3!important;
+    top:0!important;
+    right:auto!important;
+    left:99.7px!important;
+    width:240px!important;
+    height:108px!important;
+    margin:0!important;
+    padding:0!important;
+    display:flex!important;
+    align-items:center!important;
+    background:transparent!important;
+    background-color:transparent!important;
+    background-image:none!important;
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+    transform:none!important;
+    overflow:visible!important;
+  }
+  html body header.site-header .header-inner .home-text-logo .home-logo-icon{
+    position:absolute!important;
+    z-index:1!important;
+    top:50%!important;
+    left:50%!important;
+    width:88px!important;
+    height:auto!important;
+    opacity:.18!important;
+    pointer-events:none!important;
+    transform:translate(-50%,-50%)!important;
+  }
+  html body header.site-header .header-inner .home-text-logo .home-logo-text{
+    position:relative!important;
+    z-index:2!important;
+    width:240px!important;
+    height:auto!important;
+    max-height:none!important;
+    transform:translateY(11px)!important;
+  }
+}

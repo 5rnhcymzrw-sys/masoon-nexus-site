@@ -1754,3 +1754,19 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
     padding-right:39px!important;
   }
 }
+
+/* Dienstleistungen Hauptseite: identische Position offen und geschlossen */
+@media(min-width:1051px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open])>summary,
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
+    display:grid!important;
+    height:351px!important;
+    min-height:351px!important;
+    max-height:351px!important;
+    padding:42px 39px 36px!important;
+    grid-template-columns:70px minmax(0,1fr)!important;
+    grid-template-rows:auto minmax(0,1fr) auto!important;
+    align-content:stretch!important;
+    box-sizing:border-box!important;
+  }
+}

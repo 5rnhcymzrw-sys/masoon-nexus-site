@@ -1729,3 +1729,12 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
 html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>*{
   transform:translateY(-3px)!important;
 }
+
+/* Dienstleistungen Hauptseite: horizontaler Innenabstand 46 Pixel */
+@media(min-width:1051px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open])>summary,
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
+    padding-left:46px!important;
+    padding-right:46px!important;
+  }
+}

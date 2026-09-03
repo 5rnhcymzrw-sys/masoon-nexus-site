@@ -1849,3 +1849,36 @@ html body.site-light-page .knowledge-section>.knowledge-note>.section-label{
   text-transform:uppercase!important;
   color:#868279!important;
 }
+
+/* Einordnung: Titel und Fliesstext direkt an MASOON TREUHAND gekoppelt */
+html body.site-light-page .company-legal-card .home-company__copy h1,
+html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
+  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-size:var(--title-size)!important;
+  font-weight:400!important;
+  line-height:1.05!important;
+  letter-spacing:0!important;
+  color:#171715!important;
+  -webkit-text-stroke:.25px currentColor!important;
+  margin-bottom:0!important;
+  padding-bottom:0!important;
+}
+@media(min-width:801px){
+  html body.site-light-page .company-legal-card .home-company__copy h1,
+  html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
+    font-size:50px!important;
+  }
+}
+html body.site-light-page .company-legal-card .home-company__copy .prose p,
+html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:14px!important;
+  font-weight:290!important;
+  line-height:1.65!important;
+  letter-spacing:normal!important;
+  color:#484a4f!important;
+}
+html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){
+  margin:30px 0 0!important;
+  padding-top:0!important;
+}

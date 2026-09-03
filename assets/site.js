@@ -163,13 +163,22 @@
   if (fachwissenPath.test(location.pathname)) {
     const pending = sessionStorage.getItem('fachwissenReturnPending');
     const savedY = Number(sessionStorage.getItem('fachwissenScrollY'));
-    if (pending === '1' && Number.isFinite(savedY)) {
+    const savedArticle = sessionStorage.getItem('fachwissenArticlePath');
+    if (pending === '1') {
       sessionStorage.removeItem('fachwissenReturnPending');
-      requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, savedY)));
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        const matchingLink = [...document.querySelectorAll('.knowledge-section .article-card a')].find(link => {
+          return new URL(link.href, location.href).pathname === savedArticle;
+        });
+        const card = matchingLink && matchingLink.closest('.article-card');
+        if (card) card.scrollIntoView({ block: 'center', inline: 'nearest' });
+        else if (Number.isFinite(savedY)) window.scrollTo(0, savedY);
+      }));
     }
     document.querySelectorAll('.knowledge-section .article-card a').forEach(link => {
       link.addEventListener('click', () => {
         sessionStorage.setItem('fachwissenScrollY', String(window.scrollY));
+        sessionStorage.setItem('fachwissenArticlePath', new URL(link.href, location.href).pathname);
       });
     });
   }

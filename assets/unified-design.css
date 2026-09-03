@@ -1329,7 +1329,7 @@ html body.site-light-page .collaboration-legal-card__item{
 }
 html body.site-light-page .collaboration-legal-card__item h3{
   display:block!important;
-  margin:38px 0 7px!important;
+  margin:38px 0 3px!important;
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11.5px!important;
   font-weight:600!important;

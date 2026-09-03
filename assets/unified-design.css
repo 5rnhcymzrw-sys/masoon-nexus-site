@@ -2182,18 +2182,18 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
 }
 
 
-/* Fachwissen Hauptseite: oberer Kachelabstand 58 Pixel */
+/* Fachwissen Hauptseite: oberer Kachelabstand 68 Pixel */
 @media(min-width:801px){
   html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
-    padding-top:58px!important;
+    padding-top:68px!important;
   }
 }
 
 
-/* Fachwissen Hauptseite: Kacheltitel 2 Pixel kleiner, oberer Abstand bleibt 58 Pixel */
+/* Fachwissen Hauptseite: Kacheltitel 2 Pixel kleiner, oberer Abstand 68 Pixel */
 @media(min-width:801px){
   html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
-    padding-top:58px!important;
+    padding-top:68px!important;
   }
   html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>h2{
     font-size:22px!important;

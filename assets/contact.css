@@ -7,7 +7,7 @@
   max-width: none !important;
   margin: 0 !important;
   padding: 88px 0 126px !important;
-  background: transparent !important;
+  background: #fff !important;
 }
 
 .contact-split {
@@ -16,7 +16,7 @@
   min-height: 760px !important;
   margin: 0 auto !important;
   overflow: hidden !important;
-  background: transparent !important;
+  background: #fff !important;
 }
 
 .contact-split::before,

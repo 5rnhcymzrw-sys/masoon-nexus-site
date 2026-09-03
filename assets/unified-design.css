@@ -2157,3 +2157,12 @@ html body .site-footer.site-footer.site-footer.site-footer.site-footer.site-foot
     max-height:351px!important;
   }
 }
+
+
+/* Fachwissen: Beitrag anzeigen exakt auf der Position von Mehr anzeigen */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action{
+  margin-top:auto!important;
+  margin-bottom:0!important;
+  align-self:flex-start!important;
+  transform:translateY(1px)!important;
+}

@@ -15,8 +15,11 @@
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400&display=swap" rel="stylesheet"/>
   <style>
     html body.site-light-page main.article-main{padding:234px 0 126px!important}
-    .article-shell{width:91%!important;margin:0 auto!important;padding:70px 72px!important;border:1px solid #d7d5d1!important;display:grid!important;grid-template-columns:34% 66%!important;align-items:start!important;box-sizing:border-box!important}
-    .article-shell>.section-label{margin:0!important;padding-top:4px!important}
+    .article-overline,.article-shell{width:91%!important;max-width:1227px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important}
+    .article-overline{display:grid!important;grid-template-columns:34% 66%!important;align-items:end!important;margin-bottom:28px!important}
+    .article-overline .section-label,.article-overline .article-page-date{margin:0!important}
+    .article-shell{padding:70px 72px!important;border:1px solid #d7d5d1!important;display:grid!important;grid-template-columns:34% 66%!important;align-items:start!important}
+    .article-column{grid-column:2!important}
     .article-column,.article-hero,.article-body{width:100%!important;max-width:none!important;margin:0!important}
     .article-hero{padding-bottom:72px;border-bottom:1px solid #d7d5d1}
     .article-hero .section-label{margin-bottom:38px!important;color:#868279!important}
@@ -38,8 +41,10 @@
     @media(min-width:801px){.article-title{font-size:45px!important}}
     @media(max-width:800px){
       html body.site-light-page main.article-main{padding:170px 0 96px!important}
-      .article-shell{width:91%!important;padding:52px 26px!important;grid-template-columns:1fr!important;gap:38px!important}
-      .article-shell>.section-label{padding-top:0!important}
+      .article-overline{grid-template-columns:1fr!important;gap:18px!important;margin-bottom:24px!important}
+      .article-overline .article-page-date{grid-column:1!important}
+      .article-shell{width:91%!important;padding:52px 26px!important;grid-template-columns:1fr!important}
+      .article-column{grid-column:1!important}
       .article-hero{padding-bottom:54px}
       .article-title{font-size:var(--title-size)!important}
       .article-lead{font-size:14px!important}
@@ -57,11 +62,13 @@
     </div>
   </header>
   <main class="page-main article-main">
-    <section class="article-shell">
+    <div class="article-overline">
       <p class="section-label">Konkursrecht</p>
+      <time class="article-page-date" datetime="2026-01-01">01.01.2026</time>
+    </div>
+    <section class="article-shell">
       <div class="article-column">
     <header class="article-hero">
-      <time class="article-page-date" datetime="2026-01-01">01.01.2026</time>
       <h1 class="article-title">Missbräuchliche Konkurse: Was die Regeln seit 01.01.2025 für Unternehmen bedeuten</h1>
       <p class="article-lead">Seit 01.01.2025 gelten in der Schweiz schärfere Massnahmen gegen missbräuchliche Konkurse. Ziel ist, zu verhindern, dass Unternehmen ihre finanziellen Verpflichtungen durch wiederholte oder gezielt herbeigeführte Konkurse umgehen. Die Änderungen betreffen unter anderem das Obligationenrecht, das Schuldbetreibungs- und Konkursgesetz, das Strafrecht, das Handelsregisterrecht und das Steuerrecht.</p>
     </header>

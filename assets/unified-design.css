@@ -114,8 +114,8 @@ body.light-pattern-page-bg .home-paths__grid strong::after{
 /* Kontaktseite: heller Seitenhintergrund mit dunklem Formular */
 body.light-pattern-page-bg .contact-split-page,
 body.light-pattern-page-bg .contact-split{
-  background:transparent!important;
-  background-color:transparent!important;
+  background:#fff!important;
+  background-color:#fff!important;
   background-image:none!important;
 }
 body.light-pattern-page-bg .contact-split__form{

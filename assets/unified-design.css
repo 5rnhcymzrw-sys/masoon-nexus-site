@@ -2207,7 +2207,7 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card.a
 }
 html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-card-date{
   position:absolute!important;
-  top:20px!important;
+  top:23px!important;
   left:42px!important;
   margin:0!important;
   font-family:var(--font-cormorant),Georgia,serif!important;
@@ -2232,7 +2232,7 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card.a
     padding-top:78px!important;
   }
   html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-card-date{
-    top:20px!important;
+    top:23px!important;
     left:26px!important;
     font-size:23px!important;
   }

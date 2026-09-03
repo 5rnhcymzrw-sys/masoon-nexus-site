@@ -1902,3 +1902,68 @@ html body .site-footer .footer-main h2{
   text-transform:uppercase!important;
   color:#868279!important;
 }
+
+/* Alle grossen Seitentitel ohne Ausnahme wie Fachliche Orientierung */
+html body main .home-hero h1,
+html body main .global-title,
+html body main .section-heading h1,
+html body main .section-heading h2,
+html body main .page-hero h1,
+html body main .page-hero h2,
+html body main .contact-section h1,
+html body main .contact-section h2,
+html body main .legal-page h1,
+html body main .article-detail h1,
+html body main .service-page__heading h1,
+html body main .services-table-heading h2,
+html body main .service-principles>div:first-child h2,
+html body main .knowledge-note h2,
+html body main .home-company__copy h1,
+html body main .home-company__copy h2,
+html body main .home-expectations__heading h2,
+html body main .home-paths__heading h2,
+html body main .home-contact-band h2,
+html body main .expectation-compass__heading h2,
+html body main .contact-facts__heading h2,
+html body main .contact-split__info h1,
+html body main .services-closing h2,
+html body main .expectation-editorial__heading h2,
+html body main .collaboration-legal-card__title{
+  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-size:var(--title-size)!important;
+  font-weight:400!important;
+  line-height:1.05!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+  font-style:normal!important;
+  -webkit-text-stroke:.25px currentColor!important;
+}
+@media(min-width:801px){
+  html body main .home-hero h1,
+  html body main .global-title,
+  html body main .section-heading h1,
+  html body main .section-heading h2,
+  html body main .page-hero h1,
+  html body main .page-hero h2,
+  html body main .contact-section h1,
+  html body main .contact-section h2,
+  html body main .legal-page h1,
+  html body main .article-detail h1,
+  html body main .service-page__heading h1,
+  html body main .services-table-heading h2,
+  html body main .service-principles>div:first-child h2,
+  html body main .knowledge-note h2,
+  html body main .home-company__copy h1,
+  html body main .home-company__copy h2,
+  html body main .home-expectations__heading h2,
+  html body main .home-paths__heading h2,
+  html body main .home-contact-band h2,
+  html body main .expectation-compass__heading h2,
+  html body main .contact-facts__heading h2,
+  html body main .contact-split__info h1,
+  html body main .services-closing h2,
+  html body main .expectation-editorial__heading h2,
+  html body main .collaboration-legal-card__title{
+    font-size:50px!important;
+  }
+}

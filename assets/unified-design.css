@@ -2211,7 +2211,7 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card.a
   left:42px!important;
   margin:0!important;
   font-family:var(--font-cormorant),Georgia,serif!important;
-  font-size:25px!important;
+  font-size:20px!important;
   font-weight:500!important;
   font-style:normal!important;
   line-height:.9!important;
@@ -2234,6 +2234,6 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card.a
   html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-card-date{
     top:20px!important;
     left:26px!important;
-    font-size:25px!important;
+    font-size:20px!important;
   }
 }

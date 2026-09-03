@@ -847,9 +847,9 @@ html body .site-footer{
   min-height:108px!important;
   margin:0!important;
   padding:8px 0 0!important;
-  color:#fff!important;
-  background:#2b2b2b!important;
-  background-color:#2b2b2b!important;
+  color:#b8b8b8!important;
+  background:#000!important;
+  background-color:#000!important;
   background-image:none!important;
 }
 html body .site-footer::before{
@@ -875,9 +875,9 @@ html body .site-footer .footer-simple{
   align-items:center!important;
   justify-content:center!important;
   gap:clamp(18px,2.2vw,34px)!important;
-  color:#fff!important;
+  color:#b8b8b8!important;
 }
-html body .site-footer .footer-simple a{color:#fff!important;text-decoration:none!important}
+html body .site-footer .footer-simple a{color:#b8b8b8!important;text-decoration:none!important}
 html body .site-footer .footer-simple>*{
   position:relative!important;
 }

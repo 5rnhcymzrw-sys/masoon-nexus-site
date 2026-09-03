@@ -111,15 +111,17 @@ body.light-pattern-page-bg .home-paths__grid strong::after{
   background:#868279!important;
 }
 
-/* Kontaktseite bleibt bewusst dunkel */
-body:not(.light-pattern-page-bg) .contact-split-page,
-body:not(.light-pattern-page-bg) .contact-split{
+/* Kontaktseite: heller Seitenhintergrund mit dunklem Formular */
+body.light-pattern-page-bg .contact-split-page,
+body.light-pattern-page-bg .contact-split{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}
+body.light-pattern-page-bg .contact-split__form{
   background:var(--mt-black)!important;
   background-color:var(--mt-black)!important;
   background-image:none!important;
-}
-body:not(.light-pattern-page-bg) .contact-split__form{
-  background:#fff!important;
 }
 
 /* Leerer früherer Bildtrenner wird nicht mehr als eigener Stilbruch gezeigt */

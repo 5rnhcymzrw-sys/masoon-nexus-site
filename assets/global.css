@@ -887,7 +887,7 @@ html body .site-footer .footer-simple>*+*::before{
   position:absolute!important;
   top:50%!important;
   left:calc(-1 * clamp(18px,2.2vw,34px) / 2)!important;
-  color:#fff!important;
+  color:rgba(255,255,255,.55)!important;
   font:inherit!important;
   line-height:1!important;
   transform:translate(-50%,-50%)!important;
@@ -949,7 +949,7 @@ html body header.site-header.site-header--overlay{
     position:absolute!important;
     top:50%!important;
     left:calc(-1 * clamp(18px,2.2vw,34px) / 2)!important;
-    color:#fff!important;
+    color:rgba(255,255,255,.55)!important;
     font-family:var(--font-inter),Arial,sans-serif!important;
     font-size:11px!important;
     font-weight:500!important;

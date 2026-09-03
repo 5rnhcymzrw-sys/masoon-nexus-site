@@ -1620,8 +1620,7 @@ html body.site-light-page .collaboration-legal-section__label{
 
 
 /* Dienstleistungen Hauptseite: Typografie wie Unternehmen */
-html body.site-light-page .services-main .services-section>.section-heading>.section-label,
-html body.site-light-page .services-main .services-closing>.section-label{
+html body.site-light-page .services-main .services-section>.section-heading>.section-label{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-weight:500!important;
@@ -1649,23 +1648,7 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   letter-spacing:normal!important;
   color:#484a4f!important;
 }
-html body.site-light-page .services-main .services-closing__inner>h2{
-  margin-bottom:0!important;
-  padding-bottom:0!important;
-}
-html body.site-light-page .services-main .services-closing__inner>p{
-  margin-top:30px!important;
-  padding-top:0!important;
-}
-
-
 /* Dienstleistungen Hauptseite: 30-Pixel-CTA-Abstand, einheitliche Listen und inhaltsbasierte Kartenhöhe */
-html body.site-light-page .services-main .services-closing__inner>p{
-  margin-bottom:0!important;
-}
-html body.site-light-page .services-main .services-closing__links{
-  margin-top:30px!important;
-}
 html body.site-light-page .services-main .services-section .services-grid>.service-card li,
 html body.site-light-page .services-main .services-section .services-grid>.service-card:hover li,
 html body.site-light-page .services-main .services-section .services-grid>.service-card[open] li{
@@ -1772,20 +1755,6 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   animation:none!important;
   box-shadow:none!important;
 }
-html body.site-light-page .services-main .services-closing__inner>h2{
-  margin-bottom:0!important;
-  padding-bottom:0!important;
-}
-html body.site-light-page .services-main .services-closing__inner>p{
-  margin-top:30px!important;
-  margin-bottom:0!important;
-  padding-top:0!important;
-}
-html body.site-light-page .services-main .services-closing__links{
-  margin-top:30px!important;
-}
-
-
 /* Dienstleistungen: stabile Öffnung und exakt definierte Abstände */
 @media(min-width:801px){
   html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
@@ -1814,14 +1783,6 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
 html body.site-light-page .services-main .services-section .services-grid>.service-card[open] .details-action{
   align-self:end!important;
 }
-@media(min-width:801px){
-  html body.site-light-page .services-main>.services-closing>.section-label{
-    left:32px!important;
-  }
-}
-
-
-
 /* Dienstleistungen: stabiles Öffnen ohne Verschiebung */
 html body.site-light-page .services-main .services-section .services-grid>.service-card,
 html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
@@ -1877,4 +1838,17 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
     margin-top:0!important;
   }
+}
+
+/* Dienstleistungen: gewünschte Abstände im geöffneten Kasten */
+@media(min-width:801px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
+    margin-top:0!important;
+    padding-top:2px!important;
+  }
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card li,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover li,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open] li{
+  margin-bottom:2px!important;
 }

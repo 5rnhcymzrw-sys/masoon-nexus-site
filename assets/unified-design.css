@@ -2239,3 +2239,9 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
   opacity:1!important;
   transform:translateY(-3px)!important;
 }
+
+
+/* Gemessener Positionsausgleich: Beitrag anzeigen 2 Pixel tiefer */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
+  transform:translateY(-1px)!important;
+}

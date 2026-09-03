@@ -1489,16 +1489,6 @@ html body.site-light-page .company-legal-card .home-company__copy{
 }
 
 
-/* Unternehmen: Fliesstext exakt wie Impressum und Werte */
-html body.site-light-page .company-legal-card .home-company__copy .prose,
-html body.site-light-page .company-legal-card .home-company__copy .prose p{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14px!important;
-  font-weight:290!important;
-  line-height:1.65!important;
-  letter-spacing:normal!important;
-  color:#484a4f!important;
-}
 html body.site-light-page .company-legal-card .home-company__copy .prose p{
   margin:0 0 12px!important;
 }
@@ -1628,14 +1618,6 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   text-transform:none!important;
   color:#171715!important;
 }
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>p{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14px!important;
-  font-weight:290!important;
-  line-height:1.65!important;
-  letter-spacing:normal!important;
-  color:#484a4f!important;
-}
 @media(min-width:801px){
   html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
     font-size:44px!important;
@@ -1645,16 +1627,6 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
     font-size:36px!important;
   }
-}
-
-/* Dienstleistungen Hauptseite: Tätigkeiten wie Fliesstext */
-html body.site-light-page .services-main .services-section .services-grid>.service-card li{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14px!important;
-  font-weight:290!important;
-  line-height:1.65!important;
-  letter-spacing:normal!important;
-  color:#484a4f!important;
 }
 
 /* Dienstleistungen Hauptseite: Abstand Aktion zu Tätigkeiten */
@@ -1769,14 +1741,6 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>h2+p{
     background-image:none!important;
   }
 }
-html body.site-light-page .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14px!important;
-  font-weight:290!important;
-  line-height:1.65!important;
-  letter-spacing:normal!important;
-  color:#484a4f!important;
-}
 html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{
   margin-top:0!important;
 }
@@ -1786,15 +1750,8 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>.detai
   }
 }
 
-/* Fachwissen Einordnung: Fliesstext exakt wie auf der Unternehmens-Hauptseite */
 html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){
   margin:30px 0 0!important;
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14px!important;
-  font-weight:290!important;
-  line-height:1.65!important;
-  letter-spacing:normal!important;
-  color:#484a4f!important;
 }
 
 /* Fachwissen Einordnung: Abmessungen 1:1 wie der grosse DL-Kasten */
@@ -1837,15 +1794,6 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
   html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
     font-size:50px!important;
   }
-}
-html body.site-light-page .company-legal-card .home-company__copy .prose p,
-html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14px!important;
-  font-weight:290!important;
-  line-height:1.65!important;
-  letter-spacing:normal!important;
-  color:#484a4f!important;
 }
 html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){
   margin:30px 0 0!important;
@@ -1935,9 +1883,18 @@ html body main .collaboration-legal-card__title{
   }
 }
 
-/* Abschlusskästen: beide Fliesstexte exakt wie der gezeigte Rechtstext */
-html body.site-light-page .services-main>.services-closing p:not(.section-label),
-html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){
+/* Normale Fliesstexte: verbindliche Typografie der Disclaimer-Seite */
+html body main.home .home-hero__services,
+html body main.home .home-values__item>p,
+html body.site-light-page main .company-legal-card .home-company__copy .prose,
+html body.site-light-page main .company-legal-card .home-company__copy .prose p,
+html body.site-light-page main .collaboration-legal-card__item>p,
+html body.site-light-page main.services-main .services-section .services-grid>.service-card>summary>p,
+html body.site-light-page main.services-main .services-section .services-grid>.service-card li,
+html body.site-light-page main.services-main .services-closing__inner>p:not(.section-label),
+html body.site-light-page main .knowledge-section .article-card>p:not(.article-meta),
+html body.site-light-page main .knowledge-section>.knowledge-note>div>p:not(.section-label),
+html body.site-light-page main .contact-split__intro{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:290!important;
@@ -1946,13 +1903,12 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-
   color:#484a4f!important;
 }
 
-/* Alle normalen Fliesstexte im Seiteninhalt einheitlich */
-html body main p:not(.section-label):not(.article-meta):not(.home-hero__intro),
-html body main .prose,
-html body main .prose p,
-html body main .service-card li,
-html body main .article-body li,
-html body main .legal-page li{
+/* Rechteseiten und bestehende Spezialtexte bleiben unverändert */
+html body main .legal-page p:not(.section-label):not(.article-meta):not(.home-hero__intro),
+html body main .legal-page .prose,
+html body main .legal-page li,
+html body main .contact-fact p,
+html body main .form-status{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:290!important;

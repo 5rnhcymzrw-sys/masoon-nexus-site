@@ -239,7 +239,7 @@ html body .site-footer::before{
   left:0!important;
   width:100%!important;
   height:8px!important;
-  background:linear-gradient(110deg,#7f91aa 0%,#b8bdc3 50%,#d6bd78 100%)!important;
+  background:linear-gradient(110deg,#8d96a8 0%,#c7cbd3 34%,#e8e5df 62%,#f3e8d4 100%)!important;
 }
 html body .site-footer::after{content:none!important;display:none!important}
 html body .site-footer .footer-simple{

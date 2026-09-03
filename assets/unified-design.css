@@ -1730,10 +1730,11 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   transform:translateY(-3px)!important;
 }
 
-/* Dienstleistungen Hauptseite: 46 Pixel seitlich, ursprüngliche vertikale Abstände */
+/* Dienstleistungen Hauptseite: ursprünglicher horizontaler Innenabstand */
 @media(min-width:1051px){
   html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open])>summary,
   html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
-    padding:42px 46px 36px!important;
+    padding-left:42px!important;
+    padding-right:42px!important;
   }
 }

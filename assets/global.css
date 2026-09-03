@@ -1076,16 +1076,3 @@ html body header.site-header.home-page-header::after{
   background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
 }
 
-
-/* Startseite Mobil: Fusszeilentext bündig mit dem Beginn der Navigation */
-@media(max-width:800px){
-  html body main.home + footer.site-footer .footer-simple{
-    width:calc(100% - 10px)!important;
-    margin-right:5px!important;
-    margin-left:5px!important;
-    padding-right:0!important;
-    padding-left:0!important;
-    justify-content:flex-start!important;
-    align-content:center!important;
-  }
-}

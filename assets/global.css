@@ -1156,11 +1156,11 @@ html body .site-footer .footer-simple{
 
 
 /* Fusszeile: sichtbarer schwarzer Balken 80px */
-html body .site-footer{
+html body footer.site-footer{
   height:80px!important;
   min-height:80px!important;
 }
-html body .site-footer .footer-simple{
+html body footer.site-footer .footer-simple{
   height:80px!important;
   min-height:80px!important;
   padding-top:0!important;

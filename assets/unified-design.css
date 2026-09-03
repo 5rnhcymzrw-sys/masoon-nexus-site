@@ -2040,3 +2040,12 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
     padding:42px 42px 36px!important;
   }
 }
+
+
+/* Fachwissen Hauptseite: nur der Pfeil-Link auf derselben Linie wie Mehr anzeigen */
+html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
+  align-self:flex-start!important;
+  margin-top:24px!important;
+  padding-bottom:4px!important;
+  transform:translateY(-3px)!important;
+}

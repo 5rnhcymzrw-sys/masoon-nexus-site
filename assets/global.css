@@ -1153,3 +1153,17 @@ html body .site-footer .footer-simple{
     transform:translateY(11px)!important;
   }
 }
+
+
+/* Fusszeile: sichtbarer schwarzer Balken 80px */
+html body .site-footer{
+  height:80px!important;
+  min-height:80px!important;
+}
+html body .site-footer .footer-simple{
+  height:80px!important;
+  min-height:80px!important;
+  padding-top:0!important;
+  padding-bottom:0!important;
+  align-items:center!important;
+}

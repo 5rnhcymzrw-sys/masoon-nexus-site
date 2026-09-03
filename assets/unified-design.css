@@ -1268,22 +1268,34 @@ html body.site-light-page .home-values .section-heading > .section-label{
 
 
 /* Unternehmen: Zusammenarbeit im Stil des Datenschutz-Kastens */
-html body.site-light-page .collaboration-legal-card{
-  width:min(calc(100% - 64px),var(--content-width))!important;
-  left:auto!important;
-  max-width:var(--content-width)!important;
+html body.site-light-page .collaboration-legal-section{
+  width:min(100% - 64px,1227px)!important;
   margin:0 auto!important;
+  padding-top:126px!important;
+  padding-bottom:126px!important;
+  box-sizing:border-box!important;
+}
+html body.site-light-page .collaboration-legal-section .collaboration-legal-card{
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
   padding:67.5px 72px 53.5px!important;
   display:grid!important;
   grid-template-columns:.7fr 1.3fr!important;
   gap:80px!important;
-  align-items:start!important;
+  align-items:baseline!important;
   box-sizing:border-box!important;
   background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
   border:1px solid rgba(23,23,21,.16)!important;
+  border-radius:0!important;
+  box-shadow:none!important;
 }
 html body.site-light-page .collaboration-legal-card__title{
   margin:0!important;
+  align-self:baseline!important;
   max-width:none!important;
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-size:50px!important;
@@ -1295,15 +1307,15 @@ html body.site-light-page .collaboration-legal-card__title{
 }
 html body.site-light-page .collaboration-legal-card__prose{
   margin:0!important;
+  align-self:baseline!important;
+  transform:translateY(-14px)!important;
 }
 html body.site-light-page .collaboration-legal-card__item{
   max-width:none!important;
-  margin:0 0 12px!important;
-}
-html body.site-light-page .collaboration-legal-card__item:last-child{
-  margin-bottom:0!important;
+  margin:0!important;
 }
 html body.site-light-page .collaboration-legal-card__item h3{
+  display:block!important;
   margin:0 0 7px!important;
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11.5px!important;
@@ -1319,7 +1331,7 @@ html body.site-light-page .collaboration-legal-card__item h3::after{
   display:none!important;
 }
 html body.site-light-page .collaboration-legal-card__item p{
-  margin:0!important;
+  margin:0 0 12px!important;
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:290!important;
@@ -1327,14 +1339,24 @@ html body.site-light-page .collaboration-legal-card__item p{
   letter-spacing:normal!important;
   color:#484a4f!important;
 }
+html body.site-light-page .collaboration-legal-card__item:last-child p{
+  margin-bottom:0!important;
+}
 @media(max-width:800px){
-  html body.site-light-page .collaboration-legal-card{
+  html body.site-light-page .collaboration-legal-section{
     width:calc(100% - 36px)!important;
+    padding-top:82px!important;
+    padding-bottom:82px!important;
+  }
+  html body.site-light-page .collaboration-legal-section .collaboration-legal-card{
     padding:62px 26px!important;
     grid-template-columns:1fr!important;
     gap:34px!important;
   }
   html body.site-light-page .collaboration-legal-card__title{
     font-size:var(--title-mobile)!important;
+  }
+  html body.site-light-page .collaboration-legal-card__prose{
+    transform:none!important;
   }
 }

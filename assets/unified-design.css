@@ -2109,9 +2109,17 @@ html body main .text-link,
 html body .site-footer .footer-main h2{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
+  font-style:normal!important;
   font-weight:500!important;
+  font-variant:normal!important;
+  font-stretch:normal!important;
   line-height:1.4!important;
   letter-spacing:.14em!important;
+  word-spacing:normal!important;
   text-transform:uppercase!important;
+  text-decoration:none!important;
+  text-shadow:none!important;
+  -webkit-text-stroke:0!important;
   color:#868279!important;
+  opacity:1!important;
 }

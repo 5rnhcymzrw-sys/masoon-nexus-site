@@ -1619,8 +1619,9 @@ html body.site-light-page .collaboration-legal-section__label{
 }
 
 
-/* Dienstleistungen Hauptseite: Typografie und Raster wie Unternehmen */
-html body.site-light-page .services-main .services-section>.section-heading>.section-label{
+/* Dienstleistungen Hauptseite: Typografie wie Unternehmen */
+html body.site-light-page .services-main .services-section>.section-heading>.section-label,
+html body.site-light-page .services-main .services-closing>.section-label{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-weight:500!important;
@@ -1629,12 +1630,7 @@ html body.site-light-page .services-main .services-section>.section-heading>.sec
   text-transform:uppercase!important;
   color:#868279!important;
 }
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
-  grid-template-columns:minmax(0,1fr)!important;
-}
 html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
-  grid-column:1!important;
-  grid-row:1!important;
   font-family:var(--font-cormorant),Georgia,serif!important;
   font-size:22px!important;
   font-weight:600!important;
@@ -1646,8 +1642,6 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   top:0!important;
 }
 html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>p{
-  grid-column:1!important;
-  grid-row:2!important;
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:290!important;
@@ -1655,7 +1649,11 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   letter-spacing:normal!important;
   color:#484a4f!important;
 }
-html body.site-light-page .services-main .services-section .services-grid>.service-card .details-action{
-  grid-column:1!important;
-  grid-row:3!important;
+html body.site-light-page .services-main .services-closing__inner>h2{
+  margin-bottom:0!important;
+  padding-bottom:0!important;
+}
+html body.site-light-page .services-main .services-closing__inner>p{
+  margin-top:30px!important;
+  padding-top:0!important;
 }

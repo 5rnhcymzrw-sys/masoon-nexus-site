@@ -15,7 +15,9 @@
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400&display=swap" rel="stylesheet"/>
   <style>
     html body.site-light-page main.article-main{padding:234px 0 126px!important}
-    .article-hero,.article-body{width:91%!important;max-width:none!important;margin:0 auto!important}
+    .article-shell{width:91%!important;margin:0 auto!important;padding:70px 72px!important;border:1px solid #d7d5d1!important;display:grid!important;grid-template-columns:34% 66%!important;align-items:start!important;box-sizing:border-box!important}
+    .article-shell>.section-label{margin:0!important;padding-top:4px!important}
+    .article-column,.article-hero,.article-body{width:100%!important;max-width:none!important;margin:0!important}
     .article-hero{padding-bottom:72px;border-bottom:1px solid #d7d5d1}
     .article-hero .section-label{margin-bottom:38px!important;color:#868279!important}
     .article-page-date{display:block;margin:0 0 24px;font-family:var(--font-cormorant),Georgia,serif;font-size:23px;font-weight:500;line-height:.9;letter-spacing:-.04em;color:#19191b}
@@ -31,24 +33,18 @@
     .article-body ul{max-width:820px;margin:8px 0 34px;padding:0;list-style:none}
     .article-body li{position:relative;margin:0 0 4px;padding-left:23px}
     .article-body li::before{content:'';position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279}
-    .article-contact{width:91%;margin:96px auto 0;min-height:440px;border:1px solid #d7d5d1;display:grid;grid-template-columns:34% 66%;align-items:center;padding:70px 72px;box-sizing:border-box}
-    .article-contact .section-label{margin:0!important}
-    .article-contact__content h2{max-width:650px;margin:0!important;font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;font-size:50px!important;font-weight:400!important;line-height:1.05!important;letter-spacing:0!important;color:#171715!important;-webkit-text-stroke:.25px currentColor!important}
-    .article-contact__button{display:inline-flex;align-items:center;justify-content:space-between;min-width:220px;margin-top:56px;padding:15px 17px;border:1px solid #d7d5d1;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#868279;box-sizing:border-box}
-    .article-contact__button span{font-size:20px;font-weight:300;line-height:.7}
     .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#868279}
     .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-2px}
     @media(min-width:801px){.article-title{font-size:45px!important}}
     @media(max-width:800px){
       html body.site-light-page main.article-main{padding:170px 0 96px!important}
+      .article-shell{width:91%!important;padding:52px 26px!important;grid-template-columns:1fr!important;gap:38px!important}
+      .article-shell>.section-label{padding-top:0!important}
       .article-hero{padding-bottom:54px}
       .article-title{font-size:var(--title-size)!important}
       .article-lead{font-size:14px!important}
       .article-body{padding-top:54px}
       .article-body h2{margin-top:46px;font-size:22px!important;line-height:1.1!important}
-      .article-contact{width:91%;min-height:0;margin-top:72px;padding:62px 26px;grid-template-columns:1fr;gap:42px}
-      .article-contact__content h2{font-size:var(--title-size)!important}
-      .article-contact__button{margin-top:38px}
     }
   </style>
 </head>
@@ -61,8 +57,10 @@
     </div>
   </header>
   <main class="page-main article-main">
-    <header class="article-hero">
+    <section class="article-shell">
       <p class="section-label">Konkursrecht</p>
+      <div class="article-column">
+    <header class="article-hero">
       <time class="article-page-date" datetime="2026-01-01">01.01.2026</time>
       <h1 class="article-title">Missbräuchliche Konkurse: Was die Regeln seit 01.01.2025 für Unternehmen bedeuten</h1>
       <p class="article-lead">Seit 01.01.2025 gelten in der Schweiz schärfere Massnahmen gegen missbräuchliche Konkurse. Ziel ist, zu verhindern, dass Unternehmen ihre finanziellen Verpflichtungen durch wiederholte oder gezielt herbeigeführte Konkurse umgehen. Die Änderungen betreffen unter anderem das Obligationenrecht, das Schuldbetreibungs- und Konkursgesetz, das Strafrecht, das Handelsregisterrecht und das Steuerrecht.</p>
@@ -102,11 +100,6 @@
       <p>Die strengeren Massnahmen gegen missbräuchliche Konkurse erhöhen den Druck auf saubere Unternehmensführung. Wer Buchhaltung, Steuern, Sozialversicherungen und Liquidität im Griff hat, reduziert das Risiko. Wer Pflichten verschiebt oder Gesellschaften nur noch verwaltet, statt Probleme aktiv zu lösen, setzt sich höheren rechtlichen und finanziellen Risiken aus.</p>
       <a class="article-back" href="../index.html"><span aria-hidden="true">‹</span>Zurück zu Fachwissen</a>
     </article>
-    <section class="article-contact" aria-labelledby="article-contact-title">
-      <p class="section-label">Kontakt</p>
-      <div class="article-contact__content">
-        <h2 id="article-contact-title">Verlässliche Treuhandlösungen für Ihr Unternehmen.</h2>
-        <a class="article-contact__button" href="../../kontakt/index.html">Kontakt aufnehmen <span aria-hidden="true">›</span></a>
       </div>
     </section>
   </main>

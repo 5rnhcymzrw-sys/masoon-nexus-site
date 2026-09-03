@@ -1693,3 +1693,42 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   animation:none!important;
   box-shadow:none!important;
 }
+
+
+/* Dienstleistungen Hauptseite: kompakte und beim Öffnen stabile Karten */
+@media(min-width:801px){
+  html body.site-light-page .services-main .services-section .services-grid{
+    align-items:start!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card{
+    align-self:start!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
+    font-size:44px!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open]),
+  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open])>summary{
+    height:342px!important;
+    min-height:342px!important;
+    max-height:342px!important;
+    box-sizing:border-box!important;
+  }
+}
+@media(max-width:800px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
+    font-size:36px!important;
+  }
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card,
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card>ul{
+  transition:none!important;
+  animation:none!important;
+  transform:none!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
+  padding-bottom:0!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
+  padding-top:18px!important;
+}

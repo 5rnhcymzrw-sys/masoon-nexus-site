@@ -1236,3 +1236,25 @@ html body.light-pattern-page-bg main.home>.home-contact-band>.section-label::aft
 html body.light-pattern-page-bg .expectation-editorial .section-label{
   color:#868279!important;
 }
+
+
+/* Kopfzeilennavigation: keine Unterlinie bei aktivem oder angeklicktem Titel */
+html body .site-header .site-nav a,
+html body .site-header .site-nav a:hover,
+html body .site-header .site-nav a:focus,
+html body .site-header .site-nav a:focus-visible,
+html body .site-header .site-nav a.active,
+html body .site-header .site-nav a[aria-current="page"]{
+  border-bottom:0!important;
+  box-shadow:none!important;
+  text-decoration:none!important;
+}
+html body .site-header .site-nav a::after,
+html body .site-header .site-nav a:hover::after,
+html body .site-header .site-nav a:focus::after,
+html body .site-header .site-nav a:focus-visible::after,
+html body .site-header .site-nav a.active::after,
+html body .site-header .site-nav a[aria-current="page"]::after{
+  content:none!important;
+  display:none!important;
+}

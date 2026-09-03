@@ -19,36 +19,6 @@
   background: #fff !important;
 }
 
-.contact-split::before,
-.contact-split::after {
-  content: "" !important;
-  position: absolute !important;
-  z-index: 0 !important;
-  pointer-events: none !important;
-}
-
-.contact-split::before {
-  left: 34.5% !important;
-  bottom: 34px !important;
-  width: 280px !important;
-  height: 390px !important;
-  opacity: .55 !important;
-  background:
-    linear-gradient(61deg, transparent 49.75%, rgba(23,23,21,.05) 49.9%, rgba(23,23,21,.05) 50.1%, transparent 50.25%),
-    linear-gradient(119deg, transparent 49.7%, rgba(23,23,21,.08) 49.85%, rgba(23,23,21,.08) 50.15%, transparent 50.3%) !important;
-}
-
-.contact-split::after {
-  left: 39.2% !important;
-  bottom: 142px !important;
-  width: 120px !important;
-  height: 185px !important;
-  opacity: .5 !important;
-  border-left: 6px solid rgba(23,23,21,.06) !important;
-  border-right: 5px solid rgba(23,23,21,.06) !important;
-  transform: skewX(-29deg) rotate(-1deg) !important;
-}
-
 .contact-split__info {
   position: relative !important;
   z-index: 1 !important;

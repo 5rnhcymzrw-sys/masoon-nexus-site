@@ -1690,3 +1690,30 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
 html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>p{
   min-height:0!important;
 }
+
+
+/* Dienstleistungen Hauptseite: Zahl/Titel ausrichten, CTA-Effekt entfernen und Karten nicht strecken */
+html body.site-light-page .services-main .services-section .services-grid{
+  align-items:start!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card{
+  align-self:start!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
+  grid-template-rows:auto auto auto!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number,
+html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
+  align-self:baseline!important;
+  top:0!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card .details-action,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover .details-action,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:focus-within .details-action,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open] .details-action{
+  transition:none!important;
+  transform:none!important;
+  animation:none!important;
+  box-shadow:none!important;
+  text-decoration:none!important;
+}

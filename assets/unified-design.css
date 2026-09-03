@@ -1739,3 +1739,9 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   position:relative!important;
   top:-3px!important;
 }
+
+/* Dienstleistungen Hauptseite: Mehr anzeigen ebenfalls 3 Pixel höher */
+html body.site-light-page .services-main .services-section .services-grid>.service-card .details-action{
+  position:relative!important;
+  top:-3px!important;
+}

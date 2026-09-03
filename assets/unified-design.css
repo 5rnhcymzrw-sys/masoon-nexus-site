@@ -2217,8 +2217,15 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card.a
   line-height:.9!important;
   letter-spacing:-.04em!important;
   text-transform:none!important;
-  color:#9a948b!important;
+  color:#99989c!important;
   opacity:1!important;
+}
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(1)>.article-card-date,
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(5)>.article-card-date{
+  color:#19191b!important;
+}
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(3)>.article-card-date{
+  color:#c2c1c4!important;
 }
 @media(max-width:800px){
   html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{

@@ -94,14 +94,23 @@
   window.addEventListener('resize', alignNavigationWithContent);
 
   const alignFooterWithNavigation = () => {
-    if (!nav || window.innerWidth <= 800) {
-      document.documentElement.style.removeProperty('--footer-nav-width');
-      return;
-    }
-    document.documentElement.style.setProperty('--footer-nav-width', `${nav.getBoundingClientRect().width}px`);
+    const footerSimple = document.querySelector('.site-footer .footer-simple');
+    const firstNavLink = nav ? nav.querySelector('a') : null;
+    if (!footerSimple || !firstNavLink) return;
 
+    const footerLeft = footerSimple.getBoundingClientRect().left;
+    const targetLeft = firstNavLink.getBoundingClientRect().left;
+    const offset = Math.max(0, targetLeft - footerLeft);
+
+    footerSimple.style.setProperty('justify-content', 'flex-start', 'important');
+    footerSimple.style.setProperty('padding-left', `${offset}px`, 'important');
+    footerSimple.style.setProperty('box-sizing', 'border-box', 'important');
   };
-  alignFooterWithNavigation();
+  requestAnimationFrame(alignFooterWithNavigation);
+  window.addEventListener('load', () => {
+    requestAnimationFrame(alignFooterWithNavigation);
+    setTimeout(alignFooterWithNavigation, 300);
+  });
   window.addEventListener('resize', alignFooterWithNavigation);
 
   if (toggle && nav) {

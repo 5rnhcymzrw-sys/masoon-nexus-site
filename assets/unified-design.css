@@ -1724,3 +1724,8 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   background-color:transparent!important;
   background-image:none!important;
 }
+
+/* Dienstleistungen Hauptseite: Titelverschiebung entfernen */
+html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
+  top:0!important;
+}

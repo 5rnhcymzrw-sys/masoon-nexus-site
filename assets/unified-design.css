@@ -1709,3 +1709,18 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
     overflow:hidden!important;
   }
 }
+
+/* Dienstleistungen Hauptseite: alle Karten transparent */
+html body.site-light-page .services-main .services-section .services-grid>.service-card,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open],
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card>ul,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>ul,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}

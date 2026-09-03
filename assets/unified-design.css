@@ -1278,7 +1278,9 @@ html body.site-light-page .collaboration-legal-section{
 html body.site-light-page .collaboration-legal-section__label{
   margin:0 0 30px 72px!important;
   padding:0!important;
-  display:block!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:12px!important;
   position:static!important;
   width:max-content!important;
   font-family:var(--font-inter),Arial,sans-serif!important;
@@ -1289,7 +1291,14 @@ html body.site-light-page .collaboration-legal-section__label{
   text-transform:uppercase!important;
   color:#868279!important;
 }
-html body.site-light-page .collaboration-legal-section__label::before,
+html body.site-light-page .collaboration-legal-section__label::before{
+  content:''!important;
+  display:block!important;
+  width:48px!important;
+  height:1px!important;
+  flex:0 0 48px!important;
+  background:#9a948b!important;
+}
 html body.site-light-page .collaboration-legal-section__label::after{
   content:none!important;
   display:none!important;

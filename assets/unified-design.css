@@ -1440,10 +1440,10 @@ html body.site-light-page .values-legal-section .collaboration-legal-card__item 
 }
 
 
-/* Werte mobil: exakt dieselbe Ausgangslinie wie die Navigation */
+/* Werte mobil: gemessene 7-Pixel-Abweichung zur Navigationslinie korrigieren */
 @media(max-width:800px){
   html body.site-light-page .values-legal-section .collaboration-legal-card__prose{
     margin-left:0!important;
-    transform:none!important;
+    transform:translateX(-7px)!important;
   }
 }

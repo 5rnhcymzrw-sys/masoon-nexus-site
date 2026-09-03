@@ -20,35 +20,40 @@
 }
 
 /* Helle Inhaltsseiten */
-body.light-pattern-page-bg,
-body.light-pattern-page-bg .page-main,
-body.light-pattern-page-bg .home{
+body.site-light-page{
+  background:#fff!important;
+  background-color:#fff!important;
+  background-image:none!important;
+}
+body.site-light-page,
+body.site-light-page .page-main,
+body.site-light-page .home{
   color:var(--mt-ink)!important;
 }
-body.light-pattern-page-bg .page-main,
-body.light-pattern-page-bg .home,
-body.light-pattern-page-bg .home-company,
-body.light-pattern-page-bg .home-company::before,
-body.light-pattern-page-bg .home-values,
-body.light-pattern-page-bg .home-values__inner,
-body.light-pattern-page-bg .services-section,
-body.light-pattern-page-bg .knowledge-section,
-body.light-pattern-page-bg .home-paths,
-body.light-pattern-page-bg .home-paths::before,
-body.light-pattern-page-bg .home-contact-band,
-body.light-pattern-page-bg .services-closing{
+body.site-light-page .page-main,
+body.site-light-page .home,
+body.site-light-page .home-company,
+body.site-light-page .home-company::before,
+body.site-light-page .home-values,
+body.site-light-page .home-values__inner,
+body.site-light-page .services-section,
+body.site-light-page .knowledge-section,
+body.site-light-page .home-paths,
+body.site-light-page .home-paths::before,
+body.site-light-page .home-contact-band,
+body.site-light-page .services-closing{
   background:transparent!important;
   background-color:transparent!important;
   background-image:none!important;
 }
 
 /* Einheitliche Kacheln */
-html body.light-pattern-page-bg .home-values__item,
-html body.light-pattern-page-bg .home-paths__grid a,
-html body.light-pattern-page-bg .article-card,
-html body.light-pattern-page-bg .knowledge-note,
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card,
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card:hover{
+html body.site-light-page .home-values__item,
+html body.site-light-page .home-paths__grid a,
+html body.site-light-page .article-card,
+html body.site-light-page .knowledge-note,
+html body.site-light-page .services-main .services-section .services-grid>.service-card,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover{
   background:var(--mt-surface)!important;
   background-color:var(--mt-surface)!important;
   background-image:none!important;
@@ -58,88 +63,88 @@ html body.light-pattern-page-bg .services-main .services-section .services-grid>
   backdrop-filter:none!important;
   -webkit-backdrop-filter:none!important;
 }
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card[open]{
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
   background:var(--mt-surface-open)!important;
   background-color:var(--mt-surface-open)!important;
 }
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card>summary,
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card>ul,
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card[open]>summary,
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card[open]>ul{
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card>ul,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
   background:transparent!important;
   background-color:transparent!important;
   background-image:none!important;
 }
 
 /* Einheitliche dunkle Inhaltsbereiche */
-body.light-pattern-page-bg .expectation-editorial,
-body.light-pattern-page-bg .faq-editorial{
+body.site-light-page .expectation-editorial,
+body.site-light-page .faq-editorial{
   color:#fff!important;
   background:var(--mt-black)!important;
   background-color:var(--mt-black)!important;
   background-image:none!important;
 }
-body.light-pattern-page-bg .expectation-editorial h2,
-body.light-pattern-page-bg .expectation-editorial h3,
-body.light-pattern-page-bg .expectation-editorial p,
-body.light-pattern-page-bg .expectation-editorial .section-label,
-body.light-pattern-page-bg .faq-editorial h2,
-body.light-pattern-page-bg .faq-editorial p,
-body.light-pattern-page-bg .faq-editorial .section-label{
+body.site-light-page .expectation-editorial h2,
+body.site-light-page .expectation-editorial h3,
+body.site-light-page .expectation-editorial p,
+body.site-light-page .expectation-editorial .section-label,
+body.site-light-page .faq-editorial h2,
+body.site-light-page .faq-editorial p,
+body.site-light-page .faq-editorial .section-label{
   color:#fff!important;
 }
-body.light-pattern-page-bg .expectation-editorial h3::after{
+body.site-light-page .expectation-editorial h3::after{
   background:rgba(255,255,255,.48)!important;
 }
 
 /* Einheitliche Linien und Kartenabstände */
-body.light-pattern-page-bg .home-values__items,
-body.light-pattern-page-bg .home-paths__grid,
-body.light-pattern-page-bg .articles-grid{
+body.site-light-page .home-values__items,
+body.site-light-page .home-paths__grid,
+body.site-light-page .articles-grid{
   gap:22px!important;
 }
-body.light-pattern-page-bg .services-grid{
+body.site-light-page .services-grid{
   gap:22px!important;
   background:transparent!important;
   border:0!important;
 }
-body.light-pattern-page-bg .home-values__item{
+body.site-light-page .home-values__item{
   border-left:1px solid var(--mt-line)!important;
 }
-body.light-pattern-page-bg .home-values__item h3::after,
-body.light-pattern-page-bg .home-paths__grid strong::after{
+body.site-light-page .home-values__item h3::after,
+body.site-light-page .home-paths__grid strong::after{
   background:#868279!important;
 }
 
 /* Kontaktseite: heller Seitenhintergrund mit dunklem Formular */
-body.light-pattern-page-bg .contact-split-page,
-body.light-pattern-page-bg .contact-split{
+body.site-light-page .contact-split-page,
+body.site-light-page .contact-split{
   background:#fff!important;
   background-color:#fff!important;
   background-image:none!important;
 }
-body.light-pattern-page-bg .contact-split__form{
+body.site-light-page .contact-split__form{
   background:var(--mt-black)!important;
   background-color:var(--mt-black)!important;
   background-image:none!important;
 }
 
 /* Leerer früherer Bildtrenner wird nicht mehr als eigener Stilbruch gezeigt */
-body.light-pattern-page-bg .home-architecture-banner{
+body.site-light-page .home-architecture-banner{
   display:none!important;
 }
 
 @media(max-width:800px){
-  body.light-pattern-page-bg .home-values__items,
-  body.light-pattern-page-bg .home-paths__grid,
-  body.light-pattern-page-bg .articles-grid,
-  body.light-pattern-page-bg .services-grid{
+  body.site-light-page .home-values__items,
+  body.site-light-page .home-paths__grid,
+  body.site-light-page .articles-grid,
+  body.site-light-page .services-grid{
     gap:16px!important;
   }
 }
 
 /* Kacheltexte auf Startseite und Unternehmen vertikal mittig, linksbündig */
-html body.light-pattern-page-bg .home-values__item{
+html body.site-light-page .home-values__item{
   justify-content:center!important;
   align-content:center!important;
   align-items:flex-start!important;
@@ -147,11 +152,11 @@ html body.light-pattern-page-bg .home-values__item{
 }
 
 /* Zahlen der Startseiten Kacheln wie auf der Dienstleistungsseite */
-html body.light-pattern-page-bg .home>.home-values .home-values__item .service-number{
+html body.site-light-page .home>.home-values .home-values__item .service-number{
   font-size:46px!important;
 }
 @media(max-width:800px){
-  html body.light-pattern-page-bg .home>.home-values .home-values__item .service-number{
+  html body.site-light-page .home>.home-values .home-values__item .service-number{
     font-size:38px!important;
   }
 }
@@ -400,14 +405,14 @@ html body .site-nav a::after{
 
 /* Desktop Dienstleistungsseite: Abstände exakt wie bei Dienstleistungen auf der Startseite */
 @media(min-width:801px){
-  html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card>summary{
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
     display:grid!important;
     grid-template-columns:max-content minmax(0,1fr)!important;
     grid-template-rows:auto auto 1fr!important;
     column-gap:20px!important;
     row-gap:0!important;
   }
-  html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card .card-number{
+  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
     grid-column:1!important;
     grid-row:1!important;
     align-self:center!important;
@@ -416,7 +421,7 @@ html body .site-nav a::after{
     line-height:.9!important;
     letter-spacing:-.04em!important;
   }
-  html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card h2{
+  html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
     grid-column:2!important;
     grid-row:1!important;
     align-self:center!important;
@@ -427,7 +432,7 @@ html body .site-nav a::after{
     position:relative!important;
     top:3px!important;
   }
-  html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card>summary>p{
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>p{
     grid-column:1 / -1!important;
     grid-row:2!important;
     align-self:start!important;
@@ -528,7 +533,7 @@ html body .service-principles__items h3{
 
 /* Schriftstärke 600 gegen ältere spezifische Kachelregeln durchsetzen */
 html body .home>.home-values .home-values__item h3,
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card h2,
+html body.site-light-page .services-main .services-section .services-grid>.service-card h2,
 html body .home>.home-paths .home-paths__grid strong,
 html body .knowledge-section .articles-grid>.article-card h2,
 html body .expectation-editorial .expectation-editorial__item h3,
@@ -551,7 +556,7 @@ html body .expectation-editorial .expectation-editorial__item p{
 
 
 /* Zusammenarbeit: Fliesstext im gleichen Grau wie die Fusszeile */
-html body.light-pattern-page-bg .expectation-editorial .expectation-editorial__item p{
+html body.site-light-page .expectation-editorial .expectation-editorial__item p{
   color:rgba(255,255,255,.82)!important;
 }
 
@@ -571,8 +576,8 @@ html body.light-pattern-page-bg .expectation-editorial .expectation-editorial__i
 
 
 /* Unternehmen: Fliesstextfarbe wie bei Werte */
-html body.light-pattern-page-bg .home-company__copy .prose,
-html body.light-pattern-page-bg .home-company__copy .prose p{
+html body.site-light-page .home-company__copy .prose,
+html body.site-light-page .home-company__copy .prose p{
   color:#373733!important;
 }
 
@@ -608,7 +613,7 @@ html body .home-company__copy h2 span{
 
 
 /* Dienstleistungs Hauptseite: grosse weisse Bereichsfläche entfernen */
-html body.light-pattern-page-bg .services-main>.services-section{
+html body.site-light-page .services-main>.services-section{
   background:transparent!important;
   background-color:transparent!important;
   background-image:none!important;
@@ -1149,15 +1154,15 @@ html body main.home .home-values .home-values__inner .home-values__items .home-v
 
 
 /* Zusammenarbeit auf hellem Hintergrund: sämtliche Texte und Linien dunkel */
-html body.light-pattern-page-bg .expectation-editorial,
-html body.light-pattern-page-bg .expectation-editorial h2,
-html body.light-pattern-page-bg .expectation-editorial h3,
-html body.light-pattern-page-bg .expectation-editorial p,
-html body.light-pattern-page-bg .expectation-editorial .expectation-editorial__item p,
-html body.light-pattern-page-bg .expectation-editorial .section-label{
+html body.site-light-page .expectation-editorial,
+html body.site-light-page .expectation-editorial h2,
+html body.site-light-page .expectation-editorial h3,
+html body.site-light-page .expectation-editorial p,
+html body.site-light-page .expectation-editorial .expectation-editorial__item p,
+html body.site-light-page .expectation-editorial .section-label{
   color:#171715!important;
 }
-html body.light-pattern-page-bg .expectation-editorial .expectation-editorial__item h3::after{
+html body.site-light-page .expectation-editorial .expectation-editorial__item h3::after{
   background:#8f8a82!important;
 }
 
@@ -1175,7 +1180,7 @@ html body main.home>.home-values .home-values__item h3::after{
 
 
 /* Startseite Kontakt: gleicher Kastenhintergrund wie Dienstleistungen */
-html body.light-pattern-page-bg main.home>.home-contact-band{
+html body.site-light-page main.home>.home-contact-band{
   background:var(--mt-surface)!important;
   background-color:var(--mt-surface)!important;
   background-image:none!important;
@@ -1183,16 +1188,16 @@ html body.light-pattern-page-bg main.home>.home-contact-band{
 
 
 /* Abschlusskästen: transparent, kleine Titel mittig und ohne Zeichen */
-html body.light-pattern-page-bg .knowledge-note,
-html body.light-pattern-page-bg .services-closing,
-html body.light-pattern-page-bg main.home>.home-contact-band{
+html body.site-light-page .knowledge-note,
+html body.site-light-page .services-closing,
+html body.site-light-page main.home>.home-contact-band{
   background:transparent!important;
   background-color:transparent!important;
   background-image:none!important;
 }
-html body.light-pattern-page-bg .knowledge-note>.section-label,
-html body.light-pattern-page-bg .services-closing>.section-label,
-html body.light-pattern-page-bg main.home>.home-contact-band>.section-label{
+html body.site-light-page .knowledge-note>.section-label,
+html body.site-light-page .services-closing>.section-label,
+html body.site-light-page main.home>.home-contact-band>.section-label{
   align-self:center!important;
   justify-self:start!important;
   place-self:center start!important;
@@ -1202,12 +1207,12 @@ html body.light-pattern-page-bg main.home>.home-contact-band>.section-label{
   position:static!important;
   gap:0!important;
 }
-html body.light-pattern-page-bg .knowledge-note>.section-label::before,
-html body.light-pattern-page-bg .knowledge-note>.section-label::after,
-html body.light-pattern-page-bg .services-closing>.section-label::before,
-html body.light-pattern-page-bg .services-closing>.section-label::after,
-html body.light-pattern-page-bg main.home>.home-contact-band>.section-label::before,
-html body.light-pattern-page-bg main.home>.home-contact-band>.section-label::after{
+html body.site-light-page .knowledge-note>.section-label::before,
+html body.site-light-page .knowledge-note>.section-label::after,
+html body.site-light-page .services-closing>.section-label::before,
+html body.site-light-page .services-closing>.section-label::after,
+html body.site-light-page main.home>.home-contact-band>.section-label::before,
+html body.site-light-page main.home>.home-contact-band>.section-label::after{
   content:none!important;
   display:none!important;
 }
@@ -1215,16 +1220,16 @@ html body.light-pattern-page-bg main.home>.home-contact-band>.section-label::aft
 
 /* Kontakt-Abschlusskästen: kleine Titel exakt auf Kastenmitte wie Einordnung */
 @media(min-width:801px){
-  html body.light-pattern-page-bg .services-closing,
-  html body.light-pattern-page-bg main.home>.home-contact-band{
+  html body.site-light-page .services-closing,
+  html body.site-light-page main.home>.home-contact-band{
     position:relative!important;
   }
-  html body.light-pattern-page-bg .services-closing>.services-closing__inner,
-  html body.light-pattern-page-bg main.home>.home-contact-band>div{
+  html body.site-light-page .services-closing>.services-closing__inner,
+  html body.site-light-page main.home>.home-contact-band>div{
     grid-column:2!important;
   }
-  html body.light-pattern-page-bg .services-closing>.section-label,
-  html body.light-pattern-page-bg main.home>.home-contact-band>.section-label{
+  html body.site-light-page .services-closing>.section-label,
+  html body.site-light-page main.home>.home-contact-band>.section-label{
     position:absolute!important;
     top:50%!important;
     left:72px!important;
@@ -1235,6 +1240,6 @@ html body.light-pattern-page-bg main.home>.home-contact-band>.section-label::aft
 
 
 /* Unternehmen: Übertitel Zusammenarbeit wie Werte */
-html body.light-pattern-page-bg .expectation-editorial .section-label{
+html body.site-light-page .expectation-editorial .section-label{
   color:#868279!important;
 }

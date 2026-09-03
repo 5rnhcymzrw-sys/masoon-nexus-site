@@ -64,6 +64,7 @@
 
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
+  const contactReferenceLeft = () => Math.max(32, (window.innerWidth - 1227) / 2) + 503;
 
   /* Navigation auf allen Seiten an der rechten Inhaltslinie ausrichten */
   const alignNavigationWithContent = () => {
@@ -79,7 +80,7 @@
     );
     const targetLeft = reference
       ? reference.getBoundingClientRect().left
-      : Math.max(32, (window.innerWidth - 1227) / 2) + 503;
+      : contactReferenceLeft();
 
     nav.style.setProperty('position', 'absolute', 'important');
     nav.style.setProperty('margin', '0', 'important');
@@ -95,11 +96,10 @@
 
   const alignFooterWithNavigation = () => {
     const footerSimple = document.querySelector('.site-footer .footer-simple');
-    const firstNavLink = nav ? nav.querySelector('a') : null;
-    if (!footerSimple || !firstNavLink) return;
+    if (!footerSimple) return;
 
     const footerLeft = footerSimple.getBoundingClientRect().left;
-    const targetLeft = firstNavLink.getBoundingClientRect().left;
+    const targetLeft = window.innerWidth <= 800 ? footerLeft : contactReferenceLeft();
     const offset = Math.max(0, targetLeft - footerLeft);
 
     footerSimple.style.setProperty('justify-content', 'flex-start', 'important');

@@ -1663,3 +1663,8 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   letter-spacing:normal!important;
   color:#484a4f!important;
 }
+
+/* Dienstleistungen Hauptseite: Abstand Aktion zu Tätigkeiten */
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
+  margin-top:-9px!important;
+}

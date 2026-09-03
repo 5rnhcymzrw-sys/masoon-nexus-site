@@ -560,6 +560,7 @@ html body footer.site-footer .footer-simple *{
 /* Aktiver Navigationstitel: Fusszeilenverlauf ohne Unterlinie */
 html body .site-header .site-nav a.active,
 html body .site-header .site-nav a[aria-current="page"]{
+  font-weight:400!important;
   color:transparent!important;
   background:linear-gradient(110deg,#8d96a8 0%,#c7cbd3 34%,#e8e5df 62%,#f3e8d4 100%)!important;
   -webkit-background-clip:text!important;

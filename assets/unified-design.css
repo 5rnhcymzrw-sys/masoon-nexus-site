@@ -2182,9 +2182,9 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
 }
 
 
-/* Fachwissen Hauptseite: oberer Kachelabstand 6 Pixel grösser */
+/* Fachwissen Hauptseite: oberer Kachelabstand 58 Pixel */
 @media(min-width:801px){
   html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
-    padding-top:48px!important;
+    padding-top:58px!important;
   }
 }

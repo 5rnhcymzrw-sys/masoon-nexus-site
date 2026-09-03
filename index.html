@@ -64,10 +64,22 @@ html body .home>.home-paths .home-paths__heading>.section-label::after,
 html body .home>.home-contact-band>.section-label::after{content:none!important;display:none!important}
 
 @media(min-width:801px){
-  html body .site-header.home-page-header,
-  html body .site-header.home-page-header .header-inner{
+  html body .site-header.home-page-header{
     height:108px!important;
     min-height:108px!important;
+  }
+  html body .site-header.home-page-header .header-inner{
+    height:100px!important;
+    min-height:100px!important;
+  }
+  html body .site-header.home-page-header::after{
+    top:108px!important;
+  }
+  html body main.home{
+    padding-top:108px!important;
+  }
+  html body .home .home-hero{
+    min-height:calc(100svh - 108px)!important;
   }
   html body .site-header.home-page-header .header-inner .home-text-logo{
     position:absolute!important;

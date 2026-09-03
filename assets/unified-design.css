@@ -2134,7 +2134,7 @@ html body .site-footer.site-footer.site-footer.site-footer.site-footer.site-foot
     display:grid!important;
     width:100%!important;
     grid-template-columns:repeat(3,minmax(0,1fr))!important;
-    gap:16px!important;
+    gap:22px!important;
   }
 }
 @media(min-width:801px) and (max-width:1050px){
@@ -2145,7 +2145,7 @@ html body .site-footer.site-footer.site-footer.site-footer.site-footer.site-foot
     display:grid!important;
     width:100%!important;
     grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    gap:16px!important;
+    gap:22px!important;
   }
 }
 @media(min-width:801px){

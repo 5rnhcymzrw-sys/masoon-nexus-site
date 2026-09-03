@@ -2199,3 +2199,27 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
     font-size:22px!important;
   }
 }
+
+
+/* Fachwissen: gleiche Fliesstext-Startlinie; laengere Titel wachsen nach oben */
+@media(min-width:801px){
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
+    display:grid!important;
+    grid-template-rows:48.38px auto minmax(0,1fr) auto!important;
+    align-content:stretch!important;
+  }
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>h2{
+    grid-row:1!important;
+    align-self:end!important;
+    margin:0!important;
+  }
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>p:not(.article-meta){
+    grid-row:2!important;
+  }
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-action.article-action{
+    grid-row:4!important;
+    justify-self:start!important;
+    align-self:end!important;
+    margin-top:0!important;
+  }
+}

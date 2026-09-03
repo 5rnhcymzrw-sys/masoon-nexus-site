@@ -574,3 +574,25 @@ html body .site-header .site-nav a[aria-current="page"]::after{
   content:none!important;
   display:none!important;
 }
+
+
+/* Kopfzeile: Navigationsunterlinie in allen Zuständen deaktiviert */
+html body .site-header .site-nav a,
+html body .site-header .site-nav a:hover,
+html body .site-header .site-nav a:focus,
+html body .site-header .site-nav a:focus-visible,
+html body .site-header .site-nav a.active,
+html body .site-header .site-nav a[aria-current="page"]{
+  text-decoration:none!important;
+  border-bottom:0!important;
+  box-shadow:none!important;
+}
+html body .site-header .site-nav a::after,
+html body .site-header .site-nav a:hover::after,
+html body .site-header .site-nav a:focus::after,
+html body .site-header .site-nav a:focus-visible::after,
+html body .site-header .site-nav a.active::after,
+html body .site-header .site-nav a[aria-current="page"]::after{
+  content:none!important;
+  display:none!important;
+}

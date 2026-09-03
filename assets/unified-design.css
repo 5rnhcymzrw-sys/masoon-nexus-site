@@ -1617,3 +1617,110 @@ html body.site-light-page .values-legal-section .collaboration-legal-card__item 
 html body.site-light-page .collaboration-legal-section__label{
   transform:translateY(9px)!important;
 }
+
+
+/* Dienstleistungen Hauptseite: kleine Bereichstitel wie Unternehmen */
+html body.site-light-page .services-main .services-section>.section-heading>.section-label,
+html body.site-light-page .services-main>.services-closing>.section-label{
+  color:#868279!important;
+}
+
+/* Dienstleistungen Hauptseite: Kartentypografie wie Werte */
+html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
+  font-family:var(--font-cormorant),Georgia,serif!important;
+  font-size:22px!important;
+  font-weight:600!important;
+  line-height:1.08!important;
+  letter-spacing:-.01em!important;
+  text-transform:none!important;
+  color:#171715!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>p{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:14px!important;
+  font-weight:290!important;
+  line-height:1.65!important;
+  letter-spacing:normal!important;
+  color:#484a4f!important;
+}
+@media(min-width:801px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
+    font-size:44px!important;
+  }
+}
+@media(max-width:800px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
+    font-size:36px!important;
+  }
+}
+
+/* Dienstleistungen Hauptseite: Tätigkeiten wie Fliesstext */
+html body.site-light-page .services-main .services-section .services-grid>.service-card li{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:14px!important;
+  font-weight:290!important;
+  line-height:1.65!important;
+  letter-spacing:normal!important;
+  color:#484a4f!important;
+}
+
+/* Dienstleistungen Hauptseite: Abstand Aktion zu Tätigkeiten */
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
+  position:relative!important;
+  top:-9px!important;
+  margin-top:0!important;
+}
+
+/* Dienstleistungen Hauptseite: Tätigkeitsabstand 1 Pixel kleiner */
+html body.site-light-page .services-main .services-section .services-grid>.service-card li{
+  margin-bottom:4px!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card li:last-child{
+  margin-bottom:0!important;
+}
+
+/* Dienstleistungen Hauptseite: geschlossene Karten 10 Prozent kleiner */
+@media(min-width:1051px){
+  html body.site-light-page .services-main .services-section .services-grid{
+    align-items:start!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open]){
+    height:351px!important;
+    min-height:351px!important;
+    max-height:351px!important;
+    box-sizing:border-box!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
+    height:351px!important;
+    min-height:351px!important;
+    max-height:351px!important;
+    box-sizing:border-box!important;
+  }
+}
+
+/* Dienstleistungen Hauptseite: geöffnete Karten auf Höhe von Kasten 03 */
+@media(min-width:1051px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
+    height:625px!important;
+    min-height:625px!important;
+    max-height:625px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+}
+
+/* Dienstleistungen Hauptseite: alle Karten transparent */
+html body.site-light-page .services-main .services-section .services-grid>.service-card,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open],
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card>ul,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>ul,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}

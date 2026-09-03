@@ -1611,3 +1611,11 @@ html body.site-light-page .collaboration-legal-section:not(.company-legal-sectio
 html body.site-light-page .values-legal-section .collaboration-legal-card__item h3{
   font-size:22px!important;
 }
+
+
+/* Unternehmen: Rahmenlinien aller drei Inhaltskästen ausblenden */
+html body.site-light-page .company-legal-section .company-legal-card,
+html body.site-light-page .values-legal-section .collaboration-legal-card,
+html body.site-light-page .collaboration-legal-section:not(.company-legal-section):not(.values-legal-section) .collaboration-legal-card{
+  border:none!important;
+}

@@ -1676,44 +1676,20 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   letter-spacing:normal!important;
   color:#484a4f!important;
 }
-html body.site-light-page .services-main .services-section .services-grid>.service-card,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open],
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
-  height:auto!important;
-  min-height:0!important;
-  max-height:none!important;
-  overflow:visible!important;
-}
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>p{
-  min-height:0!important;
-}
 
 
-/* Dienstleistungen Hauptseite: Zahl/Titel ausrichten, CTA-Effekt entfernen und Karten nicht strecken */
-html body.site-light-page .services-main .services-section .services-grid{
-  align-items:start!important;
-}
-html body.site-light-page .services-main .services-section .services-grid>.service-card{
-  align-self:start!important;
-}
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
-  grid-template-rows:auto auto auto!important;
-}
+/* Dienstleistungen Hauptseite: Ausrichtung wie Startseite und kompakter CTA-Abstand */
 html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number,
 html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
-  align-self:baseline!important;
-  top:0!important;
+  align-self:center!important;
 }
-html body.site-light-page .services-main .services-section .services-grid>.service-card .details-action,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover .details-action,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:focus-within .details-action,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open] .details-action{
+html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
+  top:7px!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card .details-action{
+  margin-top:20px!important;
   transition:none!important;
   transform:none!important;
   animation:none!important;
   box-shadow:none!important;
-  text-decoration:none!important;
 }

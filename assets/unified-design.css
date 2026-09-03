@@ -1725,15 +1725,15 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   background-image:none!important;
 }
 
-/* Dienstleistungen Hauptseite: Karteninhalt ohne zusätzliche Verschiebung */
+/* Dienstleistungen Hauptseite: gesamter Karteninhalt 3 Pixel höher */
 html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>*{
-  transform:none!important;
+  transform:translateY(-3px)!important;
 }
 
-/* Dienstleistungen Hauptseite: Innenabstand auf allen vier Seiten 46 Pixel */
+/* Dienstleistungen Hauptseite: 46 Pixel seitlich, ursprüngliche vertikale Abstände */
 @media(min-width:1051px){
   html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open])>summary,
   html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
-    padding:46px!important;
+    padding:42px 46px 36px!important;
   }
 }

@@ -1786,22 +1786,36 @@ html body.site-light-page .services-main .services-closing__links{
 }
 
 
-/* Dienstleistungen: linker Innenraum des Kontaktkastens wie bei den Karten; Inhalt bleibt stehen */
+/* Dienstleistungen: stabile Öffnung und exakt definierte Abstände */
 @media(min-width:801px){
-  html body.site-light-page .services-main>.services-closing{
-    width:min(calc(100% - 32px),1259px)!important;
-    left:-16px!important;
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
+    height:670px!important;
+    min-height:670px!important;
+    max-height:670px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
   }
-  html body.site-light-page .services-main>.services-closing>.services-closing__inner{
-    margin-left:32px!important;
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
+    height:342px!important;
+    min-height:342px!important;
+    max-height:342px!important;
+    padding:32px!important;
+    box-sizing:border-box!important;
   }
 }
-@media(max-width:800px){
-  html body.site-light-page .services-main>.services-closing{
-    width:min(calc(100% - 40px),1251px)!important;
-    left:-12px!important;
-  }
-  html body.site-light-page .services-main>.services-closing>.services-closing__inner{
-    margin-left:24px!important;
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
+  padding-top:23px!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card li,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover li,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open] li{
+  margin-bottom:4px!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open] .details-action{
+  align-self:end!important;
+}
+@media(min-width:801px){
+  html body.site-light-page .services-main>.services-closing>.section-label{
+    left:32px!important;
   }
 }

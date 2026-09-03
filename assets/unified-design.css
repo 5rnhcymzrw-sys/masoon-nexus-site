@@ -2049,3 +2049,14 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>.artic
   padding-bottom:4px!important;
   transform:translateY(-3px)!important;
 }
+
+
+/* Fachwissen Hauptseite: Beitragstitel wie in der gewünschten Vorlage */
+html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
+  font-family:Georgia,'Times New Roman',serif!important;
+  font-size:24px!important;
+  font-weight:700!important;
+  line-height:1.1!important;
+  letter-spacing:-.02em!important;
+  -webkit-text-stroke:0!important;
+}

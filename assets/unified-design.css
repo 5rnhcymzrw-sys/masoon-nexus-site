@@ -2207,3 +2207,35 @@ html body.site-light-page main .knowledge-section .article-card .article-action:
   margin:0!important;
   transform:translateY(-50%)!important;
 }
+
+
+/* Endgültiger Vorrang: beide Aktionsbeschriftungen exakt gleich */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
+  display:inline-block!important;
+  position:relative!important;
+  height:auto!important;
+  min-height:0!important;
+  margin-top:auto!important;
+  margin-right:0!important;
+  margin-bottom:0!important;
+  margin-left:0!important;
+  padding:0!important;
+  border:0!important;
+  align-self:flex-start!important;
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-style:normal!important;
+  font-weight:500!important;
+  font-variant:normal!important;
+  font-stretch:normal!important;
+  line-height:1.4!important;
+  letter-spacing:.14em!important;
+  word-spacing:normal!important;
+  text-transform:uppercase!important;
+  text-decoration:none!important;
+  text-shadow:none!important;
+  -webkit-text-stroke:0!important;
+  color:#868279!important;
+  opacity:1!important;
+  transform:translateY(-3px)!important;
+}

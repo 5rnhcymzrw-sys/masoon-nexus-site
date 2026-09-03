@@ -1605,3 +1605,9 @@ html body.site-light-page .collaboration-legal-section:not(.company-legal-sectio
   letter-spacing:-.01em!important;
   text-transform:none!important;
 }
+
+
+/* Unternehmen: kleine Titel im Werte-Kasten auf 20 Pixel */
+html body.site-light-page .values-legal-section .collaboration-legal-card__item h3{
+  font-size:20px!important;
+}

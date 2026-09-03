@@ -1599,7 +1599,7 @@ html body.site-light-page .company-legal-card .home-company__copy{
 html body.site-light-page .values-legal-section .collaboration-legal-card__item h3,
 html body.site-light-page .collaboration-legal-section:not(.company-legal-section):not(.values-legal-section) .collaboration-legal-card__item h3{
   font-family:var(--font-cormorant),Georgia,serif!important;
-  font-size:24px!important;
+  font-size:22px!important;
   font-weight:600!important;
   line-height:1.08!important;
   letter-spacing:-.01em!important;

@@ -31,6 +31,11 @@
     .article-body ul{max-width:820px;margin:8px 0 34px;padding:0;list-style:none}
     .article-body li{position:relative;margin:0 0 4px;padding-left:23px}
     .article-body li::before{content:'';position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279}
+    .article-contact{width:91%;margin:96px auto 0;min-height:440px;border:1px solid #d7d5d1;display:grid;grid-template-columns:34% 66%;align-items:center;padding:70px 72px;box-sizing:border-box}
+    .article-contact .section-label{margin:0!important}
+    .article-contact__content h2{max-width:650px;margin:0!important;font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;font-size:50px!important;font-weight:400!important;line-height:1.05!important;letter-spacing:0!important;color:#171715!important;-webkit-text-stroke:.25px currentColor!important}
+    .article-contact__button{display:inline-flex;align-items:center;justify-content:space-between;min-width:220px;margin-top:56px;padding:15px 17px;border:1px solid #d7d5d1;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#868279;box-sizing:border-box}
+    .article-contact__button span{font-size:20px;font-weight:300;line-height:.7}
     .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#868279}
     .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-2px}
     @media(min-width:801px){.article-title{font-size:45px!important}}
@@ -41,6 +46,9 @@
       .article-lead{font-size:14px!important}
       .article-body{padding-top:54px}
       .article-body h2{margin-top:46px;font-size:22px!important;line-height:1.1!important}
+      .article-contact{width:91%;min-height:0;margin-top:72px;padding:62px 26px;grid-template-columns:1fr;gap:42px}
+      .article-contact__content h2{font-size:var(--title-size)!important}
+      .article-contact__button{margin-top:38px}
     }
   </style>
 </head>
@@ -94,6 +102,13 @@
       <p>Die strengeren Massnahmen gegen missbräuchliche Konkurse erhöhen den Druck auf saubere Unternehmensführung. Wer Buchhaltung, Steuern, Sozialversicherungen und Liquidität im Griff hat, reduziert das Risiko. Wer Pflichten verschiebt oder Gesellschaften nur noch verwaltet, statt Probleme aktiv zu lösen, setzt sich höheren rechtlichen und finanziellen Risiken aus.</p>
       <a class="article-back" href="../index.html"><span aria-hidden="true">‹</span>Zurück zu Fachwissen</a>
     </article>
+    <section class="article-contact" aria-labelledby="article-contact-title">
+      <p class="section-label">Kontakt</p>
+      <div class="article-contact__content">
+        <h2 id="article-contact-title">Verlässliche Treuhandlösungen für Ihr Unternehmen.</h2>
+        <a class="article-contact__button" href="../../kontakt/index.html">Kontakt aufnehmen <span aria-hidden="true">›</span></a>
+      </div>
+    </section>
   </main>
   <footer class="site-footer" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important" data-parallax-background="true">
     <div class="footer-main"><div class="scroll-reveal" style="--reveal-delay: 0ms;"><h2>Unternehmen</h2><address>MASOON TREUHAND<br/>Täschmattstrasse 19<br/>6015 Luzern</address></div><div class="scroll-reveal" style="--reveal-delay: 70ms;"><h2>Kontakt</h2><p><a href="mailto:info@masoontreuhand.ch">info@masoontreuhand.ch</a><br/><a href="tel:+41799663636">+41 79 966 36 36</a></p></div><div class="scroll-reveal" style="--reveal-delay: 140ms;"><h2>Öffnungszeiten</h2><p>Montag–Freitag<br/>08.00–12.00 Uhr<br/>13.00–17.00 Uhr</p></div></div>

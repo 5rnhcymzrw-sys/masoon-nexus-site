@@ -1747,3 +1747,8 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
     padding-right:42px!important;
   }
 }
+
+/* Dienstleistungen Hauptseite: Aufzählungsstriche mittig zur ersten Textzeile */
+html body.site-light-page .services-main .services-section .services-grid>.service-card li::before{
+  top:.825em!important;
+}

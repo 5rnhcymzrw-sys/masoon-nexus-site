@@ -1617,3 +1617,10 @@ html body.site-light-page .values-legal-section .collaboration-legal-card__item 
 html body.site-light-page .collaboration-legal-section__label{
   transform:translateY(9px)!important;
 }
+
+
+/* Dienstleistungen Hauptseite: kleine Bereichstitel wie Unternehmen */
+html body.site-light-page .services-main .services-section>.section-heading>.section-label,
+html body.site-light-page .services-main>.services-closing>.section-label{
+  color:#868279!important;
+}

@@ -1430,7 +1430,7 @@ html body.site-light-page .values-legal-section .collaboration-legal-card__prose
   padding:0!important;
   justify-self:stretch!important;
   align-self:baseline!important;
-  transform:translateY(-14px)!important;
+  transform:translate(-9px,-14px)!important;
 }
 html body.site-light-page .values-legal-section .collaboration-legal-card__item,
 html body.site-light-page .values-legal-section .collaboration-legal-card__item h3,

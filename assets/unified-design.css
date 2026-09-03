@@ -1230,3 +1230,9 @@ html body.light-pattern-page-bg main.home>.home-contact-band>.section-label::aft
     transform:translateY(-50%)!important;
   }
 }
+
+
+/* Unternehmen: Übertitel Zusammenarbeit wie Werte */
+html body.light-pattern-page-bg .expectation-editorial .section-label{
+  color:#868279!important;
+}

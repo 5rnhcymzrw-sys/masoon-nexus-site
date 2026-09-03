@@ -52,14 +52,14 @@
   if (logo && !logo.hasAttribute('data-preserve-logo')) {
     logo.removeAttribute('srcset');
     logo.removeAttribute('sizes');
-    logo.src = `${basePath}company-logo-transparent-3.png?v=20260902-1`;
+    logo.src = `${basePath}Logo white_textlogo_transparent_background 02.09.2026.png?v=20260902-1`;
   }
 
   const portrait = document.querySelector('.home-company__image-primary');
   if (portrait) {
     portrait.removeAttribute('srcset');
     portrait.removeAttribute('sizes');
-    portrait.src = `${basePath}portrait-unternehmen.png`;
+    portrait.src = `${basePath}Foto-unternehmen.png`;
   }
 
   const toggle = document.querySelector('.menu-toggle');

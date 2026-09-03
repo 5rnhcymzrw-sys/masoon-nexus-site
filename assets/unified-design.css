@@ -2199,3 +2199,34 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
     font-size:22px!important;
   }
 }
+
+
+/* Fachwissen: Daten in der Typografie der DL-Kartenzahlen 01–06 */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
+  position:relative!important;
+}
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-card-date{
+  position:absolute!important;
+  top:20px!important;
+  left:42px!important;
+  margin:0!important;
+  font-family:var(--font-cormorant),Georgia,serif!important;
+  font-size:44px!important;
+  font-weight:500!important;
+  font-style:normal!important;
+  line-height:.9!important;
+  letter-spacing:-.04em!important;
+  text-transform:none!important;
+  color:#9a948b!important;
+  opacity:1!important;
+}
+@media(max-width:800px){
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
+    padding-top:78px!important;
+  }
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-card-date{
+    top:20px!important;
+    left:26px!important;
+    font-size:36px!important;
+  }
+}

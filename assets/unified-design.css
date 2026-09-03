@@ -1805,15 +1805,15 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>.detai
   }
 }
 
-/* Fachwissen Einordnung: Titel- und Textblock exakt wie im grossen DL-Kasten */
+/* Fachwissen Einordnung: Fliesstext exakt wie auf der Unternehmens-Hauptseite */
 html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){
   margin:30px 0 0!important;
   font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14.5px!important;
-  font-weight:400!important;
+  font-size:14px!important;
+  font-weight:290!important;
   line-height:1.65!important;
   letter-spacing:normal!important;
-  color:#171715!important;
+  color:#484a4f!important;
 }
 
 /* Fachwissen Einordnung: Abmessungen 1:1 wie der grosse DL-Kasten */

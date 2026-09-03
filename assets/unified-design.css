@@ -1613,14 +1613,6 @@ html body.site-light-page .values-legal-section .collaboration-legal-card__item 
 }
 
 
-/* Unternehmen: Rahmenlinien aller drei Inhaltskästen ausblenden */
-html body.site-light-page .company-legal-section .company-legal-card,
-html body.site-light-page .values-legal-section .collaboration-legal-card,
-html body.site-light-page .collaboration-legal-section:not(.company-legal-section):not(.values-legal-section) .collaboration-legal-card{
-  border:none!important;
-}
-
-
 /* Unternehmen: alle drei kleinen Bereichstitel um 30 Prozent ihres 30-Pixel-Abstands nach unten */
 html body.site-light-page .collaboration-legal-section__label{
   transform:translateY(9px)!important;

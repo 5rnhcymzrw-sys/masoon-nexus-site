@@ -1281,13 +1281,6 @@ html body.site-light-page .collaboration-legal-section__label{
   display:block!important;
   position:relative!important;
   width:max-content!important;
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  line-height:1.4!important;
-  letter-spacing:.14em!important;
-  text-transform:uppercase!important;
-  color:#868279!important;
 }
 html body.site-light-page .collaboration-legal-section__label::before{
   content:''!important;
@@ -1753,18 +1746,6 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   top:.825em!important;
 }
 
-/* Fachwissen Hauptseite: Bereichstitel wie auf der Unternehmensseite */
-html body.site-light-page .knowledge-section>.section-heading>.section-label,
-html body.site-light-page .knowledge-section>.knowledge-note>.section-label{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  line-height:1.4!important;
-  letter-spacing:.14em!important;
-  text-transform:uppercase!important;
-  color:#868279!important;
-}
-
 /* Fachwissen Hauptseite: Titelabstand im Einordnungskasten wie bei Unternehmen */
 html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
   margin-bottom:0!important;
@@ -1838,18 +1819,6 @@ html body.site-light-page .knowledge-section>.knowledge-note{
   }
 }
 
-/* Abschlusskästen: kleine Titel exakt wie MASOON TREUHAND auf der Unternehmensseite */
-html body.site-light-page .services-main>.services-closing>.section-label,
-html body.site-light-page .knowledge-section>.knowledge-note>.section-label{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  line-height:1.4!important;
-  letter-spacing:.14em!important;
-  text-transform:uppercase!important;
-  color:#868279!important;
-}
-
 /* Einordnung: Titel und Fliesstext direkt an MASOON TREUHAND gekoppelt */
 html body.site-light-page .company-legal-card .home-company__copy h1,
 html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
@@ -1883,8 +1852,7 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-
   padding-top:0!important;
 }
 
-/* Alle kleinen Titel und Textaktionen: Typografie wie die Kopfzeilen-Navigation, Farbe Beige */
-html body main .section-label,
+/* Kleine Metadaten und Textaktionen: Typografie wie die Kopfzeilen-Navigation, Farbe Beige */
 html body main .article-meta,
 html body main .details-action,
 html body main .text-link,
@@ -1993,8 +1961,7 @@ html body main .legal-page li{
   color:#484a4f!important;
 }
 
-/* Fachwissen Hauptseite: Titel und Kacheln exakt wie auf der DL Hauptseite */
-html body.site-light-page .knowledge-section>.section-heading>.section-label,
+/* Fachwissen Hauptseite: Kacheln exakt wie auf der DL Hauptseite */
 html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-meta,
 html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{
   font-family:var(--font-inter),Arial,sans-serif!important;
@@ -2093,10 +2060,22 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
 }
 
 
-/* Alle kleinen Titel und Aktionen: exakt wie KONTAKT im grossen DL-Kasten */
+/* Bereichstitel: verbindliche Typografie von EINORDNUNG */
 html body main .section-label.section-label.section-label.section-label.section-label.section-label,
+html body main .collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-style:normal!important;
+  font-weight:500!important;
+  line-height:1.4!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+  color:#868279!important;
+  vertical-align:baseline!important;
+}
+
+/* Kleine Metadaten, Aktionen und Formularlabel unverändert */
 html body main .article-meta.article-meta.article-meta.article-meta.article-meta.article-meta,
-html body .collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label,
 html body main .contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label,
 html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid span,
 html body main .home-action-button.home-action-button.home-action-button.home-action-button.home-action-button.home-action-button,

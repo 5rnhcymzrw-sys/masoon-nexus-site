@@ -1387,5 +1387,5 @@ html body.site-light-page .collaboration-legal-card__prose{
   align-self:baseline!important;
 }
 html body.site-light-page .collaboration-legal-card__prose{
-  transform:none!important;
+  transform:translateY(-14px)!important;
 }

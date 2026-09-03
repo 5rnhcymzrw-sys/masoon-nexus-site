@@ -1784,3 +1784,24 @@ html body.site-light-page .services-main .services-closing__inner>p{
 html body.site-light-page .services-main .services-closing__links{
   margin-top:30px!important;
 }
+
+
+/* Dienstleistungen: linker Innenraum des Kontaktkastens wie bei den Karten; Inhalt bleibt stehen */
+@media(min-width:801px){
+  html body.site-light-page .services-main>.services-closing{
+    width:min(calc(100% - 32px),1259px)!important;
+    left:-16px!important;
+  }
+  html body.site-light-page .services-main>.services-closing>.services-closing__inner{
+    margin-left:32px!important;
+  }
+}
+@media(max-width:800px){
+  html body.site-light-page .services-main>.services-closing{
+    width:min(calc(100% - 40px),1251px)!important;
+    left:-12px!important;
+  }
+  html body.site-light-page .services-main>.services-closing>.services-closing__inner{
+    margin-left:24px!important;
+  }
+}

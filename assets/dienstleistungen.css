@@ -13,7 +13,7 @@ html body .services-main .services-section .services-grid>.service-card:nth-of-t
 .services-closing{width:min(100% - 64px,1320px);margin:0 auto;padding:126px 0}.services-closing__inner{max-width:760px}.services-closing__label{display:block!important;margin-bottom:30px!important;width:max-content!important}.services-closing__label::before{display:none!important;content:none!important}.services-closing__label::after{content:''!important;display:block!important;position:static!important;width:38px!important;height:1px!important;margin:12px 0 0!important;background:#9a948b!important;transform:none!important}.services-closing h2{margin:0 0 30px;font-family:var(--font-cormorant),Georgia,serif;font-size:clamp(34px,3vw,46px);font-weight:400;line-height:1.08;letter-spacing:-.02em;color:#171715}.services-closing p:not(.section-label){margin:0;font-family:var(--font-inter),Arial,sans-serif;font-size:14.5px;line-height:1.65;color:#171715}.services-closing__links{display:flex;gap:34px;align-items:center;margin-top:40px}.services-closing__links .text-link{font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#171715!important;text-decoration:none!important;border-bottom:0!important;padding-bottom:14px;box-shadow:none!important;transition:box-shadow .18s ease,color .18s ease!important}.services-closing__links .text-link:first-child:hover,.services-closing__links .text-link:first-child:focus-visible{color:#171715!important;box-shadow:inset 0 -8px 0 #19191b!important}.services-closing__links .text-link:nth-child(2):hover,.services-closing__links .text-link:nth-child(2):focus-visible{color:#171715!important;box-shadow:inset 0 -8px 0 #99989c!important}@media(max-width:800px){.services-closing{width:min(100% - 36px,1320px);padding:82px 0}.services-closing__links{flex-direction:column;align-items:flex-start;gap:18px}}
 
 /* Dienstleistungskacheln: leichter, transparenter und ruhiger */
-html body.light-pattern-page-bg .services-main .services-section .services-grid{
+html body.site-light-page .services-main .services-section .services-grid{
   gap:22px!important;
 }
 
@@ -27,8 +27,8 @@ html body .services-closing__links .text-link:focus-visible,
 html body .services-closing__links .text-link:active{
   box-shadow:none!important;
 }
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card,
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card:hover{
+html body.site-light-page .services-main .services-section .services-grid>.service-card,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover{
   min-height:360px!important;
   background:rgba(255,255,255,.72)!important;
   background-color:rgba(255,255,255,.72)!important;
@@ -36,41 +36,41 @@ html body.light-pattern-page-bg .services-main .services-section .services-grid>
   border:1px solid rgba(23,23,21,.12)!important;
   box-shadow:none!important;
 }
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card[open]{
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
   background:rgba(255,255,255,.84)!important;
   background-color:rgba(255,255,255,.84)!important;
 }
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card>summary,
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card:hover>summary,
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card[open]>summary,
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card>ul,
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card:hover>ul,
-html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card[open]>ul{
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card>ul,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>ul,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
   background:transparent!important;
   background-color:transparent!important;
   background-image:none!important;
 }
 @media(min-width:801px){
-  html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card>summary{
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
     min-height:360px!important;
     padding:32px!important;
   }
-  html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card>ul{
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>ul{
     padding:0 32px 32px!important;
   }
 }
 @media(max-width:800px){
-  html body.light-pattern-page-bg .services-main .services-section .services-grid{
+  html body.site-light-page .services-main .services-section .services-grid{
     gap:16px!important;
   }
-  html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card{
+  html body.site-light-page .services-main .services-section .services-grid>.service-card{
     min-height:0!important;
   }
-  html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card>summary{
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
     min-height:320px!important;
     padding:28px 24px!important;
   }
-  html body.light-pattern-page-bg .services-main .services-section .services-grid>.service-card>ul{
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>ul{
     padding:0 24px 28px!important;
   }
 }

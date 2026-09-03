@@ -1820,37 +1820,3 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   }
 }
 
-
-/* Dienstleistungen: feste Positionen beim Öffnen */
-html body.site-light-page .services-main .services-section .services-grid>.service-card,
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
-  cursor:pointer!important;
-}
-html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
-  top:-2px!important;
-}
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
-  position:relative!important;
-}
-@media(min-width:801px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card .details-action{
-    position:absolute!important;
-    left:32px!important;
-    bottom:32px!important;
-    margin:0!important;
-  }
-  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
-    margin-top:-32px!important;
-  }
-}
-@media(max-width:800px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card .details-action{
-    position:absolute!important;
-    left:24px!important;
-    bottom:28px!important;
-    margin:0!important;
-  }
-  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
-    margin-top:-28px!important;
-  }
-}

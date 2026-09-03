@@ -158,6 +158,32 @@
     }
   });
 
+  /* Fachwissen: Beim Zurück-Link zur vorherigen Position zurückkehren. */
+  const fachwissenPath = /\/fachwissen\/(?:index\.html)?$/;
+  if (fachwissenPath.test(location.pathname)) {
+    const pending = sessionStorage.getItem('fachwissenReturnPending');
+    const savedY = Number(sessionStorage.getItem('fachwissenScrollY'));
+    if (pending === '1' && Number.isFinite(savedY)) {
+      sessionStorage.removeItem('fachwissenReturnPending');
+      requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, savedY)));
+    }
+    document.querySelectorAll('.knowledge-section .article-card a').forEach(link => {
+      link.addEventListener('click', () => {
+        sessionStorage.setItem('fachwissenScrollY', String(window.scrollY));
+      });
+    });
+  }
+
+  document.querySelectorAll('.article-back').forEach(link => {
+    link.addEventListener('click', event => {
+      const savedY = Number(sessionStorage.getItem('fachwissenScrollY'));
+      if (!Number.isFinite(savedY)) return;
+      event.preventDefault();
+      sessionStorage.setItem('fachwissenReturnPending', '1');
+      location.href = link.href;
+    });
+  });
+
   const updateScrollEffects = () => {
     document.querySelectorAll('[data-parallax]').forEach(el => {
       const factor = Number(el.dataset.parallax || 20);

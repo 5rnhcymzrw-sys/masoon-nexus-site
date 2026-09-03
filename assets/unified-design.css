@@ -1518,3 +1518,17 @@ html body.site-light-page .company-legal-card .home-company__copy .prose p:last-
 html body.site-light-page .company-legal-card .home-company__copy h1{
   margin-bottom:21px!important;
 }
+
+
+/* Unternehmen: Porträt exakt zur Mitte des gesamten Textblocks */
+html body.site-light-page .company-legal-section,
+html body.site-light-page .company-legal-section .company-legal-card{
+  overflow:visible!important;
+}
+html body.site-light-page .company-legal-section .company-legal-card{
+  align-items:center!important;
+}
+html body.site-light-page .company-legal-card .home-company__image,
+html body.site-light-page .company-legal-card .home-company__copy{
+  align-self:center!important;
+}

@@ -1724,3 +1724,12 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   background-color:transparent!important;
   background-image:none!important;
 }
+
+/* Dienstleistungen Hauptseite: Zahl und Titel gemeinsam 3 Pixel höher */
+html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
+  top:0!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
+  position:relative!important;
+  top:-3px!important;
+}

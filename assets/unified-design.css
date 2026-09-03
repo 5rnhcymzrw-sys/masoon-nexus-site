@@ -1251,3 +1251,10 @@ html body.site-light-page main.home>.home-contact-band>.section-label::after{
 html body.site-light-page .expectation-editorial .section-label{
   color:#868279!important;
 }
+
+
+/* Zusammenarbeit: Fliesstext wie auf den Rechteseiten */
+html body.site-light-page .expectation-editorial .expectation-editorial__item p{
+  font-weight:290!important;
+  color:#484a4f!important;
+}

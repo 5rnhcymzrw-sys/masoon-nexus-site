@@ -1837,3 +1837,15 @@ html body.site-light-page .knowledge-section>.knowledge-note{
     gap:52px!important;
   }
 }
+
+/* Abschlusskästen: kleine Titel exakt wie MASOON TREUHAND auf der Unternehmensseite */
+html body.site-light-page .services-main>.services-closing>.section-label,
+html body.site-light-page .knowledge-section>.knowledge-note>.section-label{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1.4!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+  color:#868279!important;
+}

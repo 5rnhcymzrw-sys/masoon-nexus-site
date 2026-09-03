@@ -1820,3 +1820,61 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   }
 }
 
+
+
+/* Dienstleistungen: stabiles Öffnen ohne Verschiebung */
+html body.site-light-page .services-main .services-section .services-grid>.service-card,
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card .details-action{
+  cursor:pointer!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
+  top:7px!important;
+}
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
+  position:relative!important;
+  box-sizing:border-box!important;
+}
+@media(min-width:801px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open]),
+  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open])>summary,
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
+    height:342px!important;
+    min-height:342px!important;
+    max-height:342px!important;
+    padding:32px!important;
+    box-sizing:border-box!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
+    height:670px!important;
+    min-height:670px!important;
+    max-height:670px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card .details-action{
+    position:absolute!important;
+    left:32px!important;
+    bottom:32px!important;
+    margin:0!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
+    margin-top:0!important;
+    padding-top:23px!important;
+  }
+}
+@media(max-width:800px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
+    position:relative!important;
+    padding-bottom:72px!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card .details-action{
+    position:absolute!important;
+    left:24px!important;
+    bottom:28px!important;
+    margin:0!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
+    margin-top:0!important;
+  }
+}

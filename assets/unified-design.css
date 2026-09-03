@@ -1993,3 +1993,50 @@ html body main .legal-page li{
   letter-spacing:normal!important;
   color:#484a4f!important;
 }
+
+/* Fachwissen Hauptseite: Titel und Kacheln exakt wie auf der DL Hauptseite */
+html body.site-light-page .knowledge-section>.section-heading>.section-label,
+html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-meta,
+html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1.65!important;
+  letter-spacing:.1em!important;
+  text-transform:uppercase!important;
+  color:#868279!important;
+}
+html body.site-light-page .knowledge-section>.section-heading>h1{
+  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-weight:400!important;
+  line-height:1.05!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+  font-style:normal!important;
+  -webkit-text-stroke:.25px currentColor!important;
+}
+html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
+  font-family:var(--font-cormorant),Georgia,serif!important;
+  font-size:22px!important;
+  font-weight:600!important;
+  line-height:1.08!important;
+  letter-spacing:-.01em!important;
+  text-transform:none!important;
+  color:#171715!important;
+  -webkit-text-stroke:0!important;
+}
+@media(min-width:801px){
+  html body.site-light-page .knowledge-section>.section-heading>h1{
+    font-size:50px!important;
+  }
+}
+@media(min-width:1051px){
+  html body.site-light-page .knowledge-section .articles-grid>.article-card{
+    box-sizing:border-box!important;
+    width:100%!important;
+    height:351px!important;
+    min-height:351px!important;
+    max-height:351px!important;
+    padding:42px 42px 36px!important;
+  }
+}

@@ -1169,16 +1169,20 @@ html body footer.site-footer .footer-simple{
 }
 
 
-/* Kleine Übertitel: dekorative Linien und Punkte entfernen */
-html body .section-label.section-label.section-label.section-label.section-label::before,
-html body .section-label.section-label.section-label.section-label.section-label::after,
-html body .section-label.section-label.section-label.section-label.section-label::marker{
+/* Kleine Übertitel: verbindlich ohne dekorative Linien und Punkte */
+html body :is(#title-decoration-disabled,.section-label)::before,
+html body :is(#title-decoration-disabled,.section-label)::after,
+html body :is(#title-decoration-disabled,.section-label)::marker,
+html body :is(#title-decoration-disabled,.contact-split__form-label)::before,
+html body :is(#title-decoration-disabled,.contact-split__form-label)::after,
+html body :is(#title-decoration-disabled,.contact-split__form-label)::marker{
   content:none!important;
   display:none!important;
   width:0!important;
   height:0!important;
   margin:0!important;
   background:none!important;
+  border:0!important;
 }
 
 

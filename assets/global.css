@@ -221,10 +221,10 @@ html body .home .home-hero{margin-top:0!important;min-height:calc(100svh - 100px
 /* Einheitliche schlichte Fusszeile wie die Kopfzeile */
 html body .site-footer{
   position:relative!important;
-  height:108px!important;
-  min-height:108px!important;
+  height:80px!important;
+  min-height:80px!important;
   margin:0!important;
-  padding:8px 0 0!important;
+  padding:0!important;
   color:#b8b8b8!important;
   background:#000!important;
   background-color:#000!important;
@@ -246,8 +246,8 @@ html body .site-footer .footer-simple{
   position:relative!important;
   z-index:2!important;
   width:min(100% - 64px,1320px)!important;
-  height:100px!important;
-  min-height:100px!important;
+  height:80px!important;
+  min-height:80px!important;
   margin:0 auto!important;
   display:flex!important;
   align-items:center!important;
@@ -473,13 +473,13 @@ html body main.home{
   padding-top:108px!important;
 }
 html body .site-footer{
-  height:108px!important;
-  min-height:108px!important;
+  height:80px!important;
+  min-height:80px!important;
   padding:0!important;
 }
 html body .site-footer .footer-simple{
-  height:108px!important;
-  min-height:108px!important;
+  height:80px!important;
+  min-height:80px!important;
   padding-top:0!important;
   padding-bottom:0!important;
   box-sizing:border-box!important;
@@ -530,20 +530,6 @@ html body .site-footer .footer-simple{
     max-height:none!important;
     transform:translateY(11px)!important;
   }
-}
-
-
-/* Fusszeile: sichtbarer schwarzer Balken 80px */
-html body footer.site-footer{
-  height:80px!important;
-  min-height:80px!important;
-}
-html body footer.site-footer .footer-simple{
-  height:80px!important;
-  min-height:80px!important;
-  padding-top:0!important;
-  padding-bottom:0!important;
-  align-items:center!important;
 }
 
 

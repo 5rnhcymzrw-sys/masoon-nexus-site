@@ -34,8 +34,8 @@
   height: 390px !important;
   opacity: .55 !important;
   background:
-    linear-gradient(61deg, transparent 49.75%, rgba(255,255,255,.08) 49.9%, rgba(255,255,255,.08) 50.1%, transparent 50.25%),
-    linear-gradient(119deg, transparent 49.7%, rgba(255,255,255,.13) 49.85%, rgba(255,255,255,.13) 50.15%, transparent 50.3%) !important;
+    linear-gradient(61deg, transparent 49.75%, rgba(23,23,21,.05) 49.9%, rgba(23,23,21,.05) 50.1%, transparent 50.25%),
+    linear-gradient(119deg, transparent 49.7%, rgba(23,23,21,.08) 49.85%, rgba(23,23,21,.08) 50.15%, transparent 50.3%) !important;
 }
 
 .contact-split::after {
@@ -44,8 +44,8 @@
   width: 120px !important;
   height: 185px !important;
   opacity: .5 !important;
-  border-left: 6px solid rgba(255,255,255,.09) !important;
-  border-right: 5px solid rgba(255,255,255,.09) !important;
+  border-left: 6px solid rgba(23,23,21,.06) !important;
+  border-right: 5px solid rgba(23,23,21,.06) !important;
   transform: skewX(-29deg) rotate(-1deg) !important;
 }
 
@@ -262,9 +262,9 @@
   padding: 0 18px !important;
   border: 0 !important;
   border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: 0 12px 20px rgba(0,0,0,.16) !important;
-  color: #fff !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  color: #171715 !important;
   font-family: var(--font-inter) !important;
   font-size: 11px !important;
   font-weight: 500 !important;

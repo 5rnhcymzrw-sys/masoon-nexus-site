@@ -1619,3 +1619,11 @@ html body.site-light-page .values-legal-section .collaboration-legal-card,
 html body.site-light-page .collaboration-legal-section:not(.company-legal-section):not(.values-legal-section) .collaboration-legal-card{
   border:none!important;
 }
+
+
+/* Unternehmen: kleine Werte- und Zusammenarbeitstitel optisch schwarz wie die grossen Titel */
+html body.site-light-page .values-legal-section .collaboration-legal-card__item h3,
+html body.site-light-page .collaboration-legal-section:not(.company-legal-section):not(.values-legal-section) .collaboration-legal-card__item h3{
+  color:#171715!important;
+  -webkit-text-stroke:.25px currentColor!important;
+}

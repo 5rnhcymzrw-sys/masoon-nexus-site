@@ -2,7 +2,7 @@
 @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2') format('woff2')}
 @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 700;font-display:swap;src:url('_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2') format('woff2')}
 :root{--font-inter:'Inter',Arial,sans-serif;--font-cormorant:'Cormorant Garamond',Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:15px;--label-size:11px;--content-width:1320px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2))}
-.article-title{font-family:Georgia,'Times New Roman',serif!important;font-weight:700!important;line-height:1.05!important;letter-spacing:0!important;text-transform:none!important;font-style:normal!important;font-stretch:100%!important;font-variant:normal!important;font-synthesis:none!important;text-shadow:none!important;-webkit-text-stroke:.25px currentColor!important}
+.article-title{font-family:Georgia,'Times New Roman',serif!important;font-weight:700!important;line-height:1.05!important;letter-spacing:0!important;text-transform:none!important;font-style:normal!important;font-stretch:100%!important;font-variant:normal!important;font-synthesis:none!important;text-shadow:none!important;-webkit-text-stroke:0!important}
 html,
 body{max-width:100%;overflow-x:hidden}
 body{font-family:var(--font-inter)!important;font-size:var(--body-size)!important;line-height:1.65!important}

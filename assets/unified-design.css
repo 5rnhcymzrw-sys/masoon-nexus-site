@@ -2283,3 +2283,10 @@ html body .scroll-reveal:not(.article-card){
   transition:none!important;
   will-change:auto!important;
 }
+
+/* Unternehmen: Abschlussabstand wie bei Fachwissen/Einordnung */
+@media(min-width:801px){
+  html body.site-light-page main.page-main .company-collaboration-section{
+    padding-bottom:126px!important;
+  }
+}

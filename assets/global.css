@@ -532,6 +532,27 @@ html body .site-footer .footer-simple{
   }
 }
 
+/* Logo und sichtbare Inhaltsbilder ohne initiales Einblenden */
+html body header.site-header .home-text-logo,
+html body header.site-header .home-text-logo .home-logo-icon,
+html body header.site-header .home-text-logo .home-logo-text,
+html body .company-legal-card .home-company__image,
+html body .company-legal-card .home-company__image::before,
+html body .company-legal-card .home-company__image-primary,
+html body .company-legal-card .home-company__caption{
+  visibility:visible!important;
+  animation:none!important;
+  transition:none!important;
+}
+html body header.site-header .home-text-logo,
+html body header.site-header .home-text-logo .home-logo-text,
+html body .company-legal-card .home-company__image,
+html body .company-legal-card .home-company__image::before,
+html body .company-legal-card .home-company__image-primary,
+html body .company-legal-card .home-company__caption{
+  opacity:1!important;
+}
+
 
 /* Kleine Übertitel: verbindlich ohne dekorative Linien und Punkte */
 html body :is(#title-decoration-disabled,.section-label)::before,

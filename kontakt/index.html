@@ -179,6 +179,23 @@ html body.site-light-page main .contact-split__form button[type="submit"]:active
     height:590px!important;
   }
 }
+
+@media(min-width:561px){
+  html body.site-light-page main .contact-split__form{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    column-gap:32px!important;
+    align-content:start!important;
+  }
+  html body.site-light-page main .contact-split__form .contact-split__message,
+  html body.site-light-page main .contact-split__form button[type="submit"],
+  html body.site-light-page main .contact-split__form .form-status{
+    grid-column:1 / -1!important;
+  }
+  html body.site-light-page main .contact-split__form button[type="submit"]{
+    justify-self:start!important;
+  }
+}
 </style></head>
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">
   <header class="site-header home-page-header" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important">

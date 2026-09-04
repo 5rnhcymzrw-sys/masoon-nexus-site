@@ -776,7 +776,7 @@ html body .home-contact-band h2,
 html body .contact-split__info h1,
 html body .services-closing h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
-  font-weight:700!important;
+  font-weight:400!important;
   -webkit-text-stroke:0!important;
 }
 
@@ -814,7 +814,7 @@ html body .services-closing h2{
 /* Werte Bereich: grosser Titel ausdrücklich angleichen */
 html body .home-values .section-heading h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
-  font-weight:700!important;
+  font-weight:400!important;
   -webkit-text-stroke:0!important;
 }
 @media(min-width:801px){
@@ -831,7 +831,7 @@ html body .home-paths__heading h2,
 html body .services-section>.section-heading h1,
 html body .knowledge-section>.section-heading h1{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
-  font-weight:700!important;
+  font-weight:400!important;
   -webkit-text-stroke:0!important;
 }
 @media(min-width:801px){
@@ -1557,7 +1557,7 @@ html body.site-light-page .company-legal-card .home-company__copy h1,
 html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-size:var(--title-size)!important;
-  font-weight:700!important;
+  font-weight:400!important;
   line-height:1.05!important;
   letter-spacing:0!important;
   color:#171715!important;
@@ -1607,7 +1607,7 @@ html body main .contact-split__info h1,
 html body main .services-closing h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-size:var(--title-size)!important;
-  font-weight:700!important;
+  font-weight:400!important;
   line-height:1.05!important;
   letter-spacing:0!important;
   text-transform:none!important;
@@ -1676,7 +1676,7 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>.detai
 }
 html body.site-light-page .knowledge-section>.section-heading>h1{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
-  font-weight:700!important;
+  font-weight:400!important;
   line-height:1.05!important;
   letter-spacing:0!important;
   text-transform:none!important;

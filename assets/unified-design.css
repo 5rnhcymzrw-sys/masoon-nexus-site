@@ -6,6 +6,13 @@
   font-display:swap;
   src:url('https://fonts.gstatic.com/s/ptserif/v19/EJRSQgYoZZY2vCFuvAnt65qV.ttf') format('truetype');
 }
+@font-face{
+  font-family:'Bitter';
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+  src:url('https://fonts.gstatic.com/s/bitter/v42/raxhHiqOu8IVPmnRc6SY1KXhnF_Y8SjYCL8.ttf') format('truetype');
+}
 :root{
   --mt-black:#0b0b0b;
   --mt-ink:#171715;
@@ -943,9 +950,9 @@ html body .contact-split__form-label::after{
 
 /* Startseite Dienstleistungen: sechs Kacheltitel wie Haupttitel */
 html body .home>.home-values .home-values__item h3{
-  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-family:'Bitter',Georgia,serif!important;
   font-size:20px!important;
-  font-weight:700!important;
+  font-weight:600!important;
   -webkit-text-stroke:0!important;
 }
 
@@ -966,18 +973,18 @@ Dienstleistungen und Fachwissen in PT Serif */
 html body .page-main>.home-values .home-values__item h3,
 html body .expectation-editorial .expectation-editorial__item h3,
 html body .services-main .services-section .service-card h2{
-  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-family:'Bitter',Georgia,serif!important;
   font-size:20px!important;
-  font-weight:700!important;
+  font-weight:600!important;
   -webkit-text-stroke:0!important;
 }
 
 
 /* Startseite Fachwissen: Kacheltitel ebenfalls in PT Serif 20 Pixel */
 html body .home>.home-paths .home-paths__grid strong{
-  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-family:'Bitter',Georgia,serif!important;
   font-size:20px!important;
-  font-weight:700!important;
+  font-weight:600!important;
   -webkit-text-stroke:0!important;
 }
 

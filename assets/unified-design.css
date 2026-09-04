@@ -784,7 +784,7 @@ html body .contact-split__info h1,
 html body .services-closing h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-weight:400!important;
-  -webkit-text-stroke:0!important;
+  -webkit-text-stroke:.25px currentColor!important;
 }
 
 
@@ -822,7 +822,7 @@ html body .services-closing h2{
 html body .home-values .section-heading h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-weight:400!important;
-  -webkit-text-stroke:0!important;
+  -webkit-text-stroke:.25px currentColor!important;
 }
 @media(min-width:801px){
   html body .home-values .section-heading h2{
@@ -839,7 +839,7 @@ html body .services-section>.section-heading h1,
 html body .knowledge-section>.section-heading h1{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-weight:400!important;
-  -webkit-text-stroke:0!important;
+  -webkit-text-stroke:.25px currentColor!important;
 }
 @media(min-width:801px){
   html body .home-values .section-heading h2,
@@ -1568,7 +1568,7 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
   line-height:1.05!important;
   letter-spacing:0!important;
   color:#171715!important;
-  -webkit-text-stroke:0!important;
+  -webkit-text-stroke:.25px currentColor!important;
   margin-bottom:0!important;
   padding-bottom:0!important;
 }
@@ -1619,7 +1619,7 @@ html body main .services-closing h2{
   letter-spacing:0!important;
   text-transform:none!important;
   font-style:normal!important;
-  -webkit-text-stroke:0!important;
+  -webkit-text-stroke:.25px currentColor!important;
 }
 @media(min-width:801px){
   html body main .home-hero h1,
@@ -1688,7 +1688,7 @@ html body.site-light-page .knowledge-section>.section-heading>h1{
   letter-spacing:0!important;
   text-transform:none!important;
   font-style:normal!important;
-  -webkit-text-stroke:0!important;
+  -webkit-text-stroke:.25px currentColor!important;
 }
 html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
   font-family:var(--font-cormorant),Georgia,serif!important;

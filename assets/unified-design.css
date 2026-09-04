@@ -689,19 +689,10 @@ html body .expectation-editorial .expectation-editorial__item p::after{
 }
 
 
-/* Fachwissen Test: erster Beitragstitel in kräftiger Georgia */
-html body .knowledge-section .articles-grid>.article-card:first-child h2{
-  font-family:Georgia,'Times New Roman',serif!important;
-  font-weight:700!important;
-}
-
-
-/* Fachwissen: alle Beitragstitel redaktionell in Georgia mit Linie und Fliesstext */
+/* Fachwissen: einheitliche Titellinie und Fliesstext */
 html body .knowledge-section .articles-grid>.article-card h2{
   min-height:0!important;
   margin:0 0 11px!important;
-  font-family:Georgia,'Times New Roman',serif!important;
-  font-weight:700!important;
 }
 html body .knowledge-section .articles-grid>.article-card h2::after{
   content:''!important;
@@ -1021,8 +1012,7 @@ html body .home>.home-values .home-values__item h3{
 /* Kacheltitel bei Unternehmen, Zusammenarbeit, Dienstleistungen und Fachwissen in PT Serif */
 html body .page-main>.home-values .home-values__item h3,
 html body .expectation-editorial .expectation-editorial__item h3,
-html body .services-main .services-section .service-card h2,
-html body .knowledge-section .articles-grid>.article-card h2{
+html body .services-main .services-section .service-card h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-size:20px!important;
   font-weight:400!important;
@@ -1039,15 +1029,6 @@ html body .home>.home-paths .home-paths__grid strong{
 }
 
 
-/* Fachwissen Hauptseite: ursprüngliche Beitragstitel wiederherstellen */
-html body .knowledge-section .articles-grid>.article-card h2{
-  font-family:Georgia,'Times New Roman',serif!important;
-  font-size:24px!important;
-  font-weight:700!important;
-  -webkit-text-stroke:0!important;
-}
-
-
 /* Kleine Titel: neutraler Buchstabenabstand für bessere Lesbarkeit */
 html body .home>.home-values .home-values__item h3,
 html body .home>.home-paths .home-paths__grid strong,
@@ -1057,12 +1038,6 @@ html body .services-main .services-section .service-card h2,
 html body .service-principles .service-principles__items h3{
   letter-spacing:0!important;
 }
-
-/* Fachwissen Hauptseite: ursprünglichen Buchstabenabstand beibehalten */
-html body .knowledge-section .articles-grid>.article-card h2{
-  letter-spacing:-.02em!important;
-}
-
 
 /* Kleine Titel: Kontur entfernen */
 html body .home>.home-values .home-values__item h3,
@@ -1118,12 +1093,6 @@ html body .knowledge-section .article-card h2,
 html body .legal-page .prose h2,
 html body .article-body h2{
   line-height:1.12!important;
-}
-
-
-/* Fachwissen Hauptseite: ursprünglicher Zeilenabstand 1.1 */
-html body .knowledge-section .articles-grid>.article-card h2{
-  line-height:1.1!important;
 }
 
 
@@ -1939,10 +1908,10 @@ html body.site-light-page .knowledge-section>.section-heading>h1{
 }
 html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
   font-family:var(--font-cormorant),Georgia,serif!important;
-  font-size:22px!important;
+  font-size:24px!important;
   font-weight:600!important;
-  line-height:1.08!important;
-  letter-spacing:-.01em!important;
+  line-height:1.12!important;
+  letter-spacing:0!important;
   text-transform:none!important;
   color:#171715!important;
   -webkit-text-stroke:0!important;
@@ -1970,17 +1939,6 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>.artic
   margin-top:24px!important;
   padding-bottom:4px!important;
   transform:translateY(-3px)!important;
-}
-
-
-/* Fachwissen Hauptseite: Beitragstitel wie in der gewünschten Vorlage */
-html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
-  font-family:Georgia,'Times New Roman',serif!important;
-  font-size:24px!important;
-  font-weight:700!important;
-  line-height:1.1!important;
-  letter-spacing:-.02em!important;
-  -webkit-text-stroke:0!important;
 }
 
 
@@ -2194,9 +2152,6 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
 @media(min-width:801px){
   html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
     padding-top:88px!important;
-  }
-  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>h2{
-    font-size:22px!important;
   }
 }
 

@@ -607,3 +607,23 @@ html body .site-header .site-nav a:focus-visible{
   -webkit-background-clip:text!important;
   background-clip:text!important;
 }
+
+
+/* Einheitliche ruhige Darstellung von Logo und Bildern auf allen Seiten */
+html body header.site-header .brand,
+html body header.site-header .brand img,
+html body .home-hero,
+html body .home-company__image,
+html body .home-company__image::before,
+html body .home-company__image::after,
+html body .home-company__image-primary,
+html body .home-company__caption,
+html body .contact-image,
+html body .contact-image::before,
+html body .contact-image::after,
+html body .contact-image__primary{
+  opacity:1!important;
+  visibility:visible!important;
+  animation:none!important;
+  transition:none!important;
+}

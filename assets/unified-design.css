@@ -10,7 +10,6 @@
 
 /* Kopf und Fusszeile */
 .site-header,
-.site-header.site-header--overlay,
 .site-footer{
   background:var(--mt-black)!important;
   background-color:var(--mt-black)!important;
@@ -85,8 +84,7 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
 }
 
 /* Einheitliche dunkle Inhaltsbereiche */
-body.site-light-page .expectation-editorial,
-body.site-light-page .faq-editorial{
+body.site-light-page .expectation-editorial{
   color:#fff!important;
   background:var(--mt-black)!important;
   background-color:var(--mt-black)!important;
@@ -95,10 +93,7 @@ body.site-light-page .faq-editorial{
 body.site-light-page .expectation-editorial h2,
 body.site-light-page .expectation-editorial h3,
 body.site-light-page .expectation-editorial p,
-body.site-light-page .expectation-editorial .section-label,
-body.site-light-page .faq-editorial h2,
-body.site-light-page .faq-editorial p,
-body.site-light-page .faq-editorial .section-label{
+body.site-light-page .expectation-editorial .section-label{
   color:#fff!important;
 }
 body.site-light-page .expectation-editorial h3::after{
@@ -144,14 +139,15 @@ body.site-light-page .home-architecture-banner{
 
 @media(max-width:800px){
   body.site-light-page .home-values__items,
-  body.site-light-page .home-paths__grid,
-  body.site-light-page .articles-grid,
-  body.site-light-page .services-grid{
+body.site-light-page .home-paths__grid,
+body.site-light-page .articles-grid,
+body.site-light-page .services-grid{
     gap:16px!important;
   }
 }
 
-/* Kacheltexte auf Startseite und Unternehmen vertikal mittig, linksbündig */
+/* Kacheltexte auf Startseite und Unternehmen vertikal mittig,
+linksbündig */
 html body.site-light-page .home-values__item{
   justify-content:center!important;
   align-content:center!important;
@@ -216,12 +212,12 @@ html body .services-section .service-card h2{
 }
 @media(max-width:800px){
   html body .home>.home-values .home-values__item,
-  html body .services-section .service-card summary{
+html body .services-section .service-card summary{
     grid-template-columns:56px minmax(0,1fr)!important;
     column-gap:18px!important;
   }
   html body .home>.home-values .home-values__item .service-number,
-  html body .services-section .service-card .card-number{
+html body .services-section .service-card .card-number{
     font-size:38px!important;
     line-height:.9!important;
     letter-spacing:-.04em!important;
@@ -257,8 +253,6 @@ html body .services-section .service-card h2{
   }
 }
 
-/* Textlinks: feine Linie wie in der Kopfzeile */
-html body .text-link,
 html body .home-values__all-services{
   position:relative!important;
   display:inline-block!important;
@@ -269,12 +263,10 @@ html body .home-values__all-services{
   box-shadow:none!important;
   text-decoration:none!important;
 }
-html body .text-link::before,
 html body .home-values__all-services::before{
   content:none!important;
   display:none!important;
 }
-html body .text-link::after,
 html body .home-values__all-services::after{
   content:''!important;
   display:block!important;
@@ -291,8 +283,6 @@ html body .home-values__all-services::after{
   transform-origin:left center!important;
   transition:transform .2s ease!important;
 }
-html body .text-link:hover,
-html body .text-link:focus-visible,
 html body .home-values__all-services:hover,
 html body .home-values__all-services:focus-visible{
   background:transparent!important;
@@ -300,19 +290,14 @@ html body .home-values__all-services:focus-visible{
   color:inherit!important;
   box-shadow:none!important;
 }
-html body .text-link:hover::after,
-html body .text-link:focus-visible::after,
 html body .home-values__all-services:hover::after,
 html body .home-values__all-services:focus-visible::after{
   transform:scaleX(1)!important;
 }
-html body .text-link span,
 html body .home-values__all-services span{
   display:inline-block!important;
   transition:transform .2s ease!important;
 }
-html body .text-link:hover span,
-html body .text-link:focus-visible span,
 html body .home-values__all-services:hover span,
 html body .home-values__all-services:focus-visible span{
   transform:translate(2px,-2px)!important;
@@ -341,7 +326,8 @@ html body .site-nav a::after{
   }
 }
 
-/* Desktop: feste Anordnung Zahl und Titel oben, Fliesstext direkt darunter */
+/* Desktop: feste Anordnung Zahl und Titel oben,
+Fliesstext direkt darunter */
 @media(min-width:801px){
   html body .home>.home-values .home-values__item,
   html body .services-section .service-card summary{
@@ -449,8 +435,6 @@ html body .site-nav a::after{
   }
 }
 
-/* Textlink Effekt auf allen Seiten ohne lokale Ausnahmen */
-html body .text-link.text-link.text-link.text-link,
 html body .home-values__all-services.home-values__all-services.home-values__all-services{
   background:transparent!important;
   background-color:transparent!important;
@@ -459,9 +443,6 @@ html body .home-values__all-services.home-values__all-services.home-values__all-
   border-bottom:0!important;
   box-shadow:none!important;
 }
-html body .text-link.text-link.text-link.text-link:hover,
-html body .text-link.text-link.text-link.text-link:focus-visible,
-html body .text-link.text-link.text-link.text-link:active,
 html body .home-values__all-services.home-values__all-services.home-values__all-services:hover,
 html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible,
 html body .home-values__all-services.home-values__all-services.home-values__all-services:active{
@@ -473,7 +454,6 @@ html body .home-values__all-services.home-values__all-services.home-values__all-
   box-shadow:none!important;
   color:inherit!important;
 }
-html body .text-link.text-link.text-link.text-link::after,
 html body .home-values__all-services.home-values__all-services.home-values__all-services::after{
   content:''!important;
   display:block!important;
@@ -490,23 +470,18 @@ html body .home-values__all-services.home-values__all-services.home-values__all-
   transform-origin:left center!important;
   transition:transform .2s ease!important;
 }
-html body .text-link.text-link.text-link.text-link:hover::after,
-html body .text-link.text-link.text-link.text-link:focus-visible::after,
 html body .home-values__all-services.home-values__all-services.home-values__all-services:hover::after,
 html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible::after{
   transform:scaleX(1)!important;
 }
 
-/* Textlinks: kurze Linie sichtbar, bei Hover vollständig */
-html body .text-link.text-link.text-link.text-link::after,
+/* Textlinks: kurze Linie sichtbar,
 html body .home-values__all-services.home-values__all-services.home-values__all-services::after{
   height:1px!important;
   background:#868279!important;
   transform:scaleX(.22)!important;
   transform-origin:left center!important;
 }
-html body .text-link.text-link.text-link.text-link:hover::after,
-html body .text-link.text-link.text-link.text-link:focus-visible::after,
 html body .home-values__all-services.home-values__all-services.home-values__all-services:hover::after,
 html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible::after{
   transform:scaleX(1)!important;
@@ -522,19 +497,12 @@ html body .contact-split__form-label::after{
 }
 
 
-/* Fusszeilentitel: Linie ebenfalls mit 13 Pixel Abstand */
-html body .footer-main h2::after{
-  margin-top:13px!important;
-}
-
-
 /* Kacheltitel auf allen Seiten etwas kräftiger */
 html body .home-values__item h3,
 html body .home-paths__grid strong,
 html body .article-card h2,
 html body .services-section .service-card h2,
-html body .expectation-editorial__item h3,
-html body .service-principles__items h3{
+html body .expectation-editorial__item h3{
   font-weight:600!important;
 }
 
@@ -544,13 +512,13 @@ html body .home>.home-values .home-values__item h3,
 html body.site-light-page .services-main .services-section .services-grid>.service-card h2,
 html body .home>.home-paths .home-paths__grid strong,
 html body .knowledge-section .articles-grid>.article-card h2,
-html body .expectation-editorial .expectation-editorial__item h3,
-html body .service-principles .service-principles__items h3{
+html body .expectation-editorial .expectation-editorial__item h3{
   font-weight:600!important;
 }
 
 
-/* Zusammenarbeit: ohne Titellinien, Titelabstand wie Startseite Dienstleistungen */
+/* Zusammenarbeit: ohne Titellinien,
+Titelabstand wie Startseite Dienstleistungen */
 html body .expectation-editorial .expectation-editorial__item h3{
   margin-bottom:0!important;
 }
@@ -569,7 +537,8 @@ html body.site-light-page .expectation-editorial .expectation-editorial__item p{
 }
 
 
-/* Desktop Zusammenarbeit: drei Spalten, zwei Reihen */
+/* Desktop Zusammenarbeit: drei Spalten,
+zwei Reihen */
 @media(min-width:801px){
   html body .expectation-editorial .expectation-editorial__grid{
     width:100%!important;
@@ -637,7 +606,8 @@ html body.site-light-page .services-main>.services-section{
 }
 
 
-/* Zusammenarbeit: Linien direkt unter den Titeln, nicht unter den Bereichen */
+/* Zusammenarbeit: Linien direkt unter den Titeln,
+nicht unter den Bereichen */
 html body .expectation-editorial .expectation-editorial__item{
   border-bottom:0!important;
   box-shadow:none!important;
@@ -653,8 +623,6 @@ html body .expectation-editorial .expectation-editorial__item h3::after{
 }
 
 
-/* Zusammenarbeit: sämtliche unteren Trennlinien entfernen */
-html body .expectation-editorial .expectation-editorial__grid,
 html body .expectation-editorial .expectation-editorial__item{
   border-top:0!important;
   border-right:0!important;
@@ -712,8 +680,7 @@ html body .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
 html body .home-values__item h3::after,
 html body .home-paths__grid strong::after,
 html body .expectation-editorial__item h3::after,
-html body .knowledge-section .article-card h2::after,
-html body .service-principles__items h3::after{
+html body .knowledge-section .article-card h2::after{
   content:''!important;
   display:block!important;
   width:48px!important;
@@ -724,14 +691,12 @@ html body .service-principles__items h3::after{
 }
 html body .home-values__item h3,
 html body .expectation-editorial__item h3,
-html body .knowledge-section .article-card h2,
-html body .service-principles__items h3{
+html body .knowledge-section .article-card h2{
   margin-bottom:11px!important;
 }
 html body .home-values__item p,
 html body .expectation-editorial__item p,
-html body .knowledge-section .article-card>p:not(.article-meta),
-html body .service-principles__items article>p{
+html body .knowledge-section .article-card>p:not(.article-meta){
   margin-top:0!important;
 }
 html body .home-paths__grid strong+span{
@@ -739,7 +704,8 @@ html body .home-paths__grid strong+span{
 }
 
 
-/* Kleine Bereichstitel: Gedankenstrich vor dem Titel, kurze Linie darunter bleibt */
+/* Kleine Bereichstitel: Gedankenstrich vor dem Titel,
+kurze Linie darunter bleibt */
 html body .section-label,
 html body .contact-split__form-label{
   gap:10px!important;
@@ -757,7 +723,8 @@ html body .contact-split__form-label::before{
 }
 
 
-/* Bereichstitel: untere Linie entfernen, nur der lange Strich davor bleibt */
+/* Bereichstitel: untere Linie entfernen,
+nur der lange Strich davor bleibt */
 html body .section-label::after,
 html body .contact-split__form-label::after{
   content:none!important;
@@ -785,26 +752,15 @@ html body .contact-split__form-label::after{
 html body .global-title,
 html body .section-heading h1,
 html body .section-heading h2,
-html body .page-hero h1,
-html body .page-hero h2,
-html body .contact-section h1,
-html body .contact-section h2,
 html body .legal-page h1,
 html body .article-detail h1,
-html body .service-page__heading h1,
-html body .services-table-heading h2,
-html body .service-principles>div:first-child h2,
 html body .knowledge-note h2,
 html body .home-company__copy h1,
 html body .home-company__copy h2,
-html body .home-expectations__heading h2,
 html body .home-paths__heading h2,
 html body .home-contact-band h2,
-html body .expectation-compass__heading h2,
-html body .contact-facts__heading h2,
 html body .contact-split__info h1,
-html body .services-closing h2,
-html body .expectation-editorial__heading h2{
+html body .services-closing h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-weight:400!important;
   -webkit-text-stroke:.25px currentColor!important;
@@ -854,7 +810,8 @@ html body .home-values .section-heading h2{
 }
 
 
-/* Werte, Dienstleistungen und Fachwissen: grosse Titel verbindlich angleichen */
+/* Werte,
+Dienstleistungen und Fachwissen: grosse Titel verbindlich angleichen */
 html body .home-values .section-heading h2,
 html body .home-paths__heading h2,
 html body .services-section>.section-heading h1,
@@ -865,9 +822,9 @@ html body .knowledge-section>.section-heading h1{
 }
 @media(min-width:801px){
   html body .home-values .section-heading h2,
-  html body .home-paths__heading h2,
-  html body .services-section>.section-heading h1,
-  html body .knowledge-section>.section-heading h1{
+html body .home-paths__heading h2,
+html body .services-section>.section-heading h1,
+html body .knowledge-section>.section-heading h1{
     font-size:50px!important;
   }
 }
@@ -888,21 +845,15 @@ html body .expectation-editorial .expectation-editorial__item h3::after{
 /* Alle kurzen Linien verbindlich 48 Pixel */
 html body .section-label::after,
 html body .contact-split__form-label::after,
-html body .footer-main h2::after,
 html body .home-values__item h3::after,
 html body .home-paths__grid strong::after,
 html body .expectation-editorial__item h3::after,
-html body .knowledge-section .article-card h2::after,
-html body .service-principles__items h3::after{
+html body .knowledge-section .article-card h2::after{
   width:48px!important;
   max-width:48px!important;
 }
 
-/* Kurze Linien unter Textlinks ebenfalls 48 Pixel */
-html body .text-link.text-link.text-link.text-link::after,
 html body .home-values__all-services.home-values__all-services.home-values__all-services::after,
-html body .text-link.text-link.text-link.text-link:hover::after,
-html body .text-link.text-link.text-link.text-link:focus-visible::after,
 html body .home-values__all-services.home-values__all-services.home-values__all-services:hover::after,
 html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible::after{
   width:48px!important;
@@ -934,9 +885,7 @@ html body .contact-split__form-label::after{
 html body .home-values__item h3::after,
 html body .home-paths__grid strong::after,
 html body .expectation-editorial__item h3::after,
-html body .knowledge-section .article-card h2::after,
-html body .service-principles__items h3::after,
-html body .footer-main h2::after{
+html body .knowledge-section .article-card h2::after{
   width:48px!important;
   max-width:48px!important;
   height:1px!important;
@@ -945,18 +894,13 @@ html body .footer-main h2::after{
 
 html body .home-values__item h3,
 html body .expectation-editorial__item h3,
-html body .knowledge-section .article-card h2,
-html body .service-principles__items h3,
-html body .footer-main h2{
+html body .knowledge-section .article-card h2{
   margin-bottom:11px!important;
 }
 
 html body .home-values__item p,
 html body .expectation-editorial__item p,
-html body .knowledge-section .article-card>p:not(.article-meta),
-html body .service-principles__items article>p,
-html body .footer-main h2+p,
-html body .footer-main h2+address{
+html body .knowledge-section .article-card>p:not(.article-meta){
   margin-top:0!important;
 }
 
@@ -1009,7 +953,9 @@ html body .home>.home-values .home-values__item h3{
 }
 
 
-/* Kacheltitel bei Unternehmen, Zusammenarbeit, Dienstleistungen und Fachwissen in PT Serif */
+/* Kacheltitel bei Unternehmen,
+Zusammenarbeit,
+Dienstleistungen und Fachwissen in PT Serif */
 html body .page-main>.home-values .home-values__item h3,
 html body .expectation-editorial .expectation-editorial__item h3,
 html body .services-main .services-section .service-card h2{
@@ -1034,8 +980,7 @@ html body .home>.home-values .home-values__item h3,
 html body .home>.home-paths .home-paths__grid strong,
 html body .page-main>.home-values .home-values__item h3,
 html body .expectation-editorial .expectation-editorial__item h3,
-html body .services-main .services-section .service-card h2,
-html body .service-principles .service-principles__items h3{
+html body .services-main .services-section .service-card h2{
   letter-spacing:0!important;
 }
 
@@ -1044,8 +989,7 @@ html body .home>.home-values .home-values__item h3,
 html body .home>.home-paths .home-paths__grid strong,
 html body .page-main>.home-values .home-values__item h3,
 html body .expectation-editorial .expectation-editorial__item h3,
-html body .services-main .services-section .service-card h2,
-html body .service-principles .service-principles__items h3{
+html body .services-main .services-section .service-card h2{
   -webkit-text-stroke:0!important;
 }
 
@@ -1055,8 +999,7 @@ html body .home>.home-values .home-values__item h3,
 html body .home>.home-paths .home-paths__grid strong,
 html body .page-main>.home-values .home-values__item h3,
 html body .expectation-editorial .expectation-editorial__item h3,
-html body .services-main .services-section .service-card h2,
-html body .service-principles .service-principles__items h3{
+html body .services-main .services-section .service-card h2{
   font-family:var(--font-cormorant),Georgia,serif!important;
   font-size:24px!important;
   font-weight:600!important;
@@ -1088,7 +1031,6 @@ html body .home-values__item h3,
 html body .home-paths__grid strong,
 html body .expectation-editorial__item h3,
 html body .services-section .service-card h2,
-html body .service-principles__items h3,
 html body .knowledge-section .article-card h2,
 html body .legal-page .prose h2,
 html body .article-body h2{
@@ -1096,28 +1038,20 @@ html body .article-body h2{
 }
 
 
-/* CTA Links: waagrechter Pfeil und dezente Vergrösserung */
-html body .text-link,
 html body .home-values__all-services{
   transform-origin:left center!important;
   transition:transform .2s ease!important;
 }
-html body .text-link:hover,
-html body .text-link:focus-visible,
 html body .home-values__all-services:hover,
 html body .home-values__all-services:focus-visible{
   transform:scale(1.025)!important;
 }
-html body .text-link:active,
 html body .home-values__all-services:active{
   transform:scale(1.01)!important;
 }
-html body .text-link span,
 html body .home-values__all-services span{
   transition:transform .2s ease!important;
 }
-html body .text-link:hover span,
-html body .text-link:focus-visible span,
 html body .home-values__all-services:hover span,
 html body .home-values__all-services:focus-visible span{
   transform:translateX(4px)!important;
@@ -1164,7 +1098,8 @@ html body.site-light-page main.home>.home-contact-band{
 }
 
 
-/* Abschlusskästen: transparent, kleine Titel mittig und ohne Zeichen */
+/* Abschlusskästen: transparent,
+kleine Titel mittig und ohne Zeichen */
 html body.site-light-page .knowledge-note,
 html body.site-light-page .services-closing,
 html body.site-light-page main.home>.home-contact-band{
@@ -1266,89 +1201,6 @@ html body.site-light-page .collaboration-legal-section__label::after{
   content:none!important;
   display:none!important;
 }
-html body.site-light-page .collaboration-legal-section .collaboration-legal-card{
-  width:100%!important;
-  height:auto!important;
-  min-height:0!important;
-  max-height:none!important;
-  padding:60.5px 72px!important;
-  display:grid!important;
-  grid-template-columns:.7fr 1.3fr!important;
-  gap:80px!important;
-  align-items:baseline!important;
-  box-sizing:border-box!important;
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
-  border:1px solid rgba(23,23,21,.16)!important;
-  border-radius:0!important;
-  box-shadow:none!important;
-}
-html body.site-light-page .collaboration-legal-card__heading{
-  margin:0!important;
-  align-self:baseline!important;
-}
-html body.site-light-page .collaboration-legal-card__title{
-  margin:0!important;
-  align-self:baseline!important;
-  max-width:none!important;
-  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
-  font-size:50px!important;
-  font-weight:400!important;
-  line-height:1.05!important;
-  letter-spacing:0!important;
-  color:#171715!important;
-  -webkit-text-stroke:.25px currentColor!important;
-}
-html body.site-light-page .collaboration-legal-card__prose{
-  margin:0!important;
-  align-self:baseline!important;
-  transform:translateY(-14px)!important;
-}
-html body.site-light-page .collaboration-legal-card__intro{
-  margin:0 0 12px!important;
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14px!important;
-  font-weight:290!important;
-  line-height:1.65!important;
-  letter-spacing:normal!important;
-  color:#484a4f!important;
-}
-html body.site-light-page .collaboration-legal-card__item{
-  max-width:none!important;
-  margin:0!important;
-}
-html body.site-light-page .collaboration-legal-card__item h3{
-  display:block!important;
-  margin:38px 0 7px!important;
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11.5px!important;
-  font-weight:600!important;
-  line-height:1.65!important;
-  letter-spacing:.1em!important;
-  text-transform:uppercase!important;
-  color:#171715!important;
-}
-html body.site-light-page .collaboration-legal-card__item:first-child h3{
-  margin-top:0!important;
-}
-html body.site-light-page .collaboration-legal-card__item h3::before,
-html body.site-light-page .collaboration-legal-card__item h3::after{
-  content:none!important;
-  display:none!important;
-}
-html body.site-light-page .collaboration-legal-card__item p{
-  margin:0 0 12px!important;
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14px!important;
-  font-weight:290!important;
-  line-height:1.65!important;
-  letter-spacing:normal!important;
-  color:#484a4f!important;
-}
-html body.site-light-page .collaboration-legal-card__item:last-child p{
-  margin-bottom:0!important;
-}
 @media(max-width:800px){
   html body.site-light-page .collaboration-legal-section__label{
     margin-left:26px!important;
@@ -1358,47 +1210,6 @@ html body.site-light-page .collaboration-legal-card__item:last-child p{
     padding-top:82px!important;
     padding-bottom:82px!important;
   }
-  html body.site-light-page .collaboration-legal-section .collaboration-legal-card{
-    padding:62px 26px!important;
-    grid-template-columns:1fr!important;
-    gap:34px!important;
-  }
-  html body.site-light-page .collaboration-legal-card__title{
-    font-size:var(--title-mobile)!important;
-  }
-  html body.site-light-page .collaboration-legal-card__prose{
-    transform:none!important;
-  }
-}
-
-
-/* Zusammenarbeit: Titel und Einleitung auf derselben Grundlinie */
-html body.site-light-page .collaboration-legal-section .collaboration-legal-card{
-  align-items:baseline!important;
-}
-html body.site-light-page .collaboration-legal-card__heading,
-html body.site-light-page .collaboration-legal-card__prose{
-  align-self:baseline!important;
-}
-html body.site-light-page .collaboration-legal-card__prose{
-  transform:translateY(-14px)!important;
-}
-
-
-/* Werte: rechter Textblock exakt wie Zusammenarbeit ausrichten */
-html body.site-light-page .values-legal-section .collaboration-legal-card__prose{
-  width:100%!important;
-  margin:0!important;
-  padding:0!important;
-  justify-self:stretch!important;
-  align-self:baseline!important;
-  transform:translate(-9px,-14px)!important;
-}
-html body.site-light-page .values-legal-section .collaboration-legal-card__item,
-html body.site-light-page .values-legal-section .collaboration-legal-card__item h3,
-html body.site-light-page .values-legal-section .collaboration-legal-card__item p{
-  margin-left:0!important;
-  padding-left:0!important;
 }
 
 
@@ -1544,24 +1355,6 @@ html body.site-light-page .company-legal-card .home-company__copy{
   html body.site-light-page .values-legal-section{
     padding-bottom:15.12px!important;
   }
-}
-
-
-/* Unternehmen: Werte- und Zusammenarbeitstitel exakt wie Startseite Dienstleistungen */
-html body.site-light-page .values-legal-section .collaboration-legal-card__item h3,
-html body.site-light-page .collaboration-legal-section:not(.company-legal-section):not(.values-legal-section) .collaboration-legal-card__item h3{
-  font-family:var(--font-cormorant),Georgia,serif!important;
-  font-size:22px!important;
-  font-weight:600!important;
-  line-height:1.08!important;
-  letter-spacing:-.01em!important;
-  text-transform:none!important;
-}
-
-
-/* Unternehmen: kleine Titel im Werte-Kasten auf 22 Pixel */
-html body.site-light-page .values-legal-section .collaboration-legal-card__item h3{
-  font-size:22px!important;
 }
 
 
@@ -1760,7 +1553,7 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
 }
 @media(min-width:801px){
   html body.site-light-page .company-legal-card .home-company__copy h1,
-  html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
+html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
     font-size:50px!important;
   }
 }
@@ -1769,15 +1562,12 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-
   padding-top:0!important;
 }
 
-/* Kleine Metadaten und Textaktionen: Typografie wie die Kopfzeilen-Navigation, Farbe Beige */
-html body main .article-meta,
+/* Kleine Metadaten und Textaktionen: Typografie wie die Kopfzeilen-Navigation,
 html body main .details-action,
-html body main .text-link,
 html body main .home-values__all-services,
 html body main .contact-split__form-label,
 html body main .home-paths__grid span,
-html body main .article-card>a,
-html body .site-footer .footer-main h2{
+html body main .article-card>a{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-weight:500!important;
@@ -1792,27 +1582,15 @@ html body main .home-hero h1,
 html body main .global-title,
 html body main .section-heading h1,
 html body main .section-heading h2,
-html body main .page-hero h1,
-html body main .page-hero h2,
-html body main .contact-section h1,
-html body main .contact-section h2,
 html body main .legal-page h1,
 html body main .article-detail h1,
-html body main .service-page__heading h1,
-html body main .services-table-heading h2,
-html body main .service-principles>div:first-child h2,
 html body main .knowledge-note h2,
 html body main .home-company__copy h1,
 html body main .home-company__copy h2,
-html body main .home-expectations__heading h2,
 html body main .home-paths__heading h2,
 html body main .home-contact-band h2,
-html body main .expectation-compass__heading h2,
-html body main .contact-facts__heading h2,
 html body main .contact-split__info h1,
-html body main .services-closing h2,
-html body main .expectation-editorial__heading h2,
-html body main .collaboration-legal-card__title{
+html body main .services-closing h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-size:var(--title-size)!important;
   font-weight:400!important;
@@ -1824,30 +1602,18 @@ html body main .collaboration-legal-card__title{
 }
 @media(min-width:801px){
   html body main .home-hero h1,
-  html body main .global-title,
-  html body main .section-heading h1,
-  html body main .section-heading h2,
-  html body main .page-hero h1,
-  html body main .page-hero h2,
-  html body main .contact-section h1,
-  html body main .contact-section h2,
-  html body main .legal-page h1,
-  html body main .article-detail h1,
-  html body main .service-page__heading h1,
-  html body main .services-table-heading h2,
-  html body main .service-principles>div:first-child h2,
-  html body main .knowledge-note h2,
-  html body main .home-company__copy h1,
-  html body main .home-company__copy h2,
-  html body main .home-expectations__heading h2,
-  html body main .home-paths__heading h2,
-  html body main .home-contact-band h2,
-  html body main .expectation-compass__heading h2,
-  html body main .contact-facts__heading h2,
-  html body main .contact-split__info h1,
-  html body main .services-closing h2,
-  html body main .expectation-editorial__heading h2,
-  html body main .collaboration-legal-card__title{
+html body main .global-title,
+html body main .section-heading h1,
+html body main .section-heading h2,
+html body main .legal-page h1,
+html body main .article-detail h1,
+html body main .knowledge-note h2,
+html body main .home-company__copy h1,
+html body main .home-company__copy h2,
+html body main .home-paths__heading h2,
+html body main .home-contact-band h2,
+html body main .contact-split__info h1,
+html body main .services-closing h2{
     font-size:50px!important;
   }
 }
@@ -1857,7 +1623,6 @@ html body main.home .home-hero__services,
 html body main.home .home-values__item>p,
 html body.site-light-page main .company-legal-card .home-company__copy .prose,
 html body.site-light-page main .company-legal-card .home-company__copy .prose p,
-html body.site-light-page main .collaboration-legal-card__item>p,
 html body.site-light-page main.services-main .services-section .services-grid>.service-card>summary>p,
 html body.site-light-page main.services-main .services-section .services-grid>.service-card li,
 html body.site-light-page main.services-main .services-closing__inner>p:not(.section-label),
@@ -1886,8 +1651,6 @@ html body main .form-status{
   color:#484a4f!important;
 }
 
-/* Fachwissen Hauptseite: Kacheln exakt wie auf der DL Hauptseite */
-html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-meta,
 html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
@@ -1988,8 +1751,7 @@ html body main .collaboration-legal-section__label.collaboration-legal-section__
   vertical-align:baseline!important;
 }
 
-/* Kleine Metadaten, Aktionen und Formularlabel unverändert */
-html body main .article-meta.article-meta.article-meta.article-meta.article-meta.article-meta,
+/* Kleine Metadaten,
 html body main .contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label,
 html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid span,
 html body main .home-action-button.home-action-button.home-action-button.home-action-button.home-action-button.home-action-button,
@@ -1997,9 +1759,7 @@ html body main .home-values__all-services.home-values__all-services.home-values_
 html body main .details-action.details-action.details-action.details-action.details-action.details-action,
 html body main .article-action.article-action.article-action.article-action.article-action.article-action,
 html body main .article-card.article-card.article-card.article-card.article-card.article-card>a,
-html body main .services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button,
-html body main .text-link.text-link.text-link.text-link.text-link.text-link,
-html body .site-footer.site-footer.site-footer.site-footer.site-footer.site-footer .footer-main h2{
+html body main .services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-style:normal!important;
@@ -2148,7 +1908,8 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
 }
 
 
-/* Fachwissen Hauptseite: Kacheltitel 2 Pixel kleiner, oberer Abstand 88 Pixel */
+/* Fachwissen Hauptseite: Kacheltitel 2 Pixel kleiner,
+oberer Abstand 88 Pixel */
 @media(min-width:801px){
   html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
     padding-top:88px!important;

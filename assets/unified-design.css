@@ -2259,3 +2259,27 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card.a
 html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-action.article-action::after{
   transform:translateY(calc(-50% - 1px))!important;
 }
+
+
+/* Endgültige Header-/Footer-Geometrie ohne nachträgliche JS-Messung */
+@media(min-width:801px){
+  html body .site-header .site-nav{
+    position:absolute!important;
+    left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - 1320px)/2))!important;
+    margin:0!important;
+    transform:none!important;
+  }
+  html body .site-footer .footer-simple{
+    box-sizing:border-box!important;
+    justify-content:flex-start!important;
+    padding-left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - 1320px)/2))!important;
+  }
+}
+
+/* Nur Fachbeitragskarten dürfen beim Scrollen eingeblendet werden. */
+html body .scroll-reveal:not(.article-card){
+  opacity:1!important;
+  transform:none!important;
+  transition:none!important;
+  will-change:auto!important;
+}

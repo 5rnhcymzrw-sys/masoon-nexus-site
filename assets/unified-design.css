@@ -1015,19 +1015,6 @@ html body .services-main .services-section .service-card h2{
 }
 
 
-/* Kleine Titel: ursprüngliche Cormorant Garamond Schrift wiederherstellen */
-html body .home>.home-values .home-values__item h3,
-html body .home>.home-paths .home-paths__grid strong,
-html body .page-main>.home-values .home-values__item h3,
-html body .expectation-editorial .expectation-editorial__item h3,
-html body .services-main .services-section .service-card h2{
-  font-family:var(--font-cormorant),Georgia,serif!important;
-  font-size:24px!important;
-  font-weight:600!important;
-  -webkit-text-stroke:0!important;
-}
-
-
 /* Dienstleistungs Hauptseite: kurze Linien wie auf der Startseite */
 html body .services-main .services-section .service-card h2::after{
   content:''!important;
@@ -1393,11 +1380,12 @@ html body.site-light-page .services-main>.services-closing>.section-label{
 
 /* Dienstleistungen Hauptseite: Kartentypografie wie Werte */
 html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
-  font-family:var(--font-cormorant),Georgia,serif!important;
-  font-size:22px!important;
+  font-family:'Bitter',Georgia,serif!important;
+  font-size:20px!important;
   font-weight:600!important;
-  line-height:1.08!important;
-  letter-spacing:-.01em!important;
+  line-height:1.12!important;
+  letter-spacing:0!important;
+  -webkit-text-stroke:0!important;
   text-transform:none!important;
   color:#171715!important;
 }
@@ -2026,4 +2014,18 @@ html body .scroll-reveal:not(.article-card){
   html body.site-light-page main.page-main .company-collaboration-section{
     padding-bottom:126px!important;
   }
+}
+
+/* Kleine Kacheltitel: echte Bitter SemiBold ohne künstliche Kontur */
+html body.site-light-page main.home.home section.home-values.home-values .home-values__item.home-values__item h3,
+html body.site-light-page main.home.home section.home-paths.home-paths .home-paths__grid.home-paths__grid strong,
+html body.site-light-page main.page-main.page-main section.company-values-section.company-values-section .company-value-card.company-value-card h3,
+html body.site-light-page main.page-main.page-main section.company-collaboration-section.company-collaboration-section .company-collaboration-item.company-collaboration-item h3,
+html body.site-light-page main.services-main.services-main section.services-section.services-section .service-card.service-card h2{
+  font-family:'Bitter',Georgia,serif!important;
+  font-size:20px!important;
+  font-weight:600!important;
+  line-height:1.12!important;
+  letter-spacing:0!important;
+  -webkit-text-stroke:0!important;
 }

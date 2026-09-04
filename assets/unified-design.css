@@ -1,4 +1,11 @@
 /* MASOON TREUHAND – einheitliche visuelle Gestaltung */
+@font-face{
+  font-family:'PT Serif';
+  font-style:normal;
+  font-weight:700;
+  font-display:swap;
+  src:url('https://fonts.gstatic.com/s/ptserif/v19/EJRSQgYoZZY2vCFuvAnt65qV.ttf') format('truetype');
+}
 :root{
   --mt-black:#0b0b0b;
   --mt-ink:#171715;
@@ -762,8 +769,8 @@ html body .home-contact-band h2,
 html body .contact-split__info h1,
 html body .services-closing h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
-  font-weight:400!important;
-  -webkit-text-stroke:.25px currentColor!important;
+  font-weight:700!important;
+  -webkit-text-stroke:0!important;
 }
 
 
@@ -800,8 +807,8 @@ html body .services-closing h2{
 /* Werte Bereich: grosser Titel ausdrücklich angleichen */
 html body .home-values .section-heading h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
-  font-weight:400!important;
-  -webkit-text-stroke:.25px currentColor!important;
+  font-weight:700!important;
+  -webkit-text-stroke:0!important;
 }
 @media(min-width:801px){
   html body .home-values .section-heading h2{
@@ -817,8 +824,8 @@ html body .home-paths__heading h2,
 html body .services-section>.section-heading h1,
 html body .knowledge-section>.section-heading h1{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
-  font-weight:400!important;
-  -webkit-text-stroke:.25px currentColor!important;
+  font-weight:700!important;
+  -webkit-text-stroke:0!important;
 }
 @media(min-width:801px){
   html body .home-values .section-heading h2,
@@ -938,8 +945,8 @@ html body .contact-split__form-label::after{
 html body .home>.home-values .home-values__item h3{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-size:20px!important;
-  font-weight:400!important;
-  -webkit-text-stroke:.2px currentColor!important;
+  font-weight:700!important;
+  -webkit-text-stroke:0!important;
 }
 
 
@@ -961,8 +968,8 @@ html body .expectation-editorial .expectation-editorial__item h3,
 html body .services-main .services-section .service-card h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-size:20px!important;
-  font-weight:400!important;
-  -webkit-text-stroke:.2px currentColor!important;
+  font-weight:700!important;
+  -webkit-text-stroke:0!important;
 }
 
 
@@ -970,8 +977,8 @@ html body .services-main .services-section .service-card h2{
 html body .home>.home-paths .home-paths__grid strong{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-size:20px!important;
-  font-weight:400!important;
-  -webkit-text-stroke:.2px currentColor!important;
+  font-weight:700!important;
+  -webkit-text-stroke:0!important;
 }
 
 
@@ -1543,11 +1550,11 @@ html body.site-light-page .company-legal-card .home-company__copy h1,
 html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-size:var(--title-size)!important;
-  font-weight:400!important;
+  font-weight:700!important;
   line-height:1.05!important;
   letter-spacing:0!important;
   color:#171715!important;
-  -webkit-text-stroke:.25px currentColor!important;
+  -webkit-text-stroke:0!important;
   margin-bottom:0!important;
   padding-bottom:0!important;
 }
@@ -1593,12 +1600,12 @@ html body main .contact-split__info h1,
 html body main .services-closing h2{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
   font-size:var(--title-size)!important;
-  font-weight:400!important;
+  font-weight:700!important;
   line-height:1.05!important;
   letter-spacing:0!important;
   text-transform:none!important;
   font-style:normal!important;
-  -webkit-text-stroke:.25px currentColor!important;
+  -webkit-text-stroke:0!important;
 }
 @media(min-width:801px){
   html body main .home-hero h1,
@@ -1662,12 +1669,12 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>.detai
 }
 html body.site-light-page .knowledge-section>.section-heading>h1{
   font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
-  font-weight:400!important;
+  font-weight:700!important;
   line-height:1.05!important;
   letter-spacing:0!important;
   text-transform:none!important;
   font-style:normal!important;
-  -webkit-text-stroke:.25px currentColor!important;
+  -webkit-text-stroke:0!important;
 }
 html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
   font-family:var(--font-cormorant),Georgia,serif!important;

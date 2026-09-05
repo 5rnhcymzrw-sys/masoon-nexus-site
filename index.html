@@ -35,52 +35,71 @@ html body.site-light-page main.home section.home-paths .home-paths__grid.home-pa
   cursor:pointer!important;
   border-color:transparent!important;
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
-  transition:background-color .22s ease!important;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background-color .22s ease!important;
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1){
-  --home-preview-background:linear-gradient(110deg,rgba(243,232,212,.22) 0%,rgba(232,229,223,.22) 100%);
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2){
-  --home-preview-background:linear-gradient(110deg,rgba(232,229,223,.22) 0%,rgba(199,203,211,.22) 100%);
   border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3){
-  --home-preview-background:linear-gradient(110deg,rgba(199,203,211,.22) 0%,rgba(141,150,168,.22) 100%);
   border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid>a>.home-paths__action{
-  position:static!important;
-  display:block!important;
-  order:2!important;
-  margin:12px 0 0!important;
-  color:#484a4f!important;
+  position:absolute!important;
+  right:28px!important;
+  bottom:24px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  margin:0!important;
+  color:#868279!important;
   font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14px!important;
-  font-weight:290!important;
-  line-height:1.65!important;
-  letter-spacing:normal!important;
-  text-transform:none!important;
-  opacity:1!important;
-  transform:none!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1.4!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+  opacity:0!important;
+  transform:translateY(4px)!important;
+  transition:opacity .22s ease,transform .22s ease,color .22s ease!important;
 }
-
+html body.site-light-page main.home section.home-paths .home-paths__grid>a>.home-paths__action>span{
+  display:inline-block!important;
+  margin-left:10px!important;
+  font-size:20px!important;
+  font-weight:300!important;
+  line-height:.7!important;
+  letter-spacing:0!important;
+  transform:translateY(-1px)!important;
+}
 @media(hover:hover){
   html body.site-light-page main.home section.home-paths .home-paths__grid>a:hover{
-    background-image:var(--home-preview-background)!important;
-    transform:none!important;
-    box-shadow:none!important;
+    transform:translateY(-3px)!important;
+    border-color:transparent!important;
+    border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
+    background-color:rgba(255,255,255,.2)!important;
+    box-shadow:0 10px 26px rgba(23,23,21,.08)!important;
   }
-  
+  html body.site-light-page main.home section.home-paths .home-paths__grid>a:hover>.home-paths__action{
+    opacity:1!important;
+    transform:translateY(0)!important;
+    color:#868279!important;
+  }
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid>a:focus-visible{
-    background-image:var(--home-preview-background)!important;
-    transform:none!important;
-    box-shadow:none!important;
-    outline:1px solid #868279!important;
-    outline-offset:3px!important;
-  }
-
+  transform:translateY(-3px)!important;
+  border-color:transparent!important;
+  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
+  box-shadow:0 10px 26px rgba(23,23,21,.08)!important;
+  outline:1px solid #868279!important;
+  outline-offset:3px!important;
+}
+html body.site-light-page main.home section.home-paths .home-paths__grid>a:focus-visible>.home-paths__action{
+  opacity:1!important;
+  transform:translateY(0)!important;
+  color:#868279!important;
+}
 </style>
 <link rel="stylesheet" href="assets/unified-design.css?v=20260904-8" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -244,9 +263,6 @@ html body.site-light-page main.home section.home-values div.home-values__items a
     color:#5e5b55!important;
   }
 }
-
-
-html body.site-light-page main.home section.home-paths .home-paths__grid>a{height:auto!important;min-height:220px!important}
 </style></head>
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">
 <header class="site-header home-page-header" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important"><div class="header-inner"><a aria-label="MASOON TREUHAND Startseite" class="brand home-text-logo" href="index.html"><img alt="" aria-hidden="true" class="home-logo-icon" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="737" loading="eager" src="logo-icon-home.svg" width="638"/><img alt="" class="home-logo-text" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="1228" loading="eager" src="logo-text-home.svg" width="2048"/></a><button aria-controls="site-navigation" aria-expanded="false" class="menu-toggle" type="button"><span></span><span></span><span></span><span class="sr-only">Menü öffnen</span></button><nav aria-label="Hauptnavigation" class="site-nav" id="site-navigation"><a aria-current="page" class="active" href="index.html">Startseite</a><a href="unternehmen/index.html">Unternehmen</a><a href="dienstleistungen/index.html">Dienstleistungen</a><a href="fachwissen/index.html">Fachwissen</a><a href="kontakt/index.html">Kontakt</a></nav></div></header>
@@ -254,7 +270,7 @@ html body.site-light-page main.home section.home-paths .home-paths__grid>a{heigh
 <section class="home-hero"><div class="home-hero__content"><h1 class="global-title">Treuhand mit<br />Struktur und<br />Anspruch.</h1><p class="home-hero__services" style="margin-top:30px">Auf der Basis von Diskretion, Präzision und Vertrauen<br />begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch<br />durch alle Phasen Ihres Geschäftslebens.</p></div></section>
 <section class="home-values"><div class="home-values__inner"><div class="section-heading"><p class="section-label">Dienstleistungen</p><h2 class="global-title">Treuhandlösungen für Ihren Geschäftsalltag.</h2></div><div class="home-values__items"><article class="home-values__item"><span class="service-number">01</span><h3>Administration</h3><p>Strukturierte Unterstützung bei administrativen Aufgaben und laufenden Geschäftsprozessen.</p></article><article class="home-values__item"><span class="service-number">02</span><h3>Buchhaltung</h3><p>Übersichtliche und zuverlässige Führung Ihrer Finanzbuchhaltung.</p></article><article class="home-values__item"><span class="service-number">03</span><h3>Personaladministration</h3><p>Professionelle Abwicklung von Löhnen, Sozialversicherungen und Personalmutationen.</p></article><article class="home-values__item"><span class="service-number">04</span><h3>Jahresabschluss</h3><p>Sorgfältige Vorbereitung und Erstellung von Zwischen- und Jahresabschlüssen.</p></article><article class="home-values__item"><span class="service-number">05</span><h3>Steuererklärung</h3><p>Steuererklärungen für Privatpersonen und Unternehmen inklusive Veranlagungskontrolle.</p></article><article class="home-values__item"><span class="service-number">06</span><h3>Unternehmensberatung</h3><p>Begleitung bei Gründungen, Umstrukturierungen und weiteren unternehmerischen Fragen.</p></article></div><p style="margin-top:2.2rem"><a class="home-action-button" href="dienstleistungen/index.html">Alle Dienstleistungen ansehen <span aria-hidden="true">›</span></a></p></div></section>
 <section class="home-architecture-banner" aria-label="Architektur"></section>
-<section class="home-paths"><div class="home-paths__heading"><p class="section-label">Fachwissen</p><h2 class="global-title">Fachliche Orientierung zu ausgewählten Themen.</h2></div><div class="home-paths__grid"><a href="fachwissen/checkliste-steuererklaerung/"><span class="home-paths__category">STEUERN</span><strong>Steuererklärung richtig vorbereiten</strong><span class="home-paths__action">Welche Unterlagen Sie für die Steuererklärung bereithalten sollten.</span></a><a href="fachwissen/unternehmensformen/"><span class="home-paths__category">UNTERNEHMEN</span><strong>Die passende Unternehmensform wählen</strong><span class="home-paths__action">Die wichtigsten Unterschiede zwischen Einzelfirma, GmbH und AG.</span></a><a href="fachwissen/unwahre-buchfuehrung/"><span class="home-paths__category">BUCHHALTUNG</span><strong>Was eine saubere Buchhaltung ausmacht</strong><span class="home-paths__action">Was bei der Führung und Aufbewahrung von Geschäftsbüchern zählt.</span></a></div><p style="margin-top:2.2rem"><a class="home-action-button" href="fachwissen/index.html">Alle Beiträge ansehen <span aria-hidden="true">›</span></a></p></section>
+<section class="home-paths"><div class="home-paths__heading"><p class="section-label">Fachwissen</p><h2 class="global-title">Fachliche Orientierung zu ausgewählten Themen.</h2></div><div class="home-paths__grid"><a href="fachwissen/checkliste-steuererklaerung/"><span class="home-paths__category">STEUERN</span><strong>Steuererklärung richtig vorbereiten</strong><span class="home-paths__action">Beitrag anzeigen <span aria-hidden="true">›</span></span></a><a href="fachwissen/unternehmensformen/"><span class="home-paths__category">UNTERNEHMEN</span><strong>Die passende Unternehmensform wählen</strong><span class="home-paths__action">Beitrag anzeigen <span aria-hidden="true">›</span></span></a><a href="fachwissen/unwahre-buchfuehrung/"><span class="home-paths__category">BUCHHALTUNG</span><strong>Was eine saubere Buchhaltung ausmacht</strong><span class="home-paths__action">Beitrag anzeigen <span aria-hidden="true">›</span></span></a></div><p style="margin-top:2.2rem"><a class="home-action-button" href="fachwissen/index.html">Alle Beiträge ansehen <span aria-hidden="true">›</span></a></p></section>
 <section class="home-contact-band"><p class="section-label">Kontakt</p><div><h2 class="global-title">Verlässliche Treuhandlösungen<br />für Ihr Unternehmen.</h2><a class="home-action-button" href="kontakt/index.html">Kontakt aufnehmen <span aria-hidden="true">›</span></a></div></section>
 </main>
 <footer class="site-footer" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important"><div class="footer-simple"><a href="index.html">© 2026 MASOON TREUHAND</a><a href="disclaimer/index.html">Disclaimer</a><a href="impressum/index.html">Impressum</a><a href="datenschutz/index.html">Datenschutz</a><a href="kontakt/index.html">Kontakt</a></div></footer>

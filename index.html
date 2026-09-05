@@ -410,9 +410,47 @@ html body.site-light-page main.home section.home-hero::after{
   background:rgba(255,255,255,.32);
   clip-path:polygon(42% 0,51% 0,32% 55%,49% 100%,39% 100%,22% 55%);
 }
+
+/* Startseite: weisse Kopfzeile mit mittigem Logo über der Navigation */
+@media(min-width:801px){
+  html body.site-light-page header.site-header.home-page-header,
+  html body.site-light-page header.site-header.home-page-header .header-inner{
+    height:184px!important;
+    min-height:184px!important;
+    color:#171715!important;
+    background:#fff!important;
+    background-color:#fff!important;
+  }
+  html body.site-light-page header.site-header.home-page-header::after{top:184px!important}
+  html body.site-light-page header.site-header.home-page-header .header-inner .home-text-logo{
+    top:6px!important;
+    left:50%!important;
+    transform:translateX(-50%)!important;
+  }
+  html body.site-light-page header.site-header.home-page-header .home-text-logo img{
+    filter:brightness(0)!important;
+  }
+  html body.site-light-page header.site-header.home-page-header nav#site-navigation{
+    position:absolute!important;
+    left:50%!important;
+    top:122px!important;
+    width:max-content!important;
+    height:54px!important;
+    margin:0!important;
+    transform:translateX(-50%)!important;
+    color:#171715!important;
+  }
+  html body.site-light-page header.site-header.home-page-header nav#site-navigation a{
+    padding:16px 0!important;
+  }
+  html body.site-light-page header.site-header.home-page-header nav#site-navigation a::after{bottom:5px!important}
+  html body.site-light-page header.site-header.home-page-header nav#site-navigation a+a::before{color:transparent!important}
+  html body.site-light-page main.home{padding-top:184px!important}
+  html body.site-light-page main.home section.home-hero{min-height:calc(100svh - 184px)!important}
+}
 </style></head>
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">
-<header class="site-header home-page-header" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important"><div class="header-inner"><a aria-label="MASOON TREUHAND Startseite" class="brand home-text-logo" href="index.html"><img alt="" aria-hidden="true" class="home-logo-icon" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="737" loading="eager" src="logo-icon-home.svg" width="638"/><img alt="" class="home-logo-text" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="1228" loading="eager" src="logo-text-home.svg" width="2048"/></a><button aria-controls="site-navigation" aria-expanded="false" class="menu-toggle" type="button"><span></span><span></span><span></span><span class="sr-only">Menü öffnen</span></button><nav aria-label="Hauptnavigation" class="site-nav" id="site-navigation"><a aria-current="page" class="active" href="index.html">Startseite</a><a href="unternehmen/index.html">Unternehmen</a><a href="dienstleistungen/index.html">Dienstleistungen</a><a href="fachwissen/index.html">Fachwissen</a><a href="kontakt/index.html">Kontakt</a></nav></div></header>
+<header class="site-header home-page-header" style="opacity:1!important"><div class="header-inner"><a aria-label="MASOON TREUHAND Startseite" class="brand home-text-logo" href="index.html"><img alt="" aria-hidden="true" class="home-logo-icon" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="737" loading="eager" src="logo-icon-home.svg" width="638"/><img alt="" class="home-logo-text" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="1228" loading="eager" src="logo-text-home.svg" width="2048"/></a><button aria-controls="site-navigation" aria-expanded="false" class="menu-toggle" type="button"><span></span><span></span><span></span><span class="sr-only">Menü öffnen</span></button><nav aria-label="Hauptnavigation" class="site-nav" id="site-navigation"><a aria-current="page" class="active" href="index.html">Startseite</a><a href="unternehmen/index.html">Unternehmen</a><a href="dienstleistungen/index.html">Dienstleistungen</a><a href="fachwissen/index.html">Fachwissen</a><a href="kontakt/index.html">Kontakt</a></nav></div></header>
 <main class="home">
 <section class="home-hero"><div class="home-hero__content"><div class="home-hero__copy"><h1 class="global-title">Treuhand mit<br />Struktur und<br />Anspruch.</h1><p class="home-hero__services" style="margin-top:30px">Auf der Basis von Diskretion, Präzision und Vertrauen<br />begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch<br />durch alle Phasen Ihres Geschäftslebens.</p></div></div><div class="home-hero__portrait"><img class="home-hero__portrait-image" src="Foto-hero.png?v=20260812-7" alt="Porträt von Gety Galena Masoon" fetchpriority="high" /></div></section>
 <section class="home-values"><div class="home-values__inner"><div class="section-heading"><p class="section-label">Dienstleistungen</p><h2 class="global-title">Treuhandlösungen für Ihren Geschäftsalltag.</h2></div><div class="home-values__items"><article class="home-values__item"><span class="service-number">01</span><h3>Administration</h3><p>Strukturierte Unterstützung bei administrativen Aufgaben und laufenden Geschäftsprozessen.</p></article><article class="home-values__item"><span class="service-number">02</span><h3>Buchhaltung</h3><p>Übersichtliche und zuverlässige Führung Ihrer Finanzbuchhaltung.</p></article><article class="home-values__item"><span class="service-number">03</span><h3>Personaladministration</h3><p>Professionelle Abwicklung von Löhnen, Sozialversicherungen und Personalmutationen.</p></article><article class="home-values__item"><span class="service-number">04</span><h3>Jahresabschluss</h3><p>Sorgfältige Vorbereitung und Erstellung von Zwischen- und Jahresabschlüssen.</p></article><article class="home-values__item"><span class="service-number">05</span><h3>Steuererklärung</h3><p>Steuererklärungen für Privatpersonen und Unternehmen inklusive Veranlagungskontrolle.</p></article><article class="home-values__item"><span class="service-number">06</span><h3>Unternehmensberatung</h3><p>Begleitung bei Gründungen, Umstrukturierungen und weiteren unternehmerischen Fragen.</p></article></div><p style="margin-top:2.2rem"><a class="home-action-button" href="dienstleistungen/index.html">Alle Dienstleistungen ansehen <span aria-hidden="true">›</span></a></p></div></section>

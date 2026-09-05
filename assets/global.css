@@ -372,7 +372,7 @@ html body header.site-header{
     position:absolute!important;
     top:50%!important;
     left:calc(-1 * clamp(18px,2.2vw,34px) / 2)!important;
-    color:rgba(255,255,255,.55)!important;
+    color:#000!important;
     font-family:var(--font-inter),Arial,sans-serif!important;
     font-size:11px!important;
     font-weight:500!important;

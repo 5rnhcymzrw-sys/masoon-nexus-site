@@ -273,13 +273,6 @@
     padding: 82px 36px 64px 0 !important;
   }
 
-  .contact-split__info .section-label{
-    margin-bottom: 30px !important;
-  }
-
-  .contact-split__info h1{
-    font-size: var(--title-size) !important;
-  }
 
   .contact-split__facts{
     margin-top: 56px !important;
@@ -291,8 +284,6 @@
     right: auto !important;
     width: 100% !important;
     height: auto !important;
-    min-height: 0 !important;
-    margin: 0 !important;
     padding: 54px 38px 48px !important;
   }
 }
@@ -314,13 +305,8 @@
     gap: 18px !important;
   }
 
-  .contact-fact p{
-    font-size: 13px !important;
-  }
 
   .contact-split__form{
-    width: 100% !important;
-    margin: 0 !important;
     padding: 44px 24px 40px !important;
   }
 
@@ -337,7 +323,6 @@
   }
 
   .contact-split__form button{
-    width: 220px !important;
     max-width: 100% !important;
   }
 }

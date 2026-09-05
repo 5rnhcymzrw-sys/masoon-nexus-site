@@ -268,7 +268,7 @@ html body.site-light-page main.home section.home-hero{
   align-items:center!important;
   position:relative!important;
   isolation:isolate;
-  background:#fff!important;
+  background:linear-gradient(105deg,#e9e5de 0%,#f1efeb 42%,#fff 72%)!important;
   color:#171715!important;
 }
 html body.site-light-page main.home section.home-hero .home-hero__content{
@@ -391,14 +391,22 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait::afte
   }
 }
 
-/* Geschwungene Farbflächen ohne Linien, ausschliesslich im Hero */
-html body.site-light-page main.home section.home-hero::before{
+/* Dezente geometrische Hintergrundflächen, nur im Hero */
+html body.site-light-page main.home section.home-hero::before,
+html body.site-light-page main.home section.home-hero::after{
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
   z-index:0;
-  background:url("assets/hero-soft-reference.svg") center/100% 100% no-repeat;
+}
+html body.site-light-page main.home section.home-hero::before{
+  background:rgba(195,190,180,.25);
+  clip-path:polygon(0 24%,43% 68%,37% 100%,0 100%);
+}
+html body.site-light-page main.home section.home-hero::after{
+  background:rgba(255,255,255,.32);
+  clip-path:polygon(42% 0,51% 0,32% 55%,49% 100%,39% 100%,22% 55%);
 }
 </style></head>
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">

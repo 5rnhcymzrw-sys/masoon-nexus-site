@@ -1795,3 +1795,36 @@ html body .scroll-reveal:not(.article-card){
     padding-bottom:126px!important;
   }
 }
+
+/* Einheitliche Farbverläufe für bestehende Kachel- und Bereichsrahmen */
+html body.site-light-page main .services-section .services-grid>.service-card,
+html body.site-light-page main .knowledge-section .articles-grid>.article-card,
+html body.site-light-page main .company-values-grid>.company-value-card,
+html body.site-light-page main .company-collaboration-grid>.company-collaboration-item,
+html body.site-light-page main.home>.home-contact-band,
+html body.site-light-page main.services-main>.services-closing,
+html body.site-light-page main .knowledge-note,
+html body.site-light-page main .company-legal-section .company-legal-card,
+html body.site-light-page main .article-shell{
+  border-width:1px!important;
+  border-color:transparent!important;
+  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
+}
+html body.site-light-page main .services-section .services-grid>.service-card:nth-child(3n+1),
+html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n+1),
+html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n+1),
+html body.site-light-page main .company-collaboration-grid>.company-collaboration-item:nth-child(3n+1){
+  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;
+}
+html body.site-light-page main .services-section .services-grid>.service-card:nth-child(3n+2),
+html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n+2),
+html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n+2),
+html body.site-light-page main .company-collaboration-grid>.company-collaboration-item:nth-child(3n+2){
+  border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;
+}
+html body.site-light-page main .services-section .services-grid>.service-card:nth-child(3n+3),
+html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n+3),
+html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n+3),
+html body.site-light-page main .company-collaboration-grid>.company-collaboration-item:nth-child(3n+3){
+  border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;
+}

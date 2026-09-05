@@ -325,6 +325,25 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait{
     mask-image:linear-gradient(to bottom,transparent 0%,#000 22%);
   }
 }
+
+/* Separate weiche Fortsetzung links; das Porträt bleibt unverändert. */
+@media(min-width:801px){
+  html body.site-light-page main.home section.home-hero::before{
+    content:"";
+    position:absolute;
+    top:50%;
+    right:160px;
+    width:min(58vw,calc((100svh - 108px)*1.208889),1066.667px);
+    aspect-ratio:16/9;
+    transform:translateY(-50%);
+    background:url("Foto-hero.png?v=20260812-7") left center/100% 100% no-repeat;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.16) 140px,transparent 320px);
+    mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.16) 140px,transparent 320px);
+    filter:blur(14px);
+    pointer-events:none;
+    z-index:0;
+  }
+}
 </style></head>
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">
 <header class="site-header home-page-header" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important"><div class="header-inner"><a aria-label="MASOON TREUHAND Startseite" class="brand home-text-logo" href="index.html"><img alt="" aria-hidden="true" class="home-logo-icon" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="737" loading="eager" src="logo-icon-home.svg" width="638"/><img alt="" class="home-logo-text" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="1228" loading="eager" src="logo-text-home.svg" width="2048"/></a><button aria-controls="site-navigation" aria-expanded="false" class="menu-toggle" type="button"><span></span><span></span><span></span><span class="sr-only">Menü öffnen</span></button><nav aria-label="Hauptnavigation" class="site-nav" id="site-navigation"><a aria-current="page" class="active" href="index.html">Startseite</a><a href="unternehmen/index.html">Unternehmen</a><a href="dienstleistungen/index.html">Dienstleistungen</a><a href="fachwissen/index.html">Fachwissen</a><a href="kontakt/index.html">Kontakt</a></nav></div></header>

@@ -636,7 +636,7 @@ html body .site-header .site-nav a:focus-visible::after{
 
 
 
-/* Kopfzeile: konstante Schrift, warmer Farbton für Hover und aktuelle Seite */
+/* Kopfzeile: konstante Schriftfarbe und Schriftstärke in allen Zuständen */
 html body .site-header .site-nav a,
 html body .site-header .site-nav a:hover,
 html body .site-header .site-nav a:focus,
@@ -651,9 +651,4 @@ html body .site-header .site-nav a[aria-current="page"]{
   transition:none!important;
   animation:none!important;
 }
-html body .site-header .site-nav a:hover,
-html body .site-header .site-nav a:focus-visible,
-html body .site-header .site-nav a.active,
-html body .site-header .site-nav a[aria-current="page"]{
-  color:#f3e8d4!important;
-}
+

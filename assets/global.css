@@ -341,7 +341,9 @@ html body .site-footer .footer-simple>*{
   text-rendering:geometricPrecision!important;
 }
 
-html body .site-nav a{
+html body .site-header .site-nav a{
+  font-size:12px!important;
+  letter-spacing:.5px!important;
   font-weight:500!important;
 }
 html body .site-footer .footer-simple,

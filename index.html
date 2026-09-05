@@ -35,7 +35,7 @@ html body.site-light-page main.home section.home-paths .home-paths__grid.home-pa
   cursor:pointer!important;
   border-color:transparent!important;
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
-  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background-color .22s ease!important;
+  transition:background-color .22s ease!important;
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1){
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;
@@ -48,7 +48,7 @@ html body.site-light-page main.home section.home-paths .home-paths__grid.home-pa
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid>a>.home-paths__action{
   position:static!important;
-  display:none!important;
+  display:block!important;
   order:2!important;
   margin:12px 0 0!important;
   color:#484a4f!important;
@@ -64,23 +64,20 @@ html body.site-light-page main.home section.home-paths .home-paths__grid>a>.home
 
 @media(hover:hover){
   html body.site-light-page main.home section.home-paths .home-paths__grid>a:hover{
-    transform:translateY(-3px)!important;
-    border-color:transparent!important;
-    border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
-    background-color:rgba(255,255,255,.2)!important;
-    box-shadow:0 10px 26px rgba(23,23,21,.08)!important;
+    background-color:rgba(232,229,223,.22)!important;
+    transform:none!important;
+    box-shadow:none!important;
   }
-  html body.site-light-page main.home section.home-paths .home-paths__grid>a:hover>.home-paths__action{display:block!important;}
+  
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid>a:focus-visible{
-  transform:translateY(-3px)!important;
-  border-color:transparent!important;
-  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
-  box-shadow:0 10px 26px rgba(23,23,21,.08)!important;
-  outline:1px solid #868279!important;
-  outline-offset:3px!important;
-}
-html body.site-light-page main.home section.home-paths .home-paths__grid>a:focus-visible>.home-paths__action{display:block!important;}
+    background-color:rgba(232,229,223,.22)!important;
+    transform:none!important;
+    box-shadow:none!important;
+    outline:1px solid #868279!important;
+    outline-offset:3px!important;
+  }
+
 </style>
 <link rel="stylesheet" href="assets/unified-design.css?v=20260904-8" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -245,15 +242,8 @@ html body.site-light-page main.home section.home-values div.home-values__items a
   }
 }
 
-@media(hover:hover){
-  html body.site-light-page main.home section.home-paths .home-paths__grid>a:hover>.home-paths__category{display:none!important}
-}
-html body.site-light-page main.home section.home-paths .home-paths__grid>a:focus-visible>.home-paths__category{display:none!important}
-@media(hover:none){
-  html body.site-light-page main.home section.home-paths .home-paths__grid>a>.home-paths__category{display:none!important}
-  html body.site-light-page main.home section.home-paths .home-paths__grid>a>.home-paths__action{display:block!important}
-  html body.site-light-page main.home section.home-paths .home-paths__grid>a{height:auto!important;min-height:220px!important}
-}
+html body.site-light-page main.home section.home-paths .home-paths__grid>a>.home-paths__category{display:none!important}
+html body.site-light-page main.home section.home-paths .home-paths__grid>a{height:auto!important;min-height:220px!important}
 </style></head>
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">
 <header class="site-header home-page-header" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important"><div class="header-inner"><a aria-label="MASOON TREUHAND Startseite" class="brand home-text-logo" href="index.html"><img alt="" aria-hidden="true" class="home-logo-icon" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="737" loading="eager" src="logo-icon-home.svg" width="638"/><img alt="" class="home-logo-text" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="1228" loading="eager" src="logo-text-home.svg" width="2048"/></a><button aria-controls="site-navigation" aria-expanded="false" class="menu-toggle" type="button"><span></span><span></span><span></span><span class="sr-only">Menü öffnen</span></button><nav aria-label="Hauptnavigation" class="site-nav" id="site-navigation"><a aria-current="page" class="active" href="index.html">Startseite</a><a href="unternehmen/index.html">Unternehmen</a><a href="dienstleistungen/index.html">Dienstleistungen</a><a href="fachwissen/index.html">Fachwissen</a><a href="kontakt/index.html">Kontakt</a></nav></div></header>

@@ -619,17 +619,18 @@ html body .site-header .site-nav a::after{
   display:block!important;
   position:absolute!important;
   left:0!important;
-  right:0!important;
+  right:auto!important;
   bottom:18px!important;
-  width:100%!important;
+  width:0!important;
   height:1px!important;
   background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
-  opacity:0;
+  opacity:1;
+  transition:width .4s ease!important;
   pointer-events:none;
 }
 html body .site-header .site-nav a:hover::after,
 html body .site-header .site-nav a:focus-visible::after{
-  opacity:1;
+  width:40px!important;
 }
 @media(max-width:800px){
   html body .site-header .site-nav a::after{bottom:8px!important}

@@ -261,7 +261,7 @@ html body.site-light-page main.home section.home-values div.home-values__items a
 
 
 
-/* Heller Hero mit randlosem Porträt und weichem Übergang */
+/* Hero mit flächigem Foto und weissem Textkasten */
 html body.site-light-page main.home section.home-hero{
   min-height:calc(100svh - 108px)!important;
   box-sizing:border-box!important;
@@ -279,26 +279,29 @@ html body.site-light-page main.home section.home-hero .home-hero__content{
   position:relative!important;
   z-index:2;
 }
-html body.site-light-page main.home section.home-hero .home-hero__copy{width:48%;min-width:0}
+html body.site-light-page main.home section.home-hero .home-hero__copy{
+  box-sizing:border-box;
+  width:52%;
+  min-width:0;
+  padding:42px;
+  background:#fff;
+  border:1px solid transparent;
+  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1;
+  border-radius:0;
+  box-shadow:none;
+}
 html body.site-light-page main.home section.home-hero h1.global-title{color:#171715!important}
 html body.site-light-page main.home section.home-hero .home-hero__services{color:#484a4f!important}
 html body.site-light-page main.home section.home-hero .home-hero__portrait{
   position:absolute;
-  inset:50% 0 auto auto;
-  transform:translateY(-50%);
+  inset:0;
   display:block;
-  width:66%;
-  height:min(32.625vw,calc((100svh - 108px)*.68),600px);
-  max-height:none;
-  aspect-ratio:16/9;
-  object-fit:cover;
+  width:100%;
+  height:100%;
   overflow:hidden;
-  object-position:right 10%;
   border:0;
   border-radius:0;
   z-index:1;
-  -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.65) 15%,#000 30%);
-  mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.65) 15%,#000 30%);
 }
 @media(max-width:1000px) and (min-width:801px){
   html body.site-light-page main.home section.home-hero h1.global-title{font-size:58px!important}
@@ -308,27 +311,16 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait{
   html body.site-light-page main.home section.home-hero{display:block!important;min-height:100svh!important}
   html body.site-light-page main.home section.home-hero .home-hero__content{
     width:calc(100% - 36px)!important;
-    padding:48px 0 20px!important;
+    padding:64px 0!important;
   }
   html body.site-light-page main.home section.home-hero .home-hero__copy{width:100%}
   html body.site-light-page main.home section.home-hero .home-hero__services br{display:none}
-  html body.site-light-page main.home section.home-hero .home-hero__portrait{
-    position:relative;
-    inset:auto;
-    transform:none;
-    width:100%;
-    height:auto;
-    max-height:none;
-    margin:32px 0 64px;
-    aspect-ratio:4/3;
-    object-position:78% bottom;
-    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 22%);
-    mask-image:linear-gradient(to bottom,transparent 0%,#000 22%);
-  }
+  html body.site-light-page main.home section.home-hero .home-hero__copy{padding:28px 24px}
+  html body.site-light-page main.home section.home-hero h1.global-title{font-size:clamp(36px,8.5vw,50px)!important}
 }
 
 
-/* Zoom innerhalb der unveränderten, maskierten Bildfläche */
+/* Bildausschnitt innerhalb des Hero-Hintergrunds */
 html body.site-light-page main.home section.home-hero .home-hero__portrait-image{
   position:absolute;
   inset:0;

@@ -91,18 +91,7 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   backdrop-filter:none!important;
   -webkit-backdrop-filter:none!important;
 }
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
-  background:var(--mt-surface-open)!important;
-  background-color:var(--mt-surface-open)!important;
-}
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card>ul,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
-}
+
 
 /* Einheitliche dunkle Inhaltsbereiche */
 body.site-light-page .expectation-editorial{
@@ -202,19 +191,11 @@ html body .services-section .service-card .card-number,
 html body .services-section .service-card h2{
   align-self:center!important;
 }
-html body .home>.home-values .home-values__item h3,
-html body .services-section .service-card h2{
-  position:relative!important;
-  top:3px!important;
-}
+
 
 /* Dienstleistungskacheln auf Startseite und Hauptseite identisch */
 @media(min-width:801px){
-  html body .home>.home-values .home-values__item,
-  html body .services-section .service-card summary{
-    grid-template-columns:70px minmax(0,1fr)!important;
-    column-gap:20px!important;
-  }
+
   html body .home>.home-values .home-values__item .service-number,
   html body .services-section .service-card .card-number{
     font-size:46px!important;
@@ -225,7 +206,6 @@ html body .services-section .service-card h2{
 html body .home>.home-values .home-values__item h3,
 html body .services-section .service-card h2{
   font-size:24px!important;
-  font-weight:500!important;
   line-height:1.08!important;
   align-self:center!important;
   position:relative!important;
@@ -245,14 +225,6 @@ html body .services-section .service-card .card-number{
   }
 }
 
-/* Desktop: kompakter Abstand zwischen Zahl und Titel */
-@media(min-width:801px){
-  html body .home>.home-values .home-values__item,
-  html body .services-section .service-card summary{
-    grid-template-columns:max-content minmax(0,1fr)!important;
-    column-gap:16px!important;
-  }
-}
 
 /* Desktop: kompaktere Dienstleistungskacheln */
 @media(min-width:801px){
@@ -317,43 +289,19 @@ html body .home-values__all-services:focus-visible::after{
 }
 html body .home-values__all-services span{
   display:inline-block!important;
-  transition:transform .2s ease!important;
 }
-html body .home-values__all-services:hover span,
-html body .home-values__all-services:focus-visible span{
-  transform:translate(2px,-2px)!important;
-}
+
 
 /* Navigationslinie mit 13 Pixel Abstand zum Text */
 html body .site-nav a::after{
   bottom:18px!important;
 }
 
-/* Desktop: Fliesstext beginnt direkt unter dem Kacheltitel */
-@media(min-width:801px){
-  html body .home>.home-values .home-values__item p,
-  html body .services-section .service-card summary p{
-    grid-column:2!important;
-    grid-row:2!important;
-    margin-top:28px!important;
-  }
-}
-
-/* Desktop: nur Abstand zwischen Kacheltitel und Fliesstext verkleinern */
-@media(min-width:801px){
-  html body .home>.home-values .home-values__item p,
-  html body .services-section .service-card summary p{
-    margin-top:14px!important;
-  }
-}
 
 /* Desktop: feste Anordnung Zahl und Titel oben,
 Fliesstext direkt darunter */
 @media(min-width:801px){
-  html body .home>.home-values .home-values__item,
-  html body .services-section .service-card summary{
-    row-gap:0!important;
-  }
+
   html body .home>.home-values .home-values__item .service-number,
   html body .services-section .service-card .card-number{
     grid-column:1!important;
@@ -366,12 +314,7 @@ Fliesstext direkt darunter */
     grid-row:1!important;
     align-self:center!important;
   }
-  html body .home>.home-values .home-values__item p,
-  html body .services-section .service-card summary p{
-    grid-column:2!important;
-    grid-row:2!important;
-    margin-top:14px!important;
-  }
+
 }
 
 /* Desktop: Fliesstext unter Zahl und Titel über die ganze Kachelbreite */
@@ -380,7 +323,6 @@ Fliesstext direkt darunter */
   html body .services-section .service-card summary p{
     grid-column:1 / -1!important;
     grid-row:2!important;
-    margin-top:18px!important;
   }
 }
 
@@ -432,7 +374,6 @@ Fliesstext direkt darunter */
     grid-row:1!important;
     align-self:center!important;
     margin:0!important;
-    font-size:46px!important;
     line-height:.9!important;
     letter-spacing:-.04em!important;
   }
@@ -441,9 +382,6 @@ Fliesstext direkt darunter */
     grid-row:1!important;
     align-self:center!important;
     margin:0!important;
-    font-size:24px!important;
-    font-weight:500!important;
-    line-height:1.08!important;
     position:relative!important;
     top:3px!important;
   }
@@ -482,37 +420,15 @@ html body .home-values__all-services.home-values__all-services.home-values__all-
   right:auto!important;
   bottom:0!important;
   left:0!important;
-  width:100%!important;
   height:1px!important;
   background:#b8b8b8!important;
   background-image:none!important;
   box-shadow:none!important;
-  transform:scaleX(0)!important;
   transform-origin:left center!important;
   transition:transform .2s ease!important;
 }
-html body .home-values__all-services.home-values__all-services.home-values__all-services:hover::after,
-html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible::after{
-  transform:scaleX(1)!important;
-}
-
-/* Textlinks: kurze Linie sichtbar,
-html body .home-values__all-services.home-values__all-services.home-values__all-services::after{
-  height:1px!important;
-  background:#868279!important;
-  transform:scaleX(.22)!important;
-  transform-origin:left center!important;
-}
-html body .home-values__all-services.home-values__all-services.home-values__all-services:hover::after,
-html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible::after{
-  transform:scaleX(1)!important;
-}
 
 
-/* Kleine Bereichstitel: Linie auf allen Seiten mit 13 Pixel Abstand */
-html body .section-label::after{
-  top:calc(1.4em + 13px)!important;
-}
 html body .contact-split__form-label::after{
   margin-top:13px!important;
 }
@@ -543,18 +459,9 @@ Titelabstand wie Startseite Dienstleistungen */
 html body .expectation-editorial .expectation-editorial__item h3{
   margin-bottom:0!important;
 }
-html body .expectation-editorial .expectation-editorial__item h3::after{
-  content:none!important;
-  display:none!important;
-}
+
 html body .expectation-editorial .expectation-editorial__item p{
   margin-top:18px!important;
-}
-
-
-/* Zusammenarbeit: Fliesstext im gleichen Grau wie die Fusszeile */
-html body.site-light-page .expectation-editorial .expectation-editorial__item p{
-  color:rgba(255,255,255,.82)!important;
 }
 
 
@@ -629,19 +536,6 @@ html body.site-light-page .services-main>.services-section{
 
 /* Zusammenarbeit: Linien direkt unter den Titeln,
 nicht unter den Bereichen */
-html body .expectation-editorial .expectation-editorial__item{
-  border-bottom:0!important;
-  box-shadow:none!important;
-}
-html body .expectation-editorial .expectation-editorial__item h3::after{
-  content:''!important;
-  display:block!important;
-  width:100%!important;
-  height:1px!important;
-  margin-top:13px!important;
-  background:rgba(255,255,255,.28)!important;
-  border:0!important;
-}
 
 
 html body .expectation-editorial .expectation-editorial__item{
@@ -704,52 +598,25 @@ html body .expectation-editorial__item h3::after,
 html body .knowledge-section .article-card h2::after{
   content:''!important;
   display:block!important;
-  width:48px!important;
-  height:1px!important;
   margin-top:11px!important;
   background:#868279!important;
   border:0!important;
 }
-html body .home-values__item h3,
-html body .expectation-editorial__item h3,
-html body .knowledge-section .article-card h2{
-  margin-bottom:11px!important;
-}
-html body .home-values__item p,
-html body .expectation-editorial__item p,
-html body .knowledge-section .article-card>p:not(.article-meta){
-  margin-top:0!important;
-}
-html body .home-paths__grid strong+span{
-  margin-top:11px!important;
-}
 
 
-/* Kleine Bereichstitel: Gedankenstrich vor dem Titel,
-kurze Linie darunter bleibt */
+/* Bereichstitel: gemeinsame Abstände */
 html body .section-label,
 html body .contact-split__form-label{
   gap:10px!important;
 }
 html body .section-label::before,
 html body .contact-split__form-label::before{
-  content:''!important;
-  display:inline-block!important;
   width:28px!important;
   height:1px!important;
   flex:0 0 28px!important;
   background:currentColor!important;
   border:0!important;
   line-height:1!important;
-}
-
-
-/* Bereichstitel: untere Linie entfernen,
-nur der lange Strich davor bleibt */
-html body .section-label::after,
-html body .contact-split__form-label::after{
-  content:none!important;
-  display:none!important;
 }
 
 
@@ -761,11 +628,10 @@ html body .contact-split__form-label::before{
 }
 
 
-/* Bereichstitel: kurze untere Linie wieder anzeigen */
+/* Bereichstitel: Inhalt des Nachfolgeelements */
 html body .section-label::after,
 html body .contact-split__form-label::after{
   content:''!important;
-  display:block!important;
 }
 
 
@@ -818,19 +684,6 @@ html body .services-closing h2{
 }
 
 
-/* Werte Bereich: grosser Titel ausdrücklich angleichen */
-html body .home-values .section-heading h2{
-  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
-  font-weight:400!important;
-  -webkit-text-stroke:.25px currentColor!important;
-}
-@media(min-width:801px){
-  html body .home-values .section-heading h2{
-    font-size:50px!important;
-  }
-}
-
-
 /* Werte,
 Dienstleistungen und Fachwissen: grosse Titel verbindlich angleichen */
 html body .home-values .section-heading h2,
@@ -864,15 +717,7 @@ html body .expectation-editorial .expectation-editorial__item h3::after{
 
 
 /* Alle kurzen Linien verbindlich 48 Pixel */
-html body .section-label::after,
-html body .contact-split__form-label::after,
-html body .home-values__item h3::after,
-html body .home-paths__grid strong::after,
-html body .expectation-editorial__item h3::after,
-html body .knowledge-section .article-card h2::after{
-  width:48px!important;
-  max-width:48px!important;
-}
+
 
 html body .home-values__all-services.home-values__all-services.home-values__all-services::after,
 html body .home-values__all-services.home-values__all-services.home-values__all-services:hover::after,
@@ -886,12 +731,10 @@ html body .home-values__all-services.home-values__all-services.home-values__all-
 /* Alle Titellinien: oben und unten je 11 Pixel Abstand */
 html body .section-label,
 html body .contact-split__form-label{
-  display:block!important;
   margin-bottom:11px!important;
 }
 html body .section-label::after,
 html body .contact-split__form-label::after{
-  position:static!important;
   top:auto!important;
   right:auto!important;
   bottom:auto!important;
@@ -900,7 +743,6 @@ html body .contact-split__form-label::after{
   width:48px!important;
   max-width:48px!important;
   height:1px!important;
-  margin:11px 0 0!important;
 }
 
 html body .home-values__item h3::after,
@@ -955,15 +797,6 @@ html body .contact-split__form-label::after{
 }
 
 
-/* Startseite Dienstleistungen: sechs Kacheltitel wie Haupttitel */
-html body .home>.home-values .home-values__item h3{
-  font-family:'Bitter',Georgia,serif!important;
-  font-size:20px!important;
-  font-weight:600!important;
-  -webkit-text-stroke:0!important;
-}
-
-
 /* Startseite Dienstleistungen: Zahl und Titel optisch ausrichten */
 html body .home>.home-values .home-values__item .service-number,
 html body .home>.home-values .home-values__item h3{
@@ -971,28 +804,6 @@ html body .home>.home-values .home-values__item h3{
 }
 html body .home>.home-values .home-values__item h3{
   top:7px!important;
-}
-
-
-/* Kacheltitel bei Unternehmen,
-Zusammenarbeit,
-Dienstleistungen und Fachwissen in PT Serif */
-html body .page-main>.home-values .home-values__item h3,
-html body .expectation-editorial .expectation-editorial__item h3,
-html body .services-main .services-section .service-card h2{
-  font-family:'Bitter',Georgia,serif!important;
-  font-size:20px!important;
-  font-weight:600!important;
-  -webkit-text-stroke:0!important;
-}
-
-
-/* Startseite Fachwissen: Kacheltitel ebenfalls in PT Serif 20 Pixel */
-html body .home>.home-paths .home-paths__grid strong{
-  font-family:'Bitter',Georgia,serif!important;
-  font-size:20px!important;
-  font-weight:600!important;
-  -webkit-text-stroke:0!important;
 }
 
 
@@ -1005,17 +816,8 @@ html body .services-main .services-section .service-card h2{
   letter-spacing:0!important;
 }
 
-/* Kleine Titel: Kontur entfernen */
-html body .home>.home-values .home-values__item h3,
-html body .home>.home-paths .home-paths__grid strong,
-html body .page-main>.home-values .home-values__item h3,
-html body .expectation-editorial .expectation-editorial__item h3,
-html body .services-main .services-section .service-card h2{
-  -webkit-text-stroke:0!important;
-}
 
-
-/* Kleine Titel: ursprüngliche Cormorant Garamond Schrift wiederherstellen */
+/* Gemeinsame Typografie der Kacheltitel */
 html body .home>.home-values .home-values__item h3,
 html body .home>.home-paths .home-paths__grid strong,
 html body .page-main>.home-values .home-values__item h3,
@@ -1108,14 +910,6 @@ html body main.home>.home-values .section-heading>.section-label::marker{
 html body main.home>.home-values .home-values__item h3::after{
   content:none!important;
   display:none!important;
-}
-
-
-/* Startseite Kontakt: gleicher Kastenhintergrund wie Dienstleistungen */
-html body.site-light-page main.home>.home-contact-band{
-  background:var(--mt-surface)!important;
-  background-color:var(--mt-surface)!important;
-  background-image:none!important;
 }
 
 
@@ -1253,7 +1047,6 @@ html body.site-light-page .company-legal-section .company-legal-card{
   display:grid!important;
   grid-template-columns:351px minmax(0,1fr)!important;
   gap:80px!important;
-  align-items:center!important;
   box-sizing:border-box!important;
   background:transparent!important;
   background-color:transparent!important;
@@ -1299,10 +1092,7 @@ html body.site-light-page .company-legal-card .home-company__copy .prose p:last-
 
 
 /* Unternehmen: eindeutiger Abstand von 30 Pixel zwischen Titel und Fliesstext */
-html body.site-light-page .company-legal-card .home-company__copy h1{
-  margin-bottom:0!important;
-  padding-bottom:0!important;
-}
+
 html body.site-light-page .company-legal-card .home-company__copy .prose{
   margin-top:30px!important;
   padding-top:0!important;
@@ -1502,10 +1292,7 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
 }
 
 /* Fachwissen Hauptseite: Titelabstand im Einordnungskasten wie bei Unternehmen */
-html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
-  margin-bottom:0!important;
-  padding-bottom:0!important;
-}
+
 html body.site-light-page .knowledge-section>.knowledge-note>div>h2+p{
   margin-top:30px!important;
   padding-top:0!important;
@@ -1514,10 +1301,6 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>h2+p{
 /* Fachwissen Hauptseite: Kacheln wie auf der Dienstleistungs-Hauptseite */
 @media(min-width:801px){
   html body.site-light-page .knowledge-section .articles-grid>.article-card{
-    box-sizing:border-box!important;
-    height:351px!important;
-    min-height:351px!important;
-    max-height:351px!important;
     padding:42px 42px 36px!important;
     background:transparent!important;
     background-color:transparent!important;
@@ -1533,9 +1316,6 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>.detai
   }
 }
 
-html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){
-  margin:30px 0 0!important;
-}
 
 /* Fachwissen Einordnung: Abmessungen 1:1 wie der grosse DL-Kasten */
 html body.site-light-page .knowledge-section>.knowledge-note{
@@ -1751,10 +1531,7 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
   letter-spacing:.1em!important;
   text-transform:uppercase!important;
   color:#868279!important;
-  align-self:flex-start!important;
-  margin-top:24px!important;
   padding-bottom:4px!important;
-  transform:translateY(-3px)!important;
 }
 
 
@@ -1911,21 +1688,12 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
   -webkit-text-stroke:0!important;
   color:#868279!important;
   opacity:1!important;
-  transform:translateY(-3px)!important;
 }
 
 
 /* Gemessener Positionsausgleich: Beitrag anzeigen 2 Pixel tiefer */
 html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
   transform:translateY(-1px)!important;
-}
-
-
-/* Fachwissen Hauptseite: oberer Kachelabstand 88 Pixel */
-@media(min-width:801px){
-  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
-    padding-top:88px!important;
-  }
 }
 
 

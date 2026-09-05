@@ -39,7 +39,7 @@ html body .services-main .services-section .services-grid>.service-card:nth-of-t
 .services-section .service-card[open] ul{padding-top:28px!important;padding-bottom:36px!important}.services-section .service-card li,
 .services-section .service-card:hover li,
 .services-section .service-card[open] li{font-size:14.5px!important;line-height:1.45!important;border-top:none!important;padding:0 0 0 15px!important;margin:0 0 5px!important;display:block!important;position:relative!important}.services-section .service-card li:last-child{margin-bottom:0!important}
-@media(min-width:1051px){.services-section .services-grid>.service-card[open]{height:670px!important;min-height:670px!important;max-height:670px!important;box-sizing:border-box!important;overflow:hidden!important}.services-section .service-card summary p{min-height:216px!important}.services-section .service-card .details-action{margin-top:30px!important}}
+@media(min-width:1051px){.services-section .services-grid>.service-card[open]{height:670px!important;min-height:670px!important;max-height:670px!important;box-sizing:border-box!important;overflow:hidden!important}.services-section .service-card summary p{min-height:216px!important}}
 .services-section .service-card li::before{content:''!important;position:absolute!important;left:0!important;top:.725em!important;width:10px!important;height:1px!important;margin:0!important;background:currentColor!important;opacity:.8!important;transform:translateY(-50%)!important;color:#99989c!important}.services-section .service-card:nth-child(1) li::before,
 .services-section .service-card:nth-child(5) li::before{color:#19191b!important}.services-section .service-card:nth-child(3) li::before{color:#c2c1c4!important}
 .services-section .service-card summary{list-style:none!important}.services-section .service-card summary::marker{content:''!important;display:none!important;font-size:0!important}.services-section .service-card summary::-webkit-details-marker{display:none!important}.services-section::before,
@@ -60,26 +60,9 @@ html body.site-light-page .services-main .services-section .services-grid{
 html body.site-light-page .services-main .services-section .services-grid>.service-card,
 html body.site-light-page .services-main .services-section .services-grid>.service-card:hover{
   min-height:360px!important;
-  background:rgba(255,255,255,.72)!important;
-  background-color:rgba(255,255,255,.72)!important;
-  background-image:none!important;
-  border:1px solid rgba(23,23,21,.12)!important;
-  box-shadow:none!important;
 }
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
-  background:rgba(255,255,255,.84)!important;
-  background-color:rgba(255,255,255,.84)!important;
-}
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card>ul,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>ul,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
-}
+
+
 @media(min-width:801px){
   html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
     min-height:360px!important;

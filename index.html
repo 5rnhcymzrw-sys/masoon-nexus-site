@@ -338,7 +338,7 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait-image
   max-width:none;
   object-fit:cover;
   object-position:right 20%;
-  transform:scale(1.2);
+  transform:scale(1.1);
   transform-origin:78% 20%;
 }
 @media(max-width:800px){
@@ -346,6 +346,15 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait-image
     object-position:78% bottom;
     transform-origin:78% bottom;
   }
+}
+
+/* Abdunklung nur innerhalb des Hero-Fotos */
+html body.site-light-page main.home section.home-hero .home-hero__portrait::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(6,6,5,.65) 0%,rgba(6,6,5,.4) 38%,rgba(5,5,5,.12) 75%,rgba(5,5,5,.12) 100%);
+  pointer-events:none;
 }
 </style></head>
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">

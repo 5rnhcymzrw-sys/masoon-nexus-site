@@ -292,7 +292,7 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait{
   max-height:none;
   aspect-ratio:16/9;
   object-fit:cover;
-  object-view-box:inset(8%);
+  overflow:hidden;
   object-position:right 10%;
   border:0;
   border-radius:0;
@@ -327,11 +327,31 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait{
   }
 }
 
+
+/* Zoom innerhalb der unveränderten, maskierten Bildfläche */
+html body.site-light-page main.home section.home-hero .home-hero__portrait-image{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:cover;
+  object-position:right 10%;
+  transform:scale(1.19);
+  transform-origin:78% 10%;
+}
+@media(max-width:800px){
+  html body.site-light-page main.home section.home-hero .home-hero__portrait-image{
+    object-position:78% bottom;
+    transform-origin:78% bottom;
+  }
+}
 </style></head>
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">
 <header class="site-header home-page-header" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important"><div class="header-inner"><a aria-label="MASOON TREUHAND Startseite" class="brand home-text-logo" href="index.html"><img alt="" aria-hidden="true" class="home-logo-icon" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="737" loading="eager" src="logo-icon-home.svg" width="638"/><img alt="" class="home-logo-text" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="1228" loading="eager" src="logo-text-home.svg" width="2048"/></a><button aria-controls="site-navigation" aria-expanded="false" class="menu-toggle" type="button"><span></span><span></span><span></span><span class="sr-only">Menü öffnen</span></button><nav aria-label="Hauptnavigation" class="site-nav" id="site-navigation"><a aria-current="page" class="active" href="index.html">Startseite</a><a href="unternehmen/index.html">Unternehmen</a><a href="dienstleistungen/index.html">Dienstleistungen</a><a href="fachwissen/index.html">Fachwissen</a><a href="kontakt/index.html">Kontakt</a></nav></div></header>
 <main class="home">
-<section class="home-hero"><div class="home-hero__content"><div class="home-hero__copy"><h1 class="global-title">Treuhand mit<br />Struktur und<br />Anspruch.</h1><p class="home-hero__services" style="margin-top:30px">Auf der Basis von Diskretion, Präzision und Vertrauen<br />begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch<br />durch alle Phasen Ihres Geschäftslebens.</p></div></div><img class="home-hero__portrait" src="Foto-hero.png?v=20260812-7" alt="Porträt von Gety Galena Masoon" fetchpriority="high" /></section>
+<section class="home-hero"><div class="home-hero__content"><div class="home-hero__copy"><h1 class="global-title">Treuhand mit<br />Struktur und<br />Anspruch.</h1><p class="home-hero__services" style="margin-top:30px">Auf der Basis von Diskretion, Präzision und Vertrauen<br />begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch<br />durch alle Phasen Ihres Geschäftslebens.</p></div></div><div class="home-hero__portrait"><img class="home-hero__portrait-image" src="Foto-hero.png?v=20260812-7" alt="Porträt von Gety Galena Masoon" fetchpriority="high" /></div></section>
 <section class="home-values"><div class="home-values__inner"><div class="section-heading"><p class="section-label">Dienstleistungen</p><h2 class="global-title">Treuhandlösungen für Ihren Geschäftsalltag.</h2></div><div class="home-values__items"><article class="home-values__item"><span class="service-number">01</span><h3>Administration</h3><p>Strukturierte Unterstützung bei administrativen Aufgaben und laufenden Geschäftsprozessen.</p></article><article class="home-values__item"><span class="service-number">02</span><h3>Buchhaltung</h3><p>Übersichtliche und zuverlässige Führung Ihrer Finanzbuchhaltung.</p></article><article class="home-values__item"><span class="service-number">03</span><h3>Personaladministration</h3><p>Professionelle Abwicklung von Löhnen, Sozialversicherungen und Personalmutationen.</p></article><article class="home-values__item"><span class="service-number">04</span><h3>Jahresabschluss</h3><p>Sorgfältige Vorbereitung und Erstellung von Zwischen- und Jahresabschlüssen.</p></article><article class="home-values__item"><span class="service-number">05</span><h3>Steuererklärung</h3><p>Steuererklärungen für Privatpersonen und Unternehmen inklusive Veranlagungskontrolle.</p></article><article class="home-values__item"><span class="service-number">06</span><h3>Unternehmensberatung</h3><p>Begleitung bei Gründungen, Umstrukturierungen und weiteren unternehmerischen Fragen.</p></article></div><p style="margin-top:2.2rem"><a class="home-action-button" href="dienstleistungen/index.html">Alle Dienstleistungen ansehen <span aria-hidden="true">›</span></a></p></div></section>
 <section class="home-architecture-banner" aria-label="Architektur"></section>
 <section class="home-paths"><div class="home-paths__heading"><p class="section-label">Fachwissen</p><h2 class="global-title">Fachliche Orientierung zu ausgewählten Themen.</h2></div><div class="home-paths__grid"><a href="fachwissen/checkliste-steuererklaerung/"><span class="home-paths__category">STEUERN</span><strong>Steuererklärung richtig vorbereiten</strong><span class="home-paths__action">Beitrag anzeigen <span aria-hidden="true">›</span></span></a><a href="fachwissen/unternehmensformen/"><span class="home-paths__category">UNTERNEHMEN</span><strong>Die passende Unternehmensform wählen</strong><span class="home-paths__action">Beitrag anzeigen <span aria-hidden="true">›</span></span></a><a href="fachwissen/unwahre-buchfuehrung/"><span class="home-paths__category">BUCHHALTUNG</span><strong>Was eine saubere Buchhaltung ausmacht</strong><span class="home-paths__action">Beitrag anzeigen <span aria-hidden="true">›</span></span></a></div><p style="margin-top:2.2rem"><a class="home-action-button" href="fachwissen/index.html">Alle Beiträge ansehen <span aria-hidden="true">›</span></a></p></section>

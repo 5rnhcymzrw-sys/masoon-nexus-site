@@ -261,7 +261,7 @@ html body.site-light-page main.home section.home-values div.home-values__items a
 
 
 
-/* Hero mit flächigem Foto und weissem Textkasten */
+/* Heller Hero mit randlosem Porträt und weichem Übergang */
 html body.site-light-page main.home section.home-hero{
   min-height:calc(100svh - 108px)!important;
   box-sizing:border-box!important;
@@ -294,14 +294,21 @@ html body.site-light-page main.home section.home-hero h1.global-title{color:#171
 html body.site-light-page main.home section.home-hero .home-hero__services{color:#484a4f!important}
 html body.site-light-page main.home section.home-hero .home-hero__portrait{
   position:absolute;
-  inset:0;
+  inset:50% 0 auto auto;
+  transform:translateY(-50%);
   display:block;
-  width:100%;
-  height:100%;
+  width:66%;
+  height:min(32.625vw,calc((100svh - 108px)*.68),600px);
+  max-height:none;
+  aspect-ratio:16/9;
+  object-fit:cover;
   overflow:hidden;
+  object-position:right 10%;
   border:0;
   border-radius:0;
   z-index:1;
+
+
 }
 @media(max-width:1000px) and (min-width:801px){
   html body.site-light-page main.home section.home-hero h1.global-title{font-size:58px!important}
@@ -311,16 +318,27 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait{
   html body.site-light-page main.home section.home-hero{display:block!important;min-height:100svh!important}
   html body.site-light-page main.home section.home-hero .home-hero__content{
     width:calc(100% - 36px)!important;
-    padding:64px 0!important;
+    padding:48px 0 20px!important;
   }
   html body.site-light-page main.home section.home-hero .home-hero__copy{width:100%}
   html body.site-light-page main.home section.home-hero .home-hero__services br{display:none}
-  html body.site-light-page main.home section.home-hero .home-hero__copy{padding:28px 24px}
-  html body.site-light-page main.home section.home-hero h1.global-title{font-size:clamp(36px,8.5vw,50px)!important}
+  html body.site-light-page main.home section.home-hero .home-hero__portrait{
+    position:relative;
+    inset:auto;
+    transform:none;
+    width:100%;
+    height:auto;
+    max-height:none;
+    margin:32px 0 64px;
+    aspect-ratio:4/3;
+    object-position:78% bottom;
+
+
+  }
 }
 
 
-/* Bildausschnitt innerhalb des Hero-Hintergrunds */
+/* Zoom innerhalb der unveränderten, maskierten Bildfläche */
 html body.site-light-page main.home section.home-hero .home-hero__portrait-image{
   position:absolute;
   inset:0;
@@ -347,6 +365,11 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait::afte
   inset:0;
   background:linear-gradient(90deg,rgba(6,6,5,.8) 0%,rgba(6,6,5,.62) 38%,rgba(6,6,5,.45) 52%,rgba(5,5,5,.12) 70%,rgba(5,5,5,.12) 100%);
   pointer-events:none;
+}
+
+@media(max-width:800px){
+  html body.site-light-page main.home section.home-hero .home-hero__copy{padding:28px 24px}
+  html body.site-light-page main.home section.home-hero h1.global-title{font-size:clamp(36px,8.5vw,50px)!important}
 }
 </style></head>
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">

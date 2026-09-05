@@ -622,7 +622,7 @@ html body .site-header .site-nav a::after{
   right:auto!important;
   bottom:18px!important;
   width:0!important;
-  height:1px!important;
+  height:2px!important;
   background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
   opacity:1;
   transition:width .4s ease!important;

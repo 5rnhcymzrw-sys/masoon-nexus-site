@@ -601,7 +601,7 @@ html body footer.site-footer .footer-simple *{
 
 
 
-/* Kopfzeile: Navigationsunterlinie in allen Zuständen deaktiviert */
+/* Kopfzeile: Links ohne zusätzliche Rahmen oder Schatten */
 html body .site-header .site-nav a,
 html body .site-header .site-nav a:hover,
 html body .site-header .site-nav a:focus,
@@ -612,14 +612,25 @@ html body .site-header .site-nav a[aria-current="page"]{
   border-bottom:0!important;
   box-shadow:none!important;
 }
-html body .site-header .site-nav a::after,
+html body .site-header .site-nav a::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  bottom:18px!important;
+  width:100%!important;
+  height:1px!important;
+  background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
+  opacity:0;
+  pointer-events:none;
+}
 html body .site-header .site-nav a:hover::after,
-html body .site-header .site-nav a:focus::after,
-html body .site-header .site-nav a:focus-visible::after,
-html body .site-header .site-nav a.active::after,
-html body .site-header .site-nav a[aria-current="page"]::after{
-  content:none!important;
-  display:none!important;
+html body .site-header .site-nav a:focus-visible::after{
+  opacity:1;
+}
+@media(max-width:800px){
+  html body .site-header .site-nav a::after{bottom:8px!important}
 }
 
 

@@ -38,12 +38,15 @@ html body.site-light-page main.home section.home-paths .home-paths__grid.home-pa
   transition:background-color .22s ease!important;
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1){
+  --home-preview-background:linear-gradient(110deg,rgba(243,232,212,.22) 0%,rgba(232,229,223,.22) 100%);
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2){
+  --home-preview-background:linear-gradient(110deg,rgba(232,229,223,.22) 0%,rgba(199,203,211,.22) 100%);
   border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3){
+  --home-preview-background:linear-gradient(110deg,rgba(199,203,211,.22) 0%,rgba(141,150,168,.22) 100%);
   border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid>a>.home-paths__action{
@@ -53,9 +56,9 @@ html body.site-light-page main.home section.home-paths .home-paths__grid>a>.home
   margin:12px 0 0!important;
   color:#484a4f!important;
   font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:13px!important;
-  font-weight:400!important;
-  line-height:1.5!important;
+  font-size:14px!important;
+  font-weight:290!important;
+  line-height:1.65!important;
   letter-spacing:normal!important;
   text-transform:none!important;
   opacity:1!important;
@@ -64,14 +67,14 @@ html body.site-light-page main.home section.home-paths .home-paths__grid>a>.home
 
 @media(hover:hover){
   html body.site-light-page main.home section.home-paths .home-paths__grid>a:hover{
-    background-color:rgba(232,229,223,.22)!important;
+    background-image:var(--home-preview-background)!important;
     transform:none!important;
     box-shadow:none!important;
   }
   
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid>a:focus-visible{
-    background-color:rgba(232,229,223,.22)!important;
+    background-image:var(--home-preview-background)!important;
     transform:none!important;
     box-shadow:none!important;
     outline:1px solid #868279!important;

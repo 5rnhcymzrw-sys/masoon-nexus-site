@@ -598,15 +598,7 @@ html body footer.site-footer .footer-simple *{
 }
 
 
-/* Aktiver Navigationstitel: Fusszeilenverlauf ohne Unterlinie */
-html body .site-header .site-nav a.active,
-html body .site-header .site-nav a[aria-current="page"]{
-  font-weight:600!important;
-  color:transparent!important;
-  background:linear-gradient(110deg,#8d96a8 0%,#c7cbd3 34%,#e8e5df 62%,#f3e8d4 100%)!important;
-  -webkit-background-clip:text!important;
-  background-clip:text!important;
-}
+
 
 
 /* Kopfzeile: Navigationsunterlinie in allen Zuständen deaktiviert */
@@ -631,12 +623,16 @@ html body .site-header .site-nav a[aria-current="page"]::after{
 }
 
 
-/* Kopfzeile: Verlauf beim Darüberfahren und auf der aktiven Seite */
+
+
+/* Kopfzeile: einheitliche Navigation ohne Farb- oder Gewichtseffekt */
+html body .site-header .site-nav a,
 html body .site-header .site-nav a:hover,
-html body .site-header .site-nav a:focus-visible{
-  font-weight:600!important;
-  color:transparent!important;
-  background:linear-gradient(110deg,#8d96a8 0%,#c7cbd3 34%,#e8e5df 62%,#f3e8d4 100%)!important;
-  -webkit-background-clip:text!important;
-  background-clip:text!important;
+html body .site-header .site-nav a:focus-visible,
+html body .site-header .site-nav a.active,
+html body .site-header .site-nav a[aria-current="page"]{
+  color:inherit!important;
+  font-weight:500!important;
+  background:none!important;
+  transition:none!important;
 }

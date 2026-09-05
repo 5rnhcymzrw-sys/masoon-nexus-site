@@ -625,14 +625,24 @@ html body .site-header .site-nav a[aria-current="page"]::after{
 
 
 
-/* Kopfzeile: einheitliche Navigation ohne Farb- oder Gewichtseffekt */
+/* Kopfzeile: konstante Schrift, warmer Farbton für Hover und aktuelle Seite */
 html body .site-header .site-nav a,
+html body .site-header .site-nav a:hover,
+html body .site-header .site-nav a:focus,
+html body .site-header .site-nav a:active,
+html body .site-header .site-nav a.active,
+html body .site-header .site-nav a[aria-current="page"]{
+  color:inherit!important;
+  -webkit-text-fill-color:currentColor!important;
+  font-weight:500!important;
+  background:none!important;
+  transform:none!important;
+  transition:none!important;
+  animation:none!important;
+}
 html body .site-header .site-nav a:hover,
 html body .site-header .site-nav a:focus-visible,
 html body .site-header .site-nav a.active,
 html body .site-header .site-nav a[aria-current="page"]{
-  color:inherit!important;
-  font-weight:500!important;
-  background:none!important;
-  transition:none!important;
+  color:#f3e8d4!important;
 }

@@ -1795,11 +1795,3 @@ html body .scroll-reveal:not(.article-card){
     padding-bottom:126px!important;
   }
 }
-
-/* Einheitliche Schriftfarbe für Kontaktbuttons */
-html body.site-light-page main .services-contact-button,
-html body.site-light-page main .services-contact-button:hover,
-html body.site-light-page main .services-contact-button:focus-visible,
-html body.site-light-page main .contact-split__form button[type="submit"]{
-  color:#868279!important;
-}

@@ -256,7 +256,7 @@ html body.site-light-page main.home section.home-hero{
   align-items:center!important;
   position:relative!important;
   isolation:isolate;
-  background:linear-gradient(105deg,#f0ede7 0%,#faf9f7 30%,#fff 52%,#edf0f3 100%)!important;
+  background:radial-gradient(ellipse at 8% 75%,rgba(231,225,214,.4),transparent 58%),linear-gradient(110deg,#faf8f4 0%,#f7f5f1 42%,#eef0f2 100%)!important;
   overflow:hidden;
   color:#171715!important;
 }
@@ -285,7 +285,7 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait{
   inset:0 0 0 auto;
   transform:none;
   display:block;
-  width:70%;
+  width:78%;
   height:100%;
   max-height:none;
   aspect-ratio:16/9;
@@ -295,9 +295,9 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait{
   border:0;
   border-radius:0;
   z-index:1;
-  -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.04) 15%,rgba(0,0,0,.28) 30%,rgba(0,0,0,.75) 44%,#000 57%),linear-gradient(to bottom,#000 0%,#000 76%,rgba(0,0,0,.85) 84%,rgba(0,0,0,.3) 94%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.03) 17%,rgba(0,0,0,.22) 29%,rgba(0,0,0,.65) 40%,#000 52%),linear-gradient(to bottom,#000 0%,#000 82%,rgba(0,0,0,.88) 88%,rgba(0,0,0,.35) 96%,transparent 100%);
   -webkit-mask-composite:source-in;
-  mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.04) 15%,rgba(0,0,0,.28) 30%,rgba(0,0,0,.75) 44%,#000 57%),linear-gradient(to bottom,#000 0%,#000 76%,rgba(0,0,0,.85) 84%,rgba(0,0,0,.3) 94%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.03) 17%,rgba(0,0,0,.22) 29%,rgba(0,0,0,.65) 40%,#000 52%),linear-gradient(to bottom,#000 0%,#000 82%,rgba(0,0,0,.88) 88%,rgba(0,0,0,.35) 96%,transparent 100%);
   mask-composite:intersect;
 
 
@@ -366,6 +366,23 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait::afte
   html body.site-light-page main.home section.home-hero .home-hero__portrait{
     -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 14%,#000 78%,transparent 100%);
     mask-image:linear-gradient(to bottom,transparent 0%,#000 14%,#000 78%,transparent 100%);
+  }
+}
+
+/* Bildaufteilung und Weissraum gemäss Referenz, nur innerhalb des Heros. */
+@media(min-width:801px){
+  html body.site-light-page main.home section.home-hero .home-hero__content{
+    width:80%!important;
+    padding:104px 0!important;
+  }
+  html body.site-light-page main.home section.home-hero .home-hero__copy{
+    width:52%;
+    padding:0;
+    border:0;
+  }
+  html body.site-light-page main.home section.home-hero .home-hero__portrait-image{
+    transform:none;
+    object-position:right top;
   }
 }
 </style><link rel="preload" as="image" href="07.09.2026%20white_icon_transparent_background.png" /><link rel="preload" as="image" href="07.09.2026%20white_textlogo_transparent_background.png" />

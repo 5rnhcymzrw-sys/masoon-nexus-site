@@ -28,8 +28,9 @@ html body.site-light-page main.page-main header.site-header .header-inner .home-
 @media(min-width:801px){
 html body.site-light-page main.page-main{padding-top:140px!important}
 html body.site-light-page main.page-main header.site-header{top:40px!important;overflow:visible!important}
+html body.site-light-page main.page-main header.site-header::after{position:absolute!important;top:100%!important;bottom:auto!important}
 html body.site-light-page main.page-main header.site-header .company-header-top-strip{
-display:block;position:fixed;top:0;left:0;right:0;height:40px;background:#fff;pointer-events:none;
+display:block;position:absolute;top:-40px;left:0;right:0;height:40px;background:#fff;pointer-events:none;
 }
 html body.site-light-page main.page-main header.site-header .company-logo-upper{
 display:block;position:absolute;inset:0;z-index:4;pointer-events:none;clip-path:inset(-40px -100vw 100% -100vw);

@@ -423,6 +423,14 @@ html body.site-light-page main.home section.home-hero .home-hero__copy::before{
   pointer-events:none;
 }
 html body.site-light-page main.home section.home-hero{overflow:hidden}
+@media(min-width:801px){
+  html body.site-light-page main.home section.home-hero .home-hero__copy::before{
+    top:50%;
+    bottom:auto;
+    height:min(32.625vw,calc((100svh - 108px)*.68),600px);
+    transform:translateY(-50%);
+  }
+}
 </style>
 </head>
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">

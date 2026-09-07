@@ -408,5 +408,28 @@ html body.site-light-page main.home section.home-hero::after{
 </main>
 <footer class="site-footer" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important"><div class="footer-simple"><a href="index.html">© 2026 MASOON TREUHAND</a><a href="disclaimer/index.html">Disclaimer</a><a href="impressum/index.html">Impressum</a><a href="datenschutz/index.html">Datenschutz</a><a href="kontakt/index.html">Kontakt</a></div></footer>
 <script defer src="assets/site.js?v=20260907-footer-scoped"></script>
+
+<script>
+/* Startseitenlogo zwischen linker Inhaltsrahmenkante und rechtem Rand von Startseite. */
+(() => {
+  const logo = document.querySelector('.home-text-logo');
+  const header = document.querySelector('.header-inner');
+  const start = document.querySelector('.site-nav a');
+  if (!logo || !header || !start) return;
+  const alignLogo = () => {
+    if (window.innerWidth <= 800) {
+      logo.style.removeProperty('left');
+      return;
+    }
+    const frameLeft = Math.max(32, (window.innerWidth - 1227) / 2);
+    const middle = (frameLeft + start.getBoundingClientRect().right) / 2;
+    logo.style.setProperty('left', (middle - header.getBoundingClientRect().left - logo.getBoundingClientRect().width / 2) + 'px', 'important');
+  };
+  alignLogo();
+  window.addEventListener('resize', alignLogo, { passive:true });
+  window.addEventListener('load', alignLogo, { once:true });
+  if (document.fonts) document.fonts.ready.then(alignLogo);
+})();
+</script>
 </body>
 </html>

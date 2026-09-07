@@ -1,0 +1,8 @@
+@import url('./unified-design-base-20260907.css?v=20260907');
+
+/* Startseite – verbindliche Farbpalette nur auf Fachwissen-Karten und Kontakt */
+html body.site-light-page main.home>section.home-paths.home-paths{background:transparent!important;background-color:transparent!important;background-image:none!important;}
+html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1){background:rgba(243,232,212,.18)!important;background-color:rgba(243,232,212,.18)!important;background-image:none!important;}
+html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2){background:rgba(232,229,223,.24)!important;background-color:rgba(232,229,223,.24)!important;background-image:none!important;}
+html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3){background:rgba(199,203,211,.16)!important;background-color:rgba(199,203,211,.16)!important;background-image:none!important;}
+html body.site-light-page main.home>section.home-contact-band.home-contact-band{background:linear-gradient(110deg,rgba(243,232,212,.34) 0%,rgba(232,229,223,.26) 38%,rgba(199,203,211,.22) 66%,rgba(141,150,168,.16) 100%)!important;background-color:transparent!important;}

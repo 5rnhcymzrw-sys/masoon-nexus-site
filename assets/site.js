@@ -113,7 +113,7 @@
     }
   }
 
-  // Gemeinsame Logoausrichtung: Inhaltsrahmen + 1px Rahmen + 72px Innenabstand.
+  // Gemeinsame Logoausrichtung: sichtbarer Schriftzug an der linken Aussenkante des Inhaltsrahmens.
   const alignedLogo = document.querySelector('.home-text-logo');
   const logoHeader = document.querySelector('.header-inner');
   if (alignedLogo && logoHeader) {
@@ -125,7 +125,7 @@
       const frameLeft = Math.max(32, (document.documentElement.clientWidth - 1227) / 2);
       const textImage = alignedLogo.querySelector('.home-logo-text');
       const transparentInset = textImage ? textImage.getBoundingClientRect().width * 104 / 3125 : 0;
-      alignedLogo.style.setProperty('left', (frameLeft + 73 - logoHeader.getBoundingClientRect().left - transparentInset) + 'px', 'important');
+      alignedLogo.style.setProperty('left', (frameLeft - logoHeader.getBoundingClientRect().left - transparentInset) + 'px', 'important');
     };
     alignHeaderLogo();
     window.addEventListener('resize', alignHeaderLogo, { passive:true });

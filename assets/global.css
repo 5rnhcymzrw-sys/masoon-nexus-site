@@ -344,7 +344,7 @@ html body .site-footer .footer-simple>*{
 html body .site-header .site-nav a{
   font-size:12px!important;
   letter-spacing:1.1px!important;
-  font-weight:500!important;
+  font-weight:600!important;
 }
 html body .site-footer .footer-simple,
 html body .site-footer .footer-simple>*{
@@ -650,7 +650,7 @@ html body .site-header .site-nav a.active,
 html body .site-header .site-nav a[aria-current="page"]{
   color:inherit!important;
   -webkit-text-fill-color:currentColor!important;
-  font-weight:500!important;
+  font-weight:600!important;
   background:none!important;
   transform:none!important;
   transition:none!important;

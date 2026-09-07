@@ -325,10 +325,8 @@ html body .site-footer .footer-simple>*+*::before{
 }
 
 
-/* Gemeinsame Typografie für Hauptnavigation und Fusszeile */
-html body .site-nav a,
-html body .site-footer .footer-simple,
-html body .site-footer .footer-simple>*{
+/* Typografie der Hauptnavigation */
+html body .site-nav a{
   font-family:var(--font-inter)!important;
   font-size:12px!important;
   line-height:1.65!important;
@@ -346,9 +344,21 @@ html body .site-header .site-nav a{
   letter-spacing:1.1px!important;
   font-weight:500!important;
 }
-html body .site-footer .footer-simple,
-html body .site-footer .footer-simple>*{
+/* Fusszeile: Schriftwerte der Bereichstitel, hellgrau auf Schwarz. */
+html body footer.site-footer .footer-simple,
+html body footer.site-footer .footer-simple>*{
+  font-family:var(--font-inter)!important;
+  font-size:11px!important;
   font-weight:500!important;
+  line-height:15.4px!important;
+  letter-spacing:1.55px!important;
+  text-transform:uppercase!important;
+  font-style:normal!important;
+  font-synthesis:none!important;
+  -webkit-font-smoothing:antialiased!important;
+  -moz-osx-font-smoothing:grayscale!important;
+  text-rendering:geometricPrecision!important;
+  color:#a3a3a3!important;
 }
 
 

@@ -407,31 +407,8 @@ html body.site-light-page main.home section.home-hero::after{
 <section class="home-contact-band"><p class="section-label mt-nav-typography">Kontakt</p><div><h2 class="global-title">Verlässliche Treuhandlösungen<br />für Ihr Unternehmen.</h2><a class="home-action-button mt-nav-typography" href="kontakt/index.html">Kontakt aufnehmen <span aria-hidden="true">›</span></a></div></section>
 </main>
 <footer class="site-footer" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important"><div class="footer-simple"><a href="index.html">© 2026 MASOON TREUHAND</a><a href="disclaimer/index.html">Disclaimer</a><a href="impressum/index.html">Impressum</a><a href="datenschutz/index.html">Datenschutz</a><a href="kontakt/index.html">Kontakt</a></div></footer>
-<script defer src="assets/site.js?v=20260907-footer-scoped"></script>
+<script defer src="assets/site.js?v=20260907-logo-unified"></script>
 
-<script>
-/* Startseitenlogo linksbündig mit dem Fliesstext der ersten Dienstleistungskachel. */
-(() => {
-  const logo = document.querySelector('.home-text-logo');
-  const header = document.querySelector('.header-inner');
-  const firstTitle = document.querySelector('.home-values__item p.mt-body-copy');
-  if (!logo || !header || !firstTitle) return;
-  const alignLogo = () => {
-    if (window.innerWidth <= 800) {
-      logo.style.removeProperty('left');
-      return;
-    }
-    const titleLeft = firstTitle.getBoundingClientRect().left;
-    // Die Originaldatei hat links 104 transparente Pixel bei 3125 Pixel Breite.
-    const textImage = logo.querySelector('.home-logo-text');
-    const transparentInset = textImage ? textImage.getBoundingClientRect().width * 104 / 3125 : 0;
-    logo.style.setProperty('left', (titleLeft - header.getBoundingClientRect().left - transparentInset) + 'px', 'important');
-  };
-  alignLogo();
-  window.addEventListener('resize', alignLogo, { passive:true });
-  window.addEventListener('load', alignLogo, { once:true });
-  if (document.fonts) document.fonts.ready.then(alignLogo);
-})();
-</script>
+
 </body>
 </html>

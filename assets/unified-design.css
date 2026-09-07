@@ -13,8 +13,22 @@ html body.site-light-page main.home>section.home-paths.home-paths .home-paths__g
 html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2){background:rgba(232,229,223,.24)!important;background-color:rgba(232,229,223,.24)!important;background-image:none!important;}
 html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3){background:rgba(199,203,211,.16)!important;background-color:rgba(199,203,211,.16)!important;background-image:none!important;}
 
-/* Kontaktbereich wie im Entwurf */
+/* Kontaktbereich: gleiche Farbwelt, als sichtbare Bereichsfläche über die volle Breite */
 html body.site-light-page main.home>section.home-contact-band.home-contact-band{
+  position:relative!important;
+  isolation:isolate!important;
   background:linear-gradient(110deg,rgba(243,232,212,.34) 0%,rgba(232,229,223,.26) 38%,rgba(199,203,211,.22) 66%,rgba(141,150,168,.16) 100%)!important;
   background-color:transparent!important;
+}
+html body.site-light-page main.home>section.home-contact-band.home-contact-band::before{
+  content:''!important;
+  position:absolute!important;
+  z-index:-1!important;
+  top:0!important;
+  bottom:0!important;
+  left:50%!important;
+  width:100vw!important;
+  transform:translateX(-50%)!important;
+  background:linear-gradient(110deg,rgba(243,232,212,.34) 0%,rgba(232,229,223,.26) 38%,rgba(199,203,211,.22) 66%,rgba(141,150,168,.16) 100%)!important;
+  pointer-events:none!important;
 }

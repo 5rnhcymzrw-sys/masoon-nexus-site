@@ -422,7 +422,10 @@ html body.site-light-page main.home section.home-hero::after{
       return;
     }
     const titleLeft = firstTitle.getBoundingClientRect().left;
-    logo.style.setProperty('left', (titleLeft - header.getBoundingClientRect().left) + 'px', 'important');
+    // Die Originaldatei hat links 104 transparente Pixel bei 3125 Pixel Breite.
+    const textImage = logo.querySelector('.home-logo-text');
+    const transparentInset = textImage ? textImage.getBoundingClientRect().width * 104 / 3125 : 0;
+    logo.style.setProperty('left', (titleLeft - header.getBoundingClientRect().left - transparentInset) + 'px', 'important');
   };
   alignLogo();
   window.addEventListener('resize', alignLogo, { passive:true });

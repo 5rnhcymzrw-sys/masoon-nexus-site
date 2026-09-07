@@ -149,8 +149,19 @@ html body.site-light-page footer.site-footer .footer-simple>a{
   -webkit-font-smoothing:antialiased!important;
   -moz-osx-font-smoothing:grayscale!important;
   text-rendering:geometricPrecision!important;
-  color:#868279!important;
+  color:#d6d6d5!important;
   -webkit-text-fill-color:currentColor!important;
+}
+
+/* Startseite: heller Beige-Blaugrau-Verlauf der Fusszeilenschrift. */
+@supports ((background-clip:text) or (-webkit-background-clip:text)){
+  html body.site-light-page footer.site-footer .footer-simple>a{
+    background:linear-gradient(110deg,#e8e5df 0%,#deddda 38%,#c7cbd3 100%)!important;
+    background-clip:text!important;
+    -webkit-background-clip:text!important;
+    color:transparent!important;
+    -webkit-text-fill-color:transparent!important;
+  }
 }
 </style>
 <link rel="stylesheet" href="assets/unified-design.css?v=20260907-card-label-center" />

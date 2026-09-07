@@ -5,7 +5,21 @@ html body.site-light-page main.home>section.home-values.home-values{
   background:linear-gradient(180deg,rgba(243,232,212,.18) 0%,rgba(255,255,255,.96) 42%,rgba(199,203,211,.10) 100%)!important;
 }
 html body.site-light-page main.home>section.home-paths.home-paths{
+  position:relative!important;
+  isolation:isolate!important;
   background:linear-gradient(115deg,rgba(243,232,212,.13) 0%,rgba(232,229,223,.16) 36%,rgba(199,203,211,.14) 68%,rgba(141,150,168,.08) 100%)!important;
+}
+html body.site-light-page main.home>section.home-paths.home-paths::before{
+  content:''!important;
+  position:absolute!important;
+  z-index:-1!important;
+  top:0!important;
+  bottom:0!important;
+  left:50%!important;
+  width:100vw!important;
+  transform:translateX(-50%)!important;
+  background:linear-gradient(115deg,rgba(243,232,212,.13) 0%,rgba(232,229,223,.16) 36%,rgba(199,203,211,.14) 68%,rgba(141,150,168,.08) 100%)!important;
+  pointer-events:none!important;
 }
 
 /* Nur die drei Fachwissen-Karten zusätzlich leicht einfärben */

@@ -344,21 +344,22 @@ html body .site-header .site-nav a{
   letter-spacing:1.1px!important;
   font-weight:500!important;
 }
-/* Fusszeile: Schriftwerte der Bereichstitel, hellgrau auf Schwarz. */
-html body footer.site-footer .footer-simple,
-html body footer.site-footer .footer-simple>*{
+/* Gemeinsame Fusszeilenwerte auf allen Seiten. */
+html body.site-light-page footer.site-footer .footer-simple,
+html body.site-light-page footer.site-footer .footer-simple>a{
   font-family:var(--font-inter)!important;
-  font-size:11px!important;
+  font-size:12px!important;
   font-weight:500!important;
-  line-height:15.4px!important;
-  letter-spacing:1.55px!important;
+  line-height:1.65!important;
+  letter-spacing:1.1px!important;
   text-transform:uppercase!important;
   font-style:normal!important;
   font-synthesis:none!important;
   -webkit-font-smoothing:antialiased!important;
   -moz-osx-font-smoothing:grayscale!important;
   text-rendering:geometricPrecision!important;
-  color:#a3a3a3!important;
+  color:#797c82!important;
+  -webkit-text-fill-color:currentColor!important;
 }
 
 

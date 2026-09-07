@@ -96,8 +96,8 @@
       const baseTop = top - footerAdjustment;
       const adjustment = Math.ceil(baseTop - 0.0001) - baseTop;
       if (Math.abs(adjustment - footerAdjustment) < 0.001) return;
-      pixelAlignedFooter.style.setProperty('margin-top', adjustment + 'px', 'important');
-      footerAdjustment = parseFloat(getComputedStyle(pixelAlignedFooter).marginTop) || 0;
+      pixelAlignedFooter.style.setProperty('top', adjustment + 'px', 'important');
+      footerAdjustment = parseFloat(getComputedStyle(pixelAlignedFooter).top) || 0;
     };
     const scheduleFooterAlignment = () => {
       if (!footerFrame) footerFrame = requestAnimationFrame(alignFooter);

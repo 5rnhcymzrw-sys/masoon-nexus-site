@@ -110,7 +110,7 @@ html body.site-light-page main.home>.home-paths>p{
   margin:54px 0 0!important;padding:0 0 14px!important;
 }
 html body.site-light-page main.home .home-values__inner>p>.home-action-button,
-html body.site-light-page main.home>section.home-paths>p>a.home-action-button{
+html body.site-light-page main.home>.home-paths>p>.home-action-button{
   margin-top:0!important;margin-bottom:0!important;
 }
 @media(max-width:800px){
@@ -127,6 +127,13 @@ html body.site-light-page main.home>.home-paths .home-paths__heading>.section-la
 /* Kontakt: gleicher sichtbarer Abstand von 40px vor dem Buttonrahmen. */
 html body.site-light-page main.home>section.home-contact-band>div{gap:54px!important}
 html body.site-light-page main.home>section.home-contact-band>div>a.home-action-button{margin-top:0!important}
+
+/* Startseite: optische Höhenkorrektur des Kontakt-Übertitels. */
+@media(min-width:801px){
+  html body.site-light-page main.home>section.home-contact-band>p.section-label{
+    top:calc(50% + 1px)!important;
+  }
+}
 </style>
 <link rel="stylesheet" href="assets/unified-design.css?v=20260907-card-label-center" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />

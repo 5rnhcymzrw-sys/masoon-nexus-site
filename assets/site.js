@@ -87,7 +87,7 @@
   // Align the footer to whole CSS pixels so end-of-page scroll rounding
   // cannot place otherwise identical footers on different pixel fractions.
   const pixelAlignedFooter = document.querySelector('.site-footer');
-  if (pixelAlignedFooter && document.querySelector('main.home, .company-legal-section')) {
+  if (pixelAlignedFooter && document.querySelector('main.home, .company-legal-section, [data-align-footer]')) {
     let footerFrame = 0;
     let footerAdjustment = 0;
     const alignFooter = () => {

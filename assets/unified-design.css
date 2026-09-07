@@ -945,22 +945,28 @@ html body.site-light-page main.home>.home-contact-band>.section-label::after{
 }
 
 
-/* Kontakt-Abschlusskästen: kleine Titel exakt auf Kastenmitte wie Einordnung */
+/* Abschlusskästen: alle kleinen Titel exakt auf der senkrechten Kastenmitte */
 @media(min-width:801px){
+  html body.site-light-page .knowledge-note,
   html body.site-light-page .services-closing,
   html body.site-light-page main.home>.home-contact-band{
     position:relative!important;
   }
+  html body.site-light-page .knowledge-note>div,
   html body.site-light-page .services-closing>.services-closing__inner,
   html body.site-light-page main.home>.home-contact-band>div{
     grid-column:2!important;
   }
+  html body.site-light-page .knowledge-note>.section-label,
   html body.site-light-page .services-closing>.section-label,
   html body.site-light-page main.home>.home-contact-band>.section-label{
     position:absolute!important;
     top:50%!important;
     left:72px!important;
     margin:0!important;
+    padding:0!important;
+    height:15.4px!important;
+    align-self:start!important;
     transform:translateY(-50%)!important;
   }
 }

@@ -7,12 +7,14 @@ html body.site-light-page main.home>section.home-values.home-values{
 html body.site-light-page main.home>section.home-paths.home-paths{
   position:relative!important;
   isolation:isolate!important;
-  background:linear-gradient(115deg,rgba(243,232,212,.13) 0%,rgba(232,229,223,.16) 36%,rgba(199,203,211,.14) 68%,rgba(141,150,168,.08) 100%)!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
 }
 html body.site-light-page main.home>section.home-paths.home-paths::before{
   content:''!important;
   position:absolute!important;
-  z-index:-1!important;
+  z-index:0!important;
   top:0!important;
   bottom:0!important;
   left:50%!important;
@@ -20,6 +22,10 @@ html body.site-light-page main.home>section.home-paths.home-paths::before{
   transform:translateX(-50%)!important;
   background:linear-gradient(115deg,rgba(243,232,212,.13) 0%,rgba(232,229,223,.16) 36%,rgba(199,203,211,.14) 68%,rgba(141,150,168,.08) 100%)!important;
   pointer-events:none!important;
+}
+html body.site-light-page main.home>section.home-paths.home-paths>*{
+  position:relative!important;
+  z-index:1!important;
 }
 
 /* Nur die drei Fachwissen-Karten zusätzlich leicht einfärben */

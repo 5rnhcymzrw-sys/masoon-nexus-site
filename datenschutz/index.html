@@ -36,7 +36,9 @@ html body .disclaimer-card h1{
 html body .disclaimer-card .prose{
   margin:0!important;
   align-self:baseline!important;
-  transform:translateY(-14px)!important;
+  position:relative;
+  top:-14px;
+  transform:none!important;
 }
 html body .legal-page .disclaimer-card{
   height:auto!important;
@@ -45,25 +47,34 @@ html body .legal-page .disclaimer-card{
 html body .disclaimer-card .prose h2{
   display:block!important;
   font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11.5px!important;
-  font-weight:600!important;
+  font-size:12px!important;
+  font-weight:500!important;
   line-height:1.65!important;
-  letter-spacing:.1em!important;
+  letter-spacing:1.1px!important;
   text-transform:uppercase!important;
   color:#171715!important;
   margin-bottom:7px!important;
+
+  font-style:normal!important;
+  font-synthesis:none!important;
+  -webkit-font-smoothing:antialiased!important;
+  -moz-osx-font-smoothing:grayscale!important;
+  text-rendering:geometricPrecision!important;
 }
 html body .disclaimer-card .prose h2:first-child{
   margin-top:0!important;
 }
-html body .disclaimer-card .prose p,
-html body .disclaimer-card .prose a{
+html body main.page-main section.legal-page .disclaimer-card .prose p,
+html body main.page-main section.legal-page .disclaimer-card .prose a{
+  font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:300!important;
+  line-height:1.65!important;
+  letter-spacing:0!important;
 }
 html body .disclaimer-card .prose p{
   margin-bottom:12px!important;
-  font-weight:290!important;
+  font-weight:300!important;
   color:#484a4f!important;
 }
 @media(max-width:800px){

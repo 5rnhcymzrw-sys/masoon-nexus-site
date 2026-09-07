@@ -657,22 +657,3 @@ html body .site-header .site-nav a[aria-current="page"]{
   animation:none!important;
 }
 
-
-
-/* Bestätigter Fliesstext. Die explizite Klasse schliesst Titel und Beschriftungen aus. */
-html body main :is(#mt-body-copy,.mt-body-copy){
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14px!important;
-  font-weight:300!important;
-  line-height:1.65!important;
-  letter-spacing:0!important;
-  color:#242424!important;
-}
-html body main :is(#mt-body-copy,.mt-body-copy) a{
-  font-family:inherit!important;
-  font-size:inherit!important;
-  font-weight:inherit!important;
-  line-height:inherit!important;
-  letter-spacing:inherit!important;
-  color:inherit!important;
-}

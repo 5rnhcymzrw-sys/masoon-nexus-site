@@ -410,20 +410,19 @@ html body.site-light-page main.home section.home-hero::after{
 <script defer src="assets/site.js?v=20260907-footer-scoped"></script>
 
 <script>
-/* Startseitenlogo mittig über der ersten Dienstleistungskachel. */
+/* Startseitenlogo linksbündig mit dem Titel der ersten Dienstleistungskachel. */
 (() => {
   const logo = document.querySelector('.home-text-logo');
   const header = document.querySelector('.header-inner');
-  const firstCard = document.querySelector('.home-values__item');
-  if (!logo || !header || !firstCard) return;
+  const firstTitle = document.querySelector('.home-values__item h3');
+  if (!logo || !header || !firstTitle) return;
   const alignLogo = () => {
     if (window.innerWidth <= 800) {
       logo.style.removeProperty('left');
       return;
     }
-    const card = firstCard.getBoundingClientRect();
-    const middle = card.left + card.width / 2;
-    logo.style.setProperty('left', (middle - header.getBoundingClientRect().left - logo.getBoundingClientRect().width / 2) + 'px', 'important');
+    const titleLeft = firstTitle.getBoundingClientRect().left;
+    logo.style.setProperty('left', (titleLeft - header.getBoundingClientRect().left) + 'px', 'important');
   };
   alignLogo();
   window.addEventListener('resize', alignLogo, { passive:true });

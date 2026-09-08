@@ -67,8 +67,11 @@ html body.site-light-page .company-legal-card .home-company__image::after{
 </style>
 <style>
 /* Porträt und Gestaltung gemeinsam anzeigen, ohne den reservierten Platz zu verändern. */
-html.company-portrait-loading .company-legal-card .home-company__image{
+html.company-portrait-loading body .company-legal-card .home-company__image{
+  opacity:0!important;
   visibility:hidden!important;
+  transition:none!important;
+  animation:none!important;
 }
 </style>
 <script>

@@ -1,0 +1,51 @@
+/* ISOLIERTER FARBTEST – keine Texte, Bilder, Logos oder Layoutmasse werden geändert. */
+/* Verwendet ausschliesslich die bereits vorhandene MASOON-Palette. */
+
+html body.site-light-page main.home {
+  background: #fff !important;
+}
+
+/* Grosse Inhaltsbereiche erhalten abwechselnd sehr dezente Tonflächen. */
+html body.site-light-page main.home > section.home-values {
+  position: relative !important;
+  background: linear-gradient(110deg, rgba(243,232,212,.28) 0%, rgba(232,229,223,.20) 55%, rgba(255,255,255,.12) 100%) !important;
+}
+
+html body.site-light-page main.home > section.home-paths {
+  position: relative !important;
+  background: linear-gradient(110deg, rgba(255,255,255,.90) 0%, rgba(199,203,211,.16) 58%, rgba(141,150,168,.10) 100%) !important;
+}
+
+/* Karten: gleiche Geometrie, nur Oberflächenfarbe. */
+html body.site-light-page main.home .home-values__items > .home-values__item:nth-child(1) {
+  background: rgba(243,232,212,.40) !important;
+}
+html body.site-light-page main.home .home-values__items > .home-values__item:nth-child(2) {
+  background: rgba(255,255,255,.72) !important;
+}
+html body.site-light-page main.home .home-values__items > .home-values__item:nth-child(3) {
+  background: rgba(199,203,211,.32) !important;
+}
+
+html body.site-light-page main.home .home-paths__grid > a:nth-child(1) {
+  background: rgba(243,232,212,.34) !important;
+}
+html body.site-light-page main.home .home-paths__grid > a:nth-child(2) {
+  background: rgba(232,229,223,.42) !important;
+}
+html body.site-light-page main.home .home-paths__grid > a:nth-child(3) {
+  background: rgba(199,203,211,.30) !important;
+}
+
+/* Kontaktband als ruhiger Abschluss mit derselben bestehenden Palette. */
+html body.site-light-page main.home > section.home-contact-band {
+  background: linear-gradient(110deg, rgba(243,232,212,.30) 0%, rgba(232,229,223,.28) 42%, rgba(199,203,211,.22) 72%, rgba(141,150,168,.15) 100%) !important;
+}
+
+/* Mobile: Tonflächen bleiben bewusst schwach. */
+@media (max-width:800px) {
+  html body.site-light-page main.home .home-values__items > .home-values__item,
+  html body.site-light-page main.home .home-paths__grid > a {
+    background-color: rgba(255,255,255,.62) !important;
+  }
+}

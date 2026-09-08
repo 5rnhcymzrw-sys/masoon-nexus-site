@@ -405,7 +405,53 @@ html body.site-light-page main.home section.home-hero::after{
   -webkit-mask-image:linear-gradient(to right,#000 0%,#000 24%,rgba(0,0,0,.7) 40%,transparent 62%);
   mask-image:linear-gradient(to right,#000 0%,#000 24%,rgba(0,0,0,.7) 40%,transparent 62%);
 }
-</style><link rel="preload" as="image" href="07.09.2026%20white_icon_transparent_background.png" /><link rel="preload" as="image" href="07.09.2026%20white_textlogo_transparent_background.png" /></head>
+</style><link rel="preload" as="image" href="07.09.2026%20white_icon_transparent_background.png" /><link rel="preload" as="image" href="07.09.2026%20white_textlogo_transparent_background.png" />
+<style>
+/* Startseite ausserhalb des eigenständig hinterlegten Heros: wie Fachwissen. */
+html body.site-light-page:has(main.home){
+  background-image:linear-gradient(to right in oklab,rgba(243,232,212,.08) 0%,rgba(232,229,223,.08) 36%,rgba(199,203,211,.08) 68%,rgba(141,150,168,.08) 100%),linear-gradient(to right,#fff 0%,#fff 36%,rgba(255,255,255,.95) 42%,rgba(255,255,255,.5) 49%,rgba(255,255,255,0) 58%),url("Hintergrundbild 2.png")!important;
+  background-repeat:no-repeat,no-repeat,repeat-y!important;
+  background-size:100% 100%,100% 100%,cover!important;
+  background-position:center top,center top,center top!important;
+  background-attachment:scroll,scroll,fixed!important;
+}
+html body.site-light-page:has(main.home) main.home>section.home-values.home-values,
+html body.site-light-page:has(main.home) main.home>section.home-paths.home-paths{
+  background:transparent!important;
+}
+html body.site-light-page:has(main.home) main.home>section.home-paths.home-paths::before,
+html body.site-light-page:has(main.home) main.home>section.home-contact-band.home-contact-band::before{
+  content:none!important;
+  display:none!important;
+}
+html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item,html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a{
+  background:linear-gradient(to right in oklab,rgba(243,232,212,.06) 0%,rgba(232,229,223,.06) 36%,rgba(199,203,211,.06) 68%,rgba(141,150,168,.06) 100%)!important;
+  background-origin:border-box!important;
+  background-size:calc(300% + 44px) 100%!important;
+  background-position:left top!important;
+  background-repeat:no-repeat!important;
+  -webkit-backdrop-filter:blur(32px)!important;
+  backdrop-filter:blur(32px)!important;
+}
+html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item:nth-child(3n+2),
+html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a:nth-child(3n+2){
+  background-position:center top!important;
+}
+html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item:nth-child(3n),
+html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a:nth-child(3n){
+  background-position:right top!important;
+}
+html body.site-light-page:has(main.home) main.home>section.home-contact-band.home-contact-band{
+  background:linear-gradient(to right in oklab,rgba(243,232,212,.06) 0%,rgba(232,229,223,.06) 36%,rgba(199,203,211,.06) 68%,rgba(141,150,168,.06) 100%)!important;
+  -webkit-backdrop-filter:blur(32px)!important;
+  backdrop-filter:blur(32px)!important;
+}
+@media(max-width:800px){
+  html body.site-light-page:has(main.home){background-attachment:scroll,scroll,scroll!important;}
+  html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item,html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a{background-size:100% 100%!important;}
+}
+</style>
+</head>
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">
 <header class="site-header home-page-header" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important"><div class="header-inner"><a aria-label="MASOON TREUHAND Startseite" class="brand home-text-logo" href="index.html"><img alt="" aria-hidden="true" class="home-logo-icon" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="867" loading="eager" src="07.09.2026%20white_icon_transparent_background.png" width="1200" style="width:165.517241px!important"/><img alt="" class="home-logo-text" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="1875" loading="eager" src="07.09.2026%20white_textlogo_transparent_background.png" width="3125"/></a><button aria-controls="site-navigation" aria-expanded="false" class="menu-toggle" type="button"><span></span><span></span><span></span><span class="sr-only">Menü öffnen</span></button><nav aria-label="Hauptnavigation" class="site-nav" id="site-navigation"><a aria-current="page" class="active" href="index.html">Startseite</a><a class="" href="unternehmen/index.html">Unternehmen</a><a class="" href="dienstleistungen/index.html">Dienstleistungen</a><a class="" href="fachwissen/index.html">Fachwissen</a><a class="" href="kontakt/index.html">Kontakt</a></nav></div></header>
 <main class="home">

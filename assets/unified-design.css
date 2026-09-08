@@ -57,3 +57,16 @@ html body.site-light-page main.home>section.home-contact-band.home-contact-band>
   position:relative!important;
   z-index:1!important;
 }
+
+/* Fachwissen: sauberer CSS-Hintergrund ohne Bild, Linien oder Texturen */
+html body.site-light-page:has(#knowledge-articles) main.page-main{
+  background-color:#fff!important;
+  background-image:linear-gradient(110deg,rgba(243,232,212,.30) 0%,rgba(232,229,223,.24) 38%,rgba(199,203,211,.20) 66%,rgba(141,150,168,.12) 100%)!important;
+  background-repeat:no-repeat!important;
+  background-size:100% 100%!important;
+}
+html body.site-light-page:has(#knowledge-articles) main.page-main>#knowledge-articles{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}

@@ -498,6 +498,9 @@ html body.site-light-page main.home section.home-hero .home-hero__text-surface{
 
 <style>
 /* Vordere Glasfläche beginnt 3 cm links vom Text; ursprüngliche rechte Kante bleibt. */
+html body.site-light-page main.home section.home-hero .home-hero__copy::before{
+  background:linear-gradient(90deg,rgba(236,233,227,.16) 0%,rgba(222,219,212,.16) 50%,rgba(213,209,201,.16) 100%);
+}
 @media(min-width:801px){
   html body.site-light-page main.home section.home-hero .home-hero__copy::before{
     left:-3cm;

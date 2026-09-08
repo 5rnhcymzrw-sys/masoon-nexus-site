@@ -7,24 +7,65 @@
 <style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff}iframe{border:0;width:100%;height:100%;display:block}</style>
 </head>
 <body>
-<iframe id="site" src="../index.html"></iframe>
+<iframe id="site" src="../index.html?v=farbtest-20260909-2"></iframe>
 <script>
 const css=`
-/* Nur Farb-/Oberflächentest. Keine Texte, Bilder, Logos oder Layoutmasse. */
-html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item{background:rgba(243,232,212,.30)!important}
-html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item:nth-child(3n+2){background:rgba(232,229,223,.38)!important}
-html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item:nth-child(3n){background:rgba(199,203,211,.28)!important}
-html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a{background:rgba(243,232,212,.24)!important}
-html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a:nth-child(3n+2){background:rgba(232,229,223,.34)!important}
-html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a:nth-child(3n){background:rgba(199,203,211,.26)!important}
-html body.site-light-page:has(main.home) main.home>section.home-values{background:linear-gradient(110deg,rgba(243,232,212,.16) 0%,rgba(232,229,223,.11) 48%,rgba(255,255,255,.04) 100%)!important}
-html body.site-light-page:has(main.home) main.home>section.home-paths{background:linear-gradient(110deg,rgba(255,255,255,.05) 0%,rgba(199,203,211,.10) 58%,rgba(141,150,168,.07) 100%)!important}
-html body.site-light-page:has(main.home) main.home>section.home-contact-band{background:linear-gradient(110deg,rgba(243,232,212,.22) 0%,rgba(232,229,223,.20) 40%,rgba(199,203,211,.16) 72%,rgba(141,150,168,.11) 100%)!important}
-@media(hover:hover){html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item:hover,html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a:hover{box-shadow:0 10px 28px rgba(23,23,21,.07)!important}}
-@media(max-width:800px){html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item,html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a{background:rgba(255,255,255,.52)!important}}
+/* DEUTLICHER FARBTEST – nur bestehende MASOON-Farben. Hero, Texte, Fotos, Logos und Layout bleiben unangetastet. */
+
+html body.site-light-page main.home>section.home-values.home-values.home-values{
+  background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 54%,rgba(255,255,255,.92) 100%)!important;
+}
+html body.site-light-page main.home>section.home-paths.home-paths.home-paths{
+  background:linear-gradient(110deg,rgba(255,255,255,.96) 0%,#e8e5df 46%,#c7cbd3 100%)!important;
+}
+html body.site-light-page main.home>section.home-contact-band.home-contact-band.home-contact-band{
+  background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 72%,#8d96a8 100%)!important;
+}
+
+html body.site-light-page main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item{
+  background:#f3e8d4!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+}
+html body.site-light-page main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+2){
+  background:#e8e5df!important;
+}
+html body.site-light-page main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n){
+  background:#c7cbd3!important;
+}
+
+html body.site-light-page main.home>section.home-paths .home-paths__grid.home-paths__grid.home-paths__grid>a{
+  background:#f3e8d4!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+}
+html body.site-light-page main.home>section.home-paths .home-paths__grid.home-paths__grid.home-paths__grid>a:nth-child(3n+2){
+  background:#e8e5df!important;
+}
+html body.site-light-page main.home>section.home-paths .home-paths__grid.home-paths__grid.home-paths__grid>a:nth-child(3n){
+  background:#c7cbd3!important;
+}
+
+/* Nur Test: auch auf Mobile sichtbar statt fast weiss. */
+@media(max-width:800px){
+  html body.site-light-page main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+1),
+  html body.site-light-page main.home>section.home-paths .home-paths__grid.home-paths__grid.home-paths__grid>a:nth-child(3n+1){background:#f3e8d4!important}
+  html body.site-light-page main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+2),
+  html body.site-light-page main.home>section.home-paths .home-paths__grid.home-paths__grid.home-paths__grid>a:nth-child(3n+2){background:#e8e5df!important}
+  html body.site-light-page main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n),
+  html body.site-light-page main.home>section.home-paths .home-paths__grid.home-paths__grid.home-paths__grid>a:nth-child(3n){background:#c7cbd3!important}
+}
 `;
 const frame=document.getElementById('site');
-frame.addEventListener('load',()=>{const d=frame.contentDocument||frame.contentWindow.document;const s=d.createElement('style');s.textContent=css;d.head.appendChild(s)});
+function apply(){
+  try{
+    const d=frame.contentDocument||frame.contentWindow.document;
+    let s=d.getElementById('masoon-visible-farbtest');
+    if(!s){s=d.createElement('style');s.id='masoon-visible-farbtest';d.documentElement.appendChild(s)}
+    s.textContent=css;
+  }catch(e){console.error(e)}
+}
+frame.addEventListener('load',()=>{apply();setTimeout(apply,250);setTimeout(apply,1000)});
 </script>
 </body>
 </html>

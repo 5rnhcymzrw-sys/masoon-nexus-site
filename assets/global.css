@@ -704,3 +704,15 @@ html body main :is(#mt-nav-typography,.mt-nav-typography){
   -moz-osx-font-smoothing:grayscale!important;
   text-rendering:geometricPrecision!important;
 }
+
+/* Stabile Kopfzeile beim Laden: Scrollleistenplatz von Beginn an reservieren. */
+html{scrollbar-gutter:stable;}
+@supports not (scrollbar-gutter:stable){
+  html{overflow-y:scroll;}
+}
+html body header.site-header .header-inner,
+html body header.site-header .header-inner .home-text-logo,
+html body header.site-header .header-inner .home-text-logo img{
+  transition:none!important;
+  animation:none!important;
+}

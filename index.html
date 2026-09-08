@@ -8,7 +8,6 @@
 
   <link rel="shortcut icon" href="Logo base_icon_transparent_background 02.09.2026 new.png?v=20260903-4" />
   <link rel="icon" href="Logo base_icon_transparent_background 02.09.2026 new.png?v=20260903-4" />
-  <link rel="preload" as="image" href="Hintergrundbild 2.png" fetchpriority="high" />
 
 
 <link rel="stylesheet" href="assets/index-CZfMKxM_.css?v=20260903-1" />
@@ -256,7 +255,7 @@ html body.site-light-page main.home section.home-hero{
   align-items:center!important;
   position:relative!important;
   isolation:isolate;
-  background:#f4f2ee!important;
+  background:transparent!important;
   color:#171715!important;
 }
 html body.site-light-page main.home section.home-hero .home-hero__content{
@@ -380,41 +379,17 @@ html body.site-light-page main.home section.home-hero .home-hero__portrait::afte
   }
 }
 
-/* Nur den ursprünglichen Hero-Hintergrund horizontal spiegeln. */
-html body.site-light-page main.home section.home-hero::before{
-  content:""!important;
-  display:block!important;
-  position:absolute!important;
-  inset:0!important;
-  z-index:0;
-  pointer-events:none;
-  background:url('assets/hero-background-20260907.png?v=rounded') center center / cover no-repeat!important;
-  transform:scaleX(-1)!important;
-}
-/* Warmes Graubeige aus der Vorlage, nur auf dem linken Hintergrundbereich. */
+/* Der Hero lässt den gemeinsamen Seitenhintergrund durchscheinen. */
+html body.site-light-page main.home section.home-hero::before,
 html body.site-light-page main.home section.home-hero::after{
-  content:""!important;
-  display:block!important;
-  position:absolute!important;
-  inset:0!important;
-  z-index:0;
-  pointer-events:none;
-  background:#ece9e3!important;
-  backdrop-filter:grayscale(1);
-  -webkit-backdrop-filter:grayscale(1);
-  opacity:.50;
-  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 24%,rgba(0,0,0,.7) 40%,transparent 62%);
-  mask-image:linear-gradient(to right,#000 0%,#000 24%,rgba(0,0,0,.7) 40%,transparent 62%);
+  content:none!important;
+  display:none!important;
 }
 </style><link rel="preload" as="image" href="07.09.2026%20white_icon_transparent_background.png" /><link rel="preload" as="image" href="07.09.2026%20white_textlogo_transparent_background.png" />
 <style>
-/* Startseite ausserhalb des eigenständig hinterlegten Heros: wie Fachwissen. */
+/* Durchgehender dezenter Seitenhintergrund in der bestehenden Balkenpalette. */
 html body.site-light-page:has(main.home){
-  background-image:linear-gradient(to right in oklab,rgba(243,232,212,.08) 0%,rgba(232,229,223,.08) 36%,rgba(199,203,211,.08) 68%,rgba(141,150,168,.08) 100%),linear-gradient(to right,#fff 0%,#fff 36%,rgba(255,255,255,.95) 42%,rgba(255,255,255,.5) 49%,rgba(255,255,255,0) 58%),url("Hintergrundbild 2.png")!important;
-  background-repeat:no-repeat,no-repeat,repeat-y!important;
-  background-size:100% 100%,100% 100%,cover!important;
-  background-position:center top,center top,center top!important;
-  background-attachment:scroll,scroll,fixed!important;
+  background:#fff linear-gradient(to right in oklab,rgba(243,232,212,.08) 0%,rgba(232,229,223,.08) 36%,rgba(199,203,211,.08) 68%,rgba(141,150,168,.08) 100%) center top / 100% 100% no-repeat scroll!important;
 }
 html body.site-light-page:has(main.home) main.home>section.home-values.home-values,
 html body.site-light-page:has(main.home) main.home>section.home-paths.home-paths{
@@ -448,7 +423,6 @@ html body.site-light-page:has(main.home) main.home>section.home-contact-band.hom
   backdrop-filter:blur(32px)!important;
 }
 @media(max-width:800px){
-  html body.site-light-page:has(main.home){background-attachment:scroll,scroll,scroll!important;}
   html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item,html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid.home-paths__grid.home-paths__grid>a{background-size:100% 100%!important;}
 }
 </style>

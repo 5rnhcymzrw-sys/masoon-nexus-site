@@ -19,34 +19,37 @@ iframe{width:100%;height:100%;border:0;background:#fff;display:block}
 <div class="tester">
 <strong>Ecken vergleichen</strong>
 <button data-v="original" class="active">Original</button>
-<button data-v="r12">1 · Rund 12</button>
-<button data-v="r24">2 · Rund 24</button>
-<button data-v="r40">3 · Rund 40</button>
-<button data-v="right24">4 · Nur rechts 24</button>
-<button data-v="right40">5 · Nur rechts 40</button>
-<button data-v="asym">6 · Rechts asymmetrisch</button>
+<button data-v="r12">1 · Beide rund 12</button>
+<button data-v="r24">2 · Beide rund 24</button>
+<button data-v="r40">3 · Beide rund 40</button>
+<button data-v="right24">4 · Beide rechts 24</button>
+<button data-v="right40">5 · Beide rechts 40</button>
+<button data-v="asym">6 · Beide asymmetrisch</button>
 </div>
 <iframe id="site" src="./index.html"></iframe>
 <script>
 const frame=document.getElementById('site');
 const buttons=[...document.querySelectorAll('button[data-v]')];
 let current='original';
-
 const testCSS=`
 @media(min-width:801px){
-  /* Wichtig: keine Breite, Höhe, Position, Maske oder clip-path verändern. */
+  /* Nur Ecken ändern. Breite, Höhe und Position bleiben aus der Originalseite. */
+  html[class*="hero-corner-"] body .home-hero,
+  html[class*="hero-corner-"] body .home-hero::before,
+  html[class*="hero-corner-"] body .home-hero::after,
   html[class*="hero-corner-"] body .home-hero .home-hero__content,
   html[class*="hero-corner-"] body .home-hero .home-hero__copy,
   html[class*="hero-corner-"] body .home-hero .home-hero__content::before,
   html[class*="hero-corner-"] body .home-hero .home-hero__content::after,
   html[class*="hero-corner-"] body .home-hero .home-hero__copy::before,
   html[class*="hero-corner-"] body .home-hero .home-hero__copy::after{
-    overflow:hidden!important;
     clip-path:none!important;
     -webkit-mask-image:none!important;
     mask-image:none!important;
   }
 
+  html.hero-corner-r12 body .home-hero::before,
+  html.hero-corner-r12 body .home-hero::after,
   html.hero-corner-r12 body .home-hero .home-hero__content,
   html.hero-corner-r12 body .home-hero .home-hero__copy,
   html.hero-corner-r12 body .home-hero .home-hero__content::before,
@@ -54,6 +57,8 @@ const testCSS=`
   html.hero-corner-r12 body .home-hero .home-hero__copy::before,
   html.hero-corner-r12 body .home-hero .home-hero__copy::after{border-radius:12px!important}
 
+  html.hero-corner-r24 body .home-hero::before,
+  html.hero-corner-r24 body .home-hero::after,
   html.hero-corner-r24 body .home-hero .home-hero__content,
   html.hero-corner-r24 body .home-hero .home-hero__copy,
   html.hero-corner-r24 body .home-hero .home-hero__content::before,
@@ -61,6 +66,8 @@ const testCSS=`
   html.hero-corner-r24 body .home-hero .home-hero__copy::before,
   html.hero-corner-r24 body .home-hero .home-hero__copy::after{border-radius:24px!important}
 
+  html.hero-corner-r40 body .home-hero::before,
+  html.hero-corner-r40 body .home-hero::after,
   html.hero-corner-r40 body .home-hero .home-hero__content,
   html.hero-corner-r40 body .home-hero .home-hero__copy,
   html.hero-corner-r40 body .home-hero .home-hero__content::before,
@@ -68,6 +75,8 @@ const testCSS=`
   html.hero-corner-r40 body .home-hero .home-hero__copy::before,
   html.hero-corner-r40 body .home-hero .home-hero__copy::after{border-radius:40px!important}
 
+  html.hero-corner-right24 body .home-hero::before,
+  html.hero-corner-right24 body .home-hero::after,
   html.hero-corner-right24 body .home-hero .home-hero__content,
   html.hero-corner-right24 body .home-hero .home-hero__copy,
   html.hero-corner-right24 body .home-hero .home-hero__content::before,
@@ -75,6 +84,8 @@ const testCSS=`
   html.hero-corner-right24 body .home-hero .home-hero__copy::before,
   html.hero-corner-right24 body .home-hero .home-hero__copy::after{border-radius:0 24px 24px 0!important}
 
+  html.hero-corner-right40 body .home-hero::before,
+  html.hero-corner-right40 body .home-hero::after,
   html.hero-corner-right40 body .home-hero .home-hero__content,
   html.hero-corner-right40 body .home-hero .home-hero__copy,
   html.hero-corner-right40 body .home-hero .home-hero__content::before,
@@ -82,6 +93,8 @@ const testCSS=`
   html.hero-corner-right40 body .home-hero .home-hero__copy::before,
   html.hero-corner-right40 body .home-hero .home-hero__copy::after{border-radius:0 40px 40px 0!important}
 
+  html.hero-corner-asym body .home-hero::before,
+  html.hero-corner-asym body .home-hero::after,
   html.hero-corner-asym body .home-hero .home-hero__content,
   html.hero-corner-asym body .home-hero .home-hero__copy,
   html.hero-corner-asym body .home-hero .home-hero__content::before,
@@ -90,7 +103,6 @@ const testCSS=`
   html.hero-corner-asym body .home-hero .home-hero__copy::after{border-radius:0 42px 14px 0!important}
 }
 `;
-
 function apply(v){
   const d=frame.contentDocument;if(!d)return;
   [...d.documentElement.classList].filter(c=>c.startsWith('hero-corner-')).forEach(c=>d.documentElement.classList.remove(c));

@@ -12,13 +12,12 @@ html,body{margin:0;height:100%;font-family:Arial,sans-serif;background:#111}body
 <script>
 const f=document.getElementById('site'),bs=[...document.querySelectorAll('button[data-v]')];let current='medium';
 const css=`@media(min-width:801px){
-html[class*="hero-bg-"] body .home-hero{position:relative!important;overflow:hidden!important;background:none!important}
-html[class*="hero-bg-"] body .home-hero::before{content:''!important;position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}
-html[class*="hero-bg-"] body .home-hero>*{position:relative!important;z-index:1!important}
-html[class*="hero-bg-"] body .home-hero__portrait-image{visibility:hidden!important}
-html.hero-bg-light body .home-hero::before{background:linear-gradient(90deg,#eee9df 0%,#e4e2de 45%,#c9cbd0 72%,#a9adb5 100%)!important}
-html.hero-bg-medium body .home-hero::before,html.hero-bg-mediumclean body .home-hero::before{background:linear-gradient(90deg,#e6dfd3 0%,#d6d4d0 43%,#b7bac0 70%,#8f949d 100%)!important}
-html.hero-bg-dark body .home-hero::before{background:linear-gradient(90deg,#ddd5c8 0%,#c9c7c4 42%,#a4a8af 69%,#747a84 100%)!important}
+/* WICHTIG: keine Positionen, Grössen, Grid-/Flex-Eigenschaften oder z-index der Hero-Elemente verändern. */
+html[class*="hero-bg-"] body .home-hero__portrait-image{opacity:0!important;visibility:hidden!important}
+html[class*="hero-bg-"] body .home-hero__portrait{background:none!important}
+html.hero-bg-light body .home-hero{background:linear-gradient(90deg,#eee9df 0%,#e4e2de 45%,#c9cbd0 72%,#a9adb5 100%)!important}
+html.hero-bg-medium body .home-hero,html.hero-bg-mediumclean body .home-hero{background:linear-gradient(90deg,#e6dfd3 0%,#d6d4d0 43%,#b7bac0 70%,#8f949d 100%)!important}
+html.hero-bg-dark body .home-hero{background:linear-gradient(90deg,#ddd5c8 0%,#c9c7c4 42%,#a4a8af 69%,#747a84 100%)!important}
 html.hero-bg-mediumclean body .home-hero__copy h1,html.hero-bg-mediumclean body .home-hero__copy p{visibility:hidden!important}
 }`;
 function apply(v){const d=f.contentDocument;if(!d)return;[...d.documentElement.classList].filter(c=>c.startsWith('hero-bg-')).forEach(c=>d.documentElement.classList.remove(c));let st=d.getElementById('hero-bg-test');if(!st){st=d.createElement('style');st.id='hero-bg-test';st.textContent=css;d.head.appendChild(st)}if(v!=='original')d.documentElement.classList.add('hero-bg-'+v);bs.forEach(b=>b.classList.toggle('active',b.dataset.v===v));current=v}

@@ -389,7 +389,7 @@ html body.site-light-page main.home section.home-hero::after{
 <style>
 /* Originaler Bildhintergrund der Startseite. */
 html body.site-light-page:has(main.home){
-  background:#fff url("Hintergrundbild 2.png") center top / cover repeat-y scroll!important;
+  background:#fff url("Hintergrundbild 2.png") center top / cover no-repeat fixed!important;
 }
 html body.site-light-page:has(main.home) main.home>section.home-values.home-values,
 html body.site-light-page:has(main.home) main.home>section.home-paths.home-paths{
@@ -423,6 +423,7 @@ html body.site-light-page:has(main.home) main.home>section.home-contact-band.hom
   backdrop-filter:blur(32px)!important;
 }
 @media(max-width:800px){
+  html body.site-light-page:has(main.home){background-attachment:scroll!important;background-size:auto 100svh!important;background-repeat:repeat-y!important;}
   html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item,html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid.home-paths__grid.home-paths__grid>a{background-size:100% 100%!important;}
 }
 </style>

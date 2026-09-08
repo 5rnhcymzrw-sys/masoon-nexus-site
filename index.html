@@ -518,13 +518,14 @@ html body.site-light-page main.home section.home-hero .home-hero__text-surface{
 </style>
 
 <style>
-/* Dienstleistungskarten: Hero-Farbtöne mit transparenter Überlagerung und 2mm Überstand ringsum. */
+/* Dienstleistungskarten: Je Kasten ein weicher Farbgrund und gestaffelte Glasflächen nach den drei Referenzen. */
 html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item{
   position:relative!important;
   isolation:isolate!important;
   overflow:visible!important;
-  --service-glass-start:218,214,203;
-  --service-glass-end:207,205,197;
+  --service-glass-start:225,217,199;
+  --service-glass-front:.28;
+  --service-glass-end:197,194,183;
   background:none!important;
   border:1px solid transparent!important;
   border-image:none!important;
@@ -533,12 +534,14 @@ html body.site-light-page:has(main.home) main.home>section.home-values .home-val
   box-shadow:none!important;
 }
 html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+2){
-  --service-glass-start:207,205,197;
-  --service-glass-end:170,169,165;
+  --service-glass-start:208,207,201;
+  --service-glass-front:.28;
+  --service-glass-end:166,167,162;
 }
 html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n){
-  --service-glass-start:170,169,165;
-  --service-glass-end:111,110,108;
+  --service-glass-start:174,173,169;
+  --service-glass-front:.40;
+  --service-glass-end:105,105,102;
 }
 html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item::before,html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item::after{
   content:""!important;
@@ -555,14 +558,14 @@ html body.site-light-page:has(main.home) main.home>section.home-values .home-val
 }
 html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item::before{
   inset:-2mm!important;
-  background:linear-gradient(90deg,rgba(var(--service-glass-start),.90),rgba(var(--service-glass-end),.90))!important;
-  border:1px solid rgba(255,255,255,.24)!important;
+  background:radial-gradient(ellipse at 24% 22%,rgba(255,255,255,.25),transparent 68%),radial-gradient(ellipse at 78% 82%,rgba(255,255,255,.12),transparent 62%),linear-gradient(110deg,rgb(var(--service-glass-start)),rgb(var(--service-glass-end)))!important;
+  border:0!important;
   box-shadow:none!important;
 }
 html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item::after{
   inset:0!important;
-  background:rgba(255,255,255,.28)!important;
-  border:1px solid rgba(255,255,255,.28)!important;
+  background:linear-gradient(to bottom,rgba(255,255,255,.12) 0%,rgba(255,255,255,.12) calc(10% - 1px),rgba(255,255,255,var(--service-glass-front)) 10%,rgba(255,255,255,var(--service-glass-front)) 90%,rgba(255,255,255,.12) calc(90% + 1px),rgba(255,255,255,.12) 100%)!important;
+  border:0!important;
   box-shadow:none!important;
 }
 html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item>*{

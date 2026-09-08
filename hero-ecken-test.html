@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MASOON TREUHAND – Hero Ecken Test</title>
+<style>
+html,body{margin:0;height:100%;background:#111;font-family:Arial,sans-serif}
+body{display:grid;grid-template-rows:58px 1fr;overflow:hidden}
+.tester{display:flex;align-items:center;gap:7px;padding:0 14px;background:#f3f3f3;border-bottom:1px solid #ccc;box-sizing:border-box;z-index:10;overflow-x:auto}
+.tester strong{font-size:13px;margin-right:6px;font-weight:600;white-space:nowrap}
+.tester button{appearance:none;border:1px solid #c9c9c9;background:#fff;padding:9px 12px;font-size:12px;cursor:pointer;white-space:nowrap}
+.tester button.active{background:#111;color:#fff;border-color:#111}
+iframe{width:100%;height:100%;border:0;background:#fff;display:block}
+@media(max-width:900px){.tester strong{display:none}}
+</style>
+</head>
+<body>
+<div class="tester">
+<strong>Ecken vergleichen</strong>
+<button data-v="original" class="active">Original</button>
+<button data-v="r16">1 · Rund 16</button>
+<button data-v="r28">2 · Rund 28</button>
+<button data-v="right">3 · Nur rechts rund</button>
+<button data-v="soft">4 · Rechte Ecken weich</button>
+<button data-v="asym">5 · Asymmetrisch</button>
+<button data-v="cut">6 · Sanft abgeschrägt</button>
+</div>
+<iframe id="site" src="./index.html"></iframe>
+<script>
+const frame=document.getElementById('site');
+const buttons=[...document.querySelectorAll('button[data-v]')];
+let current='original';
+let overlay=null;
+let copy=null;
+let saved={};
+
+function ensureOverlay(){
+  const d=frame.contentDocument;if(!d)return false;
+  copy=d.querySelector('.home-hero__copy');
+  if(!copy)return false;
+  const cs=d.defaultView.getComputedStyle(copy);
+  if(!saved.ready){
+    saved={
+      ready:true,
+      background:cs.background,
+      backgroundColor:cs.backgroundColor,
+      backdropFilter:cs.backdropFilter,
+      webkitBackdropFilter:cs.webkitBackdropFilter,
+      borderRadius:cs.borderRadius,
+      border:cs.border,
+      boxShadow:cs.boxShadow,
+      position:copy.style.position,
+      zIndex:copy.style.zIndex
+    };
+  }
+  overlay=d.getElementById('hero-corner-test-overlay');
+  if(!overlay){
+    overlay=d.createElement('div');
+    overlay.id='hero-corner-test-overlay';
+    overlay.style.position='absolute';
+    overlay.style.inset='0';
+    overlay.style.pointerEvents='none';
+    overlay.style.zIndex='-1';
+    copy.style.position='relative';
+    copy.style.zIndex='4';
+    copy.prepend(overlay);
+  }
+  return true;
+}
+
+function reset(){
+  if(!ensureOverlay())return;
+  copy.style.background=saved.background;
+  copy.style.backgroundColor=saved.backgroundColor;
+  copy.style.backdropFilter=saved.backdropFilter;
+  copy.style.webkitBackdropFilter=saved.webkitBackdropFilter;
+  copy.style.borderRadius=saved.borderRadius;
+  copy.style.border=saved.border;
+  copy.style.boxShadow=saved.boxShadow;
+  overlay.style.display='none';
+  overlay.style.borderRadius='0';
+  overlay.style.clipPath='none';
+  overlay.style.maskImage='none';
+  overlay.style.webkitMaskImage='none';
+}
+
+function prepareOverlay(){
+  if(!ensureOverlay())return false;
+  const cs=frame.contentWindow.getComputedStyle(copy);
+  overlay.style.display='block';
+  overlay.style.background=cs.background;
+  overlay.style.backgroundColor=cs.backgroundColor;
+  overlay.style.backdropFilter=cs.backdropFilter;
+  overlay.style.webkitBackdropFilter=cs.webkitBackdropFilter;
+  overlay.style.border=cs.border;
+  overlay.style.boxShadow=cs.boxShadow;
+  copy.style.background='transparent';
+  copy.style.backgroundColor='transparent';
+  copy.style.backdropFilter='none';
+  copy.style.webkitBackdropFilter='none';
+  copy.style.borderColor='transparent';
+  copy.style.boxShadow='none';
+  return true;
+}
+
+function apply(v){
+  reset();
+  if(v!=='original' && prepareOverlay()){
+    if(v==='r16') overlay.style.borderRadius='16px';
+    if(v==='r28') overlay.style.borderRadius='28px';
+    if(v==='right') overlay.style.borderRadius='0 28px 28px 0';
+    if(v==='soft'){
+      overlay.style.borderRadius='0 36px 36px 0';
+      overlay.style.maskImage='linear-gradient(90deg,#000 0%,#000 84%,rgba(0,0,0,.72) 92%,transparent 100%)';
+      overlay.style.webkitMaskImage='linear-gradient(90deg,#000 0%,#000 84%,rgba(0,0,0,.72) 92%,transparent 100%)';
+    }
+    if(v==='asym') overlay.style.borderRadius='0 46px 16px 0';
+    if(v==='cut') overlay.style.clipPath='polygon(0 0,96% 0,100% 7%,100% 93%,96% 100%,0 100%)';
+  }
+  buttons.forEach(b=>b.classList.toggle('active',b.dataset.v===v));
+  current=v;
+}
+
+frame.addEventListener('load',()=>apply(current));
+buttons.forEach(b=>b.addEventListener('click',()=>apply(b.dataset.v)));
+</script>
+</body>
+</html>

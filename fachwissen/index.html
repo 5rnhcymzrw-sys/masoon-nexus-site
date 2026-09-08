@@ -20,19 +20,18 @@ html body.site-light-page main .knowledge-section .article-card .article-action:
   letter-spacing:0!important;
   color:inherit!important;
 }
-/* Nur Fachwissen: ein durchgehender, dezenter Seitenverlauf. */
+/* Fachwissen: ursprüngliches Hintergrundbild 2. */
 html body.site-light-page:has(#knowledge-articles){
-  background-image:linear-gradient(
-    to right in oklab,
-    rgba(243,232,212,.16) 0%,
-    rgba(232,229,223,.16) 36%,
-    rgba(199,203,211,.16) 68%,
-    rgba(141,150,168,.16) 100%
-  )!important;
-  background-repeat:no-repeat!important;
-  background-size:100% 100%!important;
+  background-image:url("../Hintergrundbild 2.png")!important;
+  background-repeat:repeat-y!important;
+  background-size:cover!important;
   background-position:center top!important;
-  background-attachment:scroll!important;
+  background-attachment:fixed!important;
+}
+@media(max-width:800px){
+  html body.site-light-page:has(#knowledge-articles){
+    background-attachment:scroll!important;
+  }
 }
 html body.site-light-page:has(#knowledge-articles) main.page-main{
   background:transparent!important;

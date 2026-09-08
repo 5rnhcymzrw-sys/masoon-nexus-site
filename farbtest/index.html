@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON TREUHAND – Farbtest</title>
+<style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff}iframe{border:0;width:100%;height:100%;display:block}</style>
+</head>
+<body>
+<iframe id="site" src="../index.html"></iframe>
+<script>
+const css=`
+/* Nur Farb-/Oberflächentest. Keine Texte, Bilder, Logos oder Layoutmasse. */
+html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item{background:rgba(243,232,212,.30)!important}
+html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item:nth-child(3n+2){background:rgba(232,229,223,.38)!important}
+html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item:nth-child(3n){background:rgba(199,203,211,.28)!important}
+html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a{background:rgba(243,232,212,.24)!important}
+html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a:nth-child(3n+2){background:rgba(232,229,223,.34)!important}
+html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a:nth-child(3n){background:rgba(199,203,211,.26)!important}
+html body.site-light-page:has(main.home) main.home>section.home-values{background:linear-gradient(110deg,rgba(243,232,212,.16) 0%,rgba(232,229,223,.11) 48%,rgba(255,255,255,.04) 100%)!important}
+html body.site-light-page:has(main.home) main.home>section.home-paths{background:linear-gradient(110deg,rgba(255,255,255,.05) 0%,rgba(199,203,211,.10) 58%,rgba(141,150,168,.07) 100%)!important}
+html body.site-light-page:has(main.home) main.home>section.home-contact-band{background:linear-gradient(110deg,rgba(243,232,212,.22) 0%,rgba(232,229,223,.20) 40%,rgba(199,203,211,.16) 72%,rgba(141,150,168,.11) 100%)!important}
+@media(hover:hover){html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item:hover,html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a:hover{box-shadow:0 10px 28px rgba(23,23,21,.07)!important}}
+@media(max-width:800px){html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item,html body.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid>a{background:rgba(255,255,255,.52)!important}}
+`;
+const frame=document.getElementById('site');
+frame.addEventListener('load',()=>{const d=frame.contentDocument||frame.contentWindow.document;const s=d.createElement('style');s.textContent=css;d.head.appendChild(s)});
+</script>
+</body>
+</html>

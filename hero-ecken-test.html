@@ -19,12 +19,12 @@ iframe{width:100%;height:100%;border:0;background:#fff;display:block}
 <div class="tester">
 <strong>Ecken vergleichen</strong>
 <button data-v="original" class="active">Original</button>
-<button data-v="r16">1 · Rund 16</button>
-<button data-v="r32">2 · Rund 32</button>
+<button data-v="r20">1 · Alle Ecken rund</button>
+<button data-v="r44">2 · Deutlich rund</button>
 <button data-v="right">3 · Nur rechts rund</button>
 <button data-v="soft">4 · Rechte Ecken weich</button>
 <button data-v="asym">5 · Asymmetrisch</button>
-<button data-v="cut">6 · Sanft abgeschrägt</button>
+<button data-v="cut">6 · Abgeschrägt</button>
 </div>
 <iframe id="site" src="./index.html"></iframe>
 <script>
@@ -34,32 +34,71 @@ let current='original';
 
 const testCSS=`
 @media(min-width:801px){
-  html.hero-corner-r16 body .home-hero .home-hero__copy{
-    border-radius:16px!important;
+  /* Ziel ist die sichtbare transparente Ebene, nicht nur der Textblock. */
+  html[class*="hero-corner-"] body .home-hero .home-hero__content,
+  html[class*="hero-corner-"] body .home-hero .home-hero__copy,
+  html[class*="hero-corner-"] body .home-hero .home-hero__content::before,
+  html[class*="hero-corner-"] body .home-hero .home-hero__content::after,
+  html[class*="hero-corner-"] body .home-hero .home-hero__copy::before,
+  html[class*="hero-corner-"] body .home-hero .home-hero__copy::after{
     overflow:hidden!important;
   }
-  html.hero-corner-r32 body .home-hero .home-hero__copy{
-    border-radius:32px!important;
-    overflow:hidden!important;
+
+  html.hero-corner-r20 body .home-hero .home-hero__content,
+  html.hero-corner-r20 body .home-hero .home-hero__copy,
+  html.hero-corner-r20 body .home-hero .home-hero__content::before,
+  html.hero-corner-r20 body .home-hero .home-hero__content::after,
+  html.hero-corner-r20 body .home-hero .home-hero__copy::before,
+  html.hero-corner-r20 body .home-hero .home-hero__copy::after{
+    border-radius:20px!important;
   }
-  html.hero-corner-right body .home-hero .home-hero__copy{
-    border-radius:0 40px 40px 0!important;
-    overflow:hidden!important;
+
+  html.hero-corner-r44 body .home-hero .home-hero__content,
+  html.hero-corner-r44 body .home-hero .home-hero__copy,
+  html.hero-corner-r44 body .home-hero .home-hero__content::before,
+  html.hero-corner-r44 body .home-hero .home-hero__content::after,
+  html.hero-corner-r44 body .home-hero .home-hero__copy::before,
+  html.hero-corner-r44 body .home-hero .home-hero__copy::after{
+    border-radius:44px!important;
   }
-  html.hero-corner-soft body .home-hero .home-hero__copy{
-    border-radius:0 58px 58px 0!important;
-    overflow:hidden!important;
-    -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 86%,rgba(0,0,0,.92) 91%,rgba(0,0,0,.55) 96%,transparent 100%)!important;
-    mask-image:linear-gradient(90deg,#000 0%,#000 86%,rgba(0,0,0,.92) 91%,rgba(0,0,0,.55) 96%,transparent 100%)!important;
+
+  html.hero-corner-right body .home-hero .home-hero__content,
+  html.hero-corner-right body .home-hero .home-hero__copy,
+  html.hero-corner-right body .home-hero .home-hero__content::before,
+  html.hero-corner-right body .home-hero .home-hero__content::after,
+  html.hero-corner-right body .home-hero .home-hero__copy::before,
+  html.hero-corner-right body .home-hero .home-hero__copy::after{
+    border-radius:0 52px 52px 0!important;
   }
-  html.hero-corner-asym body .home-hero .home-hero__copy{
-    border-radius:0 62px 18px 0!important;
-    overflow:hidden!important;
+
+  html.hero-corner-soft body .home-hero .home-hero__content,
+  html.hero-corner-soft body .home-hero .home-hero__copy,
+  html.hero-corner-soft body .home-hero .home-hero__content::before,
+  html.hero-corner-soft body .home-hero .home-hero__content::after,
+  html.hero-corner-soft body .home-hero .home-hero__copy::before,
+  html.hero-corner-soft body .home-hero .home-hero__copy::after{
+    border-radius:0 70px 70px 0!important;
+    -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 82%,rgba(0,0,0,.95) 88%,rgba(0,0,0,.7) 94%,transparent 100%)!important;
+    mask-image:linear-gradient(90deg,#000 0%,#000 82%,rgba(0,0,0,.95) 88%,rgba(0,0,0,.7) 94%,transparent 100%)!important;
   }
-  html.hero-corner-cut body .home-hero .home-hero__copy{
+
+  html.hero-corner-asym body .home-hero .home-hero__content,
+  html.hero-corner-asym body .home-hero .home-hero__copy,
+  html.hero-corner-asym body .home-hero .home-hero__content::before,
+  html.hero-corner-asym body .home-hero .home-hero__content::after,
+  html.hero-corner-asym body .home-hero .home-hero__copy::before,
+  html.hero-corner-asym body .home-hero .home-hero__copy::after{
+    border-radius:0 72px 20px 0!important;
+  }
+
+  html.hero-corner-cut body .home-hero .home-hero__content,
+  html.hero-corner-cut body .home-hero .home-hero__copy,
+  html.hero-corner-cut body .home-hero .home-hero__content::before,
+  html.hero-corner-cut body .home-hero .home-hero__content::after,
+  html.hero-corner-cut body .home-hero .home-hero__copy::before,
+  html.hero-corner-cut body .home-hero .home-hero__copy::after{
     border-radius:0!important;
-    overflow:hidden!important;
-    clip-path:polygon(0 0,96% 0,100% 8%,100% 92%,96% 100%,0 100%)!important;
+    clip-path:polygon(0 0,96% 0,100% 9%,100% 91%,96% 100%,0 100%)!important;
   }
 }
 `;

@@ -1,24 +1,24 @@
 /* MASOON TREUHAND – einheitliche visuelle Gestaltung */
 @font-face{
-  font-family:'PT Serif';
+  font-family:"PT Serif";
   font-style:normal;
   font-weight:700;
   font-display:swap;
-  src:url('https://fonts.gstatic.com/s/ptserif/v19/EJRSQgYoZZY2vCFuvAnt65qV.ttf') format('truetype');
+  src:url("https://fonts.gstatic.com/s/ptserif/v19/EJRSQgYoZZY2vCFuvAnt65qV.ttf") format("truetype");
 }
 @font-face{
-  font-family:'Bitter';
+  font-family:"Bitter";
   font-style:normal;
   font-weight:600;
   font-display:swap;
-  src:url('https://fonts.gstatic.com/s/bitter/v42/raxhHiqOu8IVPmnRc6SY1KXhnF_Y8SjYCL8.ttf') format('truetype');
+  src:url("https://fonts.gstatic.com/s/bitter/v42/raxhHiqOu8IVPmnRc6SY1KXhnF_Y8SjYCL8.ttf") format("truetype");
 }
 @font-face{
-  font-family:'Source Serif 4';
+  font-family:"Source Serif 4";
   font-style:normal;
   font-weight:500;
   font-display:swap;
-  src:url('https://fonts.gstatic.com/s/sourceserif4/v14/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjiiVqrhw.ttf') format('truetype');
+  src:url("https://fonts.gstatic.com/s/sourceserif4/v14/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjiiVqrhw.ttf") format("truetype");
 }
 :root{
   --mt-black:#0b0b0b;
@@ -60,8 +60,6 @@ body.site-light-page .home{
 }
 body.site-light-page .page-main,
 body.site-light-page .home,
-body.site-light-page .home-company,
-body.site-light-page .home-company::before,
 body.site-light-page .home-values,
 body.site-light-page .home-values__inner,
 body.site-light-page .services-section,
@@ -90,24 +88,6 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   box-shadow:none!important;
   backdrop-filter:none!important;
   -webkit-backdrop-filter:none!important;
-}
-
-
-/* Einheitliche dunkle Inhaltsbereiche */
-body.site-light-page .expectation-editorial{
-  color:#fff!important;
-  background:var(--mt-black)!important;
-  background-color:var(--mt-black)!important;
-  background-image:none!important;
-}
-body.site-light-page .expectation-editorial h2,
-body.site-light-page .expectation-editorial h3,
-body.site-light-page .expectation-editorial p,
-body.site-light-page .expectation-editorial .section-label{
-  color:#fff!important;
-}
-body.site-light-page .expectation-editorial h3::after{
-  background:rgba(255,255,255,.48)!important;
 }
 
 /* Einheitliche Linien und Kartenabstände */
@@ -179,8 +159,7 @@ html body.site-light-page .home>.home-values .home-values__item .service-number{
 html body .home-values__item h3,
 html body .home-paths__grid strong,
 html body .article-card h2,
-html body .services-section .service-card h2,
-html body .expectation-editorial__item h3{
+html body .services-section .service-card h2{
   font-size:24px!important;
 }
 
@@ -191,7 +170,6 @@ html body .services-section .service-card .card-number,
 html body .services-section .service-card h2{
   align-self:center!important;
 }
-
 
 /* Dienstleistungskacheln auf Startseite und Hauptseite identisch */
 @media(min-width:801px){
@@ -225,7 +203,6 @@ html body .services-section .service-card .card-number{
   }
 }
 
-
 /* Desktop: kompaktere Dienstleistungskacheln */
 @media(min-width:801px){
   html body .home>.home-values .home-values__item{
@@ -246,57 +223,10 @@ html body .services-section .service-card .card-number{
   }
 }
 
-html body .home-values__all-services{
-  position:relative!important;
-  display:inline-block!important;
-  padding-bottom:13px!important;
-  background:transparent!important;
-  background-color:transparent!important;
-  color:inherit!important;
-  box-shadow:none!important;
-  text-decoration:none!important;
-}
-html body .home-values__all-services::before{
-  content:none!important;
-  display:none!important;
-}
-html body .home-values__all-services::after{
-  content:''!important;
-  display:block!important;
-  position:absolute!important;
-  right:auto!important;
-  bottom:0!important;
-  left:0!important;
-  width:100%!important;
-  height:1px!important;
-  background:#b8b8b8!important;
-  background-image:none!important;
-  box-shadow:none!important;
-  transform:scaleX(0)!important;
-  transform-origin:left center!important;
-  transition:transform .2s ease!important;
-}
-html body .home-values__all-services:hover,
-html body .home-values__all-services:focus-visible{
-  background:transparent!important;
-  background-color:transparent!important;
-  color:inherit!important;
-  box-shadow:none!important;
-}
-html body .home-values__all-services:hover::after,
-html body .home-values__all-services:focus-visible::after{
-  transform:scaleX(1)!important;
-}
-html body .home-values__all-services span{
-  display:inline-block!important;
-}
-
-
 /* Navigationslinie mit 13 Pixel Abstand zum Text */
 html body .site-nav a::after{
   bottom:18px!important;
 }
-
 
 /* Desktop: feste Anordnung Zahl und Titel oben,
 Fliesstext direkt darunter */
@@ -394,104 +324,28 @@ Fliesstext direkt darunter */
   }
 }
 
-html body .home-values__all-services.home-values__all-services.home-values__all-services{
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
-  border:0!important;
-  border-bottom:0!important;
-  box-shadow:none!important;
-}
-html body .home-values__all-services.home-values__all-services.home-values__all-services:hover,
-html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible,
-html body .home-values__all-services.home-values__all-services.home-values__all-services:active{
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
-  border:0!important;
-  border-bottom:0!important;
-  box-shadow:none!important;
-  color:inherit!important;
-}
-html body .home-values__all-services.home-values__all-services.home-values__all-services::after{
-  content:''!important;
-  display:block!important;
-  position:absolute!important;
-  right:auto!important;
-  bottom:0!important;
-  left:0!important;
-  height:1px!important;
-  background:#b8b8b8!important;
-  background-image:none!important;
-  box-shadow:none!important;
-  transform-origin:left center!important;
-  transition:transform .2s ease!important;
-}
-
-
-html body .contact-split__form-label::after{
-  margin-top:13px!important;
-}
-
-
 /* Kacheltitel auf allen Seiten etwas kräftiger */
 html body .home-values__item h3,
 html body .home-paths__grid strong,
 html body .article-card h2,
-html body .services-section .service-card h2,
-html body .expectation-editorial__item h3{
+html body .services-section .service-card h2{
   font-weight:600!important;
 }
-
 
 /* Schriftstärke 600 gegen ältere spezifische Kachelregeln durchsetzen */
 html body .home>.home-values .home-values__item h3,
 html body.site-light-page .services-main .services-section .services-grid>.service-card h2,
 html body .home>.home-paths .home-paths__grid strong,
-html body .knowledge-section .articles-grid>.article-card h2,
-html body .expectation-editorial .expectation-editorial__item h3{
+html body .knowledge-section .articles-grid>.article-card h2{
   font-weight:600!important;
 }
 
-
-/* Zusammenarbeit: ohne Titellinien,
-Titelabstand wie Startseite Dienstleistungen */
-html body .expectation-editorial .expectation-editorial__item h3{
-  margin-bottom:0!important;
-}
-
-html body .expectation-editorial .expectation-editorial__item p{
-  margin-top:18px!important;
-}
-
-
 /* Desktop Zusammenarbeit: drei Spalten,
 zwei Reihen */
-@media(min-width:801px){
-  html body .expectation-editorial .expectation-editorial__grid{
-    width:100%!important;
-    max-width:none!important;
-    grid-template-columns:repeat(3,minmax(0,1fr))!important;
-    gap:54px 56px!important;
-  }
-  html body .expectation-editorial .expectation-editorial__item{
-    max-width:none!important;
-  }
-}
 
 
-/* Unternehmen: Fliesstextfarbe wie bei Werte */
-html body.site-light-page .home-company__copy .prose,
-html body.site-light-page .home-company__copy .prose p{
-  color:#373733!important;
-}
 
 
-/* Unternehmen Haupttitel: drei feste Zeilen mit korrekten Wortabständen */
-html body .home-company__copy h1 span,
-html body .home-company__copy h2 span{
-  display:block!important;
-}
 
 
 /* Unternehmen Desktop: Porträt ausgewogen zur Höhe des Textbereichs */
@@ -507,7 +361,6 @@ html body .home-company__copy h2 span{
   }
 }
 
-
 /* Dienstleistungs Hauptseite: linker Startpunkt wie auf der Startseite */
 @media(min-width:801px){
   html body .services-main>.services-section{
@@ -515,7 +368,6 @@ html body .home-company__copy h2 span{
     padding-right:0!important;
   }
 }
-
 
 /* Dienstleistungs Hauptseite: grosse weisse Bereichsfläche entfernen */
 html body.site-light-page .services-main>.services-section{
@@ -525,7 +377,6 @@ html body.site-light-page .services-main>.services-section{
   box-shadow:none!important;
 }
 
-
 /* Dienstleistungs Hauptseite: Titelabstand wie Startseite und Fachwissen */
 @media(min-width:801px){
   html body .services-main>.services-section>.section-heading{
@@ -533,52 +384,13 @@ html body.site-light-page .services-main>.services-section{
   }
 }
 
-
-/* Zusammenarbeit: Linien direkt unter den Titeln,
-nicht unter den Bereichen */
-
-
-html body .expectation-editorial .expectation-editorial__item{
-  border-top:0!important;
-  border-right:0!important;
-  border-bottom:0!important;
-  border-left:0!important;
-  box-shadow:none!important;
-  background-image:none!important;
-}
-html body .expectation-editorial .expectation-editorial__item::before,
-html body .expectation-editorial .expectation-editorial__item::after{
-  content:none!important;
-  display:none!important;
-}
-
-
-/* Zusammenarbeit: keine Linie nach dem Fliesstext */
-html body .expectation-editorial .expectation-editorial__item p{
-  border-top:0!important;
-  border-right:0!important;
-  border-bottom:0!important;
-  border-left:0!important;
-  outline:0!important;
-  box-shadow:none!important;
-  background:none!important;
-}
-html body .expectation-editorial .expectation-editorial__item p::before,
-html body .expectation-editorial .expectation-editorial__item p::after{
-  content:none!important;
-  display:none!important;
-  border:0!important;
-  background:none!important;
-}
-
-
 /* Fachwissen: einheitliche Titellinie und Fliesstext */
 html body .knowledge-section .articles-grid>.article-card h2{
   min-height:0!important;
   margin:0 0 11px!important;
 }
 html body .knowledge-section .articles-grid>.article-card h2::after{
-  content:''!important;
+  content:""!important;
   display:block!important;
   width:48px!important;
   height:1px!important;
@@ -590,27 +402,22 @@ html body .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
   margin-top:0!important;
 }
 
-
 /* Einheitliche kurze Linien zwischen kleinen Titeln und nachfolgendem Text */
 html body .home-values__item h3::after,
 html body .home-paths__grid strong::after,
-html body .expectation-editorial__item h3::after,
 html body .knowledge-section .article-card h2::after{
-  content:''!important;
+  content:""!important;
   display:block!important;
   margin-top:11px!important;
   background:#868279!important;
   border:0!important;
 }
 
-
 /* Bereichstitel: gemeinsame Abstände */
-html body .section-label,
-html body .contact-split__form-label{
+html body .section-label{
   gap:10px!important;
 }
-html body .section-label::before,
-html body .contact-split__form-label::before{
+html body .section-label::before{
   width:28px!important;
   height:1px!important;
   flex:0 0 28px!important;
@@ -619,70 +426,46 @@ html body .contact-split__form-label::before{
   line-height:1!important;
 }
 
-
 /* Bereichstitel: Gedankenstrich wieder entfernen */
-html body .section-label::before,
-html body .contact-split__form-label::before{
+html body .section-label::before{
   content:none!important;
   display:none!important;
 }
 
-
 /* Bereichstitel: Inhalt des Nachfolgeelements */
-html body .section-label::after,
-html body .contact-split__form-label::after{
-  content:''!important;
+html body .section-label::after{
+  content:""!important;
 }
-
 
 /* Alle grossen Seitentitel in PT Serif Regular */
 html body .global-title,
 html body .section-heading h1,
 html body .section-heading h2,
 html body .legal-page h1,
-html body .article-detail h1,
 html body .knowledge-note h2,
-html body .home-company__copy h1,
-html body .home-company__copy h2,
 html body .home-paths__heading h2,
 html body .home-contact-band h2,
 html body .contact-split__info h1,
 html body .services-closing h2{
-  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
   font-weight:400!important;
   -webkit-text-stroke:.25px currentColor!important;
 }
-
 
 /* Alle grossen Seitentitel auf dem Desktop: 50 Pixel */
 @media(min-width:801px){
   html body .global-title,
   html body .section-heading h1,
   html body .section-heading h2,
-  html body .page-hero h1,
-  html body .page-hero h2,
-  html body .contact-section h1,
-  html body .contact-section h2,
   html body .legal-page h1,
-  html body .article-detail h1,
-  html body .service-page__heading h1,
-  html body .services-table-heading h2,
-  html body .service-principles>div:first-child h2,
   html body .knowledge-note h2,
-  html body .home-company__copy h1,
-  html body .home-company__copy h2,
-  html body .home-expectations__heading h2,
   html body .home-paths__heading h2,
   html body .home-contact-band h2,
-  html body .expectation-compass__heading h2,
-  html body .contact-facts__heading h2,
   html body .contact-split__info h1,
-  html body .services-closing h2,
-  html body .expectation-editorial__heading h2{
+  html body .services-closing h2{
     font-size:50px!important;
   }
 }
-
 
 /* Werte,
 Dienstleistungen und Fachwissen: grosse Titel verbindlich angleichen */
@@ -690,7 +473,7 @@ html body .home-values .section-heading h2,
 html body .home-paths__heading h2,
 html body .services-section>.section-heading h1,
 html body .knowledge-section>.section-heading h1{
-  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
   font-weight:400!important;
   -webkit-text-stroke:.25px currentColor!important;
 }
@@ -704,37 +487,14 @@ html body .knowledge-section>.section-heading h1{
 }
 
 
-/* Zusammenarbeit: kurze Linien unter den sechs Titeln */
-html body .expectation-editorial .expectation-editorial__item h3::after{
-  content:''!important;
-  display:block!important;
-  width:48px!important;
-  height:1px!important;
-  margin-top:11px!important;
-  background:#868279!important;
-  border:0!important;
-}
 
-
-/* Alle kurzen Linien verbindlich 48 Pixel */
-
-
-html body .home-values__all-services.home-values__all-services.home-values__all-services::after,
-html body .home-values__all-services.home-values__all-services.home-values__all-services:hover::after,
-html body .home-values__all-services.home-values__all-services.home-values__all-services:focus-visible::after{
-  width:48px!important;
-  max-width:48px!important;
-  transform:none!important;
-}
 
 
 /* Alle Titellinien: oben und unten je 11 Pixel Abstand */
-html body .section-label,
-html body .contact-split__form-label{
+html body .section-label{
   margin-bottom:11px!important;
 }
-html body .section-label::after,
-html body .contact-split__form-label::after{
+html body .section-label::after{
   top:auto!important;
   right:auto!important;
   bottom:auto!important;
@@ -747,7 +507,6 @@ html body .contact-split__form-label::after{
 
 html body .home-values__item h3::after,
 html body .home-paths__grid strong::after,
-html body .expectation-editorial__item h3::after,
 html body .knowledge-section .article-card h2::after{
   width:48px!important;
   max-width:48px!important;
@@ -756,13 +515,11 @@ html body .knowledge-section .article-card h2::after{
 }
 
 html body .home-values__item h3,
-html body .expectation-editorial__item h3,
 html body .knowledge-section .article-card h2{
   margin-bottom:11px!important;
 }
 
 html body .home-values__item p,
-html body .expectation-editorial__item p,
 html body .knowledge-section .article-card>p:not(.article-meta){
   margin-top:0!important;
 }
@@ -770,7 +527,6 @@ html body .knowledge-section .article-card>p:not(.article-meta){
 html body .home-paths__grid strong+span{
   margin-top:11px!important;
 }
-
 
 /* Kleine Bereichstitel: ursprüngliche Abstände wiederherstellen */
 html body .section-label{
@@ -787,16 +543,6 @@ html body .section-label::after{
   margin:0!important;
 }
 
-html body .contact-split__form-label{
-  display:block!important;
-  margin:0 0 36px!important;
-}
-html body .contact-split__form-label::after{
-  position:static!important;
-  margin:13px 0 0!important;
-}
-
-
 /* Startseite Dienstleistungen: Zahl und Titel optisch ausrichten */
 html body .home>.home-values .home-values__item .service-number,
 html body .home>.home-values .home-values__item h3{
@@ -806,22 +552,18 @@ html body .home>.home-values .home-values__item h3{
   top:7px!important;
 }
 
-
 /* Kleine Titel: neutraler Buchstabenabstand für bessere Lesbarkeit */
 html body .home>.home-values .home-values__item h3,
 html body .home>.home-paths .home-paths__grid strong,
 html body .page-main>.home-values .home-values__item h3,
-html body .expectation-editorial .expectation-editorial__item h3,
 html body .services-main .services-section .service-card h2{
   letter-spacing:0!important;
 }
-
 
 /* Gemeinsame Typografie der Kacheltitel */
 html body .home>.home-values .home-values__item h3,
 html body .home>.home-paths .home-paths__grid strong,
 html body .page-main>.home-values .home-values__item h3,
-html body .expectation-editorial .expectation-editorial__item h3,
 html body .services-main .services-section .service-card h2{
   font-family:var(--font-cormorant),Georgia,serif!important;
   font-size:24px!important;
@@ -829,10 +571,9 @@ html body .services-main .services-section .service-card h2{
   -webkit-text-stroke:0!important;
 }
 
-
 /* Dienstleistungs Hauptseite: kurze Linien wie auf der Startseite */
 html body .services-main .services-section .service-card h2::after{
-  content:''!important;
+  content:""!important;
   display:block!important;
   position:absolute!important;
   top:calc(100% + 11px)!important;
@@ -848,11 +589,9 @@ html body .services-main .services-section .service-card>summary>p{
   margin-top:23px!important;
 }
 
-
 /* Alle kleinen Titel: einheitlicher Zeilenabstand 1.12 */
 html body .home-values__item h3,
 html body .home-paths__grid strong,
-html body .expectation-editorial__item h3,
 html body .services-section .service-card h2,
 html body .knowledge-section .article-card h2,
 html body .legal-page .prose h2,
@@ -860,46 +599,10 @@ html body .article-body h2{
   line-height:1.12!important;
 }
 
-
-html body .home-values__all-services{
-  transform-origin:left center!important;
-  transition:transform .2s ease!important;
-}
-html body .home-values__all-services:hover,
-html body .home-values__all-services:focus-visible{
-  transform:scale(1.025)!important;
-}
-html body .home-values__all-services:active{
-  transform:scale(1.01)!important;
-}
-html body .home-values__all-services span{
-  transition:transform .2s ease!important;
-}
-html body .home-values__all-services:hover span,
-html body .home-values__all-services:focus-visible span{
-  transform:translateX(4px)!important;
-}
-
-
 /* Startseite Dienstleistungen: Titel-Text-Abstand wie bei Fachwissen */
 html body main.home .home-values .home-values__inner .home-values__items .home-values__item p{
   margin-top:12px!important;
 }
-
-
-/* Zusammenarbeit auf hellem Hintergrund: sämtliche Texte und Linien dunkel */
-html body.site-light-page .expectation-editorial,
-html body.site-light-page .expectation-editorial h2,
-html body.site-light-page .expectation-editorial h3,
-html body.site-light-page .expectation-editorial p,
-html body.site-light-page .expectation-editorial .expectation-editorial__item p,
-html body.site-light-page .expectation-editorial .section-label{
-  color:#171715!important;
-}
-html body.site-light-page .expectation-editorial .expectation-editorial__item h3::after{
-  background:#8f8a82!important;
-}
-
 
 /* Startseite Dienstleistungen: Punkt und Kachel-Unterlinien entfernen */
 html body main.home>.home-values .section-heading>.section-label::before,
@@ -911,7 +614,6 @@ html body main.home>.home-values .home-values__item h3::after{
   content:none!important;
   display:none!important;
 }
-
 
 /* Abschlusskästen: transparent,
 kleine Titel mittig und ohne Zeichen */
@@ -944,7 +646,6 @@ html body.site-light-page main.home>.home-contact-band>.section-label::after{
   display:none!important;
 }
 
-
 /* Abschlusskästen: alle kleinen Titel exakt auf der senkrechten Kastenmitte */
 @media(min-width:801px){
   html body.site-light-page .knowledge-note,
@@ -972,25 +673,14 @@ html body.site-light-page main.home>.home-contact-band>.section-label::after{
 }
 
 
-/* Unternehmen: Übertitel Zusammenarbeit wie Werte */
-html body.site-light-page .expectation-editorial .section-label{
-  color:#868279!important;
-}
 
-
-/* Zusammenarbeit: Fliesstext wie auf den Rechteseiten */
-html body.site-light-page .expectation-editorial .expectation-editorial__item p{
-  font-weight:290!important;
-  color:#484a4f!important;
-}
 
 
 /* Unternehmen: kleine Bereichstitel farblich vereinheitlichen */
-html body.site-light-page .home-company__copy > .section-label,
+
 html body.site-light-page .home-values .section-heading > .section-label{
   color:#868279!important;
 }
-
 
 /* Unternehmen: Zusammenarbeit im Stil des Datenschutz-Kastens */
 html body.site-light-page .collaboration-legal-section{
@@ -1000,32 +690,7 @@ html body.site-light-page .collaboration-legal-section{
   padding-bottom:126px!important;
   box-sizing:border-box!important;
 }
-html body.site-light-page .collaboration-legal-section__label{
-  margin:0 0 30px 72px!important;
-  padding:0!important;
-  display:block!important;
-  position:relative!important;
-  width:max-content!important;
-}
-html body.site-light-page .collaboration-legal-section__label::before{
-  content:''!important;
-  display:block!important;
-  position:absolute!important;
-  top:50%!important;
-  right:calc(100% + 12px)!important;
-  width:48px!important;
-  height:1px!important;
-  background:#9a948b!important;
-  transform:translateY(-50%)!important;
-}
-html body.site-light-page .collaboration-legal-section__label::after{
-  content:none!important;
-  display:none!important;
-}
 @media(max-width:800px){
-  html body.site-light-page .collaboration-legal-section__label{
-    margin-left:26px!important;
-  }
   html body.site-light-page .collaboration-legal-section{
     width:calc(100% - 36px)!important;
     padding-top:82px!important;
@@ -1033,14 +698,7 @@ html body.site-light-page .collaboration-legal-section__label::after{
   }
 }
 
-
 /* Werte mobil: gemessene 7-Pixel-Abweichung zur Navigationslinie korrigieren */
-@media(max-width:800px){
-  html body.site-light-page .values-legal-section .collaboration-legal-card__prose{
-    margin-left:0!important;
-    transform:translateX(-7px)!important;
-  }
-}
 
 
 /* Unternehmen: Porträtbereich im einheitlichen Kastensystem */
@@ -1075,11 +733,6 @@ html body.site-light-page .company-legal-card .home-company__image-primary{
   height:auto!important;
   display:block!important;
 }
-html body.site-light-page .company-legal-card .home-company__copy{
-  width:100%!important;
-  margin:0!important;
-  padding:0!important;
-}
 @media(max-width:800px){
   html body.site-light-page .company-legal-section .company-legal-card{
     padding:62px 26px!important;
@@ -1088,21 +741,6 @@ html body.site-light-page .company-legal-card .home-company__copy{
   }
 }
 
-
-html body.site-light-page .company-legal-card .home-company__copy .prose p{
-  margin:0 0 12px!important;
-}
-html body.site-light-page .company-legal-card .home-company__copy .prose p:last-child{
-  margin-bottom:0!important;
-}
-
-
-/* Unternehmen: eindeutiger Abstand von 30 Pixel zwischen Titel und Fliesstext */
-
-html body.site-light-page .company-legal-card .home-company__copy .prose{
-  margin-top:30px!important;
-  padding-top:0!important;
-}
 
 
 /* Unternehmen: Porträt exakt zur Mitte des gesamten Textblocks */
@@ -1113,11 +751,9 @@ html body.site-light-page .company-legal-section .company-legal-card{
 html body.site-light-page .company-legal-section .company-legal-card{
   align-items:center!important;
 }
-html body.site-light-page .company-legal-card .home-company__image,
-html body.site-light-page .company-legal-card .home-company__copy{
+html body.site-light-page .company-legal-card .home-company__image{
   align-self:center!important;
 }
-
 
 /* Unternehmen Desktop: Porträtblock exakt in der ursprünglichen Hochformat-Komposition */
 @media(min-width:801px){
@@ -1138,7 +774,6 @@ html body.site-light-page .company-legal-card .home-company__copy{
   }
 }
 
-
 /* Unternehmen Desktop: aktueller Porträtblock exakt 8 Prozent vergrössert */
 @media(min-width:801px){
   html body.site-light-page .company-legal-card .home-company__image{
@@ -1150,14 +785,12 @@ html body.site-light-page .company-legal-card .home-company__copy{
   }
 }
 
-
 /* Unternehmen: Leerraum nach dem MASOON-TREUHAND-Kasten insgesamt 44 Prozent kleiner */
 @media(min-width:801px){
   html body.site-light-page .company-legal-section{
     padding-bottom:15.12px!important;
   }
 }
-
 
 /* Unternehmen Desktop: sichtbarer Innenraum entspricht oben und unten exakt den 60.5 Pixeln des Werte-Kastens */
 @media(min-width:801px){
@@ -1166,19 +799,9 @@ html body.site-light-page .company-legal-card .home-company__copy{
   }
 }
 
-
 /* Unternehmen: Abstand nach dem Werte-Kasten exakt wie nach MASOON TREUHAND */
-@media(min-width:801px){
-  html body.site-light-page .values-legal-section{
-    padding-bottom:15.12px!important;
-  }
-}
 
 
-/* Unternehmen: alle drei kleinen Bereichstitel um 30 Prozent ihres 30-Pixel-Abstands nach unten */
-html body.site-light-page .collaboration-legal-section__label{
-  transform:translateY(9px)!important;
-}
 
 
 /* Dienstleistungen Hauptseite: kleine Bereichstitel wie Unternehmen */
@@ -1322,7 +945,6 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>.detai
   }
 }
 
-
 /* Fachwissen Einordnung: Abmessungen 1:1 wie der grosse DL-Kasten */
 html body.site-light-page .knowledge-section>.knowledge-note{
   box-sizing:border-box!important;
@@ -1346,9 +968,9 @@ html body.site-light-page .knowledge-section>.knowledge-note{
 }
 
 /* Einordnung: Titel und Fliesstext direkt an MASOON TREUHAND gekoppelt */
-html body.site-light-page .company-legal-card .home-company__copy h1,
+
 html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
-  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
   font-size:var(--title-size)!important;
   font-weight:400!important;
   line-height:1.05!important;
@@ -1359,7 +981,7 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
   padding-bottom:0!important;
 }
 @media(min-width:801px){
-  html body.site-light-page .company-legal-card .home-company__copy h1,
+
 html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
     font-size:50px!important;
   }
@@ -1390,15 +1012,12 @@ html body main .global-title,
 html body main .section-heading h1,
 html body main .section-heading h2,
 html body main .legal-page h1,
-html body main .article-detail h1,
 html body main .knowledge-note h2,
-html body main .home-company__copy h1,
-html body main .home-company__copy h2,
 html body main .home-paths__heading h2,
 html body main .home-contact-band h2,
 html body main .contact-split__info h1,
 html body main .services-closing h2{
-  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
   font-size:var(--title-size)!important;
   font-weight:400!important;
   line-height:1.05!important;
@@ -1413,10 +1032,7 @@ html body main .global-title,
 html body main .section-heading h1,
 html body main .section-heading h2,
 html body main .legal-page h1,
-html body main .article-detail h1,
 html body main .knowledge-note h2,
-html body main .home-company__copy h1,
-html body main .home-company__copy h2,
 html body main .home-paths__heading h2,
 html body main .home-contact-band h2,
 html body main .contact-split__info h1,
@@ -1428,8 +1044,6 @@ html body main .services-closing h2{
 /* Normale Fliesstexte: verbindliche Typografie der Disclaimer-Seite */
 html body main.home .home-hero__services,
 html body main.home .home-values__item>p,
-html body.site-light-page main .company-legal-card .home-company__copy .prose,
-html body.site-light-page main .company-legal-card .home-company__copy .prose p,
 html body.site-light-page main.services-main .services-section .services-grid>.service-card>summary>p,
 html body.site-light-page main.services-main .services-section .services-grid>.service-card li,
 html body.site-light-page main.services-main .services-closing__inner>p:not(.section-label),
@@ -1468,7 +1082,7 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>.detai
   color:#868279!important;
 }
 html body.site-light-page .knowledge-section>.section-heading>h1{
-  font-family:'PT Serif Pro','PT Serif',Georgia,serif!important;
+  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
   font-weight:400!important;
   line-height:1.05!important;
   letter-spacing:0!important;
@@ -1502,7 +1116,6 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
   }
 }
 
-
 /* Fachwissen Hauptseite: nur der Pfeil-Link auf derselben Linie wie Mehr anzeigen */
 html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
   align-self:flex-start!important;
@@ -1510,7 +1123,6 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>.artic
   padding-bottom:4px!important;
   transform:translateY(-3px)!important;
 }
-
 
 /* Fachwissen Hauptseite: Abstand Beitragstitel zu Fliesstext exakt wie DL Kacheln */
 html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
@@ -1527,23 +1139,15 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>p:not(
   margin-top:23px!important;
 }
 
-
 /* Fachwissen Hauptseite: Beitrag anzeigen exakt wie Mehr anzeigen */
 html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action{
   font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  line-height:1.65!important;
-  letter-spacing:.1em!important;
-  text-transform:uppercase!important;
-  color:#868279!important;
+
   padding-bottom:4px!important;
 }
 
-
 /* Bereichstitel: verbindliche Typografie von EINORDNUNG */
-html body main .section-label.section-label.section-label.section-label.section-label.section-label,
-html body main .collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label.collaboration-legal-section__label{
+html body main .section-label.section-label.section-label.section-label.section-label.section-label{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-style:normal!important;
@@ -1581,7 +1185,6 @@ html body main .services-contact-button.services-contact-button.services-contact
   opacity:1!important;
 }
 
-
 /* Fachwissen-Kaesten: exakt gleiche Aussenmasse wie DL-Hauptseite */
 @media(min-width:1051px){
   html body.site-light-page .knowledge-section{
@@ -1614,16 +1217,6 @@ html body main .services-contact-button.services-contact-button.services-contact
     max-height:351px!important;
   }
 }
-
-
-/* Fachwissen: Beitrag anzeigen exakt auf der Position von Mehr anzeigen */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action{
-  margin-top:auto!important;
-  margin-bottom:0!important;
-  align-self:flex-start!important;
-  transform:translateY(1px)!important;
-}
-
 
 /* Mehr anzeigen und Beitrag anzeigen: identische Schrift- und Boxwerte */
 html body.site-light-page main .services-section .service-card .details-action,
@@ -1665,7 +1258,6 @@ html body.site-light-page main .knowledge-section .article-card .article-action:
   transform:translateY(-50%)!important;
 }
 
-
 /* Endgültiger Vorrang: beide Aktionsbeschriftungen exakt gleich */
 html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
   display:inline-block!important;
@@ -1696,12 +1288,10 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
   opacity:1!important;
 }
 
-
 /* Gemessener Positionsausgleich: Beitrag anzeigen 2 Pixel tiefer */
 html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
   transform:translateY(-1px)!important;
 }
-
 
 /* Fachwissen Hauptseite: Kacheltitel 2 Pixel kleiner,
 oberer Abstand 88 Pixel */
@@ -1710,7 +1300,6 @@ oberer Abstand 88 Pixel */
     padding-top:88px!important;
   }
 }
-
 
 /* Fachwissen: Daten in der Typografie der DL-Kartenzahlen 01–06 */
 html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
@@ -1749,7 +1338,6 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card.a
   }
 }
 
-
 /* Fachwissen: Aktion wie Fliesstext; Titellinien wie Datumsfarben */
 html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>h2::after{
   background:#99989c!important;
@@ -1765,12 +1353,10 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card.a
   background-color:#c2c1c4!important;
 }
 
-
 /* Fachwissen: Pfeil bei Beitrag anzeigen optisch 1 Pixel hoeher */
 html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-action.article-action::after{
   transform:translateY(calc(-50% - 1px))!important;
 }
-
 
 /* Endgültige Header-/Footer-Geometrie ohne nachträgliche JS-Messung */
 @media(min-width:801px){
@@ -1796,17 +1382,12 @@ html body .scroll-reveal:not(.article-card){
 }
 
 /* Unternehmen: Abschlussabstand wie bei Fachwissen/Einordnung */
-@media(min-width:801px){
-  html body.site-light-page main.page-main .company-collaboration-section{
-    padding-bottom:126px!important;
-  }
-}
+
 
 /* Einheitliche Farbverläufe für bestehende Kachel- und Bereichsrahmen */
 html body.site-light-page main.services-main .services-section .services-grid>.service-card,
 html body.site-light-page main .knowledge-section .articles-grid>.article-card,
 html body.site-light-page main .company-values-grid>.company-value-card,
-html body.site-light-page main .company-collaboration-grid>.company-collaboration-item,
 html body.site-light-page main.home>.home-contact-band,
 html body.site-light-page main.services-main>.services-closing,
 html body.site-light-page main .knowledge-note,
@@ -1816,23 +1397,18 @@ html body.site-light-page main .article-shell{
   border-color:transparent!important;
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
 }
-html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n+1),
-html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n+1),
-html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n+1){
+html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+1),
+html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n/**/+1),
+html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n/**/+1){
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;
 }
-html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n+2),
-html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n+2),
-html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n+2){
+html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+2),
+html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n/**/+2),
+html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n/**/+2){
   border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;
 }
-html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n+3),
-html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n+3),
-html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n+3){
+html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+3),
+html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n/**/+3),
+html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n/**/+3){
   border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;
-}
-
-/* Zusammenarbeit: vollständiger horizontaler Verlauf pro Kachel */
-html body.site-light-page main .company-collaboration-grid>.company-collaboration-item{
-  border-image:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
 }

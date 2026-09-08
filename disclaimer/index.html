@@ -21,9 +21,10 @@ html body .disclaimer-card{
   gap:80px!important;
   align-items:baseline!important;
   box-sizing:border-box!important;
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
+  background:linear-gradient(to right in oklab,rgba(243,232,212,.06) 0%,rgba(232,229,223,.06) 36%,rgba(199,203,211,.06) 68%,rgba(141,150,168,.06) 100%)!important;
+  background-origin:border-box!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
   border:1px solid transparent!important;
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
   border-radius:0!important;
@@ -70,6 +71,28 @@ html body .disclaimer-card .prose p{
   }
 }
 
+/* Disclaimer: transparenter Seitenverlauf über Hintergrundbild 2. */
+html body.site-light-page:has(.disclaimer-card){
+  background-image:linear-gradient(
+    to right in oklab,
+    rgba(243,232,212,.16) 0%,
+    rgba(232,229,223,.16) 36%,
+    rgba(199,203,211,.16) 68%,
+    rgba(141,150,168,.16) 100%
+  ),url("../Hintergrundbild 2.png")!important;
+  background-repeat:no-repeat,repeat-y!important;
+  background-size:100% 100%,cover!important;
+  background-position:center top,center top!important;
+  background-attachment:scroll,fixed!important;
+}
+@media(max-width:800px){
+  html body.site-light-page:has(.disclaimer-card){
+    background-attachment:scroll,scroll!important;
+  }
+}
+html body.site-light-page:has(.disclaimer-card) main.page-main{
+  background:transparent!important;
+}
 </style>
 <link rel="preload" as="image" href="../07.09.2026%20white_icon_transparent_background.png" /><link rel="preload" as="image" href="../07.09.2026%20white_textlogo_transparent_background.png" /><link rel="preload" as="image" href="../Hintergrundbild 2.png" fetchpriority="high" />
 

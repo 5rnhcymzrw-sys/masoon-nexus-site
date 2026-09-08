@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MASOON TREUHAND – Hero Übergang Test</title>
+<style>
+html,body{margin:0;height:100%;background:#111;font-family:Arial,sans-serif}
+body{display:grid;grid-template-rows:58px 1fr;overflow:hidden}
+.tester{display:flex;align-items:center;gap:7px;padding:0 14px;background:#f3f3f3;border-bottom:1px solid #ccc;box-sizing:border-box;z-index:10;overflow-x:auto}
+.tester strong{font-size:13px;margin-right:6px;font-weight:600;white-space:nowrap}
+.tester button{appearance:none;border:1px solid #c9c9c9;background:#fff;padding:9px 12px;font-size:12px;cursor:pointer;white-space:nowrap}
+.tester button.active{background:#111;color:#fff;border-color:#111}
+iframe{width:100%;height:100%;border:0;background:#fff;display:block}
+@media(max-width:900px){.tester strong{display:none}}
+</style>
+</head>
+<body>
+<div class="tester">
+<strong>Übergang vergleichen</strong>
+<button data-v="original">Original</button>
+<button data-v="v1" class="active">1 · Weich 140</button>
+<button data-v="v2">2 · Weich 220</button>
+<button data-v="v3">3 · Länger gezogen</button>
+<button data-v="v4">4 · Leicht diagonal</button>
+<button data-v="v5">5 · Doppelter Fade</button>
+<button data-v="v6">6 · Sehr subtil</button>
+</div>
+<iframe id="site" src="./index.html"></iframe>
+<script>
+const frame=document.getElementById('site');
+const buttons=[...document.querySelectorAll('button[data-v]')];
+let current='v1';
+const css=`
+/* Nur die bestehende transparente Text-/Balkenfläche rechts weich auslaufen lassen. */
+@media(min-width:801px){
+html[class*="hero-edge-"] body.site-light-page main.home section.home-hero .home-hero__copy{position:relative!important;overflow:visible!important}
+html[class*="hero-edge-"] body.site-light-page main.home section.home-hero .home-hero__copy::after{content:''!important;position:absolute!important;top:0!important;bottom:0!important;left:100%!important;pointer-events:none!important;z-index:0!important}
+html[class*="hero-edge-"] body.site-light-page main.home section.home-hero .home-hero__copy>*{position:relative!important;z-index:1!important}
+
+html.hero-edge-v1 body.site-light-page main.home section.home-hero .home-hero__copy::after{width:140px!important;background:linear-gradient(90deg,rgba(255,255,255,.58) 0%,rgba(255,255,255,.30) 45%,rgba(255,255,255,0) 100%)!important}
+html.hero-edge-v2 body.site-light-page main.home section.home-hero .home-hero__copy::after{width:220px!important;background:linear-gradient(90deg,rgba(255,255,255,.58) 0%,rgba(243,232,212,.28) 46%,rgba(199,203,211,.08) 72%,rgba(255,255,255,0) 100%)!important}
+html.hero-edge-v3 body.site-light-page main.home section.home-hero .home-hero__copy::after{width:300px!important;background:linear-gradient(90deg,rgba(255,255,255,.58) 0%,rgba(232,229,223,.26) 52%,rgba(199,203,211,.05) 80%,rgba(255,255,255,0) 100%)!important}
+html.hero-edge-v4 body.site-light-page main.home section.home-hero .home-hero__copy::after{width:180px!important;background:linear-gradient(90deg,rgba(255,255,255,.56) 0%,rgba(243,232,212,.22) 58%,rgba(255,255,255,0) 100%)!important;clip-path:polygon(0 0,78% 0,100% 100%,0 100%)!important}
+html.hero-edge-v5 body.site-light-page main.home section.home-hero .home-hero__copy::after{width:220px!important;background:linear-gradient(90deg,rgba(255,255,255,.56) 0%,rgba(255,255,255,.22) 42%,rgba(255,255,255,0) 74%),linear-gradient(180deg,rgba(243,232,212,.10),rgba(199,203,211,.08))!important}
+html.hero-edge-v6 body.site-light-page main.home section.home-hero .home-hero__copy::after{width:110px!important;background:linear-gradient(90deg,rgba(255,255,255,.38) 0%,rgba(255,255,255,.12) 55%,rgba(255,255,255,0) 100%)!important}
+}
+`;
+function apply(v){
+ const d=frame.contentDocument;if(!d)return;
+ [...d.documentElement.classList].filter(c=>c.startsWith('hero-edge-')).forEach(c=>d.documentElement.classList.remove(c));
+ if(v!=='original')d.documentElement.classList.add('hero-edge-'+v);
+ let st=d.getElementById('hero-edge-test-styles');
+ if(!st){st=d.createElement('style');st.id='hero-edge-test-styles';st.textContent=css;d.head.appendChild(st)}
+ buttons.forEach(b=>b.classList.toggle('active',b.dataset.v===v));
+ current=v;
+}
+frame.addEventListener('load',()=>apply(current));
+buttons.forEach(b=>b.addEventListener('click',()=>apply(b.dataset.v)));
+</script>
+</body>
+</html>

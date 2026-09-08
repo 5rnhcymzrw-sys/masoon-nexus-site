@@ -8,21 +8,26 @@ html,body{margin:0;height:100%;font-family:Arial,sans-serif;background:#111}body
 </style>
 </head><body>
 <div class="tester">
-<strong>Hero-Bild vergleichen</strong>
+<strong>Hero-Bild verschieben</strong>
 <button data-v="original">Original</button>
-<button data-v="new">Neues Bild</button>
-<button data-v="newsoft">Neues Bild · weich</button>
-<button data-v="newclean" class="active">Neues Bild · weich · ohne Text</button>
+<button data-v="dark25">Dunkel 25 % nach links</button>
+<button data-v="dark50">Dunkel 50 % nach links</button>
+<button data-v="darkleft">Dunkler Bereich ganz links</button>
+<button data-v="darkleftclean" class="active">Ganz links · ohne Text</button>
 </div>
 <iframe id="site" src="./index.html"></iframe>
 <script>
 const f=document.getElementById('site'),bs=[...document.querySelectorAll('button[data-v]')];
-let current='newclean', originalSrc='';
+let current='darkleftclean', originalSrc='';
 const css=`@media(min-width:801px){
-html.hero-image-newsoft body .home-hero__portrait-image,
-html.hero-image-newclean body .home-hero__portrait-image{filter:blur(19.5px)!important;transform:scale(1.061)!important}
-html.hero-image-newclean body .home-hero__copy h1,
-html.hero-image-newclean body .home-hero__copy p{visibility:hidden!important}
+html[class*="hero-image-dark"] body .home-hero__portrait{overflow:hidden!important}
+html[class*="hero-image-dark"] body .home-hero__portrait-image{filter:blur(19.5px)!important;will-change:transform!important}
+html.hero-image-dark25 body .home-hero__portrait-image{transform:scale(1.15) translateX(-8%)!important}
+html.hero-image-dark50 body .home-hero__portrait-image{transform:scale(1.25) translateX(-16%)!important}
+html.hero-image-darkleft body .home-hero__portrait-image,
+html.hero-image-darkleftclean body .home-hero__portrait-image{transform:scale(1.38) translateX(-27%)!important}
+html.hero-image-darkleftclean body .home-hero__copy h1,
+html.hero-image-darkleftclean body .home-hero__copy p{visibility:hidden!important}
 }`;
 function apply(v){
   const d=f.contentDocument;if(!d)return;

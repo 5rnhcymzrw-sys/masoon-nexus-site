@@ -518,21 +518,37 @@ html body.site-light-page main.home section.home-hero .home-hero__text-surface{
 </style>
 
 <style>
-/* Dienstleistungskarten: die drei Glasvorlagen, je Reihe Beige – Hellgrau – Dunkelgrau. */
+/* Dienstleistungskarten: helle Glasflächen auf ruhigen Beige- und Grauverläufen. */
 html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item{
-  background:url("assets/service-glass-beige.png") center / 100% 100% no-repeat!important;
-  -webkit-backdrop-filter:none!important;
-  backdrop-filter:none!important;
-  box-shadow:none!important;
+  --service-glass-start:#e5ddcc;
+  --service-glass-end:#dedbd3;
+  background:linear-gradient(125deg,rgba(255,255,255,.62),rgba(255,255,255,.28) 54%,rgba(255,255,255,.42)),linear-gradient(110deg,var(--service-glass-start),var(--service-glass-end))!important;
+  background-size:100% 100%!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  border:1px solid rgba(255,255,255,.85)!important;
+  border-image:none!important;
+  -webkit-backdrop-filter:blur(14px)!important;
+  backdrop-filter:blur(14px)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.92),inset 0 -1px 0 rgba(255,255,255,.38),0 2px 10px rgba(30,30,28,.045)!important;
 }
 html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+2){
-  background-image:url("assets/service-glass-light-grey.png")!important;
+  --service-glass-start:#deddd8;
+  --service-glass-end:#cecfcb;
 }
 html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n){
-  background-image:url("assets/service-glass-dark-grey.png")!important;
+  --service-glass-start:#c7c8c4;
+  --service-glass-end:#b7bab7;
 }
-html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n) :is(h3,p,.service-number){
-  color:#fff!important;
+html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item::before,html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item::after{
+  content:none!important;
+  display:none!important;
+}
+html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item h3,html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item .service-number{
+  color:#242422!important;
+}
+html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item p.mt-body-copy{
+  color:#464643!important;
 }
 </style>
 </head>

@@ -7,36 +7,27 @@
 html,body{margin:0;height:100%;font-family:Arial,sans-serif;background:#111}body{display:grid;grid-template-rows:58px 1fr;overflow:hidden}.tester{display:flex;align-items:center;gap:7px;padding:0 14px;background:#f3f3f3;border-bottom:1px solid #ccc;overflow-x:auto;z-index:10}.tester strong{font-size:13px;white-space:nowrap;margin-right:5px}.tester button{border:1px solid #c9c9c9;background:#fff;padding:9px 13px;font-size:12px;cursor:pointer;white-space:nowrap}.tester button.active{background:#111;color:#fff;border-color:#111}iframe{width:100%;height:100%;border:0;background:#fff}
 </style>
 </head><body>
-<div class="tester"><strong>Hero-Hintergrund</strong><button data-v="0">Original</button><button data-v="8">8</button><button data-v="9">9</button><button data-v="10">10</button><button data-v="11">11</button><button data-v="12">12</button><button data-v="13">13</button><button data-v="14">14</button><button data-v="15">15 · +30 % weicher</button><button data-v="15clean">15 · +30 % · ohne Text</button><button data-v="alt">Alternatives Bild</button><button data-v="altclean" class="active">Alternatives Bild · ohne Text</button></div>
+<div class="tester"><strong>Textflächen-Hintergrund</strong><button data-v="0">Original</button><button data-v="15clean">15 · +30 % · ohne Text</button><button data-v="surface">Nur Fläche · alternatives Bild</button><button data-v="surfaceclean" class="active">Nur Fläche · alternatives Bild · ohne Text</button></div>
 <iframe id="site" src="./index.html"></iframe>
 <script>
-const f=document.getElementById('site'),bs=[...document.querySelectorAll('button[data-v]')];let current='altclean';
+const f=document.getElementById('site'),bs=[...document.querySelectorAll('button[data-v]')];let current='surfaceclean';
 const css=`@media(min-width:801px){
-html[class*="hero-soft-"] body .home-hero__portrait-image{will-change:filter,transform!important}
-html[class*="hero-soft-"] body .home-hero__text-surface{will-change:backdrop-filter!important}
-html.hero-soft-8 body .home-hero__portrait-image{filter:blur(8px)!important;transform:scale(1.026)!important}html.hero-soft-8 body .home-hero__text-surface{backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important}
-html.hero-soft-9 body .home-hero__portrait-image{filter:blur(9px)!important;transform:scale(1.029)!important}html.hero-soft-9 body .home-hero__text-surface{backdrop-filter:blur(9px)!important;-webkit-backdrop-filter:blur(9px)!important}
-html.hero-soft-10 body .home-hero__portrait-image{filter:blur(10px)!important;transform:scale(1.032)!important}html.hero-soft-10 body .home-hero__text-surface{backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important}
-html.hero-soft-11 body .home-hero__portrait-image{filter:blur(11px)!important;transform:scale(1.035)!important}html.hero-soft-11 body .home-hero__text-surface{backdrop-filter:blur(11px)!important;-webkit-backdrop-filter:blur(11px)!important}
-html.hero-soft-12 body .home-hero__portrait-image{filter:blur(12px)!important;transform:scale(1.038)!important}html.hero-soft-12 body .home-hero__text-surface{backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important}
-html.hero-soft-13 body .home-hero__portrait-image{filter:blur(13px)!important;transform:scale(1.041)!important}html.hero-soft-13 body .home-hero__text-surface{backdrop-filter:blur(13px)!important;-webkit-backdrop-filter:blur(13px)!important}
-html.hero-soft-14 body .home-hero__portrait-image{filter:blur(14px)!important;transform:scale(1.044)!important}html.hero-soft-14 body .home-hero__text-surface{backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important}
-html.hero-soft-15 body .home-hero__portrait-image,html.hero-soft-15clean body .home-hero__portrait-image{filter:blur(19.5px)!important;transform:scale(1.061)!important}html.hero-soft-15 body .home-hero__text-surface,html.hero-soft-15clean body .home-hero__text-surface{backdrop-filter:blur(19.5px)!important;-webkit-backdrop-filter:blur(19.5px)!important}
+html.hero-soft-15clean body .home-hero__portrait-image{filter:blur(19.5px)!important;transform:scale(1.061)!important}
+html.hero-soft-15clean body .home-hero__text-surface{backdrop-filter:blur(19.5px)!important;-webkit-backdrop-filter:blur(19.5px)!important}
 html.hero-soft-15clean body .home-hero__copy h1,html.hero-soft-15clean body .home-hero__copy p{visibility:hidden!important}
 
-html.hero-soft-alt body .home-hero__portrait,
-html.hero-soft-altclean body .home-hero__portrait{
-  background-image:url('./assets/hero-background-20260907.png')!important;
+/* Nur die grosse halbtransparente Textfläche ändern. Restlicher Hero bleibt original. */
+html.hero-soft-surface body .home-hero__text-surface,
+html.hero-soft-surfaceclean body .home-hero__text-surface{
+  background-image:linear-gradient(110deg,rgba(243,232,212,.76) 0%,rgba(232,229,223,.72) 38%,rgba(199,203,211,.68) 66%,rgba(141,150,168,.62) 100%),url('./assets/hero-background-20260907.png')!important;
   background-size:cover!important;
   background-position:center!important;
   background-repeat:no-repeat!important;
+  backdrop-filter:blur(8px)!important;
+  -webkit-backdrop-filter:blur(8px)!important;
 }
-html.hero-soft-alt body .home-hero__portrait-image,
-html.hero-soft-altclean body .home-hero__portrait-image{opacity:0!important}
-html.hero-soft-alt body .home-hero__text-surface,
-html.hero-soft-altclean body .home-hero__text-surface{backdrop-filter:blur(4px)!important;-webkit-backdrop-filter:blur(4px)!important}
-html.hero-soft-altclean body .home-hero__copy h1,
-html.hero-soft-altclean body .home-hero__copy p{visibility:hidden!important}
+html.hero-soft-surfaceclean body .home-hero__copy h1,
+html.hero-soft-surfaceclean body .home-hero__copy p{visibility:hidden!important}
 }`;
 function apply(v){const d=f.contentDocument;if(!d)return;[...d.documentElement.classList].filter(c=>c.startsWith('hero-soft-')).forEach(c=>d.documentElement.classList.remove(c));let s=d.getElementById('hero-soft-test');if(!s){s=d.createElement('style');s.id='hero-soft-test';s.textContent=css;d.head.appendChild(s)}if(v!=='0')d.documentElement.classList.add('hero-soft-'+v);bs.forEach(b=>b.classList.toggle('active',b.dataset.v===v));current=v}
 f.addEventListener('load',()=>apply(current));bs.forEach(b=>b.addEventListener('click',()=>apply(b.dataset.v)));

@@ -520,6 +520,9 @@ html body.site-light-page main.home section.home-hero .home-hero__text-surface{
 <style>
 /* Dienstleistungskarten: helle Glasflächen auf ruhigen Beige- und Grauverläufen. */
 html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:visible!important;
   --service-glass-start:#e5ddcc;
   --service-glass-end:#dedbd3;
   background:linear-gradient(125deg,rgba(255,255,255,.62),rgba(255,255,255,.28) 54%,rgba(255,255,255,.42)),linear-gradient(110deg,var(--service-glass-start),var(--service-glass-end))!important;
@@ -540,9 +543,31 @@ html body.site-light-page:has(main.home) main.home>section.home-values .home-val
   --service-glass-start:#c7c8c4;
   --service-glass-end:#b7bab7;
 }
-html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item::before,html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item::after{
+/* Separate transparente Fläche: 5mm Überstand links, oben und rechts. */
+html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:-5mm -5mm 0!important;
+  width:auto!important;
+  height:auto!important;
+  box-sizing:border-box!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background:rgba(255,255,255,.22)!important;
+  border:1px solid rgba(210,208,202,.32)!important;
+  border-radius:0!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.65)!important;
+  transform:none!important;
+  opacity:1!important;
+}
+html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item::after{
   content:none!important;
   display:none!important;
+}
+html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item>*{
+  position:relative!important;
+  z-index:1!important;
 }
 html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item h3,html body.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item .service-number{
   color:#242422!important;

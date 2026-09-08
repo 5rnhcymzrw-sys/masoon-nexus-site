@@ -547,7 +547,7 @@ html body .site-footer .footer-simple{
     z-index:3!important;
     top:0!important;
     right:auto!important;
-    left:99.7px!important;
+    left:calc(max(0px,(100% - 1227px)/2) - 7.9872px)!important;
     width:240px!important;
     height:108px!important;
     margin:0!important;

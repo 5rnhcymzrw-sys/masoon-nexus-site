@@ -493,23 +493,35 @@ html body.site-light-page main.home section.home-hero .home-hero__gradient-panel
 </style>
 
 <style>
-/* Zusätzliche transparente Fläche hinter dem Hero-Text, ohne Layoutänderung. */
+/* Transparente Fläche vom linken Seitenrand bis zum Porträt. */
 html body.site-light-page main.home section.home-hero .home-hero__copy{
   position:relative;
   isolation:isolate;
 }
 html body.site-light-page main.home section.home-hero .home-hero__copy::before{
-  content:"";
-  display:block;
+  content:none;
+}
+html body.site-light-page main.home section.home-hero .home-hero__text-surface{
   position:absolute;
-  inset:0 -28px;
-  z-index:-1;
+  top:50%;
+  left:0;
+  width:68%;
+  height:min(32.625vw,calc((100svh - 108px)*.68),600px);
+  transform:translateY(-50%);
   background:rgba(255,255,255,.22);
+  z-index:2;
   pointer-events:none;
 }
 @media(max-width:800px){
+  html body.site-light-page main.home section.home-hero .home-hero__text-surface{display:none}
   html body.site-light-page main.home section.home-hero .home-hero__copy::before{
-    inset:0 -12px;
+    content:"";
+    display:block;
+    position:absolute;
+    inset:0 -18px;
+    z-index:-1;
+    background:rgba(255,255,255,.22);
+    pointer-events:none;
   }
 }
 </style>
@@ -517,7 +529,7 @@ html body.site-light-page main.home section.home-hero .home-hero__copy::before{
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">
 <header class="site-header home-page-header" style="background:#000!important;background-color:#000!important;background-image:none!important;opacity:1!important"><div class="header-inner"><a aria-label="MASOON TREUHAND Startseite" class="brand home-text-logo" href="index.html"><img alt="" aria-hidden="true" class="home-logo-icon" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="867" loading="eager" src="07.09.2026%20white_icon_transparent_background.png" width="1200" style="width:165.517241px!important"/><img alt="" class="home-logo-text" data-preserve-logo="true" decoding="sync" fetchpriority="high" height="1875" loading="eager" src="07.09.2026%20white_textlogo_transparent_background.png" width="3125"/></a><button aria-controls="site-navigation" aria-expanded="false" class="menu-toggle" type="button"><span></span><span></span><span></span><span class="sr-only">Menü öffnen</span></button><nav aria-label="Hauptnavigation" class="site-nav" id="site-navigation"><a aria-current="page" class="active" href="index.html">Startseite</a><a class="" href="unternehmen/index.html">Unternehmen</a><a class="" href="dienstleistungen/index.html">Dienstleistungen</a><a class="" href="fachwissen/index.html">Fachwissen</a><a class="" href="kontakt/index.html">Kontakt</a></nav></div></header>
 <main class="home">
-<section class="home-hero"><div class="home-hero__gradient-panel" aria-hidden="true"></div><div class="home-hero__content"><div class="home-hero__copy"><h1 class="global-title">Treuhand mit<br />Struktur und<br />Anspruch.</h1><p class="mt-body-copy home-hero__services" style="margin-top:30px">Auf der Basis von Diskretion, Präzision und Vertrauen<br />begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch<br />durch alle Phasen Ihres Geschäftslebens.</p></div></div><div class="home-hero__portrait"><img class="home-hero__portrait-image" src="Foto-hero.png?v=20260812-7" alt="Porträt von Gety Galena Masoon" fetchpriority="high" /></div></section>
+<section class="home-hero"><div class="home-hero__gradient-panel" aria-hidden="true"></div><div class="home-hero__text-surface" aria-hidden="true"></div><div class="home-hero__content"><div class="home-hero__copy"><h1 class="global-title">Treuhand mit<br />Struktur und<br />Anspruch.</h1><p class="mt-body-copy home-hero__services" style="margin-top:30px">Auf der Basis von Diskretion, Präzision und Vertrauen<br />begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch<br />durch alle Phasen Ihres Geschäftslebens.</p></div></div><div class="home-hero__portrait"><img class="home-hero__portrait-image" src="Foto-hero.png?v=20260812-7" alt="Porträt von Gety Galena Masoon" fetchpriority="high" /></div></section>
 <section class="home-values"><div class="home-values__inner"><div class="section-heading"><p class="section-label mt-nav-typography">Dienstleistungen</p><h2 class="global-title">Treuhandlösungen für Ihren Geschäftsalltag.</h2></div><div class="home-values__items"><article class="home-values__item"><span class="service-number">01</span><h3>Administration</h3><p class="mt-body-copy">Strukturierte Unterstützung bei administrativen Aufgaben und laufenden Geschäftsprozessen.</p></article><article class="home-values__item"><span class="service-number">02</span><h3>Buchhaltung</h3><p class="mt-body-copy">Übersichtliche und zuverlässige Führung Ihrer Finanzbuchhaltung.</p></article><article class="home-values__item"><span class="service-number">03</span><h3>Personaladministration</h3><p class="mt-body-copy">Professionelle Abwicklung von Löhnen, Sozialversicherungen und Personalmutationen.</p></article><article class="home-values__item"><span class="service-number">04</span><h3>Jahresabschluss</h3><p class="mt-body-copy">Sorgfältige Vorbereitung und Erstellung von Zwischen- und Jahresabschlüssen.</p></article><article class="home-values__item"><span class="service-number">05</span><h3>Steuererklärung</h3><p class="mt-body-copy">Steuererklärungen für Privatpersonen und Unternehmen inklusive Veranlagungskontrolle.</p></article><article class="home-values__item"><span class="service-number">06</span><h3>Unternehmensberatung</h3><p class="mt-body-copy">Begleitung bei Gründungen, Umstrukturierungen und weiteren unternehmerischen Fragen.</p></article></div><p style="margin-top:2.2rem"><a class="home-action-button mt-nav-typography" href="dienstleistungen/index.html">Alle Dienstleistungen ansehen <span aria-hidden="true">›</span></a></p></div></section>
 <section class="home-architecture-banner" aria-label="Architektur"></section>
 <section class="home-paths"><div class="home-paths__heading"><p class="section-label mt-nav-typography">Fachwissen</p><h2 class="global-title">Fachliche Orientierung zu ausgewählten Themen.</h2></div><div class="home-paths__grid"><a href="fachwissen/checkliste-steuererklaerung/"><span class="home-paths__category mt-nav-typography">STEUERN</span><strong>Steuererklärung richtig vorbereiten</strong></a><a href="fachwissen/unternehmensformen/"><span class="home-paths__category mt-nav-typography">UNTERNEHMEN</span><strong>Die passende Unternehmensform wählen</strong></a><a href="fachwissen/unwahre-buchfuehrung/"><span class="home-paths__category mt-nav-typography">BUCHHALTUNG</span><strong>Was eine saubere Buchhaltung ausmacht</strong></a></div><p style="margin-top:2.2rem"><a class="home-action-button mt-nav-typography" href="fachwissen/index.html">Alle Beiträge ansehen <span aria-hidden="true">›</span></a></p></section>

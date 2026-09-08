@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MASOON TREUHAND – Hero Layout Test</title>
+<style>
+  html,body{margin:0;height:100%;background:#111;font-family:Arial,sans-serif}
+  body{display:grid;grid-template-rows:58px 1fr;overflow:hidden}
+  .tester{display:flex;align-items:center;gap:8px;padding:0 16px;background:#f3f3f3;border-bottom:1px solid #ccc;box-sizing:border-box;z-index:10}
+  .tester strong{font-size:13px;margin-right:8px;font-weight:600}
+  .tester button{appearance:none;border:1px solid #c9c9c9;background:#fff;padding:9px 14px;font-size:12px;cursor:pointer}
+  .tester button.active{background:#111;color:#fff;border-color:#111}
+  .tester small{margin-left:auto;color:#666;font-size:11px}
+  iframe{width:100%;height:100%;border:0;background:#fff;display:block}
+  @media(max-width:760px){.tester{overflow-x:auto}.tester strong,.tester small{display:none}.tester button{white-space:nowrap}}
+</style>
+</head>
+<body>
+<div class="tester">
+  <strong>Hero vergleichen</strong>
+  <button data-v="original">Original</button>
+  <button data-v="v1">1 · Foto rechts</button>
+  <button data-v="v2">2 · Editorial</button>
+  <button data-v="v3" class="active">3 · Foto dominant</button>
+  <small>Nur Vorschau – Startseite wird nicht verändert</small>
+</div>
+<iframe id="site" src="./index.html"></iframe>
+<script>
+const frame=document.getElementById('site');
+const buttons=[...document.querySelectorAll('button[data-v]')];
+let current='v3';
+const css=`
+/* Testbasis: störendes Hero-Hintergrundbild ausschalten, nur saubere CSS-Farbflächen */
+html.hero-test-v1 body.site-light-page main.home section.home-hero::before,
+html.hero-test-v2 body.site-light-page main.home section.home-hero::before,
+html.hero-test-v3 body.site-light-page main.home section.home-hero::before{background:none!important;transform:none!important}
+html.hero-test-v1 body.site-light-page main.home section.home-hero,
+html.hero-test-v2 body.site-light-page main.home section.home-hero,
+html.hero-test-v3 body.site-light-page main.home section.home-hero{overflow:hidden!important;background:linear-gradient(105deg,rgba(243,232,212,.34) 0%,rgba(232,229,223,.22) 42%,rgba(199,203,211,.13) 68%,rgba(255,255,255,.5) 100%)!important}
+html.hero-test-v1 body.site-light-page main.home section.home-hero::after,
+html.hero-test-v2 body.site-light-page main.home section.home-hero::after,
+html.hero-test-v3 body.site-light-page main.home section.home-hero::after{content:''!important;position:absolute!important;inset:0!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(243,232,212,.24) 0%,rgba(243,232,212,0) 52%)!important;z-index:0!important}
+
+/* 1: grosses Foto rechts, schmaler offener Text links */
+@media(min-width:801px){
+html.hero-test-v1 body.site-light-page main.home section.home-hero{min-height:calc(100svh - 108px)!important}
+html.hero-test-v1 body.site-light-page main.home section.home-hero .home-hero__content{width:min(100% - 64px,1227px)!important;margin:0 auto!important;padding:0!important;min-height:calc(100svh - 108px)!important;display:flex!important;align-items:center!important;position:relative!important;z-index:2!important}
+html.hero-test-v1 body.site-light-page main.home section.home-hero .home-hero__copy{width:40%!important;padding:0!important;background:transparent!important;border:0!important;border-image:none!important}
+html.hero-test-v1 body.site-light-page main.home section.home-hero .home-hero__portrait{position:absolute!important;right:0!important;top:50%!important;transform:translateY(-50%)!important;width:57%!important;height:78%!important;clip-path:none!important;z-index:1!important}
+html.hero-test-v1 body.site-light-page main.home section.home-hero .home-hero__portrait-image{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:right 20%!important;transform:none!important}
+html.hero-test-v1 body.site-light-page main.home section.home-hero .home-hero__portrait::after{content:none!important}
+}
+
+/* 2: Editorial – Text überlappt das Foto, halbtransparente offene Fläche */
+@media(min-width:801px){
+html.hero-test-v2 body.site-light-page main.home section.home-hero{min-height:calc(100svh - 108px)!important}
+html.hero-test-v2 body.site-light-page main.home section.home-hero .home-hero__content{width:min(100% - 64px,1227px)!important;margin:0 auto!important;padding:0!important;min-height:calc(100svh - 108px)!important;display:flex!important;align-items:center!important;position:relative!important;z-index:3!important}
+html.hero-test-v2 body.site-light-page main.home section.home-hero .home-hero__copy{width:43%!important;margin-left:5%!important;padding:38px 42px!important;background:rgba(255,255,255,.70)!important;border:0!important;border-image:none!important;backdrop-filter:blur(2px)!important}
+html.hero-test-v2 body.site-light-page main.home section.home-hero .home-hero__portrait{position:absolute!important;right:0!important;top:50%!important;transform:translateY(-50%)!important;width:72%!important;height:82%!important;clip-path:none!important;z-index:1!important}
+html.hero-test-v2 body.site-light-page main.home section.home-hero .home-hero__portrait-image{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:right 18%!important;transform:none!important}
+html.hero-test-v2 body.site-light-page main.home section.home-hero .home-hero__portrait::after{content:''!important;position:absolute!important;inset:0!important;width:100%!important;background:linear-gradient(90deg,rgba(243,232,212,.78) 0%,rgba(243,232,212,.18) 37%,rgba(0,0,0,0) 63%)!important}
+}
+
+/* 3: Foto dominant – Text unten links, keine weisse Box */
+@media(min-width:801px){
+html.hero-test-v3 body.site-light-page main.home section.home-hero{min-height:calc(100svh - 108px)!important;background:linear-gradient(105deg,rgba(243,232,212,.36) 0%,rgba(232,229,223,.18) 45%,rgba(199,203,211,.12) 72%,rgba(255,255,255,.18) 100%)!important}
+html.hero-test-v3 body.site-light-page main.home section.home-hero .home-hero__portrait{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;transform:none!important;clip-path:none!important;z-index:1!important}
+html.hero-test-v3 body.site-light-page main.home section.home-hero .home-hero__portrait-image{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:right 18%!important;transform:none!important}
+html.hero-test-v3 body.site-light-page main.home section.home-hero .home-hero__portrait::after{content:''!important;position:absolute!important;inset:0!important;width:100%!important;background:linear-gradient(90deg,rgba(243,232,212,.96) 0%,rgba(232,229,223,.78) 26%,rgba(199,203,211,.30) 49%,rgba(0,0,0,.06) 68%,rgba(0,0,0,.06) 100%)!important}
+html.hero-test-v3 body.site-light-page main.home section.home-hero .home-hero__content{width:min(100% - 64px,1227px)!important;margin:0 auto!important;padding:0 0 9vh!important;min-height:calc(100svh - 108px)!important;display:flex!important;align-items:flex-end!important;position:relative!important;z-index:3!important}
+html.hero-test-v3 body.site-light-page main.home section.home-hero .home-hero__copy{width:46%!important;padding:0!important;background:transparent!important;border:0!important;border-image:none!important}
+html.hero-test-v3 body.site-light-page main.home section.home-hero h1.global-title{font-size:58px!important;line-height:1.02!important}
+}
+
+@media(max-width:800px){
+html.hero-test-v1 body.site-light-page main.home section.home-hero .home-hero__copy,
+html.hero-test-v2 body.site-light-page main.home section.home-hero .home-hero__copy,
+html.hero-test-v3 body.site-light-page main.home section.home-hero .home-hero__copy{background:rgba(255,255,255,.78)!important;border:0!important;border-image:none!important}
+}
+`;
+function apply(v){
+  const d=frame.contentDocument;if(!d)return;
+  d.documentElement.classList.remove('hero-test-v1','hero-test-v2','hero-test-v3');
+  if(v!=='original')d.documentElement.classList.add('hero-test-'+v);
+  let st=d.getElementById('hero-layout-test-styles');
+  if(!st){st=d.createElement('style');st.id='hero-layout-test-styles';st.textContent=css;d.head.appendChild(st)}
+  buttons.forEach(b=>b.classList.toggle('active',b.dataset.v===v));
+  current=v;
+}
+frame.addEventListener('load',()=>apply(current));
+buttons.forEach(b=>b.addEventListener('click',()=>apply(b.dataset.v)));
+</script>
+</body>
+</html>

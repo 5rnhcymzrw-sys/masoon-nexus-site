@@ -497,17 +497,17 @@ html body.site-light-page main.home section.home-hero .home-hero__text-surface{
 </style>
 
 <style>
-/* Vordere Glasfläche beginnt 3 cm links vom Text; oben und unten je 16 px grösser, rechts 40 px kürzer. */
+/* Deckender Hero-Kasten: beidseitig 3 cm Textabstand, oben und unten vergrössert. */
 html body.site-light-page main.home section.home-hero .home-hero__copy::before{
   background:linear-gradient(90deg,#ECE9E3 0%,#ECE9E3 20%,#DEDBD4 45%,#DEDBD4 55%,#D5D1C9 80%,#D5D1C9 100%);
 }
 @media(min-width:801px){
   html body.site-light-page main.home section.home-hero .home-hero__copy::before{
-    top:0;
-    bottom:0;
+    top:-16px;
+    bottom:-16px;
     left:-3cm;
     right:auto;
-    width:calc(var(--hero-band-width,68vw) + var(--hero-band-left,calc(-1 * max(32px,(100vw - 1227px)/2) - 1px)) + 3cm - 40px);
+    width:calc(var(--hero-text-width,440px) + 6cm);
   }
 }
 </style>
@@ -587,6 +587,18 @@ html body.site-light-page:has(main.home) main.home>section.home-values .home-val
         hero.style.setProperty('--hero-band-left',(heroBox.left-copyBox.left-parseFloat(getComputedStyle(copy).borderLeftWidth))+'px');
       }
     }
+    // Sichtbares Textende bestimmt ausschliesslich die Breite der vorderen Fläche.
+    const textBox=copy.getBoundingClientRect();
+    const textOrigin=textBox.left+parseFloat(getComputedStyle(copy).borderLeftWidth);
+    let textWidth=0;
+    copy.querySelectorAll('h1,p').forEach(function(element){
+      const textRange=document.createRange();
+      textRange.selectNodeContents(element);
+      for(const rect of textRange.getClientRects()){
+        if(rect.width>0)textWidth=Math.max(textWidth,rect.right-textOrigin);
+      }
+    });
+    if(textWidth>0)copy.style.setProperty('--hero-text-width',textWidth+'px');
     // Bildhöhe bleibt auf der bisherigen Glasgeometrie (16 px Abstand oben/unten).
     const copyStyle=getComputedStyle(copy);
     const frontHeight=copy.getBoundingClientRect().height-parseFloat(copyStyle.borderTopWidth)-parseFloat(copyStyle.borderBottomWidth)-32;

@@ -511,7 +511,7 @@ html body.site-light-page main.home section.home-hero .home-hero__text-surface{
   position:absolute;
   top:50%;
   left:0;
-  width:68%;
+  width:var(--hero-band-width,68vw);
   height:calc(min(32.625vw,calc((100svh - 108px)*.68),600px) * .88);
   transform:translateY(-50%);
   background:rgba(255,255,255,.22);
@@ -536,9 +536,9 @@ html body.site-light-page main.home section.home-hero .home-hero__text-surface{
 /* Vorderer und hinterer Balken mit identischen seitlichen Kanten. */
 @media(min-width:801px){
   html body.site-light-page main.home section.home-hero .home-hero__copy::before{
-    left:calc(-1 * max(32px,(100vw - 1227px)/2) - 1px);
+    left:var(--hero-band-left,calc(-1 * max(32px,(100vw - 1227px)/2) - 1px));
     right:auto;
-    width:68vw;
+    width:var(--hero-band-width,68vw);
   }
 }
 </style>
@@ -582,6 +582,18 @@ html body.site-light-page main.home section.home-hero .home-hero__text-surface{
       photo.style.removeProperty('height');
       shelf.style.removeProperty('height');
       return;
+    }
+    const serviceLink=document.querySelector('.site-header .site-nav a[href="dienstleistungen/index.html"]');
+    if(serviceLink){
+      const range=document.createRange();
+      range.selectNodeContents(serviceLink);
+      const word=range.getBoundingClientRect();
+      const heroBox=hero.getBoundingClientRect();
+      const copyBox=copy.getBoundingClientRect();
+      if(word.width>0){
+        hero.style.setProperty('--hero-band-width',(word.right-heroBox.left)+'px');
+        hero.style.setProperty('--hero-band-left',(heroBox.left-copyBox.left-parseFloat(getComputedStyle(copy).borderLeftWidth))+'px');
+      }
     }
     const frontHeight=parseFloat(getComputedStyle(copy,'::before').height);
     const rearHeight=rear.getBoundingClientRect().height;

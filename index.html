@@ -497,12 +497,20 @@ html body.site-light-page main.home section.home-hero .home-hero__text-surface{
 </style>
 
 <style>
-/* Vorderer und hinterer Balken mit identischen seitlichen Kanten. */
+/* Weisser Textkasten vor dem Originalfoto, ohne farbige Glasbalken. */
+html body.site-light-page main.home section.home-hero .home-hero__gradient-panel,
+html body.site-light-page main.home section.home-hero .home-hero__text-surface{
+  visibility:hidden!important;
+}
+html body.site-light-page main.home section.home-hero .home-hero__copy::before{
+  background:#fff!important;
+  box-shadow:none!important;
+}
 @media(min-width:801px){
   html body.site-light-page main.home section.home-hero .home-hero__copy::before{
-    left:var(--hero-band-left,calc(-1 * max(32px,(100vw - 1227px)/2) - 1px));
+    left:-42px;
     right:auto;
-    width:var(--hero-band-width,68vw);
+    width:min(640px,calc(100vw - 64px));
   }
 }
 </style>

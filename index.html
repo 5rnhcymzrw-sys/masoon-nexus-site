@@ -497,12 +497,12 @@ html body.site-light-page main.home section.home-hero .home-hero__text-surface{
 </style>
 
 <style>
-/* Vorderer und hinterer Balken mit identischen seitlichen Kanten. */
+/* Vordere Glasfläche endet 3 cm rechts vom längsten Text. */
 @media(min-width:801px){
   html body.site-light-page main.home section.home-hero .home-hero__copy::before{
     left:var(--hero-band-left,calc(-1 * max(32px,(100vw - 1227px)/2) - 1px));
     right:auto;
-    width:var(--hero-band-width,68vw);
+    width:calc(var(--hero-front-text-right,480px) + 3cm - var(--hero-band-left,calc(-1 * max(32px,(100vw - 1227px)/2) - 1px)));
   }
 }
 </style>
@@ -618,6 +618,16 @@ html body.site-light-page:has(main.home) main.home>section.home-values .home-val
         hero.style.setProperty('--hero-band-left',(heroBox.left-copyBox.left-parseFloat(getComputedStyle(copy).borderLeftWidth))+'px');
       }
     }
+    const copyRect=copy.getBoundingClientRect();
+    let textRight=0;
+    copy.querySelectorAll('h1,p').forEach(function(element){
+      const textRange=document.createRange();
+      textRange.selectNodeContents(element);
+      for(const rect of textRange.getClientRects()){
+        if(rect.width>0)textRight=Math.max(textRight,rect.right-copyRect.left-parseFloat(getComputedStyle(copy).borderLeftWidth));
+      }
+    });
+    if(textRight>0)copy.style.setProperty('--hero-front-text-right',textRight+'px');
     const frontHeight=parseFloat(getComputedStyle(copy,'::before').height);
     const rearHeight=rear.getBoundingClientRect().height;
     if(!Number.isFinite(frontHeight)||rearHeight<=frontHeight)return;

@@ -113,23 +113,5 @@
     }
   }
 
-  // Gemeinsame Logoausrichtung: sichtbarer Schriftzug an der linken Aussenkante des Inhaltsrahmens.
-  const alignedLogo = document.querySelector('.home-text-logo');
-  const logoHeader = document.querySelector('.header-inner');
-  if (alignedLogo && logoHeader) {
-    const alignHeaderLogo = () => {
-      if (window.innerWidth <= 800) {
-        alignedLogo.style.removeProperty('left');
-        return;
-      }
-      const frameLeft = Math.max(32, (document.documentElement.clientWidth - 1227) / 2);
-      const textImage = alignedLogo.querySelector('.home-logo-text');
-      const transparentInset = textImage ? textImage.getBoundingClientRect().width * 104 / 3125 : 0;
-      alignedLogo.style.setProperty('left', (frameLeft - logoHeader.getBoundingClientRect().left - transparentInset) + 'px', 'important');
-    };
-    alignHeaderLogo();
-    window.addEventListener('resize', alignHeaderLogo, { passive:true });
-    window.addEventListener('load', alignHeaderLogo, { once:true });
-    if (document.fonts) document.fonts.ready.then(alignHeaderLogo);
-  }
+  // Die Logoausrichtung erfolgt bereits beim ersten Rendern in global.css.
 })();

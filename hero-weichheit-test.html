@@ -7,7 +7,7 @@
 html,body{margin:0;height:100%;font-family:Arial,sans-serif;background:#111}body{display:grid;grid-template-rows:58px 1fr;overflow:hidden}.tester{display:flex;align-items:center;gap:7px;padding:0 14px;background:#f3f3f3;border-bottom:1px solid #ccc;overflow-x:auto;z-index:10}.tester strong{font-size:13px;white-space:nowrap;margin-right:5px}.tester button{border:1px solid #c9c9c9;background:#fff;padding:9px 13px;font-size:12px;cursor:pointer;white-space:nowrap}.tester button.active{background:#111;color:#fff;border-color:#111}iframe{width:100%;height:100%;border:0;background:#fff}
 </style>
 </head><body>
-<div class="tester"><strong>Textflächen-Hintergrund</strong><button data-v="0">Original</button><button data-v="15clean">15 · +30 % · ohne Text</button><button data-v="surface">Nur Fläche · alternatives Bild</button><button data-v="surfaceclean" class="active">Nur Fläche · alternatives Bild · ohne Text</button></div>
+<div class="tester"><strong>Textflächen-Hintergrund</strong><button data-v="0">Original</button><button data-v="15clean">15 · +30 % · ohne Text</button><button data-v="surface">Nur Fläche · ohne Regal</button><button data-v="surfaceclean" class="active">Nur Fläche · ohne Regal · ohne Text</button></div>
 <iframe id="site" src="./index.html"></iframe>
 <script>
 const f=document.getElementById('site'),bs=[...document.querySelectorAll('button[data-v]')];let current='surfaceclean';
@@ -16,15 +16,14 @@ html.hero-soft-15clean body .home-hero__portrait-image{filter:blur(19.5px)!impor
 html.hero-soft-15clean body .home-hero__text-surface{backdrop-filter:blur(19.5px)!important;-webkit-backdrop-filter:blur(19.5px)!important}
 html.hero-soft-15clean body .home-hero__copy h1,html.hero-soft-15clean body .home-hero__copy p{visibility:hidden!important}
 
-/* Nur die grosse halbtransparente Textfläche ändern. Restlicher Hero bleibt original. */
+/* Nur die grosse Textfläche: vollständig eigener, deckender Hintergrund. Kein Bücherregal scheint durch. */
 html.hero-soft-surface body .home-hero__text-surface,
 html.hero-soft-surfaceclean body .home-hero__text-surface{
-  background-image:linear-gradient(110deg,rgba(243,232,212,.76) 0%,rgba(232,229,223,.72) 38%,rgba(199,203,211,.68) 66%,rgba(141,150,168,.62) 100%),url('./assets/hero-background-20260907.png')!important;
-  background-size:cover!important;
-  background-position:center!important;
-  background-repeat:no-repeat!important;
-  backdrop-filter:blur(8px)!important;
-  -webkit-backdrop-filter:blur(8px)!important;
+  background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
+  background-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  opacity:1!important;
 }
 html.hero-soft-surfaceclean body .home-hero__copy h1,
 html.hero-soft-surfaceclean body .home-hero__copy p{visibility:hidden!important}

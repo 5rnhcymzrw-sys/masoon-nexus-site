@@ -20,7 +20,7 @@ iframe{width:100%;height:100%;border:0;background:#fff;display:block}
 <strong>Ecken vergleichen</strong>
 <button data-v="original" class="active">Original</button>
 <button data-v="r16">1 · Rund 16</button>
-<button data-v="r28">2 · Rund 28</button>
+<button data-v="r32">2 · Rund 32</button>
 <button data-v="right">3 · Nur rechts rund</button>
 <button data-v="soft">4 · Rechte Ecken weich</button>
 <button data-v="asym">5 · Asymmetrisch</button>
@@ -31,97 +31,48 @@ iframe{width:100%;height:100%;border:0;background:#fff;display:block}
 const frame=document.getElementById('site');
 const buttons=[...document.querySelectorAll('button[data-v]')];
 let current='original';
-let overlay=null;
-let copy=null;
-let saved={};
 
-function ensureOverlay(){
-  const d=frame.contentDocument;if(!d)return false;
-  copy=d.querySelector('.home-hero__copy');
-  if(!copy)return false;
-  const cs=d.defaultView.getComputedStyle(copy);
-  if(!saved.ready){
-    saved={
-      ready:true,
-      background:cs.background,
-      backgroundColor:cs.backgroundColor,
-      backdropFilter:cs.backdropFilter,
-      webkitBackdropFilter:cs.webkitBackdropFilter,
-      borderRadius:cs.borderRadius,
-      border:cs.border,
-      boxShadow:cs.boxShadow,
-      position:copy.style.position,
-      zIndex:copy.style.zIndex
-    };
+const testCSS=`
+@media(min-width:801px){
+  html.hero-corner-r16 body .home-hero .home-hero__copy{
+    border-radius:16px!important;
+    overflow:hidden!important;
   }
-  overlay=d.getElementById('hero-corner-test-overlay');
-  if(!overlay){
-    overlay=d.createElement('div');
-    overlay.id='hero-corner-test-overlay';
-    overlay.style.position='absolute';
-    overlay.style.inset='0';
-    overlay.style.pointerEvents='none';
-    overlay.style.zIndex='-1';
-    copy.style.position='relative';
-    copy.style.zIndex='4';
-    copy.prepend(overlay);
+  html.hero-corner-r32 body .home-hero .home-hero__copy{
+    border-radius:32px!important;
+    overflow:hidden!important;
   }
-  return true;
+  html.hero-corner-right body .home-hero .home-hero__copy{
+    border-radius:0 40px 40px 0!important;
+    overflow:hidden!important;
+  }
+  html.hero-corner-soft body .home-hero .home-hero__copy{
+    border-radius:0 58px 58px 0!important;
+    overflow:hidden!important;
+    -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 86%,rgba(0,0,0,.92) 91%,rgba(0,0,0,.55) 96%,transparent 100%)!important;
+    mask-image:linear-gradient(90deg,#000 0%,#000 86%,rgba(0,0,0,.92) 91%,rgba(0,0,0,.55) 96%,transparent 100%)!important;
+  }
+  html.hero-corner-asym body .home-hero .home-hero__copy{
+    border-radius:0 62px 18px 0!important;
+    overflow:hidden!important;
+  }
+  html.hero-corner-cut body .home-hero .home-hero__copy{
+    border-radius:0!important;
+    overflow:hidden!important;
+    clip-path:polygon(0 0,96% 0,100% 8%,100% 92%,96% 100%,0 100%)!important;
+  }
 }
-
-function reset(){
-  if(!ensureOverlay())return;
-  copy.style.background=saved.background;
-  copy.style.backgroundColor=saved.backgroundColor;
-  copy.style.backdropFilter=saved.backdropFilter;
-  copy.style.webkitBackdropFilter=saved.webkitBackdropFilter;
-  copy.style.borderRadius=saved.borderRadius;
-  copy.style.border=saved.border;
-  copy.style.boxShadow=saved.boxShadow;
-  overlay.style.display='none';
-  overlay.style.borderRadius='0';
-  overlay.style.clipPath='none';
-  overlay.style.maskImage='none';
-  overlay.style.webkitMaskImage='none';
-}
-
-function prepareOverlay(){
-  if(!ensureOverlay())return false;
-  const cs=frame.contentWindow.getComputedStyle(copy);
-  overlay.style.display='block';
-  overlay.style.background=cs.background;
-  overlay.style.backgroundColor=cs.backgroundColor;
-  overlay.style.backdropFilter=cs.backdropFilter;
-  overlay.style.webkitBackdropFilter=cs.webkitBackdropFilter;
-  overlay.style.border=cs.border;
-  overlay.style.boxShadow=cs.boxShadow;
-  copy.style.background='transparent';
-  copy.style.backgroundColor='transparent';
-  copy.style.backdropFilter='none';
-  copy.style.webkitBackdropFilter='none';
-  copy.style.borderColor='transparent';
-  copy.style.boxShadow='none';
-  return true;
-}
+`;
 
 function apply(v){
-  reset();
-  if(v!=='original' && prepareOverlay()){
-    if(v==='r16') overlay.style.borderRadius='16px';
-    if(v==='r28') overlay.style.borderRadius='28px';
-    if(v==='right') overlay.style.borderRadius='0 28px 28px 0';
-    if(v==='soft'){
-      overlay.style.borderRadius='0 36px 36px 0';
-      overlay.style.maskImage='linear-gradient(90deg,#000 0%,#000 84%,rgba(0,0,0,.72) 92%,transparent 100%)';
-      overlay.style.webkitMaskImage='linear-gradient(90deg,#000 0%,#000 84%,rgba(0,0,0,.72) 92%,transparent 100%)';
-    }
-    if(v==='asym') overlay.style.borderRadius='0 46px 16px 0';
-    if(v==='cut') overlay.style.clipPath='polygon(0 0,96% 0,100% 7%,100% 93%,96% 100%,0 100%)';
-  }
+  const d=frame.contentDocument;if(!d)return;
+  [...d.documentElement.classList].filter(c=>c.startsWith('hero-corner-')).forEach(c=>d.documentElement.classList.remove(c));
+  let st=d.getElementById('hero-corner-test-styles');
+  if(!st){st=d.createElement('style');st.id='hero-corner-test-styles';st.textContent=testCSS;d.head.appendChild(st)}
+  if(v!=='original')d.documentElement.classList.add('hero-corner-'+v);
   buttons.forEach(b=>b.classList.toggle('active',b.dataset.v===v));
   current=v;
 }
-
 frame.addEventListener('load',()=>apply(current));
 buttons.forEach(b=>b.addEventListener('click',()=>apply(b.dataset.v)));
 </script>

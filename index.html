@@ -4,9 +4,62 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style id="home-instant-scroll-restoration">
-    /* Beim Aktualisieren die bisherige Position ohne Scrollanimation wiederherstellen. */
     html { scroll-behavior: auto !important; }
+    html.home-restoring-scroll body { visibility: hidden !important; }
   </style>
+  <script id="home-reload-position">
+  (() => {
+    const root = document.documentElement;
+    const key = 'masoon-home-scroll:' + location.pathname;
+    let restoring = false;
+    const save = () => {
+      if (restoring) return;
+      try { sessionStorage.setItem(key, String(window.scrollY)); } catch (_) {}
+    };
+    window.addEventListener('pagehide', save);
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') save();
+    });
+    let savedY;
+    try { savedY = Number(sessionStorage.getItem(key)); } catch (_) { return; }
+    const navigation = performance.getEntriesByType('navigation')[0];
+    if (!navigation || navigation.type !== 'reload' || location.hash ||
+        !Number.isFinite(savedY) || savedY <= 0) return;
+
+    restoring = true;
+    const previousRestoration = history.scrollRestoration;
+    history.scrollRestoration = 'manual';
+    root.classList.add('home-restoring-scroll');
+    let finished = false;
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      clearTimeout(fallback);
+      try { window.scrollTo({ top: savedY, left: 0, behavior: 'instant' }); }
+      finally {
+        root.classList.remove('home-restoring-scroll');
+        restoring = false;
+      }
+    };
+    // Bei Ladeproblemen bleibt die Seite trotzdem erreichbar.
+    const fallback = setTimeout(finish, 4000);
+    document.addEventListener('DOMContentLoaded', () => {
+      // Erst mit fertigem Seitenlayout und Schriftmassen zurückspringen.
+      const fonts = document.fonts ? document.fonts.ready : Promise.resolve();
+      Promise.race([fonts, new Promise(resolve => setTimeout(resolve, 800))])
+        .then(() => requestAnimationFrame(finish));
+    }, { once: true });
+    window.addEventListener('pagehide', () => {
+      history.scrollRestoration = previousRestoration;
+    }, { once: true });
+    window.addEventListener('pageshow', event => {
+      if (event.persisted) {
+        root.classList.remove('home-restoring-scroll');
+        history.scrollRestoration = previousRestoration;
+      }
+    });
+  })();
+  </script>
   <title>MASOON TREUHAND | Treuhandunternehmen in Luzern</title>
   <meta name="description" content="Treuhand, Buchhaltung, Personaladministration, Jahresabschluss, Steuern und Unternehmensberatung in Luzern." />
 

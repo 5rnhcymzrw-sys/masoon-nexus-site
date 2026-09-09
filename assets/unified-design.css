@@ -1,8 +1,10 @@
 @import url('./unified-design-base-20260907.css?v=20260908-clean-rules');
 
-/* Startseite – verbindliche Farbpalette */
+/* Startseite – keine grossflächigen Seitenverläufe */
 html body.site-light-page main.home>section.home-values.home-values{
-  background:linear-gradient(180deg,rgba(243,232,212,.18) 0%,rgba(255,255,255,.96) 42%,rgba(199,203,211,.10) 100%)!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
 }
 html body.site-light-page main.home>section.home-paths.home-paths{
   position:relative!important;
@@ -12,16 +14,8 @@ html body.site-light-page main.home>section.home-paths.home-paths{
   background-image:none!important;
 }
 html body.site-light-page main.home>section.home-paths.home-paths::before{
-  content:''!important;
-  position:absolute!important;
-  z-index:0!important;
-  top:0!important;
-  bottom:0!important;
-  left:50%!important;
-  width:100vw!important;
-  transform:translateX(-50%)!important;
-  background:linear-gradient(115deg,rgba(243,232,212,.13) 0%,rgba(232,229,223,.16) 36%,rgba(199,203,211,.14) 68%,rgba(141,150,168,.08) 100%)!important;
-  pointer-events:none!important;
+  content:none!important;
+  display:none!important;
 }
 html body.site-light-page main.home>section.home-paths.home-paths>*{
   position:relative!important;
@@ -33,7 +27,7 @@ html body.site-light-page main.home>section.home-paths.home-paths .home-paths__g
 html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2){background:rgba(232,229,223,.24)!important;background-color:rgba(232,229,223,.24)!important;background-image:none!important;}
 html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3){background:rgba(199,203,211,.16)!important;background-color:rgba(199,203,211,.16)!important;background-image:none!important;}
 
-/* Kontaktbereich: Verlauf über die volle Browserbreite, Rahmen und Inhalt bleiben im bestehenden Container */
+/* Kontaktbereich: kein Verlauf über die volle Browserbreite; Rahmen und Inhalt bleiben unverändert */
 html body.site-light-page main.home>section.home-contact-band.home-contact-band{
   position:relative!important;
   isolation:isolate!important;
@@ -42,28 +36,19 @@ html body.site-light-page main.home>section.home-contact-band.home-contact-band{
   background-image:none!important;
 }
 html body.site-light-page main.home>section.home-contact-band.home-contact-band::before{
-  content:''!important;
-  position:absolute!important;
-  z-index:0!important;
-  top:0!important;
-  bottom:0!important;
-  left:50%!important;
-  width:100vw!important;
-  transform:translateX(-50%)!important;
-  background:linear-gradient(110deg,rgba(243,232,212,.34) 0%,rgba(232,229,223,.26) 38%,rgba(199,203,211,.22) 66%,rgba(141,150,168,.16) 100%)!important;
-  pointer-events:none!important;
+  content:none!important;
+  display:none!important;
 }
 html body.site-light-page main.home>section.home-contact-band.home-contact-band>*{
   position:relative!important;
   z-index:1!important;
 }
 
-/* Fachwissen: sauberer CSS-Hintergrund ohne Bild, Linien oder Texturen */
+/* Fachwissen: grossflächigen Seitenverlauf entfernen */
 html body.site-light-page:has(#knowledge-articles) main.page-main{
-  background-color:#fff!important;
-  background-image:linear-gradient(110deg,rgba(243,232,212,.30) 0%,rgba(232,229,223,.24) 38%,rgba(199,203,211,.20) 66%,rgba(141,150,168,.12) 100%)!important;
-  background-repeat:no-repeat!important;
-  background-size:100% 100%!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
 }
 html body.site-light-page:has(#knowledge-articles) main.page-main>#knowledge-articles{
   background:transparent!important;

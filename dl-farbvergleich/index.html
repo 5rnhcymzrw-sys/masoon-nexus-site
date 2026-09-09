@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON TREUHAND – DL Farbvergleich</title>
+<style>
+  html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff;font-family:Arial,sans-serif}
+  .toolbar{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99999;display:flex;gap:8px;padding:8px;background:rgba(255,255,255,.94);border:1px solid rgba(23,23,21,.14);box-shadow:0 8px 24px rgba(23,23,21,.10)}
+  .toolbar button{appearance:none;border:1px solid #b9b5af;background:#fff;padding:9px 14px;font-size:12px;letter-spacing:.04em;cursor:pointer;color:#171715}
+  .toolbar button.active{background:#171715;color:#fff;border-color:#171715}
+  iframe{border:0;width:100%;height:100%;display:block}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <button data-mode="a" class="active">Variante 1</button>
+  <button data-mode="b">Variante 2</button>
+  <button data-mode="c">Variante 3 – farbig</button>
+</div>
+<iframe id="site" src="../index.html"></iframe>
+<script>
+const frame=document.getElementById('site');
+const buttons=[...document.querySelectorAll('button[data-mode]')];
+
+const palettes={
+  a:['#E2DED8','#EDEAE7','#F7F5F3'],
+  b:['#E2DED8','#EFECE7','#F4F3EF'],
+  c:['#F3E8D4','#C7CBD3','#8D96A8']
+};
+
+function apply(mode){
+  const d=frame.contentDocument||frame.contentWindow.document;
+  if(!d) return;
+  const old=d.getElementById('dl-farbvergleich-style');
+  if(old) old.remove();
+  const p=palettes[mode];
+  const s=d.createElement('style');
+  s.id='dl-farbvergleich-style';
+  s.textContent=`
+html body.site-light-page:has(main.home)
+main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item{
+  background:${p[0]}!important;background-image:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+html body.site-light-page:has(main.home)
+main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+2){
+  background:${p[1]}!important;background-image:none!important;
+}
+html body.site-light-page:has(main.home)
+main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n){
+  background:${p[2]}!important;background-image:none!important;
+}`;
+  d.head.appendChild(s);
+  buttons.forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));
+}
+
+frame.addEventListener('load',()=>{
+  apply('a');
+  setTimeout(()=>{
+    const d=frame.contentDocument||frame.contentWindow.document;
+    const target=d.querySelector('.home-values');
+    if(target) target.scrollIntoView({block:'start'});
+  },180);
+});
+
+buttons.forEach(b=>b.addEventListener('click',()=>apply(b.dataset.mode)));
+</script>
+</body>
+</html>

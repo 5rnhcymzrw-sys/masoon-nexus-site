@@ -206,10 +206,11 @@ html body main.contact-split-page form.contact-split__form>label{
 </style><style id="contact-success-style">
 html body.site-light-page main .contact-split__form .contact-success[hidden]{display:none!important;}
 html body.site-light-page main .contact-split__form .contact-success{
-  position:absolute;inset:0;display:grid;place-items:center;padding:32px 32px 96px;box-sizing:border-box;z-index:3;
+  position:absolute;inset:0;display:block;padding:0;box-sizing:border-box;z-index:3;
 }
 html body.site-light-page main .contact-split__form .contact-success__message{
-  box-sizing:border-box;width:100%;max-width:440px;padding:28px 16px;text-align:center;
+  position:absolute;left:50%;top:var(--response-center,50%);translate:-50% -50%;
+  box-sizing:border-box;width:calc(100% - 40px);max-width:400px;padding:28px 12px;text-align:center;
   border:2px solid transparent;border-radius:8px;
   background:linear-gradient(#fff,#fff) padding-box,
     linear-gradient(110deg,#c8bfb2 0%,#b9b8b5 38%,#aab0b8 66%,#8d9fb4 100%) border-box;
@@ -230,7 +231,7 @@ html body.site-light-page main .contact-split__form .contact-success__message sp
   html body.site-light-page main .contact-split__form .contact-success__message{animation:none;}
 }
 @media(max-width:560px){
-  html body.site-light-page main .contact-split__form .contact-success{padding:20px 20px 68px;}
+  html body.site-light-page main .contact-split__form .contact-success{padding:0;}
   html body.site-light-page main .contact-split__form .contact-success__message{padding:24px 12px;}
 }
 
@@ -333,6 +334,20 @@ html body.site-light-page main .contact-split__form .contact-success__message sp
   const button = form.querySelector('button[type="submit"]');
   const box = form.querySelector('.contact-success');
   const message = form.querySelector('.contact-success__message');
+  const alignResponse = () => {
+    if (box.hidden) return;
+    const firstName = form.querySelector('input[name="vorname"]');
+    const phone = form.querySelector('input[name="telefon"]');
+    if (!firstName || !phone) return;
+    const middle = (firstName.getBoundingClientRect().bottom + phone.getBoundingClientRect().bottom) / 2;
+    box.style.setProperty('--response-center', (middle - box.getBoundingClientRect().top) + 'px');
+  };
+  window.addEventListener('resize', alignResponse, { passive:true });
+  if (document.fonts) document.fonts.ready.then(alignResponse);
+  if ('ResizeObserver' in window) {
+    const responseObserver = new ResizeObserver(alignResponse);
+    responseObserver.observe(form);
+  }
   const heading = message.querySelector('strong');
   const copy = message.querySelector('span');
   const successHeading = heading.textContent;
@@ -344,6 +359,7 @@ html body.site-light-page main .contact-split__form .contact-success__message sp
     form.classList.add('is-error');
     status.textContent = '';
     box.hidden = false;
+    alignResponse();
     message.focus();
   };
   const dismissError = () => {
@@ -395,6 +411,7 @@ html body.site-light-page main .contact-split__form .contact-success__message sp
       form.reset();
       form.classList.add('is-sent');
       form.querySelector('.contact-success').hidden = false;
+      alignResponse();
       form.querySelectorAll('input, textarea').forEach(field => { field.readOnly = true; });
       status.textContent = '';
       form.querySelector('.contact-success__message').focus();

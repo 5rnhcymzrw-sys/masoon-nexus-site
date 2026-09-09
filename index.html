@@ -564,9 +564,17 @@ html body.site-light-page main.home section.home-hero .home-hero__text-surface{
   visibility:hidden!important;
 }
 html body.site-light-page main.home section.home-hero .home-hero__copy::before{
+  top:-4px;
+  bottom:-4px;
   box-sizing:border-box;
   border:8px solid transparent;
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1;
+}
+@media(max-width:800px){
+  html body.site-light-page main.home section.home-hero .home-hero__copy::before{
+    top:-20px;
+    bottom:-20px;
+  }
 }
 </style>
 <style id="hero-photo-stable">

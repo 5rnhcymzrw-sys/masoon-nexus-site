@@ -55,3 +55,16 @@ html body.site-light-page:has(#knowledge-articles) main.page-main>#knowledge-art
   background-color:transparent!important;
   background-image:none!important;
 }
+
+/* Startseite: Kontakt wieder an der ursprünglichen linken Position. */
+@media(min-width:801px){
+  html body.site-light-page main.home>section.home-contact-band>p.section-label.section-label{
+    position:absolute!important;
+    left:72px!important;
+    top:50%!important;
+    margin:0!important;
+    padding:0!important;
+    height:15.4px!important;
+    transform:translateY(-50%)!important;
+  }
+}

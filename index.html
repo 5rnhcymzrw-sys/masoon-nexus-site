@@ -599,8 +599,19 @@ html.hero-photo-pending body.site-light-page main.home section.home-hero .home-h
 <script>document.documentElement.classList.add('hero-photo-pending');</script>
 <style id="home-contact-reversed-frame">
 html body.site-light-page main.home>section.home-contact-band.home-contact-band{
-  border:8px solid transparent!important;
+  border:4px solid transparent!important;
   border-image:linear-gradient(290deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
+}
+/* Compensate for the thicker border so the original content position stays fixed. */
+@media(min-width:801px){
+  html body.site-light-page main.home>section.home-contact-band.home-contact-band{
+    padding:123px 69px!important;
+  }
+}
+@media(max-width:800px){
+  html body.site-light-page main.home>section.home-contact-band.home-contact-band{
+    padding:59px 23px 123px!important;
+  }
 }
 </style>
 </head>

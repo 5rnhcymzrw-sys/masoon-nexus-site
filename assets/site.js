@@ -1,3 +1,45 @@
+/* Disclaimer: Hintergrund wie Datenschutz, ohne Flächenverläufe oder Weichzeichnung.
+   Nur diese Seite erhält die Anpassung; Verlaufsrahmen und Layout bleiben erhalten. */
+(() => {
+  if (!/\/disclaimer(?:\/(?:index\.html)?)?$/i.test(location.pathname)) return;
+
+  const applyDisclaimerAppearance = () => {
+    const card = document.querySelector('.disclaimer-card');
+    if (!card) return;
+
+    // Die lokalen Seiten-Overrides freigeben, damit dieselbe zentrale
+    // Hintergrundgestaltung wie auf Datenschutz verwendet wird.
+    const pageSelector = 'html body.site-light-page:has(.disclaimer-card)';
+    const backgroundProperties = [
+      'background', 'background-color', 'background-image', 'background-repeat',
+      'background-size', 'background-position', 'background-attachment'
+    ];
+    const cleanPageRules = rules => {
+      Array.from(rules).forEach(rule => {
+        if (rule.selectorText === pageSelector) {
+          backgroundProperties.forEach(property => rule.style.removeProperty(property));
+        }
+        if (rule.cssRules) cleanPageRules(rule.cssRules);
+      });
+    };
+    document.querySelectorAll('head style').forEach(element => {
+      if (element.sheet) cleanPageRules(element.sheet.cssRules);
+    });
+
+    // Transparenter Kasten: Das vorhandene Hintergrundbild bleibt sichtbar.
+    card.style.setProperty('background', 'transparent', 'important');
+    card.style.setProperty('background-image', 'none', 'important');
+    card.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
+    card.style.setProperty('backdrop-filter', 'none', 'important');
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyDisclaimerAppearance, { once: true });
+  } else {
+    applyDisclaimerAppearance();
+  }
+})();
+
 (() => {
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');

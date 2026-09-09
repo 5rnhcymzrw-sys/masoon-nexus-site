@@ -169,7 +169,7 @@ html body.site-light-page main .contact-split__form button[type="submit"]:active
     padding-bottom:86px!important;
   }
   html body.site-light-page main .contact-split__form{
-    top:110px!important;
+    top:var(--contact-form-top,110px)!important;
     left:var(--contact-form-left,53%)!important;
     right:auto!important;
     width:47%!important;
@@ -259,15 +259,22 @@ html body main.contact-split-page form.contact-split__form>label{
     (() => {
       const section = document.querySelector('.contact-split');
       const link = document.querySelector('.site-header .site-nav a[href="../unternehmen/index.html"]');
-      if (!section || !link) return;
+      const form = section && section.querySelector('.contact-split__form');
+      const label = section && section.querySelector('.contact-split__info .section-label');
+      const email = section && section.querySelector('.contact-split__facts .contact-fact:last-child');
+      if (!section || !link || !form || !label || !email) return;
       const alignForm = () => {
         if (!window.matchMedia('(min-width:981px)').matches) {
           section.style.removeProperty('--contact-form-left');
+          section.style.removeProperty('--contact-form-top');
           return;
         }
         const left = link.getBoundingClientRect().left - section.getBoundingClientRect().left;
         section.style.setProperty('--contact-form-left', left + 'px');
         section.style.setProperty('--contact-form-viewport-left', link.getBoundingClientRect().left + 'px');
+        const middle = (label.getBoundingClientRect().top + email.getBoundingClientRect().bottom) / 2;
+        const top = middle - section.getBoundingClientRect().top - form.getBoundingClientRect().height / 2;
+        section.style.setProperty('--contact-form-top', top + 'px');
       };
       alignForm();
       window.addEventListener('resize', alignForm, { passive:true });
@@ -276,6 +283,8 @@ html body main.contact-split-page form.contact-split__form>label{
         const observer = new ResizeObserver(alignForm);
         observer.observe(link);
         observer.observe(section);
+        observer.observe(section.querySelector('.contact-split__info'));
+        observer.observe(form);
       }
     })();
   </script>

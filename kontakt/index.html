@@ -209,17 +209,30 @@ html body.site-light-page main .contact-split__form .contact-success{
   position:absolute;inset:0;display:grid;place-items:center;padding:32px;box-sizing:border-box;
 }
 html body.site-light-page main .contact-split__form .contact-success__message{
-  box-sizing:border-box;width:100%;max-width:440px;padding:30px 28px;text-align:center;
-  border:1px solid transparent;
-  background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);
-  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1;
+  box-sizing:border-box;width:100%;max-width:520px;padding:28px 24px;text-align:center;
+  border:2px solid transparent;border-radius:8px;
+  background:linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(110deg,#c8bfb2 0%,#b9b8b5 38%,#aab0b8 66%,#8d9fb4 100%) border-box;
+  border-image:none;
   text-transform:none;
+  animation:contact-success-appear 280ms ease-out both;
 }
 html body.site-light-page main .contact-split__form .contact-success__message strong{
-  display:block;margin:0 0 8px;font-family:inherit;font-size:inherit;font-weight:600;
+  display:block;margin:0 0 14px;font-family:inherit;font-size:inherit;font-weight:600;
   line-height:inherit;letter-spacing:inherit;color:inherit;
 }
-html body.site-light-page main .contact-split__form .contact-success__message span{display:block;}
+html body.site-light-page main .contact-split__form .contact-success__message span{display:block;text-wrap:balance;}
+@keyframes contact-success-appear{
+  from{opacity:0;transform:translateY(4px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@media(prefers-reduced-motion:reduce){
+  html body.site-light-page main .contact-split__form .contact-success__message{animation:none;}
+}
+@media(max-width:560px){
+  html body.site-light-page main .contact-split__form .contact-success{padding:20px;}
+  html body.site-light-page main .contact-split__form .contact-success__message{padding:24px 18px;}
+}
 html body.site-light-page main .contact-split__form.is-sent>label,
 html body.site-light-page main .contact-split__form.is-sent>button[type="submit"],
 html body.site-light-page main .contact-split__form.is-sent>.form-status{visibility:hidden!important;}

@@ -337,8 +337,9 @@ html body.site-light-page main .contact-split__form.is-sent>.form-status{visibil
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (sending || form.classList.contains('is-sent') || !form.reportValidity()) return;
-    const endpoint = form.getAttribute('action');
-    if (!endpoint) {
+    const endpoint = 'https://api.web3forms.com/submit';
+    const accessKey = (form.dataset.web3formsAccessKey || '').trim();
+    if (!accessKey) {
       status.textContent = 'Der Versand ist derzeit nicht verfügbar. Bitte kontaktieren Sie uns unter info@masoontreuhand.ch.';
       return;
     }
@@ -347,8 +348,14 @@ html body.site-light-page main .contact-split__form.is-sent>.form-status{visibil
     form.setAttribute('aria-busy', 'true');
     status.textContent = 'Ihre Nachricht wird gesendet.';
     try {
+      const data = Object.fromEntries(new FormData(form));
+      data.access_key = accessKey;
+      data.subject = 'Neue Kontaktanfrage – MASOON TREUHAND';
       const response = await fetch(endpoint, {
-        method:'POST', body:new FormData(form), headers:{Accept:'application/json'}
+        method:'POST',
+        body:JSON.stringify(data),
+        headers:{'Content-Type':'application/json',Accept:'application/json'},
+        redirect:'error'
       });
       const result = await response.json();
       if (!response.ok || result.success !== true) throw new Error('Unconfirmed submission');

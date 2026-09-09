@@ -103,7 +103,7 @@ html body.site-light-page main .contact-split__form button[type="submit"]{
 
 @media(min-width:981px){
   html body.site-light-page main .contact-split__form{
-    padding:54px!important;
+    padding:62px 42px!important;
   }
 }
 html body.site-light-page main .contact-split__form label{
@@ -169,12 +169,11 @@ html body.site-light-page main .contact-split__form button[type="submit"]:active
     padding-bottom:86px!important;
   }
   html body.site-light-page main .contact-split__form{
-    top:60px!important;
+    top:110px!important;
     left:var(--contact-form-left,53%)!important;
-    right:0!important;
-    width:auto!important;
-    height:auto!important;
-    min-height:700px!important;
+    right:auto!important;
+    width:47%!important;
+    height:630px!important;
   }
 }
 
@@ -199,20 +198,10 @@ html body main.contact-split-page form.contact-split__form>label{
   -moz-osx-font-smoothing:grayscale!important;
   text-rendering:geometricPrecision!important;
 }
-</style><style id="contact-form-heading">
-html body.site-light-page main .contact-split__form .contact-split__form-title{
-  margin:0 0 36px!important;
-  padding:0!important;
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  line-height:15.4px!important;
-  letter-spacing:1.55px!important;
-  text-transform:uppercase!important;
-  color:inherit!important;
-}
+</style><style>
 @media(min-width:981px){
-  html body.site-light-page main .contact-split{min-height:800px!important;}
+  html body.site-light-page main .contact-split{overflow:visible!important;}
+  html body.site-light-page main .contact-split__form{max-width:calc(100vw - var(--contact-form-viewport-left, 53vw) - 32px)!important;}
 }
 </style></head>
 <body class="__variable_inter_0380wzv __variable_cormorant_garamond_1pl7tvi __variable_bitter_0p2nhnq site-light-page">
@@ -241,8 +230,7 @@ html body.site-light-page main .contact-split__form .contact-split__form-title{
         </div>
       </div>
 
-      <form class="contact-form contact-split__form" aria-labelledby="contact-form-title">
-        <h2 id="contact-form-title" class="contact-split__form-title">Kontaktformular</h2>
+      <form class="contact-form contact-split__form">
         <label>Nachname<input autocomplete="family-name" name="nachname" required /></label>
         <label>Vorname<input autocomplete="given-name" name="vorname" required /></label>
         <label>E-Mail<input autocomplete="email" name="email" required type="email" /></label>
@@ -279,6 +267,7 @@ html body.site-light-page main .contact-split__form .contact-split__form-title{
         }
         const left = link.getBoundingClientRect().left - section.getBoundingClientRect().left;
         section.style.setProperty('--contact-form-left', left + 'px');
+        section.style.setProperty('--contact-form-viewport-left', link.getBoundingClientRect().left + 'px');
       };
       alignForm();
       window.addEventListener('resize', alignForm, { passive:true });

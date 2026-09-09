@@ -122,10 +122,6 @@
   window.addEventListener('scroll', updateScrollEffects, { passive: true });
   window.addEventListener('resize', updateScrollEffects);
 
-
-
-
-
   // Align the footer to whole CSS pixels so end-of-page scroll rounding
   // cannot place otherwise identical footers on different pixel fractions.
   const pixelAlignedFooter = document.querySelector('.site-footer');
@@ -156,4 +152,19 @@
   }
 
   // Die Logoausrichtung erfolgt bereits beim ersten Rendern in global.css.
+})();
+
+/* Impressum: Fliesstextfarbe wie Datenschutz. */
+(() => {
+  if (!/\/impressum(?:\/(?:index\.html)?)?$/i.test(location.pathname)) return;
+  const apply = () => {
+    document.querySelectorAll('.disclaimer-card .prose p').forEach(el => {
+      el.style.setProperty('color', '#484a4f', 'important');
+    });
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', apply, { once: true });
+  } else {
+    apply();
+  }
 })();

@@ -353,7 +353,7 @@ html body.site-light-page main .contact-split__form .contact-success__message sp
   const successHeading = heading.textContent;
   const showError = () => {
     heading.textContent = 'Ihre Nachricht konnte nicht gesendet werden.';
-    copy.textContent = 'Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.';
+    copy.replaceChildren('Bitte versuchen Sie es erneut oder', document.createElement('br'), 'kontaktieren Sie uns direkt per E-Mail.');
     message.setAttribute('role', 'button');
     message.setAttribute('aria-label', heading.textContent + ' ' + copy.textContent + ' Zum Formular zurückkehren.');
     form.classList.add('is-error');

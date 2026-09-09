@@ -61,7 +61,7 @@ html body.site-light-page:has(#knowledge-articles) main.page-main>#knowledge-art
   html body.site-light-page main.home>section.home-contact-band>p.section-label.section-label{
     position:absolute!important;
     left:72px!important;
-    top:calc(50% - 2px)!important;
+    top:50%!important;
     margin:0!important;
     padding:0!important;
     height:15.4px!important;

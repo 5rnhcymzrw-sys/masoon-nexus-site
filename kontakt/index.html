@@ -211,7 +211,6 @@ html body.site-light-page main .contact-split__form .contact-success{
 html body.site-light-page main .contact-split__form .contact-success__message{
   position:absolute;left:50%;top:var(--response-center,50%);translate:-50% -50%;
   box-sizing:border-box;width:calc(100% - 40px);max-width:400px;padding:28px 12px;text-align:center;
-  min-height:var(--response-height,176px);display:flex;flex-direction:column;justify-content:center;
   border:2px solid transparent;border-radius:8px;
   background:linear-gradient(#fff,#fff) padding-box,
     linear-gradient(110deg,#c8bfb2 0%,#b9b8b5 38%,#aab0b8 66%,#8d9fb4 100%) border-box;
@@ -340,10 +339,7 @@ html body.site-light-page main .contact-split__form .contact-success__message sp
     const firstName = form.querySelector('input[name="vorname"]');
     const phone = form.querySelector('input[name="telefon"]');
     if (!firstName || !phone) return;
-    const upperLine = firstName.getBoundingClientRect().bottom;
-    const lowerLine = phone.getBoundingClientRect().bottom;
-    const middle = (upperLine + lowerLine) / 2;
-    box.style.setProperty('--response-height', (lowerLine - upperLine + 16) + 'px');
+    const middle = (firstName.getBoundingClientRect().bottom + phone.getBoundingClientRect().bottom) / 2;
     box.style.setProperty('--response-center', (middle - box.getBoundingClientRect().top) + 'px');
   };
   window.addEventListener('resize', alignResponse, { passive:true });

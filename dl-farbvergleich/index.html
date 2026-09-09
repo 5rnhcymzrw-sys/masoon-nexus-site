@@ -9,21 +9,32 @@ ${dl}::before,${dl}::after{content:none!important;display:none!important}
 ${dl}:nth-child(3n+2){background:${C2}!important}
 ${dl}:nth-child(3n){background:${C3}!important}
 
-html body.site-light-page main.home section.home-paths .home-paths__grid>a{
+html body.site-light-page main.home section.home-paths .home-paths__grid>a,
+html body.site-light-page main.home section.home-paths .home-paths__grid>article,
+html body.site-light-page main.home section.home-paths .home-paths__grid>.home-paths__item{
   ${noborder}background:${C2}!important;
 }
 html body.site-light-page main.home section.home-paths .home-paths__grid>a::before,
-html body.site-light-page main.home section.home-paths .home-paths__grid>a::after{content:none!important;display:none!important}
+html body.site-light-page main.home section.home-paths .home-paths__grid>a::after,
+html body.site-light-page main.home section.home-paths .home-paths__grid>article::before,
+html body.site-light-page main.home section.home-paths .home-paths__grid>article::after{
+  content:none!important;display:none!important;
+}
 
 html body.site-light-page main.home section.home-contact-band{
   background:transparent!important;
   background-image:none!important;
 }
-html body.site-light-page main.home section.home-contact-band>div{
+html body.site-light-page main.home section.home-contact-band>div,
+html body.site-light-page main.home section.home-contact-band>.home-contact-band__inner,
+html body.site-light-page main.home section.home-contact-band .home-contact-band__inner,
+html body.site-light-page main.home section.home-contact-band .home-contact-card,
+html body.site-light-page main.home section.home-contact-band .contact-card{
   background:${C3}!important;
+  background-color:${C3}!important;
   background-image:none!important;
 }
 `;
 d.head.appendChild(s);buttons.forEach(b=>b.classList.add('active'));}
-frame.addEventListener('load',()=>{apply();setTimeout(()=>{const d=frame.contentDocument||frame.contentWindow.document;d.querySelector('.home-values')?.scrollIntoView({block:'start'});},180)});
+frame.addEventListener('load',()=>{apply();setTimeout(()=>{const d=frame.contentDocument||frame.contentWindow.document;d.querySelector('.home-paths')?.scrollIntoView({block:'start'});},180)});
 </script></body></html>

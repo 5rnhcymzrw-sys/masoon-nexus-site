@@ -209,7 +209,7 @@ html body.site-light-page main .contact-split__form .contact-success{
   position:absolute;inset:0;display:grid;place-items:center;padding:32px;box-sizing:border-box;z-index:3;
 }
 html body.site-light-page main .contact-split__form .contact-success__message{
-  box-sizing:border-box;width:100%;max-width:520px;padding:28px 24px;text-align:center;
+  box-sizing:border-box;width:100%;max-width:440px;padding:28px 24px;text-align:center;
   border:2px solid transparent;border-radius:8px;
   background:linear-gradient(#fff,#fff) padding-box,
     linear-gradient(110deg,#c8bfb2 0%,#b9b8b5 38%,#aab0b8 66%,#8d9fb4 100%) border-box;
@@ -218,7 +218,7 @@ html body.site-light-page main .contact-split__form .contact-success__message{
   animation:contact-success-appear 280ms ease-out both;
 }
 html body.site-light-page main .contact-split__form .contact-success__message strong{
-  display:block;margin:0 0 14px;font-family:inherit;font-size:inherit;font-weight:600;
+  display:block;margin:0 0 8px;font-family:inherit;font-size:16px;font-weight:600;
   line-height:inherit;letter-spacing:inherit;color:inherit;
 }
 html body.site-light-page main .contact-split__form .contact-success__message span{display:block;text-wrap:balance;}
@@ -392,6 +392,7 @@ html body.site-light-page main .contact-split__form .contact-success__message sp
       copy.replaceChildren('Wir haben Ihre Nachricht erhalten', document.createElement('br'), 'und melden uns in Kürze bei Ihnen.');
       message.setAttribute('role', 'status');
       message.removeAttribute('aria-label');
+      form.reset();
       form.classList.add('is-sent');
       form.querySelector('.contact-success').hidden = false;
       form.querySelectorAll('input, textarea').forEach(field => { field.readOnly = true; });

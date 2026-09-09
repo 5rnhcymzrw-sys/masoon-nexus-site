@@ -16,7 +16,7 @@
 <div class="toolbar">
   <button data-mode="a" class="active">Variante 1</button>
   <button data-mode="b">Variante 2</button>
-  <button data-mode="c">Variante 3 – farbig</button>
+  <button data-mode="c">Variante 3 – Verlauf</button>
 </div>
 <iframe id="site" src="../index.html"></iframe>
 <script>
@@ -25,8 +25,7 @@ const buttons=[...document.querySelectorAll('button[data-mode]')];
 
 const palettes={
   a:['#E2DED8','#EDEAE7','#F7F5F3'],
-  b:['#E2DED8','#EFECE7','#F4F3EF'],
-  c:['#F3E8D4','#C7CBD3','#8D96A8']
+  b:['#E2DED8','#EFECE7','#F4F3EF']
 };
 
 function apply(mode){
@@ -34,10 +33,30 @@ function apply(mode){
   if(!d) return;
   const old=d.getElementById('dl-farbvergleich-style');
   if(old) old.remove();
-  const p=palettes[mode];
   const s=d.createElement('style');
   s.id='dl-farbvergleich-style';
-  s.textContent=`
+
+  if(mode==='c'){
+    s.textContent=`
+html body.site-light-page:has(main.home)
+main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item{
+  background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%)!important;
+  background-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%)!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+html body.site-light-page:has(main.home)
+main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+2){
+  background:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%)!important;
+  background-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%)!important;
+}
+html body.site-light-page:has(main.home)
+main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n){
+  background:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%)!important;
+  background-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%)!important;
+}`;
+  } else {
+    const p=palettes[mode];
+    s.textContent=`
 html body.site-light-page:has(main.home)
 main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item{
   background:${p[0]}!important;background-image:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
@@ -50,6 +69,8 @@ html body.site-light-page:has(main.home)
 main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n){
   background:${p[2]}!important;background-image:none!important;
 }`;
+  }
+
   d.head.appendChild(s);
   buttons.forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));
 }

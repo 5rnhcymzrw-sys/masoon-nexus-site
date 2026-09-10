@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON TREUHAND – Kästen Farbtest</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#f5f5f3;font-family:Arial,sans-serif;color:#171715}
+  .bar{position:sticky;top:0;z-index:20;background:#111;padding:12px 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid #333}
+  .bar span{color:#fff;font-size:12px;letter-spacing:.08em;margin-right:8px}
+  .bar button{appearance:none;border:1px solid #666;background:#1d1d1d;color:#fff;padding:9px 12px;font-size:12px;cursor:pointer}
+  .bar button.active{background:#fff;color:#111;border-color:#fff}
+  .note{padding:10px 16px;background:#fff;border-bottom:1px solid #ddd;font-size:12px;line-height:1.5}
+  iframe{display:block;width:100%;height:calc(100vh - 104px);border:0;background:#fff}
+</style>
+</head>
+<body>
+<div class="bar">
+  <span>ECHTE STARTSEITE · KÄSTEN</span>
+  <button data-v="0" class="active">1 ORIGINAL · 11%</button>
+  <button data-v="1">2 KRÄFTIGER · 11%</button>
+  <button data-v="2">3 DEUTLICHER · 11%</button>
+  <button data-v="3">4 STÄRKER · 11%</button>
+  <button data-v="4">5 + DECKKRAFT · 14%</button>
+  <button data-v="5">6 + DECKKRAFT · 17%</button>
+</div>
+<div class="note">Varianten 1–4 behalten die Deckkraft bei 11 % und erhöhen nur die Farbintensität. Varianten 5–6 zeigen zusätzlich mehr Deckkraft. Linien, Texte, Abstände und Kartenmasse bleiben unverändert.</div>
+<iframe id="site" src="./index.html?v=box-color-test-6"></iframe>
+<script>
+const frame=document.getElementById('site');
+const variants=[
+  {a:.11,c:[[243,232,212],[232,229,223],[199,203,211],[141,150,168]]},
+  {a:.11,c:[[244,228,201],[232,227,218],[193,199,214],[132,144,171]]},
+  {a:.11,c:[[245,225,194],[232,225,214],[187,196,216],[124,139,173]]},
+  {a:.11,c:[[246,222,186],[232,223,210],[181,192,218],[116,134,175]]},
+  {a:.14,c:[[245,225,194],[232,225,214],[187,196,216],[124,139,173]]},
+  {a:.17,c:[[246,222,186],[232,223,210],[181,192,218],[116,134,175]]}
+];
+let current=0;
+function cssFor(v){
+  const p=variants[v], c=p.c, a=p.a;
+  const g=`linear-gradient(to right in oklab,rgba(${c[0].join(',')},${a}) 0%,rgba(${c[1].join(',')},${a}) 36%,rgba(${c[2].join(',')},${a}) 68%,rgba(${c[3].join(',')},${a}) 100%)`;
+  return `
+html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item{
+  background:${g}!important;
+  background-size:calc(300% + 44px) 100%!important;
+  background-repeat:no-repeat!important;
+  background-origin:border-box!important;
+}
+html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+1){background-position:0% 0!important}
+html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+2){background-position:50% 0!important}
+html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n){background-position:100% 0!important}
+`;
+}
+function apply(){
+  const d=frame.contentDocument;if(!d)return;
+  let s=d.getElementById('masoon-six-color-test');
+  if(!s){s=d.createElement('style');s.id='masoon-six-color-test';d.head.appendChild(s)}
+  s.textContent=cssFor(current);
+  const target=d.querySelector('.home-values');
+  if(target) target.scrollIntoView({block:'start'});
+}
+frame.addEventListener('load',()=>setTimeout(apply,80));
+document.querySelectorAll('button[data-v]').forEach(b=>b.addEventListener('click',()=>{
+  current=Number(b.dataset.v);
+  document.querySelectorAll('button[data-v]').forEach(x=>x.classList.toggle('active',x===b));
+  apply();
+}));
+</script>
+</body>
+</html>

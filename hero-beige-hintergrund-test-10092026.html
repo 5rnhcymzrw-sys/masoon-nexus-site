@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON TREUHAND – Hero Beige Test</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#f5f5f3;font-family:Arial,sans-serif;color:#171715}
+.bar{position:sticky;top:0;z-index:20;background:#111;padding:12px 16px;display:flex;gap:8px;align-items:center;border-bottom:1px solid #333}
+.bar span{color:#fff;font-size:12px;letter-spacing:.08em;margin-right:8px}
+.bar button{appearance:none;border:1px solid #666;background:#1d1d1d;color:#fff;padding:9px 12px;font-size:12px;cursor:pointer}
+.bar button.active{background:#fff;color:#111;border-color:#fff}
+.note{padding:10px 16px;background:#fff;border-bottom:1px solid #ddd;font-size:12px;line-height:1.5}
+iframe{display:block;width:100%;height:calc(100vh - 86px);border:0;background:#fff}
+</style>
+</head>
+<body>
+<div class="bar">
+  <span>ECHTE STARTSEITE · HERO</span>
+  <button data-mode="original">ORIGINAL</button>
+  <button data-mode="beige" class="active">BEIGE HINTER WEISSEM KASTEN</button>
+</div>
+<div class="note">Nur Testseite. Der weisse Hero Kasten, Text, Bild, Schriften, Masse und Positionen bleiben unverändert. Die beige Fläche wird nur zusätzlich dahinter eingeblendet.</div>
+<iframe id="site" src="./index.html?v=hero-beige-test-10092026"></iframe>
+<script>
+const frame=document.getElementById('site');
+let mode='beige';
+function cssForMode(){
+  if(mode==='original') return `
+html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::after{content:none!important;display:none!important;}`;
+  return `
+@media(min-width:801px){
+  html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::after{
+    content:""!important;
+    display:block!important;
+    position:absolute!important;
+    left:-105.6px!important;
+    right:auto!important;
+    top:20px!important;
+    bottom:-28px!important;
+    width:calc(min(640px,calc(100vw - 64px)) + 29.6px)!important;
+    background:#d4d0c8!important;
+    border:0!important;
+    box-shadow:none!important;
+    z-index:-2!important;
+    pointer-events:none!important;
+  }
+}
+@media(max-width:800px){
+  html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::after{content:none!important;display:none!important;}
+}`;
+}
+function apply(){
+  const d=frame.contentDocument;if(!d)return;
+  let s=d.getElementById('masoon-hero-beige-test');
+  if(!s){s=d.createElement('style');s.id='masoon-hero-beige-test';d.head.appendChild(s)}
+  s.textContent=cssForMode();
+  const hero=d.querySelector('.home-hero');
+  if(hero) hero.scrollIntoView({block:'start'});
+}
+frame.addEventListener('load',()=>setTimeout(apply,80));
+document.querySelectorAll('button[data-mode]').forEach(b=>b.addEventListener('click',()=>{
+  mode=b.dataset.mode;
+  document.querySelectorAll('button[data-mode]').forEach(x=>x.classList.toggle('active',x===b));
+  apply();
+}));
+</script>
+</body>
+</html>

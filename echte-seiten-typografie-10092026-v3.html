@@ -12,18 +12,18 @@ html,body{margin:0;min-height:100%;background:#f4f4f2;font-family:Arial,sans-ser
 </head>
 <body>
 <div class="testbar">
-<strong>TEST V3 · PT Serif Bold · ALLE grossen Titel 50 px</strong>
-<button data-src="index.html?v=typov3all50" class="active">Startseite</button>
-<button data-src="unternehmen/index.html?v=typov3all50">Unternehmen</button>
-<button data-src="dienstleistungen/index.html?v=typov3all50">Dienstleistungen</button>
-<button data-src="fachwissen/index.html?v=typov3all50">Fachwissen</button>
-<button data-src="kontakt/index.html?v=typov3all50">Kontakt</button>
-<button data-src="impressum/index.html?v=typov3all50">Impressum</button>
-<button data-src="datenschutz/index.html?v=typov3all50">Datenschutz</button>
-<button data-src="disclaimer/index.html?v=typov3all50">Disclaimer</button>
+<strong>TEST V3 · SCHRIFT WIE SCREENSHOT 1 · ALLE grossen Titel 50 px</strong>
+<button data-src="index.html?v=typov3shot1" class="active">Startseite</button>
+<button data-src="unternehmen/index.html?v=typov3shot1">Unternehmen</button>
+<button data-src="dienstleistungen/index.html?v=typov3shot1">Dienstleistungen</button>
+<button data-src="fachwissen/index.html?v=typov3shot1">Fachwissen</button>
+<button data-src="kontakt/index.html?v=typov3shot1">Kontakt</button>
+<button data-src="impressum/index.html?v=typov3shot1">Impressum</button>
+<button data-src="datenschutz/index.html?v=typov3shot1">Datenschutz</button>
+<button data-src="disclaimer/index.html?v=typov3shot1">Disclaimer</button>
 <span class="note">Echte Seiten · keine Fotos · Hero ohne Farbverlauf · Kacheltitel kräftiger</span>
 </div>
-<iframe id="siteFrame" src="index.html?v=typov3all50" title="Seitentest"></iframe>
+<iframe id="siteFrame" src="index.html?v=typov3shot1" title="Seitentest"></iframe>
 <script>
 const frame=document.getElementById('siteFrame');
 const buttons=[...document.querySelectorAll('[data-src]')];
@@ -32,7 +32,7 @@ const serviceTitles=['Administration','Buchhaltung','Personaladministration','Ja
 const companyTitles=['Diskretion','Präzision','Verlässlichkeit','Vertrauen'];
 const normalise=t=>(t||'').replace(/\s+/g,' ').trim();
 function setBig(el){
- el.style.setProperty('font-family','"PT Serif", Georgia, serif','important');
+ el.style.setProperty('font-family','"MT Screenshot 1 Serif", serif','important');
  el.style.setProperty('font-weight','700','important');
  el.style.setProperty('font-style','normal','important');
  el.style.setProperty('font-size','50px','important');
@@ -49,12 +49,11 @@ function apply(){
  try{
   const d=frame.contentDocument;
   if(!d||!d.head||!d.body)return;
-  if(!d.getElementById('mt-test-pt-serif-bold')){
-   const link=d.createElement('link');
-   link.id='mt-test-pt-serif-bold';
-   link.rel='stylesheet';
-   link.href='https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap';
-   d.head.appendChild(link);
+  if(!d.getElementById('mt-screenshot1-font')){
+   const style=d.createElement('style');
+   style.id='mt-screenshot1-font';
+   style.textContent='@font-face{font-family:"MT Screenshot 1 Serif";font-style:normal;font-weight:700;font-display:swap;src:url("https://fonts.gstatic.com/s/ptserif/v19/EJRSQgYoZZY2vCFuvAnt65qV.ttf") format("truetype")}';
+   d.head.appendChild(style);
   }
   let css=d.getElementById('mt-test-css');
   if(!css){

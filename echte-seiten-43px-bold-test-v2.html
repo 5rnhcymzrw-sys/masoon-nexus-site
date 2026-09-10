@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="de-CH"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Echte Seiten – 43px PT Serif Bold Test</title>
+<html lang="de-CH"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Echte Seiten – Typografie Test</title>
 <style>html,body{margin:0;background:#f4f4f2;font-family:Arial,sans-serif;color:#171715}.testbar{position:sticky;top:0;z-index:9999;background:#fff;border-bottom:1px solid #d9d9d5;padding:10px 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.testbar strong{font-size:12px;margin-right:8px}.testbar button{appearance:none;border:1px solid #cfcfca;background:#fff;padding:7px 10px;font-size:11px;cursor:pointer}.testbar button:hover,.testbar button.active{background:#171715;color:#fff;border-color:#171715}.note{font-size:11px;color:#666;margin-left:auto}#siteFrame{display:block;width:100%;height:calc(100vh - 50px);border:0;background:#fff}@media(max-width:800px){.note{width:100%;margin-left:0}#siteFrame{height:calc(100vh - 90px)}}</style></head><body>
-<div class="testbar"><strong>43 px · PT Serif Bold 700</strong><button data-src="index.html" class="active">Startseite</button><button data-src="unternehmen/index.html">Unternehmen</button><button data-src="dienstleistungen/index.html">Dienstleistungen</button><button data-src="fachwissen/index.html">Fachwissen</button><button data-src="kontakt/index.html">Kontakt</button><button data-src="impressum/index.html">Impressum</button><button data-src="datenschutz/index.html">Datenschutz</button><button data-src="disclaimer/index.html">Disclaimer</button><span class="note">Echte Seiten · grosse Titel erzwungen · Fotos/Bilder ausgeblendet</span></div>
+<div class="testbar"><strong>PT Serif Bold 700 · Titel 43 px · Hero 50 px</strong><button data-src="index.html" class="active">Startseite</button><button data-src="unternehmen/index.html">Unternehmen</button><button data-src="dienstleistungen/index.html">Dienstleistungen</button><button data-src="fachwissen/index.html">Fachwissen</button><button data-src="kontakt/index.html">Kontakt</button><button data-src="impressum/index.html">Impressum</button><button data-src="datenschutz/index.html">Datenschutz</button><button data-src="disclaimer/index.html">Disclaimer</button><span class="note">Echte Seiten · keine Fotos · Hero ohne Verlauf · Kacheltitel etwas kräftiger</span></div>
 <iframe id="siteFrame" src="index.html" title="Seitentest"></iframe>
 <script>
 const frame=document.getElementById('siteFrame');
 const buttons=[...document.querySelectorAll('[data-src]')];
-const titleSelectors=['.global-title','.section-heading h1','.section-heading h2','.legal-page h1','.knowledge-note h2','.home-paths__heading h2','.home-contact-band h2','.contact-split__info h1','.services-closing h2','.home-hero h1','.home-company h2','.company-collaboration-box h2'];
-function forceTitles(){
+const titleSelectors=['.global-title','.section-heading h1','.section-heading h2','.legal-page h1','.knowledge-note h2','.home-paths__heading h2','.home-contact-band h2','.contact-split__info h1','.services-closing h2','.home-company h2','.company-collaboration-box h2'];
+const heavierCardSelectors=['.home-values__item h3','.services-section .service-card h2','.company-values h3','.company-values__item h3','.home-company-values h3','.values-grid h3','.values-item h3'];
+function apply(){
  try{
   const d=frame.contentDocument;if(!d)return;
   if(!d.getElementById('mt-ptserif700-google')){const l=d.createElement('link');l.id='mt-ptserif700-google';l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap';d.head.appendChild(l)}
+  if(!d.getElementById('mt-test-overrides')){const s=d.createElement('style');s.id='mt-test-overrides';s.textContent=`
+    html body .home-hero,html body .home-hero::before,html body .home-hero::after,html body .home-hero__overlay,html body .hero-overlay{background-image:none!important;background:transparent!important}
+    html body .home-hero::before,html body .home-hero::after{content:none!important;display:none!important}
+  `;d.head.appendChild(s)}
   d.querySelectorAll('img,picture,video').forEach(el=>el.style.setProperty('display','none','important'));
   titleSelectors.forEach(sel=>d.querySelectorAll(sel).forEach(el=>{
     el.style.setProperty('font-family','"PT Serif", Georgia, serif','important');
@@ -22,8 +27,22 @@ function forceTitles(){
     el.style.setProperty('-webkit-text-stroke','.25px currentColor','important');
     el.style.setProperty('font-synthesis','none','important');
   }));
+  d.querySelectorAll('.home-hero h1').forEach(el=>{
+    el.style.setProperty('font-family','"PT Serif", Georgia, serif','important');
+    el.style.setProperty('font-weight','700','important');
+    el.style.setProperty('font-style','normal','important');
+    el.style.setProperty('font-size','50px','important');
+    el.style.setProperty('line-height','1.04','important');
+    el.style.setProperty('letter-spacing','0','important');
+    el.style.setProperty('-webkit-text-stroke','.25px currentColor','important');
+    el.style.setProperty('font-synthesis','none','important');
+  });
+  heavierCardSelectors.forEach(sel=>d.querySelectorAll(sel).forEach(el=>{
+    el.style.setProperty('font-weight','700','important');
+    el.style.setProperty('-webkit-text-stroke','.12px currentColor','important');
+  }));
  }catch(e){console.error(e)}
 }
-frame.addEventListener('load',()=>{forceTitles();setTimeout(forceTitles,250);setTimeout(forceTitles,800);setTimeout(forceTitles,1800)});
+frame.addEventListener('load',()=>{apply();setTimeout(apply,250);setTimeout(apply,800);setTimeout(apply,1800)});
 buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');frame.src=b.dataset.src;}));
 </script></body></html>

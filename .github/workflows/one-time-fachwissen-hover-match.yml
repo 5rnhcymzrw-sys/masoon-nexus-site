@@ -2,9 +2,10 @@ name: One-time Fachwissen hover match
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
-      - '.github/workflows/one-time-fachwissen-hover-match.yml'
+      - .github/workflows/one-time-fachwissen-hover-match.yml
 
 permissions:
   contents: write
@@ -14,38 +15,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Match Fachwissen hover to Startseite Dienstleistungen gradient
+      - name: Patch CSS
+        shell: bash
         run: |
-          python - <<'PY'
+          python3 - <<'PY'
           from pathlib import Path
-
           p = Path('assets/unified-design.css')
           s = p.read_text(encoding='utf-8')
 
-          base = 'html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child({n})'
-          transparent = '{background:transparent!important;background-color:transparent!important;background-image:none!important;}'
           for n in (1, 2, 3):
-              old = base.format(n=n) + transparent
-              new = base.format(n=n) + ':not(:hover):not(:active):not(:focus-visible)' + transparent
+              old = f'html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child({n})' + '{background:transparent!important;background-color:transparent!important;background-image:none!important;}'
+              new = f'html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child({n}):not(:hover):not(:active):not(:focus-visible)' + '{background:transparent!important;background-color:transparent!important;background-image:none!important;}'
               if old not in s:
-                  raise SystemExit(f'normal selector {n} not found')
+                  raise SystemExit(f'missing normal selector {n}')
               s = s.replace(old, new, 1)
 
-          selector = 'html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child({n}){{\n  border-image:{border} 1!important;\n}}'
-          borders = {
-              1: 'linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%)',
-              2: 'linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%)',
-              3: 'linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%)',
+          repl = {
+              'html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1){\n  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;\n}': 'html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1){\n  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;\n  background-position:left top!important;\n}',
+              'html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2){\n  border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;\n}': 'html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2){\n  border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;\n  background-position:center top!important;\n}',
+              'html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3){\n  border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;\n}': 'html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3){\n  border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;\n  background-position:right top!important;\n}'
           }
-          positions = {1: 'left top', 2: 'center top', 3: 'right top'}
-          for n in (1, 2, 3):
-              old = selector.format(n=n, border=borders[n])
-              new = 'html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child({n}){{\n  border-image:{border} 1!important;\n  background-position:{pos}!important;\n}}'.format(n=n, border=borders[n], pos=positions[n])
+          for old, new in repl.items():
               if old not in s:
-                  raise SystemExit(f'nth-child block {n} not found')
+                  raise SystemExit('missing position block')
               s = s.replace(old, new, 1)
 
-          old_hover = '''@media(hover:hover){
+          old = '''@media(hover:hover){
   html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:hover,
   html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:active{
     transform:translateY(-3px)!important;
@@ -53,7 +48,7 @@ jobs:
     border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
 background:linear-gradient(to right in oklab,rgba(243,232,212,.18) 0%,rgba(232,229,223,.18) 36%,rgba(199,203,211,.18) 68%,rgba(141,150,168,.18) 100%)!important;    box-shadow:0 10px 26px rgba(23,23,21,.08)!important;
   }'''
-          new_hover = '''@media(hover:hover){
+          new = '''@media(hover:hover){
   html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:hover,
   html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:active{
     transform:translateY(-3px)!important;
@@ -65,11 +60,11 @@ background:linear-gradient(to right in oklab,rgba(243,232,212,.18) 0%,rgba(232,2
     backdrop-filter:blur(32px)!important;
     box-shadow:none!important;
   }'''
-          if old_hover not in s:
-              raise SystemExit('hover block not found')
-          s = s.replace(old_hover, new_hover, 1)
+          if old not in s:
+              raise SystemExit('missing hover block')
+          s = s.replace(old, new, 1)
 
-          old_focus = '''html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:focus-visible{
+          old = '''html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:focus-visible{
   transform:translateY(-3px)!important;
   border-color:transparent!important;
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
@@ -77,7 +72,7 @@ background:linear-gradient(to right in oklab,rgba(243,232,212,.18) 0%,rgba(232,2
   outline:1px solid #868279!important;
   outline-offset:3px!important;
 }'''
-          new_focus = '''html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:focus-visible{
+          new = '''html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:focus-visible{
   transform:translateY(-3px)!important;
   background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;
   background-size:calc(300% + 44px) 100%!important;
@@ -89,14 +84,14 @@ background:linear-gradient(to right in oklab,rgba(243,232,212,.18) 0%,rgba(232,2
   outline:1px solid #868279!important;
   outline-offset:3px!important;
 }'''
-          if old_focus not in s:
-              raise SystemExit('focus block not found')
-          s = s.replace(old_focus, new_focus, 1)
+          if old not in s:
+              raise SystemExit('missing focus block')
+          s = s.replace(old, new, 1)
 
           p.write_text(s, encoding='utf-8')
           PY
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/unified-design.css
-          git commit -m 'Match Fachwissen hover gradient to Dienstleistungen cards'
+          git commit -m "Match Fachwissen hover gradient to Dienstleistungen cards"
           git push

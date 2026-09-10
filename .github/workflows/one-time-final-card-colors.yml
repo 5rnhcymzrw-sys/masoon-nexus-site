@@ -21,65 +21,20 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           import re
-
           p=Path('assets/unified-design-base-20260907.css')
           s=p.read_text(encoding='utf-8')
           pat=r'/\* Dienstleistungen Hauptseite: alle Karten transparent \*/.*?\n}\n\n/\* Dienstleistungen Hauptseite: gesamter Karteninhalt 3 Pixel höher \*/'
-          rep='''/* Dienstleistungen Hauptseite: Karten wie Startseite Dienstleistungen */
-html body.site-light-page .services-main .services-section .services-grid>.service-card,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
-  background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;
-  background-size:calc(300% + 44px) 100%!important;
-  background-position:left top!important;
-  background-repeat:no-repeat!important;
-  background-origin:border-box!important;
-  -webkit-backdrop-filter:blur(32px)!important;
-  backdrop-filter:blur(32px)!important;
-}
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card>ul,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>ul,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
-}
-
-/* Dienstleistungen Hauptseite: gesamter Karteninhalt 3 Pixel höher */'''
+          rep="/* Dienstleistungen Hauptseite: Karten wie Startseite Dienstleistungen */\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card,\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card:hover,\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card[open]{\n  background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;\n  background-size:calc(300% + 44px) 100%!important;\n  background-position:left top!important;\n  background-repeat:no-repeat!important;\n  background-origin:border-box!important;\n  -webkit-backdrop-filter:blur(32px)!important;\n  backdrop-filter:blur(32px)!important;\n}\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card>summary,\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card:hover>summary,\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary,\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card>ul,\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card:hover>ul,\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{\n  background:transparent!important;\n  background-color:transparent!important;\n  background-image:none!important;\n}\n\n/* Dienstleistungen Hauptseite: gesamter Karteninhalt 3 Pixel höher */"
           s,n=re.subn(pat,rep,s,count=1,flags=re.S)
           if n!=1: raise SystemExit('services block not found')
           s=s.replace('border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;\n}', 'border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;\n  background-position:left top!important;\n}',1)
           s=s.replace('border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;\n}', 'border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;\n  background-position:center top!important;\n}',1)
           s=s.replace('border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;\n}', 'border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;\n  background-position:right top!important;\n}',1)
           p.write_text(s,encoding='utf-8')
-
           p=Path('assets/unified-design.css')
           s=p.read_text(encoding='utf-8')
           pat=r'html body\.page-knowledge\.site-light-page main \.knowledge-section#knowledge-articles \.articles-grid>\.article-card\.article-card\{\n  background:linear-gradient\(to right in oklab,rgba\(243,232,212,\.06\).*?backdrop-filter:blur\(32px\)!important;\n\}'
-          rep='''html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
-  background-origin:border-box!important;
-  background-size:100% 100%!important;
-  background-repeat:no-repeat!important;
-  -webkit-backdrop-filter:none!important;
-  backdrop-filter:none!important;
-}
-@media(hover:hover){
-  html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card:hover{
-    transform:translateY(-3px)!important;
-    background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;
-    background-repeat:no-repeat!important;
-    background-origin:border-box!important;
-    -webkit-backdrop-filter:blur(32px)!important;
-    backdrop-filter:blur(32px)!important;
-    box-shadow:none!important;
-  }
-}'''
+          rep="html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{\n  background:transparent!important;\n  background-color:transparent!important;\n  background-image:none!important;\n  background-origin:border-box!important;\n  background-size:100% 100%!important;\n  background-repeat:no-repeat!important;\n  -webkit-backdrop-filter:none!important;\n  backdrop-filter:none!important;\n}\n@media(hover:hover){\n  html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card:hover{\n    transform:translateY(-3px)!important;\n    background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;\n    background-repeat:no-repeat!important;\n    background-origin:border-box!important;\n    -webkit-backdrop-filter:blur(32px)!important;\n    backdrop-filter:blur(32px)!important;\n    box-shadow:none!important;\n  }\n}"
           s,n=re.subn(pat,rep,s,count=1,flags=re.S)
           if n!=1: raise SystemExit('knowledge block not found')
           p.write_text(s,encoding='utf-8')

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON TREUHAND – Finaltest eingefärbt mit/ohne Linien</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#fff;font-family:Arial,sans-serif}
+iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
+.test-panel{position:fixed;left:14px;bottom:14px;z-index:9999;width:390px;max-width:calc(100vw - 28px);padding:10px;background:rgba(255,255,255,.97);border:1px solid #cfcfcf;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.test-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:0 0 6px}
+.test-row:last-child{margin-bottom:0}
+.test-label{width:48px;font-size:9px;letter-spacing:.08em;color:#666;text-transform:uppercase}
+.test-panel button{appearance:none;border:1px solid #aaa;background:#fff;color:#171715;padding:6px 8px;font-size:9px;line-height:1;cursor:pointer}
+.test-panel button.active{background:#171715;color:#fff;border-color:#171715}
+.test-note{font-size:9px;line-height:1.35;color:#666;margin-top:3px;padding-left:53px}
+@media(max-width:600px){.test-panel{left:8px;bottom:8px;width:calc(100vw - 16px)}}
+</style>
+</head>
+<body>
+<iframe id="site" src="./index.html?v=final-box-lines-1"></iframe>
+<div class="test-panel" aria-label="Teststeuerung">
+  <div class="test-row">
+    <span class="test-label">Seite</span>
+    <button data-page="./index.html" class="active">Start</button>
+    <button data-page="./unternehmen/index.html">Unternehmen</button>
+    <button data-page="./dienstleistungen/index.html">DL</button>
+    <button data-page="./fachwissen/index.html">Fachwissen</button>
+    <button data-page="./kontakt/index.html">Formular</button>
+  </div>
+  <div class="test-row">
+    <span class="test-label">Rahmen</span>
+    <button data-lines="on" class="active">MIT LINIEN</button>
+    <button data-lines="off">OHNE LINIEN</button>
+  </div>
+  <div class="test-note">Farbe fest: Variante 3 „deutlicher“ · 11 %. Kontaktformular ist ebenfalls eingefärbt.</div>
+</div>
+<script>
+const frame=document.getElementById('site');
+let currentPage='./index.html';
+let lines='on';
+const c=[[245,225,194],[232,225,214],[187,196,216],[124,139,173]];
+const a=.11;
+const borderFull='linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1';
+const borderLeft='linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1';
+const borderMid='linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1';
+const borderRight='linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1';
+function gradient(){return `linear-gradient(to right in oklab,rgba(${c[0].join(',')},${a}) 0%,rgba(${c[1].join(',')},${a}) 36%,rgba(${c[2].join(',')},${a}) 68%,rgba(${c[3].join(',')},${a}) 100%)`}
+function setImp(el,p,v){el.style.setProperty(p,v,'important')}
+function setLine(el,b){
+  setImp(el,'border','1px solid transparent');
+  setImp(el,'border-image',lines==='on'?b:'none');
+  if(lines==='off') setImp(el,'border-color','transparent');
+}
+function paintGroup(nodes){
+  const g=gradient();
+  nodes.forEach((el,i)=>{
+    const m=i%3;
+    setImp(el,'background',g);
+    setImp(el,'background-size','calc(300% + 44px) 100%');
+    setImp(el,'background-repeat','no-repeat');
+    setImp(el,'background-origin','border-box');
+    setImp(el,'background-position',m===0?'0% 0':m===1?'50% 0':'100% 0');
+    setImp(el,'box-shadow','none');
+    setLine(el,m===0?borderLeft:m===1?borderMid:borderRight);
+    el.querySelectorAll(':scope > summary,:scope > ul').forEach(ch=>setImp(ch,'background','transparent'));
+  });
+}
+function paintSingle(nodes){
+  const g=gradient();
+  nodes.forEach(el=>{
+    setImp(el,'background',g);
+    setImp(el,'background-size','100% 100%');
+    setImp(el,'background-repeat','no-repeat');
+    setImp(el,'background-origin','border-box');
+    setImp(el,'box-shadow','none');
+    setLine(el,borderFull);
+  });
+}
+function apply(){
+  const d=frame.contentDocument;
+  if(!d||!d.head||!d.body)return;
+  paintGroup([...d.querySelectorAll('.home-values__items>.home-values__item')]);
+  paintGroup([...d.querySelectorAll('.home-paths__grid>a')]);
+  paintGroup([...d.querySelectorAll('.company-values-grid>.company-value-card')]);
+  paintGroup([...d.querySelectorAll('.services-grid>.service-card')]);
+  paintGroup([...d.querySelectorAll('.articles-grid>.article-card')]);
+  paintSingle([...d.querySelectorAll('.home-contact-band,.company-collaboration-box,.services-closing,.knowledge-note,.contact-split__form')]);
+  let s=d.getElementById('final-box-line-test-style');
+  if(!s){s=d.createElement('style');s.id='final-box-line-test-style';d.head.appendChild(s)}
+  s.textContent=`
+html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{
+  background:${gradient()}!important;
+  border:1px solid transparent!important;
+  border-image:${lines==='on'?borderFull:'none'}!important;
+  box-shadow:none!important;
+}
+html body.page-contact.site-light-page main .contact-split__form{
+  background:${gradient()}!important;
+  background-size:100% 100%!important;
+  border:1px solid transparent!important;
+  border-image:${lines==='on'?borderFull:'none'}!important;
+  box-shadow:none!important;
+}
+`;
+}
+frame.addEventListener('load',()=>setTimeout(apply,160));
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>{
+  currentPage=b.dataset.page;
+  document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x===b));
+  frame.src=currentPage+'?v=final-box-lines-'+Date.now();
+}));
+document.querySelectorAll('[data-lines]').forEach(b=>b.addEventListener('click',()=>{
+  lines=b.dataset.lines;
+  document.querySelectorAll('[data-lines]').forEach(x=>x.classList.toggle('active',x===b));
+  apply();
+}));
+</script>
+</body>
+</html>

@@ -16,27 +16,29 @@ body{font-family:Inter,Arial,sans-serif}
 .label{margin:0 0 34px;font-size:11px;line-height:1;letter-spacing:.17em;text-transform:uppercase;color:#7a756d}
 h1{margin:0 0 62px;font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:45px;line-height:1.04;letter-spacing:0;-webkit-text-stroke:.25px currentColor}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:42px 34px}
-.card{min-height:150px;border:0;background:transparent;padding:0;display:flex;flex-direction:column;text-align:left}
+.card{min-height:190px;border:0;background:transparent;padding:0;display:flex;flex-direction:column;text-align:left}
+.card h2{margin:0;font-family:"PT Serif",Georgia,serif;font-size:24px;line-height:1.08;font-weight:700;letter-spacing:0;-webkit-text-stroke:.10px currentColor}
+.card h2::after{content:"";display:block;width:48px;height:1px;background:#868279;margin:11px 0 13px}
 .card>p{margin:0;font-size:14px;line-height:1.58;color:#5d5b57}
 .more{margin-top:auto;padding-top:17px;font-size:10px;line-height:1;letter-spacing:.15em;text-transform:uppercase;color:#77736c;text-decoration:none}
 .more span{font-size:18px;vertical-align:-1px;margin-left:8px}
 @media(max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:700px){.page{padding:42px 18px 56px}h1{font-size:38px;margin-bottom:44px}.grid{grid-template-columns:1fr;gap:34px}.card{min-height:120px}}
+@media(max-width:700px){.page{padding:42px 18px 56px}h1{font-size:38px;margin-bottom:44px}.grid{grid-template-columns:1fr;gap:34px}.card{min-height:0}}
 </style>
 </head>
 <body>
-<div class="testbar">FACHWISSEN TEST V4 · ohne Rahmen · ohne Datum · ohne Artikeltitel · keine Fotos</div>
+<div class="testbar">FACHWISSEN TEST V4 · ohne Rahmen · Datum und Kategorie entfernt · Haupttitel bleiben · keine Fotos</div>
 <main class="page">
 <p class="label">Fachwissen</p>
 <h1>Fachbeiträge zu<br>ausgewählten Themen.</h1>
 <section class="grid">
-<article class="card"><p>Eine vollständige Übersicht der wichtigsten Unterlagen für eine korrekt vorbereitete Steuererklärung.</p><a class="more" href="fachwissen/checkliste-steuererklaerung/">Beitrag anzeigen <span>›</span></a></article>
-<article class="card"><p>Die Wahl der Rechtsform beeinflusst Haftung, Kapitalbedarf, Steuern und die Führung eines Unternehmens.</p><a class="more" href="fachwissen/unternehmen-gruenden/">Beitrag anzeigen <span>›</span></a></article>
-<article class="card"><p>Die gängigsten Unternehmensformen der Schweiz werden anhand ihrer rechtlichen und finanziellen Merkmale miteinander verglichen.</p><a class="more" href="fachwissen/unternehmensformen/">Beitrag anzeigen <span>›</span></a></article>
-<article class="card"><p>Eine Kündigung muss korrekt vorbereitet werden, damit Fristen, Formvorschriften und Sperrfristen eingehalten werden.</p><a class="more" href="fachwissen/kuendigung-arbeitsvertrag/">Beitrag anzeigen <span>›</span></a></article>
-<article class="card"><p>Eine saubere Buchhaltung ist Grundlage für Jahresabschluss, Steuern, MWST, Löhne und unternehmerische Entscheidungen.</p><a class="more" href="fachwissen/unwahre-buchfuehrung/">Beitrag anzeigen <span>›</span></a></article>
-<article class="card"><p>Gewinnverwendung, Reserven und Verlustvortrag sind vor einer Ausschüttung sorgfältig zu beurteilen.</p><a class="more" href="fachwissen/gewinnverwendung/">Beitrag anzeigen <span>›</span></a></article>
-<article class="card"><p>Seit 01.01.2025 gelten strengere Regeln, damit finanzielle Pflichten nicht durch wiederholte oder gezielte Konkurse umgangen werden.</p><a class="more" href="fachwissen/missbraeuchliche-konkurse/">Beitrag anzeigen <span>›</span></a></article>
+<article class="card"><h2>Checkliste für die Steuererklärung</h2><p>Eine vollständige Übersicht der wichtigsten Unterlagen für eine korrekt vorbereitete Steuererklärung.</p><a class="more" href="fachwissen/checkliste-steuererklaerung/">Beitrag anzeigen <span>›</span></a></article>
+<article class="card"><h2>Unternehmen gründen in der Schweiz: Welche Rechtsform passt?</h2><p>Die Wahl der Rechtsform beeinflusst Haftung, Kapitalbedarf, Steuern und die Führung eines Unternehmens.</p><a class="more" href="fachwissen/unternehmen-gruenden/">Beitrag anzeigen <span>›</span></a></article>
+<article class="card"><h2>Unternehmensformen im Überblick</h2><p>Die gängigsten Unternehmensformen der Schweiz werden anhand ihrer rechtlichen und finanziellen Merkmale miteinander verglichen.</p><a class="more" href="fachwissen/unternehmensformen/">Beitrag anzeigen <span>›</span></a></article>
+<article class="card"><h2>Kündigung des Arbeitsvertrags: Fristen, Form und Sperrfristen</h2><p>Eine Kündigung muss korrekt vorbereitet werden, damit Fristen, Formvorschriften und Sperrfristen eingehalten werden.</p><a class="more" href="fachwissen/kuendigung-arbeitsvertrag/">Beitrag anzeigen <span>›</span></a></article>
+<article class="card"><h2>Unwahre Buchführung: Rechtliche Bedeutung korrekter Buchhaltung</h2><p>Eine saubere Buchhaltung ist Grundlage für Jahresabschluss, Steuern, MWST, Löhne und unternehmerische Entscheidungen.</p><a class="more" href="fachwissen/unwahre-buchfuehrung/">Beitrag anzeigen <span>›</span></a></article>
+<article class="card"><h2>Gewinnverwendung, Reserven und Verlustvortrag</h2><p>Gewinnverwendung, Reserven und Verlustvortrag sind vor einer Ausschüttung sorgfältig zu beurteilen.</p><a class="more" href="fachwissen/gewinnverwendung/">Beitrag anzeigen <span>›</span></a></article>
+<article class="card"><h2>Missbräuchliche Konkurse: Neue Regeln und Folgen seit 2025</h2><p>Seit 01.01.2025 gelten strengere Regeln, damit finanzielle Pflichten nicht durch wiederholte oder gezielte Konkurse umgangen werden.</p><a class="more" href="fachwissen/missbraeuchliche-konkurse/">Beitrag anzeigen <span>›</span></a></article>
 </section>
 </main>
 </body>

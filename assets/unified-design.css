@@ -1753,7 +1753,7 @@ html body.page-knowledge.site-light-page main .knowledge-section#knowledge-artic
 }
 
 /* Startseite Kontakt: innen einfarbig, ursprünglicher Rahmenverlauf bleibt erhalten. */
-html body.page-home.site-light-page main.home>section.home-contact-band.home-contact-band{
+html body.page-home.site-light-page:has(main.home) main.home>section.home-contact-band.home-contact-band{
   background:#fff!important;
   background-color:#fff!important;
   background-image:none!important;

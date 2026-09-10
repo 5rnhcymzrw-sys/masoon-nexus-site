@@ -1774,3 +1774,13 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__soft
   filter:none!important;
   opacity:0!important;
 }
+
+/* Startseite Hero: weissen Textkasten leicht verkleinern. */
+@media(min-width:801px){
+  html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{
+    top:4px!important;
+    right:-20px!important;
+    bottom:4px!important;
+    left:-210px!important;
+  }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON – echte Seiten Typografie 45 px Test</title>
+<style>
+html,body{margin:0;min-height:100%;background:#f4f4f2;font-family:Arial,sans-serif;color:#171715}
+.testbar{position:sticky;top:0;z-index:99999;background:#fff;border-bottom:1px solid #d8d8d4;padding:10px 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.testbar strong{font-size:12px;margin-right:8px}.testbar button{appearance:none;border:1px solid #cfcfca;background:#fff;padding:7px 10px;font-size:11px;cursor:pointer}.testbar button:hover,.testbar button.active{background:#171715;color:#fff;border-color:#171715}.note{font-size:11px;color:#666;margin-left:auto}#siteFrame{display:block;width:100%;height:calc(100vh - 58px);min-height:650px;border:0;background:#fff}@media(max-width:800px){.note{width:100%;margin-left:0}#siteFrame{height:calc(100vh - 104px)}}
+</style>
+</head>
+<body>
+<div class="testbar">
+<strong>SCHRIFT WIE SCREENSHOT 1 · ALLE grossen Titel 45 px</strong>
+<button data-src="index.html?v=typo45" class="active">Startseite</button>
+<button data-src="unternehmen/index.html?v=typo45">Unternehmen</button>
+<button data-src="dienstleistungen/index.html?v=typo45">Dienstleistungen</button>
+<button data-src="fachwissen/index.html?v=typo45">Fachwissen</button>
+<button data-src="kontakt/index.html?v=typo45">Kontakt</button>
+<button data-src="impressum/index.html?v=typo45">Impressum</button>
+<button data-src="datenschutz/index.html?v=typo45">Datenschutz</button>
+<button data-src="disclaimer/index.html?v=typo45">Disclaimer</button>
+<span class="note">Echte Seiten · keine Fotos · Hero ohne Farbverlauf · Kacheltitel kräftiger</span>
+</div>
+<iframe id="siteFrame" src="index.html?v=typo45" title="Seitentest"></iframe>
+<script>
+const frame=document.getElementById('siteFrame');
+const buttons=[...document.querySelectorAll('[data-src]')];
+const bigSelectors=['.global-title','.section-heading h1','.section-heading h2','.legal-page h1','.knowledge-note h2','.home-paths__heading h2','.home-contact-band h2','.contact-split__info h1','.services-closing h2','.home-company h2','.company-collaboration-box h2'];
+const serviceTitles=['Administration','Buchhaltung','Personaladministration','Jahresabschluss','Steuererklärung','Unternehmensberatung'];
+const companyTitles=['Diskretion','Präzision','Verlässlichkeit','Vertrauen'];
+const normalise=t=>(t||'').replace(/\s+/g,' ').trim();
+function setBig(el){
+ el.style.setProperty('font-family','"MT Screenshot 1 Serif", serif','important');
+ el.style.setProperty('font-weight','700','important');
+ el.style.setProperty('font-style','normal','important');
+ el.style.setProperty('font-size','45px','important');
+ el.style.setProperty('line-height','1.04','important');
+ el.style.setProperty('letter-spacing','0','important');
+ el.style.setProperty('-webkit-text-stroke','.25px currentColor','important');
+ el.style.setProperty('font-synthesis','none','important');
+}
+function setCard(el){
+ el.style.setProperty('font-weight','700','important');
+ el.style.setProperty('-webkit-text-stroke','.10px currentColor','important');
+}
+function apply(){
+ try{
+  const d=frame.contentDocument;
+  if(!d||!d.head||!d.body)return;
+  if(!d.getElementById('mt-screenshot1-font')){
+   const style=d.createElement('style');
+   style.id='mt-screenshot1-font';
+   style.textContent='@font-face{font-family:"MT Screenshot 1 Serif";font-style:normal;font-weight:700;font-display:swap;src:url("https://fonts.gstatic.com/s/ptserif/v19/EJRSQgYoZZY2vCFuvAnt65qV.ttf") format("truetype")}';
+   d.head.appendChild(style);
+  }
+  let css=d.getElementById('mt-test-css');
+  if(!css){
+   css=d.createElement('style');css.id='mt-test-css';
+   css.textContent='html body img:not([data-preserve-logo]),html body picture,html body video{display:none!important}';
+   d.head.appendChild(css);
+  }
+  bigSelectors.forEach(sel=>d.querySelectorAll(sel).forEach(setBig));
+  d.querySelectorAll('.home-hero h1,[class*="hero"] h1').forEach(setBig);
+  const heroHead=[...d.querySelectorAll('h1,h2')].find(el=>normalise(el.textContent).includes('Treuhand mit Struktur und Anspruch'));
+  const hero=heroHead?heroHead.closest('[class*="hero"],section'):d.querySelector('.home-hero,[class*="hero"]');
+  if(hero){
+   hero.style.setProperty('background-image','none','important');
+   hero.querySelectorAll('*').forEach(el=>{const bg=d.defaultView.getComputedStyle(el).backgroundImage;if(bg&&bg.includes('gradient'))el.style.setProperty('background-image','none','important')});
+  }
+  d.querySelectorAll('h2,h3,strong').forEach(el=>{const txt=normalise(el.textContent);if(serviceTitles.includes(txt)||companyTitles.includes(txt))setCard(el)});
+ }catch(e){console.error('Testseite:',e)}
+}
+function applySafely(){apply();setTimeout(apply,250);setTimeout(apply,800);setTimeout(apply,1800)}
+frame.addEventListener('load',applySafely);
+buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');frame.src=b.dataset.src;}));
+</script>
+</body>
+</html>

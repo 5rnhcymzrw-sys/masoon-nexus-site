@@ -11,9 +11,10 @@ html,body{margin:0;height:100%;font-family:Arial,sans-serif;background:#111;colo
 .testlabel{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#aaa;margin-right:4px}
 button{appearance:none;border:1px solid #555;background:#1d1d1d;color:#fff;padding:10px 14px;cursor:pointer;font-size:11px}
 button.active{background:#fff;color:#111;border-color:#fff}
+.values{font-size:10px;color:#aaa;margin-left:8px}
 .note{margin-left:auto;font-size:10px;color:#aaa}
 iframe{position:fixed;top:74px;left:0;width:100%;height:calc(100% - 74px);border:0;background:#fff}
-@media(max-width:760px){.testbar{min-height:112px}.note{width:100%;margin-left:0}iframe{top:112px;height:calc(100% - 112px)}}
+@media(max-width:900px){.testbar{min-height:112px}.note{width:100%;margin-left:0}iframe{top:112px;height:calc(100% - 112px)}}
 </style>
 </head>
 <body>
@@ -21,7 +22,8 @@ iframe{position:fixed;top:74px;left:0;width:100%;height:calc(100% - 74px);border
   <span class="testlabel">Button Schrift</span>
   <button id="original">ORIGINAL</button>
   <button id="header" class="active">WIE KOPFZEILE</button>
-  <span class="note">Echte aktuelle Startseite. Nur die Schriftwerte der Startseiten-Buttons werden testweise überschrieben.</span>
+  <span class="values">12 px · 500 · 1.1 px · Farbe #171715</span>
+  <span class="note">Echte aktuelle Startseite. Nur die Schriftwerte der Startseiten-Buttons werden testweise geändert.</span>
 </div>
 <iframe id="site" title="Original Startseite Button Test"></iframe>
 <script>
@@ -30,47 +32,59 @@ const original=document.getElementById('original');
 const header=document.getElementById('header');
 let mode='header';
 
+const props=[
+  'font-family','font-size','font-style','font-weight','font-variant','font-stretch',
+  'line-height','letter-spacing','word-spacing','text-transform','text-decoration',
+  'text-shadow','-webkit-text-stroke','color','-webkit-text-fill-color','opacity',
+  'font-synthesis','-webkit-font-smoothing','-moz-osx-font-smoothing','text-rendering'
+];
+
+function clearInline(el){
+  props.forEach(p=>el.style.removeProperty(p));
+}
+
+function applyHeaderValues(el){
+  el.style.setProperty('font-family','var(--font-inter), Arial, sans-serif','important');
+  el.style.setProperty('font-size','12px','important');
+  el.style.setProperty('font-style','normal','important');
+  el.style.setProperty('font-weight','500','important');
+  el.style.setProperty('font-variant','normal','important');
+  el.style.setProperty('font-stretch','normal','important');
+  el.style.setProperty('line-height','1.65','important');
+  el.style.setProperty('letter-spacing','1.1px','important');
+  el.style.setProperty('word-spacing','normal','important');
+  el.style.setProperty('text-transform','uppercase','important');
+  el.style.setProperty('text-decoration','none','important');
+  el.style.setProperty('text-shadow','none','important');
+  el.style.setProperty('-webkit-text-stroke','0','important');
+  el.style.setProperty('color','#171715','important');
+  el.style.setProperty('-webkit-text-fill-color','#171715','important');
+  el.style.setProperty('opacity','1','important');
+  el.style.setProperty('font-synthesis','none','important');
+  el.style.setProperty('-webkit-font-smoothing','antialiased','important');
+  el.style.setProperty('-moz-osx-font-smoothing','grayscale','important');
+  el.style.setProperty('text-rendering','geometricPrecision','important');
+}
+
 function apply(){
   const doc=frame.contentDocument;
-  if(!doc||!doc.head)return;
-  let style=doc.getElementById('masoon-button-header-typography-test');
-  if(!style){style=doc.createElement('style');style.id='masoon-button-header-typography-test';doc.head.appendChild(style);}
-  if(mode==='original'){
-    style.textContent='';
-  }else{
-    style.textContent=`
-html body.page-home main.home a.home-action-button,
-html body.page-home main.home a.home-action-button:hover,
-html body.page-home main.home a.home-action-button:focus,
-html body.page-home main.home a.home-action-button:focus-visible,
-html body.page-home main.home a.home-action-button:active{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:12px!important;
-  font-style:normal!important;
-  font-weight:500!important;
-  font-variant:normal!important;
-  font-stretch:normal!important;
-  line-height:1.65!important;
-  letter-spacing:1.1px!important;
-  word-spacing:normal!important;
-  text-transform:uppercase!important;
-  text-decoration:none!important;
-  text-shadow:none!important;
-  -webkit-text-stroke:0!important;
-  color:#171715!important;
-  -webkit-text-fill-color:#171715!important;
-  opacity:1!important;
-  font-synthesis:none!important;
-  -webkit-font-smoothing:antialiased!important;
-  -moz-osx-font-smoothing:grayscale!important;
-  text-rendering:geometricPrecision!important;
-}
-html body.page-home main.home a.home-action-button>span{
-  color:#171715!important;
-  -webkit-text-fill-color:#171715!important;
-}
-`;
-  }
+  if(!doc)return;
+  const buttons=[...doc.querySelectorAll('body.page-home main.home a.home-action-button')];
+  buttons.forEach(el=>{
+    clearInline(el);
+    const arrow=el.querySelector('span');
+    if(arrow){
+      arrow.style.removeProperty('color');
+      arrow.style.removeProperty('-webkit-text-fill-color');
+    }
+    if(mode==='header'){
+      applyHeaderValues(el);
+      if(arrow){
+        arrow.style.setProperty('color','#171715','important');
+        arrow.style.setProperty('-webkit-text-fill-color','#171715','important');
+      }
+    }
+  });
 }
 
 function setMode(next){
@@ -82,6 +96,7 @@ function setMode(next){
 
 original.addEventListener('click',()=>setMode('original'));
 header.addEventListener('click',()=>setMode('header'));
+
 frame.onload=()=>{
   apply();
   setTimeout(()=>{
@@ -90,6 +105,7 @@ frame.onload=()=>{
     const first=doc.querySelector('.home-values .home-action-button');
     if(first)first.scrollIntoView({block:'center',behavior:'auto'});
   },350);
+  setTimeout(apply,900);
 };
 frame.src='./index.html?buttonheaderfonttest='+Date.now();
 </script>

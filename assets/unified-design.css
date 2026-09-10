@@ -1697,3 +1697,26 @@ html body.page-company.site-light-page .company-legal-card .home-company__image:
     flex-direction:column!important;
   }
 }
+
+/* Sämtliche grossen Titel: PT Serif Bold, exakt vereinheitlicht. */
+html body .global-title,
+html body .section-heading h1,
+html body .section-heading h2,
+html body .legal-page h1,
+html body .knowledge-note h2,
+html body .home-paths__heading h2,
+html body .home-contact-band h2,
+html body .contact-split__info h1,
+html body .services-closing h2,
+html body .company-section-heading h1,
+html body .company-collaboration-box h2,
+html body .article-title{
+  font-family:"PT Serif"!important;
+  font-weight:700!important;
+  font-size:45px!important;
+  line-height:1.04!important;
+  letter-spacing:0!important;
+  font-style:normal!important;
+  -webkit-text-stroke:.25px currentColor!important;
+  font-synthesis:none!important;
+}

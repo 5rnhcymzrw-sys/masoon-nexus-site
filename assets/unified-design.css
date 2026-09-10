@@ -1727,6 +1727,8 @@ html body.page-knowledge.site-light-page main .knowledge-section#knowledge-artic
   background:none!important;
   background-color:transparent!important;
   background-image:none!important;
+  border-image:none!important;
+  border-color:var(--mt-line)!important;
   box-shadow:none!important;
   filter:none!important;
   backdrop-filter:none!important;

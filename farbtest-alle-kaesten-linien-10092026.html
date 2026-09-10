@@ -3,126 +3,119 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MASOON TREUHAND – alle Kästen Farb- und Linientest</title>
+<title>MASOON TREUHAND – Kästen Farb- und Linientest</title>
 <style>
   *{box-sizing:border-box}
-  html,body{margin:0;background:#f4f4f2;font-family:Arial,sans-serif;color:#171715}
-  .controls{position:sticky;top:0;z-index:30;background:#111;border-bottom:1px solid #3a3a3a;padding:10px 14px;display:grid;gap:8px}
-  .row{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
-  .label{min-width:74px;color:#a9a9a9;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
-  button{appearance:none;border:1px solid #666;background:#191919;color:#fff;padding:8px 11px;font-size:11px;line-height:1;cursor:pointer}
-  button.active{background:#fff;color:#111;border-color:#fff}
-  .note{padding:8px 14px;background:#fff;border-bottom:1px solid #ddd;font-size:11px;line-height:1.45;color:#555}
-  iframe{display:block;width:100%;height:calc(100vh - 154px);border:0;background:#fff}
+  html,body{margin:0;width:100%;height:100%;background:#fff;font-family:Arial,sans-serif}
+  iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
+  .test-panel{position:fixed;left:14px;bottom:14px;z-index:9999;width:330px;max-width:calc(100vw - 28px);padding:10px;background:rgba(255,255,255,.96);border:1px solid #cfcfcf;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+  .test-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:0 0 6px}
+  .test-row:last-child{margin-bottom:0}
+  .test-label{width:44px;font-size:9px;letter-spacing:.08em;color:#666;text-transform:uppercase}
+  .test-panel button{appearance:none;border:1px solid #aaa;background:#fff;color:#171715;padding:6px 7px;font-size:9px;line-height:1;cursor:pointer}
+  .test-panel button.active{background:#171715;color:#fff;border-color:#171715}
+  @media(max-width:560px){.test-panel{left:8px;bottom:8px;width:calc(100vw - 16px)}}
 </style>
 </head>
 <body>
-<div class="controls">
-  <div class="row" id="pages">
-    <span class="label">SEITE</span>
-    <button data-page="./index.html" class="active">STARTSEITE</button>
-    <button data-page="./unternehmen/index.html">UNTERNEHMEN</button>
-    <button data-page="./dienstleistungen/index.html">DIENSTLEISTUNGEN</button>
-    <button data-page="./fachwissen/index.html">FACHWISSEN</button>
-    <button data-page="./kontakt/index.html">KONTAKT</button>
-    <button data-page="./impressum/index.html">IMPRESSUM</button>
-    <button data-page="./disclaimer/index.html">DISCLAIMER</button>
-    <button data-page="./datenschutz/index.html">DATENSCHUTZ</button>
+<iframe id="site" src="./index.html?v=all-box-test-3"></iframe>
+
+<div class="test-panel" aria-label="Teststeuerung">
+  <div class="test-row" id="pages">
+    <span class="test-label">Seite</span>
+    <button data-page="./index.html" class="active">Start</button>
+    <button data-page="./unternehmen/index.html">Unternehmen</button>
+    <button data-page="./dienstleistungen/index.html">DL</button>
+    <button data-page="./fachwissen/index.html">Fachwissen</button>
+    <button data-page="./kontakt/index.html">Kontakt</button>
+    <button data-page="./impressum/index.html">Impressum</button>
+    <button data-page="./disclaimer/index.html">Disclaimer</button>
+    <button data-page="./datenschutz/index.html">Datenschutz</button>
   </div>
-  <div class="row" id="colors">
-    <span class="label">FARBE</span>
-    <button data-color="2" class="active">2 KRÄFTIGER · 11%</button>
-    <button data-color="3">3 DEUTLICHER · 11%</button>
+  <div class="test-row" id="colors">
+    <span class="test-label">Farbe</span>
+    <button data-color="2" class="active">2 kräftiger · 11%</button>
+    <button data-color="3">3 deutlicher · 11%</button>
   </div>
-  <div class="row" id="lines">
-    <span class="label">LINIEN</span>
-    <button data-lines="on" class="active">MIT LINIEN</button>
-    <button data-lines="off">OHNE LINIEN</button>
+  <div class="test-row" id="lines">
+    <span class="test-label">Linien</span>
+    <button data-lines="on" class="active">mit</button>
+    <button data-lines="off">ohne</button>
   </div>
 </div>
-<div class="note">Echte aktuelle Seiten im Test. Variante 2 und 3 bleiben beide bei 11 % Deckkraft. Mit/ohne Linien verändert nur die sichtbare Rahmenlinie, nicht die Masse der Kästen.</div>
-<iframe id="site" src="./index.html?v=all-box-test-fixed"></iframe>
+
 <script>
 const frame=document.getElementById('site');
 let page='./index.html';
 let color='2';
 let lines='on';
-
 const variants={
   '2':[[244,228,201],[232,227,218],[193,199,214],[132,144,171]],
   '3':[[245,225,194],[232,225,214],[187,196,216],[124,139,173]]
 };
-
-function gradient(){
-  const c=variants[color], a=.11;
-  return `linear-gradient(to right in oklab,rgba(${c[0].join(',')},${a}) 0%,rgba(${c[1].join(',')},${a}) 36%,rgba(${c[2].join(',')},${a}) 68%,rgba(${c[3].join(',')},${a}) 100%)`;
-}
 const borderFull='linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1';
 const borderLeft='linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1';
 const borderMid='linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1';
 const borderRight='linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1';
 
-function set(el,prop,val){ el.style.setProperty(prop,val,'important'); }
-function clearTestStyles(d){
-  d.querySelectorAll('[data-masoon-test-styled="1"]').forEach(el=>{
-    ['background','background-color','background-image','background-size','background-position','background-repeat','background-origin','border','border-color','border-image','box-shadow'].forEach(p=>el.style.removeProperty(p));
-    el.removeAttribute('data-masoon-test-styled');
+function gradient(){
+  const c=variants[color],a=.11;
+  return `linear-gradient(to right in oklab,rgba(${c[0].join(',')},${a}) 0%,rgba(${c[1].join(',')},${a}) 36%,rgba(${c[2].join(',')},${a}) 68%,rgba(${c[3].join(',')},${a}) 100%)`;
+}
+function setImp(el,prop,val){el.style.setProperty(prop,val,'important')}
+function setLine(el,which){
+  setImp(el,'border','1px solid transparent');
+  setImp(el,'border-image',lines==='on'?which:'none');
+  if(lines==='off') setImp(el,'border-color','transparent');
+}
+function paintGroup(items){
+  const g=gradient();
+  items.forEach((el,i)=>{
+    const mod=i%3;
+    setImp(el,'background',g);
+    setImp(el,'background-size','calc(300% + 44px) 100%');
+    setImp(el,'background-repeat','no-repeat');
+    setImp(el,'background-origin','border-box');
+    setImp(el,'background-position',mod===0?'0% 0':mod===1?'50% 0':'100% 0');
+    setLine(el,mod===0?borderLeft:mod===1?borderMid:borderRight);
+    el.querySelectorAll(':scope > summary,:scope > ul').forEach(ch=>setImp(ch,'background','transparent'));
   });
 }
-function styleCard(el,index){
+function paintSingle(items){
   const g=gradient();
-  el.setAttribute('data-masoon-test-styled','1');
-  set(el,'background',g);
-  set(el,'background-size','calc(300% + 44px) 100%');
-  set(el,'background-repeat','no-repeat');
-  set(el,'background-origin','border-box');
-  set(el,'box-shadow','none');
-  set(el,'border','1px solid transparent');
-  const pos=index%3;
-  set(el,'background-position',pos===0?'0% 0':pos===1?'50% 0':'100% 0');
-  set(el,'border-image',lines==='on'?(pos===0?borderLeft:pos===1?borderMid:borderRight):'none');
-}
-function styleLarge(el){
-  const g=gradient();
-  el.setAttribute('data-masoon-test-styled','1');
-  set(el,'background',g);
-  set(el,'background-size','100% 100%');
-  set(el,'background-repeat','no-repeat');
-  set(el,'background-origin','border-box');
-  set(el,'box-shadow','none');
-  set(el,'border','1px solid transparent');
-  set(el,'border-image',lines==='on'?borderFull:'none');
+  items.forEach(el=>{
+    setImp(el,'background',g);
+    setImp(el,'background-size','100% 100%');
+    setImp(el,'background-repeat','no-repeat');
+    setImp(el,'background-origin','border-box');
+    setLine(el,borderFull);
+  });
 }
 function apply(){
   const d=frame.contentDocument;
-  if(!d || !d.body) return;
-  clearTestStyles(d);
+  if(!d||!d.body)return;
 
-  const groups=[
-    '.home-values__items>.home-values__item',
-    '.home-paths__grid>a',
-    '.company-values-grid>.company-value-card',
-    '.services-grid>.service-card',
-    '.articles-grid>.article-card'
-  ];
-  groups.forEach(sel=>d.querySelectorAll(sel).forEach((el,i)=>styleCard(el,i)));
+  paintGroup([...d.querySelectorAll('.home-values__items>.home-values__item')]);
+  paintGroup([...d.querySelectorAll('.home-paths__grid>a')]);
+  paintGroup([...d.querySelectorAll('.company-values-grid>.company-value-card')]);
+  paintGroup([...d.querySelectorAll('.services-grid>.service-card')]);
+  paintGroup([...d.querySelectorAll('.articles-grid>.article-card')]);
 
-  [
-    '.home-contact-band',
-    '.company-collaboration-box',
-    '.services-closing',
-    '.knowledge-note',
-    '.contact-split__form',
-    '.disclaimer-card'
-  ].forEach(sel=>d.querySelectorAll(sel).forEach(styleLarge));
+  paintSingle([...d.querySelectorAll('.home-contact-band,.company-collaboration-box,.services-closing,.knowledge-note,.contact-split__form,.disclaimer-card')]);
+
+  const hero=d.querySelector('.home-hero__copy');
+  if(hero){
+    let style=d.getElementById('hero-box-test-style');
+    if(!style){style=d.createElement('style');style.id='hero-box-test-style';d.head.appendChild(style)}
+    style.textContent=`html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{background:${gradient()}!important;border:1px solid transparent!important;border-image:${lines==='on'?borderFull:'none'}!important;}`;
+  }
 }
-
 frame.addEventListener('load',()=>setTimeout(apply,120));
 
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>{
   page=b.dataset.page;
   document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x===b));
-  frame.src=page+'?v=all-box-test-fixed-'+Date.now();
+  frame.src=page+'?v=all-box-test-'+Date.now();
 }));
 document.querySelectorAll('[data-color]').forEach(b=>b.addEventListener('click',()=>{
   color=b.dataset.color;

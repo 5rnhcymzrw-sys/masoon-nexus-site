@@ -1,0 +1,30 @@
+name: Temporary reduce hero left width
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/temp-hero-left-width-20.yml
+permissions:
+  contents: write
+jobs:
+  update-css:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reduce only the left side of the hero box by 20 percent
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('assets/unified-design.css')
+          s = p.read_text()
+          old = '''  html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{\n    left:-102px;\n    right:auto;\n    width:calc(min(640px,calc(100vw - 64px)) + 50px);\n  }'''
+          new = '''  html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{\n    left:-81.6px;\n    right:auto;\n    width:calc(min(640px,calc(100vw - 64px)) + 29.6px);\n  }'''
+          if s.count(old) != 1:
+              raise SystemExit(f'Expected exactly one hero box rule, found {s.count(old)}')
+          p.write_text(s.replace(old, new, 1))
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/unified-design.css
+          git commit -m "Reduce hero left whitespace by 20 percent"
+          git push

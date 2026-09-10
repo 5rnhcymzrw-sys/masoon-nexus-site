@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Echte Seiten – 43px PT Serif Bold Test</title>
+<style>
+html,body{margin:0;background:#f4f4f2;font-family:Arial,sans-serif;color:#171715}
+.testbar{position:sticky;top:0;z-index:9999;background:#fff;border-bottom:1px solid #d9d9d5;padding:10px 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.testbar strong{font-size:12px;margin-right:8px}.testbar button{appearance:none;border:1px solid #cfcfca;background:#fff;padding:7px 10px;font-size:11px;cursor:pointer}.testbar button:hover,.testbar button.active{background:#171715;color:#fff;border-color:#171715}.note{font-size:11px;color:#666;margin-left:auto}
+#siteFrame{display:block;width:100%;height:calc(100vh - 50px);border:0;background:#fff}
+@media(max-width:800px){.note{width:100%;margin-left:0}#siteFrame{height:calc(100vh - 90px)}}
+</style>
+</head>
+<body>
+<div class="testbar">
+<strong>43 px · PT Serif Bold 700</strong>
+<button data-src="index.html" class="active">Startseite</button>
+<button data-src="unternehmen/index.html">Unternehmen</button>
+<button data-src="dienstleistungen/index.html">Dienstleistungen</button>
+<button data-src="fachwissen/index.html">Fachwissen</button>
+<button data-src="kontakt/index.html">Kontakt</button>
+<button data-src="impressum/index.html">Impressum</button>
+<button data-src="datenschutz/index.html">Datenschutz</button>
+<button data-src="disclaimer/index.html">Disclaimer</button>
+<span class="note">Echte Seiten · nur grosse Titel geändert · Fotos/Bilder ausgeblendet</span>
+</div>
+<iframe id="siteFrame" src="index.html" title="Seitentest"></iframe>
+<script>
+const frame=document.getElementById('siteFrame');
+const buttons=[...document.querySelectorAll('[data-src]')];
+function inject(){
+  try{
+    const d=frame.contentDocument;
+    if(!d)return;
+    let s=d.getElementById('mt-43-title-test');
+    if(!s){s=d.createElement('style');s.id='mt-43-title-test';d.head.appendChild(s)}
+    s.textContent=`
+      @font-face{font-family:"PT Serif Test 700";font-style:normal;font-weight:700;font-display:swap;src:url("https://fonts.gstatic.com/s/ptserif/v19/EJRSQgYoZZY2vCFuvAnt65qV.ttf") format("truetype")}
+      html body .global-title,
+      html body .section-heading h1,
+      html body .section-heading h2,
+      html body .legal-page h1,
+      html body .knowledge-note h2,
+      html body .home-paths__heading h2,
+      html body .home-contact-band h2,
+      html body .contact-split__info h1,
+      html body .services-closing h2,
+      html body .home-hero h1,
+      html body .home-company h2,
+      html body .company-collaboration-box h2{
+        font-family:"PT Serif Test 700","PT Serif",Georgia,serif!important;
+        font-weight:700!important;
+        font-size:43px!important;
+        line-height:1.04!important;
+        letter-spacing:0!important;
+        -webkit-text-stroke:.25px currentColor!important;
+      }
+      html body img,html body picture,html body video{display:none!important}
+      html body *{background-image:none!important}
+    `;
+  }catch(e){console.error(e)}
+}
+frame.addEventListener('load',inject);
+buttons.forEach(b=>b.addEventListener('click',()=>{
+  buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');frame.src=b.dataset.src;
+}));
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+name: Temporary button typography update
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/temp-button-typography.yml
+permissions:
+  contents: write
+jobs:
+  update-css:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update existing startpage button values
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('assets/unified-design.css')
+          s = p.read_text()
+          replacements = {
+            'color:#605c55!important;text-decoration:none!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important;':
+            'color:#171715!important;text-decoration:none!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:1.1px!important;text-transform:uppercase!important;',
+            'color:#605c55!important;text-decoration:none!important;font-family:var(--font-inter),Arial,sans-serif!important;\n  font-size:11px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important;':
+            'color:#171715!important;text-decoration:none!important;font-family:var(--font-inter),Arial,sans-serif!important;\n  font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:1.1px!important;text-transform:uppercase!important;',
+            'margin-left:20px!important;color:#605c55!important;':
+            'margin-left:20px!important;color:#171715!important;',
+            'color:#605c55!important;background:transparent!important;box-shadow:none!important;':
+            'color:#171715!important;background:transparent!important;box-shadow:none!important;',
+            'color:#605c55!important;\n}':
+            'color:#171715!important;\n}'
+          }
+          for old,new in replacements.items():
+            s = s.replace(old,new)
+          p.write_text(s)
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/unified-design.css
+          git commit -m "Update startpage button typography values"
+          git push

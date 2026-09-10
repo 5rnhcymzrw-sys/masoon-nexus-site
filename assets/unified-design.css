@@ -1774,10 +1774,3 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__soft
   filter:none!important;
   opacity:0!important;
 }
-
-/* Startseite Hero: weissen Textkasten nur von links leicht verkleinern. */
-@media(min-width:801px){
-  html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{
-    left:-200px!important;
-  }
-}

@@ -23,9 +23,9 @@ html body.site-light-page main.home>section.home-paths.home-paths>*{
 }
 
 /* Nur die drei Fachwissen-Karten zusätzlich leicht einfärben */
-html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1){background:transparent!important;background-color:transparent!important;background-image:none!important;}
-html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2){background:transparent!important;background-color:transparent!important;background-image:none!important;}
-html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3){background:transparent!important;background-color:transparent!important;background-image:none!important;}
+html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1):not(:hover):not(:active){background:transparent!important;background-color:transparent!important;background-image:none!important;}
+html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2):not(:hover):not(:active){background:transparent!important;background-color:transparent!important;background-image:none!important;}
+html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3):not(:hover):not(:active){background:transparent!important;background-color:transparent!important;background-image:none!important;}
 
 /* Kontaktbereich: kein Verlauf über die volle Browserbreite; Rahmen und Inhalt bleiben unverändert */
 html body.site-light-page main.home>section.home-contact-band.home-contact-band{
@@ -126,12 +126,15 @@ html body.page-home.site-light-page main.home section.home-paths .home-paths__gr
 }
 html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1){
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;
+  background-position:left top!important;
 }
 html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2){
   border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;
+  background-position:center top!important;
 }
 html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3){
   border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;
+  background-position:right top!important;
 }
 html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a>.home-paths__action{
   position:absolute!important;
@@ -166,7 +169,13 @@ html body.page-home.site-light-page main.home section.home-paths .home-paths__gr
     transform:translateY(-3px)!important;
     border-color:transparent!important;
     border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
-background:linear-gradient(to right in oklab,rgba(243,232,212,.18) 0%,rgba(232,229,223,.18) 36%,rgba(199,203,211,.18) 68%,rgba(141,150,168,.18) 100%)!important;    box-shadow:0 10px 26px rgba(23,23,21,.08)!important;
+background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;
+    background-size:calc(300% + 44px) 100%!important;
+    background-repeat:no-repeat!important;
+    background-origin:border-box!important;
+    -webkit-backdrop-filter:blur(32px)!important;
+    backdrop-filter:blur(32px)!important;
+    box-shadow:none!important;
   }
   html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:hover>.home-paths__action{
     opacity:1!important;

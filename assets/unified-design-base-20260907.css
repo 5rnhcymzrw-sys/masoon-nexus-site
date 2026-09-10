@@ -989,40 +989,7 @@ html body main .article-card>a{
   color:#868279!important;
 }
 
-/* Alle grossen Seitentitel ohne Ausnahme wie Fachliche Orientierung */
-html body main .home-hero h1,
-html body main .global-title,
-html body main .section-heading h1,
-html body main .section-heading h2,
-html body main .legal-page h1,
-html body main .knowledge-note h2,
-html body main .home-paths__heading h2,
-html body main .home-contact-band h2,
-html body main .contact-split__info h1,
-html body main .services-closing h2{
-  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
-  font-size:var(--title-size)!important;
-  font-weight:400!important;
-  line-height:1.05!important;
-  letter-spacing:0!important;
-  text-transform:none!important;
-  font-style:normal!important;
-  -webkit-text-stroke:.25px currentColor!important;
-}
-@media(min-width:801px){
-  html body main .home-hero h1,
-html body main .global-title,
-html body main .section-heading h1,
-html body main .section-heading h2,
-html body main .legal-page h1,
-html body main .knowledge-note h2,
-html body main .home-paths__heading h2,
-html body main .home-contact-band h2,
-html body main .contact-split__info h1,
-html body main .services-closing h2{
-    font-size:50px!important;
-  }
-}
+
 
 /* Normale Fliesstexte: verbindliche Typografie der Disclaimer-Seite */
 html body main.home .home-hero__services,

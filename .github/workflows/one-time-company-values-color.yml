@@ -11,49 +11,26 @@ permissions:
   contents: write
 
 jobs:
-  patch-css:
+  fix-css:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Match Unternehmen Werte cards to Startseite Dienstleistungen colors
+      - name: Patch CSS
+        shell: bash
         run: |
-          python - <<'PY'
+          python3 - <<'PY'
           from pathlib import Path
-
           p = Path('assets/unified-design.css')
           s = p.read_text(encoding='utf-8')
-
           old = 'html body.page-company .company-value-card{height:220px;border:1px solid rgba(23,23,21,.14);background:transparent}'
-          new = '''html body.page-company .company-value-card{
-  height:220px!important;
-  border:1px solid transparent!important;
-  background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;
-  background-size:calc(300% + 44px) 100%!important;
-  background-position:left top!important;
-  background-repeat:no-repeat!important;
-  background-origin:border-box!important;
-  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;
-  box-shadow:none!important;
-  -webkit-backdrop-filter:blur(32px)!important;
-  backdrop-filter:blur(32px)!important;
-}
-html body.page-company .company-values-grid>.company-value-card:nth-child(2){
-  background-position:center top!important;
-  border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;
-}
-html body.page-company .company-values-grid>.company-value-card:nth-child(3){
-  background-position:right top!important;
-  border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;
-}'''
-
+          new = 'html body.page-company .company-value-card{height:220px!important;border:1px solid transparent!important;background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;background-size:calc(300% + 44px) 100%!important;background-position:left top!important;background-repeat:no-repeat!important;background-origin:border-box!important;border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;box-shadow:none!important;-webkit-backdrop-filter:blur(32px)!important;backdrop-filter:blur(32px)!important;}html body.page-company .company-values-grid>.company-value-card:nth-child(2){background-position:center top!important;border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;}html body.page-company .company-values-grid>.company-value-card:nth-child(3){background-position:right top!important;border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;}'
           if old not in s:
               raise SystemExit('company-value-card rule not found')
           s = s.replace(old, new, 1)
           p.write_text(s, encoding='utf-8')
           PY
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/unified-design.css
-          git rm .github/workflows/one-time-company-values-color.yml
-          git commit -m 'Match Unternehmen Werte cards to Startseite Dienstleistungen colors'
+          git commit -m "Match Unternehmen Werte cards to Startseite Dienstleistungen colors"
           git push

@@ -1684,7 +1684,7 @@ html body.page-company.site-light-page .company-legal-card .home-company__image:
   }
 }
 
-/* Fachwissen: sieben Beitragskästen exakt an die geschlossenen Dienstleistungskästen angleichen. */
+/* Fachwissen: sieben Beitragskästen in DL-Höhe; ursprüngliche Inhaltsanordnung leicht angehoben. */
 @media(min-width:801px){
   html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{
     box-sizing:border-box!important;
@@ -1692,25 +1692,8 @@ html body.page-company.site-light-page .company-legal-card .home-company__image:
     height:341px!important;
     min-height:341px!important;
     max-height:341px!important;
-    padding:42px 42px 36px!important;
-    display:grid!important;
-    grid-template-rows:auto minmax(0,1fr) auto!important;
-    align-content:stretch!important;
-  }
-  html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>h2{
-    min-height:0!important;
-    margin:0!important;
-    transform:none!important;
-  }
-  html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>p{
-    min-height:0!important;
-    margin:12px 0 0!important;
-    transform:none!important;
-  }
-  html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>.article-action{
-    align-self:end!important;
-    margin-top:0!important;
-    padding-bottom:0!important;
-    border-bottom:0!important;
+    padding:88px 42px 36px!important;
+    display:flex!important;
+    flex-direction:column!important;
   }
 }

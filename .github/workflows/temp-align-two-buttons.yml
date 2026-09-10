@@ -1,0 +1,77 @@
+name: Temporary align two button typographies
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/temp-align-two-buttons.yml
+permissions:
+  contents: write
+jobs:
+  update-buttons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update existing button typography only
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          # 1) Dienstleistungen: remove the conflicting shared typography class
+          p = Path('dienstleistungen/index.html')
+          s = p.read_text()
+          old = 'class="services-contact-button mt-nav-typography"'
+          new = 'class="services-contact-button"'
+          if s.count(old) != 1:
+              raise SystemExit(f'dienstleistungen/index.html: expected 1 match, found {s.count(old)}')
+          p.write_text(s.replace(old, new, 1))
+
+          # 2) Kontakt: remove the same conflicting class from the submit button
+          p = Path('kontakt/index.html')
+          s = p.read_text()
+          old = '<button type="submit" class="mt-nav-typography">Nachricht senden <span aria-hidden="true">›</span></button>'
+          new = '<button type="submit">Nachricht senden <span aria-hidden="true">›</span></button>'
+          if s.count(old) != 1:
+              raise SystemExit(f'kontakt/index.html: expected 1 match, found {s.count(old)}')
+          p.write_text(s.replace(old, new, 1))
+
+          # 3) Dienstleistungen button: modify only existing typography/color values
+          p = Path('assets/unified-design.css')
+          s = p.read_text()
+          replacements = [
+              (
+                  'color:#605c55!important;text-decoration:none!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important}',
+                  'color:#171715!important;text-decoration:none!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:1.1px!important;text-transform:uppercase!important}'
+              ),
+              (
+                  'color:#605c55!important;text-decoration:none!important;font-family:var(--font-inter),Arial,sans-serif!important;\n  font-size:11px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important\n}',
+                  'color:#171715!important;text-decoration:none!important;font-family:var(--font-inter),Arial,sans-serif!important;\n  font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:1.1px!important;text-transform:uppercase!important\n}'
+              ),
+              (
+                  'html body.page-services.site-light-page .services-closing__links .services-contact-button:active{background:#0b0b0b!important;box-shadow:0 12px 20px rgba(0,0,0,.16)!important;color:#605c55!important;text-decoration:none!important}',
+                  'html body.page-services.site-light-page .services-closing__links .services-contact-button:active{background:#0b0b0b!important;box-shadow:0 12px 20px rgba(0,0,0,.16)!important;color:#171715!important;text-decoration:none!important}'
+              ),
+              (
+                  'html body.page-services.site-light-page main.services-main .services-contact-button:focus-visible{\n  color:#605c55!important;background:transparent!important;box-shadow:none!important\n}',
+                  'html body.page-services.site-light-page main.services-main .services-contact-button:focus-visible{\n  color:#171715!important;background:transparent!important;box-shadow:none!important\n}'
+              )
+          ]
+          for old, new in replacements:
+              if s.count(old) != 1:
+                  raise SystemExit(f'unified-design.css: expected 1 exact match for {old[:60]!r}, found {s.count(old)}')
+              s = s.replace(old, new, 1)
+          p.write_text(s)
+
+          # 4) Kontakt submit button: modify the existing rule only
+          p = Path('assets/contact.css')
+          s = p.read_text()
+          old = '''  color: #171715 !important;\n  font-family: var(--font-inter) !important;\n  font-size: 11px !important;\n  font-weight: 500 !important;\n  line-height: 1.4 !important;\n  letter-spacing: .14em !important;\n  text-transform: uppercase !important;'''
+          new = '''  color: #171715 !important;\n  font-family: var(--font-inter) !important;\n  font-size: 11px !important;\n  font-weight: 500 !important;\n  line-height: 1.65 !important;\n  letter-spacing: 1.1px !important;\n  text-transform: uppercase !important;'''
+          if s.count(old) != 1:
+              raise SystemExit(f'contact.css: expected 1 match, found {s.count(old)}')
+          p.write_text(s.replace(old, new, 1))
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add dienstleistungen/index.html kontakt/index.html assets/unified-design.css assets/contact.css
+          git commit -m "Align services and contact button typography"
+          git push

@@ -103,7 +103,7 @@ body.page-knowledge .article-card-date{color:#868279!important;}
 html:has(body.page-home) { scroll-behavior: auto !important; }
 
 @media (min-width:801px){
-      html body.page-home .home .home-hero h1.global-title{font-size:66px!important;letter-spacing:0!important}
+      html body.page-home .home .home-hero h1.global-title{font-size:58px!important;letter-spacing:0!important}
       html body.page-home .home>.home-values .home-values__item,
 html body.page-home .home>.home-paths .home-paths__grid a{padding-left:42px!important;padding-right:42px!important}
     }

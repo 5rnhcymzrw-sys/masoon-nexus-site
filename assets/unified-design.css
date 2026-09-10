@@ -1819,3 +1819,17 @@ html body.page-knowledge.site-light-page main.page-main
   -webkit-text-stroke: 0.25px currentColor !important;
   font-synthesis: none !important;
 }
+/* FINAL: Verlaufrahmen der grossen Kästen */
+html body.page-home.site-light-page main.home > section.home-contact-band.home-contact-band,
+html body.page-knowledge.site-light-page main.page-main .knowledge-section#knowledge-articles > .knowledge-note,
+html body.page-services.site-light-page main.services-main > .services-closing,
+html body.page-company.site-light-page main.page-main > .company-collaboration-box {
+  border: 1px solid transparent !important;
+  border-image: linear-gradient(
+    110deg,
+    #f3e8d4 0%,
+    #e8e5df 38%,
+    #c7cbd3 66%,
+    #8d96a8 100%
+  ) 1 !important;
+}

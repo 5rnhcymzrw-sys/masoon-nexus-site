@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON – Fachwissen kompakte Karten Test V2</title>
+<style>
+html,body{margin:0;min-height:100%;background:#f4f4f2;font-family:Arial,sans-serif;color:#171715}
+.testbar{position:sticky;top:0;z-index:99999;background:#fff;border-bottom:1px solid #d8d8d4;padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.testbar strong{font-size:12px}.note{font-size:11px;color:#666;margin-left:auto}
+#siteFrame{display:block;width:100%;height:calc(100vh - 48px);min-height:720px;border:0;background:#fff}
+@media(max-width:800px){.note{width:100%;margin-left:0}#siteFrame{height:calc(100vh - 82px)}}
+</style>
+</head>
+<body>
+<div class="testbar">
+<strong>FACHWISSEN TEST V2 · deutlich niedrigere Karten · Inhalt links · keine Verläufe</strong>
+<span class="note">Separate Testseite · keine Fotos · Original unverändert</span>
+</div>
+<iframe id="siteFrame" src="fachwissen/index.html?v=fwcompactleftv2-10092026" title="Fachwissen Test V2"></iframe>
+<script>
+const frame=document.getElementById('siteFrame');
+function apply(){
+  try{
+    const d=frame.contentDocument;
+    if(!d||!d.head||!d.body)return;
+    let css=d.getElementById('mt-fw-compact-left-v2');
+    if(!css){
+      css=d.createElement('style');
+      css.id='mt-fw-compact-left-v2';
+      css.textContent=`
+        /* Keine Fotos auf dieser Testseite */
+        html body .knowledge-section img,
+        html body .knowledge-section picture,
+        html body .knowledge-section video{
+          display:none!important;
+        }
+
+        /* Raster kompakter */
+        @media(min-width:901px){
+          html body .knowledge-section .articles-grid{
+            gap:18px!important;
+          }
+          html body .knowledge-section .articles-grid>.article-card{
+            min-height:225px!important;
+            height:225px!important;
+            padding:18px 12px 16px!important;
+            box-sizing:border-box!important;
+          }
+        }
+
+        /* Karten neutral, ohne Farbverlauf */
+        html body .knowledge-section .articles-grid>.article-card{
+          background:rgba(255,255,255,.72)!important;
+          background-image:none!important;
+          border:1px solid rgba(23,23,21,.18)!important;
+          border-image:none!important;
+          border-radius:0!important;
+          box-shadow:none!important;
+          text-align:left!important;
+          align-items:flex-start!important;
+          justify-items:start!important;
+          display:flex!important;
+          flex-direction:column!important;
+        }
+
+        /* Gesamter Karteninhalt auf einer linken Achse, nahe an der Rahmenlinie */
+        html body .knowledge-section .articles-grid>.article-card>*{
+          text-align:left!important;
+          margin-left:0!important;
+          padding-left:0!important;
+          align-self:flex-start!important;
+        }
+        html body .knowledge-section .articles-grid>.article-card .article-meta,
+        html body .knowledge-section .articles-grid>.article-card h2,
+        html body .knowledge-section .articles-grid>.article-card>p:not(.article-meta),
+        html body .knowledge-section .articles-grid>.article-card .article-link,
+        html body .knowledge-section .articles-grid>.article-card a{
+          margin-left:0!important;
+          padding-left:0!important;
+          text-align:left!important;
+        }
+
+        /* Titellinie einfarbig statt Verlauf */
+        html body .knowledge-section .articles-grid>.article-card h2::after{
+          background:#868279!important;
+          background-image:none!important;
+          border:0!important;
+        }
+
+        /* Vertikale Abstände reduzieren */
+        html body .knowledge-section .articles-grid>.article-card .article-meta{
+          margin-top:0!important;
+          margin-bottom:10px!important;
+        }
+        html body .knowledge-section .articles-grid>.article-card h2{
+          margin-top:0!important;
+          margin-bottom:10px!important;
+        }
+        html body .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
+          margin-top:0!important;
+          margin-bottom:0!important;
+        }
+        html body .knowledge-section .articles-grid>.article-card .article-link,
+        html body .knowledge-section .articles-grid>.article-card a:last-child{
+          margin-top:auto!important;
+          margin-bottom:0!important;
+        }
+
+        @media(max-width:900px){
+          html body .knowledge-section .articles-grid>.article-card{
+            min-height:0!important;
+            height:auto!important;
+            padding:18px 12px 16px!important;
+          }
+        }
+      `;
+      d.head.appendChild(css);
+    }
+  }catch(e){console.error('Fachwissen Test V2:',e)}
+}
+frame.addEventListener('load',()=>{apply();setTimeout(apply,300);setTimeout(apply,900);setTimeout(apply,1800)});
+</script>
+</body>
+</html>

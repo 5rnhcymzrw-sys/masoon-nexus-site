@@ -18,7 +18,7 @@
 </style>
 </head>
 <body>
-<iframe id="site" src="./index.html?v=all-box-test-3"></iframe>
+<iframe id="site" src="./index.html?v=all-box-test-4"></iframe>
 
 <div class="test-panel" aria-label="Teststeuerung">
   <div class="test-row" id="pages">
@@ -27,10 +27,6 @@
     <button data-page="./unternehmen/index.html">Unternehmen</button>
     <button data-page="./dienstleistungen/index.html">DL</button>
     <button data-page="./fachwissen/index.html">Fachwissen</button>
-    <button data-page="./kontakt/index.html">Kontakt</button>
-    <button data-page="./impressum/index.html">Impressum</button>
-    <button data-page="./disclaimer/index.html">Disclaimer</button>
-    <button data-page="./datenschutz/index.html">Datenschutz</button>
   </div>
   <div class="test-row" id="colors">
     <span class="test-label">Farbe</span>
@@ -101,7 +97,7 @@ function apply(){
   paintGroup([...d.querySelectorAll('.services-grid>.service-card')]);
   paintGroup([...d.querySelectorAll('.articles-grid>.article-card')]);
 
-  paintSingle([...d.querySelectorAll('.home-contact-band,.company-collaboration-box,.services-closing,.knowledge-note,.contact-split__form,.disclaimer-card')]);
+  paintSingle([...d.querySelectorAll('.home-contact-band,.company-collaboration-box,.services-closing,.knowledge-note')]);
 
   const hero=d.querySelector('.home-hero__copy');
   if(hero){

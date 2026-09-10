@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON – Fachwissen Karten Test</title>
+<style>
+html,body{margin:0;min-height:100%;background:#f4f4f2;font-family:Arial,sans-serif;color:#171715}
+.testbar{position:sticky;top:0;z-index:99999;background:#fff;border-bottom:1px solid #d8d8d4;padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.testbar strong{font-size:12px}.note{font-size:11px;color:#666;margin-left:auto}
+#siteFrame{display:block;width:100%;height:calc(100vh - 48px);min-height:700px;border:0;background:#fff}
+@media(max-width:800px){.note{width:100%;margin-left:0}#siteFrame{height:calc(100vh - 82px)}}
+</style>
+</head>
+<body>
+<div class="testbar">
+<strong>FACHWISSEN TEST · kleinere Kästen · linksbündig · ohne Farbverlauf</strong>
+<span class="note">Nur Testseite · keine Fotos · Original unverändert</span>
+</div>
+<iframe id="siteFrame" src="fachwissen/index.html?v=fwcompact10092026" title="Fachwissen Test"></iframe>
+<script>
+const frame=document.getElementById('siteFrame');
+function apply(){
+ try{
+  const d=frame.contentDocument;
+  if(!d||!d.head||!d.body)return;
+  let css=d.getElementById('mt-fw-compact-test');
+  if(!css){
+   css=d.createElement('style');
+   css.id='mt-fw-compact-test';
+   css.textContent=`
+     html body img:not([data-preserve-logo]),
+     html body picture,
+     html body video{display:none!important}
+
+     @media(min-width:901px){
+       html body .knowledge-section .articles-grid{
+         max-width:1080px!important;
+         margin-left:0!important;
+         margin-right:auto!important;
+         gap:18px!important;
+       }
+       html body .knowledge-section .articles-grid>.article-card{
+         min-height:245px!important;
+         height:auto!important;
+         padding:28px 28px 26px!important;
+         box-sizing:border-box!important;
+       }
+     }
+
+     html body .knowledge-section .articles-grid>.article-card{
+       text-align:left!important;
+       align-items:flex-start!important;
+       justify-items:start!important;
+       background-image:none!important;
+     }
+     html body .knowledge-section .articles-grid>.article-card>*{
+       text-align:left!important;
+     }
+     html body .knowledge-section .articles-grid>.article-card h2,
+     html body .knowledge-section .articles-grid>.article-card p,
+     html body .knowledge-section .articles-grid>.article-card .article-meta{
+       margin-left:0!important;
+       padding-left:0!important;
+     }
+     html body .knowledge-section .articles-grid>.article-card h2::after{
+       background:#868279!important;
+       background-image:none!important;
+     }
+
+     @media(max-width:900px){
+       html body .knowledge-section .articles-grid>.article-card{
+         min-height:0!important;
+         padding:24px 22px!important;
+       }
+     }
+   `;
+   d.head.appendChild(css);
+  }
+ }catch(e){console.error(e)}
+}
+frame.addEventListener('load',()=>{apply();setTimeout(apply,400);setTimeout(apply,1200)});
+</script>
+</body>
+</html>

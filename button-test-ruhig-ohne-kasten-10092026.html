@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON TREUHAND – Button Test</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;width:100%;height:100%;background:#fff;font-family:Arial,sans-serif}
+  iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
+  .test-panel{position:fixed;left:14px;bottom:14px;z-index:9999;width:360px;max-width:calc(100vw - 28px);padding:10px;background:rgba(255,255,255,.97);border:1px solid #cfcfcf;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+  .test-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:0 0 6px}
+  .test-row:last-child{margin-bottom:0}
+  .test-label{width:52px;font-size:9px;letter-spacing:.08em;color:#666;text-transform:uppercase}
+  .test-panel button{appearance:none;border:1px solid #aaa;background:#fff;color:#171715;padding:6px 8px;font-size:9px;line-height:1;cursor:pointer}
+  .test-panel button.active{background:#171715;color:#fff;border-color:#171715}
+  @media(max-width:560px){.test-panel{left:8px;bottom:8px;width:calc(100vw - 16px)}}
+</style>
+</head>
+<body>
+<iframe id="site" src="./index.html?v=button-calm-test-1"></iframe>
+
+<div class="test-panel" aria-label="Teststeuerung">
+  <div class="test-row">
+    <span class="test-label">Seite</span>
+    <button data-page="./index.html" class="active">Start</button>
+    <button data-page="./dienstleistungen/index.html">DL</button>
+    <button data-page="./kontakt/index.html">Formular</button>
+  </div>
+  <div class="test-row">
+    <span class="test-label">Button</span>
+    <button data-mode="current" class="active">Aktuell</button>
+    <button data-mode="calm">Ohne Kasten · ruhiger Hover</button>
+  </div>
+</div>
+
+<script>
+const frame=document.getElementById('site');
+let page='./index.html';
+let mode='current';
+
+function styleText(){
+  if(mode==='current') return '';
+  return `
+/* Test: nur Button-Gestaltung, Seiteninhalt bleibt unverändert */
+html body.page-home .home-action-button,
+html body.page-services.site-light-page main.services-main .services-contact-button,
+html body.page-contact.site-light-page main .contact-split__form button[type="submit"]{
+  color:#171715!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+}
+html body.page-home .home-action-button::before,
+html body.page-services.site-light-page main.services-main .services-contact-button::before,
+html body.page-contact.site-light-page main .contact-split__form button[type="submit"]::before{
+  content:none!important;
+  display:none!important;
+  border:0!important;
+  border-image:none!important;
+  background:none!important;
+  box-shadow:none!important;
+  filter:none!important;
+}
+html body.page-home .home-action-button span,
+html body.page-services.site-light-page main.services-main .services-contact-button>span,
+html body.page-contact.site-light-page main .contact-split__form button[type="submit"]>span{
+  transition:transform .18s ease!important;
+}
+@media(hover:hover){
+  html body.page-home .home-action-button:hover span,
+  html body.page-home .home-action-button:focus-visible span,
+  html body.page-services.site-light-page main.services-main .services-contact-button:hover>span,
+  html body.page-services.site-light-page main.services-main .services-contact-button:focus-visible>span,
+  html body.page-contact.site-light-page main .contact-split__form button[type="submit"]:hover>span,
+  html body.page-contact.site-light-page main .contact-split__form button[type="submit"]:focus-visible>span{
+    transform:translateX(3px)!important;
+  }
+}
+`;
+}
+
+function apply(){
+  const d=frame.contentDocument;
+  if(!d||!d.head)return;
+  let s=d.getElementById('masoon-button-calm-test');
+  if(!s){s=d.createElement('style');s.id='masoon-button-calm-test';d.head.appendChild(s)}
+  s.textContent=styleText();
+}
+
+frame.addEventListener('load',()=>setTimeout(apply,120));
+
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>{
+  page=b.dataset.page;
+  document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x===b));
+  frame.src=page+'?v=button-calm-test-'+Date.now();
+}));
+
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{
+  mode=b.dataset.mode;
+  document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('active',x===b));
+  apply();
+}));
+</script>
+</body>
+</html>

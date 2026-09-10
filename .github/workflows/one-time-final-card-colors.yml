@@ -2,8 +2,10 @@ name: One-time final card colors
 
 on:
   push:
-    branches: [main]
-    paths: [.github/workflows/one-time-final-card-colors.yml]
+    branches:
+      - main
+    paths:
+      - .github/workflows/one-time-final-card-colors.yml
 
 permissions:
   contents: write
@@ -13,14 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Patch existing CSS rules
+      - name: Patch CSS
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import re
 
-          # Dienstleistungen Hauptseite
           p=Path('assets/unified-design-base-20260907.css')
           s=p.read_text(encoding='utf-8')
           pat=r'/\* Dienstleistungen Hauptseite: alle Karten transparent \*/.*?\n}\n\n/\* Dienstleistungen Hauptseite: gesamter Karteninhalt 3 Pixel höher \*/'
@@ -55,7 +56,6 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
           s=s.replace('border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;\n}', 'border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;\n  background-position:right top!important;\n}',1)
           p.write_text(s,encoding='utf-8')
 
-          # Fachwissen Hauptseite
           p=Path('assets/unified-design.css')
           s=p.read_text(encoding='utf-8')
           pat=r'html body\.page-knowledge\.site-light-page main \.knowledge-section#knowledge-articles \.articles-grid>\.article-card\.article-card\{\n  background:linear-gradient\(to right in oklab,rgba\(243,232,212,\.06\).*?backdrop-filter:blur\(32px\)!important;\n\}'

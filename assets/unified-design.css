@@ -75,8 +75,8 @@ html body.site-light-page main.services-main>.services-closing,
 html body.site-light-page main.page-main>.company-collaboration-box,
 html body.site-light-page main.home>.home-contact-band{
   background-image:none!important;
-  border-image:none!important;
-  border-color:var(--mt-line)!important;
+ border-color:transparent!important;
+border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
   box-shadow:none!important;
   filter:none!important;
   backdrop-filter:none!important;

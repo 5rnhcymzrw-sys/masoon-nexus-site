@@ -1689,10 +1689,10 @@ html body.page-company.site-light-page .company-legal-card .home-company__image:
   html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{
     box-sizing:border-box!important;
     width:100%!important;
-    height:341px!important;
-    min-height:341px!important;
-    max-height:341px!important;
-    padding:82px 42px 36px!important;
+    height:321px!important;
+    min-height:321px!important;
+    max-height:321px!important;
+    padding:62px 42px 36px!important;
     display:flex!important;
     flex-direction:column!important;
   }

@@ -1674,12 +1674,12 @@ html body.page-company.site-light-page .company-legal-card .home-company__image:
   }
 }
 
-/* Dienstleistungen: geöffnete Kästen automatisch an den Inhalt anpassen. */
+/* Dienstleistungen: alle geöffneten Kästen mit einheitlicher, angepasster Höhe. */
 @media(min-width:801px){
   html body.page-services.site-light-page .services-main .services-section .services-grid>.service-card[open]{
-    height:auto!important;
-    min-height:0!important;
-    max-height:none!important;
-    overflow:visible!important;
+    height:621px!important;
+    min-height:621px!important;
+    max-height:621px!important;
+    overflow:hidden!important;
   }
 }

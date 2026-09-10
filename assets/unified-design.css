@@ -596,9 +596,9 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__copy
 }
 @media(min-width:801px){
   html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{
-    left:-102px;
+    left:-81.6px;
     right:auto;
-    width:calc(min(640px,calc(100vw - 64px)) + 50px);
+    width:calc(min(640px,calc(100vw - 64px)) + 29.6px);
   }
 }
 

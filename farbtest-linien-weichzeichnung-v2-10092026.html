@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON TREUHAND – Linien und Weichzeichnung Test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#171715;
+  --copy:#484a4f;
+  --muted:#868279;
+  --grad:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%);
+  --border:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#f8f8f7;color:var(--ink);font-family:Inter,Arial,sans-serif}
+body{min-height:100vh}
+.topbar{position:sticky;top:0;z-index:50;background:#111;color:#fff;padding:15px 24px;border-bottom:4px solid transparent;border-image:var(--border) 1}
+.topbar strong{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+.topbar span{display:block;margin-top:5px;font-size:12px;color:#aaa}
+.test-section{position:relative;overflow:hidden;padding:74px max(28px,calc((100vw - 1227px)/2)) 82px;border-bottom:1px solid #ddd;background:linear-gradient(110deg,rgba(243,232,212,.09),rgba(255,255,255,.78) 40%,rgba(199,203,211,.08) 72%,rgba(141,150,168,.1))}
+.test-section::before{content:"";position:absolute;inset:-80px -120px;pointer-events:none;background:repeating-linear-gradient(118deg,transparent 0 46px,rgba(90,95,105,.055) 47px 48px,transparent 49px 94px);opacity:.7}
+.test-section>*{position:relative;z-index:1}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:34px}
+.kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#171715;margin:0 0 14px}
+h1,h2{font-family:"PT Serif",Georgia,serif;margin:0;font-weight:700;line-height:1.04}
+h2{font-size:40px}
+.controls{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+.control-group{display:flex;align-items:center;gap:6px;padding:6px;border:1px solid #d7d5d1;background:rgba(255,255,255,.74)}
+.control-group b{padding:0 7px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6d6962;font-weight:500}
+button{border:1px solid #d0cec9;background:#fff;color:#171715;padding:8px 11px;font:500 10px/1.2 Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+button.active{background:#171715;color:#fff;border-color:#171715}
+.preview{position:relative}
+.hero-stage{min-height:450px;background:linear-gradient(125deg,#111 0%,#292929 45%,#5d626b 100%);display:flex;align-items:center;padding:54px;overflow:hidden}
+.hero-stage::before{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(255,255,255,.22);right:70px;top:-120px;transform:rotate(28deg)}
+.hero-stage::after{content:"";position:absolute;width:520px;height:1px;background:rgba(255,255,255,.22);right:-80px;bottom:105px;transform:rotate(-22deg)}
+.hero-card{position:relative;z-index:2;width:min(650px,70%);padding:48px 52px;background:#fff;border:1px solid transparent;color:var(--ink);transition:.15s ease}
+.hero-card h3{font:700 52px/1.04 "PT Serif",Georgia,serif;margin:0 0 28px}
+.hero-card p{font-size:14px;line-height:1.65;color:var(--copy);max-width:500px;margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{position:relative;min-height:250px;padding:42px;background:var(--grad);background-size:calc(300% + 44px) 100%;background-repeat:no-repeat;background-origin:border-box;border:1px solid transparent;transition:.15s ease}
+.card:nth-child(3n+1){background-position:left top}
+.card:nth-child(3n+2){background-position:center top}
+.card:nth-child(3n){background-position:right top}
+.card.line-on:nth-child(3n+1){border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1}
+.card.line-on:nth-child(3n+2){border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1}
+.card.line-on:nth-child(3n){border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1}
+.card.line-off{border-color:transparent;border-image:none}
+.card.blur-on,.hero-card.blur-on{-webkit-backdrop-filter:blur(32px);backdrop-filter:blur(32px)}
+.card.blur-off,.hero-card.blur-off{-webkit-backdrop-filter:none;backdrop-filter:none}
+.card-num{font:400 31px/1 "PT Serif",Georgia,serif;color:#b9b7b3;display:inline-block;margin-right:13px}
+.card:nth-child(3n+1) .card-num{color:#171715}
+.card h3{display:inline;font:400 21px/1.12 "PT Serif",Georgia,serif;margin:0}
+.card p{margin:22px 0 0;font-size:14px;line-height:1.65;color:var(--copy)}
+.company .card{min-height:220px}
+.company .card h3{font-weight:700}
+.status{margin-top:18px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6d6962}
+@media(max-width:980px){.section-head{align-items:flex-start;flex-direction:column}.controls{justify-content:flex-start}.cards{grid-template-columns:repeat(2,1fr)}.hero-card{width:86%}}
+@media(max-width:620px){.test-section{padding-left:18px;padding-right:18px}.cards{grid-template-columns:1fr}.hero-stage{padding:24px}.hero-card{width:100%;padding:34px 28px}.hero-card h3{font-size:40px}}
+</style>
+</head>
+<body>
+<div class="topbar"><strong>MASOON TREUHAND – Testseite</strong><span>Nur Vergleich. Keine Änderung an der produktiven Website.</span></div>
+
+<section class="test-section" data-test="hero">
+  <div class="section-head">
+    <div><p class="kicker">Startseite Hero</p><h2>Weisser Hero Kasten</h2></div>
+    <div class="controls">
+      <div class="control-group"><b>Verlauf</b><button data-key="gradient" data-value="off">Aus</button><button class="active" data-key="gradient" data-value="on">An</button></div>
+      <div class="control-group"><b>Linie</b><button data-key="line" data-value="off">Ohne</button><button class="active" data-key="line" data-value="on">Mit</button></div>
+      <div class="control-group"><b>Weichzeichnung</b><button data-key="blur" data-value="off">Ohne</button><button class="active" data-key="blur" data-value="on">Mit</button></div>
+    </div>
+  </div>
+  <div class="preview hero-stage">
+    <div class="hero-card line-on blur-on">
+      <h3>Treuhand mit Struktur und Anspruch.</h3>
+      <p>Auf der Basis von Diskretion, Präzision und Vertrauen begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch durch alle Phasen Ihres Geschäftslebens.</p>
+    </div>
+  </div>
+  <div class="status"></div>
+</section>
+
+<section class="test-section" data-test="homeDL">
+  <div class="section-head">
+    <div><p class="kicker">Startseite</p><h2>Dienstleistungen – 6 Kästen</h2></div>
+    <div class="controls">
+      <div class="control-group"><b>Linien</b><button data-key="line" data-value="off">Ohne</button><button class="active" data-key="line" data-value="on">Mit</button></div>
+      <div class="control-group"><b>Weichzeichnung</b><button data-key="blur" data-value="off">Ohne</button><button class="active" data-key="blur" data-value="on">Mit</button></div>
+    </div>
+  </div>
+  <div class="cards">
+    <article class="card line-on blur-on"><span class="card-num">01</span><h3>Administration</h3><p>Strukturierte Unterstützung bei administrativen Aufgaben und laufenden Geschäftsprozessen.</p></article>
+    <article class="card line-on blur-on"><span class="card-num">02</span><h3>Buchhaltung</h3><p>Übersichtliche und zuverlässige Führung Ihrer Finanzbuchhaltung.</p></article>
+    <article class="card line-on blur-on"><span class="card-num">03</span><h3>Personaladministration</h3><p>Professionelle Abwicklung von Löhnen, Sozialversicherungen und Personalmutationen.</p></article>
+    <article class="card line-on blur-on"><span class="card-num">04</span><h3>Jahresabschluss</h3><p>Sorgfältige Vorbereitung und Erstellung von Zwischen- und Jahresabschlüssen.</p></article>
+    <article class="card line-on blur-on"><span class="card-num">05</span><h3>Steuererklärung</h3><p>Steuererklärungen für Privatpersonen und Unternehmen inklusive Veranlagungskontrolle.</p></article>
+    <article class="card line-on blur-on"><span class="card-num">06</span><h3>Unternehmensberatung</h3><p>Begleitung bei Gründungen, Umstrukturierungen und weiteren unternehmerischen Fragen.</p></article>
+  </div>
+  <div class="status"></div>
+</section>
+
+<section class="test-section company" data-test="company">
+  <div class="section-head">
+    <div><p class="kicker">Unternehmen</p><h2>Werte – 3 Kästen</h2></div>
+    <div class="controls">
+      <div class="control-group"><b>Linien</b><button data-key="line" data-value="off">Ohne</button><button class="active" data-key="line" data-value="on">Mit</button></div>
+      <div class="control-group"><b>Weichzeichnung</b><button data-key="blur" data-value="off">Ohne</button><button class="active" data-key="blur" data-value="on">Mit</button></div>
+    </div>
+  </div>
+  <div class="cards">
+    <article class="card line-on blur-on"><span class="card-num">01</span><h3>Diskretion</h3><p>Vertrauliche Angelegenheiten werden diskret, verantwortungsvoll und mit absoluter Verschwiegenheit behandelt.</p></article>
+    <article class="card line-on blur-on"><span class="card-num">02</span><h3>Präzision</h3><p>Mandatsarbeiten werden präzise, fachlich fundiert und mit einem hohen Qualitätsanspruch ausgeführt.</p></article>
+    <article class="card line-on blur-on"><span class="card-num">03</span><h3>Vertrauen</h3><p>Mandatsbeziehungen werden verlässlich gestaltet und auf eine langfristige Zusammenarbeit ausgerichtet.</p></article>
+  </div>
+  <div class="status"></div>
+</section>
+
+<section class="test-section" data-test="services">
+  <div class="section-head">
+    <div><p class="kicker">Dienstleistungen Hauptseite</p><h2>6 Dienstleistungskästen</h2></div>
+    <div class="controls">
+      <div class="control-group"><b>Linien</b><button data-key="line" data-value="off">Ohne</button><button class="active" data-key="line" data-value="on">Mit</button></div>
+      <div class="control-group"><b>Weichzeichnung</b><button data-key="blur" data-value="off">Ohne</button><button class="active" data-key="blur" data-value="on">Mit</button></div>
+    </div>
+  </div>
+  <div class="cards">
+    <article class="card line-on blur-on"><span class="card-num">01</span><h3>Administration</h3><p>Strukturierte Unterstützung bei administrativen Aufgaben und laufenden Geschäftsprozessen.</p></article>
+    <article class="card line-on blur-on"><span class="card-num">02</span><h3>Buchhaltung</h3><p>Übersichtliche und zuverlässige Führung Ihrer Finanzbuchhaltung.</p></article>
+    <article class="card line-on blur-on"><span class="card-num">03</span><h3>Personaladministration</h3><p>Professionelle Abwicklung von Löhnen, Sozialversicherungen und Personalmutationen.</p></article>
+    <article class="card line-on blur-on"><span class="card-num">04</span><h3>Jahresabschluss</h3><p>Sorgfältige Vorbereitung und Erstellung von Zwischen- und Jahresabschlüssen.</p></article>
+    <article class="card line-on blur-on"><span class="card-num">05</span><h3>Steuererklärung</h3><p>Steuererklärungen für Privatpersonen und Unternehmen inklusive Veranlagungskontrolle.</p></article>
+    <article class="card line-on blur-on"><span class="card-num">06</span><h3>Unternehmensberatung</h3><p>Begleitung bei Gründungen, Umstrukturierungen und weiteren unternehmerischen Fragen.</p></article>
+  </div>
+  <div class="status"></div>
+</section>
+
+<script>
+const state={
+  hero:{gradient:'on',line:'on',blur:'on'},
+  homeDL:{line:'on',blur:'on'},
+  company:{line:'on',blur:'on'},
+  services:{line:'on',blur:'on'}
+};
+function setActive(section,key,value){
+  section.querySelectorAll(`button[data-key="${key}"]`).forEach(b=>b.classList.toggle('active',b.dataset.value===value));
+}
+function apply(section){
+  const id=section.dataset.test;
+  const s=state[id];
+  if(id==='hero'){
+    const box=section.querySelector('.hero-card');
+    box.style.background=s.gradient==='on'?'var(--grad)':'#fff';
+    box.style.backgroundSize='100% 100%';
+    box.classList.toggle('line-on',s.line==='on');
+    box.classList.toggle('line-off',s.line==='off');
+    box.style.borderImage=s.line==='on'?'var(--border) 1':'none';
+    box.classList.toggle('blur-on',s.blur==='on');
+    box.classList.toggle('blur-off',s.blur==='off');
+  }else{
+    section.querySelectorAll('.card').forEach(card=>{
+      card.classList.toggle('line-on',s.line==='on');
+      card.classList.toggle('line-off',s.line==='off');
+      card.classList.toggle('blur-on',s.blur==='on');
+      card.classList.toggle('blur-off',s.blur==='off');
+    });
+  }
+  section.querySelector('.status').textContent=`Aktuell: ${id==='hero'?'Verlauf '+(s.gradient==='on'?'AN':'AUS')+' · ':''}Linien ${s.line==='on'?'MIT':'OHNE'} · Weichzeichnung ${s.blur==='on'?'MIT':'OHNE'}`;
+}
+document.querySelectorAll('.test-section').forEach(section=>{
+  section.querySelectorAll('button[data-key]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const id=section.dataset.test;
+      state[id][btn.dataset.key]=btn.dataset.value;
+      setActive(section,btn.dataset.key,btn.dataset.value);
+      apply(section);
+    });
+  });
+  apply(section);
+});
+</script>
+</body>
+</html>

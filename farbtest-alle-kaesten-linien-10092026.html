@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON TREUHAND – alle Kästen Farb- und Linientest</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#f4f4f2;font-family:Arial,sans-serif;color:#171715}
+  .controls{position:sticky;top:0;z-index:30;background:#111;border-bottom:1px solid #3a3a3a;padding:10px 14px;display:grid;gap:8px}
+  .row{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+  .label{min-width:74px;color:#a9a9a9;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+  button{appearance:none;border:1px solid #666;background:#191919;color:#fff;padding:8px 11px;font-size:11px;line-height:1;cursor:pointer}
+  button.active{background:#fff;color:#111;border-color:#fff}
+  .note{padding:8px 14px;background:#fff;border-bottom:1px solid #ddd;font-size:11px;line-height:1.45;color:#555}
+  iframe{display:block;width:100%;height:calc(100vh - 154px);border:0;background:#fff}
+</style>
+</head>
+<body>
+<div class="controls">
+  <div class="row" id="pages">
+    <span class="label">SEITE</span>
+    <button data-page="./index.html" class="active">STARTSEITE</button>
+    <button data-page="./unternehmen/index.html">UNTERNEHMEN</button>
+    <button data-page="./dienstleistungen/index.html">DIENSTLEISTUNGEN</button>
+    <button data-page="./fachwissen/index.html">FACHWISSEN</button>
+    <button data-page="./kontakt/index.html">KONTAKT</button>
+    <button data-page="./impressum/index.html">IMPRESSUM</button>
+    <button data-page="./disclaimer/index.html">DISCLAIMER</button>
+    <button data-page="./datenschutz/index.html">DATENSCHUTZ</button>
+  </div>
+  <div class="row" id="colors">
+    <span class="label">FARBE</span>
+    <button data-color="2" class="active">2 KRÄFTIGER · 11%</button>
+    <button data-color="3">3 DEUTLICHER · 11%</button>
+  </div>
+  <div class="row" id="lines">
+    <span class="label">LINIEN</span>
+    <button data-lines="on" class="active">MIT LINIEN</button>
+    <button data-lines="off">OHNE LINIEN</button>
+  </div>
+</div>
+<div class="note">Echte aktuelle Seiten im Test. Es werden nur die vorhandenen Kastenflächen testweise eingefärbt. Variante 2 und 3 bleiben beide bei 11 % Deckkraft. Mit/ohne Linien verändert nur die sichtbare Rahmenlinie, nicht die Masse der Kästen.</div>
+<iframe id="site" src="./index.html?v=all-box-test-1"></iframe>
+<script>
+const frame=document.getElementById('site');
+let page='./index.html';
+let color='2';
+let lines='on';
+
+const variants={
+  '2':[[244,228,201],[232,227,218],[193,199,214],[132,144,171]],
+  '3':[[245,225,194],[232,225,214],[187,196,216],[124,139,173]]
+};
+
+function gradient(){
+  const c=variants[color], a=.11;
+  return `linear-gradient(to right in oklab,rgba(${c[0].join(',')},${a}) 0%,rgba(${c[1].join(',')},${a}) 36%,rgba(${c[2].join(',')},${a}) 68%,rgba(${c[3].join(',')},${a}) 100%)`;
+}
+function lineFull(){return lines==='on'?'linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1':'none'}
+function lineLeft(){return lines==='on'?'linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1':'none'}
+function lineMid(){return lines==='on'?'linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1':'none'}
+function lineRight(){return lines==='on'?'linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1':'none'}
+
+function css(){
+  const g=gradient();
+  return `
+/* Gruppen: aktuelle Karten, gleiche Verlaufverteilung wie bestehendes System */
+html body[data-masoon-box-test="1"] :is(
+  .home-values__items>.home-values__item,
+  .home-paths__grid>a,
+  .company-values-grid>.company-value-card,
+  .services-grid>.service-card,
+  .articles-grid>.article-card
+){
+  background:${g}!important;
+  background-size:calc(300% + 44px) 100%!important;
+  background-repeat:no-repeat!important;
+  background-origin:border-box!important;
+  border:1px solid transparent!important;
+  box-shadow:none!important;
+}
+html body[data-masoon-box-test="1"] :is(
+  .home-values__items>.home-values__item,
+  .home-paths__grid>a,
+  .company-values-grid>.company-value-card,
+  .services-grid>.service-card,
+  .articles-grid>.article-card
+):nth-child(3n+1){background-position:0% 0!important;border-image:${lineLeft()}!important}
+html body[data-masoon-box-test="1"] :is(
+  .home-values__items>.home-values__item,
+  .home-paths__grid>a,
+  .company-values-grid>.company-value-card,
+  .services-grid>.service-card,
+  .articles-grid>.article-card
+):nth-child(3n+2){background-position:50% 0!important;border-image:${lineMid()}!important}
+html body[data-masoon-box-test="1"] :is(
+  .home-values__items>.home-values__item,
+  .home-paths__grid>a,
+  .company-values-grid>.company-value-card,
+  .services-grid>.service-card,
+  .articles-grid>.article-card
+):nth-child(3n){background-position:100% 0!important;border-image:${lineRight()}!important}
+
+/* Einzelne grosse Kästen */
+html body[data-masoon-box-test="1"] :is(
+  .home-contact-band,
+  .company-collaboration-box,
+  .services-closing,
+  .knowledge-note,
+  .contact-split__form,
+  .disclaimer-card
+){
+  background:${g}!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  background-origin:border-box!important;
+  border:1px solid transparent!important;
+  border-image:${lineFull()}!important;
+  box-shadow:none!important;
+}
+
+/* Dienstleistungskarten auch in Hover/Open gleich halten */
+html body[data-masoon-box-test="1"].page-services .services-grid>.service-card:hover,
+html body[data-masoon-box-test="1"].page-services .services-grid>.service-card[open]{
+  background:${g}!important;
+  background-size:calc(300% + 44px) 100%!important;
+  background-repeat:no-repeat!important;
+  background-origin:border-box!important;
+}
+
+/* Fachwissen Hauptseite: Testfarbe dauerhaft sichtbar statt nur beim Hover */
+html body[data-masoon-box-test="1"].page-knowledge .articles-grid>.article-card,
+html body[data-masoon-box-test="1"].page-knowledge .articles-grid>.article-card:hover{
+  background-image:${g}!important;
+}
+`;
+}
+
+function apply(){
+  const d=frame.contentDocument;
+  if(!d || !d.head || !d.body) return;
+  d.body.setAttribute('data-masoon-box-test','1');
+  let s=d.getElementById('masoon-all-box-test');
+  if(!s){s=d.createElement('style');s.id='masoon-all-box-test';d.head.appendChild(s)}
+  s.textContent=css();
+}
+
+frame.addEventListener('load',()=>setTimeout(apply,80));
+
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>{
+  page=b.dataset.page;
+  document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x===b));
+  frame.src=page+'?v=all-box-test-'+Date.now();
+}));
+document.querySelectorAll('[data-color]').forEach(b=>b.addEventListener('click',()=>{
+  color=b.dataset.color;
+  document.querySelectorAll('[data-color]').forEach(x=>x.classList.toggle('active',x===b));
+  apply();
+}));
+document.querySelectorAll('[data-lines]').forEach(b=>b.addEventListener('click',()=>{
+  lines=b.dataset.lines;
+  document.querySelectorAll('[data-lines]').forEach(x=>x.classList.toggle('active',x===b));
+  apply();
+}));
+</script>
+</body>
+</html>

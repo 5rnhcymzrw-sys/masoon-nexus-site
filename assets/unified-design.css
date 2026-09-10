@@ -1774,3 +1774,24 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__soft
   filter:none!important;
   opacity:0!important;
 }
+/* FINAL: grosse Seitentitel PT Serif Bold 45px */
+html body .global-title,
+html body .section-heading h1,
+html body .section-heading h2,
+html body .legal-page h1,
+html body .knowledge-note h2,
+html body .home-paths__heading h2,
+html body .home-contact-band h2,
+html body .services-closing h2,
+html body .home-company h2,
+html body .company-collaboration-box h2,
+html body .contact-split__info h1 {
+  font-family: "PT Serif", Georgia, serif !important;
+  font-weight: 700 !important;
+  font-size: 45px !important;
+  line-height: 1.04 !important;
+  letter-spacing: 0 !important;
+  font-style: normal !important;
+  -webkit-text-stroke: 0.25px currentColor !important;
+  font-synthesis: none !important;
+}

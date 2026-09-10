@@ -8,7 +8,7 @@
   *{box-sizing:border-box}
   html,body{margin:0;width:100%;height:100%;background:#fff;font-family:Arial,sans-serif}
   iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
-  .test-panel{position:fixed;left:14px;bottom:14px;z-index:9999;width:330px;max-width:calc(100vw - 28px);padding:10px;background:rgba(255,255,255,.96);border:1px solid #cfcfcf;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+  .test-panel{position:fixed;left:14px;bottom:14px;z-index:9999;width:360px;max-width:calc(100vw - 28px);padding:10px;background:rgba(255,255,255,.96);border:1px solid #cfcfcf;box-shadow:0 4px 18px rgba(0,0,0,.12)}
   .test-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:0 0 6px}
   .test-row:last-child{margin-bottom:0}
   .test-label{width:44px;font-size:9px;letter-spacing:.08em;color:#666;text-transform:uppercase}
@@ -18,7 +18,7 @@
 </style>
 </head>
 <body>
-<iframe id="site" src="./index.html?v=all-box-test-4"></iframe>
+<iframe id="site" src="./index.html?v=all-box-test-5"></iframe>
 
 <div class="test-panel" aria-label="Teststeuerung">
   <div class="test-row" id="pages">
@@ -27,6 +27,7 @@
     <button data-page="./unternehmen/index.html">Unternehmen</button>
     <button data-page="./dienstleistungen/index.html">DL</button>
     <button data-page="./fachwissen/index.html">Fachwissen</button>
+    <button data-page="./kontakt/index.html">Formular</button>
   </div>
   <div class="test-row" id="colors">
     <span class="test-label">Farbe</span>
@@ -97,7 +98,7 @@ function apply(){
   paintGroup([...d.querySelectorAll('.services-grid>.service-card')]);
   paintGroup([...d.querySelectorAll('.articles-grid>.article-card')]);
 
-  paintSingle([...d.querySelectorAll('.home-contact-band,.company-collaboration-box,.services-closing,.knowledge-note')]);
+  paintSingle([...d.querySelectorAll('.home-contact-band,.company-collaboration-box,.services-closing,.knowledge-note,.contact-split__form')]);
 
   const hero=d.querySelector('.home-hero__copy');
   if(hero){

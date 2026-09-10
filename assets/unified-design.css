@@ -90,7 +90,7 @@ html body.site-light-page main.services-main .services-section .services-grid>.s
 }
 
 /* Seitenspezifische Regeln, aus dem HTML konsolidiert. */
-html body .home-logo-icon{width:165.517241px!important;}
+html body header.site-header .header-inner .home-text-logo .home-logo-icon{width:165.517241px!important;}
 body.page-home .home-hero__services{margin-top:30px;}
 body.page-home .home-copy-spaced{margin-top:2.2rem;}
 body.page-knowledge [data-reveal-delay="0"]{--reveal-delay:0ms;}

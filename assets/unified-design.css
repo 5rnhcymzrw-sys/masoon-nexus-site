@@ -1673,3 +1673,13 @@ html body.page-company.site-light-page .company-legal-card .home-company__image:
     width:92%!important;height:92%!important;
   }
 }
+
+/* Dienstleistungen: geöffnete Kästen automatisch an den Inhalt anpassen. */
+@media(min-width:801px){
+  html body.page-services.site-light-page .services-main .services-section .services-grid>.service-card[open]{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+}

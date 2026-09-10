@@ -28,34 +28,42 @@
     <button data-view="services">DL Hauptseite</button>
   </div>
   <div id="controls" class="controls"></div>
-  <div class="note">Es wird jeweils die echte aktuelle Seite geladen. Nur Test-CSS wird darübergelegt.</div>
+  <div class="note">Originalseiten werden geladen. Änderungen gelten nur in dieser Testansicht.</div>
 </div>
 <iframe id="site" title="Originalseiten-Test"></iframe>
 <script>
 const frame=document.getElementById('site');
 const controls=document.getElementById('controls');
 const tabs=[...document.querySelectorAll('[data-view]')];
+
 const state={
   hero:{gradient:false,line:true,blur:false},
   homeDL:{line:true,blur:true},
   company:{line:true,blur:true},
   services:{line:true,blur:true}
 };
+
 const views={
-  hero:{url:'./index.html',target:'.home-hero__text-surface',scroll:'.home-hero'},
-  homeDL:{url:'./index.html',target:'.home-values__items>.home-values__item',scroll:'.home-values'},
-  company:{url:'./unternehmen/index.html',target:'.company-values-grid>.company-value-card',scroll:'.company-values-section'},
-  services:{url:'./dienstleistungen/index.html',target:'.services-grid>.service-card',scroll:'.services-section'}
+  hero:{url:'./index.html',scroll:'.home-hero'},
+  homeDL:{url:'./index.html',scroll:'.home-values'},
+  company:{url:'./unternehmen/index.html',scroll:'.company-values-section'},
+  services:{url:'./dienstleistungen/index.html',scroll:'.services-section'}
 };
+
 let current='hero';
 
 function mk(label,key,value){
   const b=document.createElement('button');
   b.textContent=label;
   if(state[current][key]===value)b.classList.add('active');
-  b.addEventListener('click',()=>{state[current][key]=value;renderControls();applyTest();});
+  b.addEventListener('click',()=>{
+    state[current][key]=value;
+    renderControls();
+    applyTest();
+  });
   return b;
 }
+
 function addGroup(name,key){
   const l=document.createElement('span');
   l.className='label';
@@ -65,39 +73,67 @@ function addGroup(name,key){
   controls.appendChild(mk('AUS',key,false));
   controls.appendChild(mk('AN',key,true));
 }
+
 function renderControls(){
   controls.innerHTML='';
-  if(current==='hero') addGroup('Verlauf','gradient');
+  if(current==='hero')addGroup('Verlauf','gradient');
   addGroup('Linie','line');
   addGroup('Weichzeichnung','blur');
 }
-function rule(sel,body){return sel+'{'+body+'}';}
+
 function cssForCurrent(){
-  const grad='linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)';
-  const v=views[current];
+  const fill='linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)';
+  const borderAll='linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1';
+  const borderLeft='linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1';
+  const borderMid='linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1';
+  const borderRight='linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1';
   let css='';
 
-  if(current==='hero' && state.hero.gradient){
-    css+=rule('html body.page-home .home-hero__text-surface',
-      'background:'+grad+'!important;background-color:transparent!important;background-size:100% 100%!important;background-repeat:no-repeat!important;background-origin:border-box!important;');
+  if(current==='hero'){
+    const s='html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before';
+    css+=s+'{content:""!important;display:block!important;';
+    css+=state.hero.gradient
+      ? 'background:'+fill+'!important;background-color:transparent!important;'
+      : 'background:#fff!important;background-image:none!important;';
+    css+=state.hero.line
+      ? 'border:1px solid transparent!important;border-image:'+borderAll+'!important;'
+      : 'border:1px solid transparent!important;border-image:none!important;border-color:transparent!important;';
+    css+=state.hero.blur
+      ? '-webkit-backdrop-filter:blur(32px)!important;backdrop-filter:blur(32px)!important;'
+      : '-webkit-backdrop-filter:none!important;backdrop-filter:none!important;';
+    css+='}';
+    return css;
   }
 
-  if(!state[current].line){
-    css+=rule(v.target,'border-color:transparent!important;border-image:none!important;');
-  }
+  let base='';
+  if(current==='homeDL')base='html body.page-home.site-light-page main.home .home-values__items>.home-values__item';
+  if(current==='company')base='html body.page-company.site-light-page main.page-main .company-values-grid>.company-value-card';
+  if(current==='services')base='html body.page-services.site-light-page main.services-main .services-section .services-grid>.service-card';
 
-  if(state[current].blur){
-    css+=rule(v.target,'-webkit-backdrop-filter:blur(32px)!important;backdrop-filter:blur(32px)!important;');
+  css+=base+'{';
+  if(state[current].line){
+    css+='border-width:1px!important;border-style:solid!important;border-color:transparent!important;';
   }else{
-    css+=rule(v.target,'-webkit-backdrop-filter:none!important;backdrop-filter:none!important;');
+    css+='border-width:1px!important;border-style:solid!important;border-color:transparent!important;border-image:none!important;';
+  }
+  css+=state[current].blur
+    ? '-webkit-backdrop-filter:blur(32px)!important;backdrop-filter:blur(32px)!important;'
+    : '-webkit-backdrop-filter:none!important;backdrop-filter:none!important;';
+  css+='}';
+
+  if(state[current].line){
+    css+=base+':nth-child(3n+1){border-image:'+borderLeft+'!important;}';
+    css+=base+':nth-child(3n+2){border-image:'+borderMid+'!important;}';
+    css+=base+':nth-child(3n){border-image:'+borderRight+'!important;}';
   }
 
   return css;
 }
+
 function applyTest(){
   try{
     const doc=frame.contentDocument;
-    if(!doc || !doc.head)return;
+    if(!doc||!doc.head)return;
     let style=doc.getElementById('masoon-original-test-overrides');
     if(!style){
       style=doc.createElement('style');
@@ -107,6 +143,7 @@ function applyTest(){
     style.textContent=cssForCurrent();
   }catch(e){console.error(e);}
 }
+
 function focusTarget(){
   try{
     const doc=frame.contentDocument;
@@ -116,18 +153,20 @@ function focusTarget(){
     else el.scrollIntoView({block:'center',behavior:'auto'});
   }catch(e){console.error(e);}
 }
+
 function loadView(view){
   current=view;
   tabs.forEach(b=>b.classList.toggle('active',b.dataset.view===view));
   renderControls();
   frame.onload=()=>{
     applyTest();
-    setTimeout(()=>{applyTest();focusTarget();},250);
-    setTimeout(()=>{applyTest();focusTarget();},900);
+    setTimeout(()=>{applyTest();focusTarget();},150);
+    setTimeout(()=>{applyTest();focusTarget();},650);
   };
   const sep=views[view].url.includes('?')?'&':'?';
   frame.src=views[view].url+sep+'originaltest='+Date.now();
 }
+
 tabs.forEach(b=>b.addEventListener('click',()=>loadView(b.dataset.view)));
 loadView('hero');
 </script>

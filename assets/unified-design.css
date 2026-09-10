@@ -82,3 +82,9 @@ html body.site-light-page main.home>.home-contact-band{
   backdrop-filter:none!important;
   -webkit-backdrop-filter:none!important;
 }
+
+/* Dienstleistungen Hauptseite: Silbentrennung nur im Fliesstext der Kästen. */
+html body.site-light-page main.services-main .services-section .services-grid>.service-card>summary>p:not(.section-label){
+  -webkit-hyphens:auto!important;
+  hyphens:auto!important;
+}

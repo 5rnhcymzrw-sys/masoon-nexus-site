@@ -12,18 +12,18 @@ html,body{margin:0;min-height:100%;background:#f4f4f2;font-family:Arial,sans-ser
 </head>
 <body>
 <div class="testbar">
-<strong>TEST V3 · Titel 43 px · Hero 50 px</strong>
-<button data-src="index.html?v=typov3fix" class="active">Startseite</button>
-<button data-src="unternehmen/index.html?v=typov3fix">Unternehmen</button>
-<button data-src="dienstleistungen/index.html?v=typov3fix">Dienstleistungen</button>
-<button data-src="fachwissen/index.html?v=typov3fix">Fachwissen</button>
-<button data-src="kontakt/index.html?v=typov3fix">Kontakt</button>
-<button data-src="impressum/index.html?v=typov3fix">Impressum</button>
-<button data-src="datenschutz/index.html?v=typov3fix">Datenschutz</button>
-<button data-src="disclaimer/index.html?v=typov3fix">Disclaimer</button>
+<strong>TEST V3 · PT Serif Bold · Titel 43 px · Hero 50 px</strong>
+<button data-src="index.html?v=typov3ptserif" class="active">Startseite</button>
+<button data-src="unternehmen/index.html?v=typov3ptserif">Unternehmen</button>
+<button data-src="dienstleistungen/index.html?v=typov3ptserif">Dienstleistungen</button>
+<button data-src="fachwissen/index.html?v=typov3ptserif">Fachwissen</button>
+<button data-src="kontakt/index.html?v=typov3ptserif">Kontakt</button>
+<button data-src="impressum/index.html?v=typov3ptserif">Impressum</button>
+<button data-src="datenschutz/index.html?v=typov3ptserif">Datenschutz</button>
+<button data-src="disclaimer/index.html?v=typov3ptserif">Disclaimer</button>
 <span class="note">Echte Seiten · keine Fotos · Hero ohne Farbverlauf · Kacheltitel kräftiger</span>
 </div>
-<iframe id="siteFrame" src="index.html?v=typov3fix" title="Seitentest"></iframe>
+<iframe id="siteFrame" src="index.html?v=typov3ptserif" title="Seitentest"></iframe>
 <script>
 const frame=document.getElementById('siteFrame');
 const buttons=[...document.querySelectorAll('[data-src]')];
@@ -32,18 +32,30 @@ const serviceTitles=['Administration','Buchhaltung','Personaladministration','Ja
 const companyTitles=['Diskretion','Präzision','Verlässlichkeit','Vertrauen'];
 const normalise=t=>(t||'').replace(/\s+/g,' ').trim();
 function setBig(el,size){
- el.style.setProperty('font-family','Georgia, "Times New Roman", serif','important');
+ el.style.setProperty('font-family','"PT Serif", Georgia, serif','important');
  el.style.setProperty('font-weight','700','important');
  el.style.setProperty('font-style','normal','important');
  el.style.setProperty('font-size',size+'px','important');
  el.style.setProperty('line-height','1.04','important');
  el.style.setProperty('letter-spacing','0','important');
+ el.style.setProperty('-webkit-text-stroke','.25px currentColor','important');
+ el.style.setProperty('font-synthesis','none','important');
 }
-function setCard(el){el.style.setProperty('font-weight','700','important')}
+function setCard(el){
+ el.style.setProperty('font-weight','700','important');
+ el.style.setProperty('-webkit-text-stroke','.10px currentColor','important');
+}
 function apply(){
  try{
   const d=frame.contentDocument;
   if(!d||!d.head||!d.body)return;
+  if(!d.getElementById('mt-test-pt-serif-bold')){
+   const link=d.createElement('link');
+   link.id='mt-test-pt-serif-bold';
+   link.rel='stylesheet';
+   link.href='https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap';
+   d.head.appendChild(link);
+  }
   let css=d.getElementById('mt-test-css');
   if(!css){
    css=d.createElement('style');css.id='mt-test-css';

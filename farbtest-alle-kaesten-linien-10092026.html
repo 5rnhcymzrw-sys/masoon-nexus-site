@@ -40,8 +40,8 @@
     <button data-lines="off">OHNE LINIEN</button>
   </div>
 </div>
-<div class="note">Echte aktuelle Seiten im Test. Es werden nur die vorhandenen Kastenflächen testweise eingefärbt. Variante 2 und 3 bleiben beide bei 11 % Deckkraft. Mit/ohne Linien verändert nur die sichtbare Rahmenlinie, nicht die Masse der Kästen.</div>
-<iframe id="site" src="./index.html?v=all-box-test-1"></iframe>
+<div class="note">Echte aktuelle Seiten im Test. Variante 2 und 3 bleiben beide bei 11 % Deckkraft. Mit/ohne Linien verändert nur die sichtbare Rahmenlinie, nicht die Masse der Kästen.</div>
+<iframe id="site" src="./index.html?v=all-box-test-fixed"></iframe>
 <script>
 const frame=document.getElementById('site');
 let page='./index.html';
@@ -57,101 +57,72 @@ function gradient(){
   const c=variants[color], a=.11;
   return `linear-gradient(to right in oklab,rgba(${c[0].join(',')},${a}) 0%,rgba(${c[1].join(',')},${a}) 36%,rgba(${c[2].join(',')},${a}) 68%,rgba(${c[3].join(',')},${a}) 100%)`;
 }
-function lineFull(){return lines==='on'?'linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1':'none'}
-function lineLeft(){return lines==='on'?'linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1':'none'}
-function lineMid(){return lines==='on'?'linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1':'none'}
-function lineRight(){return lines==='on'?'linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1':'none'}
+const borderFull='linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1';
+const borderLeft='linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1';
+const borderMid='linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1';
+const borderRight='linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1';
 
-function css(){
+function set(el,prop,val){ el.style.setProperty(prop,val,'important'); }
+function clearTestStyles(d){
+  d.querySelectorAll('[data-masoon-test-styled="1"]').forEach(el=>{
+    ['background','background-color','background-image','background-size','background-position','background-repeat','background-origin','border','border-color','border-image','box-shadow'].forEach(p=>el.style.removeProperty(p));
+    el.removeAttribute('data-masoon-test-styled');
+  });
+}
+function styleCard(el,index){
   const g=gradient();
-  return `
-/* Gruppen: aktuelle Karten, gleiche Verlaufverteilung wie bestehendes System */
-html body[data-masoon-box-test="1"] :is(
-  .home-values__items>.home-values__item,
-  .home-paths__grid>a,
-  .company-values-grid>.company-value-card,
-  .services-grid>.service-card,
-  .articles-grid>.article-card
-){
-  background:${g}!important;
-  background-size:calc(300% + 44px) 100%!important;
-  background-repeat:no-repeat!important;
-  background-origin:border-box!important;
-  border:1px solid transparent!important;
-  box-shadow:none!important;
+  el.setAttribute('data-masoon-test-styled','1');
+  set(el,'background',g);
+  set(el,'background-size','calc(300% + 44px) 100%');
+  set(el,'background-repeat','no-repeat');
+  set(el,'background-origin','border-box');
+  set(el,'box-shadow','none');
+  set(el,'border','1px solid transparent');
+  const pos=index%3;
+  set(el,'background-position',pos===0?'0% 0':pos===1?'50% 0':'100% 0');
+  set(el,'border-image',lines==='on'?(pos===0?borderLeft:pos===1?borderMid:borderRight):'none');
 }
-html body[data-masoon-box-test="1"] :is(
-  .home-values__items>.home-values__item,
-  .home-paths__grid>a,
-  .company-values-grid>.company-value-card,
-  .services-grid>.service-card,
-  .articles-grid>.article-card
-):nth-child(3n+1){background-position:0% 0!important;border-image:${lineLeft()}!important}
-html body[data-masoon-box-test="1"] :is(
-  .home-values__items>.home-values__item,
-  .home-paths__grid>a,
-  .company-values-grid>.company-value-card,
-  .services-grid>.service-card,
-  .articles-grid>.article-card
-):nth-child(3n+2){background-position:50% 0!important;border-image:${lineMid()}!important}
-html body[data-masoon-box-test="1"] :is(
-  .home-values__items>.home-values__item,
-  .home-paths__grid>a,
-  .company-values-grid>.company-value-card,
-  .services-grid>.service-card,
-  .articles-grid>.article-card
-):nth-child(3n){background-position:100% 0!important;border-image:${lineRight()}!important}
-
-/* Einzelne grosse Kästen */
-html body[data-masoon-box-test="1"] :is(
-  .home-contact-band,
-  .company-collaboration-box,
-  .services-closing,
-  .knowledge-note,
-  .contact-split__form,
-  .disclaimer-card
-){
-  background:${g}!important;
-  background-size:100% 100%!important;
-  background-repeat:no-repeat!important;
-  background-origin:border-box!important;
-  border:1px solid transparent!important;
-  border-image:${lineFull()}!important;
-  box-shadow:none!important;
+function styleLarge(el){
+  const g=gradient();
+  el.setAttribute('data-masoon-test-styled','1');
+  set(el,'background',g);
+  set(el,'background-size','100% 100%');
+  set(el,'background-repeat','no-repeat');
+  set(el,'background-origin','border-box');
+  set(el,'box-shadow','none');
+  set(el,'border','1px solid transparent');
+  set(el,'border-image',lines==='on'?borderFull:'none');
 }
-
-/* Dienstleistungskarten auch in Hover/Open gleich halten */
-html body[data-masoon-box-test="1"].page-services .services-grid>.service-card:hover,
-html body[data-masoon-box-test="1"].page-services .services-grid>.service-card[open]{
-  background:${g}!important;
-  background-size:calc(300% + 44px) 100%!important;
-  background-repeat:no-repeat!important;
-  background-origin:border-box!important;
-}
-
-/* Fachwissen Hauptseite: Testfarbe dauerhaft sichtbar statt nur beim Hover */
-html body[data-masoon-box-test="1"].page-knowledge .articles-grid>.article-card,
-html body[data-masoon-box-test="1"].page-knowledge .articles-grid>.article-card:hover{
-  background-image:${g}!important;
-}
-`;
-}
-
 function apply(){
   const d=frame.contentDocument;
-  if(!d || !d.head || !d.body) return;
-  d.body.setAttribute('data-masoon-box-test','1');
-  let s=d.getElementById('masoon-all-box-test');
-  if(!s){s=d.createElement('style');s.id='masoon-all-box-test';d.head.appendChild(s)}
-  s.textContent=css();
+  if(!d || !d.body) return;
+  clearTestStyles(d);
+
+  const groups=[
+    '.home-values__items>.home-values__item',
+    '.home-paths__grid>a',
+    '.company-values-grid>.company-value-card',
+    '.services-grid>.service-card',
+    '.articles-grid>.article-card'
+  ];
+  groups.forEach(sel=>d.querySelectorAll(sel).forEach((el,i)=>styleCard(el,i)));
+
+  [
+    '.home-contact-band',
+    '.company-collaboration-box',
+    '.services-closing',
+    '.knowledge-note',
+    '.contact-split__form',
+    '.disclaimer-card'
+  ].forEach(sel=>d.querySelectorAll(sel).forEach(styleLarge));
 }
 
-frame.addEventListener('load',()=>setTimeout(apply,80));
+frame.addEventListener('load',()=>setTimeout(apply,120));
 
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>{
   page=b.dataset.page;
   document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x===b));
-  frame.src=page+'?v=all-box-test-'+Date.now();
+  frame.src=page+'?v=all-box-test-fixed-'+Date.now();
 }));
 document.querySelectorAll('[data-color]').forEach(b=>b.addEventListener('click',()=>{
   color=b.dataset.color;

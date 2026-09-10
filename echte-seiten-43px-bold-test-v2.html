@@ -33,10 +33,14 @@ function inject(){
   try{
     const d=frame.contentDocument;
     if(!d)return;
+    if(!d.getElementById('mt-ptserif700-google')){
+      const pre1=d.createElement('link');pre1.rel='preconnect';pre1.href='https://fonts.googleapis.com';d.head.appendChild(pre1);
+      const pre2=d.createElement('link');pre2.rel='preconnect';pre2.href='https://fonts.gstatic.com';pre2.crossOrigin='anonymous';d.head.appendChild(pre2);
+      const l=d.createElement('link');l.id='mt-ptserif700-google';l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap';d.head.appendChild(l);
+    }
     let s=d.getElementById('mt-43-title-test');
     if(!s){s=d.createElement('style');s.id='mt-43-title-test';d.head.appendChild(s)}
     s.textContent=`
-      @font-face{font-family:"PT Serif Test 700";font-style:normal;font-weight:700;font-display:swap;src:url("https://fonts.gstatic.com/s/ptserif/v19/EJRSQgYoZZY2vCFuvAnt65qV.ttf") format("truetype")}
       html body .global-title,
       html body .section-heading h1,
       html body .section-heading h2,
@@ -49,19 +53,21 @@ function inject(){
       html body .home-hero h1,
       html body .home-company h2,
       html body .company-collaboration-box h2{
-        font-family:"PT Serif Test 700","PT Serif",Georgia,serif!important;
+        font-family:"PT Serif",Georgia,serif!important;
         font-weight:700!important;
+        font-style:normal!important;
         font-size:43px!important;
         line-height:1.04!important;
         letter-spacing:0!important;
         -webkit-text-stroke:.25px currentColor!important;
+        font-synthesis:none!important;
       }
       html body img,html body picture,html body video{display:none!important}
       html body *{background-image:none!important}
     `;
   }catch(e){console.error(e)}
 }
-frame.addEventListener('load',inject);
+frame.addEventListener('load',()=>{inject();setTimeout(inject,400);setTimeout(inject,1200)});
 buttons.forEach(b=>b.addEventListener('click',()=>{
   buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');frame.src=b.dataset.src;
 }));

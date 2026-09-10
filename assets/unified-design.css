@@ -1689,10 +1689,10 @@ html body.page-company.site-light-page .company-legal-card .home-company__image:
   html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{
     box-sizing:border-box!important;
     width:100%!important;
-    height:321px!important;
-    min-height:321px!important;
-    max-height:321px!important;
-    padding:62px 42px 36px!important;
+    height:341px!important;
+    min-height:341px!important;
+    max-height:341px!important;
+    padding:82px 42px 36px!important;
     display:flex!important;
     flex-direction:column!important;
   }
@@ -1719,4 +1719,16 @@ html body .article-title{
   font-style:normal!important;
   -webkit-text-stroke:.25px currentColor!important;
   font-synthesis:none!important;
+}
+
+/* Nur Startseite-Kontakt und Fachwissen-Einordnung: ohne Farbverlauf und Weichzeichnung. */
+html body.page-home.site-light-page main.home>section.home-contact-band.home-contact-band,
+html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles>.knowledge-note{
+  background:none!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  filter:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
 }

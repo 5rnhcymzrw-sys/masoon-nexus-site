@@ -1795,3 +1795,27 @@ html body .contact-split__info h1 {
   -webkit-text-stroke: 0.25px currentColor !important;
   font-synthesis: none !important;
 }
+/* FINAL FIX: verbleibende grosse Titel */
+html body.page-home.site-light-page main.home
+  .home-values .section-heading h2.global-title,
+
+html body.page-company.site-light-page main.page-main
+  .company-values-section .section-heading h2,
+
+html body.page-services.site-light-page main.services-main
+  .services-section > .section-heading h1,
+
+html body.page-knowledge.site-light-page main.page-main
+  .knowledge-section > .section-heading > h1,
+
+html body.page-knowledge.site-light-page main.page-main
+  .knowledge-section > .knowledge-note > div > h2 {
+  font-family: "PT Serif", Georgia, serif !important;
+  font-weight: 700 !important;
+  font-size: 45px !important;
+  line-height: 1.04 !important;
+  letter-spacing: 0 !important;
+  font-style: normal !important;
+  -webkit-text-stroke: 0.25px currentColor !important;
+  font-synthesis: none !important;
+}

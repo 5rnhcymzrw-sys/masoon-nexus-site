@@ -222,8 +222,8 @@
   font-family: var(--font-inter) !important;
   font-size: 11px !important;
   font-weight: 500 !important;
-  line-height: 1.4 !important;
-  letter-spacing: .14em !important;
+  line-height: 1.65 !important;
+  letter-spacing: 1.1px !important;
   text-transform: uppercase !important;
   cursor: pointer !important;
 }

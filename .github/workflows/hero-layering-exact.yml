@@ -1,6 +1,5 @@
 name: Hero exact layering
 
-# regex trigger
 on:
   push:
     paths:
@@ -16,9 +15,50 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Apply exact layering
+      - name: Existing Hero rules auf Testseiten Layering setzen
         shell: bash
-        run: echo 'CmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aAppbXBvcnQgcmUKCmNzc19wYXRoID0gUGF0aCgiYXNzZXRzL3VuaWZpZWQtZGVzaWduLmNzcyIpCmNzcyA9IGNzc19wYXRoLnJlYWRfdGV4dChlbmNvZGluZz0idXRmLTgiKQoKIyAxKSBIZXJvIHRleHQgYWJvdmUgYm90aCBiYWNrcGxhdGVzOiBtb2RpZnkgdGhlIGV4aXN0aW5nIHRleHQgcnVsZSwgZG8gbm90IGFwcGVuZCBhIG5ldyBvdmVycmlkZS4KcGF0X3RleHQgPSByZS5jb21waWxlKAogICAgcicoaHRtbCBib2R5XC5wYWdlLWhvbWVcLnNpdGUtbGlnaHQtcGFnZSBtYWluXC5ob21lIHNlY3Rpb25cLmhvbWUtaGVybyBcLmhvbWUtaGVyb19fY29weSBoMSxccypcXG4nCiAgICByJ2h0bWwgYm9keVwucGFnZS1ob21lXC5zaXRlLWxpZ2h0LXBhZ2UgbWFpblwuaG9tZSBzZWN0aW9uXC5ob21lLWhlcm8gXC5ob21lLWhlcm9fX2NvcHkgcFwge1xccyonCiAgICByJ3RleHQtYWxpZ246bGVmdCFpbXBvcnRhbnQ7KShccypcfSknCikKY3NzLCBuX3RleHQgPSBwYXRfdGV4dC5zdWJuKHInXDFcbiAgcG9zaXRpb246cmVsYXRpdmU7XG4gIHotaW5kZXg6MztcMicsIGNzcywgY291bnQ9MSkKaWYgbl90ZXh0ICE9IDE6CiAgICByYWlzZSBTeXN0ZW1FeGl0KGYidGV4dCBydWxlIHJlcGxhY2VtZW50czoge25fdGV4dH0iKQoKIyAyKSBXaGl0ZSBoZXJvIHBhbmVsOiBjaGFuZ2UgdGhlIGV4aXN0aW5nIDo6YmVmb3JlIGJsb2NrcyBmcm9tIG5lZ2F0aXZlIGxheWVyIHRvIHRlc3QtcGFnZSBsYXllciAyLgpzZWxfYmVmb3JlID0gJ2h0bWwgYm9keS5wYWdlLWhvbWUuc2l0ZS1saWdodC1wYWdlIG1haW4uaG9tZSBzZWN0aW9uLmhvbWUtaGVybyAuaG9tZS1oZXJvX19jb3B5OjpiZWZvcmUnCnBhdF9iZWZvcmUgPSByZS5jb21waWxlKHJlLmVzY2FwZShzZWxfYmVmb3JlKSArIHInXHtbXn1dKlx9JywgcmUuUykKYmxvY2tzID0gcGF0X2JlZm9yZS5maW5kYWxsKGNzcykKY2hhbmdlZF9iZWZvcmUgPSAwCmZvciBibG9jayBpbiBibG9ja3M6CiAgICBpZiAnei1pbmRleDotMTsnIGluIGJsb2NrOgogICAgICAgIG5ld19ibG9jayA9IGJsb2NrLnJlcGxhY2UoJ3otaW5kZXg6LTE7JywgJ3otaW5kZXg6MjsnLCAxKQogICAgICAgIGNzcyA9IGNzcy5yZXBsYWNlKGJsb2NrLCBuZXdfYmxvY2ssIDEpCiAgICAgICAgY2hhbmdlZF9iZWZvcmUgKz0gMQppZiBjaGFuZ2VkX2JlZm9yZSA8IDE6CiAgICByYWlzZSBTeXN0ZW1FeGl0KGYiYmVmb3JlIGJsb2NrcyBjaGFuZ2VkOiB7Y2hhbmdlZF9iZWZvcmV9IikKCiMgMykgU2VwYXJhdGUgZ3JhZGllbnQgcGxhdGU6IGdlb21ldHJ5IGFscmVhZHkgZXF1YWxzIHRoZSB0ZXN0IHBhZ2U7IG1vdmUgaXRzIGV4aXN0aW5nIGxheWVyIGZyb20gLTIgdG8gMS4Kc2VsX2FmdGVyID0gJ2h0bWwgYm9keS5wYWdlLWhvbWUuc2l0ZS1saWdodC1wYWdlIG1haW4uaG9tZSBzZWN0aW9uLmhvbWUtaGVybyAuaG9tZS1oZXJvX19jb3B5OjphZnRlcicKcGF0X2FmdGVyID0gcmUuY29tcGlsZShyZS5lc2NhcGUoc2VsX2FmdGVyKSArIHInXHtbXn1dKlx9JywgcmUuUykKYWZ0ZXJfYmxvY2tzID0gcGF0X2FmdGVyLmZpbmRhbGwoY3NzKQpjaGFuZ2VkX2FmdGVyID0gMApmb3IgYmxvY2sgaW4gYWZ0ZXJfYmxvY2tzOgogICAgaWYgJ3otaW5kZXg6LTI7JyBpbiBibG9jazoKICAgICAgICBuZXdfYmxvY2sgPSBibG9jay5yZXBsYWNlKCd6LWluZGV4Oi0yOycsICd6LWluZGV4OjE7JywgMSkKICAgICAgICBjc3MgPSBjc3MucmVwbGFjZShibG9jaywgbmV3X2Jsb2NrLCAxKQogICAgICAgIGNoYW5nZWRfYWZ0ZXIgKz0gMQogICAgICAgIGJyZWFrCmlmIGNoYW5nZWRfYWZ0ZXIgIT0gMToKICAgIHJhaXNlIFN5c3RlbUV4aXQoZiJhZnRlciBibG9ja3MgY2hhbmdlZDoge2NoYW5nZWRfYWZ0ZXJ9IikKCmNzc19wYXRoLndyaXRlX3RleHQoY3NzLCBlbmNvZGluZz0idXRmLTgiKQoKaW5kZXhfcGF0aCA9IFBhdGgoImluZGV4Lmh0bWwiKQppbmRleCA9IGluZGV4X3BhdGgucmVhZF90ZXh0KGVuY29kaW5nPSJ1dGYtOCIpCm9sZF9saW5rID0gJ2Fzc2V0cy91bmlmaWVkLWRlc2lnbi5jc3M/dj1oZXJvLWZpbmFsLXRlc3R3ZXJ0ZS0yMDI2MDkxMS0zJwpuZXdfbGluayA9ICdhc3NldHMvdW5pZmllZC1kZXNpZ24uY3NzP3Y9aGVyby10ZXN0d2VydGUtbGF5ZXJpbmctMjAyNjA5MTEtNCcKaWYgaW5kZXguY291bnQob2xkX2xpbmspICE9IDE6CiAgICByYWlzZSBTeXN0ZW1FeGl0KGYiY2FjaGUgbGluayBjb3VudDoge2luZGV4LmNvdW50KG9sZF9saW5rKX0iKQppbmRleCA9IGluZGV4LnJlcGxhY2Uob2xkX2xpbmssIG5ld19saW5rLCAxKQppbmRleF9wYXRoLndyaXRlX3RleHQoaW5kZXgsIGVuY29kaW5nPSJ1dGYtOCIpCg==' | base64 -d | python
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          css_path = Path('assets/unified-design.css')
+          css = css_path.read_text(encoding='utf-8')
+
+          replacements = [
+              (
+                  'html body.page-home.site-light-page main.home section.home-hero .home-hero__copy h1,\nhtml body.page-home.site-light-page main.home section.home-hero .home-hero__copy p{\n  text-align:left!important;\n}',
+                  'html body.page-home.site-light-page main.home section.home-hero .home-hero__copy h1,\nhtml body.page-home.site-light-page main.home section.home-hero .home-hero__copy p{\n  text-align:left!important;\n  position:relative;\n  z-index:3;\n}'
+              ),
+              (
+                  '  inset:16px -28px 16px -220px;\n  z-index:-1;\n  background:rgba(255,255,255,.16);',
+                  '  inset:16px -28px 16px -220px;\n  z-index:2;\n  background:rgba(255,255,255,.16);'
+              ),
+              (
+                  '    inset:0 -18px;\n    z-index:-1;\n    background:rgba(255,255,255,.22);',
+                  '    inset:0 -18px;\n    z-index:2;\n    background:rgba(255,255,255,.22);'
+              ),
+              (
+                  '  height:calc(58% + 4.64px);\n  z-index:-2;\n  pointer-events:none;',
+                  '  height:calc(58% + 4.64px);\n  z-index:1;\n  pointer-events:none;'
+              ),
+          ]
+
+          for n, (old, new) in enumerate(replacements, 1):
+              count = css.count(old)
+              if count != 1:
+                  raise SystemExit(f'Replacement {n}: {count} Treffer statt 1')
+              css = css.replace(old, new, 1)
+
+          css_path.write_text(css, encoding='utf-8')
+
+          index_path = Path('index.html')
+          index = index_path.read_text(encoding='utf-8')
+          old_link = 'assets/unified-design.css?v=hero-final-testwerte-20260911-3'
+          new_link = 'assets/unified-design.css?v=hero-testwerte-layering-20260911-4'
+          if index.count(old_link) != 1:
+              raise SystemExit('Stylesheet Cache Link nicht eindeutig gefunden')
+          index_path.write_text(index.replace(old_link, new_link, 1), encoding='utf-8')
+          PY
       - name: Commit
         shell: bash
         run: |
@@ -26,5 +66,5 @@ jobs:
           git config user.email "5rnhcymzrw@privaterelay.appleid.com"
           git add assets/unified-design.css index.html
           git diff --cached --quiet && exit 0
-          git commit -m "Hero: Testseiten-Layering exakt übernehmen"
+          git commit -m "Hero: Testseiten Werte und Layering exakt übernehmen"
           git push origin main

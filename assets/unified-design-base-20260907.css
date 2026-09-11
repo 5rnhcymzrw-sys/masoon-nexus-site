@@ -864,11 +864,13 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
 html body.site-light-page .services-main .services-section .services-grid>.service-card,
 html body.site-light-page .services-main .services-section .services-grid>.service-card:hover,
 html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
-  background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;
+  background:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;
   background-size:calc(300% + 44px) 100%!important;
   background-position:left top!important;
   background-repeat:no-repeat!important;
   background-origin:border-box!important;
+  border:0!important;
+  border-image:none!important;
   -webkit-backdrop-filter:blur(32px)!important;
   backdrop-filter:blur(32px)!important;
 }

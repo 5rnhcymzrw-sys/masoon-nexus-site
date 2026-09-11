@@ -1,5 +1,6 @@
 name: Hero layer fix
 
+# second push triggers the already-registered workflow
 on:
   push:
     paths:

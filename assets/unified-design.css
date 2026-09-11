@@ -712,37 +712,32 @@ html body.page-home.site-light-page main.home>section.home-contact-band.home-con
 html body.page-home.site-light-page main.home section.home-hero .home-hero__content{
   z-index:3;
 }
-html body.page-home.site-light-page main.home section.home-hero .home-hero__soft-gradient{
-  position:absolute;
-  left:calc(max(32px,(100vw - 1227px)/2) - 113.6px);
-  top:calc(50% + 5px);
-  width:482.112px;
-  height:218px;
-  transform:none;
-  z-index:2;
-  pointer-events:none;
+html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::after{
+  content:"";
   display:block;
-  visibility:visible;
-  opacity:1;
-  background:linear-gradient(to right in oklab,rgba(244,228,201,.14) 0%,rgba(232,227,218,.14) 36%,rgba(193,199,214,.14) 68%,rgba(132,144,171,.14) 100%);
+  position:absolute;
+  left:-113.6px;
+  top:calc(42% + 31.36px);
+  width:482.112px;
+  height:calc(58% + 4.64px);
+  z-index:-2;
+  pointer-events:none;
+  box-sizing:border-box;
+  background-color:#fff;
+  background-image:linear-gradient(to right in oklab,rgba(244,228,201,.14) 0%,rgba(232,227,218,.14) 36%,rgba(193,199,214,.14) 68%,rgba(132,144,171,.14) 100%);
   background-size:100% 100%;
   background-position:0 0;
   background-repeat:no-repeat;
-  filter:none;
+  border:0;
+  box-shadow:none;
   -webkit-backdrop-filter:blur(32px);
   backdrop-filter:blur(32px);
-  -webkit-mask-image:none;
-  mask-image:none;
-  -webkit-mask-composite:initial;
-  mask-composite:initial;
 }
 @media(max-width:800px){
-  html body.page-home.site-light-page main.home section.home-hero .home-hero__soft-gradient{
+  html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::after{
     display:none;
-    visibility:hidden;
   }
 }
-
 
 /* datenschutz/index.html */
 html body.page-privacy .disclaimer-card{

@@ -19,7 +19,7 @@ iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
 </style>
 </head>
 <body>
-<iframe id="site" src="./index.html?v=final-box-lines-4"></iframe>
+<iframe id="site" src="./index.html?v=final-box-lines-5"></iframe>
 <div class="test-panel" aria-label="Teststeuerung">
   <div class="test-row">
     <span class="test-label">Seite</span>
@@ -34,7 +34,7 @@ iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
     <button data-lines="on" class="active">MIT LINIEN</button>
     <button data-lines="off">OHNE LINIEN</button>
   </div>
-  <div class="test-note">Farbe fest: Variante 3 „deutlicher“ · 11 %. Beim Hero liegt eine deckend weisse Fläche exakt unter dem transparenten Verlauf, damit der Verlauf überall gleich sichtbar bleibt. Kontaktformular ebenfalls eingefärbt.</div>
+  <div class="test-note">Farbe fest: Variante 3 „deutlicher“ · 11 %. Hero verwendet jetzt dieselbe Verlaufsgrösse wie die Karten und zeigt den mittleren Ausschnitt. Weisse Fläche liegt deckungsgleich darunter.</div>
 </div>
 <script>
 const frame=document.getElementById('site');
@@ -131,6 +131,10 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__copy
 }
 html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{
   background:${gradient()}!important;
+  background-size:calc(300% + 44px) 100%!important;
+  background-repeat:no-repeat!important;
+  background-origin:border-box!important;
+  background-position:50% 0!important;
   border:1px solid transparent!important;
   border-image:${lines==='on'?borderFull:'none'}!important;
   box-shadow:none!important;

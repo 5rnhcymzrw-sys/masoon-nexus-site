@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON TREUHAND – Test stärkere Farben</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#fff;font-family:Arial,sans-serif}
+iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
+.test-panel{position:fixed;right:10px;top:10px;z-index:99999;width:225px;max-width:calc(100vw - 20px);padding:9px;background:rgba(255,255,255,.98);border:1px solid #bdbdbd;box-shadow:0 4px 18px rgba(0,0,0,.14)}
+.test-title{margin:0 0 8px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#171715}
+.test-row{display:flex;gap:4px;flex-wrap:wrap;margin:0 0 7px}
+.test-label{width:100%;font-size:8px;letter-spacing:.06em;color:#777;text-transform:uppercase;margin-bottom:2px}
+.test-panel button{appearance:none;border:1px solid #aaa;background:#fff;color:#171715;padding:6px 7px;font-size:9px;line-height:1;cursor:pointer}
+.test-panel button.active{background:#171715;color:#fff;border-color:#171715}
+.hint{font-size:8px;line-height:1.35;color:#777;margin-top:5px}
+@media(max-width:560px){.test-panel{right:6px;top:6px;width:205px;max-width:calc(100vw - 12px)}}
+</style>
+</head>
+<body>
+<iframe id="site" src="./index.html?v=strong-colors-test-1"></iframe>
+<div class="test-panel" aria-label="Teststeuerung">
+  <p class="test-title">Test stärkere Farben</p>
+  <div class="test-row" id="pages">
+    <span class="test-label">Seite</span>
+    <button data-page="./index.html" class="active">Start</button>
+    <button data-page="./unternehmen/index.html">Unternehmen</button>
+    <button data-page="./dienstleistungen/index.html">DL</button>
+    <button data-page="./fachwissen/index.html">Fachwissen</button>
+    <button data-page="./kontakt/index.html">Kontakt</button>
+    <button data-page="./fachwissen/checkliste-steuererklaerung/index.html">Beitrag</button>
+  </div>
+  <div class="test-row" id="strengths">
+    <span class="test-label">Farbintensität</span>
+    <button data-alpha="0.11">11%</button>
+    <button data-alpha="0.18">18%</button>
+    <button data-alpha="0.24" class="active">24%</button>
+    <button data-alpha="0.30">30%</button>
+  </div>
+  <div class="hint">Nur die Farbintensität wird verändert. Layout, Schriften und Abstände bleiben unverändert.</div>
+</div>
+<script>
+const frame=document.getElementById('site');
+const pages=document.getElementById('pages');
+const strengths=document.getElementById('strengths');
+let alpha=.24;
+
+function gradient(a){
+  return `linear-gradient(to right in oklab,rgba(244,228,201,${a}) 0%,rgba(232,227,218,${a}) 36%,rgba(193,199,214,${a}) 68%,rgba(132,144,171,${a}) 100%)`;
+}
+
+function applyTest(){
+  const d=frame.contentDocument;
+  if(!d||!d.head)return;
+  let style=d.getElementById('masoon-strong-colors-test');
+  if(!style){
+    style=d.createElement('style');
+    style.id='masoon-strong-colors-test';
+    d.head.appendChild(style);
+  }
+  const g=gradient(alpha);
+  style.textContent=`
+/* Nur Test: bestehende Farbflächen stärker sichtbar */
+html body.site-light-page main.home .home-values__items>.home-values__item,
+html body.site-light-page main.home .home-paths__grid>a,
+html body.page-company.site-light-page .company-values-grid>.company-value-card,
+html body.page-services.site-light-page .services-grid>.service-card,
+html body.page-knowledge.site-light-page .articles-grid>.article-card{
+  background-image:${g}!important;
+  background-color:transparent!important;
+  background-size:calc(300% + 44px) 100%!important;
+  background-repeat:no-repeat!important;
+  background-origin:border-box!important;
+  -webkit-backdrop-filter:blur(32px)!important;
+  backdrop-filter:blur(32px)!important;
+}
+html body.site-light-page main.home .home-values__items>*:nth-child(3n+1),
+html body.site-light-page main.home .home-paths__grid>*:nth-child(3n+1),
+html body.page-company.site-light-page .company-values-grid>*:nth-child(3n+1),
+html body.page-services.site-light-page .services-grid>*:nth-child(3n+1),
+html body.page-knowledge.site-light-page .articles-grid>*:nth-child(3n+1){background-position:left top!important}
+html body.site-light-page main.home .home-values__items>*:nth-child(3n+2),
+html body.site-light-page main.home .home-paths__grid>*:nth-child(3n+2),
+html body.page-company.site-light-page .company-values-grid>*:nth-child(3n+2),
+html body.page-services.site-light-page .services-grid>*:nth-child(3n+2),
+html body.page-knowledge.site-light-page .articles-grid>*:nth-child(3n+2){background-position:center top!important}
+html body.site-light-page main.home .home-values__items>*:nth-child(3n),
+html body.site-light-page main.home .home-paths__grid>*:nth-child(3n),
+html body.page-company.site-light-page .company-values-grid>*:nth-child(3n),
+html body.page-services.site-light-page .services-grid>*:nth-child(3n),
+html body.page-knowledge.site-light-page .articles-grid>*:nth-child(3n){background-position:right top!important}
+
+html body.site-light-page main.home>.home-contact-band,
+html body.page-company.site-light-page main.page-main>.company-collaboration-box,
+html body.page-services.site-light-page main.services-main>.services-closing,
+html body.page-knowledge.site-light-page .knowledge-section>.knowledge-note,
+html body.page-contact.site-light-page .contact-split__form,
+html body[class*="page-article-"] .article-shell{
+  background-image:${g}!important;
+  background-color:transparent!important;
+  background-size:100% 100%!important;
+  background-position:0 0!important;
+  background-repeat:no-repeat!important;
+  -webkit-backdrop-filter:blur(32px)!important;
+  backdrop-filter:blur(32px)!important;
+}
+
+html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::after,
+html body.page-home.site-light-page main.home section.home-hero .home-hero__soft-gradient,
+html body.page-company.site-light-page .company-legal-card .home-company__image::before{
+  background-image:${g}!important;
+  background-color:transparent!important;
+  background-size:100% 100%!important;
+  background-position:0 0!important;
+  background-repeat:no-repeat!important;
+}
+`;
+}
+
+pages.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-page]');
+  if(!b)return;
+  pages.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  frame.src=b.dataset.page+'?v=strong-colors-'+Date.now();
+});
+
+strengths.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-alpha]');
+  if(!b)return;
+  alpha=Number(b.dataset.alpha);
+  strengths.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  applyTest();
+});
+
+frame.addEventListener('load',()=>{
+  applyTest();
+  setTimeout(applyTest,100);
+});
+</script>
+</body>
+</html>

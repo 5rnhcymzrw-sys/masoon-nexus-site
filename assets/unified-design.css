@@ -988,7 +988,7 @@ html body.page-knowledge.site-light-page main .knowledge-section#knowledge-artic
 @media(hover:hover){
   html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card:hover{
     transform:translateY(-3px)!important;
-    background:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;
+    background-image:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;
     background-repeat:no-repeat!important;
     background-origin:border-box!important;
     -webkit-backdrop-filter:blur(32px)!important;

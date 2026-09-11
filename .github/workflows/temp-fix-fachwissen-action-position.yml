@@ -11,48 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Correct existing Fachwissen action selector only
+        run: python -c "import base64;exec(base64.b64decode('CmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aAoKYmFzZSA9IFBhdGgoImFzc2V0cy91bmlmaWVkLWRlc2lnbi1iYXNlLTIwMjYwOTA3LmNzcyIpCnMgPSBiYXNlLnJlYWRfdGV4dChlbmNvZGluZz0idXRmLTgiKQpvbGQgPSAiIiJodG1sIGJvZHkuc2l0ZS1saWdodC1wYWdlIC5rbm93bGVkZ2Utc2VjdGlvbiAuYXJ0aWNsZXMtZ3JpZD4uYXJ0aWNsZS1jYXJkPi5kZXRhaWxzLWFjdGlvbnsKICBtYXJnaW4tdG9wOjAhaW1wb3J0YW50Owp9CkBtZWRpYShtaW4td2lkdGg6ODAxcHgpewogIGh0bWwgYm9keS5zaXRlLWxpZ2h0LXBhZ2UgLmtub3dsZWRnZS1zZWN0aW9uIC5hcnRpY2xlcy1ncmlkPi5hcnRpY2xlLWNhcmQ+LmRldGFpbHMtYWN0aW9uewogICAgdHJhbnNmb3JtOnRyYW5zbGF0ZVkoLTNweCkhaW1wb3J0YW50OwogIH0KfSIiIgpuZXcgPSAiIiJodG1sIGJvZHkuc2l0ZS1saWdodC1wYWdlIC5rbm93bGVkZ2Utc2VjdGlvbiAuYXJ0aWNsZXMtZ3JpZD4uYXJ0aWNsZS1jYXJkPi5hcnRpY2xlLWFjdGlvbnsKICBtYXJnaW4tdG9wOjAhaW1wb3J0YW50Owp9CkBtZWRpYShtaW4td2lkdGg6ODAxcHgpewogIGh0bWwgYm9keS5zaXRlLWxpZ2h0LXBhZ2UgLmtub3dsZWRnZS1zZWN0aW9uIC5hcnRpY2xlcy1ncmlkPi5hcnRpY2xlLWNhcmQ+LmFydGljbGUtYWN0aW9uewogICAgdHJhbnNmb3JtOnRyYW5zbGF0ZVkoLTNweCkhaW1wb3J0YW50OwogIH0KfSIiIgppZiBzLmNvdW50KG9sZCkgIT0gMToKICAgIHJhaXNlIFN5c3RlbUV4aXQoZiJFeHBlY3RlZCBvbmUgZXhpc3RpbmcgRmFjaHdpc3NlbiBhY3Rpb24gYmxvY2ssIGZvdW5kIHtzLmNvdW50KG9sZCl9IikKYmFzZS53cml0ZV90ZXh0KHMucmVwbGFjZShvbGQsIG5ldywgMSksIGVuY29kaW5nPSJ1dGYtOCIpCgp1bmlmaWVkID0gUGF0aCgiYXNzZXRzL3VuaWZpZWQtZGVzaWduLmNzcyIpCnUgPSB1bmlmaWVkLnJlYWRfdGV4dChlbmNvZGluZz0idXRmLTgiKQpvbGRfaW1wb3J0ID0gIkBpbXBvcnQgdXJsKCcuL3VuaWZpZWQtZGVzaWduLWJhc2UtMjAyNjA5MDcuY3NzP3Y9ZGwtY2FyZHMtZmluYWwtMjAyNjA5MTEtMScpOyIKbmV3X2ltcG9ydCA9ICJAaW1wb3J0IHVybCgnLi91bmlmaWVkLWRlc2lnbi1iYXNlLTIwMjYwOTA3LmNzcz92PWZhY2h3aXNzZW4tYWN0aW9uLXBvc2l0aW9uLTIwMjYwOTExLTEnKTsiCmlmIHUuY291bnQob2xkX2ltcG9ydCkgIT0gMToKICAgIHJhaXNlIFN5c3RlbUV4aXQoZiJFeHBlY3RlZCBvbmUgY3VycmVudCBiYXNlIGltcG9ydCwgZm91bmQge3UuY291bnQob2xkX2ltcG9ydCl9IikKdW5pZmllZC53cml0ZV90ZXh0KHUucmVwbGFjZShvbGRfaW1wb3J0LCBuZXdfaW1wb3J0LCAxKSwgZW5jb2Rpbmc9InV0Zi04IikKCnBhZ2UgPSBQYXRoKCJmYWNod2lzc2VuL2luZGV4Lmh0bWwiKQpoID0gcGFnZS5yZWFkX3RleHQoZW5jb2Rpbmc9InV0Zi04IikKb2xkX2xpbmsgPSAiLi4vYXNzZXRzL3VuaWZpZWQtZGVzaWduLmNzcz92PWZhY2h3aXNzZW4tcGFnZS1ncmFkaWVudC1jbGVhbnVwLTIwMjYwOTExLTEiCm5ld19saW5rID0gIi4uL2Fzc2V0cy91bmlmaWVkLWRlc2lnbi5jc3M/dj1mYWNod2lzc2VuLWFjdGlvbi1wb3NpdGlvbi0yMDI2MDkxMS0xIgppZiBoLmNvdW50KG9sZF9saW5rKSAhPSAxOgogICAgcmFpc2UgU3lzdGVtRXhpdChmIkV4cGVjdGVkIG9uZSBjdXJyZW50IEZhY2h3aXNzZW4gc3R5bGVzaGVldCBsaW5rLCBmb3VuZCB7aC5jb3VudChvbGRfbGluayl9IikKcGFnZS53cml0ZV90ZXh0KGgucmVwbGFjZShvbGRfbGluaywgbmV3X2xpbmssIDEpLCBlbmNvZGluZz0idXRmLTgiKQo='))"
+      - name: Commit change
         run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          base = Path('assets/unified-design-base-20260907.css')
-          s = base.read_text(encoding='utf-8')
-          old = '''html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{
-  margin-top:0!important;
-}
-@media(min-width:801px){
-  html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{
-    transform:translateY(-3px)!important;
-  }
-}'''
-          new = '''html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
-  margin-top:0!important;
-}
-@media(min-width:801px){
-  html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
-    transform:translateY(-3px)!important;
-  }
-}'''
-          if s.count(old) != 1:
-              raise SystemExit(f'Expected one existing Fachwissen action block, found {s.count(old)}')
-          base.write_text(s.replace(old, new, 1), encoding='utf-8')
-
-          unified = Path('assets/unified-design.css')
-          u = unified.read_text(encoding='utf-8')
-          old_import = "@import url('./unified-design-base-20260907.css?v=dl-cards-final-20260911-1');"
-          new_import = "@import url('./unified-design-base-20260907.css?v=fachwissen-action-position-20260911-1');"
-          if u.count(old_import) != 1:
-              raise SystemExit(f'Expected one current base import, found {u.count(old_import)}')
-          unified.write_text(u.replace(old_import, new_import, 1), encoding='utf-8')
-
-          page = Path('fachwissen/index.html')
-          h = page.read_text(encoding='utf-8')
-          old_link = '../assets/unified-design.css?v=fachwissen-page-gradient-cleanup-20260911-1'
-          new_link = '../assets/unified-design.css?v=fachwissen-action-position-20260911-1'
-          if h.count(old_link) != 1:
-              raise SystemExit(f'Expected one current Fachwissen stylesheet link, found {h.count(old_link)}')
-          page.write_text(h.replace(old_link, new_link, 1), encoding='utf-8')
-          PY
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add assets/unified-design-base-20260907.css assets/unified-design.css fachwissen/index.html

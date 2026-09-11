@@ -11,60 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Patch test page button controls
+        shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re
+          import re, base64
           p=Path('farbtest-alle-kaesten-linien-10092026.html')
           s=p.read_text(encoding='utf-8')
-          pat=r"function applyButtons\(d\)\{.*?\n\}\nfunction apply\(\)\{"
-          repl=r'''function applyButtons(d){
-  const selector='.home-action-button,.services-contact-button,.contact-split__form button[type="submit"]';
-  const buttons=[...d.querySelectorAll(selector)];
-  buttons.forEach(el=>{
-    remember(el);restore(el);
-    setImp(el,'border','0');
-    setImp(el,'border-image','none');
-    setImp(el,'box-shadow','none');
-    setImp(el,'background','transparent');
-    setImp(el,'background-image','none');
-  });
-
-  let style=d.getElementById('masoon-button-test-style');
-  if(!style){style=d.createElement('style');style.id='masoon-button-test-style';d.head.appendChild(style)}
-  const buttonBg=buttonState.color==='off'?'transparent':gradient(buttonState.color);
-  const buttonBorder=buttonState.lines==='on'?'1px solid transparent':'0';
-  const buttonBorderImage=buttonState.lines==='on'?borderFull:'none';
-  style.textContent=`
-html body.page-home .home-action-button,
-html body.page-services .services-contact-button,
-html body.page-contact .contact-split__form button[type="submit"]{
-  border:0!important;
-  border-image:none!important;
-  box-shadow:none!important;
-  background:transparent!important;
-  background-image:none!important;
-}
-html body.page-home .home-action-button::before,
-html body.page-services .services-contact-button::before,
-html body.page-contact .contact-split__form button[type="submit"]::before{
-  content:""!important;
-  display:block!important;
-  border:${buttonBorder}!important;
-  border-image:${buttonBorderImage}!important;
-  background:${buttonBg}!important;
-  background-size:100% 100%!important;
-  background-position:0 0!important;
-  background-repeat:no-repeat!important;
-  box-shadow:none!important;
-  opacity:1!important;
-  visibility:visible!important;
-}
-`;
-}
-function apply(){'''
-          ns,n=re.subn(pat,repl,s,count=1,flags=re.S)
-          if n!=1:
+          repl=base64.b64decode('ZnVuY3Rpb24gYXBwbHlCdXR0b25zKGQpewogIGNvbnN0IHNlbGVjdG9yPScuaG9tZS1hY3Rpb24tYnV0dG9uLC5zZXJ2aWNlcy1jb250YWN0LWJ1dHRvbiwuY29udGFjdC1zcGxpdF9fZm9ybSBidXR0b25bdHlwZT0ic3VibWl0Il0nOwogIGNvbnN0IGJ1dHRvbnM9Wy4uLmQucXVlcnlTZWxlY3RvckFsbChzZWxlY3RvcildOwogIGJ1dHRvbnMuZm9yRWFjaChlbD0+ewogICAgcmVtZW1iZXIoZWwpO3Jlc3RvcmUoZWwpOwogICAgc2V0SW1wKGVsLCdib3JkZXInLCcwJyk7CiAgICBzZXRJbXAoZWwsJ2JvcmRlci1pbWFnZScsJ25vbmUnKTsKICAgIHNldEltcChlbCwnYm94LXNoYWRvdycsJ25vbmUnKTsKICAgIHNldEltcChlbCwnYmFja2dyb3VuZCcsJ3RyYW5zcGFyZW50Jyk7CiAgICBzZXRJbXAoZWwsJ2JhY2tncm91bmQtaW1hZ2UnLCdub25lJyk7CiAgfSk7CgogIGxldCBzdHlsZT1kLmdldEVsZW1lbnRCeUlkKCdtYXNvb24tYnV0dG9uLXRlc3Qtc3R5bGUnKTsKICBpZighc3R5bGUpe3N0eWxlPWQuY3JlYXRlRWxlbWVudCgnc3R5bGUnKTtzdHlsZS5pZD0nbWFzb29uLWJ1dHRvbi10ZXN0LXN0eWxlJztkLmhlYWQuYXBwZW5kQ2hpbGQoc3R5bGUpfQogIGNvbnN0IGJ1dHRvbkJnPWJ1dHRvblN0YXRlLmNvbG9yPT09J29mZic/J3RyYW5zcGFyZW50JzpncmFkaWVudChidXR0b25TdGF0ZS5jb2xvcik7CiAgY29uc3QgYnV0dG9uQm9yZGVyPWJ1dHRvblN0YXRlLmxpbmVzPT09J29uJz8nMXB4IHNvbGlkIHRyYW5zcGFyZW50JzonMCc7CiAgY29uc3QgYnV0dG9uQm9yZGVySW1hZ2U9YnV0dG9uU3RhdGUubGluZXM9PT0nb24nP2JvcmRlckZ1bGw6J25vbmUnOwogIHN0eWxlLnRleHRDb250ZW50PWAKaHRtbCBib2R5LnBhZ2UtaG9tZSAuaG9tZS1hY3Rpb24tYnV0dG9uLApodG1sIGJvZHkucGFnZS1zZXJ2aWNlcyAuc2VydmljZXMtY29udGFjdC1idXR0b24sCmh0bWwgYm9keS5wYWdlLWNvbnRhY3QgLmNvbnRhY3Qtc3BsaXRfX2Zvcm0gYnV0dG9uW3R5cGU9InN1Ym1pdCJdewogIGJvcmRlcjowIWltcG9ydGFudDsKICBib3JkZXItaW1hZ2U6bm9uZSFpbXBvcnRhbnQ7CiAgYm94LXNoYWRvdzpub25lIWltcG9ydGFudDsKICBiYWNrZ3JvdW5kOnRyYW5zcGFyZW50IWltcG9ydGFudDsKICBiYWNrZ3JvdW5kLWltYWdlOm5vbmUhaW1wb3J0YW50Owp9Cmh0bWwgYm9keS5wYWdlLWhvbWUgLmhvbWUtYWN0aW9uLWJ1dHRvbjo6YmVmb3JlLApodG1sIGJvZHkucGFnZS1zZXJ2aWNlcyAuc2VydmljZXMtY29udGFjdC1idXR0b246OmJlZm9yZSwKaHRtbCBib2R5LnBhZ2UtY29udGFjdCAuY29udGFjdC1zcGxpdF9fZm9ybSBidXR0b25bdHlwZT0ic3VibWl0Il06OmJlZm9yZXsKICBjb250ZW50OiIiIWltcG9ydGFudDsKICBkaXNwbGF5OmJsb2NrIWltcG9ydGFudDsKICBib3JkZXI6JHtidXR0b25Cb3JkZXJ9IWltcG9ydGFudDsKICBib3JkZXItaW1hZ2U6JHtidXR0b25Cb3JkZXJJbWFnZX0haW1wb3J0YW50OwogIGJhY2tncm91bmQ6JHtidXR0b25CZ30haW1wb3J0YW50OwogIGJhY2tncm91bmQtc2l6ZToxMDAlIDEwMCUhaW1wb3J0YW50OwogIGJhY2tncm91bmQtcG9zaXRpb246MCAwIWltcG9ydGFudDsKICBiYWNrZ3JvdW5kLXJlcGVhdDpuby1yZXBlYXQhaW1wb3J0YW50OwogIGJveC1zaGFkb3c6bm9uZSFpbXBvcnRhbnQ7CiAgb3BhY2l0eToxIWltcG9ydGFudDsKICB2aXNpYmlsaXR5OnZpc2libGUhaW1wb3J0YW50Owp9CmA7Cn0KZnVuY3Rpb24gYXBwbHkoKXs=').decode()
+          pattern=r'function applyButtons\(d\)\{.*?\n\}\nfunction apply\(\)\{'
+          ns,n=re.subn(pattern,repl,s,count=1,flags=re.S)
+          if n != 1:
               raise SystemExit(f'expected 1 applyButtons block, found {n}')
           p.write_text(ns,encoding='utf-8')
           PY

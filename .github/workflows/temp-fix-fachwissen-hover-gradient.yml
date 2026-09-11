@@ -1,0 +1,40 @@
+name: temp fix fachwissen hover gradient
+on:
+  push:
+    paths:
+      - '.github/workflows/temp-fix-fachwissen-hover-gradient.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Keep Fachwissen gradient unchanged on hover
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('assets/unified-design.css')
+          s=p.read_text(encoding='utf-8')
+          selector='html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card:hover{'
+          pos=s.find(selector)
+          if pos < 0:
+              raise SystemExit('Fachwissen hover selector not found')
+          end=s.find('\n  }\n}', pos)
+          if end < 0:
+              raise SystemExit('Fachwissen hover block end not found')
+          seg=s[pos:end]
+          old='background:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;'
+          new='background-image:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;'
+          if seg.count(old) != 1:
+              raise SystemExit(f'Expected one hover background shorthand, found {seg.count(old)}')
+          seg=seg.replace(old,new,1)
+          s=s[:pos]+seg+s[end:]
+          p.write_text(s.rstrip()+'\n',encoding='utf-8')
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/unified-design.css
+          git diff --cached --check
+          git commit -m 'Keep Fachwissen gradient fixed on hover'
+          git push

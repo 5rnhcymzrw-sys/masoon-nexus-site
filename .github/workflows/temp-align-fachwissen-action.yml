@@ -11,40 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Adjust existing Fachwissen action rule only
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          base = Path('assets/unified-design-base-20260907.css')
-          s = base.read_text(encoding='utf-8')
-          old = '''/* Gemessener Positionsausgleich: Beitrag anzeigen 2 Pixel tiefer */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
-  transform:translateY(-1px)!important;
-}'''
-          new = '''/* Gemessener Positionsausgleich: Beitrag anzeigen auf gleicher Hoehe */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
-  transform:translateY(-3px)!important;
-}'''
-          if s.count(old) != 1:
-              raise SystemExit(f'Expected one existing measured position block, found {s.count(old)}')
-          base.write_text(s.replace(old,new,1), encoding='utf-8')
-
-          unified = Path('assets/unified-design.css')
-          u = unified.read_text(encoding='utf-8')
-          old_import = "@import url('./unified-design-base-20260907.css?v=fachwissen-action-position-20260911-1');"
-          new_import = "@import url('./unified-design-base-20260907.css?v=fachwissen-action-align-20260911-1');"
-          if u.count(old_import) != 1:
-              raise SystemExit(f'Expected one current base import, found {u.count(old_import)}')
-          unified.write_text(u.replace(old_import,new_import,1), encoding='utf-8')
-
-          page = Path('fachwissen/index.html')
-          h = page.read_text(encoding='utf-8')
-          old_link = '../assets/unified-design.css?v=fachwissen-action-position-20260911-1'
-          new_link = '../assets/unified-design.css?v=fachwissen-action-align-20260911-1'
-          if h.count(old_link) != 1:
-              raise SystemExit(f'Expected one current Fachwissen stylesheet link, found {h.count(old_link)}')
-          page.write_text(h.replace(old_link,new_link,1), encoding='utf-8')
-          PY
+        run: python -c "import base64;exec(base64.b64decode('CmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aAoKYmFzZT1QYXRoKCJhc3NldHMvdW5pZmllZC1kZXNpZ24tYmFzZS0yMDI2MDkwNy5jc3MiKQpzPWJhc2UucmVhZF90ZXh0KGVuY29kaW5nPSJ1dGYtOCIpCm9sZD0iIiIvKiBHZW1lc3NlbmVyIFBvc2l0aW9uc2F1c2dsZWljaDogQmVpdHJhZyBhbnplaWdlbiAyIFBpeGVsIHRpZWZlciAqLwpodG1sIGJvZHkuc2l0ZS1saWdodC1wYWdlIG1haW4gLmtub3dsZWRnZS1zZWN0aW9uIC5hcnRpY2xlcy1ncmlkPi5hcnRpY2xlLWNhcmQ+LmFydGljbGUtYWN0aW9uLmFydGljbGUtYWN0aW9uewogIHRyYW5zZm9ybTp0cmFuc2xhdGVZKC0xcHgpIWltcG9ydGFudDsKfSIiIgpuZXc9IiIiLyogR2VtZXNzZW5lciBQb3NpdGlvbnNhdXNnbGVpY2g6IEJlaXRyYWcgYW56ZWlnZW4gYXVmIGdsZWljaGVyIEhvZWhlICovCmh0bWwgYm9keS5zaXRlLWxpZ2h0LXBhZ2UgbWFpbiAua25vd2xlZGdlLXNlY3Rpb24gLmFydGljbGVzLWdyaWQ+LmFydGljbGUtY2FyZD4uYXJ0aWNsZS1hY3Rpb24uYXJ0aWNsZS1hY3Rpb257CiAgdHJhbnNmb3JtOnRyYW5zbGF0ZVkoLTNweCkhaW1wb3J0YW50Owp9IiIiCmlmIHMuY291bnQob2xkKSE9MToKICAgIHJhaXNlIFN5c3RlbUV4aXQoZiJFeHBlY3RlZCBvbmUgbWVhc3VyZWQgcG9zaXRpb24gYmxvY2ssIGZvdW5kIHtzLmNvdW50KG9sZCl9IikKYmFzZS53cml0ZV90ZXh0KHMucmVwbGFjZShvbGQsbmV3LDEpLGVuY29kaW5nPSJ1dGYtOCIpCgp1bmlmaWVkPVBhdGgoImFzc2V0cy91bmlmaWVkLWRlc2lnbi5jc3MiKQp1PXVuaWZpZWQucmVhZF90ZXh0KGVuY29kaW5nPSJ1dGYtOCIpCm9sZF9pbXBvcnQ9IkBpbXBvcnQgdXJsKCcuL3VuaWZpZWQtZGVzaWduLWJhc2UtMjAyNjA5MDcuY3NzP3Y9ZmFjaHdpc3Nlbi1hY3Rpb24tcG9zaXRpb24tMjAyNjA5MTEtMScpOyIKbmV3X2ltcG9ydD0iQGltcG9ydCB1cmwoJy4vdW5pZmllZC1kZXNpZ24tYmFzZS0yMDI2MDkwNy5jc3M/dj1mYWNod2lzc2VuLWFjdGlvbi1hbGlnbi0yMDI2MDkxMS0xJyk7IgppZiB1LmNvdW50KG9sZF9pbXBvcnQpIT0xOgogICAgcmFpc2UgU3lzdGVtRXhpdChmIkV4cGVjdGVkIG9uZSBiYXNlIGltcG9ydCwgZm91bmQge3UuY291bnQob2xkX2ltcG9ydCl9IikKdW5pZmllZC53cml0ZV90ZXh0KHUucmVwbGFjZShvbGRfaW1wb3J0LG5ld19pbXBvcnQsMSksZW5jb2Rpbmc9InV0Zi04IikKCnBhZ2U9UGF0aCgiZmFjaHdpc3Nlbi9pbmRleC5odG1sIikKaD1wYWdlLnJlYWRfdGV4dChlbmNvZGluZz0idXRmLTgiKQpvbGRfbGluaz0iLi4vYXNzZXRzL3VuaWZpZWQtZGVzaWduLmNzcz92PWZhY2h3aXNzZW4tYWN0aW9uLXBvc2l0aW9uLTIwMjYwOTExLTEiCm5ld19saW5rPSIuLi9hc3NldHMvdW5pZmllZC1kZXNpZ24uY3NzP3Y9ZmFjaHdpc3Nlbi1hY3Rpb24tYWxpZ24tMjAyNjA5MTEtMSIKaWYgaC5jb3VudChvbGRfbGluaykhPTE6CiAgICByYWlzZSBTeXN0ZW1FeGl0KGYiRXhwZWN0ZWQgb25lIHBhZ2UgbGluaywgZm91bmQge2guY291bnQob2xkX2xpbmspfSIpCnBhZ2Uud3JpdGVfdGV4dChoLnJlcGxhY2Uob2xkX2xpbmssbmV3X2xpbmssMSksZW5jb2Rpbmc9InV0Zi04IikK'))"
       - name: Commit change
         run: |
           git config user.name github-actions[bot]

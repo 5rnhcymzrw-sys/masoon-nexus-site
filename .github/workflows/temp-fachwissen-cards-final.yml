@@ -11,75 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Update existing Fachwissen card rules only
+        run: python -c "import base64;exec(base64.b64decode('CmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aAoKcCA9IFBhdGgoImFzc2V0cy91bmlmaWVkLWRlc2lnbi5jc3MiKQpzID0gcC5yZWFkX3RleHQoZW5jb2Rpbmc9InV0Zi04IikKCm9sZCA9ICIiImh0bWwgYm9keS5wYWdlLWtub3dsZWRnZS5zaXRlLWxpZ2h0LXBhZ2UgbWFpbiAua25vd2xlZGdlLXNlY3Rpb24ja25vd2xlZGdlLWFydGljbGVzIC5hcnRpY2xlcy1ncmlkPi5hcnRpY2xlLWNhcmQuYXJ0aWNsZS1jYXJkewogIGJhY2tncm91bmQ6dHJhbnNwYXJlbnQhaW1wb3J0YW50OwogIGJhY2tncm91bmQtY29sb3I6dHJhbnNwYXJlbnQhaW1wb3J0YW50OwogIGJhY2tncm91bmQtaW1hZ2U6bm9uZSFpbXBvcnRhbnQ7CiAgYmFja2dyb3VuZC1vcmlnaW46Ym9yZGVyLWJveCFpbXBvcnRhbnQ7CiAgYmFja2dyb3VuZC1zaXplOjEwMCUgMTAwJSFpbXBvcnRhbnQ7CiAgYmFja2dyb3VuZC1yZXBlYXQ6bm8tcmVwZWF0IWltcG9ydGFudDsKICAtd2Via2l0LWJhY2tkcm9wLWZpbHRlcjpub25lIWltcG9ydGFudDsKICBiYWNrZHJvcC1maWx0ZXI6bm9uZSFpbXBvcnRhbnQ7Cn0iIiIKCm5ldyA9ICIiImh0bWwgYm9keS5wYWdlLWtub3dsZWRnZS5zaXRlLWxpZ2h0LXBhZ2UgbWFpbiAua25vd2xlZGdlLXNlY3Rpb24ja25vd2xlZGdlLWFydGljbGVzIC5hcnRpY2xlcy1ncmlkPi5hcnRpY2xlLWNhcmQuYXJ0aWNsZS1jYXJkewogIGJhY2tncm91bmQ6bGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0IGluIG9rbGFiLHJnYmEoMjQ0LDIyOCwyMDEsLjExKSAwJSxyZ2JhKDIzMiwyMjcsMjE4LC4xMSkgMzYlLHJnYmEoMTkzLDE5OSwyMTQsLjExKSA2OCUscmdiYSgxMzIsMTQ0LDE3MSwuMTEpIDEwMCUpIWltcG9ydGFudDsKICBiYWNrZ3JvdW5kLWNvbG9yOnRyYW5zcGFyZW50IWltcG9ydGFudDsKICBiYWNrZ3JvdW5kLWltYWdlOmxpbmVhci1ncmFkaWVudCh0byByaWdodCBpbiBva2xhYixyZ2JhKDI0NCwyMjgsMjAxLC4xMSkgMCUscmdiYSgyMzIsMjI3LDIxOCwuMTEpIDM2JSxyZ2JhKDE5MywxOTksMjE0LC4xMSkgNjglLHJnYmEoMTMyLDE0NCwxNzEsLjExKSAxMDAlKSFpbXBvcnRhbnQ7CiAgYmFja2dyb3VuZC1vcmlnaW46Ym9yZGVyLWJveCFpbXBvcnRhbnQ7CiAgYmFja2dyb3VuZC1zaXplOjEwMCUgMTAwJSFpbXBvcnRhbnQ7CiAgYmFja2dyb3VuZC1yZXBlYXQ6bm8tcmVwZWF0IWltcG9ydGFudDsKICBib3JkZXI6MCFpbXBvcnRhbnQ7CiAgYm9yZGVyLWltYWdlOm5vbmUhaW1wb3J0YW50OwogIC13ZWJraXQtYmFja2Ryb3AtZmlsdGVyOmJsdXIoMzJweCkhaW1wb3J0YW50OwogIGJhY2tkcm9wLWZpbHRlcjpibHVyKDMycHgpIWltcG9ydGFudDsKfSIiIgoKaWYgcy5jb3VudChvbGQpICE9IDE6CiAgICByYWlzZSBTeXN0ZW1FeGl0KGYiRXhwZWN0ZWQgZXhhY3RseSBvbmUgbWFpbiBGYWNod2lzc2VuIGNhcmQgYmxvY2ssIGZvdW5kIHtzLmNvdW50KG9sZCl9IikKcyA9IHMucmVwbGFjZShvbGQsIG5ldywgMSkKCm9sZF9ob3ZlciA9ICJiYWNrZ3JvdW5kOmxpbmVhci1ncmFkaWVudCh0byByaWdodCBpbiBva2xhYixyZ2JhKDI0MywyMzIsMjEyLC4xMSkgMCUscmdiYSgyMzIsMjI5LDIyMywuMTEpIDM2JSxyZ2JhKDE5OSwyMDMsMjExLC4xMSkgNjglLHJnYmEoMTQxLDE1MCwxNjgsLjExKSAxMDAlKSFpbXBvcnRhbnQ7IgpuZXdfaG92ZXIgPSAiYmFja2dyb3VuZDpsaW5lYXItZ3JhZGllbnQodG8gcmlnaHQgaW4gb2tsYWIscmdiYSgyNDQsMjI4LDIwMSwuMTEpIDAlLHJnYmEoMjMyLDIyNywyMTgsLjExKSAzNiUscmdiYSgxOTMsMTk5LDIxNCwuMTEpIDY4JSxyZ2JhKDEzMiwxNDQsMTcxLC4xMSkgMTAwJSkhaW1wb3J0YW50OyIKCnNlbGVjdG9yID0gImh0bWwgYm9keS5wYWdlLWtub3dsZWRnZS5zaXRlLWxpZ2h0LXBhZ2UgbWFpbiAua25vd2xlZGdlLXNlY3Rpb24ja25vd2xlZGdlLWFydGljbGVzIC5hcnRpY2xlcy1ncmlkPi5hcnRpY2xlLWNhcmQuYXJ0aWNsZS1jYXJkOmhvdmVyeyIKcG9zID0gcy5maW5kKHNlbGVjdG9yKQppZiBwb3MgPCAwOgogICAgcmFpc2UgU3lzdGVtRXhpdCgiRmFjaHdpc3NlbiBob3ZlciBzZWxlY3RvciBub3QgZm91bmQiKQplbmQgPSBzLmZpbmQoIlxuICB9XG59IiwgcG9zKQppZiBlbmQgPCAwOgogICAgcmFpc2UgU3lzdGVtRXhpdCgiRmFjaHdpc3NlbiBob3ZlciBibG9jayBlbmQgbm90IGZvdW5kIikKc2VnbWVudCA9IHNbcG9zOmVuZF0KaWYgc2VnbWVudC5jb3VudChvbGRfaG92ZXIpICE9IDE6CiAgICByYWlzZSBTeXN0ZW1FeGl0KGYiRXhwZWN0ZWQgb2xkIGhvdmVyIGdyYWRpZW50IG9uY2UgaW4gRmFjaHdpc3NlbiBibG9jaywgZm91bmQge3NlZ21lbnQuY291bnQob2xkX2hvdmVyKX0iKQpzZWdtZW50ID0gc2VnbWVudC5yZXBsYWNlKG9sZF9ob3ZlciwgbmV3X2hvdmVyLCAxKQpzID0gc1s6cG9zXSArIHNlZ21lbnQgKyBzW2VuZDpdCgpzdGFydF9tYXJrZXIgPSAiIiIvKiBGYWNod2lzc2VuLUhhdXB0c2VpdGU6IHNpY2h0YmFyZSBEcmVpZXJ2ZXJ0ZWlsdW5nIHdpZSBhdWYgZGVyIFN0YXJ0c2VpdGUsCiAgIG9obmUgVmVybWlzY2h1bmcgbWl0IGRlbSBzdMOkcmtlcmVuIFNlaXRlbmhpbnRlcmdydW5kLiAqLyIiIgpzdGFydCA9IHMuZmluZChzdGFydF9tYXJrZXIpCmlmIHN0YXJ0IDwgMDoKICAgIHJhaXNlIFN5c3RlbUV4aXQoIk9ic29sZXRlIEZhY2h3aXNzZW4gaG92ZXIgb3ZlcnJpZGUgc3RhcnQgbm90IGZvdW5kIikKZW5kX21hcmtlciA9ICIiImh0bWwgYm9keS5wYWdlLWtub3dsZWRnZS5zaXRlLWxpZ2h0LXBhZ2UgbWFpbiAua25vd2xlZGdlLXNlY3Rpb24ja25vd2xlZGdlLWFydGljbGVzIC5hcnRpY2xlcy1ncmlkID4gLmFydGljbGUtY2FyZC5hcnRpY2xlLWNhcmQ6bnRoLWNoaWxkKDNuKTpob3ZlciB7CiAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KDExMGRlZywgI2Y1ZjVmNyAwJSwgI2YyZjJmNCAxMDAlKSAhaW1wb3J0YW50Owp9IiIiCmVuZF9zdGFydCA9IHMuZmluZChlbmRfbWFya2VyLCBzdGFydCkKaWYgZW5kX3N0YXJ0IDwgMDoKICAgIHJhaXNlIFN5c3RlbUV4aXQoIk9ic29sZXRlIEZhY2h3aXNzZW4gaG92ZXIgb3ZlcnJpZGUgZW5kIG5vdCBmb3VuZCIpCmVuZCA9IGVuZF9zdGFydCArIGxlbihlbmRfbWFya2VyKQp3aGlsZSBlbmQgPCBsZW4ocykgYW5kIHNbZW5kXSBpbiAiXHJcbiI6CiAgICBlbmQgKz0gMQpzID0gc1s6c3RhcnRdICsgc1tlbmQ6XQoKcC53cml0ZV90ZXh0KHMsIGVuY29kaW5nPSJ1dGYtOCIpCg=='))"
+      - name: Commit change
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-
-          p = Path('assets/unified-design.css')
-          s = p.read_text(encoding='utf-8')
-
-          old = '''html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
-  background-origin:border-box!important;
-  background-size:100% 100%!important;
-  background-repeat:no-repeat!important;
-  -webkit-backdrop-filter:none!important;
-  backdrop-filter:none!important;
-}'''
-
-          new = '''html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{
-  background:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;
-  background-color:transparent!important;
-  background-image:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;
-  background-origin:border-box!important;
-  background-size:100% 100%!important;
-  background-repeat:no-repeat!important;
-  border:0!important;
-  border-image:none!important;
-  -webkit-backdrop-filter:blur(32px)!important;
-  backdrop-filter:blur(32px)!important;
-}'''
-
-          if s.count(old) != 1:
-              raise SystemExit(f'Expected exactly one main Fachwissen card block, found {s.count(old)}')
-          s = s.replace(old, new, 1)
-
-          old_hover = 'background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;'
-          new_hover = 'background:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;'
-
-          # Only the Fachwissen-Hauptseite hover block: locate its selector first.
-          hover_selector = 'html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card:hover{'
-          pos = s.find(hover_selector)
-          if pos < 0:
-              raise SystemExit('Fachwissen hover selector not found')
-          end = s.find('\n  }\n}', pos)
-          if end < 0:
-              raise SystemExit('Fachwissen hover block end not found')
-          segment = s[pos:end]
-          if segment.count(old_hover) != 1:
-              raise SystemExit(f'Expected old hover gradient once in Fachwissen block, found {segment.count(old_hover)}')
-          segment = segment.replace(old_hover, new_hover, 1)
-          s = s[:pos] + segment + s[end:]
-
-          # Remove the later obsolete hover colour override that would otherwise overwrite variant 2.
-          pattern = re.compile(
-              r'/\* Fachwissen-Hauptseite: sichtbare Dreierverteilung wie auf der Startseite,\n'
-              r'   ohne Vermischung mit dem stärkeren Seitenhintergrund\. \*/\n'
-              r'html body\.page-knowledge\.site-light-page main \.knowledge-section#knowledge-articles \.articles-grid > \.article-card\.article-card:hover \{.*?\n\}\n\n'
-              r'html body\.page-knowledge\.site-light-page main \.knowledge-section#knowledge-articles \.articles-grid > \.article-card\.article-card:nth-child\(3n\+1\):hover \{.*?\n\}\n\n'
-              r'html body\.page-knowledge\.site-light-page main \.knowledge-section#knowledge-articles \.articles-grid > \.article-card\.article-card:nth-child\(3n\+2\):hover \{.*?\n\}\n\n'
-              r'html body\.page-knowledge\.site-light-page main \.knowledge-section#knowledge-articles \.articles-grid > \.article-card\.article-card:nth-child\(3n\):hover \{.*?\n\}\n?',
-              re.S
-          )
-          s, n = pattern.subn('', s, count=1)
-          if n != 1:
-              raise SystemExit(f'Expected one obsolete Fachwissen hover override block, removed {n}')
-
-          p.write_text(s, encoding='utf-8')
-          PY
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add assets/unified-design.css

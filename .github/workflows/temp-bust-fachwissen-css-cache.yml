@@ -1,0 +1,31 @@
+name: temp bust fachwissen css cache
+on:
+  push:
+    paths:
+      - '.github/workflows/temp-bust-fachwissen-css-cache.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update Fachwissen CSS cache key only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('fachwissen/index.html')
+          s=p.read_text(encoding='utf-8')
+          old='../assets/unified-design.css?v=knowledge-hover-colours-20260910-3'
+          new='../assets/unified-design.css?v=fachwissen-cards-final-20260911-1'
+          if s.count(old) != 1:
+              raise SystemExit(f'Expected one stylesheet cache key, found {s.count(old)}')
+          s=s.replace(old,new,1)
+          p.write_text(s,encoding='utf-8')
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add fachwissen/index.html
+          git diff --cached --check
+          git commit -m 'Refresh Fachwissen stylesheet cache key'
+          git push

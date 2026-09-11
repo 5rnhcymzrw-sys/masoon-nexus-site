@@ -1,0 +1,29 @@
+name: temp fix article soft test
+on:
+  push:
+    paths:
+      - '.github/workflows/temp-fix-article-soft-test.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix article selector in existing test page
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('farbtest-alle-kaesten-linien-10092026.html')
+          s=p.read_text(encoding='utf-8')
+          old="'./fachwissen/checkliste-steuererklaerung/index.html':[{id:'article-content',label:'Beitrag Inhalt',selector:'.article-detail',softOnly:true}]"
+          new="'./fachwissen/checkliste-steuererklaerung/index.html':[{id:'article-content',label:'Beitrag Inhalt',selector:'.article-shell',softOnly:true}]"
+          if s.count(old) != 1:
+              raise SystemExit(f'expected selector once, found {s.count(old)}')
+          p.write_text(s.replace(old,new),encoding='utf-8')
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add farbtest-alle-kaesten-linien-10092026.html
+          git commit -m 'Fix article blur toggle in test page'
+          git push

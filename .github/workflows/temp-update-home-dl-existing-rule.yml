@@ -1,0 +1,56 @@
+name: temp update home dl existing rule
+on:
+  push:
+    paths:
+      - '.github/workflows/temp-update-home-dl-existing-rule.yml'
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update existing Startseite Dienstleistungen rule only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          css = Path('assets/unified-design.css')
+          s = css.read_text(encoding='utf-8')
+
+          old = '''html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item{\n background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;\n background-size:calc(300% + 44px) 100%!important;background-position:0% 0!important;background-repeat:no-repeat!important;background-origin:border-box!important;border:1px solid transparent!important;\n border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;\n box-shadow:none!important;-webkit-backdrop-filter:blur(32px)!important;backdrop-filter:blur(32px)!important;\n}'''
+
+          new = '''html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item{\n background:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;\n background-size:calc(300% + 44px) 100%!important;background-position:0% 0!important;background-repeat:no-repeat!important;background-origin:border-box!important;border:0!important;\n border-image:none!important;\n box-shadow:none!important;-webkit-backdrop-filter:blur(32px)!important;backdrop-filter:blur(32px)!important;\n}'''
+
+          if s.count(old) != 1:
+              raise SystemExit(f'Expected exact main Startseite DL rule once, found {s.count(old)}')
+          s = s.replace(old, new, 1)
+
+          old_mid = '''html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+2){border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;}'''
+          new_mid = '''html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+2){border-image:none!important;}'''
+          if s.count(old_mid) != 1:
+              raise SystemExit(f'Expected exact middle border rule once, found {s.count(old_mid)}')
+          s = s.replace(old_mid, new_mid, 1)
+
+          old_right = '''html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n){border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;}'''
+          new_right = '''html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n){border-image:none!important;}'''
+          if s.count(old_right) != 1:
+              raise SystemExit(f'Expected exact right border rule once, found {s.count(old_right)}')
+          s = s.replace(old_right, new_right, 1)
+
+          css.write_text(s, encoding='utf-8')
+
+          index = Path('index.html')
+          h = index.read_text(encoding='utf-8')
+          old_link = 'assets/unified-design.css?v=knowledge-hover-gradient-20260910-1'
+          new_link = 'assets/unified-design.css?v=home-dl-final-gradient-20260911-1'
+          if h.count(old_link) != 1:
+              raise SystemExit(f'Expected Startseite stylesheet link once, found {h.count(old_link)}')
+          index.write_text(h.replace(old_link, new_link, 1), encoding='utf-8')
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/unified-design.css index.html
+          git diff --cached --check
+          git commit -m 'Update existing Startseite Dienstleistungen cards'
+          git push

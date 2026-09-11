@@ -20,7 +20,7 @@ iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
 </style>
 </head>
 <body>
-<iframe id="site" src="./fachwissen/index.html?v=grau-test-2"></iframe>
+<iframe id="site" src="./fachwissen/index.html?v=grau-test-3"></iframe>
 <div class="test-panel" aria-label="Teststeuerung">
   <div class="test-active">TEST AKTIV · GRAU / FACHWISSEN</div>
   <p class="test-title">Testansicht</p>
@@ -33,7 +33,7 @@ iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
     <button data-page="./kontakt/index.html">Kontakt</button>
   </div>
   <button id="success-toggle" class="success-toggle" type="button" hidden>Bestätigung anzeigen</button>
-  <div class="test-note">Auf Fachwissen müssen die Daten sofort als 07.2026, 06.2026 usw. erscheinen.</div>
+  <div class="test-note">Nur Testansicht. Produktionsseiten bleiben unverändert.</div>
 </div>
 <script>
 const frame=document.getElementById('site');
@@ -89,8 +89,7 @@ html body.page-company .company-legal-card .home-company__image-primary{
   border-image:${BORDER}!important;
 }
 
-/* Fachwissen: Beitrag anzeigen im Ruhezustand 3px höher.
-   Der bestehende Karten-Hover hebt die Karte danach weiterhin leicht an. */
+/* Fachwissen: Beitrag anzeigen im Ruhezustand 3px höher. */
 html body.page-knowledge #knowledge-articles .article-card .article-action{
   transform:translateY(-3px)!important;
   color:var(--masoon-test-grey)!important;
@@ -131,9 +130,15 @@ function formatKnowledgeDates(d){
     const iso=time.getAttribute('datetime')||'';
     const m=iso.match(/^(\d{4})-(\d{2})-(\d{2})$/);
     if(!m)return;
-    const current=time.textContent||'';
-    const rest=current.replace(/^\s*\d{2}\.\d{2}\.\d{4}/,'');
-    time.textContent=`${m[2]}.${m[1]}${rest}`;
+
+    /* Kategorie genau einmal sichern. Dadurch bleibt die Funktion auch bei
+       mehrfacher Ausführung idempotent und kann kein Datum duplizieren. */
+    if(!time.dataset.masoonTestCategory){
+      const original=(time.textContent||'').trim();
+      time.dataset.masoonTestCategory=original.replace(/^\d{2}\.\d{2}\.\d{4}\s*/,'').trim();
+    }
+    const category=time.dataset.masoonTestCategory;
+    time.textContent=category ? `${m[2]}.${m[1]}  ${category}` : `${m[2]}.${m[1]}`;
   });
 }
 

@@ -19,7 +19,7 @@ iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
 </style>
 </head>
 <body>
-<iframe id="site" src="./index.html?v=strong-colors-test-2"></iframe>
+<iframe id="site" src="./index.html?v=strong-colors-test-3"></iframe>
 <div class="test-panel" aria-label="Teststeuerung">
   <p class="test-title">Alle Kästen · Farbtest</p>
   <div class="test-row" id="pages">
@@ -41,7 +41,7 @@ iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
     <button data-alpha="0.24" class="active">24%</button>
     <button data-alpha="0.30">30%</button>
   </div>
-  <div class="hint">Die gewählte Stärke wird auf sämtliche Kästen der geöffneten Seite angewendet. Layout, Schriften, Abstände und Rahmen bleiben unverändert.</div>
+  <div class="hint">Auch bereits eingefärbte Kästen werden direkt überschrieben. Layout, Schriften, Abstände und Rahmen bleiben unverändert.</div>
 </div>
 <script>
 const frame=document.getElementById('site');
@@ -52,83 +52,82 @@ let alpha=.24;
 function gradient(a){
   return `linear-gradient(to right in oklab,rgba(244,228,201,${a}) 0%,rgba(232,227,218,${a}) 36%,rgba(193,199,214,${a}) 68%,rgba(132,144,171,${a}) 100%)`;
 }
+function imp(el,prop,value){
+  if(el) el.style.setProperty(prop,value,'important');
+}
+function paintSingle(el,g){
+  imp(el,'background',g);
+  imp(el,'background-color','transparent');
+  imp(el,'background-image',g);
+  imp(el,'background-size','100% 100%');
+  imp(el,'background-position','0 0');
+  imp(el,'background-repeat','no-repeat');
+  imp(el,'background-origin','border-box');
+  imp(el,'-webkit-backdrop-filter','blur(32px)');
+  imp(el,'backdrop-filter','blur(32px)');
+}
+function paintGroup(items,g){
+  items.forEach((el,i)=>{
+    const mod=i%3;
+    imp(el,'background',g);
+    imp(el,'background-color','transparent');
+    imp(el,'background-image',g);
+    imp(el,'background-size','calc(300% + 44px) 100%');
+    imp(el,'background-position',mod===0?'left top':mod===1?'center top':'right top');
+    imp(el,'background-repeat','no-repeat');
+    imp(el,'background-origin','border-box');
+    imp(el,'-webkit-backdrop-filter','blur(32px)');
+    imp(el,'backdrop-filter','blur(32px)');
+  });
+}
+function applyDirectBoxes(d,g){
+  paintGroup([...d.querySelectorAll('body.page-home .home-values__items>.home-values__item')],g);
+  paintGroup([...d.querySelectorAll('body.page-home .home-paths__grid>a')],g);
+  paintGroup([...d.querySelectorAll('body.page-company .company-values-grid>.company-value-card')],g);
+  paintGroup([...d.querySelectorAll('body.page-services .services-grid>.service-card')],g);
+  paintGroup([...d.querySelectorAll('body.page-knowledge .articles-grid>.article-card')],g);
+
+  [
+    'body.page-home .home-contact-band',
+    'body.page-company .company-collaboration-box',
+    'body.page-services .services-closing',
+    'body.page-knowledge .knowledge-note',
+    'body.page-contact .contact-split__form',
+    'body[class*="page-article-"] .article-shell',
+    'body.page-imprint .disclaimer-card',
+    'body.page-disclaimer .disclaimer-card',
+    'body.page-privacy .disclaimer-card'
+  ].forEach(selector=>d.querySelectorAll(selector).forEach(el=>paintSingle(el,g)));
+
+  d.querySelectorAll('body.page-services .services-grid>.service-card>summary, body.page-services .services-grid>.service-card>ul').forEach(el=>{
+    imp(el,'background','transparent');
+    imp(el,'background-color','transparent');
+    imp(el,'background-image','none');
+  });
+}
 
 function applyTest(){
   const d=frame.contentDocument;
-  if(!d||!d.head)return;
+  if(!d||!d.head||!d.body)return;
+  const g=gradient(alpha);
+  applyDirectBoxes(d,g);
+
   let style=d.getElementById('masoon-strong-colors-test');
   if(!style){
     style=d.createElement('style');
     style.id='masoon-strong-colors-test';
     d.head.appendChild(style);
   }
-  const g=gradient(alpha);
   style.textContent=`
-/* Test: alle gruppierten Kästen mit durchgehendem Verlauf */
-html body.page-home.site-light-page main.home .home-values__items>.home-values__item,
-html body.page-home.site-light-page main.home .home-paths__grid>a,
-html body.page-company.site-light-page .company-values-grid>.company-value-card,
-html body.page-services.site-light-page .services-grid>.service-card,
-html body.page-knowledge.site-light-page .articles-grid>.article-card{
-  background-image:${g}!important;
-  background-color:transparent!important;
-  background-size:calc(300% + 44px) 100%!important;
-  background-repeat:no-repeat!important;
-  background-origin:border-box!important;
-  -webkit-backdrop-filter:blur(32px)!important;
-  backdrop-filter:blur(32px)!important;
-}
-html body.page-home.site-light-page main.home .home-values__items>*:nth-child(3n+1),
-html body.page-home.site-light-page main.home .home-paths__grid>*:nth-child(3n+1),
-html body.page-company.site-light-page .company-values-grid>*:nth-child(3n+1),
-html body.page-services.site-light-page .services-grid>*:nth-child(3n+1),
-html body.page-knowledge.site-light-page .articles-grid>*:nth-child(3n+1){background-position:left top!important}
-html body.page-home.site-light-page main.home .home-values__items>*:nth-child(3n+2),
-html body.page-home.site-light-page main.home .home-paths__grid>*:nth-child(3n+2),
-html body.page-company.site-light-page .company-values-grid>*:nth-child(3n+2),
-html body.page-services.site-light-page .services-grid>*:nth-child(3n+2),
-html body.page-knowledge.site-light-page .articles-grid>*:nth-child(3n+2){background-position:center top!important}
-html body.page-home.site-light-page main.home .home-values__items>*:nth-child(3n),
-html body.page-home.site-light-page main.home .home-paths__grid>*:nth-child(3n),
-html body.page-company.site-light-page .company-values-grid>*:nth-child(3n),
-html body.page-services.site-light-page .services-grid>*:nth-child(3n),
-html body.page-knowledge.site-light-page .articles-grid>*:nth-child(3n){background-position:right top!important}
-
-/* Test: sämtliche einzelnen grossen Kästen */
-html body.page-home.site-light-page main.home>.home-contact-band,
-html body.page-company.site-light-page main.page-main>.company-collaboration-box,
-html body.page-services.site-light-page main.services-main>.services-closing,
-html body.page-knowledge.site-light-page .knowledge-section>.knowledge-note,
-html body.page-contact.site-light-page .contact-split__form,
-html body[class*="page-article-"] .article-shell,
-html body.page-imprint.site-light-page .disclaimer-card,
-html body.page-disclaimer.site-light-page .disclaimer-card,
-html body.page-privacy.site-light-page .disclaimer-card{
-  background-image:${g}!important;
-  background-color:transparent!important;
-  background-size:100% 100%!important;
-  background-position:0 0!important;
-  background-repeat:no-repeat!important;
-  -webkit-backdrop-filter:blur(32px)!important;
-  backdrop-filter:blur(32px)!important;
-}
-
-/* Hero Akzent und Bildakzent Unternehmen */
 html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::after,
 html body.page-home.site-light-page main.home section.home-hero .home-hero__soft-gradient,
 html body.page-company.site-light-page .company-legal-card .home-company__image::before{
-  background-image:${g}!important;
+  background:${g}!important;
   background-color:transparent!important;
+  background-image:${g}!important;
   background-size:100% 100%!important;
   background-position:0 0!important;
   background-repeat:no-repeat!important;
-}
-
-/* Geöffnete Dienstleistungskarten: Innenflächen nicht wieder weiss überdecken */
-html body.page-services.site-light-page .services-grid>.service-card>summary,
-html body.page-services.site-light-page .services-grid>.service-card>ul{
-  background-color:transparent!important;
-  background-image:none!important;
 }
 `;
 }
@@ -152,7 +151,8 @@ strengths.addEventListener('click',e=>{
 
 frame.addEventListener('load',()=>{
   applyTest();
-  setTimeout(applyTest,100);
+  setTimeout(applyTest,80);
+  setTimeout(applyTest,250);
 });
 </script>
 </body>

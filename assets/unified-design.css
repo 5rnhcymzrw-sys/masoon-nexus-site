@@ -714,28 +714,32 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__cont
 }
 html body.page-home.site-light-page main.home section.home-hero .home-hero__soft-gradient{
   position:absolute;
-  left:-4vw;
-  top:50%;
-  width:54vw;
-  height:calc(clamp(420px,32.625vw,600px) + 240px);
-  transform:translateY(-50%);
+  left:calc(max(32px,(100vw - 1227px)/2) - 113.6px);
+  top:calc(50% + 5px);
+  width:482.112px;
+  height:192px;
+  transform:none;
   z-index:0;
   pointer-events:none;
-  background:linear-gradient(110deg,rgba(243,232,212,.40) 0%,rgba(232,229,223,.38) 38%,rgba(199,203,211,.42) 66%,rgba(141,150,168,.44) 100%);
-  filter:blur(32px);
-  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 16%,#000 76%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 18%,#000 82%,transparent 100%);
-  mask-image:linear-gradient(to right,transparent 0%,#000 16%,#000 76%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 18%,#000 82%,transparent 100%);
-  -webkit-mask-composite:source-in;
-  mask-composite:intersect;
+  display:block;
+  visibility:visible;
+  opacity:1;
+  background:linear-gradient(to right in oklab,rgba(244,228,201,.14) 0%,rgba(232,227,218,.14) 36%,rgba(193,199,214,.14) 68%,rgba(132,144,171,.14) 100%);
+  background-size:100% 100%;
+  background-position:0 0;
+  background-repeat:no-repeat;
+  filter:none;
+  -webkit-backdrop-filter:blur(32px);
+  backdrop-filter:blur(32px);
+  -webkit-mask-image:none;
+  mask-image:none;
+  -webkit-mask-composite:initial;
+  mask-composite:initial;
 }
 @media(max-width:800px){
   html body.page-home.site-light-page main.home section.home-hero .home-hero__soft-gradient{
-    top:0;
-    left:0;
-    width:100%;
-    height:72%;
-    transform:none;
-    filter:blur(24px);
+    display:none;
+    visibility:hidden;
   }
 }
 
@@ -1789,15 +1793,7 @@ html body.page-home.site-light-page:has(main.home) main.home>section.home-contac
   -webkit-backdrop-filter:none!important;
 }
 
-/* Startseite Hero: linken Farbverlauf vollständig entfernen. */
-html body.page-home.site-light-page main.home section.home-hero .home-hero__soft-gradient{
-  display:none!important;
-  visibility:hidden!important;
-  background:none!important;
-  background-image:none!important;
-  filter:none!important;
-  opacity:0!important;
-}
+/* Startseite Hero: separater Akzent ist in der bestehenden .home-hero__soft-gradient-Regel definiert. */
 /* FINAL: grosse Seitentitel PT Serif Bold 45px */
 html body .global-title,
 html body .section-heading h1,

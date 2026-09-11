@@ -1,0 +1,75 @@
+name: temp fix test button lines
+on:
+  push:
+    paths:
+      - '.github/workflows/temp-fix-test-button-lines.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch test page button controls
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('farbtest-alle-kaesten-linien-10092026.html')
+          s=p.read_text(encoding='utf-8')
+          pat=r"function applyButtons\(d\)\{.*?\n\}\nfunction apply\(\)\{"
+          repl=r'''function applyButtons(d){
+  const selector='.home-action-button,.services-contact-button,.contact-split__form button[type="submit"]';
+  const buttons=[...d.querySelectorAll(selector)];
+  buttons.forEach(el=>{
+    remember(el);restore(el);
+    setImp(el,'border','0');
+    setImp(el,'border-image','none');
+    setImp(el,'box-shadow','none');
+    setImp(el,'background','transparent');
+    setImp(el,'background-image','none');
+  });
+
+  let style=d.getElementById('masoon-button-test-style');
+  if(!style){style=d.createElement('style');style.id='masoon-button-test-style';d.head.appendChild(style)}
+  const buttonBg=buttonState.color==='off'?'transparent':gradient(buttonState.color);
+  const buttonBorder=buttonState.lines==='on'?'1px solid transparent':'0';
+  const buttonBorderImage=buttonState.lines==='on'?borderFull:'none';
+  style.textContent=`
+html body.page-home .home-action-button,
+html body.page-services .services-contact-button,
+html body.page-contact .contact-split__form button[type="submit"]{
+  border:0!important;
+  border-image:none!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  background-image:none!important;
+}
+html body.page-home .home-action-button::before,
+html body.page-services .services-contact-button::before,
+html body.page-contact .contact-split__form button[type="submit"]::before{
+  content:""!important;
+  display:block!important;
+  border:${buttonBorder}!important;
+  border-image:${buttonBorderImage}!important;
+  background:${buttonBg}!important;
+  background-size:100% 100%!important;
+  background-position:0 0!important;
+  background-repeat:no-repeat!important;
+  box-shadow:none!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+`;
+}
+function apply(){'''
+          ns,n=re.subn(pat,repl,s,count=1,flags=re.S)
+          if n!=1:
+              raise SystemExit(f'expected 1 applyButtons block, found {n}')
+          p.write_text(ns,encoding='utf-8')
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add farbtest-alle-kaesten-linien-10092026.html
+          git commit -m 'Fix test button frame toggle'
+          git push

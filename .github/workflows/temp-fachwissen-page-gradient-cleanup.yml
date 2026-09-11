@@ -1,0 +1,69 @@
+name: temp fachwissen page gradient cleanup
+on:
+  push:
+    paths:
+      - '.github/workflows/temp-fachwissen-page-gradient-cleanup.yml'
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Edit existing Fachwissen page background rule only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          css = Path('assets/unified-design.css')
+          s = css.read_text(encoding='utf-8')
+          old = '''html body.page-knowledge.site-light-page:has(#knowledge-articles){
+  background-image:linear-gradient(
+    to right in oklab,
+    rgba(243,232,212,.08) 0%,
+    rgba(232,229,223,.08) 36%,
+    rgba(199,203,211,.08) 68%,
+    rgba(141,150,168,.08) 100%
+  ),linear-gradient(to right,#fff 0%,#fff 36%,rgba(255,255,255,.95) 42%,rgba(255,255,255,.5) 49%,rgba(255,255,255,0) 58%),url("../Hintergrundbild 2.png")!important;
+  background-repeat:no-repeat,no-repeat,repeat-y!important;
+  background-size:100% 100%,100% 100%,cover!important;
+  background-position:center top,center top,center top!important;
+  background-attachment:scroll,scroll,fixed!important;
+}
+@media(max-width:800px){
+  html body.page-knowledge.site-light-page:has(#knowledge-articles){
+    background-attachment:scroll,scroll,scroll!important;
+  }
+}'''
+          new = '''html body.page-knowledge.site-light-page:has(#knowledge-articles){
+  background-image:linear-gradient(to right,#fff 0%,#fff 36%,rgba(255,255,255,.95) 42%,rgba(255,255,255,.5) 49%,rgba(255,255,255,0) 58%),url("../Hintergrundbild 2.png")!important;
+  background-repeat:no-repeat,repeat-y!important;
+  background-size:100% 100%,cover!important;
+  background-position:center top,center top!important;
+  background-attachment:scroll,fixed!important;
+}
+@media(max-width:800px){
+  html body.page-knowledge.site-light-page:has(#knowledge-articles){
+    background-attachment:scroll,scroll!important;
+  }
+}'''
+          if s.count(old) != 1:
+              raise SystemExit(f'Expected one existing Fachwissen page background block, found {s.count(old)}')
+          css.write_text(s.replace(old, new, 1), encoding='utf-8')
+
+          page = Path('fachwissen/index.html')
+          h = page.read_text(encoding='utf-8')
+          old_link = '../assets/unified-design.css?v=fachwissen-cards-final-20260911-1'
+          new_link = '../assets/unified-design.css?v=fachwissen-page-gradient-cleanup-20260911-1'
+          if h.count(old_link) != 1:
+              raise SystemExit(f'Expected one Fachwissen stylesheet link, found {h.count(old_link)}')
+          page.write_text(h.replace(old_link, new_link, 1), encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/unified-design.css fachwissen/index.html
+          git diff --cached --check
+          git commit -m 'Remove extra Fachwissen page gradient layer'
+          git push

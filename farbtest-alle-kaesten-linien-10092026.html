@@ -5,29 +5,28 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MASOON TREUHAND – Kästen Farb- und Linientest</title>
 <style>
-  *{box-sizing:border-box}
-  html,body{margin:0;width:100%;height:100%;background:#fff;font-family:Arial,sans-serif}
-  iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
-  .test-panel{position:fixed;left:14px;bottom:14px;z-index:9999;width:255px;max-width:calc(100vw - 28px);max-height:78vh;overflow:auto;padding:10px;background:rgba(255,255,255,.97);border:1px solid #cfcfcf;box-shadow:0 4px 18px rgba(0,0,0,.12)}
-  .test-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:0 0 7px}
-  .test-label{width:42px;font-size:9px;letter-spacing:.08em;color:#666;text-transform:uppercase;flex:0 0 42px}
-  .test-panel button{appearance:none;border:1px solid #aaa;background:#fff;color:#171715;padding:6px 7px;font-size:9px;line-height:1;cursor:pointer}
-  .test-panel button.active{background:#171715;color:#fff;border-color:#171715}
-  .section-controls{border-top:1px solid #ddd;margin-top:8px;padding-top:8px}
-  .section-block{padding:7px 0;border-bottom:1px solid #e7e7e7}
-  .section-block:last-child{border-bottom:0}
-  .section-title{font-size:10px;font-weight:700;letter-spacing:.04em;margin:0 0 5px;color:#171715;text-transform:uppercase}
-  .mini-row{display:flex;gap:4px;align-items:center;flex-wrap:wrap;margin:3px 0}
-  .mini-label{width:42px;font-size:8px;color:#777;text-transform:uppercase;letter-spacing:.06em;flex:0 0 42px}
-  .all-block{background:#f7f7f5;margin:0 -4px 7px;padding:7px 4px}
-  .button-block{border-top:1px solid #cfcfcf;margin-top:8px;padding-top:8px}
-  .hint{font-size:8px;line-height:1.35;color:#777;margin-top:6px}
-  @media(max-width:560px){.test-panel{left:8px;bottom:8px;width:255px;max-width:calc(100vw - 16px);max-height:72vh}}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#fff;font-family:Arial,sans-serif}
+iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
+.test-panel{position:fixed;left:14px;bottom:14px;z-index:9999;width:255px;max-width:calc(100vw - 28px);max-height:78vh;overflow:auto;padding:10px;background:rgba(255,255,255,.97);border:1px solid #cfcfcf;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.test-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:0 0 7px}
+.test-label{width:42px;font-size:9px;letter-spacing:.08em;color:#666;text-transform:uppercase;flex:0 0 42px}
+.test-panel button{appearance:none;border:1px solid #aaa;background:#fff;color:#171715;padding:6px 7px;font-size:9px;line-height:1;cursor:pointer}
+.test-panel button.active{background:#171715;color:#fff;border-color:#171715}
+.section-controls{border-top:1px solid #ddd;margin-top:8px;padding-top:8px}
+.section-block{padding:7px 0;border-bottom:1px solid #e7e7e7}
+.section-block:last-child{border-bottom:0}
+.section-title{font-size:10px;font-weight:700;letter-spacing:.04em;margin:0 0 5px;color:#171715;text-transform:uppercase}
+.mini-row{display:flex;gap:4px;align-items:center;flex-wrap:wrap;margin:3px 0}
+.mini-label{width:42px;font-size:8px;color:#777;text-transform:uppercase;letter-spacing:.06em;flex:0 0 42px}
+.all-block{background:#f7f7f5;margin:0 -4px 7px;padding:7px 4px}
+.button-block{border-top:1px solid #cfcfcf;margin-top:8px;padding-top:8px}
+.hint{font-size:8px;line-height:1.35;color:#777;margin-top:6px}
+@media(max-width:560px){.test-panel{left:8px;bottom:8px;width:255px;max-width:calc(100vw - 16px);max-height:72vh}}
 </style>
 </head>
 <body>
-<iframe id="site" src="./index.html?v=all-box-test-8"></iframe>
-
+<iframe id="site" src="./index.html?v=all-box-test-9"></iframe>
 <div class="test-panel" aria-label="Teststeuerung">
   <div class="test-row" id="pages">
     <span class="test-label">Seite</span>
@@ -37,18 +36,16 @@
     <button data-page="./fachwissen/index.html">Fachwissen</button>
     <button data-page="./kontakt/index.html">Formular</button>
   </div>
-
   <div id="section-controls" class="section-controls"></div>
-
   <div class="button-block">
     <div class="section-title">Alle Buttons</div>
-    <div class="mini-row" id="button-color-row">
+    <div class="mini-row">
       <span class="mini-label">Farbe</span>
       <button data-button-color="off" class="active">ohne</button>
       <button data-button-color="2">2 kräftiger</button>
       <button data-button-color="3">3 deutlicher</button>
     </div>
-    <div class="mini-row" id="button-line-row">
+    <div class="mini-row">
       <span class="mini-label">Linien</span>
       <button data-button-lines="on" class="active">mit</button>
       <button data-button-lines="off">ohne</button>
@@ -56,7 +53,6 @@
   </div>
   <div class="hint">Jeder Bereich kann unabhängig auf Farbe, Linien und Weichzeichnung gestellt werden. „Alle Bereiche“ ändert nur die aktuell ausgewählte Seite.</div>
 </div>
-
 <script>
 const frame=document.getElementById('site');
 let page='./index.html';
@@ -94,143 +90,85 @@ const pageSections={
 };
 
 const states={};
-Object.values(pageSections).flat().forEach(s=>{
-  if(!states[s.id]) states[s.id]={color:'2',lines:'on',soft:'on'};
-});
+Object.values(pageSections).flat().forEach(s=>{if(!states[s.id])states[s.id]={color:'2',lines:'on',soft:'on'}});
 const buttonState={color:'off',lines:'on'};
 
 function gradient(mode){
-  if(mode==='off') return 'none';
+  if(mode==='off')return 'none';
   const c=variants[mode],a=.11;
   return `linear-gradient(to right in oklab,rgba(${c[0].join(',')},${a}) 0%,rgba(${c[1].join(',')},${a}) 36%,rgba(${c[2].join(',')},${a}) 68%,rgba(${c[3].join(',')},${a}) 100%)`;
 }
-function setImp(el,prop,val){el.style.setProperty(prop,val,'important')}
-function remember(el){
-  if(!el.hasAttribute('data-masoon-test-original-style')){
-    el.setAttribute('data-masoon-test-original-style',el.getAttribute('style')||'');
-  }
-}
-function restore(el){
-  remember(el);
-  const original=el.getAttribute('data-masoon-test-original-style')||'';
-  if(original) el.setAttribute('style',original); else el.removeAttribute('style');
-  el.setAttribute('data-masoon-test-original-style',original);
-}
-function setLine(el,which,on){
-  setImp(el,'border','1px solid transparent');
-  setImp(el,'border-image',on?which:'none');
-  if(!on) setImp(el,'border-color','transparent');
-}
-function setSoft(el,on){
-  const value=on?'blur(32px)':'none';
-  setImp(el,'-webkit-backdrop-filter',value);
-  setImp(el,'backdrop-filter',value);
-}
+function setImp(el,p,v){el.style.setProperty(p,v,'important')}
+function remember(el){if(!el.hasAttribute('data-masoon-test-original-style'))el.setAttribute('data-masoon-test-original-style',el.getAttribute('style')||'')}
+function restore(el){remember(el);const o=el.getAttribute('data-masoon-test-original-style')||'';if(o)el.setAttribute('style',o);else el.removeAttribute('style');el.setAttribute('data-masoon-test-original-style',o)}
+function setLine(el,which,on){setImp(el,'border','1px solid transparent');setImp(el,'border-image',on?which:'none');if(!on)setImp(el,'border-color','transparent')}
+function setSoft(el,on){const v=on?'blur(32px)':'none';setImp(el,'-webkit-backdrop-filter',v);setImp(el,'backdrop-filter',v)}
+
 function paintGroup(items,state){
   const g=gradient(state.color);
   items.forEach((el,i)=>{
     remember(el);restore(el);
     const mod=i%3;
-    if(state.color==='off'){
-      setImp(el,'background','transparent');
-      setImp(el,'background-image','none');
-    }else{
-      setImp(el,'background',g);
-      setImp(el,'background-size','calc(300% + 44px) 100%');
-      setImp(el,'background-repeat','no-repeat');
-      setImp(el,'background-origin','border-box');
-      setImp(el,'background-position',mod===0?'0% 0':mod===1?'50% 0':'100% 0');
-    }
+    if(state.color==='off'){setImp(el,'background','transparent');setImp(el,'background-image','none')}
+    else{setImp(el,'background',g);setImp(el,'background-size','calc(300% + 44px) 100%');setImp(el,'background-repeat','no-repeat');setImp(el,'background-origin','border-box');setImp(el,'background-position',mod===0?'0% 0':mod===1?'50% 0':'100% 0')}
     setLine(el,mod===0?borderLeft:mod===1?borderMid:borderRight,state.lines==='on');
     setSoft(el,state.soft==='on');
-    el.querySelectorAll(':scope > summary,:scope > ul').forEach(ch=>{
-      remember(ch);restore(ch);
-      if(state.color!=='off') setImp(ch,'background','transparent');
-    });
+    el.querySelectorAll(':scope > summary,:scope > ul').forEach(ch=>{remember(ch);restore(ch);if(state.color!=='off')setImp(ch,'background','transparent')});
   });
 }
 function paintSingle(items,state){
   const g=gradient(state.color);
   items.forEach(el=>{
     remember(el);restore(el);
-    if(state.color==='off'){
-      setImp(el,'background','transparent');
-      setImp(el,'background-image','none');
-    }else{
-      setImp(el,'background',g);
-      setImp(el,'background-size','100% 100%');
-      setImp(el,'background-position','0 0');
-      setImp(el,'background-repeat','no-repeat');
-      setImp(el,'background-origin','border-box');
-    }
-    setLine(el,borderFull,state.lines==='on');
-    setSoft(el,state.soft==='on');
+    if(state.color==='off'){setImp(el,'background','transparent');setImp(el,'background-image','none')}
+    else{setImp(el,'background',g);setImp(el,'background-size','100% 100%');setImp(el,'background-position','0 0');setImp(el,'background-repeat','no-repeat');setImp(el,'background-origin','border-box')}
+    setLine(el,borderFull,state.lines==='on');setSoft(el,state.soft==='on');
   });
 }
 function ensureHeroBackplate(d){
-  const hero=d.querySelector('.home-hero__copy');
-  if(!hero)return;
+  const hero=d.querySelector('.home-hero__copy');if(!hero)return;
   let backplate=hero.querySelector(':scope > .masoon-hero-white-backplate');
-  if(!backplate){
-    backplate=d.createElement('div');
-    backplate.className='masoon-hero-white-backplate';
-    backplate.setAttribute('aria-hidden','true');
-    hero.prepend(backplate);
-  }
-  requestAnimationFrame(()=>syncHeroBackplate(d));
-  setTimeout(()=>syncHeroBackplate(d),80);
+  if(!backplate){backplate=d.createElement('div');backplate.className='masoon-hero-white-backplate';backplate.setAttribute('aria-hidden','true');hero.prepend(backplate)}
+  requestAnimationFrame(()=>syncHeroBackplate(d));setTimeout(()=>syncHeroBackplate(d),80);
 }
 function syncHeroBackplate(d){
-  const hero=d.querySelector('.home-hero__copy');
-  const backplate=hero?.querySelector(':scope > .masoon-hero-white-backplate');
-  if(!hero||!backplate)return;
+  const hero=d.querySelector('.home-hero__copy');const backplate=hero?.querySelector(':scope > .masoon-hero-white-backplate');if(!hero||!backplate)return;
   const pseudo=d.defaultView.getComputedStyle(hero,'::before');
-  setImp(backplate,'left',pseudo.left);
-  setImp(backplate,'top',pseudo.top);
-  setImp(backplate,'width',pseudo.width);
-  setImp(backplate,'height',pseudo.height);
-  setImp(backplate,'right','auto');
-  setImp(backplate,'bottom','auto');
+  setImp(backplate,'left',pseudo.left);setImp(backplate,'top',pseudo.top);setImp(backplate,'width',pseudo.width);setImp(backplate,'height',pseudo.height);setImp(backplate,'right','auto');setImp(backplate,'bottom','auto');
 }
 function heroCss(state){
   const bg=state.color==='off'?'transparent':gradient(state.color);
   return `
 html body.page-home.site-light-page main.home section.home-hero .home-hero__copy{position:relative!important;isolation:isolate!important}
 html body.page-home.site-light-page main.home section.home-hero .home-hero__copy>.masoon-hero-white-backplate{display:block!important;position:absolute!important;box-sizing:border-box!important;background:#fff!important;border:0!important;box-shadow:none!important;pointer-events:none!important;z-index:1!important}
-html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{
-  background:${bg}!important;
-  background-size:100% 100%!important;
-  background-position:0 0!important;
-  background-repeat:no-repeat!important;
-  border:1px solid transparent!important;
-  border-image:${state.lines==='on'?borderFull:'none'}!important;
-  border-color:transparent!important;
-  box-shadow:none!important;
-  -webkit-backdrop-filter:${state.soft==='on'?'blur(32px)':'none'}!important;
-  backdrop-filter:${state.soft==='on'?'blur(32px)':'none'}!important;
-  z-index:2!important
-}
+html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{background:${bg}!important;background-size:100% 100%!important;background-position:0 0!important;background-repeat:no-repeat!important;border:1px solid transparent!important;border-image:${state.lines==='on'?borderFull:'none'}!important;border-color:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:${state.soft==='on'?'blur(32px)':'none'}!important;backdrop-filter:${state.soft==='on'?'blur(32px)':'none'}!important;z-index:2!important}
 html body.page-home.site-light-page main.home section.home-hero .home-hero__copy>:not(.masoon-hero-white-backplate){position:relative;z-index:3}
 `;
 }
-function buttonCss(){
+
+function applyButtons(d){
+  const buttons=[...d.querySelectorAll('.home-action-button,.services-contact-button,.contact-split__form button[type="submit"]')];
+  buttons.forEach(el=>{remember(el);restore(el);setImp(el,'border','0');setImp(el,'border-image','none');setImp(el,'box-shadow','none');setImp(el,'background','transparent');setImp(el,'background-image','none')});
+  let style=d.getElementById('masoon-button-test-style');
+  if(!style){style=d.createElement('style');style.id='masoon-button-test-style';d.head.appendChild(style)}
   const bg=buttonState.color==='off'?'transparent':gradient(buttonState.color);
+  const border=buttonState.lines==='on'?'1px solid transparent':'0';
   const bi=buttonState.lines==='on'?borderFull:'none';
-  return `
-html body.page-home .home-action-button,
-html body.page-services .services-contact-button,
-html body.page-contact .contact-split__form button[type="submit"]{
-  border:0!important;
-  border-image:none!important;
-  background:transparent!important;
-  background-image:none!important;
-}
-html body.page-home .home-action-button::before,
-html body.page-services .services-contact-button::before,
-html body.page-contact .contact-split__form button[type="submit"]::before{
+  style.textContent=`
+html body.page-home.site-light-page main.home section.home-values .home-action-button,
+html body.page-home.site-light-page main.home section.home-paths>p .home-action-button,
+html body.page-home.site-light-page main.home section.home-contact-band .home-action-button,
+html body.page-services.site-light-page main.services-main .services-contact-button,
+html body.page-contact.site-light-page main .contact-split__form button[type="submit"]{border:0!important;border-image:none!important;box-shadow:none!important;background:transparent!important;background-image:none!important}
+
+html body.page-home.site-light-page main.home section.home-values .home-action-button::before,
+html body.page-home.site-light-page main.home section.home-paths>p .home-action-button::before,
+html body.page-home.site-light-page main.home section.home-contact-band .home-action-button::before,
+html body.page-services.site-light-page main.services-main .services-contact-button::before,
+html body.page-contact.site-light-page main .contact-split__form button[type="submit"]::before{
   content:""!important;
   display:block!important;
-  border:1px solid transparent!important;
+  border:${border}!important;
   border-image:${bi}!important;
   border-color:transparent!important;
   background:${bg}!important;
@@ -241,152 +179,50 @@ html body.page-contact .contact-split__form button[type="submit"]::before{
   filter:none!important;
   opacity:1!important;
   visibility:visible!important;
-  transform:none!important;
 }
 `;
 }
-function applyButtons(d){
-  const selector='.home-action-button,.services-contact-button,.contact-split__form button[type="submit"]';
-  const buttons=[...d.querySelectorAll(selector)];
-  buttons.forEach(el=>{
-    remember(el);restore(el);
-    setImp(el,'border','0');
-    setImp(el,'border-image','none');
-    setImp(el,'box-shadow','none');
-    setImp(el,'background','transparent');
-    setImp(el,'background-image','none');
-  });
 
-  let style=d.getElementById('masoon-button-test-style');
-  if(!style){style=d.createElement('style');style.id='masoon-button-test-style';d.head.appendChild(style)}
-  const buttonBg=buttonState.color==='off'?'transparent':gradient(buttonState.color);
-  const buttonBorder=buttonState.lines==='on'?'1px solid transparent':'0';
-  const buttonBorderImage=buttonState.lines==='on'?borderFull:'none';
-  style.textContent=`
-html body.page-home .home-action-button,
-html body.page-services .services-contact-button,
-html body.page-contact .contact-split__form button[type="submit"]{
-  border:0!important;
-  border-image:none!important;
-  box-shadow:none!important;
-  background:transparent!important;
-  background-image:none!important;
-}
-html body.page-home .home-action-button::before,
-html body.page-services .services-contact-button::before,
-html body.page-contact .contact-split__form button[type="submit"]::before{
-  content:""!important;
-  display:block!important;
-  border:${buttonBorder}!important;
-  border-image:${buttonBorderImage}!important;
-  background:${buttonBg}!important;
-  background-size:100% 100%!important;
-  background-position:0 0!important;
-  background-repeat:no-repeat!important;
-  box-shadow:none!important;
-  opacity:1!important;
-  visibility:visible!important;
-}
-`;
-}
 function apply(){
-  const d=frame.contentDocument;
-  if(!d||!d.body||!d.head)return;
-  const sections=pageSections[page]||[];
-  sections.forEach(section=>{
+  const d=frame.contentDocument;if(!d||!d.body||!d.head)return;
+  (pageSections[page]||[]).forEach(section=>{
     const state=states[section.id];
     if(section.type==='hero'){
       ensureHeroBackplate(d);
-      let style=d.getElementById('hero-box-test-style');
-      if(!style){style=d.createElement('style');style.id='hero-box-test-style';d.head.appendChild(style)}
-      style.textContent=heroCss(state);
-      requestAnimationFrame(()=>syncHeroBackplate(d));
-      return;
+      let style=d.getElementById('hero-box-test-style');if(!style){style=d.createElement('style');style.id='hero-box-test-style';d.head.appendChild(style)}
+      style.textContent=heroCss(state);requestAnimationFrame(()=>syncHeroBackplate(d));return;
     }
     const nodes=[...d.querySelectorAll(section.selector)];
-    if(section.group) paintGroup(nodes,state); else paintSingle(nodes,state);
+    if(section.group)paintGroup(nodes,state);else paintSingle(nodes,state);
   });
   applyButtons(d);
 }
 
 function sectionBlock(section){
-  const state=states[section.id];
-  return `<div class="section-block" data-section="${section.id}">
-    <div class="section-title">${section.label}</div>
-    <div class="mini-row"><span class="mini-label">Farbe</span>
-      <button data-section-color="off" class="${state.color==='off'?'active':''}">ohne</button>
-      <button data-section-color="2" class="${state.color==='2'?'active':''}">2</button>
-      <button data-section-color="3" class="${state.color==='3'?'active':''}">3</button>
-    </div>
-    <div class="mini-row"><span class="mini-label">Linien</span>
-      <button data-section-lines="on" class="${state.lines==='on'?'active':''}">mit</button>
-      <button data-section-lines="off" class="${state.lines==='off'?'active':''}">ohne</button>
-    </div>
-    <div class="mini-row"><span class="mini-label">Weich</span>
-      <button data-section-soft="on" class="${state.soft==='on'?'active':''}">mit</button>
-      <button data-section-soft="off" class="${state.soft==='off'?'active':''}">ohne</button>
-    </div>
-  </div>`;
+  const s=states[section.id];
+  return `<div class="section-block" data-section="${section.id}"><div class="section-title">${section.label}</div>
+  <div class="mini-row"><span class="mini-label">Farbe</span><button data-section-color="off" class="${s.color==='off'?'active':''}">ohne</button><button data-section-color="2" class="${s.color==='2'?'active':''}">2</button><button data-section-color="3" class="${s.color==='3'?'active':''}">3</button></div>
+  <div class="mini-row"><span class="mini-label">Linien</span><button data-section-lines="on" class="${s.lines==='on'?'active':''}">mit</button><button data-section-lines="off" class="${s.lines==='off'?'active':''}">ohne</button></div>
+  <div class="mini-row"><span class="mini-label">Weich</span><button data-section-soft="on" class="${s.soft==='on'?'active':''}">mit</button><button data-section-soft="off" class="${s.soft==='off'?'active':''}">ohne</button></div></div>`;
 }
-function sameForAll(key,value){return (pageSections[page]||[]).every(s=>states[s.id][key]===value)}
+function sameForAll(k,v){return (pageSections[page]||[]).every(s=>states[s.id][k]===v)}
 function renderControls(){
-  const host=document.getElementById('section-controls');
   const sections=pageSections[page]||[];
-  host.innerHTML=`<div class="section-block all-block" data-all="1">
-    <div class="section-title">Alle Bereiche dieser Seite</div>
-    <div class="mini-row"><span class="mini-label">Farbe</span>
-      <button data-all-color="off" class="${sameForAll('color','off')?'active':''}">ohne</button>
-      <button data-all-color="2" class="${sameForAll('color','2')?'active':''}">2</button>
-      <button data-all-color="3" class="${sameForAll('color','3')?'active':''}">3</button>
-    </div>
-    <div class="mini-row"><span class="mini-label">Linien</span>
-      <button data-all-lines="on" class="${sameForAll('lines','on')?'active':''}">mit</button>
-      <button data-all-lines="off" class="${sameForAll('lines','off')?'active':''}">ohne</button>
-    </div>
-    <div class="mini-row"><span class="mini-label">Weich</span>
-      <button data-all-soft="on" class="${sameForAll('soft','on')?'active':''}">mit</button>
-      <button data-all-soft="off" class="${sameForAll('soft','off')?'active':''}">ohne</button>
-    </div>
-  </div>`+sections.map(sectionBlock).join('');
+  document.getElementById('section-controls').innerHTML=`<div class="section-block all-block"><div class="section-title">Alle Bereiche dieser Seite</div>
+  <div class="mini-row"><span class="mini-label">Farbe</span><button data-all-color="off" class="${sameForAll('color','off')?'active':''}">ohne</button><button data-all-color="2" class="${sameForAll('color','2')?'active':''}">2</button><button data-all-color="3" class="${sameForAll('color','3')?'active':''}">3</button></div>
+  <div class="mini-row"><span class="mini-label">Linien</span><button data-all-lines="on" class="${sameForAll('lines','on')?'active':''}">mit</button><button data-all-lines="off" class="${sameForAll('lines','off')?'active':''}">ohne</button></div>
+  <div class="mini-row"><span class="mini-label">Weich</span><button data-all-soft="on" class="${sameForAll('soft','on')?'active':''}">mit</button><button data-all-soft="off" class="${sameForAll('soft','off')?'active':''}">ohne</button></div></div>`+sections.map(sectionBlock).join('');
 }
 
 frame.addEventListener('load',()=>setTimeout(apply,140));
-
-document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>{
-  page=b.dataset.page;
-  document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x===b));
-  renderControls();
-  frame.src=page+'?v=all-box-test-'+Date.now();
-}));
-
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>{page=b.dataset.page;document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x===b));renderControls();frame.src=page+'?v=all-box-test-'+Date.now()}));
 document.getElementById('section-controls').addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b)return;
-  const block=b.closest('[data-section]');
-  if(block){
-    const state=states[block.dataset.section];
-    if(b.dataset.sectionColor) state.color=b.dataset.sectionColor;
-    if(b.dataset.sectionLines) state.lines=b.dataset.sectionLines;
-    if(b.dataset.sectionSoft) state.soft=b.dataset.sectionSoft;
-    renderControls();apply();return;
-  }
-  const sections=pageSections[page]||[];
-  if(b.dataset.allColor) sections.forEach(s=>states[s.id].color=b.dataset.allColor);
-  if(b.dataset.allLines) sections.forEach(s=>states[s.id].lines=b.dataset.allLines);
-  if(b.dataset.allSoft) sections.forEach(s=>states[s.id].soft=b.dataset.allSoft);
-  renderControls();apply();
+  const b=e.target.closest('button');if(!b)return;const block=b.closest('[data-section]');
+  if(block){const s=states[block.dataset.section];if(b.dataset.sectionColor)s.color=b.dataset.sectionColor;if(b.dataset.sectionLines)s.lines=b.dataset.sectionLines;if(b.dataset.sectionSoft)s.soft=b.dataset.sectionSoft;renderControls();apply();return}
+  const sections=pageSections[page]||[];if(b.dataset.allColor)sections.forEach(s=>states[s.id].color=b.dataset.allColor);if(b.dataset.allLines)sections.forEach(s=>states[s.id].lines=b.dataset.allLines);if(b.dataset.allSoft)sections.forEach(s=>states[s.id].soft=b.dataset.allSoft);renderControls();apply();
 });
-
-document.querySelectorAll('[data-button-color]').forEach(b=>b.addEventListener('click',()=>{
-  buttonState.color=b.dataset.buttonColor;
-  document.querySelectorAll('[data-button-color]').forEach(x=>x.classList.toggle('active',x===b));
-  apply();
-}));
-document.querySelectorAll('[data-button-lines]').forEach(b=>b.addEventListener('click',()=>{
-  buttonState.lines=b.dataset.buttonLines;
-  document.querySelectorAll('[data-button-lines]').forEach(x=>x.classList.toggle('active',x===b));
-  apply();
-}));
-
+document.querySelectorAll('[data-button-color]').forEach(b=>b.addEventListener('click',()=>{buttonState.color=b.dataset.buttonColor;document.querySelectorAll('[data-button-color]').forEach(x=>x.classList.toggle('active',x===b));apply()}));
+document.querySelectorAll('[data-button-lines]').forEach(b=>b.addEventListener('click',()=>{buttonState.lines=b.dataset.buttonLines;document.querySelectorAll('[data-button-lines]').forEach(x=>x.classList.toggle('active',x===b));apply()}));
 renderControls();
 </script>
 </body>

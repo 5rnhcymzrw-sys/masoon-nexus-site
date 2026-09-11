@@ -929,11 +929,11 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>h2+p{
     background-image:none!important;
   }
 }
-html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{
+html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
   margin-top:0!important;
 }
 @media(min-width:801px){
-  html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{
+  html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
     transform:translateY(-3px)!important;
   }
 }

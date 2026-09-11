@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON TREUHAND – Typografie und Fachwissen Test</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#fff;font-family:Arial,sans-serif}
+iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
+.test-panel{position:fixed;right:10px;top:10px;z-index:9999;width:224px;max-width:calc(100vw - 20px);padding:9px;background:rgba(255,255,255,.97);border:1px solid #cfcfcf;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.test-title{margin:0 0 8px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#171715}
+.test-row{display:flex;gap:5px;flex-wrap:wrap;margin:0 0 7px}
+.test-panel button{appearance:none;border:1px solid #aaa;background:#fff;color:#171715;padding:6px 7px;font-size:9px;line-height:1;cursor:pointer}
+.test-panel button.active{background:#171715;color:#fff;border-color:#171715}
+.test-panel .success-toggle{width:100%;margin-top:4px;text-align:center}
+.test-note{font-size:8px;line-height:1.4;color:#777;margin-top:7px}
+@media(max-width:560px){.test-panel{right:6px;top:6px;width:205px;max-width:calc(100vw - 12px)}}
+</style>
+</head>
+<body>
+<iframe id="site" src="./fachwissen/index.html?v=typografie-test-1"></iframe>
+<div class="test-panel" aria-label="Teststeuerung">
+  <p class="test-title">Testansicht</p>
+  <div class="test-row" id="pages">
+    <button data-page="./index.html">Start</button>
+    <button data-page="./unternehmen/index.html">Unternehmen</button>
+    <button data-page="./dienstleistungen/index.html">DL</button>
+    <button data-page="./fachwissen/index.html" class="active">Fachwissen</button>
+    <button data-page="./fachwissen/checkliste-steuererklaerung/index.html">Blog</button>
+    <button data-page="./kontakt/index.html">Kontakt</button>
+  </div>
+  <button id="success-toggle" class="success-toggle" type="button" hidden>Bestätigung anzeigen</button>
+  <div class="test-note">Nur Testansicht. Die normalen Seiten werden nicht verändert.</div>
+</div>
+<script>
+const frame=document.getElementById('site');
+const pages=document.getElementById('pages');
+const successToggle=document.getElementById('success-toggle');
+let successPreview=false;
+
+const testCss=`
+:root{--masoon-test-grey:#868279}
+
+/* Kleine Bereichstitel und Navigations-/Aktionsschriften in Grau */
+html body.site-light-page .section-label,
+html body.site-light-page .home-paths__category,
+html body.site-light-page .article-card-date{
+  color:var(--masoon-test-grey)!important;
+}
+
+html body.site-light-page .home-action-button,
+html body.site-light-page .details-action,
+html body.site-light-page .article-action,
+html body.site-light-page .services-contact-button,
+html body.site-light-page .contact-split__form button[type="submit"],
+html body.site-light-page .home-paths__action,
+html body.site-light-page .article-back{
+  color:var(--masoon-test-grey)!important;
+}
+
+/* Fusszeile */
+html body.site-light-page .site-footer .footer-simple a,
+html body.site-light-page .site-footer a{
+  color:var(--masoon-test-grey)!important;
+}
+
+/* Unternehmen: feiner Verlaufsrahmen direkt um das Portraitfoto */
+html body.page-company .company-legal-card .home-company__image img,
+html body.page-company .company-legal-card .home-company__image-primary,
+html body.page-company .company-legal-card img[src*="Foto-unternehmen"]{
+  box-sizing:border-box!important;
+  border:1px solid transparent!important;
+  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
+}
+
+/* Fachwissen Hauptseite: CTA auf dieselbe Grundhöhe wie Mehr anzeigen */
+html body.site-light-page:has(#knowledge-articles) #knowledge-articles .article-card{
+  position:relative!important;
+}
+html body.site-light-page:has(#knowledge-articles) #knowledge-articles .article-card .article-action{
+  position:absolute!important;
+  left:42px!important;
+  bottom:36px!important;
+  margin:0!important;
+  color:var(--masoon-test-grey)!important;
+  transform:translateY(0)!important;
+  transition:transform .22s ease,color .22s ease!important;
+}
+@media(hover:hover){
+  html body.site-light-page:has(#knowledge-articles) #knowledge-articles .article-card:hover .article-action{
+    transform:translateY(-3px)!important;
+    color:var(--masoon-test-grey)!important;
+  }
+}
+html body.site-light-page:has(#knowledge-articles) #knowledge-articles .article-card:focus-within .article-action{
+  transform:translateY(-3px)!important;
+  color:var(--masoon-test-grey)!important;
+}
+
+/* Fachwissen Hauptseite: Titel, Trennlinie (am Titel) und Fliesstext leicht nach unten */
+html body.site-light-page:has(#knowledge-articles) #knowledge-articles .article-card h2,
+html body.site-light-page:has(#knowledge-articles) #knowledge-articles .article-card > p:not(.article-card-date){
+  transform:translateY(8px)!important;
+}
+
+/* Einzelne Fachbeiträge: kompaktere Laufweite */
+html body.site-light-page .article-shell .article-title{
+  letter-spacing:-.02em!important;
+}
+html body.site-light-page .article-shell .article-back{
+  color:var(--masoon-test-grey)!important;
+}
+
+/* Kontakt: Bestätigungskasten als Verlaufsvariante */
+html body.page-contact .contact-success__message{
+  background-color:rgba(255,255,255,.72)!important;
+  background-image:linear-gradient(to right in oklab,rgba(244,228,201,.14) 0%,rgba(232,227,218,.14) 36%,rgba(193,199,214,.14) 68%,rgba(132,144,171,.14) 100%)!important;
+  background-size:100% 100%!important;
+  background-position:0 0!important;
+  background-repeat:no-repeat!important;
+  border:1px solid transparent!important;
+  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:blur(32px)!important;
+  backdrop-filter:blur(32px)!important;
+}
+`;
+
+function applyTest(){
+  const d=frame.contentDocument;
+  if(!d)return;
+  let style=d.getElementById('masoon-test-typografie');
+  if(!style){
+    style=d.createElement('style');
+    style.id='masoon-test-typografie';
+    d.head.appendChild(style);
+  }
+  style.textContent=testCss;
+
+  /* Fachwissen: nur Monat und Jahr darstellen; datetime bleibt unverändert. */
+  d.querySelectorAll('#knowledge-articles .article-card-date time[datetime]').forEach(time=>{
+    const match=(time.getAttribute('datetime')||'').match(/^(\d{4})-(\d{2})-\d{2}$/);
+    if(match)time.textContent=`${match[2]}.${match[1]}`;
+  });
+
+  const path=frame.contentWindow.location.pathname;
+  const isContact=/\/kontakt\/(?:index\.html)?$/.test(path);
+  successToggle.hidden=!isContact;
+  successPreview=false;
+  successToggle.textContent='Bestätigung anzeigen';
+}
+
+function setSuccessPreview(on){
+  const d=frame.contentDocument;
+  if(!d)return;
+  const form=d.querySelector('form[data-endpoint], .contact-split__form form');
+  const success=d.querySelector('[data-contact-success], .contact-success');
+  if(!form||!success)return;
+  d.body.classList.toggle('is-sent',on);
+  form.hidden=on;
+  success.hidden=!on;
+  successPreview=on;
+  successToggle.textContent=on?'Formular anzeigen':'Bestätigung anzeigen';
+}
+
+pages.addEventListener('click',event=>{
+  const button=event.target.closest('button[data-page]');
+  if(!button)return;
+  pages.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+  button.classList.add('active');
+  frame.src=button.dataset.page+'?v=typografie-test-1';
+});
+
+successToggle.addEventListener('click',()=>setSuccessPreview(!successPreview));
+frame.addEventListener('load',()=>{
+  applyTest();
+  setTimeout(applyTest,120);
+});
+</script>
+</body>
+</html>

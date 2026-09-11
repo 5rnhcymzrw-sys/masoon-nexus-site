@@ -1,0 +1,103 @@
+name: Hero layer fix
+
+on:
+  push:
+    paths:
+      - '.github/workflows/hero-layer-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Bestehende Hero-Regel korrigieren
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          css_path = Path('assets/unified-design.css')
+          css = css_path.read_text(encoding='utf-8')
+
+          old = '''html body.page-home.site-light-page main.home section.home-hero .home-hero__soft-gradient{
+  position:absolute;
+  left:calc(max(32px,(100vw - 1227px)/2) - 113.6px);
+  top:calc(50% + 5px);
+  width:482.112px;
+  height:192px;
+  transform:none;
+  z-index:0;
+  pointer-events:none;
+  display:block;
+  visibility:visible;
+  opacity:1;
+  background:linear-gradient(to right in oklab,rgba(244,228,201,.14) 0%,rgba(232,227,218,.14) 36%,rgba(193,199,214,.14) 68%,rgba(132,144,171,.14) 100%);
+  background-size:100% 100%;
+  background-position:0 0;
+  background-repeat:no-repeat;
+  filter:none;
+  -webkit-backdrop-filter:blur(32px);
+  backdrop-filter:blur(32px);
+  -webkit-mask-image:none;
+  mask-image:none;
+  -webkit-mask-composite:initial;
+  mask-composite:initial;
+}
+'''
+
+          new = '''html body.page-home.site-light-page main.home section.home-hero .home-hero__soft-gradient{
+  position:absolute;
+  left:calc(max(32px,(100vw - 1227px)/2) - 113.6px);
+  top:calc(50% + 5px);
+  width:482.112px;
+  height:218px;
+  transform:none;
+  z-index:2;
+  pointer-events:none;
+  display:block;
+  visibility:visible;
+  opacity:1;
+  background:linear-gradient(to right in oklab,rgba(244,228,201,.14) 0%,rgba(232,227,218,.14) 36%,rgba(193,199,214,.14) 68%,rgba(132,144,171,.14) 100%);
+  background-size:100% 100%;
+  background-position:0 0;
+  background-repeat:no-repeat;
+  filter:none;
+  -webkit-backdrop-filter:blur(32px);
+  backdrop-filter:blur(32px);
+  -webkit-mask-image:none;
+  mask-image:none;
+  -webkit-mask-composite:initial;
+  mask-composite:initial;
+}
+'''
+
+          if css.count(old) != 1:
+              raise SystemExit(f'Hero-Block nicht eindeutig gefunden: {css.count(old)} Treffer; keine Änderung.')
+          css = css.replace(old, new, 1)
+          css_path.write_text(css, encoding='utf-8')
+
+          index_path = Path('index.html')
+          index = index_path.read_text(encoding='utf-8')
+          old_link = 'assets/unified-design.css?v=hero-final-separat-20260911-1'
+          new_link = 'assets/unified-design.css?v=hero-final-separat-20260911-2'
+          if index.count(old_link) != 1:
+              raise SystemExit(f'Stylesheet-Link nicht eindeutig gefunden: {index.count(old_link)} Treffer; keine Änderung.')
+          index = index.replace(old_link, new_link, 1)
+          index_path.write_text(index, encoding='utf-8')
+          PY
+
+      - name: Änderung committen
+        shell: bash
+        run: |
+          git config user.name "5rnhcymzrw-sys"
+          git config user.email "5rnhcymzrw@privaterelay.appleid.com"
+          git add assets/unified-design.css index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Hero: separaten Verlauf über Foto legen und Höhe angleichen"
+          git push origin main

@@ -1,0 +1,55 @@
+name: temp align fachwissen action
+on:
+  push:
+    paths:
+      - '.github/workflows/temp-align-fachwissen-action.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Adjust existing Fachwissen action rule only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          base = Path('assets/unified-design-base-20260907.css')
+          s = base.read_text(encoding='utf-8')
+          old = '''/* Gemessener Positionsausgleich: Beitrag anzeigen 2 Pixel tiefer */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
+  transform:translateY(-1px)!important;
+}'''
+          new = '''/* Gemessener Positionsausgleich: Beitrag anzeigen auf gleicher Hoehe */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
+  transform:translateY(-3px)!important;
+}'''
+          if s.count(old) != 1:
+              raise SystemExit(f'Expected one existing measured position block, found {s.count(old)}')
+          base.write_text(s.replace(old,new,1), encoding='utf-8')
+
+          unified = Path('assets/unified-design.css')
+          u = unified.read_text(encoding='utf-8')
+          old_import = "@import url('./unified-design-base-20260907.css?v=fachwissen-action-position-20260911-1');"
+          new_import = "@import url('./unified-design-base-20260907.css?v=fachwissen-action-align-20260911-1');"
+          if u.count(old_import) != 1:
+              raise SystemExit(f'Expected one current base import, found {u.count(old_import)}')
+          unified.write_text(u.replace(old_import,new_import,1), encoding='utf-8')
+
+          page = Path('fachwissen/index.html')
+          h = page.read_text(encoding='utf-8')
+          old_link = '../assets/unified-design.css?v=fachwissen-action-position-20260911-1'
+          new_link = '../assets/unified-design.css?v=fachwissen-action-align-20260911-1'
+          if h.count(old_link) != 1:
+              raise SystemExit(f'Expected one current Fachwissen stylesheet link, found {h.count(old_link)}')
+          page.write_text(h.replace(old_link,new_link,1), encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/unified-design-base-20260907.css assets/unified-design.css fachwissen/index.html
+          git diff --cached --check
+          git commit -m 'Align Fachwissen contribution action with Mehr anzeigen'
+          git push

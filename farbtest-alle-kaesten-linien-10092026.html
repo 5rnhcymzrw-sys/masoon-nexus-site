@@ -204,7 +204,7 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__copy
   background-repeat:no-repeat!important;
   border:1px solid transparent!important;
   border-image:${state.lines==='on'?borderFull:'none'}!important;
-  border-color:${state.lines==='on'?'transparent':'transparent'}!important;
+  border-color:transparent!important;
   box-shadow:none!important;
   -webkit-backdrop-filter:${state.soft==='on'?'blur(32px)':'none'}!important;
   backdrop-filter:${state.soft==='on'?'blur(32px)':'none'}!important;
@@ -213,22 +213,42 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__copy
 html body.page-home.site-light-page main.home section.home-hero .home-hero__copy>:not(.masoon-hero-white-backplate){position:relative;z-index:3}
 `;
 }
+function buttonCss(){
+  const bg=buttonState.color==='off'?'transparent':gradient(buttonState.color);
+  const bi=buttonState.lines==='on'?borderFull:'none';
+  return `
+html body.page-home .home-action-button,
+html body.page-services .services-contact-button,
+html body.page-contact .contact-split__form button[type="submit"]{
+  border:0!important;
+  border-image:none!important;
+  background:transparent!important;
+  background-image:none!important;
+}
+html body.page-home .home-action-button::before,
+html body.page-services .services-contact-button::before,
+html body.page-contact .contact-split__form button[type="submit"]::before{
+  content:""!important;
+  display:block!important;
+  border:1px solid transparent!important;
+  border-image:${bi}!important;
+  border-color:transparent!important;
+  background:${bg}!important;
+  background-size:100% 100%!important;
+  background-position:0 0!important;
+  background-repeat:no-repeat!important;
+  box-shadow:none!important;
+  filter:none!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+}
+`;
+}
 function applyButtons(d){
-  const selector='.home-action-button,.services-contact-button,.contact-split__form button[type="submit"]';
-  const buttons=[...d.querySelectorAll(selector)];
-  buttons.forEach(el=>{
-    remember(el);restore(el);
-    if(buttonState.color==='off'){
-      setImp(el,'background','transparent');
-      setImp(el,'background-image','none');
-    }else{
-      setImp(el,'background',gradient(buttonState.color));
-      setImp(el,'background-size','100% 100%');
-      setImp(el,'background-position','0 0');
-      setImp(el,'background-repeat','no-repeat');
-    }
-    setLine(el,borderFull,buttonState.lines==='on');
-  });
+  let style=d.getElementById('button-test-style');
+  if(!style){style=d.createElement('style');style.id='button-test-style';d.head.appendChild(style)}
+  style.textContent=buttonCss();
 }
 function apply(){
   const d=frame.contentDocument;

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASOON TREUHAND – Hero Farbverlauf Test</title>
+<style>
+  html,body{margin:0;width:100%;height:100%;background:#fff}
+  iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
+</style>
+</head>
+<body>
+<iframe id="site" src="./index.html?v=hero-original-gradient-11092026-1"></iframe>
+<script>
+const frame=document.getElementById('site');
+function apply(){
+  const d=frame.contentDocument;
+  if(!d||!d.head)return;
+  let s=d.getElementById('masoon-hero-original-gradient-test');
+  if(!s){
+    s=d.createElement('style');
+    s.id='masoon-hero-original-gradient-test';
+    d.head.appendChild(s);
+  }
+  s.textContent=`
+html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{
+  background-color:#fff!important;
+  background-image:linear-gradient(
+    to right in oklab,
+    rgba(245,225,194,.11) 0%,
+    rgba(232,225,214,.11) 36%,
+    rgba(187,196,216,.11) 68%,
+    rgba(124,139,173,.11) 100%
+  )!important;
+  background-size:100% 100%!important;
+  background-position:0 0!important;
+  background-repeat:no-repeat!important;
+  opacity:1!important;
+  filter:none!important;
+  box-shadow:none!important;
+}
+`;
+}
+frame.addEventListener('load',()=>setTimeout(apply,160));
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+name: temp fachwissen cards final
+on:
+  push:
+    paths:
+      - '.github/workflows/temp-fachwissen-cards-final.yml'
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update existing Fachwissen card rules only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('assets/unified-design.css')
+          s = p.read_text(encoding='utf-8')
+
+          old = '''html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  background-origin:border-box!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+}'''
+
+          new = '''html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{
+  background:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;
+  background-color:transparent!important;
+  background-image:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;
+  background-origin:border-box!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border:0!important;
+  border-image:none!important;
+  -webkit-backdrop-filter:blur(32px)!important;
+  backdrop-filter:blur(32px)!important;
+}'''
+
+          if s.count(old) != 1:
+              raise SystemExit(f'Expected exactly one main Fachwissen card block, found {s.count(old)}')
+          s = s.replace(old, new, 1)
+
+          old_hover = 'background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;'
+          new_hover = 'background:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;'
+
+          # Only the Fachwissen-Hauptseite hover block: locate its selector first.
+          hover_selector = 'html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card:hover{'
+          pos = s.find(hover_selector)
+          if pos < 0:
+              raise SystemExit('Fachwissen hover selector not found')
+          end = s.find('\n  }\n}', pos)
+          if end < 0:
+              raise SystemExit('Fachwissen hover block end not found')
+          segment = s[pos:end]
+          if segment.count(old_hover) != 1:
+              raise SystemExit(f'Expected old hover gradient once in Fachwissen block, found {segment.count(old_hover)}')
+          segment = segment.replace(old_hover, new_hover, 1)
+          s = s[:pos] + segment + s[end:]
+
+          # Remove the later obsolete hover colour override that would otherwise overwrite variant 2.
+          pattern = re.compile(
+              r'/\* Fachwissen-Hauptseite: sichtbare Dreierverteilung wie auf der Startseite,\n'
+              r'   ohne Vermischung mit dem stärkeren Seitenhintergrund\. \*/\n'
+              r'html body\.page-knowledge\.site-light-page main \.knowledge-section#knowledge-articles \.articles-grid > \.article-card\.article-card:hover \{.*?\n\}\n\n'
+              r'html body\.page-knowledge\.site-light-page main \.knowledge-section#knowledge-articles \.articles-grid > \.article-card\.article-card:nth-child\(3n\+1\):hover \{.*?\n\}\n\n'
+              r'html body\.page-knowledge\.site-light-page main \.knowledge-section#knowledge-articles \.articles-grid > \.article-card\.article-card:nth-child\(3n\+2\):hover \{.*?\n\}\n\n'
+              r'html body\.page-knowledge\.site-light-page main \.knowledge-section#knowledge-articles \.articles-grid > \.article-card\.article-card:nth-child\(3n\):hover \{.*?\n\}\n?',
+              re.S
+          )
+          s, n = pattern.subn('', s, count=1)
+          if n != 1:
+              raise SystemExit(f'Expected one obsolete Fachwissen hover override block, removed {n}')
+
+          p.write_text(s, encoding='utf-8')
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/unified-design.css
+          git diff --cached --check
+          git commit -m 'Style Fachwissen cards with variant 2 blur and no borders'
+          git push

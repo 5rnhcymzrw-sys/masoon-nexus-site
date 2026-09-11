@@ -123,6 +123,7 @@ html body.page-home.site-light-page main.home section.home-paths .home-paths__gr
   border:0!important;
   border-color:transparent!important;
   border-image:none!important;
+  background-color:transparent!important;
   background-size:calc(300% + 44px) 100%!important;
   background-repeat:no-repeat!important;
   background-origin:border-box!important;

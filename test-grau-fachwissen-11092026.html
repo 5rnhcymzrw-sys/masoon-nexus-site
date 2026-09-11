@@ -3,24 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MASOON TREUHAND – Typografie und Fachwissen Test</title>
+<title>MASOON TREUHAND – Grau und Fachwissen Test</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;height:100%;background:#fff;font-family:Arial,sans-serif}
 iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
-.test-panel{position:fixed;right:10px;top:10px;z-index:9999;width:224px;max-width:calc(100vw - 20px);padding:9px;background:rgba(255,255,255,.97);border:1px solid #cfcfcf;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.test-panel{position:fixed;right:10px;top:10px;z-index:99999;width:236px;max-width:calc(100vw - 20px);padding:10px;background:rgba(255,255,255,.98);border:1px solid #a9a9a9;box-shadow:0 4px 18px rgba(0,0,0,.14)}
+.test-active{margin:0 0 8px;padding:6px 7px;background:#171715;color:#fff;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:center}
 .test-title{margin:0 0 8px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#171715}
 .test-row{display:flex;gap:5px;flex-wrap:wrap;margin:0 0 7px}
 .test-panel button{appearance:none;border:1px solid #aaa;background:#fff;color:#171715;padding:6px 7px;font-size:9px;line-height:1;cursor:pointer}
 .test-panel button.active{background:#171715;color:#fff;border-color:#171715}
 .test-panel .success-toggle{width:100%;margin-top:4px;text-align:center}
-.test-note{font-size:8px;line-height:1.4;color:#777;margin-top:7px}
-@media(max-width:560px){.test-panel{right:6px;top:6px;width:205px;max-width:calc(100vw - 12px)}}
+.test-note{font-size:8px;line-height:1.4;color:#666;margin-top:7px}
+@media(max-width:560px){.test-panel{right:6px;top:6px;width:212px;max-width:calc(100vw - 12px)}}
 </style>
 </head>
 <body>
-<iframe id="site" src="./fachwissen/index.html?v=typografie-test-1"></iframe>
+<iframe id="site" src="./fachwissen/index.html?v=grau-test-2"></iframe>
 <div class="test-panel" aria-label="Teststeuerung">
+  <div class="test-active">TEST AKTIV · GRAU / FACHWISSEN</div>
   <p class="test-title">Testansicht</p>
   <div class="test-row" id="pages">
     <button data-page="./index.html">Start</button>
@@ -31,88 +33,81 @@ iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
     <button data-page="./kontakt/index.html">Kontakt</button>
   </div>
   <button id="success-toggle" class="success-toggle" type="button" hidden>Bestätigung anzeigen</button>
-  <div class="test-note">Nur Testansicht. Die normalen Seiten werden nicht verändert.</div>
+  <div class="test-note">Auf Fachwissen müssen die Daten sofort als 07.2026, 06.2026 usw. erscheinen.</div>
 </div>
 <script>
 const frame=document.getElementById('site');
 const pages=document.getElementById('pages');
 const successToggle=document.getElementById('success-toggle');
 let successPreview=false;
+const GREY='#868279';
+const BORDER='linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1';
 
 const testCss=`
-:root{--masoon-test-grey:#868279}
+:root{--masoon-test-grey:${GREY}}
 
-/* Kleine Bereichstitel und Navigations-/Aktionsschriften in Grau */
+/* Bereichstitel */
 html body.site-light-page .section-label,
-html body.site-light-page .home-paths__category,
-html body.site-light-page .article-card-date{
+html body.site-light-page .article-card-date,
+html body.site-light-page .home-paths__category{
   color:var(--masoon-test-grey)!important;
 }
 
+/* Sämtliche Aktionsschriften grau, auch in Hover-/Focus-Zuständen */
 html body.site-light-page .home-action-button,
+html body.site-light-page .home-action-button:hover,
+html body.site-light-page .home-action-button:focus-visible,
+html body.site-light-page .home-action-button:active,
 html body.site-light-page .details-action,
+html body.site-light-page .details-action:hover,
 html body.site-light-page .article-action,
+html body.site-light-page .article-action:hover,
+html body.site-light-page .article-action:focus-visible,
 html body.site-light-page .services-contact-button,
+html body.site-light-page .services-contact-button:hover,
 html body.site-light-page .contact-split__form button[type="submit"],
+html body.site-light-page .contact-split__form button[type="submit"]:hover,
 html body.site-light-page .home-paths__action,
-html body.site-light-page .article-back{
+html body.site-light-page .article-back,
+html body.site-light-page .article-back:hover,
+html body.site-light-page .article-back:focus-visible{
   color:var(--masoon-test-grey)!important;
 }
 
 /* Fusszeile */
-html body.site-light-page .site-footer .footer-simple a,
-html body.site-light-page .site-footer a{
+html body.site-light-page .site-footer,
+html body.site-light-page .site-footer a,
+html body.site-light-page .footer-simple,
+html body.site-light-page .footer-simple a{
   color:var(--masoon-test-grey)!important;
 }
 
-/* Unternehmen: feiner Verlaufsrahmen direkt um das Portraitfoto */
-html body.page-company .company-legal-card .home-company__image img,
-html body.page-company .company-legal-card .home-company__image-primary,
-html body.page-company .company-legal-card img[src*="Foto-unternehmen"]{
+/* Unternehmen: feiner Verlaufsrahmen direkt um das Portrait */
+html body.page-company .company-legal-card .home-company__image-primary{
   box-sizing:border-box!important;
   border:1px solid transparent!important;
-  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
+  border-image:${BORDER}!important;
 }
 
-/* Fachwissen Hauptseite: CTA auf dieselbe Grundhöhe wie Mehr anzeigen */
-html body.site-light-page:has(#knowledge-articles) #knowledge-articles .article-card{
-  position:relative!important;
-}
-html body.site-light-page:has(#knowledge-articles) #knowledge-articles .article-card .article-action{
-  position:absolute!important;
-  left:42px!important;
-  bottom:36px!important;
-  margin:0!important;
-  color:var(--masoon-test-grey)!important;
-  transform:translateY(0)!important;
-  transition:transform .22s ease,color .22s ease!important;
-}
-@media(hover:hover){
-  html body.site-light-page:has(#knowledge-articles) #knowledge-articles .article-card:hover .article-action{
-    transform:translateY(-3px)!important;
-    color:var(--masoon-test-grey)!important;
-  }
-}
-html body.site-light-page:has(#knowledge-articles) #knowledge-articles .article-card:focus-within .article-action{
+/* Fachwissen: Beitrag anzeigen im Ruhezustand 3px höher.
+   Der bestehende Karten-Hover hebt die Karte danach weiterhin leicht an. */
+html body.page-knowledge #knowledge-articles .article-card .article-action{
   transform:translateY(-3px)!important;
   color:var(--masoon-test-grey)!important;
 }
 
-/* Fachwissen Hauptseite: Titel, Trennlinie (am Titel) und Fliesstext leicht nach unten */
-html body.site-light-page:has(#knowledge-articles) #knowledge-articles .article-card h2,
-html body.site-light-page:has(#knowledge-articles) #knowledge-articles .article-card > p:not(.article-card-date){
+/* Fachwissen: Titel + Titel-Trennlinie + Fliesstext leicht nach unten */
+html body.page-knowledge #knowledge-articles .article-card>h2,
+html body.page-knowledge #knowledge-articles .article-card>p.mt-body-copy{
   transform:translateY(8px)!important;
 }
 
-/* Einzelne Fachbeiträge: kompaktere Laufweite */
+/* Einzelne Fachbeiträge: Titel etwas kompakter */
 html body.site-light-page .article-shell .article-title{
   letter-spacing:-.02em!important;
 }
-html body.site-light-page .article-shell .article-back{
-  color:var(--masoon-test-grey)!important;
-}
 
-/* Kontakt: Bestätigungskasten als Verlaufsvariante */
+/* Kontakt: Verlaufsvariante nur im Bestätigungskasten */
 html body.page-contact .contact-success__message{
   background-color:rgba(255,255,255,.72)!important;
   background-image:linear-gradient(to right in oklab,rgba(244,228,201,.14) 0%,rgba(232,227,218,.14) 36%,rgba(193,199,214,.14) 68%,rgba(132,144,171,.14) 100%)!important;
@@ -120,48 +115,83 @@ html body.page-contact .contact-success__message{
   background-position:0 0!important;
   background-repeat:no-repeat!important;
   border:1px solid transparent!important;
-  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
+  border-image:${BORDER}!important;
   box-shadow:none!important;
   -webkit-backdrop-filter:blur(32px)!important;
   backdrop-filter:blur(32px)!important;
 }
 `;
 
+function setImportant(el,prop,value){
+  if(el) el.style.setProperty(prop,value,'important');
+}
+
+function formatKnowledgeDates(d){
+  d.querySelectorAll('#knowledge-articles time.article-card-date[datetime]').forEach(time=>{
+    const iso=time.getAttribute('datetime')||'';
+    const m=iso.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if(!m)return;
+    const current=time.textContent||'';
+    const rest=current.replace(/^\s*\d{2}\.\d{2}\.\d{4}/,'');
+    time.textContent=`${m[2]}.${m[1]}${rest}`;
+  });
+}
+
+function applyDirectStyles(d){
+  d.querySelectorAll('.section-label,.article-card-date,.home-paths__category').forEach(el=>setImportant(el,'color',GREY));
+  d.querySelectorAll('.home-action-button,.details-action,.article-action,.services-contact-button,.contact-split__form button[type="submit"],.home-paths__action,.article-back').forEach(el=>setImportant(el,'color',GREY));
+  d.querySelectorAll('.site-footer,.site-footer a,.footer-simple,.footer-simple a').forEach(el=>setImportant(el,'color',GREY));
+
+  const portrait=d.querySelector('body.page-company .company-legal-card .home-company__image-primary');
+  if(portrait){
+    setImportant(portrait,'border','1px solid transparent');
+    setImportant(portrait,'border-image',BORDER);
+  }
+
+  if(d.body.classList.contains('page-knowledge')){
+    d.querySelectorAll('#knowledge-articles .article-card .article-action').forEach(el=>setImportant(el,'transform','translateY(-3px)'));
+    d.querySelectorAll('#knowledge-articles .article-card>h2,#knowledge-articles .article-card>p.mt-body-copy').forEach(el=>setImportant(el,'transform','translateY(8px)'));
+  }
+
+  d.querySelectorAll('.article-shell .article-title').forEach(el=>setImportant(el,'letter-spacing','-.02em'));
+}
+
 function applyTest(){
   const d=frame.contentDocument;
-  if(!d)return;
-  let style=d.getElementById('masoon-test-typografie');
+  if(!d||!d.head||!d.body)return;
+  let style=d.getElementById('masoon-grey-fachwissen-test');
   if(!style){
     style=d.createElement('style');
-    style.id='masoon-test-typografie';
+    style.id='masoon-grey-fachwissen-test';
     d.head.appendChild(style);
   }
   style.textContent=testCss;
-
-  /* Fachwissen: nur Monat und Jahr darstellen; datetime bleibt unverändert. */
-  d.querySelectorAll('#knowledge-articles .article-card-date time[datetime]').forEach(time=>{
-    const match=(time.getAttribute('datetime')||'').match(/^(\d{4})-(\d{2})-\d{2}$/);
-    if(match)time.textContent=`${match[2]}.${match[1]}`;
-  });
+  formatKnowledgeDates(d);
+  applyDirectStyles(d);
 
   const path=frame.contentWindow.location.pathname;
   const isContact=/\/kontakt\/(?:index\.html)?$/.test(path);
   successToggle.hidden=!isContact;
-  successPreview=false;
-  successToggle.textContent='Bestätigung anzeigen';
+  if(!isContact){
+    successPreview=false;
+    successToggle.textContent='Bestätigung anzeigen';
+  }
 }
 
 function setSuccessPreview(on){
   const d=frame.contentDocument;
   if(!d)return;
-  const form=d.querySelector('form[data-endpoint], .contact-split__form form');
-  const success=d.querySelector('[data-contact-success], .contact-success');
+  const form=d.querySelector('form.contact-split__form, form.contact-form');
+  const success=d.querySelector('.contact-success');
   if(!form||!success)return;
-  d.body.classList.toggle('is-sent',on);
-  form.hidden=on;
+  form.querySelectorAll(':scope>label,:scope>button[type="submit"],:scope>.form-status').forEach(el=>{el.hidden=on});
   success.hidden=!on;
   successPreview=on;
   successToggle.textContent=on?'Formular anzeigen':'Bestätigung anzeigen';
+  if(on){
+    applyTest();
+    success.scrollIntoView({block:'center',behavior:'auto'});
+  }
 }
 
 pages.addEventListener('click',event=>{
@@ -169,13 +199,16 @@ pages.addEventListener('click',event=>{
   if(!button)return;
   pages.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
   button.classList.add('active');
-  frame.src=button.dataset.page+'?v=typografie-test-1';
+  successPreview=false;
+  successToggle.textContent='Bestätigung anzeigen';
+  frame.src=button.dataset.page+'?v=grau-test-'+Date.now();
 });
 
 successToggle.addEventListener('click',()=>setSuccessPreview(!successPreview));
 frame.addEventListener('load',()=>{
   applyTest();
-  setTimeout(applyTest,120);
+  setTimeout(applyTest,80);
+  setTimeout(applyTest,300);
 });
 </script>
 </body>

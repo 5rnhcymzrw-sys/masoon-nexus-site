@@ -717,9 +717,9 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__soft
   left:calc(max(32px,(100vw - 1227px)/2) - 113.6px);
   top:calc(50% + 5px);
   width:482.112px;
-  height:192px;
+  height:218px;
   transform:none;
-  z-index:0;
+  z-index:2;
   pointer-events:none;
   display:block;
   visibility:visible;

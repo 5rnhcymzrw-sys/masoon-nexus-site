@@ -629,17 +629,17 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__copy
 
 
 html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item{
- background:linear-gradient(to right in oklab,rgba(243,232,212,.11) 0%,rgba(232,229,223,.11) 36%,rgba(199,203,211,.11) 68%,rgba(141,150,168,.11) 100%)!important;
- background-size:calc(300% + 44px) 100%!important;background-position:0% 0!important;background-repeat:no-repeat!important;background-origin:border-box!important;border:1px solid transparent!important;
- border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;
+ background:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;
+ background-size:calc(300% + 44px) 100%!important;background-position:0% 0!important;background-repeat:no-repeat!important;background-origin:border-box!important;border:0!important;
+ border-image:none!important;
  box-shadow:none!important;-webkit-backdrop-filter:blur(32px)!important;backdrop-filter:blur(32px)!important;
 }
 html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item::before,
 html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item::after{content:none!important;display:none!important;}
 html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item .service-number{color:#171715!important;}
 html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(n+2) .service-number{color:#c9c7c5!important;}
-html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+2){border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;}
-html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n){border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;}
+html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+2){border-image:none!important;}
+html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n){border-image:none!important;}
 html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n+2){background-position:50% 0!important;}
 html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item:nth-child(3n){background-position:100% 0!important;}
 

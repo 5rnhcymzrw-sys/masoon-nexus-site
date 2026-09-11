@@ -18,7 +18,7 @@
 </style>
 </head>
 <body>
-<iframe id="site" src="./index.html?v=all-box-test-5"></iframe>
+<iframe id="site" src="./index.html?v=all-box-test-6"></iframe>
 
 <div class="test-panel" aria-label="Teststeuerung">
   <div class="test-row" id="pages">
@@ -88,6 +88,18 @@ function paintSingle(items){
     setLine(el,borderFull);
   });
 }
+function syncHeroBackplate(d){
+  const hero=d.querySelector('.home-hero__copy');
+  const backplate=hero?.querySelector(':scope > .masoon-hero-white-backplate');
+  if(!hero||!backplate)return;
+  const pseudo=d.defaultView.getComputedStyle(hero,'::before');
+  setImp(backplate,'left',pseudo.left);
+  setImp(backplate,'top',pseudo.top);
+  setImp(backplate,'width',pseudo.width);
+  setImp(backplate,'height',pseudo.height);
+  setImp(backplate,'right','auto');
+  setImp(backplate,'bottom','auto');
+}
 function apply(){
   const d=frame.contentDocument;
   if(!d||!d.body)return;
@@ -102,9 +114,45 @@ function apply(){
 
   const hero=d.querySelector('.home-hero__copy');
   if(hero){
+    let backplate=hero.querySelector(':scope > .masoon-hero-white-backplate');
+    if(!backplate){
+      backplate=d.createElement('div');
+      backplate.className='masoon-hero-white-backplate';
+      backplate.setAttribute('aria-hidden','true');
+      hero.prepend(backplate);
+    }
+
     let style=d.getElementById('hero-box-test-style');
     if(!style){style=d.createElement('style');style.id='hero-box-test-style';d.head.appendChild(style)}
-    style.textContent=`html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{background:${gradient()}!important;border:1px solid transparent!important;border-image:${lines==='on'?borderFull:'none'}!important;}`;
+    style.textContent=`
+html body.page-home.site-light-page main.home section.home-hero .home-hero__copy{
+  position:relative!important;
+  isolation:isolate!important;
+}
+html body.page-home.site-light-page main.home section.home-hero .home-hero__copy>.masoon-hero-white-backplate{
+  display:block!important;
+  position:absolute!important;
+  box-sizing:border-box!important;
+  background:#fff!important;
+  border:0!important;
+  box-shadow:none!important;
+  pointer-events:none!important;
+  z-index:1!important;
+}
+html body.page-home.site-light-page main.home section.home-hero .home-hero__copy::before{
+  background:${gradient()}!important;
+  border:1px solid transparent!important;
+  border-image:${lines==='on'?borderFull:'none'}!important;
+  box-shadow:none!important;
+  z-index:2!important;
+}
+html body.page-home.site-light-page main.home section.home-hero .home-hero__copy>:not(.masoon-hero-white-backplate){
+  position:relative;
+  z-index:3;
+}
+`;
+    requestAnimationFrame(()=>syncHeroBackplate(d));
+    setTimeout(()=>syncHeroBackplate(d),80);
   }
 }
 frame.addEventListener('load',()=>setTimeout(apply,120));

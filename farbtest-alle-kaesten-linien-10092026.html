@@ -18,7 +18,7 @@
 </style>
 </head>
 <body>
-<iframe id="site" src="./index.html?v=all-box-test-6"></iframe>
+<iframe id="site" src="./index.html?v=all-box-test-7"></iframe>
 
 <div class="test-panel" aria-label="Teststeuerung">
   <div class="test-row" id="pages">
@@ -39,6 +39,11 @@
     <button data-lines="on" class="active">mit</button>
     <button data-lines="off">ohne</button>
   </div>
+  <div class="test-row" id="softness">
+    <span class="test-label">Weich</span>
+    <button data-soft="on" class="active">mit</button>
+    <button data-soft="off">ohne</button>
+  </div>
 </div>
 
 <script>
@@ -46,6 +51,7 @@ const frame=document.getElementById('site');
 let page='./index.html';
 let color='2';
 let lines='on';
+let soft='on';
 const variants={
   '2':[[244,228,201],[232,227,218],[193,199,214],[132,144,171]],
   '3':[[245,225,194],[232,225,214],[187,196,216],[124,139,173]]
@@ -65,6 +71,11 @@ function setLine(el,which){
   setImp(el,'border-image',lines==='on'?which:'none');
   if(lines==='off') setImp(el,'border-color','transparent');
 }
+function setSoft(el){
+  const value=soft==='on'?'blur(32px)':'none';
+  setImp(el,'-webkit-backdrop-filter',value);
+  setImp(el,'backdrop-filter',value);
+}
 function paintGroup(items){
   const g=gradient();
   items.forEach((el,i)=>{
@@ -75,6 +86,7 @@ function paintGroup(items){
     setImp(el,'background-origin','border-box');
     setImp(el,'background-position',mod===0?'0% 0':mod===1?'50% 0':'100% 0');
     setLine(el,mod===0?borderLeft:mod===1?borderMid:borderRight);
+    setSoft(el);
     el.querySelectorAll(':scope > summary,:scope > ul').forEach(ch=>setImp(ch,'background','transparent'));
   });
 }
@@ -86,6 +98,7 @@ function paintSingle(items){
     setImp(el,'background-repeat','no-repeat');
     setImp(el,'background-origin','border-box');
     setLine(el,borderFull);
+    setSoft(el);
   });
 }
 function syncHeroBackplate(d){
@@ -144,6 +157,8 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__copy
   border:1px solid transparent!important;
   border-image:${lines==='on'?borderFull:'none'}!important;
   box-shadow:none!important;
+  -webkit-backdrop-filter:${soft==='on'?'blur(32px)':'none'}!important;
+  backdrop-filter:${soft==='on'?'blur(32px)':'none'}!important;
   z-index:2!important;
 }
 html body.page-home.site-light-page main.home section.home-hero .home-hero__copy>:not(.masoon-hero-white-backplate){
@@ -170,6 +185,11 @@ document.querySelectorAll('[data-color]').forEach(b=>b.addEventListener('click',
 document.querySelectorAll('[data-lines]').forEach(b=>b.addEventListener('click',()=>{
   lines=b.dataset.lines;
   document.querySelectorAll('[data-lines]').forEach(x=>x.classList.toggle('active',x===b));
+  apply();
+}));
+document.querySelectorAll('[data-soft]').forEach(b=>b.addEventListener('click',()=>{
+  soft=b.dataset.soft;
+  document.querySelectorAll('[data-soft]').forEach(x=>x.classList.toggle('active',x===b));
   apply();
 }));
 </script>

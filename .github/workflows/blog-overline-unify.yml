@@ -19,28 +19,6 @@ jobs:
           from pathlib import Path
           import re
 
-          css = Path('assets/unified-design.css')
-          text = css.read_text()
-          pattern = re.compile(r'(body\.page-article-[^{]+ \.article-hero \.section-label\{[^{}]*?color:)#868279(!important[^{}]*?\})')
-          text2, n = pattern.subn(r'\1#777777\2', text)
-          if n != 7:
-              raise SystemExit(f'Expected 7 individual article overline color rules, found {n}')
-          css.write_text(text2)
-
-          # Verify central section-label typography remains the source for font/spacing.
-          base = Path('assets/unified-design-base-20260907.css').read_text()
-          canonical = 'html body main .section-label.section-label.section-label.section-label.section-label.section-label'
-          s = base.find(canonical + '{')
-          if s == -1:
-              raise SystemExit('Canonical section-label rule missing')
-          e = base.find('}', s)
-          block = base[s:e+1]
-          required = ['font-size:11px!important', 'font-weight:500!important', 'line-height:1.4!important', 'letter-spacing:1.1px!important', 'color:#777777!important']
-          for item in required:
-              if item not in block:
-                  raise SystemExit(f'Canonical section-label value missing: {item}')
-
-          # Cache bust only the individual Fachwissen article pages.
           article_dirs = [
               'checkliste-steuererklaerung',
               'unternehmen-gruenden',
@@ -50,24 +28,76 @@ jobs:
               'gewinnverwendung',
               'missbraeuchliche-konkurse',
           ]
-          changed = 0
+
+          # Verify all seven current blog overlines use the shared section-label class.
           for d in article_dirs:
               p = Path('fachwissen') / d / 'index.html'
               if not p.exists():
                   raise SystemExit(f'Missing article page: {p}')
               html = p.read_text()
-              updated, count = re.subn(
+              if html.count('class="section-label article-overline-label mt-nav-typography"') != 1:
+                  raise SystemExit(f'Unexpected article overline markup in {p}')
+
+          # Remove legacy article-specific colour declarations so the canonical
+          # section-label rule is the only source for colour/spacing/typography.
+          unified = Path('assets/unified-design.css')
+          u = unified.read_text()
+          legacy_pattern = re.compile(r'(body\.page-article-[^{]+ \.article-hero \.section-label\{[^{}]*?)color:#868279!important;?([^{}]*?\})')
+          u2, unified_removed = legacy_pattern.subn(r'\1\2', u)
+          if unified_removed != 5:
+              raise SystemExit(f'Expected 5 legacy page-specific article colours, found {unified_removed}')
+          unified.write_text(u2)
+
+          detail = Path('assets/article-detail.css')
+          dcss = detail.read_text()
+          old = '.article-hero .section-label{margin-bottom:38px!important;color:#868279!important}'
+          new = '.article-hero .section-label{margin-bottom:38px!important}'
+          if dcss.count(old) != 1:
+              raise SystemExit(f'Expected one shared legacy article colour rule, found {dcss.count(old)}')
+          detail.write_text(dcss.replace(old, new, 1))
+
+          # Verify the canonical section-label rule has exactly the requested values.
+          base = Path('assets/unified-design-base-20260907.css').read_text()
+          canonical = 'html body main .section-label.section-label.section-label.section-label.section-label.section-label'
+          s = base.find(canonical + '{')
+          if s == -1:
+              raise SystemExit('Canonical section-label rule missing')
+          e = base.find('}', s)
+          block = base[s:e+1]
+          required = [
+              'font-family:var(--font-inter),Arial,sans-serif!important',
+              'font-size:11px!important',
+              'font-weight:500!important',
+              'line-height:1.4!important',
+              'letter-spacing:1.1px!important',
+              'text-transform:uppercase!important',
+              'color:#777777!important',
+          ]
+          for item in required:
+              if item not in block:
+                  raise SystemExit(f'Canonical section-label value missing: {item}')
+
+          # Cache bust both changed stylesheets on all seven blog pages.
+          for folder in article_dirs:
+              p = Path('fachwissen') / folder / 'index.html'
+              html = p.read_text()
+              html, n1 = re.subn(
                   r'(\.\./\.\./assets/unified-design\.css\?v=)[^"\']+',
-                  r'\1blog-overline-unified-20260912-1',
+                  r'\1blog-overline-unified-20260912-2',
                   html,
                   count=1
               )
-              if count != 1:
-                  raise SystemExit(f'unified-design cache ref not found exactly once in {p}: {count}')
-              p.write_text(updated)
-              changed += 1
+              html, n2 = re.subn(
+                  r'(\.\./\.\./assets/article-detail\.css\?v=)[^"\']+',
+                  r'\1blog-overline-unified-20260912-2',
+                  html,
+                  count=1
+              )
+              if n1 != 1 or n2 != 1:
+                  raise SystemExit(f'Cache refs not found exactly once in {p}: unified={n1}, detail={n2}')
+              p.write_text(html)
 
-          print(f'Updated {n} article overline color rules and {changed} article cache refs.')
+          print('Removed 6 legacy colour declarations. All 7 blog overlines now inherit the canonical section-label typography.')
           PY
       - name: Remove temporary workflow and commit
         run: |
@@ -75,5 +105,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Blogs: Datumszeilen wie Bereichstitel vereinheitlichen"
+          git commit -m "Blogs: Datumszeilen exakt wie Bereichstitel"
           git push

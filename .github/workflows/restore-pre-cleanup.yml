@@ -1,0 +1,47 @@
+name: Restore pre-cleanup website state
+
+on:
+  push:
+    paths:
+      - '.github/workflows/restore-pre-cleanup.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore website files from pre-cleanup commit
+        run: |
+          git checkout 8a1f2d1cb4216cac5f71c7a8957b574d4e7c3d91 -- \
+            assets/article-detail.css \
+            assets/contact.css \
+            assets/dienstleistungen.css \
+            assets/global.css \
+            assets/index-CZfMKxM_.css \
+            assets/unified-design-base-20260907.css \
+            assets/unified-design.css \
+            datenschutz/index.html \
+            dienstleistungen/index.html \
+            disclaimer/index.html \
+            fachwissen/checkliste-steuererklaerung/index.html \
+            fachwissen/gewinnverwendung/index.html \
+            fachwissen/index.html \
+            fachwissen/kuendigung-arbeitsvertrag/index.html \
+            fachwissen/missbraeuchliche-konkurse/index.html \
+            fachwissen/unternehmen-gruenden/index.html \
+            fachwissen/unternehmensformen/index.html \
+            fachwissen/unwahre-buchfuehrung/index.html \
+            impressum/index.html \
+            index.html \
+            kontakt/index.html \
+            unternehmen/index.html
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets datenschutz dienstleistungen disclaimer fachwissen impressum index.html kontakt unternehmen
+          git commit -m "Website nach fehlerhafter Button-Bereinigung wiederherstellen"
+          git push

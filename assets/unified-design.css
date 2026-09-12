@@ -1050,7 +1050,7 @@ body.page-article-tax-checklist .article-hero,
 body.page-article-tax-checklist .article-body{width:100%!important;max-width:none!important;margin:0!important}
     body.page-article-tax-checklist .article-hero{padding-bottom:48px;border-bottom:1px solid #d7d5d1}
 
-    body.page-article-tax-checklist .article-hero .section-label{margin-bottom:38px!important;color:#868279!important}
+    body.page-article-tax-checklist .article-hero .section-label{margin-bottom:38px!important;}
     body.page-article-tax-checklist .article-title{max-width:var(--title-width)!important;margin:0!important;text-align:left!important;padding:0!important;font-family:Georgia,"Times New Roman",serif!important;font-size:var(--title-size)!important;font-weight:700!important;line-height:1.05!important;letter-spacing:0!important;text-transform:none!important;font-style:normal!important;font-stretch:100%!important;font-variant:normal!important;text-shadow:none!important;-webkit-text-stroke:0!important;color:#171715!important}
     body.page-article-tax-checklist .article-lead{max-width:none;margin:30px 0 0!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;letter-spacing:normal!important;color:#484a4f!important}
     body.page-article-tax-checklist .article-lead+.article-lead{margin-top:12px!important}
@@ -1113,7 +1113,7 @@ body.page-article-employment-termination .article-shell{width:91%!important;max-
 body.page-article-employment-termination .article-hero,
 body.page-article-employment-termination .article-body{width:100%!important;max-width:none!important;margin:0!important}
     body.page-article-employment-termination .article-hero{padding-bottom:48px;border-bottom:1px solid #d7d5d1}
-    body.page-article-employment-termination .article-hero .section-label{margin-bottom:38px!important;color:#868279!important}
+    body.page-article-employment-termination .article-hero .section-label{margin-bottom:38px!important;}
     body.page-article-employment-termination .article-title{max-width:var(--title-width)!important;margin:0!important;text-align:left!important;padding:0!important;font-family:Georgia,"Times New Roman",serif!important;font-size:var(--title-size)!important;font-weight:700!important;line-height:1.05!important;letter-spacing:0!important;text-transform:none!important;font-style:normal!important;font-stretch:100%!important;font-variant:normal!important;text-shadow:none!important;-webkit-text-stroke:0!important;color:#171715!important}
     body.page-article-employment-termination .article-lead{max-width:none;margin:30px 0 0!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;letter-spacing:normal!important;color:#484a4f!important}
     body.page-article-employment-termination .article-lead+.article-lead{margin-top:12px!important}
@@ -1181,7 +1181,7 @@ body.page-article-company-formation .article-shell{width:91%!important;max-width
 body.page-article-company-formation .article-hero,
 body.page-article-company-formation .article-body{width:100%!important;max-width:none!important;margin:0!important}
     body.page-article-company-formation .article-hero{padding-bottom:48px;border-bottom:1px solid #d7d5d1}
-    body.page-article-company-formation .article-hero .section-label{margin-bottom:38px!important;color:#868279!important}
+    body.page-article-company-formation .article-hero .section-label{margin-bottom:38px!important;}
     body.page-article-company-formation .article-title{max-width:var(--title-width)!important;margin:0!important;text-align:left!important;padding:0!important;font-family:Georgia,"Times New Roman",serif!important;font-size:var(--title-size)!important;font-weight:700!important;line-height:1.05!important;letter-spacing:0!important;text-transform:none!important;font-style:normal!important;font-stretch:100%!important;font-variant:normal!important;text-shadow:none!important;-webkit-text-stroke:0!important;color:#171715!important}
     body.page-article-company-formation .article-lead{max-width:none;margin:30px 0 0!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;letter-spacing:normal!important;color:#484a4f!important}
     body.page-article-company-formation .article-lead+.article-lead{margin-top:12px!important}
@@ -1240,7 +1240,7 @@ body.page-article-company-forms .article-shell{width:91%!important;max-width:122
 body.page-article-company-forms .article-hero,
 body.page-article-company-forms .article-body{width:100%!important;max-width:none!important;margin:0!important;}
     body.page-article-company-forms .article-hero{padding-bottom:48px;border-bottom:1px solid #d7d5d1;}
-    body.page-article-company-forms .article-hero .section-label{margin-bottom:38px!important;color:#868279!important;}
+    body.page-article-company-forms .article-hero .section-label{margin-bottom:38px!important;}
     body.page-article-company-forms .article-title{max-width:var(--title-width)!important;margin:0!important;text-align:left!important;padding:0!important;font-family:Georgia,"Times New Roman",serif!important;font-size:var(--title-size)!important;font-weight:700!important;line-height:1.05!important;letter-spacing:0!important;text-transform:none!important;font-style:normal!important;font-stretch:100%!important;font-variant:normal!important;text-shadow:none!important;-webkit-text-stroke:0!important;color:#171715!important;}
     body.page-article-company-forms .article-lead{max-width:none;margin:30px 0 0!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;letter-spacing:normal!important;color:#484a4f!important;}
     body.page-article-company-forms .article-lead+.article-lead{margin-top:12px!important;}
@@ -1305,7 +1305,7 @@ body.page-article-false-accounting .article-shell{width:91%!important;max-width:
 body.page-article-false-accounting .article-hero,
 body.page-article-false-accounting .article-body{width:100%!important;max-width:none!important;margin:0!important}
     body.page-article-false-accounting .article-hero{padding-bottom:48px;border-bottom:1px solid #d7d5d1}
-    body.page-article-false-accounting .article-hero .section-label{margin-bottom:38px!important;color:#868279!important}
+    body.page-article-false-accounting .article-hero .section-label{margin-bottom:38px!important;}
     body.page-article-false-accounting .article-title{max-width:var(--title-width)!important;margin:0!important;text-align:left!important;padding:0!important;font-family:Georgia,"Times New Roman",serif!important;font-size:var(--title-size)!important;font-weight:700!important;line-height:1.05!important;letter-spacing:0!important;text-transform:none!important;font-style:normal!important;font-stretch:100%!important;font-variant:normal!important;text-shadow:none!important;-webkit-text-stroke:0!important;color:#171715!important}
     body.page-article-false-accounting .article-lead{max-width:none;margin:30px 0 0!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;letter-spacing:normal!important;color:#484a4f!important}
     body.page-article-false-accounting .article-lead+.article-lead{margin-top:12px!important}

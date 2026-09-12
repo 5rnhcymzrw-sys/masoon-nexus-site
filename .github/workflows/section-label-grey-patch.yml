@@ -17,19 +17,35 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
+
           path = Path('assets/unified-design.css')
           text = path.read_text()
-          old = "html body .section-label{\n  gap:10px!important;\n}"
-          new = "html body .section-label{\n  gap:10px!important;\n  color:#777777!important;\n  letter-spacing:1.1px!important;\n}"
-          if text.count(old) != 1:
-              raise SystemExit('Existing global section-label rule not found exactly once')
-          path.write_text(text.replace(old, new, 1))
+          pattern = re.compile(r'html body \.section-label\s*\{([^}]*)\}')
+          matches = list(pattern.finditer(text))
+          if len(matches) != 1:
+              raise SystemExit(f'Expected exactly 1 existing global section-label rule, found {len(matches)}')
+
+          m = matches[0]
+          body = m.group(1)
+          body = re.sub(r'\s*color\s*:[^;]+!important\s*;?', '', body)
+          body = re.sub(r'\s*letter-spacing\s*:[^;]+!important\s*;?', '', body)
+          new_rule = 'html body .section-label{' + body.rstrip() + '\n  color:#777777!important;\n  letter-spacing:1.1px!important;\n}'
+          text = text[:m.start()] + new_rule + text[m.end():]
+          path.write_text(text)
+
+          for page in Path('.').rglob('*.html'):
+              html = page.read_text()
+              if 'unified-design.css?v=' not in html:
+                  continue
+              html = re.sub(r'(unified-design\.css\?v=)[^"\']+', r'\1section-label-grey-20260912-1', html)
+              page.write_text(html)
           PY
       - name: Remove temporary workflow and commit
         run: |
           rm .github/workflows/section-label-grey-patch.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/unified-design.css .github/workflows/section-label-grey-patch.yml
+          git add -A
           git commit -m "Bereichstitel global grau mit 1.1px Buchstabenabstand"
           git push

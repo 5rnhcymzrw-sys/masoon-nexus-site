@@ -726,7 +726,7 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__copy
   pointer-events:none;
   box-sizing:border-box;
   background-color:#fff;
-  background-image:linear-gradient(to right in oklab,rgba(244,228,201,.14) 0%,rgba(232,227,218,.14) 36%,rgba(193,199,214,.14) 68%,rgba(132,144,171,.14) 100%);
+  background-image:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%);
   background-size:100% 100%;
   background-position:0 0;
   background-repeat:no-repeat;

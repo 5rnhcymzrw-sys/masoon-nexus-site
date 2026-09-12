@@ -34,18 +34,35 @@ jobs:
           unified = Path('assets/unified-design.css')
           u = unified.read_text()
           selector = 'html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>.article-card-date'
-          s = u.find(selector + '{')
-          if s == -1:
-              raise SystemExit('article-card-date rule not found')
-          e = u.find('}', s)
-          block = u[s:e+1]
 
+          matches = []
+          pos = 0
+          while True:
+              s = u.find(selector + '{', pos)
+              if s == -1:
+                  break
+              e = u.find('}', s)
+              if e == -1:
+                  raise SystemExit('unterminated article-card-date rule')
+              block = u[s:e+1]
+              matches.append((s, e, block))
+              pos = e + 1
+
+          target = None
+          for s, e, block in matches:
+              if 'letter-spacing:' in block and 'color:' in block:
+                  target = (s, e, block)
+                  break
+          if target is None:
+              raise SystemExit(f'typography article-card-date rule not found; occurrences={len(matches)}')
+
+          s, e, block = target
           block2, n1 = re.subn(r'letter-spacing\s*:\s*[^;}]+' , 'letter-spacing:1.1px!important', block, count=1)
           if n1 != 1:
-              raise SystemExit('letter-spacing declaration not found in article-card-date rule')
+              raise SystemExit('letter-spacing declaration not found in target article-card-date rule')
           block3, n2 = re.subn(r'color\s*:\s*[^;}]+' , 'color:#777777!important', block2, count=1)
           if n2 != 1:
-              raise SystemExit('color declaration not found in article-card-date rule')
+              raise SystemExit('color declaration not found in target article-card-date rule')
           u = u[:s] + block3 + u[e+1:]
           unified.write_text(u)
 

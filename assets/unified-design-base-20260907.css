@@ -273,7 +273,8 @@ Fliesstext direkt darunter */
   html body .services-section .service-card summary p{
     align-self:start!important;
     margin-top:18px!important;
-  }html body .services-section .service-card .details-action{
+  }
+  html body .services-section .service-card .details-action{
     grid-row:3!important;
     align-self:end!important;
   }
@@ -926,10 +927,12 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>h2+p{
     background-color:transparent!important;
     background-image:none!important;
   }
-}html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
+}
+html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
   margin-top:0!important;
 }
-@media(min-width:801px){html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
+@media(min-width:801px){
+  html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
     transform:translateY(-3px)!important;
   }
 }
@@ -988,16 +991,18 @@ html body main .home-paths__grid span{
   letter-spacing:.1em!important;
   text-transform:uppercase!important;
   color:#868279!important;
-}html body main .details-action,
+}
+html body main .details-action,
 html body main .home-values__all-services,
 html body main .article-card>a{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-weight:500!important;
-  line-height:1.4!important;
+  line-height:1.65!important;
   letter-spacing:1.1px!important;
   text-transform:uppercase!important;
-  color:#777777!important;font-style:normal!important;text-decoration:none!important;}
+  color:#777777!important;
+}
 
 
 
@@ -1030,14 +1035,17 @@ html body main .form-status{
   line-height:1.65!important;
   letter-spacing:normal!important;
   color:#484a4f!important;
-}html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{
+}
+
+html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-weight:500!important;
-  line-height:1.4!important;
+  line-height:1.65!important;
   letter-spacing:1.1px!important;
   text-transform:uppercase!important;
-  color:#777777!important;font-style:normal!important;text-decoration:none!important;}
+  color:#777777!important;
+}
 html body.site-light-page .knowledge-section>.section-heading>h1{
   font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
   font-weight:400!important;
@@ -1071,7 +1079,9 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
     max-height:351px!important;
     padding:42px 42px 36px!important;
   }
-}/* Fachwissen Hauptseite: nur der Pfeil-Link auf derselben Linie wie Mehr anzeigen */
+}
+
+/* Fachwissen Hauptseite: nur der Pfeil-Link auf derselben Linie wie Mehr anzeigen */
 html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
   align-self:flex-start!important;
   margin-top:24px!important;
@@ -1092,11 +1102,14 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>h2::af
 }
 html body.site-light-page .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
   margin-top:23px!important;
-}/* Fachwissen Hauptseite: Beitrag anzeigen exakt wie Mehr anzeigen */
+}
+
+/* Fachwissen Hauptseite: Beitrag anzeigen exakt wie Mehr anzeigen */
 html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action{
   font-family:var(--font-inter),Arial,sans-serif!important;
 
-  padding-bottom:4px!important;font-size:11px!important;font-style:normal!important;font-weight:500!important;line-height:1.4!important;letter-spacing:1.1px!important;text-transform:uppercase!important;text-decoration:none!important;color:#777777!important;}
+  padding-bottom:4px!important;
+}
 
 /* Bereichstitel: verbindliche Typografie von EINORDNUNG */
 html body main .section-label.section-label.section-label.section-label.section-label.section-label{
@@ -1127,7 +1140,8 @@ html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__g
   -webkit-text-stroke:0!important;
   color:#868279!important;
   opacity:1!important;
-}html body main .home-action-button.home-action-button.home-action-button.home-action-button.home-action-button.home-action-button,
+}
+html body main .home-action-button.home-action-button.home-action-button.home-action-button.home-action-button.home-action-button,
 html body main .home-values__all-services.home-values__all-services.home-values__all-services.home-values__all-services.home-values__all-services.home-values__all-services,
 html body main .details-action.details-action.details-action.details-action.details-action.details-action,
 html body main .article-action.article-action.article-action.article-action.article-action.article-action,
@@ -1181,7 +1195,9 @@ html body main .services-contact-button.services-contact-button.services-contact
     min-height:351px!important;
     max-height:351px!important;
   }
-}/* Mehr anzeigen und Beitrag anzeigen: identische Schrift- und Boxwerte */
+}
+
+/* Mehr anzeigen und Beitrag anzeigen: identische Schrift- und Boxwerte */
 html body.site-light-page main .services-section .service-card .details-action,
 html body.site-light-page main .knowledge-section .article-card .article-action{
   display:inline-block!important;
@@ -1207,17 +1223,21 @@ html body.site-light-page main .knowledge-section .article-card .article-action{
   color:#777777!important;
   opacity:1!important;
   transform:translateY(-3px)!important;
-}html body.site-light-page main .knowledge-section .article-card .article-action{
+}
+html body.site-light-page main .knowledge-section .article-card .article-action{
   margin-top:auto!important;
   align-self:flex-start!important;
-}/* Der Pfeil verändert die Höhe der Beschriftung nicht */
+}
+/* Der Pfeil verändert die Höhe der Beschriftung nicht */
 html body.site-light-page main .knowledge-section .article-card .article-action::after{
   position:absolute!important;
   left:calc(100% + 10px)!important;
   top:50%!important;
   margin:0!important;
   transform:translateY(-50%)!important;
-}/* Endgültiger Vorrang: beide Aktionsbeschriftungen exakt gleich */
+}
+
+/* Endgültiger Vorrang: beide Aktionsbeschriftungen exakt gleich */
 html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
   display:inline-block!important;
   position:relative!important;
@@ -1245,7 +1265,9 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
   -webkit-text-stroke:0!important;
   color:#777777!important;
   opacity:1!important;
-}/* Gemessener Positionsausgleich: Beitrag anzeigen auf gleicher Hoehe */
+}
+
+/* Gemessener Positionsausgleich: Beitrag anzeigen auf gleicher Hoehe */
 html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
   transform:translateY(-3px)!important;
 }
@@ -1308,7 +1330,9 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card.a
 html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(3)>h2::after{
   background:#c2c1c4!important;
   background-color:#c2c1c4!important;
-}/* Fachwissen: Pfeil bei Beitrag anzeigen optisch 1 Pixel hoeher */
+}
+
+/* Fachwissen: Pfeil bei Beitrag anzeigen optisch 1 Pixel hoeher */
 html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-action.article-action::after{
   transform:translateY(calc(-50% - 1px))!important;
 }

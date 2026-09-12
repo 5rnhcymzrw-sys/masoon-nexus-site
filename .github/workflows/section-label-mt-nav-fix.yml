@@ -1,0 +1,72 @@
+name: Section label mt-nav fix
+
+on:
+  push:
+    paths:
+      - '.github/workflows/section-label-mt-nav-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove old mt-nav overlap from section labels
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('assets/global.css')
+          t = p.read_text()
+          old = 'html body main :is(#mt-nav-typography,.mt-nav-typography){'
+          new = 'html body main :is(#mt-nav-typography,.mt-nav-typography):not(.section-label){'
+          if t.count(old) != 1:
+              raise SystemExit(f'Expected old mt-nav selector exactly once, found {t.count(old)}')
+          t = t.replace(old, new, 1)
+          p.write_text(t)
+
+          # Verify the new selector keeps 1.55px for non-section-label elements only.
+          s = t.find(new)
+          e = t.find('}', s)
+          block = t[s:e+1]
+          if 'letter-spacing:1.55px!important;' not in block:
+              raise SystemExit('mt-nav spacing missing after selector change')
+
+          # Verify canonical section-label spacing remains 1.1px.
+          base = Path('assets/unified-design-base-20260907.css').read_text()
+          canonical = 'html body main .section-label.section-label.section-label.section-label.section-label.section-label'
+          cs = base.find(canonical + '{')
+          if cs == -1:
+              raise SystemExit('Canonical section-label selector missing')
+          ce = base.find('}', cs)
+          cblock = base[cs:ce+1]
+          if 'letter-spacing:1.1px!important;' not in cblock:
+              raise SystemExit('Canonical section-label spacing is not 1.1px')
+
+          # Cache bust global.css references only.
+          changed = 0
+          for page in Path('.').rglob('*.html'):
+              html = page.read_text()
+              updated, n = re.subn(
+                  r'(global\.css\?v=)[^"\']+',
+                  r'\1section-label-mt-nav-clean-20260912-5',
+                  html
+              )
+              if n:
+                  page.write_text(updated)
+                  changed += n
+          if changed == 0:
+              raise SystemExit('No global.css cache references found')
+          print(f'Updated global.css cache references: {changed}')
+          PY
+      - name: Remove temporary workflow and commit
+        run: |
+          rm .github/workflows/section-label-mt-nav-fix.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Bereichstitel: alte mt-nav Buchstabenabstandsregel entfernen"
+          git push

@@ -1,0 +1,25 @@
+name: Run button typography fix
+
+on:
+  push:
+    paths:
+      - '.github/workflows/run-button-typography-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply exact existing-rule changes
+        run: python3 tools/button_typography_fix.py
+      - name: Commit website changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo "No changes"; exit 1; }
+          git commit -m "Buttontexte: bestehende Regeln exakt vereinheitlichen"
+          git push

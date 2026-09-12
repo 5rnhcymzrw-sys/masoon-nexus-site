@@ -19,7 +19,7 @@ iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
 </style>
 </head>
 <body>
-<iframe id="site" src="./index.html?v=strong-colors-test-3"></iframe>
+<iframe id="site" src="./index.html?v=strong-colors-test-4"></iframe>
 <div class="test-panel" aria-label="Teststeuerung">
   <p class="test-title">Alle Kästen · Farbtest</p>
   <div class="test-row" id="pages">
@@ -50,7 +50,7 @@ const strengths=document.getElementById('strengths');
 let alpha=.24;
 
 function gradient(a){
-  return `linear-gradient(to right in oklab,rgba(244,228,201,${a}) 0%,rgba(232,227,218,${a}) 36%,rgba(193,199,214,${a}) 68%,rgba(132,144,171,${a}) 100%)`;
+  return `linear-gradient(to right in oklab,rgba(244,228,201,${a}) 0%,rgba(232,227,218,${a}) 36%,rgba(193,199,214,${a}) 68%,rgba(150,158,179,${a}) 100%)`;
 }
 function imp(el,prop,value){
   if(el) el.style.setProperty(prop,value,'important');

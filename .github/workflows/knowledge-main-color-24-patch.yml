@@ -21,37 +21,23 @@ jobs:
           css = Path('assets/unified-design.css')
           text = css.read_text()
 
-          selector = 'html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{'
-          start = text.find(selector)
-          if start == -1:
-              raise SystemExit('Existing knowledge article-card rule not found')
-          end = text.find('\n}', start)
-          if end == -1:
-              raise SystemExit('Existing knowledge article-card rule end not found')
-          block = text[start:end+2]
-
           old = 'linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)'
           new = 'linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)'
 
-          if block.count(old) != 2:
-              raise SystemExit(f'Expected 2 existing gradients in knowledge card rule, found {block.count(old)}')
+          anchor = 'html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid{\n  background:transparent!important;\n}'
+          start = text.find(anchor)
+          if start == -1:
+              raise SystemExit('Existing Fachwissen card color section start not found')
+          end_marker = 'html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles>.knowledge-note{'
+          end = text.find(end_marker, start)
+          if end == -1:
+              raise SystemExit('Existing Fachwissen card color section end not found')
+
+          block = text[start:end]
+          if block.count(old) != 3:
+              raise SystemExit(f'Expected exactly 3 existing Fachwissen gradients, found {block.count(old)}')
           block = block.replace(old, new)
-          text = text[:start] + block + text[end+2:]
-
-          hover_selector = 'html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card:hover{'
-          hs = text.find(hover_selector)
-          if hs == -1:
-              raise SystemExit('Existing knowledge hover rule not found')
-          he = text.find('\n  }', hs)
-          if he == -1:
-              raise SystemExit('Existing knowledge hover rule end not found')
-          hblock = text[hs:he+4]
-          if hblock.count(old) != 1:
-              raise SystemExit(f'Expected 1 existing gradient in knowledge hover rule, found {hblock.count(old)}')
-          hblock = hblock.replace(old, new, 1)
-          text = text[:hs] + hblock + text[he+4:]
-
-          css.write_text(text)
+          css.write_text(text[:start] + block + text[end:])
 
           page = Path('fachwissen/index.html')
           html = page.read_text()

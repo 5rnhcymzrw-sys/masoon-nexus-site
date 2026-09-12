@@ -5,11 +5,9 @@
 .article-title{font-family:Georgia,"Times New Roman",serif!important;font-weight:700!important;line-height:1.05!important;letter-spacing:0!important;text-transform:none!important;font-style:normal!important;font-stretch:100%!important;font-variant:normal!important;font-synthesis:none!important;text-shadow:none!important;-webkit-text-stroke:0!important;}
 html,
 body{max-width:100%;overflow-x:hidden;}
-body{font-family:var(--font-inter)!important;font-size:var(--body-size)!important;line-height:1.65!important;}
-.section-label,
-.card-number,
-.details-action{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}.card-number{letter-spacing:.14em!important;}
-.details-action{letter-spacing:1.1px!important;}.section-label{margin:0 0 30px!important;display:flex!important;align-items:center!important;gap:16px!important;}.section-label:before{content:""!important;display:block!important;width:30px!important;flex:0 0 30px!important;height:1px!important;background:currentColor!important;}body p.section-label{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}
+body{font-family:var(--font-inter)!important;font-size:var(--body-size)!important;line-height:1.65!important;}.section-label,
+.card-number{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}
+.details-action{font-family:var(--font-inter),Arial,sans-serif!important;font-size:11px!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;font-style:normal!important;letter-spacing:1.1px!important;text-decoration:none!important;color:#777777!important;}.card-number{letter-spacing:.14em!important;}.details-action{letter-spacing:1.1px!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:11px!important;font-style:normal!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;text-decoration:none!important;color:#777777!important;}.section-label{margin:0 0 30px!important;display:flex!important;align-items:center!important;gap:16px!important;}.section-label:before{content:""!important;display:block!important;width:30px!important;flex:0 0 30px!important;height:1px!important;background:currentColor!important;}body p.section-label{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}
 .home>.home-values>.home-values__inner>.section-heading:first-child>.section-label:first-child,
 .services-section>.section-heading:first-child>.section-label:first-child,
 .knowledge-section>.section-heading:first-child>.section-label:first-child,
@@ -91,8 +89,7 @@ html body .contact-split__info h1{letter-spacing:0!important;}
   .services-section>.services-grid>.service-card:nth-child(2)[open]{background:#111113!important;}.services-section>.services-grid>.service-card:nth-child(2) .card-number,
 .services-section>.services-grid>.service-card:nth-child(2) h2,
 .services-section>.services-grid>.service-card:nth-child(2) summary p,
-.services-section>.services-grid>.service-card:nth-child(2) li{color:rgba(255,255,255,.88)!important;}
-.services-section>.services-grid>.service-card:nth-child(2) .details-action{color:#777777!important;}
+.services-section>.services-grid>.service-card:nth-child(2) li{color:rgba(255,255,255,.88)!important;}.services-section>.services-grid>.service-card:nth-child(2) .details-action{color:#777777!important;}
   .services-section>.services-grid>.service-card:nth-child(2) li{border-top-color:rgba(255,255,255,.18)!important;}
 }
 
@@ -120,8 +117,7 @@ html body .contact-split__info h1{letter-spacing:0!important;}
 .services-section>.services-grid>.service-card:nth-child(2)[open]{background:#111113!important;color:#fff!important;transform:none!important;box-shadow:none!important;}.services-section>.services-grid>.service-card:nth-child(2) .card-number,
 .services-section>.services-grid>.service-card:nth-child(2) h2,
 .services-section>.services-grid>.service-card:nth-child(2) summary p,
-.services-section>.services-grid>.service-card:nth-child(2) li{color:rgba(255,255,255,.88)!important;}
-.services-section>.services-grid>.service-card:nth-child(2) .details-action{color:#777777!important;}
+.services-section>.services-grid>.service-card:nth-child(2) li{color:rgba(255,255,255,.88)!important;}.services-section>.services-grid>.service-card:nth-child(2) .details-action{color:#777777!important;}
   .services-section>.services-grid>.service-card:nth-child(2) li{border-top-color:rgba(255,255,255,.18)!important;}
 }
 
@@ -131,8 +127,7 @@ html body .contact-split__info h1{letter-spacing:0!important;}
   .services-section>.services-grid>.service-card .card-number{grid-column:1;grid-row:1;align-self:start;margin:0!important;color:#9a948b!important;font-family:var(--font-cormorant)!important;font-size:46px!important;font-weight:500!important;line-height:.9!important;letter-spacing:-.04em!important;}
   .services-section>.services-grid>.service-card:first-child .card-number{color:#171715!important;}
   .services-section>.services-grid>.service-card h2{grid-column:2;grid-row:1;align-self:center;margin:0!important;font-size:22px!important;line-height:1.08!important;}
-  .services-section>.services-grid>.service-card summary p{grid-column:1 / -1;grid-row:2;margin:32px 0 0!important;min-width:0;}
-  .services-section>.services-grid>.service-card .details-action{grid-column:1 / -1;grid-row:3;align-self:end;margin-top:24px!important;}
+  .services-section>.services-grid>.service-card summary p{grid-column:1 / -1;grid-row:2;margin:32px 0 0!important;min-width:0;}.services-section>.services-grid>.service-card .details-action{grid-column:1 / -1;grid-row:3;align-self:end;margin-top:24px!important;}
 }
 
 @media(max-width:800px){
@@ -140,8 +135,7 @@ html body .contact-split__info h1{letter-spacing:0!important;}
   .services-section>.services-grid>.service-card .card-number{grid-column:1;grid-row:1;align-self:start;margin:0!important;color:#9a948b!important;font-family:var(--font-cormorant)!important;font-size:38px!important;font-weight:500!important;line-height:.9!important;letter-spacing:-.04em!important;}
   .services-section>.services-grid>.service-card:first-child .card-number{color:#171715!important;}
   .services-section>.services-grid>.service-card h2{grid-column:2;grid-row:1;align-self:center;margin:0!important;font-size:22px!important;line-height:1.08!important;}
-  .services-section>.services-grid>.service-card summary p{grid-column:1 / -1;grid-row:2;margin:28px 0 0!important;min-width:0;}
-  .services-section>.services-grid>.service-card .details-action{grid-column:1 / -1;grid-row:3;align-self:end;margin-top:24px!important;}
+  .services-section>.services-grid>.service-card summary p{grid-column:1 / -1;grid-row:2;margin:28px 0 0!important;min-width:0;}.services-section>.services-grid>.service-card .details-action{grid-column:1 / -1;grid-row:3;align-self:end;margin-top:24px!important;}
 }
 
 /* Dienstleistungen: Linksbündig,
@@ -625,9 +619,7 @@ html body main :is(#mt-body-copy,.mt-body-copy) a{
   line-height:inherit!important;
   letter-spacing:inherit!important;
   color:inherit!important;
-}/* Bereichstitel und weiterführende Links: Typografie der Kopfzeile,
-bestehende Farben. */
-html body main :is(#mt-nav-typography,.mt-nav-typography:not(.details-action):not(.article-back):not(.article-action)):not(.section-label):not(.article-card-date){
+}/* Bereichstitel und weiterführende Links: Typografie der Kopfzeile{
   font-family:var(--font-inter)!important;
   font-size:11px!important;
   font-weight:500!important;
@@ -640,6 +632,19 @@ html body main :is(#mt-nav-typography,.mt-nav-typography:not(.details-action):no
   -moz-osx-font-smoothing:grayscale!important;
   text-rendering:geometricPrecision!important;
 }
+bestehende Farben. */
+html body main :is(#mt-nav-typography,.mt-nav-typography:not(.details-action):not(.article-back):not(.article-action)):not(.section-label):not(.article-card-date){
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1.4!important;
+  letter-spacing:1.1px!important;
+  text-transform:uppercase!important;
+  font-style:normal!important;
+  font-synthesis:none!important;
+  -webkit-font-smoothing:antialiased!important;
+  -moz-osx-font-smoothing:grayscale!important;
+  text-rendering:geometricPrecision!important;text-decoration:none!important;color:#777777!important;}
 
 /* Stabile Kopfzeile beim Laden: Scrollleistenplatz von Beginn an reservieren. */
 html{scrollbar-gutter:stable;}

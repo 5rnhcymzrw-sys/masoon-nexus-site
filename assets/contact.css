@@ -204,9 +204,7 @@
 
 .contact-split__form .contact-split__message{
   margin-bottom: 24px !important;
-}
-
-.contact-split__form button{
+}.contact-split__form button{
   display: inline-flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -219,20 +217,17 @@
   background: #fff !important;
   box-shadow: none !important;
   color:#777777!important;
-  font-family: var(--font-inter) !important;
-  font-size: 11px !important;
-  font-weight: 500 !important;
-  line-height: 1.65 !important;
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1.4!important;
   letter-spacing:1.1px!important;
-  text-transform: uppercase !important;
-  cursor: pointer !important;
-}
-
-.contact-split__form button span{
+  text-transform:uppercase!important;
+  cursor: pointer !important;font-style:normal!important;text-decoration:none!important;}.contact-split__form button span{
   font-size: 17px !important;
   font-weight: 300 !important;
   line-height: 1 !important;
-  letter-spacing:1.1px!important;
+  letter-spacing:0!important;
 }
 
 .contact-split__form .form-status{
@@ -298,9 +293,7 @@
 
   .contact-split__form .contact-split__message{
     margin-bottom: 26px !important;
-  }
-
-  .contact-split__form button{
+  }.contact-split__form button{
     max-width: 100% !important;
   }
 }

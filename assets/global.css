@@ -90,7 +90,7 @@ html body .contact-split__info h1{letter-spacing:0!important;}
   .services-section>.services-grid>.service-card ul{padding:0 38px 36px!important;}
   .services-section>.services-grid>.service-card:nth-child(2){z-index:2;background:#111113!important;color:#fff!important;transform:translateY(-24px);}
   .services-section>.services-grid>.service-card:nth-child(2)[open]{background:#111113!important;}
-  .services-section>.services-grid>.service-card:nth-child(2) .card-number,.services-section>.services-grid>.service-card:nth-child(2) h2,.services-section>.services-grid>.service-card:nth-child(2) summary p,.services-section>.services-grid>.service-card:nth-child(2) .details-action,.services-section>.services-grid>.service-card:nth-child(2) li{color:rgba(255,255,255,.88)!important;}
+  .services-section>.services-grid>.service-card:nth-child(2) .card-number,.services-section>.services-grid>.service-card:nth-child(2) h2,.services-section>.services-grid>.service-card:nth-child(2) summary p,.services-section>.services-grid>.service-card:nth-child(2) .details-action,.services-section>.services-grid>.service-card:nth-child(2) li{color:#868279!important;}
   .services-section>.services-grid>.service-card:nth-child(2) li{border-top-color:rgba(255,255,255,.18)!important;}
 }
 
@@ -120,7 +120,7 @@ html body .contact-split__info h1{letter-spacing:0!important;}
 .services-section>.services-grid>.service-card:nth-child(2) h2,
 .services-section>.services-grid>.service-card:nth-child(2) summary p,
 .services-section>.services-grid>.service-card:nth-child(2) .details-action,
-.services-section>.services-grid>.service-card:nth-child(2) li{color:rgba(255,255,255,.88)!important;}
+.services-section>.services-grid>.service-card:nth-child(2) li{color:#868279!important;}
   .services-section>.services-grid>.service-card:nth-child(2) li{border-top-color:rgba(255,255,255,.18)!important;}
 }
 

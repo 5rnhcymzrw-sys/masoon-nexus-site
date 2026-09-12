@@ -1,0 +1,88 @@
+name: Section label spacing fix
+
+on:
+  push:
+    paths:
+      - '.github/workflows/section-label-spacing-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix existing section label spacing and cache
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          # 1) Bestehende globale Bereichstitel-Regel prüfen: muss bereits 1.1px enthalten.
+          base = Path('assets/unified-design-base-20260907.css')
+          b = base.read_text()
+          selector = 'html body main .section-label.section-label.section-label.section-label.section-label.section-label{'
+          s = b.find(selector)
+          if s == -1:
+              raise SystemExit('Globale Bereichstitel-Regel nicht gefunden')
+          e = b.find('}', s)
+          block = b[s:e+1]
+          if 'letter-spacing:1.1px!important;' not in block:
+              raise SystemExit('Globale Bereichstitel-Regel enthält nicht 1.1px')
+          if 'color:#777777!important;' not in block:
+              raise SystemExit('Globale Bereichstitel-Regel enthält nicht Grau #777777')
+
+          # 2) Alte explizite Startseite-Kontakt-Regel im bestehenden Bundle korrigieren.
+          idx = Path('assets/index-CZfMKxM_.css')
+          t = idx.read_text()
+          old = '.home-contact-band .section-label{color:var(--stone);letter-spacing:.16em;font-size:11px;font-weight:500;}'
+          new = '.home-contact-band .section-label{color:var(--stone);letter-spacing:1.1px;font-size:11px;font-weight:500;}'
+          if t.count(old) != 1:
+              raise SystemExit(f'Erwartete Kontakt-Bereichstitel-Regel nicht genau einmal gefunden: {t.count(old)}')
+          idx.write_text(t.replace(old, new, 1))
+
+          # 3) Cache der importierten Basisdatei und aller unified-design Referenzen hochsetzen.
+          unified = Path('assets/unified-design.css')
+          u = unified.read_text()
+          u, n = re.subn(
+              r"@import url\('\./unified-design-base-20260907\.css\?v=[^']+'\);",
+              "@import url('./unified-design-base-20260907.css?v=section-label-grey-spacing-20260912-2');",
+              u,
+              count=1
+          )
+          if n != 1:
+              raise SystemExit('Basis-Import in unified-design.css nicht gefunden')
+          unified.write_text(u)
+
+          changed = 0
+          for page in Path('.').rglob('*.html'):
+              html = page.read_text()
+              updated, n = re.subn(
+                  r'(unified-design\.css\?v=)[^"\']+',
+                  r'\1section-label-grey-spacing-20260912-2',
+                  html
+              )
+              if n:
+                  # Auf der Startseite zusätzlich das Bundle neu laden.
+                  if page.as_posix() == 'index.html':
+                      updated = re.sub(
+                          r'(assets/index-CZfMKxM_\.css\?v=)[^"\']+',
+                          r'\1section-label-spacing-20260912-2',
+                          updated,
+                          count=1
+                      )
+                  page.write_text(updated)
+                  changed += n
+          if changed == 0:
+              raise SystemExit('Keine unified-design Cache-Referenzen gefunden')
+          print(f'Cache auf {changed} Seiten aktualisiert')
+          PY
+      - name: Remove temporary workflow and commit
+        run: |
+          rm .github/workflows/section-label-spacing-fix.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Bereichstitel: Buchstabenabstand 1.1px zuverlässig übernehmen"
+          git push

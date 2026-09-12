@@ -19,9 +19,9 @@ iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
 </style>
 </head>
 <body>
-<iframe id="site" src="./index.html?v=strong-colors-test-4"></iframe>
+<iframe id="site" src="./index.html?v=strong-colors-test-5"></iframe>
 <div class="test-panel" aria-label="Teststeuerung">
-  <p class="test-title">Alle Kästen · Farbtest</p>
+  <p class="test-title">Farben + Start Typografie</p>
   <div class="test-row" id="pages">
     <span class="test-label">Seite</span>
     <button data-page="./index.html" class="active">Start</button>
@@ -41,7 +41,7 @@ iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
     <button data-alpha="0.24" class="active">24%</button>
     <button data-alpha="0.30">30%</button>
   </div>
-  <div class="hint">Auch bereits eingefärbte Kästen werden direkt überschrieben. Layout, Schriften, Abstände und Rahmen bleiben unverändert.</div>
+  <div class="hint">Startseite zusätzlich: Bereichstitel Dienstleistungen, Fachwissen und Kontakt sowie sämtliche Buttonschriften schwarz. Bereichstitel mit 1.1 px Buchstabenabstand wie die Buttons.</div>
 </div>
 <script>
 const frame=document.getElementById('site');
@@ -128,6 +128,24 @@ html body.page-company.site-light-page .company-legal-card .home-company__image:
   background-size:100% 100%!important;
   background-position:0 0!important;
   background-repeat:no-repeat!important;
+}
+
+html body.page-home.site-light-page main.home>section.home-values .section-label,
+html body.page-home.site-light-page main.home>section.home-paths .section-label,
+html body.page-home.site-light-page main.home>section.home-contact-band .section-label{
+  color:#171715!important;
+  letter-spacing:1.1px!important;
+}
+
+html body.page-home.site-light-page main.home .home-action-button,
+html body.page-home.site-light-page main.home .home-action-button:hover,
+html body.page-home.site-light-page main.home .home-action-button:focus-visible,
+html body.page-home.site-light-page main.home .home-action-button:active,
+html body.page-home.site-light-page main.home .home-paths__action,
+html body.page-home.site-light-page main.home .home-paths__action:hover,
+html body.page-home.site-light-page main.home .home-paths__action:focus-visible,
+html body.page-home.site-light-page main.home button{
+  color:#171715!important;
 }
 `;
 }

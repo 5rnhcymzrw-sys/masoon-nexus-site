@@ -23,9 +23,9 @@ html body.site-light-page main.home>section.home-paths.home-paths>*{
 }
 
 /* Nur die drei Fachwissen-Karten zusätzlich leicht einfärben */
-html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1):not(:hover):not(:active){background-image:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;}
-html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2):not(:hover):not(:active){background-image:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;}
-html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3):not(:hover):not(:active){background-image:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;}
+html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1):not(:hover):not(:active){background-image:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;}
+html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2):not(:hover):not(:active){background-image:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;}
+html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3):not(:hover):not(:active){background-image:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;}
 
 /* Kontaktbereich: kein Verlauf über die volle Browserbreite; Rahmen und Inhalt bleiben unverändert */
 html body.site-light-page main.home>section.home-contact-band.home-contact-band{
@@ -178,7 +178,7 @@ html body.page-home.site-light-page main.home section.home-paths .home-paths__gr
     border:0!important;
     border-color:transparent!important;
     border-image:none!important;
-    background-image:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;
+    background-image:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;
     background-size:calc(300% + 44px) 100%!important;
     background-repeat:no-repeat!important;
     background-origin:border-box!important;

@@ -19,7 +19,7 @@ iframe{display:block;width:100%;height:100vh;border:0;background:#fff}
 </style>
 </head>
 <body>
-<iframe id="site" src="./index.html?v=strong-colors-test-5"></iframe>
+<iframe id="site" src="./index.html?v=strong-colors-test-6"></iframe>
 <div class="test-panel" aria-label="Teststeuerung">
   <p class="test-title">Farben + Start Typografie</p>
   <div class="test-row" id="pages">
@@ -106,11 +106,35 @@ function applyDirectBoxes(d,g){
   });
 }
 
+function applyStartTypography(d){
+  if(!d.body.classList.contains('page-home'))return;
+
+  [
+    'main.home>section.home-values .section-heading>.section-label',
+    'main.home>section.home-paths .home-paths__heading>.section-label',
+    'main.home>section.home-contact-band>p.section-label'
+  ].forEach(selector=>{
+    d.querySelectorAll(selector).forEach(el=>{
+      imp(el,'color','#171715');
+      imp(el,'-webkit-text-fill-color','#171715');
+      imp(el,'letter-spacing','1.1px');
+      imp(el,'opacity','1');
+    });
+  });
+
+  d.querySelectorAll('main.home a.home-action-button, main.home .home-paths__action, main.home button').forEach(el=>{
+    imp(el,'color','#171715');
+    imp(el,'-webkit-text-fill-color','#171715');
+    imp(el,'opacity','1');
+  });
+}
+
 function applyTest(){
   const d=frame.contentDocument;
   if(!d||!d.head||!d.body)return;
   const g=gradient(alpha);
   applyDirectBoxes(d,g);
+  applyStartTypography(d);
 
   let style=d.getElementById('masoon-strong-colors-test');
   if(!style){
@@ -128,24 +152,6 @@ html body.page-company.site-light-page .company-legal-card .home-company__image:
   background-size:100% 100%!important;
   background-position:0 0!important;
   background-repeat:no-repeat!important;
-}
-
-html body.page-home.site-light-page main.home>section.home-values .section-label,
-html body.page-home.site-light-page main.home>section.home-paths .section-label,
-html body.page-home.site-light-page main.home>section.home-contact-band .section-label{
-  color:#171715!important;
-  letter-spacing:1.1px!important;
-}
-
-html body.page-home.site-light-page main.home .home-action-button,
-html body.page-home.site-light-page main.home .home-action-button:hover,
-html body.page-home.site-light-page main.home .home-action-button:focus-visible,
-html body.page-home.site-light-page main.home .home-action-button:active,
-html body.page-home.site-light-page main.home .home-paths__action,
-html body.page-home.site-light-page main.home .home-paths__action:hover,
-html body.page-home.site-light-page main.home .home-paths__action:focus-visible,
-html body.page-home.site-light-page main.home button{
-  color:#171715!important;
 }
 `;
 }
@@ -171,6 +177,7 @@ frame.addEventListener('load',()=>{
   applyTest();
   setTimeout(applyTest,80);
   setTimeout(applyTest,250);
+  setTimeout(applyTest,800);
 });
 </script>
 </body>

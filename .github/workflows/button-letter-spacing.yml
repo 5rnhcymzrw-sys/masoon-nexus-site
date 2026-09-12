@@ -33,8 +33,34 @@ jobs:
               '.article-card > a',
           )
 
+          def split_selectors(selector):
+              parts, buf, depth = [], [], 0
+              for ch in selector:
+                  if ch == '(':
+                      depth += 1
+                  elif ch == ')':
+                      depth = max(0, depth - 1)
+                  if ch == ',' and depth == 0:
+                      part = ''.join(buf).strip()
+                      if part:
+                          parts.append(part)
+                      buf = []
+                  else:
+                      buf.append(ch)
+              part = ''.join(buf).strip()
+              if part:
+                  parts.append(part)
+              return parts
+
+          def selector_without_not(s):
+              old = None
+              while old != s:
+                  old = s
+                  s = re.sub(r':not\([^()]*\)', '', s)
+              return s
+
           def is_action_selector(s):
-              compact = ' '.join(s.split())
+              compact = ' '.join(selector_without_not(s).split())
               if '::before' in compact or '::after' in compact or '.details-toggle-symbol' in compact:
                   return False
               return any(m in compact for m in markers)
@@ -44,7 +70,7 @@ jobs:
           changed_files = set()
           changes = []
 
-          # First remove/replace old spacing values inside existing button/action rules.
+          # Replace old spacing values inside existing button/action rules.
           for p in sorted(Path('assets').glob('*.css')):
               text = p.read_text()
               out = []
@@ -52,7 +78,7 @@ jobs:
               file_changed = False
               for m in rule_re.finditer(text):
                   selector, body = m.group(1), m.group(2)
-                  parts = [x.strip() for x in selector.split(',') if x.strip()]
+                  parts = split_selectors(selector)
                   target_parts = [x for x in parts if is_action_selector(x)]
                   if not target_parts:
                       continue
@@ -76,7 +102,7 @@ jobs:
                   p.write_text(''.join(out))
                   changed_files.add(p)
 
-          # Ensure each principal action family has one existing canonical rule with 1.1px.
+          # Ensure each principal action family has one existing rule carrying 1.1px.
           principal = [
               '.home-action-button',
               '.details-action',
@@ -93,20 +119,21 @@ jobs:
                   text = p.read_text()
                   for m in rule_re.finditer(text):
                       selector, body = m.group(1), m.group(2)
-                      parts = [x.strip() for x in selector.split(',') if x.strip()]
-                      matching = [x for x in parts if marker in ' '.join(x.split()) and is_action_selector(x)]
+                      matching = [x for x in split_selectors(selector) if marker in ' '.join(selector_without_not(x).split()) and is_action_selector(x)]
                       if not matching:
                           continue
-                      candidates.append((p, m.start(2), m.end(2), body, selector))
-                      if ls_re.search(body) and all(v.replace(' ','').lower() == 'letter-spacing:1.1px!important' for v in ls_re.findall(body)):
+                      candidates.append((p, selector))
+                      vals = ls_re.findall(body)
+                      if vals and all(v.replace(' ','').lower() == 'letter-spacing:1.1px!important' for v in vals):
                           found_explicit = True
               if found_explicit or not candidates:
                   continue
-              # Add to the last existing non-pseudo rule for this family; no new selector/override.
-              p, bs, be, body, selector = candidates[-1]
+              p, _ = candidates[-1]
               text = p.read_text()
-              # Re-locate the same selector after any earlier edits in this file.
-              matches = [m for m in rule_re.finditer(text) if marker in m.group(1) and any(is_action_selector(x.strip()) for x in m.group(1).split(','))]
+              matches = []
+              for m in rule_re.finditer(text):
+                  if any(marker in ' '.join(selector_without_not(x).split()) and is_action_selector(x) for x in split_selectors(m.group(1))):
+                      matches.append(m)
               if not matches:
                   raise SystemExit(f'Cannot relocate canonical rule for {marker}')
               mm = matches[-1]
@@ -119,8 +146,7 @@ jobs:
               changed_files.add(p)
               changes.append((str(p), ' '.join(mm.group(1).split())[:300], ['(added to existing rule)']))
 
-          # mt-nav-typography used to impose 1.55px on some action labels.
-          # Exclude only action classes that actually appear together with mt-nav-typography in HTML.
+          # Existing mt-nav rule must not impose its old 1.55px on action labels.
           html_action_classes = set()
           class_re = re.compile(r'class=["\']([^"\']+)["\']')
           for page in Path('.').rglob('*.html'):
@@ -135,50 +161,49 @@ jobs:
                       if c in {'article-action','home-action-button','details-action','services-contact-button','article-back'}:
                           html_action_classes.add(c)
 
-          if html_action_classes:
-              for p in sorted(Path('assets').glob('*.css')):
-                  text = p.read_text()
-                  out = []
-                  last = 0
-                  file_changed = False
-                  for m in rule_re.finditer(text):
-                      selector, body = m.group(1), m.group(2)
-                      if '.mt-nav-typography' not in selector or not ls_re.search(body):
+          for p in sorted(Path('assets').glob('*.css')):
+              text = p.read_text()
+              out = []
+              last = 0
+              file_changed = False
+              for m in rule_re.finditer(text):
+                  selector, body = m.group(1), m.group(2)
+                  if '.mt-nav-typography' not in selector or not ls_re.search(body):
+                      continue
+                  parts = split_selectors(selector)
+                  new_parts = []
+                  changed = False
+                  for part in parts:
+                      if '.mt-nav-typography' not in part or is_action_selector(part):
+                          new_parts.append(part)
                           continue
-                      parts = [x.strip() for x in selector.split(',') if x.strip()]
-                      new_parts = []
-                      changed = False
-                      for part in parts:
-                          if '.mt-nav-typography' not in part or is_action_selector(part):
-                              new_parts.append(part)
-                              continue
-                          new_part = part
-                          for cls in sorted(html_action_classes):
-                              exc = f':not(.{cls})'
-                              if exc not in new_part:
-                                  pos = new_part.find('.mt-nav-typography') + len('.mt-nav-typography')
-                                  new_part = new_part[:pos] + exc + new_part[pos:]
-                                  changed = True
-                          new_parts.append(new_part)
-                      if changed:
-                          replacement = ',\n'.join(new_parts) + '{' + body + '}'
-                          out.append(text[last:m.start()])
-                          out.append(replacement)
-                          last = m.end()
-                          file_changed = True
-                          changes.append((str(p), 'mt-nav exclusion', sorted(html_action_classes)))
-                  if file_changed:
-                      out.append(text[last:])
-                      p.write_text(''.join(out))
-                      changed_files.add(p)
+                      new_part = part
+                      for cls in sorted(html_action_classes):
+                          exc = f':not(.{cls})'
+                          if exc not in new_part:
+                              pos = new_part.find('.mt-nav-typography') + len('.mt-nav-typography')
+                              new_part = new_part[:pos] + exc + new_part[pos:]
+                              changed = True
+                      new_parts.append(new_part)
+                  if changed:
+                      replacement = ',\n'.join(new_parts) + '{' + body + '}'
+                      out.append(text[last:m.start()])
+                      out.append(replacement)
+                      last = m.end()
+                      file_changed = True
+                      changes.append((str(p), 'mt-nav exclusions', sorted(html_action_classes)))
+              if file_changed:
+                  out.append(text[last:])
+                  p.write_text(''.join(out))
+                  changed_files.add(p)
 
-          # Verify: every explicit spacing in target action rules is exactly 1.1px.
+          # Verify no old explicit spacing remains in action rules.
           bad = []
           for p in sorted(Path('assets').glob('*.css')):
               text = p.read_text()
               for m in rule_re.finditer(text):
                   selector, body = m.group(1), m.group(2)
-                  if not any(is_action_selector(x.strip()) for x in selector.split(',')):
+                  if not any(is_action_selector(x) for x in split_selectors(selector)):
                       continue
                   for val in ls_re.findall(body):
                       if val.replace(' ','').lower() != 'letter-spacing:1.1px!important':
@@ -194,7 +219,7 @@ jobs:
           for row in changes:
               print(row)
 
-          # Cache-bust every changed stylesheet on every HTML page that loads it.
+          # Cache-bust changed stylesheets everywhere they are loaded.
           token = 'button-spacing-1-1-20260912-1'
           names = {p.name for p in changed_files}
           pages_changed = 0

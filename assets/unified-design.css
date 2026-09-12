@@ -854,7 +854,7 @@ html body.page-services .services-main .details-toggle-symbol{
   font-size:16px;
   line-height:1;
   letter-spacing:0;
-  transform:translateY(1px);
+  transform:translateY(.5px);
 }
 html body.page-services .services-main .details-toggle-symbol::before{content:"+"}
 html body.page-services .services-main .service-card[open] .details-toggle-symbol::before{content:"−"}

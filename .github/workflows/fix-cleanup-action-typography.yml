@@ -1,0 +1,35 @@
+name: Fix cleanup action typography
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-cleanup-action-typography.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix Python regex syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('.github/workflows/cleanup-action-typography.yml')
+          text = p.read_text()
+          old = "          class_re = re.compile(r'class=([\'\\\"])([^\'\\\"]+)\\1')"
+          new = '          class_re = re.compile(r"""class=(["\'])([^"\']+)\\1""")'
+          if old not in text:
+              raise SystemExit('Expected class regex line not found')
+          p.write_text(text.replace(old, new, 1))
+          PY
+      - name: Commit fix and remove temporary fixer
+        run: |
+          rm .github/workflows/fix-cleanup-action-typography.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Cleanup-Workflow: Regex-Syntax korrigieren"
+          git push

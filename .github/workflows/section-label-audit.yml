@@ -1,0 +1,61 @@
+name: Section label audit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/section-label-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit section label and mt-nav typography rules
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          exts = {'.css', '.html', '.js'}
+          print('=== mt-nav-typography occurrences ===')
+          for p in sorted(Path('.').rglob('*')):
+              if p.is_file() and p.suffix in exts and '.git' not in p.parts:
+                  try:
+                      text = p.read_text(errors='ignore')
+                  except Exception:
+                      continue
+                  for i, line in enumerate(text.splitlines(), 1):
+                      if 'mt-nav-typography' in line:
+                          print(f'{p}:{i}: {line[:500]}')
+
+          print('\n=== CSS rules targeting section-label with letter-spacing ===')
+          for p in sorted(Path('assets').glob('*.css')):
+              text = p.read_text(errors='ignore')
+              for m in re.finditer(r'([^{}]+)\{([^{}]*)\}', text, re.S):
+                  selector = m.group(1).strip()
+                  body = m.group(2)
+                  if '.section-label' in selector and re.search(r'letter-spacing\s*:', body):
+                      vals = re.findall(r'letter-spacing\s*:\s*([^;}]*)', body)
+                      print(f'{p}: selector={selector[:350]!r} letter-spacing={vals}')
+
+          print('\n=== CSS rules targeting mt-nav-typography ===')
+          for p in sorted(Path('assets').glob('*.css')):
+              text = p.read_text(errors='ignore')
+              for m in re.finditer(r'([^{}]+)\{([^{}]*)\}', text, re.S):
+                  selector = m.group(1).strip()
+                  body = m.group(2)
+                  if '.mt-nav-typography' in selector:
+                      vals = re.findall(r'letter-spacing\s*:\s*([^;}]*)', body)
+                      print(f'{p}: selector={selector[:350]!r} letter-spacing={vals} body={body[:500]!r}')
+          PY
+      - name: Remove temporary workflow
+        run: |
+          rm .github/workflows/section-label-audit.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Temporären Bereichstitel Audit entfernen"
+          git push

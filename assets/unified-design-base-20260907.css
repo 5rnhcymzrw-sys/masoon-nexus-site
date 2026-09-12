@@ -543,9 +543,7 @@ html body main .home-paths__grid span{font-family:var(--font-inter),Arial,sans-s
   line-height:1.65!important;
   letter-spacing:.1em!important;
   text-transform:uppercase!important;
-  color:#868279!important;}html body main .details-action,
-html body main .article-card>a{;
-  ;}/* Normale Fliesstexte: verbindliche Typografie der Disclaimer-Seite */
+  color:#868279!important;}/* Normale Fliesstexte: verbindliche Typografie der Disclaimer-Seite */
 html body main.home .home-hero__services,
 html body main.home .home-values__item>p,
 html body.site-light-page main.services-main .services-section .services-grid>.service-card>summary>p,
@@ -568,8 +566,7 @@ html body main .form-status{font-family:var(--font-inter),Arial,sans-serif!impor
   font-weight:290!important;
   line-height:1.65!important;
   letter-spacing:normal!important;
-  color:#484a4f!important;}html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{;
-  ;}html body.site-light-page .knowledge-section>.section-heading>h1{font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
+  color:#484a4f!important;}html body.site-light-page .knowledge-section>.section-heading>h1{font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
   font-weight:400!important;
   line-height:1.05!important;
   letter-spacing:0!important;
@@ -628,7 +625,10 @@ html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__g
   text-shadow:none!important;
   -webkit-text-stroke:0!important;
   color:#868279!important;
-  opacity:1!important;}html body main .home-action-button.home-action-button.home-action-button.home-action-button.home-action-button.home-action-button{font-family:var(--font-inter),Arial,sans-serif!important;
+  opacity:1!important;}html body main .home-action-button.home-action-button.home-action-button.home-action-button.home-action-button.home-action-button,
+html body main .details-action.details-action.details-action.details-action.details-action.details-action,
+html body main .article-action.article-action.article-action.article-action.article-action.article-action,
+html body main .services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button{font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-style:normal!important;
   font-weight:500!important;
@@ -642,17 +642,6 @@ html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__g
   text-shadow:none!important;
   -webkit-text-stroke:0!important;
   color:#777777!important;
-  opacity:1!important;}
-html body main .details-action.details-action.details-action.details-action.details-action.details-action,
-html body main .article-action.article-action.article-action.article-action.article-action.article-action,
-html body main .article-card.article-card.article-card.article-card.article-card.article-card>a,
-html body main .services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button{;
-  font-variant:normal!important;
-  font-stretch:normal!important;
-  word-spacing:normal!important;
-  text-decoration:none!important;
-  text-shadow:none!important;
-  -webkit-text-stroke:0!important;
   opacity:1!important;}
 
 /* Fachwissen-Kaesten: exakt gleiche Aussenmasse wie DL-Hauptseite */

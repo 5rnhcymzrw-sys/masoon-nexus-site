@@ -219,10 +219,11 @@
   background: #fff !important;
   box-shadow: none !important;
   color:#777777!important;
-  font-family: var(--font-inter) !important;
+  font-family: var(--font-inter),Arial,sans-serif !important;
   font-size: 11px !important;
+  font-style: normal !important;
   font-weight: 500 !important;
-  line-height: 1.65 !important;
+  line-height: 1.4 !important;
   letter-spacing:1.1px!important;
   text-transform: uppercase !important;
   cursor: pointer !important;
@@ -232,7 +233,7 @@
   font-size: 17px !important;
   font-weight: 300 !important;
   line-height: 1 !important;
-  letter-spacing:1.1px!important;
+  letter-spacing:0!important;
 }
 
 .contact-split__form .form-status{

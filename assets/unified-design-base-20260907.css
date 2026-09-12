@@ -981,7 +981,7 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
 html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){
   margin:30px 0 0!important;
   padding-top:0!important;
-}/* Kleine Metadaten und Textaktionen: Typografie wie die Kopfzeilen-Navigation,
+}/* Kleine Metadaten und Textaktionen: Typografie wie die Kopfzeilen-Navigation. */
 html body main .contact-split__form-label,
 html body main .home-paths__grid span{
   font-family:var(--font-inter),Arial,sans-serif!important;
@@ -997,10 +997,12 @@ html body main .home-values__all-services,
 html body main .article-card>a{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
+  font-style:normal!important;
   font-weight:500!important;
-  line-height:1.65!important;
+  line-height:1.4!important;
   letter-spacing:1.1px!important;
   text-transform:uppercase!important;
+  text-decoration:none!important;
   color:#777777!important;
 }
 
@@ -1040,10 +1042,12 @@ html body main .form-status{
 html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
+  font-style:normal!important;
   font-weight:500!important;
-  line-height:1.65!important;
+  line-height:1.4!important;
   letter-spacing:1.1px!important;
   text-transform:uppercase!important;
+  text-decoration:none!important;
   color:#777777!important;
 }
 html body.site-light-page .knowledge-section>.section-heading>h1{
@@ -1122,7 +1126,7 @@ html body main .section-label.section-label.section-label.section-label.section-
   text-transform:uppercase!important;
   color:#777777!important;
   vertical-align:baseline!important;
-}/* Kleine Metadaten,
+}/* Kleine Metadaten und Aktionsbeschriftungen */
 html body main .contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label,
 html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid span{
   font-family:var(--font-inter),Arial,sans-serif!important;
@@ -1160,7 +1164,6 @@ html body main .services-contact-button.services-contact-button.services-contact
   text-decoration:none!important;
   text-shadow:none!important;
   -webkit-text-stroke:0!important;
-  color:#777777!important;
   opacity:1!important;
 }
 
@@ -1220,7 +1223,6 @@ html body.site-light-page main .knowledge-section .article-card .article-action{
   text-decoration:none!important;
   text-shadow:none!important;
   -webkit-text-stroke:0!important;
-  color:#777777!important;
   opacity:1!important;
   transform:translateY(-3px)!important;
 }

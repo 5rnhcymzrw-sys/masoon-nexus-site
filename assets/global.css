@@ -627,7 +627,7 @@ html body main :is(#mt-body-copy,.mt-body-copy) a{
 }
 
 /* Bereichstitel und weiterführende Links: Typografie der Kopfzeile, bestehende Farben. */
-html body main :is(#mt-nav-typography,.mt-nav-typography):not(.section-label){
+html body main :is(#mt-nav-typography,.mt-nav-typography):not(.section-label):not(.article-card-date){
   font-family:var(--font-inter)!important;
   font-size:11px!important;
   font-weight:500!important;

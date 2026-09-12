@@ -999,7 +999,7 @@ html body main .article-card>a{
   font-size:11px!important;
   font-weight:500!important;
   line-height:1.65!important;
-  letter-spacing:.1em!important;
+  letter-spacing:1.1px!important;
   text-transform:uppercase!important;
   color:#777777!important;
 }
@@ -1042,7 +1042,7 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>.detai
   font-size:11px!important;
   font-weight:500!important;
   line-height:1.65!important;
-  letter-spacing:.1em!important;
+  letter-spacing:1.1px!important;
   text-transform:uppercase!important;
   color:#777777!important;
 }
@@ -1154,7 +1154,7 @@ html body main .services-contact-button.services-contact-button.services-contact
   font-variant:normal!important;
   font-stretch:normal!important;
   line-height:1.4!important;
-  letter-spacing:.14em!important;
+  letter-spacing:1.1px!important;
   word-spacing:normal!important;
   text-transform:uppercase!important;
   text-decoration:none!important;
@@ -1214,7 +1214,7 @@ html body.site-light-page main .knowledge-section .article-card .article-action{
   font-variant:normal!important;
   font-stretch:normal!important;
   line-height:1.4!important;
-  letter-spacing:.14em!important;
+  letter-spacing:1.1px!important;
   word-spacing:normal!important;
   text-transform:uppercase!important;
   text-decoration:none!important;
@@ -1257,7 +1257,7 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
   font-variant:normal!important;
   font-stretch:normal!important;
   line-height:1.4!important;
-  letter-spacing:.14em!important;
+  letter-spacing:1.1px!important;
   word-spacing:normal!important;
   text-transform:uppercase!important;
   text-decoration:none!important;

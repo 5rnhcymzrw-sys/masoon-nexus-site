@@ -8,9 +8,8 @@ body{max-width:100%;overflow-x:hidden;}
 body{font-family:var(--font-inter)!important;font-size:var(--body-size)!important;line-height:1.65!important;}
 .section-label,
 .card-number,
-.details-action{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}
-.card-number,
-.details-action{letter-spacing:.14em!important;}.section-label{margin:0 0 30px!important;display:flex!important;align-items:center!important;gap:16px!important;}.section-label:before{content:""!important;display:block!important;width:30px!important;flex:0 0 30px!important;height:1px!important;background:currentColor!important;}body p.section-label{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}
+.details-action{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}.card-number{letter-spacing:.14em!important;}
+.details-action{letter-spacing:1.1px!important;}.section-label{margin:0 0 30px!important;display:flex!important;align-items:center!important;gap:16px!important;}.section-label:before{content:""!important;display:block!important;width:30px!important;flex:0 0 30px!important;height:1px!important;background:currentColor!important;}body p.section-label{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}
 .home>.home-values>.home-values__inner>.section-heading:first-child>.section-label:first-child,
 .services-section>.section-heading:first-child>.section-label:first-child,
 .knowledge-section>.section-heading:first-child>.section-label:first-child,
@@ -626,10 +625,9 @@ html body main :is(#mt-body-copy,.mt-body-copy) a{
   line-height:inherit!important;
   letter-spacing:inherit!important;
   color:inherit!important;
-}
-
-/* Bereichstitel und weiterführende Links: Typografie der Kopfzeile, bestehende Farben. */
-html body main :is(#mt-nav-typography,.mt-nav-typography):not(.section-label):not(.article-card-date){
+}/* Bereichstitel und weiterführende Links: Typografie der Kopfzeile,
+bestehende Farben. */
+html body main :is(#mt-nav-typography,.mt-nav-typography:not(.details-action):not(.article-back):not(.article-action)):not(.section-label):not(.article-card-date){
   font-family:var(--font-inter)!important;
   font-size:11px!important;
   font-weight:500!important;

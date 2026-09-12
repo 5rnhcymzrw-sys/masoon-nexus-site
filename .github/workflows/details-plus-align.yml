@@ -1,0 +1,55 @@
+name: Details plus align
+
+on:
+  push:
+    paths:
+      - '.github/workflows/details-plus-align.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Adjust existing plus symbol rule only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          css = Path('assets/unified-design.css')
+          text = css.read_text()
+          selector = 'html body.page-services .services-main .details-toggle-symbol'
+          s = text.find(selector + '{')
+          if s == -1:
+              raise SystemExit('details-toggle-symbol rule not found')
+          e = text.find('}', s)
+          if e == -1:
+              raise SystemExit('details-toggle-symbol rule unterminated')
+          block = text[s:e+1]
+          expected = '''html body.page-services .services-main .details-toggle-symbol{\n  display:inline-block;\n  margin-left:8px;\n  font-size:16px;\n  line-height:1;\n  letter-spacing:0;\n}'''
+          if block != expected:
+              raise SystemExit('details-toggle-symbol existing rule differs from expected; aborting')
+          replacement = '''html body.page-services .services-main .details-toggle-symbol{\n  display:inline-block;\n  margin-left:8px;\n  font-size:16px;\n  line-height:1;\n  letter-spacing:0;\n  transform:translateY(1px);\n}'''
+          text = text[:s] + replacement + text[e+1:]
+          css.write_text(text)
+
+          page = Path('dienstleistungen/index.html')
+          html = page.read_text()
+          html2, n = re.subn(r'(../assets/unified-design\.css\?v=)[^"\']+', r'\1details-plus-align-20260912-1', html, count=1)
+          if n != 1:
+              raise SystemExit(f'unified-design cache ref not found exactly once: {n}')
+          page.write_text(html2)
+
+          print(replacement)
+          PY
+      - name: Remove temporary workflow and commit
+        run: |
+          rm .github/workflows/details-plus-align.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Mehr anzeigen: Pluszeichen 1 Pixel absenken"
+          git push

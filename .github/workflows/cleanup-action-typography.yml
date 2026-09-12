@@ -55,15 +55,13 @@ jobs:
                   s = re.sub(r':not\([^()]*\)', '', s)
               return s
 
-          # 1) Action links do not need the old mt-nav typography class anymore.
           action_classes = {'article-action', 'article-back', 'details-action'}
           html_changed = set()
           removed_mt_nav = 0
-          class_re = re.compile(r'class=(['\"])([^'\"]+)\1')
+          class_re = re.compile(r'''class=(["'])([^"']+)\1''')
           for page in html_files:
               text = page.read_text(errors='ignore')
               def repl(m):
-                  nonlocal_dummy = None
                   classes = m.group(2).split()
                   if 'mt-nav-typography' in classes and action_classes.intersection(classes):
                       classes = [c for c in classes if c != 'mt-nav-typography']
@@ -75,7 +73,6 @@ jobs:
                   page.write_text(new)
                   html_changed.add(page)
 
-          # Classes actually used after the HTML cleanup.
           used_classes = set()
           for page in html_files:
               text = page.read_text(errors='ignore')
@@ -85,7 +82,6 @@ jobs:
           dead_candidates = {'home-paths__action', 'home-values__all-services', 'contact-form'}
           dead_classes = {c for c in dead_candidates if c not in used_classes}
 
-          # Simplify the old mt-nav selector now that action links no longer carry that class.
           global_path = Path('assets/global.css')
           global_text = global_path.read_text()
           old_mt = 'html body main :is(#mt-nav-typography,.mt-nav-typography:not(.details-action):not(.article-back):not(.article-action)):not(.section-label):not(.article-card-date)'
@@ -181,7 +177,6 @@ jobs:
                   if not parts:
                       continue
 
-                  # Remove selector parts for classes that are not used anywhere in the HTML.
                   kept_parts = []
                   dead_removed_here = []
                   for part in parts:
@@ -238,14 +233,12 @@ jobs:
                           new_body = ensure_decl(new_body, spacing_re, 'letter-spacing', TARGET_SPACING)
                           canonical_touched += len(sel)
                       elif kind == 'symbol':
-                          # Symbols must not inherit text tracking; they keep their own neutral spacing.
                           new_body = spacing_re.sub('letter-spacing:0!important', new_body)
                           if not spacing_re.search(new_body):
                               stripped = new_body.rstrip()
                               if stripped and not stripped.endswith(';'):
                                   stripped += ';'
                               new_body = stripped + 'letter-spacing:0!important;'
-                          # Symbol colour follows the parent action label.
                           new_body = color_re.sub('', new_body)
                           symbol_fixed += len(sel)
                       buckets.append(',\n'.join(sel) + '{' + new_body + '}')
@@ -262,7 +255,6 @@ jobs:
                   path.write_text(''.join(out))
                   changed_css.add(path)
 
-          # The base stylesheet is imported by unified-design.css; bust that import if base changed.
           unified = Path('assets/unified-design.css')
           unified_text = unified.read_text()
           if Path('assets/unified-design-base-20260907.css') in changed_css:
@@ -277,7 +269,6 @@ jobs:
               unified.write_text(new_unified)
               changed_css.add(unified)
 
-          # Verify HTML action elements no longer carry mt-nav-typography.
           bad_html = []
           for page in html_files:
               text = page.read_text(errors='ignore')
@@ -288,7 +279,6 @@ jobs:
           if bad_html:
               raise SystemExit('Action elements still carry mt-nav typography: ' + repr(bad_html[:10]))
 
-          # Verify no CSS remains for dead action classes.
           for cls in dead_classes:
               hits = []
               for path in css_files:
@@ -297,14 +287,12 @@ jobs:
               if hits:
                   raise SystemExit(f'Dead class {cls} still has CSS rules: {hits}')
 
-          # Verify old action exceptions are gone from the mt-nav selector.
           gt = Path('assets/global.css').read_text()
           if ':not(.details-action)' in gt or ':not(.article-action)' in gt or ':not(.article-back)' in gt:
               raise SystemExit('Old mt-nav action exclusions still remain')
           if new_mt not in gt:
               raise SystemExit('Clean mt-nav selector missing')
 
-          # Verify no colour/tracking remains in noncanonical action/generic-link rules.
           violations = []
           canonical_seen = []
           for path in css_files:
@@ -340,7 +328,6 @@ jobs:
           if missing:
               raise SystemExit('Missing canonical action typography families: ' + repr(missing))
 
-          # Cache-bust changed linked stylesheets everywhere they are loaded.
           changed_names = {p.name for p in changed_css}
           for page in html_files:
               text = page.read_text(errors='ignore')

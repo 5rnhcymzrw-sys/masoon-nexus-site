@@ -18,7 +18,6 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re
 
           css = Path('assets/dienstleistungen.css')
           text = css.read_text()
@@ -30,32 +29,32 @@ jobs:
               raise SystemExit('Existing services card background block not found')
 
           new_block = '''html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:hover,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card[open]{background:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;background-color:transparent!important;background-image:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;background-size:calc(300% + 44px) 100%!important;background-position:left top!important;background-repeat:no-repeat!important;background-origin:border-box!important;color:#171715!important;filter:none!important;-webkit-backdrop-filter:blur(32px)!important;backdrop-filter:blur(32px)!important;}
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n+2),
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n+2):hover,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n+2)[open]{background-position:center top!important;}
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n),
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n):hover,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n)[open]{background-position:right top!important;}
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card>summary,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:hover>summary,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card[open]>summary,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card>ul,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:hover>ul,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card[open]>ul{background:transparent!important;background-color:transparent!important;background-image:none!important;color:#171715!important;filter:none!important;}
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2),
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2):hover,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2)[open]{color:#171715!important;opacity:1!important;}
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2)>summary,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2)>ul{background:transparent!important;background-color:transparent!important;background-image:none!important;color:#171715!important;opacity:1!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) h2,
-html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) p,
-html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) li,
-html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .card-number,
-html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .details-action{opacity:1!important;visibility:visible!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) h2,
-html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) p,
-html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) li{color:#171715!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .card-number{display:block!important;color:#99989c!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .details-action{display:inline-block!important;color:#868279!important;}
-'''
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:hover,
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card[open]{background:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;background-color:transparent!important;background-image:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;background-size:calc(300% + 44px) 100%!important;background-position:left top!important;background-repeat:no-repeat!important;background-origin:border-box!important;color:#171715!important;filter:none!important;-webkit-backdrop-filter:blur(32px)!important;backdrop-filter:blur(32px)!important;}
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n+2),
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n+2):hover,
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n+2)[open]{background-position:center top!important;}
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n),
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n):hover,
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n)[open]{background-position:right top!important;}
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card>summary,
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:hover>summary,
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card[open]>summary,
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card>ul,
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:hover>ul,
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card[open]>ul{background:transparent!important;background-color:transparent!important;background-image:none!important;color:#171715!important;filter:none!important;}
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2),
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2):hover,
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2)[open]{color:#171715!important;opacity:1!important;}
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2)>summary,
+          html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2)>ul{background:transparent!important;background-color:transparent!important;background-image:none!important;color:#171715!important;opacity:1!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) h2,
+          html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) p,
+          html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) li,
+          html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .card-number,
+          html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .details-action{opacity:1!important;visibility:visible!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) h2,
+          html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) p,
+          html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) li{color:#171715!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .card-number{display:block!important;color:#99989c!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .details-action{display:inline-block!important;color:#868279!important;}
+          '''
           css.write_text(text[:start] + new_block + text[end:])
 
           page = Path('dienstleistungen/index.html')

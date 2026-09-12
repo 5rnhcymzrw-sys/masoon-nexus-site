@@ -1,0 +1,23 @@
+name: Revert bad button normalize
+
+on:
+  push:
+    paths:
+      - '.github/workflows/revert-bad-button-normalize.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  revert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Revert malformed normalization commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git revert --no-edit 515aea878ac3541e2504dd2a7ac54613f0ebf257
+          git push

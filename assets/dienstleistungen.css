@@ -1,27 +1,35 @@
 /* Dienstleistungen: Zahlenfarben */
 .services-section .service-card .card-number{color:#99989c!important;margin-bottom:12px!important;display:block!important;opacity:1!important;visibility:visible!important;}.services-section .service-card:nth-child(1) .card-number,
-.services-section .service-card:nth-child(5) .card-number{color:#19191b!important;}.services-section .service-card:nth-child(3) .card-number{color:#c2c1c4!important;}.services-section .service-card{border-left:8px solid #99989c!important;}.services-section .service-card:nth-child(1),
-.services-section .service-card:nth-child(5){border-left-color:#19191b!important;}.services-section .service-card:nth-child(3){border-left-color:#c2c1c4!important;}html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card,
+.services-section .service-card:nth-child(5) .card-number{color:#19191b!important;}.services-section .service-card:nth-child(3) .card-number{color:#c2c1c4!important;}
+.services-section .service-card{border-left:8px solid #99989c!important;}.services-section .service-card:nth-child(1),
+.services-section .service-card:nth-child(5){border-left-color:#19191b!important;}.services-section .service-card:nth-child(3){border-left-color:#c2c1c4!important;}
+html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card,
 html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:hover,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card[open]{background:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;background-color:transparent!important;background-image:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;background-size:calc(300% + 44px) 100%!important;background-position:left top!important;background-repeat:no-repeat!important;background-origin:border-box!important;color:#171715!important;filter:none!important;-webkit-backdrop-filter:blur(32px)!important;backdrop-filter:blur(32px)!important;}html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n+2),
+html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card[open]{background:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;background-color:transparent!important;background-image:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;background-size:calc(300% + 44px) 100%!important;background-position:left top!important;background-repeat:no-repeat!important;background-origin:border-box!important;color:#171715!important;filter:none!important;-webkit-backdrop-filter:blur(32px)!important;backdrop-filter:blur(32px)!important;}
+html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n+2),
 html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n+2):hover,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n+2)[open]{background-position:center top!important;}html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n),
+html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n+2)[open]{background-position:center top!important;}
+html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n),
 html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n):hover,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n)[open]{background-position:right top!important;}html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card>summary,
+html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-child(3n)[open]{background-position:right top!important;}
+html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card>summary,
 html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:hover>summary,
 html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card[open]>summary,
 html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card>ul,
 html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:hover>ul,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card[open]>ul{background:transparent!important;background-color:transparent!important;background-image:none!important;color:#171715!important;filter:none!important;}html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2),
+html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card[open]>ul{background:transparent!important;background-color:transparent!important;background-image:none!important;color:#171715!important;filter:none!important;}
+html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2),
 html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2):hover,
-html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2)[open]{color:#171715!important;opacity:1!important;}html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2)>summary,
+html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2)[open]{color:#171715!important;opacity:1!important;}
+html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2)>summary,
 html body.site-light-page.page-services .services-main .services-section .services-grid>.service-card:nth-of-type(2)>ul{background:transparent!important;background-color:transparent!important;background-image:none!important;color:#171715!important;opacity:1!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) h2,
 html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) p,
 html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) li,
 html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .card-number,
 html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .details-action{opacity:1!important;visibility:visible!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) h2,
 html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) p,
-html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) li{color:#171715!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .card-number{display:block!important;color:#99989c!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .details-action{display:inline-block!important;}.services-section .service-card h2,
+html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) li{color:#171715!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .card-number{display:block!important;color:#99989c!important;}html body .services-main .services-section .services-grid>.service-card:nth-of-type(2) .details-action{display:inline-block!important;color:#777777!important;}
+.services-section .service-card h2,
 .services-section .service-card summary p,
 .services-section .service-card li,
 .services-section .service-card:hover h2,
@@ -31,25 +39,56 @@ html body .services-main .services-section .services-grid>.service-card:nth-of-t
 .services-section .service-card[open] summary p,
 .services-section .service-card[open] li{color:#171715!important;}.services-section .service-card .details-action,
 .services-section .service-card:hover .details-action,
-.services-section .service-card[open] .details-action{display:inline-block!important;opacity:1!important;visibility:visible!important;}.services-section .service-card{min-height:0!important;}.services-section .service-card summary,
+.services-section .service-card[open] .details-action{display:inline-block!important;color:#777777!important;opacity:1!important;visibility:visible!important;}
+.services-section .service-card{min-height:0!important;}.services-section .service-card summary,
 .services-section .service-card[open] summary{min-height:0!important;padding-bottom:0!important;}.services-section .service-card summary p{flex:none!important;font-size:14.5px!important;line-height:1.65!important;}.services-section .service-card .details-action{margin-top:30px!important;}.services-section .service-card ul,
 .services-section .service-card[open] ul{padding-top:28px!important;padding-bottom:36px!important;}.services-section .service-card li,
 .services-section .service-card:hover li,
 .services-section .service-card[open] li{font-size:14.5px!important;line-height:1.45!important;border-top:none!important;padding:0 0 0 15px!important;margin:0 0 5px!important;display:block!important;position:relative!important;}.services-section .service-card li:last-child{margin-bottom:0!important;}
-@media(min-width:1051px){.services-section .services-grid>.service-card[open]{height:670px!important;min-height:670px!important;max-height:670px!important;box-sizing:border-box!important;overflow:hidden!important;}.services-section .service-card summary p{min-height:216px!important;}}.services-section .service-card li::before{content:""!important;position:absolute!important;left:0!important;top:.725em!important;width:10px!important;height:1px!important;margin:0!important;background:currentColor!important;opacity:.8!important;transform:translateY(-50%)!important;color:#99989c!important;}.services-section .service-card:nth-child(1) li::before,
-.services-section .service-card:nth-child(5) li::before{color:#19191b!important;}.services-section .service-card:nth-child(3) li::before{color:#c2c1c4!important;}.services-section .service-card summary{list-style:none!important;}.services-section .service-card summary::marker{content:""!important;display:none!important;font-size:0!important;}.services-section .service-card summary::-webkit-details-marker{display:none!important}.services-section::before,
+@media(min-width:1051px){.services-section .services-grid>.service-card[open]{height:670px!important;min-height:670px!important;max-height:670px!important;box-sizing:border-box!important;overflow:hidden!important;}.services-section .service-card summary p{min-height:216px!important;}}
+.services-section .service-card li::before{content:""!important;position:absolute!important;left:0!important;top:.725em!important;width:10px!important;height:1px!important;margin:0!important;background:currentColor!important;opacity:.8!important;transform:translateY(-50%)!important;color:#99989c!important;}.services-section .service-card:nth-child(1) li::before,
+.services-section .service-card:nth-child(5) li::before{color:#19191b!important;}.services-section .service-card:nth-child(3) li::before{color:#c2c1c4!important;}
+.services-section .service-card summary{list-style:none!important;}.services-section .service-card summary::marker{content:""!important;display:none!important;font-size:0!important;}.services-section .service-card summary::-webkit-details-marker{display:none!important}.services-section::before,
 .services-section::after,
 .services-section .services-grid::before,
 .services-section .services-grid::after{content:none!important;display:none!important;}.services-section>li:empty,
 .services-section>ul:empty,
-.services-section>ol:empty{display:none!important;}/* Abschluss der Dienstleistungsseite */
-.services-closing{width:min(100% - 64px,1320px);margin:0 auto;padding:126px 0;}.services-closing__inner{max-width:760px;}.services-closing h2{margin:0 0 30px;font-family:var(--font-cormorant),Georgia,serif;font-size:clamp(34px,3vw,46px);font-weight:400;line-height:1.08;letter-spacing:-.02em;color:#171715;}.services-closing p:not(.section-label){margin:0;font-family:var(--font-inter),Arial,sans-serif;font-size:14.5px;line-height:1.65;color:#171715;}.services-closing__links{display:flex;gap:34px;align-items:center;margin-top:40px;}@media(max-width:800px){.services-closing{width:min(100% - 36px,1320px);padding:82px 0;}.services-closing__links{flex-direction:column;align-items:flex-start;gap:18px;}}/* Dienstleistungskacheln: leichter,
-transparenter und ruhiger */
-html body.site-light-page .services-main .services-section .services-grid{gap:22px!important;}html body.site-light-page .services-main .services-section .services-grid>.service-card,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover{min-height:360px!important;}
+.services-section>ol:empty{display:none!important;}
 
-@media(min-width:801px){html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{min-height:360px!important;}html body.site-light-page .services-main .services-section .services-grid>.service-card>ul{padding:0 32px 32px!important;}
+/* Abschluss der Dienstleistungsseite */
+.services-closing{width:min(100% - 64px,1320px);margin:0 auto;padding:126px 0;}.services-closing__inner{max-width:760px;}.services-closing h2{margin:0 0 30px;font-family:var(--font-cormorant),Georgia,serif;font-size:clamp(34px,3vw,46px);font-weight:400;line-height:1.08;letter-spacing:-.02em;color:#171715;}.services-closing p:not(.section-label){margin:0;font-family:var(--font-inter),Arial,sans-serif;font-size:14.5px;line-height:1.65;color:#171715;}.services-closing__links{display:flex;gap:34px;align-items:center;margin-top:40px;}@media(max-width:800px){.services-closing{width:min(100% - 36px,1320px);padding:82px 0;}.services-closing__links{flex-direction:column;align-items:flex-start;gap:18px;}}
+
+/* Dienstleistungskacheln: leichter,
+transparenter und ruhiger */
+html body.site-light-page .services-main .services-section .services-grid{
+  gap:22px!important;
 }
-@media(max-width:800px){html body.site-light-page .services-main .services-section .services-grid{gap:16px!important;}html body.site-light-page .services-main .services-section .services-grid>.service-card{min-height:0!important;}html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{min-height:320px!important;
-    padding:28px 24px!important;}html body.site-light-page .services-main .services-section .services-grid>.service-card>ul{padding:0 24px 28px!important;}
+html body.site-light-page .services-main .services-section .services-grid>.service-card,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover{
+  min-height:360px!important;
+}
+
+@media(min-width:801px){
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
+    min-height:360px!important;
+
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>ul{
+    padding:0 32px 32px!important;
+  }
+}
+@media(max-width:800px){
+  html body.site-light-page .services-main .services-section .services-grid{
+    gap:16px!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card{
+    min-height:0!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
+    min-height:320px!important;
+    padding:28px 24px!important;
+  }
+  html body.site-light-page .services-main .services-section .services-grid>.service-card>ul{
+    padding:0 24px 28px!important;
+  }
 }

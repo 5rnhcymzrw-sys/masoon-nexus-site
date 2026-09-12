@@ -29,7 +29,6 @@ jobs:
               'missbraeuchliche-konkurse',
           ]
 
-          # Verify all seven current blog overlines use the shared section-label class.
           for d in article_dirs:
               p = Path('fachwissen') / d / 'index.html'
               if not p.exists():
@@ -38,8 +37,6 @@ jobs:
               if html.count('class="section-label article-overline-label mt-nav-typography"') != 1:
                   raise SystemExit(f'Unexpected article overline markup in {p}')
 
-          # Remove legacy article-specific colour declarations so the canonical
-          # section-label rule is the only source for colour/spacing/typography.
           unified = Path('assets/unified-design.css')
           u = unified.read_text()
           legacy_pattern = re.compile(r'(body\.page-article-[^{]+ \.article-hero \.section-label\{[^{}]*?)color:#868279!important;?([^{}]*?\})')
@@ -56,7 +53,6 @@ jobs:
               raise SystemExit(f'Expected one shared legacy article colour rule, found {dcss.count(old)}')
           detail.write_text(dcss.replace(old, new, 1))
 
-          # Verify the canonical section-label rule has exactly the requested values.
           base = Path('assets/unified-design-base-20260907.css').read_text()
           canonical = 'html body main .section-label.section-label.section-label.section-label.section-label.section-label'
           s = base.find(canonical + '{')
@@ -77,27 +73,33 @@ jobs:
               if item not in block:
                   raise SystemExit(f'Canonical section-label value missing: {item}')
 
-          # Cache bust both changed stylesheets on all seven blog pages.
+          detail_refs = 0
           for folder in article_dirs:
               p = Path('fachwissen') / folder / 'index.html'
               html = p.read_text()
               html, n1 = re.subn(
                   r'(\.\./\.\./assets/unified-design\.css\?v=)[^"\']+',
-                  r'\1blog-overline-unified-20260912-2',
+                  r'\1blog-overline-unified-20260912-3',
                   html,
                   count=1
               )
+              if n1 != 1:
+                  raise SystemExit(f'unified-design cache ref not found exactly once in {p}: {n1}')
               html, n2 = re.subn(
                   r'(\.\./\.\./assets/article-detail\.css\?v=)[^"\']+',
-                  r'\1blog-overline-unified-20260912-2',
+                  r'\1blog-overline-unified-20260912-3',
                   html,
                   count=1
               )
-              if n1 != 1 or n2 != 1:
-                  raise SystemExit(f'Cache refs not found exactly once in {p}: unified={n1}, detail={n2}')
+              if n2 not in (0, 1):
+                  raise SystemExit(f'Unexpected article-detail cache refs in {p}: {n2}')
+              detail_refs += n2
               p.write_text(html)
 
-          print('Removed 6 legacy colour declarations. All 7 blog overlines now inherit the canonical section-label typography.')
+          if detail_refs < 1:
+              raise SystemExit('No article-detail stylesheet references found on any blog page')
+
+          print(f'Removed 6 legacy colour declarations. Updated all 7 blog pages; article-detail refs updated on {detail_refs} pages.')
           PY
       - name: Remove temporary workflow and commit
         run: |

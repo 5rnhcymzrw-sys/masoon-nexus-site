@@ -1013,6 +1013,7 @@ html body.site-light-page main .contact-split__intro{
   font-size:14px!important;
   font-weight:290!important;
   line-height:1.65!important;
+  letter-spacing:normal!important;
   color:#484a4f!important;
 }
 
@@ -1026,6 +1027,7 @@ html body main .form-status{
   font-size:14px!important;
   font-weight:290!important;
   line-height:1.65!important;
+  letter-spacing:normal!important;
   color:#484a4f!important;
 }
 

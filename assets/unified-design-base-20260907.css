@@ -1,64 +1,38 @@
 /* MASOON TREUHAND – einheitliche visuelle Gestaltung */
-@font-face{
-  font-family:"PT Serif";
+@font-face{font-family:"PT Serif";
   font-style:normal;
   font-weight:700;
   font-display:block;
-  src:url("https://fonts.gstatic.com/s/ptserif/v19/EJRSQgYoZZY2vCFuvAnt65qV.ttf") format("truetype");
-}
-@font-face{
-  font-family:"Bitter";
+  src:url("https://fonts.gstatic.com/s/ptserif/v19/EJRSQgYoZZY2vCFuvAnt65qV.ttf") format("truetype");}@font-face{font-family:"Bitter";
   font-style:normal;
   font-weight:600;
   font-display:swap;
-  src:url("https://fonts.gstatic.com/s/bitter/v42/raxhHiqOu8IVPmnRc6SY1KXhnF_Y8SjYCL8.ttf") format("truetype");
-}
-@font-face{
-  font-family:"Source Serif 4";
+  src:url("https://fonts.gstatic.com/s/bitter/v42/raxhHiqOu8IVPmnRc6SY1KXhnF_Y8SjYCL8.ttf") format("truetype");}@font-face{font-family:"Source Serif 4";
   font-style:normal;
   font-weight:500;
   font-display:swap;
-  src:url("https://fonts.gstatic.com/s/sourceserif4/v14/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjiiVqrhw.ttf") format("truetype");
-}
-:root{
-  --mt-black:#0b0b0b;
+  src:url("https://fonts.gstatic.com/s/sourceserif4/v14/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjiiVqrhw.ttf") format("truetype");}:root{--mt-black:#0b0b0b;
   --mt-ink:#171715;
   --mt-text:#4f4e4b;
   --mt-line:rgba(23,23,21,.14);
   --mt-surface:rgba(255,255,255,.78);
-  --mt-surface-open:rgba(255,255,255,.88);
-}
-
-/* Kopf und Fusszeile */
+  --mt-surface-open:rgba(255,255,255,.88);}/* Kopf und Fusszeile */
 .site-header,
-.site-footer{
-  background:var(--mt-black)!important;
+.site-footer{background:var(--mt-black)!important;
   background-color:var(--mt-black)!important;
   background-image:none!important;
   backdrop-filter:none!important;
-  -webkit-backdrop-filter:none!important;
-}
-
-/* Helle Inhaltsseiten */
-body.site-light-page{
-  background-color:#fff!important;
+  -webkit-backdrop-filter:none!important;}/* Helle Inhaltsseiten */
+body.site-light-page{background-color:#fff!important;
   background-image:url("../Hintergrundbild 2.png")!important;
   background-size:cover!important;
   background-position:center top!important;
   background-repeat:repeat-y!important;
-  background-attachment:fixed!important;
-}
-@media(max-width:800px){
-  body.site-light-page{
-    background-attachment:scroll!important;
-  }
-}
-body.site-light-page,
+  background-attachment:fixed!important;}
+@media(max-width:800px){body.site-light-page{background-attachment:scroll!important;}
+}body.site-light-page,
 body.site-light-page .page-main,
-body.site-light-page .home{
-  color:var(--mt-ink)!important;
-}
-body.site-light-page .page-main,
+body.site-light-page .home{color:var(--mt-ink)!important;}body.site-light-page .page-main,
 body.site-light-page .home,
 body.site-light-page .home-values,
 body.site-light-page .home-values__inner,
@@ -67,277 +41,151 @@ body.site-light-page .knowledge-section,
 body.site-light-page .home-paths,
 body.site-light-page .home-paths::before,
 body.site-light-page .home-contact-band,
-body.site-light-page .services-closing{
-  background:transparent!important;
+body.site-light-page .services-closing{background:transparent!important;
   background-color:transparent!important;
-  background-image:none!important;
-}
-
-/* Einheitliche Kacheln */
+  background-image:none!important;}/* Einheitliche Kacheln */
 html body.site-light-page .home-values__item,
 html body.site-light-page .article-card,
 html body.site-light-page .knowledge-note,
 html body.site-light-page .services-main .services-section .services-grid>.service-card,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover{
-  background:var(--mt-surface)!important;
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover{background:var(--mt-surface)!important;
   background-color:var(--mt-surface)!important;
   background-image:none!important;
   border:1px solid var(--mt-line)!important;
   border-radius:0!important;
   box-shadow:none!important;
   backdrop-filter:none!important;
-  -webkit-backdrop-filter:none!important;
-}
-
-/* Einheitliche Linien und Kartenabstände */
+  -webkit-backdrop-filter:none!important;}/* Einheitliche Linien und Kartenabstände */
 body.site-light-page .home-values__items,
 body.site-light-page .home-paths__grid,
-body.site-light-page .articles-grid{
-  gap:22px!important;
-}
-body.site-light-page .services-grid{
-  gap:22px!important;
+body.site-light-page .articles-grid{gap:22px!important;}body.site-light-page .services-grid{gap:22px!important;
   background:transparent!important;
-  border:0!important;
-}
-body.site-light-page .home-values__item{
-  border-left:1px solid var(--mt-line)!important;
-}
-body.site-light-page .home-values__item h3::after,
-body.site-light-page .home-paths__grid strong::after{
-  background:#868279!important;
-}
-
-/* Kontaktseite: heller Seitenhintergrund mit dunklem Formular */
+  border:0!important;}body.site-light-page .home-values__item{border-left:1px solid var(--mt-line)!important;}body.site-light-page .home-values__item h3::after,
+body.site-light-page .home-paths__grid strong::after{background:#868279!important;}/* Kontaktseite: heller Seitenhintergrund mit dunklem Formular */
 body.site-light-page .contact-split-page,
-body.site-light-page .contact-split{
-  background:transparent!important;
+body.site-light-page .contact-split{background:transparent!important;
   background-color:transparent!important;
-  background-image:none!important;
-}
-body.site-light-page .contact-split__form{
-  background:var(--mt-black)!important;
+  background-image:none!important;}body.site-light-page .contact-split__form{background:var(--mt-black)!important;
   background-color:var(--mt-black)!important;
-  background-image:none!important;
-}
+  background-image:none!important;}/* Leerer früherer Bildtrenner wird nicht mehr als eigener Stilbruch gezeigt */
+body.site-light-page .home-architecture-banner{display:none!important;}
 
-/* Leerer früherer Bildtrenner wird nicht mehr als eigener Stilbruch gezeigt */
-body.site-light-page .home-architecture-banner{
-  display:none!important;
-}
-
-@media(max-width:800px){
-  body.site-light-page .home-values__items,
+@media(max-width:800px){body.site-light-page .home-values__items,
 body.site-light-page .home-paths__grid,
 body.site-light-page .articles-grid,
-body.site-light-page .services-grid{
-    gap:16px!important;
-  }
-}
-
-/* Kacheltexte auf Startseite und Unternehmen vertikal mittig,
+body.site-light-page .services-grid{gap:16px!important;}
+}/* Kacheltexte auf Startseite und Unternehmen vertikal mittig,
 linksbündig */
-html body.site-light-page .home-values__item{
-  justify-content:center!important;
+html body.site-light-page .home-values__item{justify-content:center!important;
   align-content:center!important;
   align-items:flex-start!important;
-  text-align:left!important;
-}
-
-/* Zahlen der Startseiten Kacheln wie auf der Dienstleistungsseite */
-html body.site-light-page .home>.home-values .home-values__item .service-number{
-  font-size:46px!important;
-}
-@media(max-width:800px){
-  html body.site-light-page .home>.home-values .home-values__item .service-number{
-    font-size:38px!important;
-  }
-}
-
-/* Einheitliche Grösse für sämtliche Kacheltitel */
+  text-align:left!important;}/* Zahlen der Startseiten Kacheln wie auf der Dienstleistungsseite */
+html body.site-light-page .home>.home-values .home-values__item .service-number{font-size:46px!important;}
+@media(max-width:800px){html body.site-light-page .home>.home-values .home-values__item .service-number{font-size:38px!important;}
+}/* Einheitliche Grösse für sämtliche Kacheltitel */
 html body .home-values__item h3,
 html body .home-paths__grid strong,
 html body .article-card h2,
-html body .services-section .service-card h2{
-  font-size:24px!important;
-}
-
-/* Zahlen und danebenstehende Kacheltitel optisch mittig ausrichten */
+html body .services-section .service-card h2{font-size:24px!important;}/* Zahlen und danebenstehende Kacheltitel optisch mittig ausrichten */
 html body .home>.home-values .home-values__item .service-number,
 html body .home>.home-values .home-values__item h3,
 html body .services-section .service-card .card-number,
-html body .services-section .service-card h2{
-  align-self:center!important;
-}
+html body .services-section .service-card h2{align-self:center!important;}
 
 /* Dienstleistungskacheln auf Startseite und Hauptseite identisch */
-@media(min-width:801px){
-
-  html body .home>.home-values .home-values__item .service-number,
-  html body .services-section .service-card .card-number{
-    font-size:46px!important;
+@media(min-width:801px){html body .home>.home-values .home-values__item .service-number,
+html body .services-section .service-card .card-number{font-size:46px!important;
     line-height:.9!important;
-    letter-spacing:-.04em!important;
-  }
-}
-html body .home>.home-values .home-values__item h3,
-html body .services-section .service-card h2{
-  font-size:24px!important;
+    letter-spacing:-.04em!important;}
+}html body .home>.home-values .home-values__item h3,
+html body .services-section .service-card h2{font-size:24px!important;
   line-height:1.08!important;
   align-self:center!important;
   position:relative!important;
-  top:3px!important;
-}
-@media(max-width:800px){
-  html body .home>.home-values .home-values__item,
-html body .services-section .service-card summary{
-    grid-template-columns:56px minmax(0,1fr)!important;
-    column-gap:18px!important;
-  }
-  html body .home>.home-values .home-values__item .service-number,
-html body .services-section .service-card .card-number{
-    font-size:38px!important;
+  top:3px!important;}
+@media(max-width:800px){html body .home>.home-values .home-values__item,
+html body .services-section .service-card summary{grid-template-columns:56px minmax(0,1fr)!important;
+    column-gap:18px!important;}html body .home>.home-values .home-values__item .service-number,
+html body .services-section .service-card .card-number{font-size:38px!important;
     line-height:.9!important;
-    letter-spacing:-.04em!important;
-  }
+    letter-spacing:-.04em!important;}
 }
 
 /* Desktop: kompaktere Dienstleistungskacheln */
-@media(min-width:801px){
-  html body .home>.home-values .home-values__item{
-    min-height:260px!important;
-  }
-  html body .services-section .services-grid>.service-card,
-  html body .services-section .services-grid>.service-card>summary{
-    min-height:340px!important;
-  }
+@media(min-width:801px){html body .home>.home-values .home-values__item{min-height:260px!important;}html body .services-section .services-grid>.service-card,
+html body .services-section .services-grid>.service-card>summary{min-height:340px!important;}
 }
 
 /* Desktop: ausgewogener Abstand zwischen Zahl und Titel */
-@media(min-width:801px){
-  html body .home>.home-values .home-values__item,
-  html body .services-section .service-card summary{
-    grid-template-columns:max-content minmax(0,1fr)!important;
-    column-gap:20px!important;
-  }
-}
-
-/* Navigationslinie mit 13 Pixel Abstand zum Text */
-html body .site-nav a::after{
-  bottom:18px!important;
-}
+@media(min-width:801px){html body .home>.home-values .home-values__item,
+html body .services-section .service-card summary{grid-template-columns:max-content minmax(0,1fr)!important;
+    column-gap:20px!important;}
+}/* Navigationslinie mit 13 Pixel Abstand zum Text */
+html body .site-nav a::after{bottom:18px!important;}
 
 /* Desktop: feste Anordnung Zahl und Titel oben,
 Fliesstext direkt darunter */
-@media(min-width:801px){
-
-  html body .home>.home-values .home-values__item .service-number,
-  html body .services-section .service-card .card-number{
-    grid-column:1!important;
+@media(min-width:801px){html body .home>.home-values .home-values__item .service-number,
+html body .services-section .service-card .card-number{grid-column:1!important;
     grid-row:1!important;
-    align-self:center!important;
-  }
-  html body .home>.home-values .home-values__item h3,
-  html body .services-section .service-card h2{
-    grid-column:2!important;
+    align-self:center!important;}html body .home>.home-values .home-values__item h3,
+html body .services-section .service-card h2{grid-column:2!important;
     grid-row:1!important;
-    align-self:center!important;
-  }
+    align-self:center!important;}
 
 }
 
 /* Desktop: Fliesstext unter Zahl und Titel über die ganze Kachelbreite */
-@media(min-width:801px){
-  html body .home>.home-values .home-values__item p,
-  html body .services-section .service-card summary p{
-    grid-column:1 / -1!important;
-    grid-row:2!important;
-  }
+@media(min-width:801px){html body .home>.home-values .home-values__item p,
+html body .services-section .service-card summary p{grid-column:1 / -1!important;
+    grid-row:2!important;}
 }
 
 /* Desktop: sichtbaren Titelabstand auf beiden Dienstleistungsrastern exakt angleichen */
-@media(min-width:801px){
-  html body .home>.home-values .home-values__item{
-    grid-template-rows:auto auto!important;
-    row-gap:0!important;
-  }
-  html body .services-section .service-card summary{
-    grid-template-rows:auto auto 1fr!important;
-    row-gap:0!important;
-  }
-  html body .home>.home-values .home-values__item h3,
-  html body .services-section .service-card h2{
-    margin-bottom:0!important;
-  }
-  html body .home>.home-values .home-values__item p,
-  html body .services-section .service-card summary p{
-    align-self:start!important;
-    margin-top:18px!important;
-  }
-  html body .services-section .service-card .details-action{
-    grid-row:3!important;
-    align-self:end!important;
-  }
+@media(min-width:801px){html body .home>.home-values .home-values__item{grid-template-rows:auto auto!important;
+    row-gap:0!important;}html body .services-section .service-card summary{grid-template-rows:auto auto 1fr!important;
+    row-gap:0!important;}html body .home>.home-values .home-values__item h3,
+html body .services-section .service-card h2{margin-bottom:0!important;}html body .home>.home-values .home-values__item p,
+html body .services-section .service-card summary p{align-self:start!important;
+    margin-top:18px!important;}html body .services-section .service-card .details-action{grid-row:3!important;
+    align-self:end!important;}
 }
 
 /* Desktop: Fachwissen Kacheln auf der Startseite gleich hoch wie Werte */
-@media(min-width:801px){
-  html body .home>.home-paths .home-paths__grid a{
-    box-sizing:border-box!important;
+@media(min-width:801px){html body .home>.home-paths .home-paths__grid a{box-sizing:border-box!important;
     height:285px!important;
-    min-height:285px!important;
-  }
+    min-height:285px!important;}
 }
 
 /* Desktop Dienstleistungsseite: Abstände exakt wie bei Dienstleistungen auf der Startseite */
-@media(min-width:801px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
-    display:grid!important;
+@media(min-width:801px){html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{display:grid!important;
     grid-template-columns:max-content minmax(0,1fr)!important;
     grid-template-rows:auto auto 1fr!important;
     column-gap:20px!important;
-    row-gap:0!important;
-  }
-  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
-    grid-column:1!important;
+    row-gap:0!important;}html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{grid-column:1!important;
     grid-row:1!important;
     align-self:center!important;
     margin:0!important;
     line-height:.9!important;
-    letter-spacing:-.04em!important;
-  }
-  html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
-    grid-column:2!important;
+    letter-spacing:-.04em!important;}html body.site-light-page .services-main .services-section .services-grid>.service-card h2{grid-column:2!important;
     grid-row:1!important;
     align-self:center!important;
     margin:0!important;
     position:relative!important;
-    top:3px!important;
-  }
-  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>p{
-    grid-column:1 / -1!important;
+    top:3px!important;}html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>p{grid-column:1 / -1!important;
     grid-row:2!important;
     align-self:start!important;
     min-height:0!important;
-    margin:18px 0 0!important;
-  }
-}
-
-/* Kacheltitel auf allen Seiten etwas kräftiger */
+    margin:18px 0 0!important;}
+}/* Kacheltitel auf allen Seiten etwas kräftiger */
 html body .home-values__item h3,
 html body .home-paths__grid strong,
 html body .article-card h2,
-html body .services-section .service-card h2{
-  font-weight:600!important;
-}
-
-/* Schriftstärke 600 gegen ältere spezifische Kachelregeln durchsetzen */
+html body .services-section .service-card h2{font-weight:600!important;}/* Schriftstärke 600 gegen ältere spezifische Kachelregeln durchsetzen */
 html body .home>.home-values .home-values__item h3,
 html body.site-light-page .services-main .services-section .services-grid>.service-card h2,
 html body .home>.home-paths .home-paths__grid strong,
-html body .knowledge-section .articles-grid>.article-card h2{
-  font-weight:600!important;
-}
+html body .knowledge-section .articles-grid>.article-card h2{font-weight:600!important;}
 
 /* Desktop Zusammenarbeit: drei Spalten,
 zwei Reihen */
@@ -348,95 +196,48 @@ zwei Reihen */
 
 
 /* Unternehmen Desktop: Porträt ausgewogen zur Höhe des Textbereichs */
-@media(min-width:801px){
-  html body .home-company__image{
-    width:440px!important;
+@media(min-width:801px){html body .home-company__image{width:440px!important;
     height:565px!important;
-    min-height:565px!important;
-  }
-  html body .home-company__image-primary{
-    width:92%!important;
-    height:92%!important;
-  }
+    min-height:565px!important;}html body .home-company__image-primary{width:92%!important;
+    height:92%!important;}
 }
 
 /* Dienstleistungs Hauptseite: linker Startpunkt wie auf der Startseite */
-@media(min-width:801px){
-  html body .services-main>.services-section{
-    padding-left:0!important;
-    padding-right:0!important;
-  }
-}
-
-/* Dienstleistungs Hauptseite: grosse weisse Bereichsfläche entfernen */
-html body.site-light-page .services-main>.services-section{
-  background:transparent!important;
+@media(min-width:801px){html body .services-main>.services-section{padding-left:0!important;
+    padding-right:0!important;}
+}/* Dienstleistungs Hauptseite: grosse weisse Bereichsfläche entfernen */
+html body.site-light-page .services-main>.services-section{background:transparent!important;
   background-color:transparent!important;
   background-image:none!important;
-  box-shadow:none!important;
-}
+  box-shadow:none!important;}
 
 /* Dienstleistungs Hauptseite: Titelabstand wie Startseite und Fachwissen */
-@media(min-width:801px){
-  html body .services-main>.services-section>.section-heading{
-    margin-bottom:64px!important;
-  }
-}
-
-/* Fachwissen: einheitliche Titellinie und Fliesstext */
-html body .knowledge-section .articles-grid>.article-card h2{
-  min-height:0!important;
-  margin:0 0 11px!important;
-}
-html body .knowledge-section .articles-grid>.article-card h2::after{
-  content:""!important;
+@media(min-width:801px){html body .services-main>.services-section>.section-heading{margin-bottom:64px!important;}
+}/* Fachwissen: einheitliche Titellinie und Fliesstext */
+html body .knowledge-section .articles-grid>.article-card h2{min-height:0!important;
+  margin:0 0 11px!important;}html body .knowledge-section .articles-grid>.article-card h2::after{content:""!important;
   display:block!important;
   width:48px!important;
   height:1px!important;
   margin-top:11px!important;
   background:#868279!important;
-  border:0!important;
-}
-html body .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
-  margin-top:0!important;
-}
-
-/* Einheitliche kurze Linien zwischen kleinen Titeln und nachfolgendem Text */
+  border:0!important;}html body .knowledge-section .articles-grid>.article-card>p:not(.article-meta){margin-top:0!important;}/* Einheitliche kurze Linien zwischen kleinen Titeln und nachfolgendem Text */
 html body .home-values__item h3::after,
 html body .home-paths__grid strong::after,
-html body .knowledge-section .article-card h2::after{
-  content:""!important;
+html body .knowledge-section .article-card h2::after{content:""!important;
   display:block!important;
   margin-top:11px!important;
   background:#868279!important;
-  border:0!important;
-}
-
-/* Bereichstitel: gemeinsame Abstände */
-html body .section-label{
-  gap:10px!important;
-}
-html body .section-label::before{
-  width:28px!important;
+  border:0!important;}/* Bereichstitel: gemeinsame Abstände */
+html body .section-label{gap:10px!important;}html body .section-label::before{width:28px!important;
   height:1px!important;
   flex:0 0 28px!important;
   background:currentColor!important;
   border:0!important;
-  line-height:1!important;
-}
-
-/* Bereichstitel: Gedankenstrich wieder entfernen */
-html body .section-label::before{
-  content:none!important;
-  display:none!important;
-}
-
-/* Bereichstitel: Inhalt des Nachfolgeelements */
-html body .section-label::after{
-  content:""!important;
-}
-
-/* Alle grossen Seitentitel in PT Serif Regular */
+  line-height:1!important;}/* Bereichstitel: Gedankenstrich wieder entfernen */
+html body .section-label::before{content:none!important;
+  display:none!important;}/* Bereichstitel: Inhalt des Nachfolgeelements */
+html body .section-label::after{content:""!important;}/* Alle grossen Seitentitel in PT Serif Regular */
 html body .global-title,
 html body .section-heading h1,
 html body .section-heading h2,
@@ -445,117 +246,58 @@ html body .knowledge-note h2,
 html body .home-paths__heading h2,
 html body .home-contact-band h2,
 html body .contact-split__info h1,
-html body .services-closing h2{
-  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
+html body .services-closing h2{font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
   font-weight:400!important;
-  -webkit-text-stroke:.25px currentColor!important;
-}
+  -webkit-text-stroke:.25px currentColor!important;}
 
 /* Alle grossen Seitentitel auf dem Desktop: 50 Pixel */
-@media(min-width:801px){
-  html body .global-title,
-  html body .section-heading h1,
-  html body .section-heading h2,
-  html body .legal-page h1,
-  html body .knowledge-note h2,
-  html body .home-paths__heading h2,
-  html body .home-contact-band h2,
-  html body .contact-split__info h1,
-  html body .services-closing h2{
-    font-size:50px!important;
-  }
-}
-
-
-
-
-
-
-
-/* Alle Titellinien: oben und unten je 11 Pixel Abstand */
-html body .section-label{
-  margin-bottom:11px!important;
-}
-html body .section-label::after{
-  top:auto!important;
+@media(min-width:801px){html body .global-title,
+html body .section-heading h1,
+html body .section-heading h2,
+html body .legal-page h1,
+html body .knowledge-note h2,
+html body .home-paths__heading h2,
+html body .home-contact-band h2,
+html body .contact-split__info h1,
+html body .services-closing h2{font-size:50px!important;}
+}/* Alle Titellinien: oben und unten je 11 Pixel Abstand */
+html body .section-label{margin-bottom:11px!important;}html body .section-label::after{top:auto!important;
   right:auto!important;
   bottom:auto!important;
   left:auto!important;
   display:block!important;
   width:48px!important;
   max-width:48px!important;
-  height:1px!important;
-}
-
-html body .home-values__item h3::after,
+  height:1px!important;}html body .home-values__item h3::after,
 html body .home-paths__grid strong::after,
-html body .knowledge-section .article-card h2::after{
-  width:48px!important;
+html body .knowledge-section .article-card h2::after{width:48px!important;
   max-width:48px!important;
   height:1px!important;
-  margin:11px 0 0!important;
-}
-
-html body .home-values__item h3,
-html body .knowledge-section .article-card h2{
-  margin-bottom:11px!important;
-}
-
-html body .home-values__item p,
-html body .knowledge-section .article-card>p:not(.article-meta){
-  margin-top:0!important;
-}
-
-html body .home-paths__grid strong+span{
-  margin-top:11px!important;
-}
-
-/* Kleine Bereichstitel: ursprüngliche Abstände wiederherstellen */
-html body .section-label{
-  display:flex!important;
+  margin:11px 0 0!important;}html body .home-values__item h3,
+html body .knowledge-section .article-card h2{margin-bottom:11px!important;}html body .home-values__item p,
+html body .knowledge-section .article-card>p:not(.article-meta){margin-top:0!important;}html body .home-paths__grid strong+span{margin-top:11px!important;}/* Kleine Bereichstitel: ursprüngliche Abstände wiederherstellen */
+html body .section-label{display:flex!important;
   align-items:center!important;
-  margin:0 0 30px!important;
-}
-html body .section-label::after{
-  position:absolute!important;
+  margin:0 0 30px!important;}html body .section-label::after{position:absolute!important;
   top:calc(1.4em + 13px)!important;
   right:auto!important;
   bottom:auto!important;
   left:0!important;
-  margin:0!important;
-}
-
-/* Startseite Dienstleistungen: Zahl und Titel optisch ausrichten */
+  margin:0!important;}/* Startseite Dienstleistungen: Zahl und Titel optisch ausrichten */
 html body .home>.home-values .home-values__item .service-number,
-html body .home>.home-values .home-values__item h3{
-  align-self:center!important;
-}
-html body .home>.home-values .home-values__item h3{
-  top:7px!important;
-}
-
-/* Kleine Titel: neutraler Buchstabenabstand für bessere Lesbarkeit */
+html body .home>.home-values .home-values__item h3{align-self:center!important;}html body .home>.home-values .home-values__item h3{top:7px!important;}/* Kleine Titel: neutraler Buchstabenabstand für bessere Lesbarkeit */
 html body .home>.home-values .home-values__item h3,
 html body .home>.home-paths .home-paths__grid strong,
 html body .page-main>.home-values .home-values__item h3,
-html body .services-main .services-section .service-card h2{
-  letter-spacing:0!important;
-}
-
-/* Gemeinsame Typografie der Kacheltitel */
+html body .services-main .services-section .service-card h2{letter-spacing:0!important;}/* Gemeinsame Typografie der Kacheltitel */
 html body .home>.home-values .home-values__item h3,
 html body .home>.home-paths .home-paths__grid strong,
 html body .page-main>.home-values .home-values__item h3,
-html body .services-main .services-section .service-card h2{
-  font-family:var(--font-cormorant),Georgia,serif!important;
+html body .services-main .services-section .service-card h2{font-family:var(--font-cormorant),Georgia,serif!important;
   font-size:24px!important;
   font-weight:600!important;
-  -webkit-text-stroke:0!important;
-}
-
-/* Dienstleistungs Hauptseite: kurze Linien wie auf der Startseite */
-html body .services-main .services-section .service-card h2::after{
-  content:""!important;
+  -webkit-text-stroke:0!important;}/* Dienstleistungs Hauptseite: kurze Linien wie auf der Startseite */
+html body .services-main .services-section .service-card h2::after{content:""!important;
   display:block!important;
   position:absolute!important;
   top:calc(100% + 11px)!important;
@@ -565,127 +307,71 @@ html body .services-main .services-section .service-card h2::after{
   height:1px!important;
   margin:0!important;
   background:#868279!important;
-  border:0!important;
-}
-html body .services-main .services-section .service-card>summary>p{
-  margin-top:23px!important;
-}
-
-/* Alle kleinen Titel: einheitlicher Zeilenabstand 1.12 */
+  border:0!important;}html body .services-main .services-section .service-card>summary>p{margin-top:23px!important;}/* Alle kleinen Titel: einheitlicher Zeilenabstand 1.12 */
 html body .home-values__item h3,
 html body .home-paths__grid strong,
 html body .services-section .service-card h2,
 html body .knowledge-section .article-card h2,
 html body .legal-page .prose h2,
-html body .article-body h2{
-  line-height:1.12!important;
-}
-
-/* Startseite Dienstleistungen: Titel-Text-Abstand wie bei Fachwissen */
-html body main.home .home-values .home-values__inner .home-values__items .home-values__item p{
-  margin-top:12px!important;
-}
-
-/* Startseite Dienstleistungen: Punkt und Kachel-Unterlinien entfernen */
+html body .article-body h2{line-height:1.12!important;}/* Startseite Dienstleistungen: Titel-Text-Abstand wie bei Fachwissen */
+html body main.home .home-values .home-values__inner .home-values__items .home-values__item p{margin-top:12px!important;}/* Startseite Dienstleistungen: Punkt und Kachel-Unterlinien entfernen */
 html body main.home>.home-values .section-heading>.section-label::before,
-html body main.home>.home-values .section-heading>.section-label::marker{
-  content:none!important;
-  display:none!important;
-}
-html body main.home>.home-values .home-values__item h3::after{
-  content:none!important;
-  display:none!important;
-}
-
-/* Abschlusskästen: transparent,
+html body main.home>.home-values .section-heading>.section-label::marker{content:none!important;
+  display:none!important;}html body main.home>.home-values .home-values__item h3::after{content:none!important;
+  display:none!important;}/* Abschlusskästen: transparent,
 kleine Titel mittig und ohne Zeichen */
 html body.site-light-page .knowledge-note,
 html body.site-light-page .services-closing,
-html body.site-light-page main.home>.home-contact-band{
-  background:transparent!important;
+html body.site-light-page main.home>.home-contact-band{background:transparent!important;
   background-color:transparent!important;
-  background-image:none!important;
-}
-html body.site-light-page .knowledge-note>.section-label,
+  background-image:none!important;}html body.site-light-page .knowledge-note>.section-label,
 html body.site-light-page .services-closing>.section-label,
-html body.site-light-page main.home>.home-contact-band>.section-label{
-  align-self:center!important;
+html body.site-light-page main.home>.home-contact-band>.section-label{align-self:center!important;
   justify-self:start!important;
   place-self:center start!important;
   margin:0!important;
   padding:0!important;
   display:block!important;
   position:static!important;
-  gap:0!important;
-}
-html body.site-light-page .knowledge-note>.section-label::before,
+  gap:0!important;}html body.site-light-page .knowledge-note>.section-label::before,
 html body.site-light-page .knowledge-note>.section-label::after,
 html body.site-light-page .services-closing>.section-label::before,
 html body.site-light-page .services-closing>.section-label::after,
 html body.site-light-page main.home>.home-contact-band>.section-label::before,
-html body.site-light-page main.home>.home-contact-band>.section-label::after{
-  content:none!important;
-  display:none!important;
-}
+html body.site-light-page main.home>.home-contact-band>.section-label::after{content:none!important;
+  display:none!important;}
 
 /* Abschlusskästen: alle kleinen Titel exakt auf der senkrechten Kastenmitte */
-@media(min-width:801px){
-  html body.site-light-page .knowledge-note,
-  html body.site-light-page .services-closing,
-  html body.site-light-page main.home>.home-contact-band{
-    position:relative!important;
-  }
-  html body.site-light-page .knowledge-note>div,
-  html body.site-light-page .services-closing>.services-closing__inner,
-  html body.site-light-page main.home>.home-contact-band>div{
-    grid-column:2!important;
-  }
-  html body.site-light-page .knowledge-note>.section-label,
-  html body.site-light-page .services-closing>.section-label,
-  html body.site-light-page main.home>.home-contact-band>.section-label{
-    position:absolute!important;
+@media(min-width:801px){html body.site-light-page .knowledge-note,
+html body.site-light-page .services-closing,
+html body.site-light-page main.home>.home-contact-band{position:relative!important;}html body.site-light-page .knowledge-note>div,
+html body.site-light-page .services-closing>.services-closing__inner,
+html body.site-light-page main.home>.home-contact-band>div{grid-column:2!important;}html body.site-light-page .knowledge-note>.section-label,
+html body.site-light-page .services-closing>.section-label,
+html body.site-light-page main.home>.home-contact-band>.section-label{position:absolute!important;
     top:50%!important;
     left:72px!important;
     margin:0!important;
     padding:0!important;
     height:15.4px!important;
     align-self:start!important;
-    transform:translateY(-50%)!important;
-  }
-}
+    transform:translateY(-50%)!important;}
+}/* Unternehmen: kleine Bereichstitel farblich vereinheitlichen */
 
-
-
-
-
-/* Unternehmen: kleine Bereichstitel farblich vereinheitlichen */
-
-html body.site-light-page .home-values .section-heading > .section-label{
-  color:#868279!important;
-}
-
-/* Unternehmen: Zusammenarbeit im Stil des Datenschutz-Kastens */
-html body.site-light-page .collaboration-legal-section{
-  width:min(100% - 64px,1227px)!important;
+html body.site-light-page .home-values .section-heading > .section-label{color:#868279!important;}/* Unternehmen: Zusammenarbeit im Stil des Datenschutz-Kastens */
+html body.site-light-page .collaboration-legal-section{width:min(100% - 64px,1227px)!important;
   margin:0 auto!important;
   padding-top:126px!important;
   padding-bottom:126px!important;
-  box-sizing:border-box!important;
-}
-@media(max-width:800px){
-  html body.site-light-page .collaboration-legal-section{
-    width:calc(100% - 36px)!important;
+  box-sizing:border-box!important;}
+@media(max-width:800px){html body.site-light-page .collaboration-legal-section{width:calc(100% - 36px)!important;
     padding-top:82px!important;
-    padding-bottom:82px!important;
-  }
-}
-
-/* Werte mobil: gemessene 7-Pixel-Abweichung zur Navigationslinie korrigieren */
+    padding-bottom:82px!important;}
+}/* Werte mobil: gemessene 7-Pixel-Abweichung zur Navigationslinie korrigieren */
 
 
 /* Unternehmen: Porträtbereich im einheitlichen Kastensystem */
-html body.site-light-page .company-legal-section .company-legal-card{
-  width:100%!important;
+html body.site-light-page .company-legal-section .company-legal-card{width:100%!important;
   height:auto!important;
   min-height:0!important;
   max-height:none!important;
@@ -699,171 +385,88 @@ html body.site-light-page .company-legal-section .company-legal-card{
   background-image:none!important;
   border:1px solid rgba(23,23,21,.16)!important;
   border-radius:0!important;
-  box-shadow:none!important;
-}
-html body.site-light-page .company-legal-card .home-company__image{
-  width:100%!important;
+  box-shadow:none!important;}html body.site-light-page .company-legal-card .home-company__image{width:100%!important;
   min-height:0!important;
-  margin:0!important;
-}
-html body.site-light-page .company-legal-card .home-company__image::after{
-  content:none!important;
-  display:none!important;
-}
-html body.site-light-page .company-legal-card .home-company__image-primary{
-  width:100%!important;
+  margin:0!important;}html body.site-light-page .company-legal-card .home-company__image::after{content:none!important;
+  display:none!important;}html body.site-light-page .company-legal-card .home-company__image-primary{width:100%!important;
   height:auto!important;
-  display:block!important;
-}
-@media(max-width:800px){
-  html body.site-light-page .company-legal-section .company-legal-card{
-    padding:62px 26px!important;
+  display:block!important;}
+@media(max-width:800px){html body.site-light-page .company-legal-section .company-legal-card{padding:62px 26px!important;
     grid-template-columns:1fr!important;
-    gap:34px!important;
-  }
-}
-
-
-
-/* Unternehmen: Porträt exakt zur Mitte des gesamten Textblocks */
+    gap:34px!important;}
+}/* Unternehmen: Porträt exakt zur Mitte des gesamten Textblocks */
 html body.site-light-page .company-legal-section,
-html body.site-light-page .company-legal-section .company-legal-card{
-  overflow:visible!important;
-}
-html body.site-light-page .company-legal-section .company-legal-card{
-  align-items:center!important;
-}
-html body.site-light-page .company-legal-card .home-company__image{
-  align-self:center!important;
-}
+html body.site-light-page .company-legal-section .company-legal-card{overflow:visible!important;}html body.site-light-page .company-legal-section .company-legal-card{align-items:center!important;}html body.site-light-page .company-legal-card .home-company__image{align-self:center!important;}
 
 /* Unternehmen Desktop: Porträtblock exakt in der ursprünglichen Hochformat-Komposition */
-@media(min-width:801px){
-  html body.site-light-page .company-legal-card .home-company__image{
-    width:440px!important;
+@media(min-width:801px){html body.site-light-page .company-legal-card .home-company__image{width:440px!important;
     height:565px!important;
     min-height:565px!important;
-    position:relative!important;
-  }
-  html body.site-light-page .company-legal-card .home-company__image-primary{
-    width:92%!important;
+    position:relative!important;}html body.site-light-page .company-legal-card .home-company__image-primary{width:92%!important;
     height:92%!important;
     position:absolute!important;
     top:0!important;
     right:0!important;
     object-fit:cover!important;
-    object-position:center 18%!important;
-  }
+    object-position:center 18%!important;}
 }
 
 /* Unternehmen Desktop: aktueller Porträtblock exakt 8 Prozent vergrössert */
-@media(min-width:801px){
-  html body.site-light-page .company-legal-card .home-company__image{
-    transform:translateY(20.25px) scale(.972)!important;
-    transform-origin:center center!important;
-  }
-  html body.site-light-page .company-legal-card .home-company__image-primary{
-    box-shadow:none!important;
-  }
+@media(min-width:801px){html body.site-light-page .company-legal-card .home-company__image{transform:translateY(20.25px) scale(.972)!important;
+    transform-origin:center center!important;}html body.site-light-page .company-legal-card .home-company__image-primary{box-shadow:none!important;}
 }
 
 /* Unternehmen: Leerraum nach dem MASOON-TREUHAND-Kasten insgesamt 44 Prozent kleiner */
-@media(min-width:801px){
-  html body.site-light-page .company-legal-section{
-    padding-bottom:15.12px!important;
-  }
+@media(min-width:801px){html body.site-light-page .company-legal-section{padding-bottom:15.12px!important;}
 }
 
 /* Unternehmen Desktop: sichtbarer Innenraum entspricht oben und unten exakt den 60.5 Pixeln des Werte-Kastens */
-@media(min-width:801px){
-  html body.site-light-page .company-legal-section .company-legal-card{
-    padding:32.34px 72px 54.372px!important;
-  }
-}
-
-/* Unternehmen: Abstand nach dem Werte-Kasten exakt wie nach MASOON TREUHAND */
+@media(min-width:801px){html body.site-light-page .company-legal-section .company-legal-card{padding:32.34px 72px 54.372px!important;}
+}/* Unternehmen: Abstand nach dem Werte-Kasten exakt wie nach MASOON TREUHAND */
 
 
 
 
 /* Dienstleistungen Hauptseite: kleine Bereichstitel wie Unternehmen */
 html body.site-light-page .services-main .services-section>.section-heading>.section-label,
-html body.site-light-page .services-main>.services-closing>.section-label{
-  color:#868279!important;
-}
-
-/* Dienstleistungen Hauptseite: Kartentypografie wie Werte */
-html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
-  font-family:var(--font-cormorant),Georgia,serif!important;
+html body.site-light-page .services-main>.services-closing>.section-label{color:#868279!important;}/* Dienstleistungen Hauptseite: Kartentypografie wie Werte */
+html body.site-light-page .services-main .services-section .services-grid>.service-card h2{font-family:var(--font-cormorant),Georgia,serif!important;
   font-size:22px!important;
   font-weight:600!important;
   line-height:1.08!important;
   letter-spacing:-.01em!important;
   text-transform:none!important;
-  color:#171715!important;
+  color:#171715!important;}
+@media(min-width:801px){html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{font-size:44px!important;}
 }
-@media(min-width:801px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
-    font-size:44px!important;
-  }
-}
-@media(max-width:800px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
-    font-size:36px!important;
-  }
-}
-
-/* Dienstleistungen Hauptseite: Abstand Aktion zu Tätigkeiten */
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
-  position:relative!important;
+@media(max-width:800px){html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{font-size:36px!important;}
+}/* Dienstleistungen Hauptseite: Abstand Aktion zu Tätigkeiten */
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{position:relative!important;
   top:-9px!important;
-  margin-top:0!important;
-}
-
-/* Dienstleistungen Hauptseite: Tätigkeitsabstand 1 Pixel kleiner */
-html body.site-light-page .services-main .services-section .services-grid>.service-card li{
-  margin-bottom:4px!important;
-}
-html body.site-light-page .services-main .services-section .services-grid>.service-card li:last-child{
-  margin-bottom:0!important;
-}
+  margin-top:0!important;}/* Dienstleistungen Hauptseite: Tätigkeitsabstand 1 Pixel kleiner */
+html body.site-light-page .services-main .services-section .services-grid>.service-card li{margin-bottom:4px!important;}html body.site-light-page .services-main .services-section .services-grid>.service-card li:last-child{margin-bottom:0!important;}
 
 /* Dienstleistungen Hauptseite: geschlossene Karten 10 Prozent kleiner */
-@media(min-width:1051px){
-  html body.site-light-page .services-main .services-section .services-grid{
-    align-items:start!important;
-  }
-  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open]){
-    height:351px!important;
+@media(min-width:1051px){html body.site-light-page .services-main .services-section .services-grid{align-items:start!important;}html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open]){height:351px!important;
     min-height:351px!important;
     max-height:351px!important;
-    box-sizing:border-box!important;
-  }
-  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
-  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
-    height:351px!important;
+    box-sizing:border-box!important;}html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{height:351px!important;
     min-height:351px!important;
     max-height:351px!important;
-    box-sizing:border-box!important;
-  }
+    box-sizing:border-box!important;}
 }
 
 /* Dienstleistungen Hauptseite: geöffnete Karten auf Höhe von Kasten 03 */
-@media(min-width:1051px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
-    height:625px!important;
+@media(min-width:1051px){html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{height:625px!important;
     min-height:625px!important;
     max-height:625px!important;
     box-sizing:border-box!important;
-    overflow:hidden!important;
-  }
-}
-
-/* Dienstleistungen Hauptseite: Karten wie Startseite Dienstleistungen */
+    overflow:hidden!important;}
+}/* Dienstleistungen Hauptseite: Karten wie Startseite Dienstleistungen */
 html body.site-light-page .services-main .services-section .services-grid>.service-card,
 html body.site-light-page .services-main .services-section .services-grid>.service-card:hover,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
-  background:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{background:linear-gradient(to right in oklab,rgba(244,228,201,.11) 0%,rgba(232,227,218,.11) 36%,rgba(193,199,214,.11) 68%,rgba(132,144,171,.11) 100%)!important;
   background-size:calc(300% + 44px) 100%!important;
   background-position:left top!important;
   background-repeat:no-repeat!important;
@@ -871,75 +474,41 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   border:0!important;
   border-image:none!important;
   -webkit-backdrop-filter:blur(32px)!important;
-  backdrop-filter:blur(32px)!important;
-}
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
+  backdrop-filter:blur(32px)!important;}html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
 html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>summary,
 html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary,
 html body.site-light-page .services-main .services-section .services-grid>.service-card>ul,
 html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>ul,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
-  background:transparent!important;
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{background:transparent!important;
   background-color:transparent!important;
-  background-image:none!important;
-}
-
-/* Dienstleistungen Hauptseite: gesamter Karteninhalt 3 Pixel höher */
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>*{
-  transform:translateY(-3px)!important;
-}
+  background-image:none!important;}/* Dienstleistungen Hauptseite: gesamter Karteninhalt 3 Pixel höher */
+html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>*{transform:translateY(-3px)!important;}
 
 /* Dienstleistungen Hauptseite: ursprünglicher horizontaler Innenabstand */
-@media(min-width:1051px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open])>summary,
-  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
-    padding-left:42px!important;
-    padding-right:42px!important;
-  }
+@media(min-width:1051px){html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open])>summary,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{padding-left:42px!important;
+    padding-right:42px!important;}
 }
 
 /* Dienstleistungen Hauptseite: Aufzählungsstrich bündig mit den übrigen Texten */
-@media(min-width:801px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card>ul,
-  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
-    padding-left:42px!important;
-    padding-right:42px!important;
-  }
-}
+@media(min-width:801px){html body.site-light-page .services-main .services-section .services-grid>.service-card>ul,
+html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{padding-left:42px!important;
+    padding-right:42px!important;}
+}/* Dienstleistungen Hauptseite: Aufzählungsstriche mittig zur ersten Textzeile */
+html body.site-light-page .services-main .services-section .services-grid>.service-card li::before{top:.825em!important;}/* Fachwissen Hauptseite: Titelabstand im Einordnungskasten wie bei Unternehmen */
 
-/* Dienstleistungen Hauptseite: Aufzählungsstriche mittig zur ersten Textzeile */
-html body.site-light-page .services-main .services-section .services-grid>.service-card li::before{
-  top:.825em!important;
-}
-
-/* Fachwissen Hauptseite: Titelabstand im Einordnungskasten wie bei Unternehmen */
-
-html body.site-light-page .knowledge-section>.knowledge-note>div>h2+p{
-  margin-top:30px!important;
-  padding-top:0!important;
-}
+html body.site-light-page .knowledge-section>.knowledge-note>div>h2+p{margin-top:30px!important;
+  padding-top:0!important;}
 
 /* Fachwissen Hauptseite: Kacheln wie auf der Dienstleistungs-Hauptseite */
-@media(min-width:801px){
-  html body.site-light-page .knowledge-section .articles-grid>.article-card{
-    padding:42px 42px 36px!important;
+@media(min-width:801px){html body.site-light-page .knowledge-section .articles-grid>.article-card{padding:42px 42px 36px!important;
     background:transparent!important;
     background-color:transparent!important;
-    background-image:none!important;
-  }
-}
-html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
-  margin-top:0!important;
-}
-@media(min-width:801px){
-  html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
-    transform:translateY(-3px)!important;
-  }
-}
-
-/* Fachwissen Einordnung: Abmessungen 1:1 wie der grosse DL-Kasten */
-html body.site-light-page .knowledge-section>.knowledge-note{
-  box-sizing:border-box!important;
+    background-image:none!important;}
+}html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{margin-top:0!important;}
+@media(min-width:801px){html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{transform:translateY(-3px)!important;}
+}/* Fachwissen Einordnung: Abmessungen 1:1 wie der grosse DL-Kasten */
+html body.site-light-page .knowledge-section>.knowledge-note{box-sizing:border-box!important;
   width:min(calc(100vw - 64px),1227px)!important;
   height:463px!important;
   min-height:463px!important;
@@ -948,21 +517,14 @@ html body.site-light-page .knowledge-section>.knowledge-note{
   margin-right:auto!important;
   padding:126px 72px!important;
   grid-template-columns:.7fr 1.3fr!important;
-  gap:80px!important;
-}
-@media(max-width:800px){
-  html body.site-light-page .knowledge-section>.knowledge-note{
-    width:min(calc(100vw - 36px),1227px)!important;
+  gap:80px!important;}
+@media(max-width:800px){html body.site-light-page .knowledge-section>.knowledge-note{width:min(calc(100vw - 36px),1227px)!important;
     padding:62px 26px!important;
     grid-template-columns:1fr!important;
-    gap:52px!important;
-  }
-}
+    gap:52px!important;}
+}/* Einordnung: Titel und Fliesstext direkt an MASOON TREUHAND gekoppelt */
 
-/* Einordnung: Titel und Fliesstext direkt an MASOON TREUHAND gekoppelt */
-
-html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
-  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
+html body.site-light-page .knowledge-section>.knowledge-note>div>h2{font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
   font-size:var(--title-size)!important;
   font-weight:400!important;
   line-height:1.05!important;
@@ -970,43 +532,20 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
   color:#171715!important;
   -webkit-text-stroke:.25px currentColor!important;
   margin-bottom:0!important;
-  padding-bottom:0!important;
-}
-@media(min-width:801px){
-
-html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
-    font-size:50px!important;
-  }
-}
-html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){
-  margin:30px 0 0!important;
-  padding-top:0!important;
-}/* Kleine Metadaten und Textaktionen: Typografie wie die Kopfzeilen-Navigation,
+  padding-bottom:0!important;}
+@media(min-width:801px){html body.site-light-page .knowledge-section>.knowledge-note>div>h2{font-size:50px!important;}
+}html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){margin:30px 0 0!important;
+  padding-top:0!important;}/* Kleine Metadaten und Textaktionen: Typografie wie die Kopfzeilen-Navigation,
 html body main .contact-split__form-label,
-html body main .home-paths__grid span{
-  font-family:var(--font-inter),Arial,sans-serif!important;
+html body main .home-paths__grid span{font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-weight:500!important;
   line-height:1.65!important;
   letter-spacing:.1em!important;
   text-transform:uppercase!important;
-  color:#868279!important;
-}
-html body main .details-action,
-html body main .home-values__all-services,
-html body main .article-card>a{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  line-height:1.65!important;
-  letter-spacing:1.1px!important;
-  text-transform:uppercase!important;
-  color:#777777!important;
-}
-
-
-
-/* Normale Fliesstexte: verbindliche Typografie der Disclaimer-Seite */
+  color:#868279!important;}html body main .details-action,
+html body main .article-card>a{;
+  ;}/* Normale Fliesstexte: verbindliche Typografie der Disclaimer-Seite */
 html body main.home .home-hero__services,
 html body main.home .home-values__item>p,
 html body.site-light-page main.services-main .services-section .services-grid>.service-card>summary>p,
@@ -1014,106 +553,58 @@ html body.site-light-page main.services-main .services-section .services-grid>.s
 html body.site-light-page main.services-main .services-closing__inner>p:not(.section-label),
 html body.site-light-page main .knowledge-section .article-card>p:not(.article-meta),
 html body.site-light-page main .knowledge-section>.knowledge-note>div>p:not(.section-label),
-html body.site-light-page main .contact-split__intro{
-  font-family:var(--font-inter),Arial,sans-serif!important;
+html body.site-light-page main .contact-split__intro{font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:290!important;
   line-height:1.65!important;
   letter-spacing:normal!important;
-  color:#484a4f!important;
-}
-
-/* Rechteseiten und bestehende Spezialtexte bleiben unverändert */
+  color:#484a4f!important;}/* Rechteseiten und bestehende Spezialtexte bleiben unverändert */
 html body main .legal-page p:not(.section-label):not(.article-meta):not(.home-hero__intro),
 html body main .legal-page .prose,
 html body main .legal-page li,
 html body main .contact-fact p,
-html body main .form-status{
-  font-family:var(--font-inter),Arial,sans-serif!important;
+html body main .form-status{font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:290!important;
   line-height:1.65!important;
   letter-spacing:normal!important;
-  color:#484a4f!important;
-}
-
-html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  line-height:1.65!important;
-  letter-spacing:1.1px!important;
-  text-transform:uppercase!important;
-  color:#777777!important;
-}
-html body.site-light-page .knowledge-section>.section-heading>h1{
-  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
+  color:#484a4f!important;}html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{;
+  ;}html body.site-light-page .knowledge-section>.section-heading>h1{font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
   font-weight:400!important;
   line-height:1.05!important;
   letter-spacing:0!important;
   text-transform:none!important;
   font-style:normal!important;
-  -webkit-text-stroke:.25px currentColor!important;
-}
-html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
-  font-family:var(--font-cormorant),Georgia,serif!important;
+  -webkit-text-stroke:.25px currentColor!important;}html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{font-family:var(--font-cormorant),Georgia,serif!important;
   font-size:24px!important;
   font-weight:600!important;
   line-height:1.12!important;
   letter-spacing:0!important;
   text-transform:none!important;
   color:#171715!important;
-  -webkit-text-stroke:0!important;
+  -webkit-text-stroke:0!important;}
+@media(min-width:801px){html body.site-light-page .knowledge-section>.section-heading>h1{font-size:50px!important;}
 }
-@media(min-width:801px){
-  html body.site-light-page .knowledge-section>.section-heading>h1{
-    font-size:50px!important;
-  }
-}
-@media(min-width:1051px){
-  html body.site-light-page .knowledge-section .articles-grid>.article-card{
-    box-sizing:border-box!important;
+@media(min-width:1051px){html body.site-light-page .knowledge-section .articles-grid>.article-card{box-sizing:border-box!important;
     width:100%!important;
     height:351px!important;
     min-height:351px!important;
     max-height:351px!important;
-    padding:42px 42px 36px!important;
-  }
-}
-
-/* Fachwissen Hauptseite: nur der Pfeil-Link auf derselben Linie wie Mehr anzeigen */
-html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
-  align-self:flex-start!important;
+    padding:42px 42px 36px!important;}
+}/* Fachwissen Hauptseite: nur der Pfeil-Link auf derselben Linie wie Mehr anzeigen */
+html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{align-self:flex-start!important;
   margin-top:24px!important;
   padding-bottom:4px!important;
-  transform:translateY(-3px)!important;
-}
-
-/* Fachwissen Hauptseite: Abstand Beitragstitel zu Fliesstext exakt wie DL Kacheln */
-html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
-  position:relative!important;
-  margin:0!important;
-}
-html body.site-light-page .knowledge-section .articles-grid>.article-card>h2::after{
-  position:absolute!important;
+  transform:translateY(-3px)!important;}/* Fachwissen Hauptseite: Abstand Beitragstitel zu Fliesstext exakt wie DL Kacheln */
+html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{position:relative!important;
+  margin:0!important;}html body.site-light-page .knowledge-section .articles-grid>.article-card>h2::after{position:absolute!important;
   top:calc(100% + 11px)!important;
   left:0!important;
-  margin:0!important;
-}
-html body.site-light-page .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
-  margin-top:23px!important;
-}
+  margin:0!important;}html body.site-light-page .knowledge-section .articles-grid>.article-card>p:not(.article-meta){margin-top:23px!important;}/* Fachwissen Hauptseite: Beitrag anzeigen exakt wie Mehr anzeigen */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action{;
 
-/* Fachwissen Hauptseite: Beitrag anzeigen exakt wie Mehr anzeigen */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-
-  padding-bottom:4px!important;
-}
-
-/* Bereichstitel: verbindliche Typografie von EINORDNUNG */
-html body main .section-label.section-label.section-label.section-label.section-label.section-label{
-  font-family:var(--font-inter),Arial,sans-serif!important;
+  padding-bottom:4px!important;}/* Bereichstitel: verbindliche Typografie von EINORDNUNG */
+html body main .section-label.section-label.section-label.section-label.section-label.section-label{font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-style:normal!important;
   font-weight:500!important;
@@ -1121,11 +612,9 @@ html body main .section-label.section-label.section-label.section-label.section-
   letter-spacing:1.1px!important;
   text-transform:uppercase!important;
   color:#777777!important;
-  vertical-align:baseline!important;
-}/* Kleine Metadaten,
+  vertical-align:baseline!important;}/* Kleine Metadaten,
 html body main .contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label,
-html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid span{
-  font-family:var(--font-inter),Arial,sans-serif!important;
+html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid span{font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-style:normal!important;
   font-weight:500!important;
@@ -1139,15 +628,7 @@ html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__g
   text-shadow:none!important;
   -webkit-text-stroke:0!important;
   color:#868279!important;
-  opacity:1!important;
-}
-html body main .home-action-button.home-action-button.home-action-button.home-action-button.home-action-button.home-action-button,
-html body main .home-values__all-services.home-values__all-services.home-values__all-services.home-values__all-services.home-values__all-services.home-values__all-services,
-html body main .details-action.details-action.details-action.details-action.details-action.details-action,
-html body main .article-action.article-action.article-action.article-action.article-action.article-action,
-html body main .article-card.article-card.article-card.article-card.article-card.article-card>a,
-html body main .services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button{
-  font-family:var(--font-inter),Arial,sans-serif!important;
+  opacity:1!important;}html body main .home-action-button.home-action-button.home-action-button.home-action-button.home-action-button.home-action-button{font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-style:normal!important;
   font-weight:500!important;
@@ -1161,85 +642,60 @@ html body main .services-contact-button.services-contact-button.services-contact
   text-shadow:none!important;
   -webkit-text-stroke:0!important;
   color:#777777!important;
-  opacity:1!important;
-}
+  opacity:1!important;}
+html body main .details-action.details-action.details-action.details-action.details-action.details-action,
+html body main .article-action.article-action.article-action.article-action.article-action.article-action,
+html body main .article-card.article-card.article-card.article-card.article-card.article-card>a,
+html body main .services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button.services-contact-button{;
+  font-variant:normal!important;
+  font-stretch:normal!important;
+  word-spacing:normal!important;
+  text-decoration:none!important;
+  text-shadow:none!important;
+  -webkit-text-stroke:0!important;
+  opacity:1!important;}
 
 /* Fachwissen-Kaesten: exakt gleiche Aussenmasse wie DL-Hauptseite */
-@media(min-width:1051px){
-  html body.site-light-page .knowledge-section{
-    width:min(100% - 64px,1227px)!important;
-  }
-  html body.site-light-page .knowledge-section .articles-grid{
-    display:grid!important;
+@media(min-width:1051px){html body.site-light-page .knowledge-section{width:min(100% - 64px,1227px)!important;}html body.site-light-page .knowledge-section .articles-grid{display:grid!important;
     width:100%!important;
     grid-template-columns:repeat(3,minmax(0,1fr))!important;
-    gap:22px!important;
-  }
+    gap:22px!important;}
 }
-@media(min-width:801px) and (max-width:1050px){
-  html body.site-light-page .knowledge-section{
-    width:min(100% - 64px,1227px)!important;
-  }
-  html body.site-light-page .knowledge-section .articles-grid{
-    display:grid!important;
+@media(min-width:801px) and (max-width:1050px){html body.site-light-page .knowledge-section{width:min(100% - 64px,1227px)!important;}html body.site-light-page .knowledge-section .articles-grid{display:grid!important;
     width:100%!important;
     grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    gap:22px!important;
-  }
+    gap:22px!important;}
 }
-@media(min-width:801px){
-  html body.site-light-page .knowledge-section .articles-grid>.article-card{
-    box-sizing:border-box!important;
+@media(min-width:801px){html body.site-light-page .knowledge-section .articles-grid>.article-card{box-sizing:border-box!important;
     width:100%!important;
     height:351px!important;
     min-height:351px!important;
-    max-height:351px!important;
-  }
-}
-
-/* Mehr anzeigen und Beitrag anzeigen: identische Schrift- und Boxwerte */
+    max-height:351px!important;}
+}/* Mehr anzeigen und Beitrag anzeigen: identische Schrift- und Boxwerte */
 html body.site-light-page main .services-section .service-card .details-action,
-html body.site-light-page main .knowledge-section .article-card .article-action{
-  display:inline-block!important;
+html body.site-light-page main .knowledge-section .article-card .article-action{display:inline-block!important;
   position:relative!important;
   height:auto!important;
   min-height:0!important;
   margin-bottom:0!important;
   padding:0!important;
   border:0!important;
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-style:normal!important;
-  font-weight:500!important;
+  ;
   font-variant:normal!important;
   font-stretch:normal!important;
-  line-height:1.4!important;
-  letter-spacing:1.1px!important;
   word-spacing:normal!important;
-  text-transform:uppercase!important;
   text-decoration:none!important;
   text-shadow:none!important;
   -webkit-text-stroke:0!important;
-  color:#777777!important;
   opacity:1!important;
-  transform:translateY(-3px)!important;
-}
-html body.site-light-page main .knowledge-section .article-card .article-action{
-  margin-top:auto!important;
-  align-self:flex-start!important;
-}
-/* Der Pfeil verändert die Höhe der Beschriftung nicht */
-html body.site-light-page main .knowledge-section .article-card .article-action::after{
-  position:absolute!important;
+  transform:translateY(-3px)!important;}html body.site-light-page main .knowledge-section .article-card .article-action{margin-top:auto!important;
+  align-self:flex-start!important;}/* Der Pfeil verändert die Höhe der Beschriftung nicht */
+html body.site-light-page main .knowledge-section .article-card .article-action::after{position:absolute!important;
   left:calc(100% + 10px)!important;
   top:50%!important;
   margin:0!important;
-  transform:translateY(-50%)!important;
-}
-
-/* Endgültiger Vorrang: beide Aktionsbeschriftungen exakt gleich */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
-  display:inline-block!important;
+  transform:translateY(-50%)!important;letter-spacing:0!important;}/* Endgültiger Vorrang: beide Aktionsbeschriftungen exakt gleich */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{display:inline-block!important;
   position:relative!important;
   height:auto!important;
   min-height:0!important;
@@ -1250,42 +706,21 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
   padding:0!important;
   border:0!important;
   align-self:flex-start!important;
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-style:normal!important;
-  font-weight:500!important;
+  ;
   font-variant:normal!important;
   font-stretch:normal!important;
-  line-height:1.4!important;
-  letter-spacing:1.1px!important;
   word-spacing:normal!important;
-  text-transform:uppercase!important;
   text-decoration:none!important;
   text-shadow:none!important;
   -webkit-text-stroke:0!important;
-  color:#777777!important;
-  opacity:1!important;
-}
-
-/* Gemessener Positionsausgleich: Beitrag anzeigen auf gleicher Hoehe */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
-  transform:translateY(-3px)!important;
-}
+  opacity:1!important;}/* Gemessener Positionsausgleich: Beitrag anzeigen auf gleicher Hoehe */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{transform:translateY(-3px)!important;}
 
 /* Fachwissen Hauptseite: Kacheltitel 2 Pixel kleiner,
 oberer Abstand 88 Pixel */
-@media(min-width:801px){
-  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
-    padding-top:88px!important;
-  }
-}
-
-/* Fachwissen: Daten in der Typografie der DL-Kartenzahlen 01–06 */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
-  position:relative!important;
-}
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-card-date{
-  position:absolute!important;
+@media(min-width:801px){html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{padding-top:88px!important;}
+}/* Fachwissen: Daten in der Typografie der DL-Kartenzahlen 01–06 */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{position:relative!important;}html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-card-date{position:absolute!important;
   top:28px!important;
   left:42px!important;
   margin:0!important;
@@ -1297,70 +732,31 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card.a
   letter-spacing:-.04em!important;
   text-transform:none!important;
   color:#99989c!important;
-  opacity:1!important;
-}
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(1)>.article-card-date,
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(5)>.article-card-date{
-  color:#19191b!important;
-}
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(3)>.article-card-date{
-  color:#c2c1c4!important;
-}
-@media(max-width:800px){
-  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
-    padding-top:78px!important;
-  }
-  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-card-date{
-    top:28px!important;
+  opacity:1!important;}html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(1)>.article-card-date,
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(5)>.article-card-date{color:#19191b!important;}html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(3)>.article-card-date{color:#c2c1c4!important;}
+@media(max-width:800px){html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{padding-top:78px!important;}html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-card-date{top:28px!important;
     left:26px!important;
-    font-size:23px!important;
-  }
-}
-
-/* Fachwissen: Aktion wie Fliesstext; Titellinien wie Datumsfarben */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>h2::after{
-  background:#99989c!important;
-  background-color:#99989c!important;
-}
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(1)>h2::after,
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(5)>h2::after{
-  background:#19191b!important;
-  background-color:#19191b!important;
-}
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(3)>h2::after{
-  background:#c2c1c4!important;
-  background-color:#c2c1c4!important;
-}
-
-/* Fachwissen: Pfeil bei Beitrag anzeigen optisch 1 Pixel hoeher */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-action.article-action::after{
-  transform:translateY(calc(-50% - 1px))!important;
-}
+    font-size:23px!important;}
+}/* Fachwissen: Aktion wie Fliesstext; Titellinien wie Datumsfarben */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>h2::after{background:#99989c!important;
+  background-color:#99989c!important;}html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(1)>h2::after,
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(5)>h2::after{background:#19191b!important;
+  background-color:#19191b!important;}html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(3)>h2::after{background:#c2c1c4!important;
+  background-color:#c2c1c4!important;}/* Fachwissen: Pfeil bei Beitrag anzeigen optisch 1 Pixel hoeher */
+html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-action.article-action::after{transform:translateY(calc(-50% - 1px))!important;letter-spacing:0!important;}
 
 /* Endgültige Header-/Footer-Geometrie ohne nachträgliche JS-Messung */
-@media(min-width:801px){
-  html body .site-header .site-nav{
-    position:absolute!important;
+@media(min-width:801px){html body .site-header .site-nav{position:absolute!important;
     left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - 1320px)/2))!important;
     margin:0!important;
-    transform:none!important;
-  }
-  html body .site-footer .footer-simple{
-    box-sizing:border-box!important;
+    transform:none!important;}html body .site-footer .footer-simple{box-sizing:border-box!important;
     justify-content:flex-start!important;
-    padding-left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - 1320px)/2))!important;
-  }
-}
-
-/* Nur Fachbeitragskarten dürfen beim Scrollen eingeblendet werden. */
-html body .scroll-reveal:not(.article-card){
-  opacity:1!important;
+    padding-left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - 1320px)/2))!important;}
+}/* Nur Fachbeitragskarten dürfen beim Scrollen eingeblendet werden. */
+html body .scroll-reveal:not(.article-card){opacity:1!important;
   transform:none!important;
   transition:none!important;
-  will-change:auto!important;
-}
-
-/* Unternehmen: Abschlussabstand wie bei Fachwissen/Einordnung */
+  will-change:auto!important;}/* Unternehmen: Abschlussabstand wie bei Fachwissen/Einordnung */
 
 
 /* Einheitliche Farbverläufe für bestehende Kachel- und Bereichsrahmen */
@@ -1371,26 +767,15 @@ html body.site-light-page main.home>.home-contact-band,
 html body.site-light-page main.services-main>.services-closing,
 html body.site-light-page main .knowledge-note,
 html body.site-light-page main .company-legal-section .company-legal-card,
-html body.site-light-page main .article-shell{
-  border-width:1px!important;
+html body.site-light-page main .article-shell{border-width:1px!important;
   border-color:transparent!important;
-  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
-}
-html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+1),
+  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;}html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+1),
 html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n/**/+1),
-html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n/**/+1){
-  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;
-  background-position:left top!important;
-}
-html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+2),
+html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n/**/+1){border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 100%) 1!important;
+  background-position:left top!important;}html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+2),
 html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n/**/+2),
-html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n/**/+2){
-  border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;
-  background-position:center top!important;
-}
-html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+3),
+html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n/**/+2){border-image:linear-gradient(110deg,#e8e5df 0%,#c7cbd3 100%) 1!important;
+  background-position:center top!important;}html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+3),
 html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n/**/+3),
-html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n/**/+3){
-  border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;
-  background-position:right top!important;
-}
+html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n/**/+3){border-image:linear-gradient(110deg,#c7cbd3 0%,#8d96a8 100%) 1!important;
+  background-position:right top!important;}

@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Remove overlapping action typography rules
+      - name: Clean overlapping action typography rules
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -21,10 +21,11 @@ jobs:
 
           TARGET_COLOR = '#777777!important'
           TARGET_SPACING = '1.1px!important'
-          CACHE = 'action-typography-clean-20260912-1'
+          CACHE = 'action-typography-clean-20260912-2'
 
           css_files = sorted(Path('assets').glob('*.css'))
           html_files = [p for p in sorted(Path('.').rglob('*.html')) if '.git' not in p.parts]
+          class_re = re.compile(r'''class=(["'])([^"']+)\1''')
 
           def split_selectors(selector):
               parts, buf, depth = [], [], 0
@@ -48,128 +49,98 @@ jobs:
           def norm(s):
               return ' '.join(s.split())
 
-          def without_not(s):
-              old = None
-              while old != s:
-                  old = s
-                  s = re.sub(r':not\([^()]*\)', '', s)
-              return s
-
-          action_classes = {'article-action', 'article-back', 'details-action'}
+          # Remove the navigation-typography helper from action elements.
+          action_html_classes = {'article-action', 'article-back', 'details-action'}
           html_changed = set()
-          removed_mt_nav = 0
-          class_re = re.compile(r'''class=(["'])([^"']+)\1''')
+          removed_mt = 0
           for page in html_files:
               text = page.read_text(errors='ignore')
-              def repl(m):
+              def class_cleanup(m):
                   classes = m.group(2).split()
-                  if 'mt-nav-typography' in classes and action_classes.intersection(classes):
+                  if 'mt-nav-typography' in classes and action_html_classes.intersection(classes):
                       classes = [c for c in classes if c != 'mt-nav-typography']
                       return f'class={m.group(1)}{" ".join(classes)}{m.group(1)}'
                   return m.group(0)
-              new = class_re.sub(repl, text)
+              new = class_re.sub(class_cleanup, text)
               if new != text:
-                  removed_mt_nav += text.count('mt-nav-typography') - new.count('mt-nav-typography')
+                  removed_mt += text.count('mt-nav-typography') - new.count('mt-nav-typography')
                   page.write_text(new)
                   html_changed.add(page)
 
+          # Simplify the old mt-nav selector now that actions no longer use that helper class.
+          gp = Path('assets/global.css')
+          gt = gp.read_text()
+          old_mt = 'html body main :is(#mt-nav-typography,.mt-nav-typography:not(.details-action):not(.article-back):not(.article-action)):not(.section-label):not(.article-card-date)'
+          clean_mt = 'html body main :is(#mt-nav-typography,.mt-nav-typography):not(.section-label):not(.article-card-date)'
+          if old_mt in gt:
+              gt = gt.replace(old_mt, clean_mt, 1)
+              gp.write_text(gt)
+          elif clean_mt not in gt:
+              raise SystemExit('mt-nav rule not found in expected form')
+
+          # Remove CSS for selector classes that are no longer present anywhere in HTML.
           used_classes = set()
           for page in html_files:
-              text = page.read_text(errors='ignore')
-              for m in class_re.finditer(text):
+              for m in class_re.finditer(page.read_text(errors='ignore')):
                   used_classes.update(m.group(2).split())
-
-          dead_candidates = {'home-paths__action', 'home-values__all-services', 'contact-form'}
-          dead_classes = {c for c in dead_candidates if c not in used_classes}
-
-          global_path = Path('assets/global.css')
-          global_text = global_path.read_text()
-          old_mt = 'html body main :is(#mt-nav-typography,.mt-nav-typography:not(.details-action):not(.article-back):not(.article-action)):not(.section-label):not(.article-card-date)'
-          new_mt = 'html body main :is(#mt-nav-typography,.mt-nav-typography):not(.section-label):not(.article-card-date)'
-          if old_mt in global_text:
-              global_text = global_text.replace(old_mt, new_mt, 1)
-              global_path.write_text(global_text)
-          elif new_mt not in global_text:
-              raise SystemExit('Expected mt-nav typography selector not found')
+          dead_classes = {c for c in {'home-values__all-services', 'home-paths__action', 'contact-form'} if c not in used_classes}
 
           rule_re = re.compile(r'([^{}]+)\{([^{}]*)\}', re.S)
-          color_re = re.compile(r'(?<![-\w])color\s*:\s*[^;}]+' , re.I)
-          spacing_re = re.compile(r'letter-spacing\s*:\s*[^;}]+' , re.I)
+          typography_props = [
+              'font-family', 'font-size', 'font-style', 'font-weight',
+              'line-height', 'letter-spacing', 'text-transform', 'color'
+          ]
 
-          def actual_selector(part):
-              return norm(without_not(part))
+          def strip_props(body, props=typography_props):
+              for prop in props:
+                  body = re.sub(r'(?<![-\w])' + re.escape(prop) + r'\s*:\s*[^;}]+' , '', body, flags=re.I)
+              body = re.sub(r';\s*;', ';', body)
+              return body
 
-          def is_symbol_part(part):
-              s = actual_selector(part)
-              return ('::before' in s or '::after' in s or
-                      '.details-toggle-symbol' in s or
-                      re.search(r'\bspan\b', s) is not None)
+          def ensure_prop(body, prop, value):
+              pat = re.compile(r'(?<![-\w])' + re.escape(prop) + r'\s*:\s*[^;}]+' , re.I)
+              if pat.search(body):
+                  return pat.sub(f'{prop}:{value}', body)
+              b = body.rstrip()
+              if b and not b.endswith(';'):
+                  b += ';'
+              return b + f'{prop}:{value};'
 
-          def is_action_part(part):
-              s = actual_selector(part)
-              if is_symbol_part(part):
+          def is_symbol_selector(s):
+              n = norm(s)
+              return ('::before' in n or '::after' in n or '.details-toggle-symbol' in n or re.search(r'\bspan\b', n) is not None)
+
+          core_classes = ('.home-action-button', '.details-action', '.article-action', '.services-contact-button')
+
+          def is_core(s):
+              n = norm(s)
+              return any(c in n for c in core_classes)
+
+          def is_core_canonical(path, selector):
+              if path.name != 'unified-design-base-20260907.css':
                   return False
-              return any(x in s for x in (
-                  '.home-action-button',
-                  '.details-action',
-                  '.article-action',
-                  '.services-contact-button',
-                  '.contact-split__form button',
-                  '.contact-form button',
-                  '.article-back',
-              ))
+              n = norm(selector)
+              return '.home-action-button.home-action-button.home-action-button.home-action-button.home-action-button.home-action-button' in n
 
-          def is_generic_overlap(part):
-              s = actual_selector(part).replace(' > ', '>').replace(' >', '>').replace('> ', '>')
-              return '.article-card>a' in s
+          def is_contact_submit_canonical(path, selector):
+              return path.name == 'unified-design.css' and norm(selector) == 'html body.page-contact.site-light-page main .contact-split__form button[type="submit"]'
 
-          def is_canonical(path, part, full_selector):
-              s = actual_selector(part)
-              f = str(path)
-              full = norm(full_selector)
-
-              if f == 'assets/unified-design.css' and s == 'html body.page-home .home-action-button':
+          def is_article_back_canonical(path, selector):
+              n = norm(selector)
+              if path.name == 'article-detail.css' and n == '.article-back':
                   return True
-
-              if f == 'assets/unified-design-base-20260907.css':
-                  exact_details = 'html body.site-light-page main .services-section .service-card .details-action'
-                  exact_article = 'html body.site-light-page main .knowledge-section .article-card .article-action'
-                  if s in {exact_details, exact_article} and exact_details in full and exact_article in full:
-                      return True
-
-              if f == 'assets/unified-design.css' and s == 'html body.page-services.site-light-page main.services-main .services-contact-button':
+              if path.name == 'unified-design.css' and re.fullmatch(r'body\.page-article-[\w-]+ \.article-back', n):
                   return True
-
-              if f == 'assets/unified-design.css' and s == 'html body.page-contact.site-light-page main .contact-split__form button[type="submit"]':
-                  return True
-
-              if f == 'assets/article-detail.css' and s == '.article-back':
-                  return True
-
-              if f == 'assets/unified-design.css' and re.fullmatch(r'body\.page-article-[\w-]+ \.article-back', s):
-                  return True
-
               return False
 
-          def ensure_decl(body, regex, prop, value):
-              if regex.search(body):
-                  return regex.sub(f'{prop}:{value}', body)
-              stripped = body.rstrip()
-              if stripped and not stripped.endswith(';'):
-                  stripped += ';'
-              return stripped + f'{prop}:{value};'
-
           changed_css = set()
-          removed_dead_rules = 0
-          stripped_duplicate_rules = 0
-          canonical_touched = 0
-          symbol_fixed = 0
+          stats = {'dead_parts':0, 'duplicate_core_parts':0, 'symbols':0, 'contact_duplicates':0, 'back_duplicates':0}
 
           for path in css_files:
               text = path.read_text()
               out = []
               last = 0
-              file_changed = False
+              changed = False
 
               for m in rule_re.finditer(text):
                   selector, body = m.group(1), m.group(2)
@@ -177,186 +148,171 @@ jobs:
                   if not parts:
                       continue
 
-                  kept_parts = []
-                  dead_removed_here = []
+                  # Drop selector parts for confirmed dead classes.
+                  live_parts = []
                   for part in parts:
-                      if any(f'.{cls}' in actual_selector(part) for cls in dead_classes):
-                          dead_removed_here.append(part)
+                      if any(f'.{c}' in part for c in dead_classes):
+                          stats['dead_parts'] += 1
                       else:
-                          kept_parts.append(part)
-
-                  if dead_removed_here:
-                      removed_dead_rules += len(dead_removed_here)
-                      if not kept_parts:
-                          replacement = ''
-                      else:
-                          replacement = ',\n'.join(kept_parts) + '{' + body + '}'
-                      out.append(text[last:m.start()])
-                      out.append(replacement)
-                      last = m.end()
-                      file_changed = True
-                      selector = ',\n'.join(kept_parts)
-                      parts = kept_parts
-                      if not parts:
-                          continue
-
-                  groups = []
-                  for part in parts:
-                      if is_symbol_part(part) and any(x in actual_selector(part) for x in (
-                          '.home-action-button', '.article-action', '.article-back', '.details-action', '.services-contact-button', '.contact-split__form button', '.contact-form button'
-                      )):
-                          kind = 'symbol'
-                      elif is_canonical(path, part, selector):
-                          kind = 'canonical'
-                      elif is_action_part(part) or is_generic_overlap(part):
-                          kind = 'duplicate'
-                      else:
-                          kind = 'other'
-                      groups.append((part, kind))
-
-                  kinds = {k for _, k in groups}
-                  if kinds == {'other'}:
+                          live_parts.append(part)
+                  if not live_parts:
+                      if live_parts != parts:
+                          out.append(text[last:m.start()]); out.append(''); last = m.end(); changed = True
                       continue
 
                   buckets = []
-                  for kind in ('other', 'duplicate', 'canonical', 'symbol'):
-                      sel = [p for p, k in groups if k == kind]
-                      if not sel:
-                          continue
-                      new_body = body
-                      if kind == 'duplicate':
-                          new_body = color_re.sub('', new_body)
-                          new_body = spacing_re.sub('', new_body)
-                          stripped_duplicate_rules += len(sel)
-                      elif kind == 'canonical':
-                          new_body = ensure_decl(new_body, color_re, 'color', TARGET_COLOR)
-                          new_body = ensure_decl(new_body, spacing_re, 'letter-spacing', TARGET_SPACING)
-                          canonical_touched += len(sel)
-                      elif kind == 'symbol':
-                          new_body = spacing_re.sub('letter-spacing:0!important', new_body)
-                          if not spacing_re.search(new_body):
-                              stripped = new_body.rstrip()
-                              if stripped and not stripped.endswith(';'):
-                                  stripped += ';'
-                              new_body = stripped + 'letter-spacing:0!important;'
-                          new_body = color_re.sub('', new_body)
-                          symbol_fixed += len(sel)
-                      buckets.append(',\n'.join(sel) + '{' + new_body + '}')
+                  for part in live_parts:
+                      n = norm(part)
 
-                  replacement = '\n'.join(buckets)
+                      if is_core_canonical(path, part):
+                          # Keep this existing high-specificity rule as the single typography owner.
+                          b = body
+                          b = ensure_prop(b, 'color', TARGET_COLOR)
+                          b = ensure_prop(b, 'letter-spacing', TARGET_SPACING)
+                          kind = 'canonical'
+                      elif is_symbol_selector(part) and is_core(part):
+                          # Arrow/plus symbols keep neutral tracking and inherit the action colour.
+                          b = strip_props(body, ['color', 'letter-spacing'])
+                          b = ensure_prop(b, 'letter-spacing', '0!important')
+                          stats['symbols'] += 1
+                          kind = 'symbol'
+                      elif is_core(part) or '.article-card>a' in n.replace(' > ', '>').replace(' >', '>').replace('> ', '>'):
+                          # Old action typography rules may still carry layout/animation properties,
+                          # so remove only typography from them rather than stacking another rule.
+                          b = strip_props(body)
+                          stats['duplicate_core_parts'] += 1
+                          kind = 'duplicate-core'
+                      elif is_contact_submit_canonical(path, part):
+                          b = body
+                          b = ensure_prop(b, 'color', TARGET_COLOR)
+                          b = ensure_prop(b, 'letter-spacing', TARGET_SPACING)
+                          kind = 'contact-canonical'
+                      elif '.contact-split__form button' in n:
+                          b = strip_props(body, ['color', 'letter-spacing'])
+                          stats['contact_duplicates'] += 1
+                          kind = 'contact-duplicate'
+                      elif is_article_back_canonical(path, part):
+                          b = body
+                          b = ensure_prop(b, 'color', TARGET_COLOR)
+                          b = ensure_prop(b, 'letter-spacing', TARGET_SPACING)
+                          kind = 'back-canonical'
+                      elif '.article-back' in n:
+                          b = strip_props(body, ['color', 'letter-spacing'])
+                          stats['back_duplicates'] += 1
+                          kind = 'back-duplicate'
+                      else:
+                          b = body
+                          kind = 'other'
+
+                      buckets.append((part, kind, b))
+
+                  # Recombine adjacent selector parts only when their resulting bodies are identical.
+                  rendered = []
+                  i = 0
+                  while i < len(buckets):
+                      part, kind, b = buckets[i]
+                      selectors = [part]
+                      j = i + 1
+                      while j < len(buckets) and buckets[j][2] == b:
+                          selectors.append(buckets[j][0])
+                          j += 1
+                      cleaned = re.sub(r';\s*;', ';', b).strip()
+                      if cleaned and cleaned != ';':
+                          rendered.append(',\n'.join(selectors) + '{' + cleaned + '}')
+                      i = j
+
+                  replacement = '\n'.join(rendered)
                   if replacement != m.group(0):
                       out.append(text[last:m.start()])
                       out.append(replacement)
                       last = m.end()
-                      file_changed = True
+                      changed = True
 
-              if file_changed:
+              if changed:
                   out.append(text[last:])
                   path.write_text(''.join(out))
                   changed_css.add(path)
 
+          # Clean the mt-nav selector may have changed global.css even if no rule parser edit did.
+          if gp.read_text() != gt:
+              pass
+          changed_css.add(gp)
+
+          # Base is imported by unified-design.css; bust that nested import if base changed.
+          base = Path('assets/unified-design-base-20260907.css')
           unified = Path('assets/unified-design.css')
-          unified_text = unified.read_text()
-          if Path('assets/unified-design-base-20260907.css') in changed_css:
-              new_unified = re.sub(
-                  r"(@import url\('\./unified-design-base-20260907\.css\?v=)[^']+",
-                  r'\1' + CACHE,
-                  unified_text,
-                  count=1,
-              )
-              if new_unified == unified_text:
-                  raise SystemExit('Could not update unified-design base import cache token')
-              unified.write_text(new_unified)
+          if base in changed_css:
+              ut = unified.read_text()
+              nu = re.sub(r"(@import url\('\./unified-design-base-20260907\.css\?v=)[^']+", r'\1' + CACHE, ut, count=1)
+              if nu == ut:
+                  raise SystemExit('Could not cache-bust base stylesheet import')
+              unified.write_text(nu)
               changed_css.add(unified)
 
+          # Verification: action HTML has no mt-nav helper left.
           bad_html = []
           for page in html_files:
-              text = page.read_text(errors='ignore')
-              for m in class_re.finditer(text):
-                  classes = set(m.group(2).split())
-                  if 'mt-nav-typography' in classes and action_classes.intersection(classes):
-                      bad_html.append((str(page), sorted(classes)))
+              for m in class_re.finditer(page.read_text(errors='ignore')):
+                  cs = set(m.group(2).split())
+                  if 'mt-nav-typography' in cs and action_html_classes.intersection(cs):
+                      bad_html.append(str(page))
           if bad_html:
-              raise SystemExit('Action elements still carry mt-nav typography: ' + repr(bad_html[:10]))
+              raise SystemExit('mt-nav still present on actions: ' + repr(bad_html[:10]))
 
-          for cls in dead_classes:
-              hits = []
-              for path in css_files:
-                  if f'.{cls}' in path.read_text():
-                      hits.append(str(path))
-              if hits:
-                  raise SystemExit(f'Dead class {cls} still has CSS rules: {hits}')
-
-          gt = Path('assets/global.css').read_text()
-          if ':not(.details-action)' in gt or ':not(.article-action)' in gt or ':not(.article-back)' in gt:
-              raise SystemExit('Old mt-nav action exclusions still remain')
-          if new_mt not in gt:
+          # Verification: the old action exceptions are removed.
+          final_global = gp.read_text()
+          if any(x in final_global for x in (':not(.details-action)', ':not(.article-action)', ':not(.article-back)')):
+              raise SystemExit('Old mt-nav action exceptions remain')
+          if clean_mt not in final_global:
               raise SystemExit('Clean mt-nav selector missing')
 
-          violations = []
-          canonical_seen = []
+          # Verification: only one core rule owns typography.
+          owners = []
+          noncanonical = []
           for path in css_files:
               text = path.read_text()
               for m in rule_re.finditer(text):
-                  selector, body = m.group(1), m.group(2)
-                  for part in split_selectors(selector):
-                      if is_symbol_part(part):
+                  sel, body = m.group(1), m.group(2)
+                  for part in split_selectors(sel):
+                      if is_symbol_selector(part):
                           continue
-                      if is_canonical(path, part, selector):
-                          c = color_re.findall(body)
-                          s = spacing_re.findall(body)
-                          if not c or c[-1].replace(' ','').lower() != 'color:#777777!important':
-                              violations.append((str(path), norm(part), 'canonical color', c))
-                          if not s or s[-1].replace(' ','').lower() != 'letter-spacing:1.1px!important':
-                              violations.append((str(path), norm(part), 'canonical spacing', s))
-                          canonical_seen.append((str(path), norm(part)))
-                      elif is_action_part(part) or is_generic_overlap(part):
-                          if color_re.search(body) or spacing_re.search(body):
-                              violations.append((str(path), norm(part), 'duplicate declaration', color_re.findall(body) + spacing_re.findall(body)))
-          if violations:
-              raise SystemExit('Action typography overlap remains: ' + repr(violations[:30]))
+                      n = norm(part)
+                      has_typo = any(re.search(r'(?<![-\w])' + re.escape(p) + r'\s*:', body, re.I) for p in typography_props)
+                      if is_core_canonical(path, part):
+                          owners.append((str(path), n, body))
+                      elif (is_core(part) or '.article-card>a' in n.replace(' > ', '>').replace(' >', '>').replace('> ', '>')) and has_typo:
+                          noncanonical.append((str(path), n))
+          if len(owners) != 1:
+              raise SystemExit('Expected exactly one core typography owner, found ' + str(len(owners)))
+          owner_body = owners[0][2].replace(' ', '').lower()
+          if 'color:#777777!important' not in owner_body or 'letter-spacing:1.1px!important' not in owner_body:
+              raise SystemExit('Canonical core rule lost target colour/spacing')
+          if noncanonical:
+              raise SystemExit('Core typography overlap still remains: ' + repr(noncanonical[:20]))
 
-          required = {
-              'home': any('home-action-button' in s for _, s in canonical_seen),
-              'details': any('details-action' in s for _, s in canonical_seen),
-              'article': any('article-action' in s for _, s in canonical_seen),
-              'services': any('services-contact-button' in s for _, s in canonical_seen),
-              'contact': any('contact-split__form button' in s for _, s in canonical_seen),
-              'back': any('article-back' in s for _, s in canonical_seen),
-          }
-          missing = [k for k, v in required.items() if not v]
-          if missing:
-              raise SystemExit('Missing canonical action typography families: ' + repr(missing))
-
+          # Cache-bust every changed stylesheet where directly linked.
           changed_names = {p.name for p in changed_css}
           for page in html_files:
               text = page.read_text(errors='ignore')
               new = text
               for name in changed_names:
-                  new = re.sub(
-                      r'((?:\.\./)*assets/' + re.escape(name) + r'\?v=)[^"\']+',
-                      r'\1' + CACHE,
-                      new,
-                  )
+                  new = re.sub(r'((?:\.\./)*assets/' + re.escape(name) + r'\?v=)[^"\']+', r'\1' + CACHE, new)
               if new != text:
                   page.write_text(new)
                   html_changed.add(page)
 
-          print('Removed mt-nav classes from action elements:', removed_mt_nav)
-          print('Dead action classes removed:', sorted(dead_classes))
-          print('Dead selector parts removed:', removed_dead_rules)
-          print('Duplicate action typography selector parts cleaned:', stripped_duplicate_rules)
-          print('Canonical selector parts retained:', canonical_touched)
-          print('Symbol selector parts normalised:', symbol_fixed)
+          print('Removed mt-nav helper instances:', removed_mt)
+          print('Dead classes confirmed unused:', sorted(dead_classes))
+          print('Stats:', stats)
+          print('Core owner:', owners[0][0], owners[0][1])
           print('Changed CSS:', [str(p) for p in sorted(changed_css)])
           print('Changed HTML:', len(html_changed))
-          print('Canonical families:', required)
           PY
-      - name: Remove temporary workflow and commit
+      - name: Commit cleaned CSS and HTML
         run: |
-          rm .github/workflows/cleanup-action-typography.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
+          git add assets '*.html' */*.html */*/*.html || true
+          git diff --cached --quiet && { echo 'No cleanup changes'; exit 1; }
           git commit -m "Button-Typografie: alte überschneidende Regeln bereinigen"
           git push

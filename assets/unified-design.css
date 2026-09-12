@@ -243,10 +243,10 @@ html body.page-home.site-light-page main.home>section.home-contact-band>div>a.ho
 
 @media (min-width:801px){html body.page-home .home>.home-values{padding-bottom:0!important;}html body.page-home .home>.home-paths{padding-bottom:0!important;}html body.page-home .home-contact-band{padding-bottom:126px!important;}}
 
-html body.page-home .home-action-button{display:inline-flex!important;align-items:center!important;box-sizing:border-box!important;width:auto!important;height:auto!important;margin:2px 0 0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#171715!important;text-decoration:none!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:1.1px!important;text-transform:uppercase!important;}
+html body.page-home .home-action-button{display:inline-flex!important;align-items:center!important;box-sizing:border-box!important;width:auto!important;height:auto!important;margin:2px 0 0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#868279!important;text-decoration:none!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:1.1px!important;text-transform:uppercase!important;}
 html body.page-home .home-action-button:hover,
 html body.page-home .home-action-button:focus-visible,
-html body.page-home .home-action-button:active{background:transparent!important;box-shadow:none!important;color:#171715!important;text-decoration:none!important;}
+html body.page-home .home-action-button:active{background:transparent!important;box-shadow:none!important;color:#868279!important;text-decoration:none!important;}
 html body.page-home .home-action-button span{display:inline-block!important;margin-left:10px!important;font-size:20px!important;font-weight:300!important;line-height:.7!important;letter-spacing:0!important;vertical-align:-2px!important;}
 html body.page-home .home-contact-band .home-action-button,
 html body.page-home .home-paths>p .home-action-button,
@@ -257,7 +257,7 @@ html body.page-home .home-contact-band .home-action-button:focus-visible,
 html body.page-home .home-paths>p .home-action-button:hover,
 html body.page-home .home-paths>p .home-action-button:focus-visible,
 html body.page-home .home-values .home-action-button:hover,
-html body.page-home .home-values .home-action-button:focus-visible{color:#171715!important;}
+html body.page-home .home-values .home-action-button:focus-visible{color:#868279!important;}
 html body.page-home .home-contact-band .home-action-button:hover::before,
 html body.page-home .home-contact-band .home-action-button:focus-visible::before{opacity:1!important;transform:scale(1)!important;}
 html body.page-home .home-paths>p .home-action-button::before{content:""!important;position:absolute!important;z-index:-1!important;inset:-14px -20px!important;display:block!important;border-radius:999px!important;background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;box-shadow:0 4px 0 rgba(23,23,21,.12)!important;opacity:0!important;transition:opacity .22s ease!important;}
@@ -266,7 +266,7 @@ html body.page-home .home-paths>p .home-action-button:focus-visible::before{opac
 html body.page-home .home-values .home-action-button::before{content:""!important;position:absolute!important;z-index:-1!important;inset:-14px -20px!important;display:block!important;border:1px solid transparent!important;border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;background:transparent!important;opacity:0!important;transition:opacity .22s ease!important;}
 html body.page-home .home-values .home-action-button:hover::before,
 html body.page-home .home-values .home-action-button:focus-visible::before{opacity:1!important;}
-html body.page-home .home-contact-band .home-action-button{display:inline-flex!important;align-items:center!important;justify-content:space-between!important;box-sizing:border-box!important;width:220px!important;height:48px!important;margin:2px 0 0!important;padding:0 18px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#171715!important;text-decoration:none!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:1.1px!important;text-transform:uppercase!important;}html body.page-home .home-contact-band .home-action-button::before{content:""!important;position:absolute!important;z-index:-1!important;inset:0!important;display:block!important;border:1px solid transparent!important;border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;border-radius:0!important;background:transparent!important;filter:none!important;transform:none!important;opacity:1!important;transition:none!important;}
+html body.page-home .home-contact-band .home-action-button{display:inline-flex!important;align-items:center!important;justify-content:space-between!important;box-sizing:border-box!important;width:220px!important;height:48px!important;margin:2px 0 0!important;padding:0 18px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#868279!important;text-decoration:none!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:1.1px!important;text-transform:uppercase!important;}html body.page-home .home-contact-band .home-action-button::before{content:""!important;position:absolute!important;z-index:-1!important;inset:0!important;display:block!important;border:1px solid transparent!important;border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;border-radius:0!important;background:transparent!important;filter:none!important;transform:none!important;opacity:1!important;transition:none!important;}
 
 
 html body.page-home .home>.home-values .section-heading>.section-label,
@@ -309,7 +309,7 @@ html body.page-home.site-light-page main.home section.home-paths .home-paths__gr
 }
 html body.page-home.site-light-page main.home section.home-values .home-action-button::before{opacity:1!important;}
 
-html body.page-home.site-light-page main.home section.home-values .home-action-button{margin-left:20px!important;color:#171715!important;}
+html body.page-home.site-light-page main.home section.home-values .home-action-button{margin-left:20px!important;color:#868279!important;}
 html body.page-home.site-light-page main.home section.home-values .home-action-button>span{transform:translateY(-1px)!important;}
 
 html body.page-home.site-light-page main.home section.home-paths>p .home-action-button,
@@ -317,7 +317,7 @@ html body.page-home.site-light-page main.home section.home-contact-band .home-ac
   position:relative!important;z-index:0!important;display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;
   box-sizing:border-box!important;width:auto!important;height:auto!important;margin:2px 0 0 20px!important;padding:0!important;
   border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
-  color:#171715!important;text-decoration:none!important;font-family:var(--font-inter),Arial,sans-serif!important;
+  color:#868279!important;text-decoration:none!important;font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;font-weight:500!important;line-height:1.65!important;letter-spacing:1.1px!important;text-transform:uppercase!important;}
 html body.page-home.site-light-page main.home section.home-paths>p .home-action-button::before,
 html body.page-home.site-light-page main.home section.home-contact-band .home-action-button::before{
@@ -333,12 +333,12 @@ html body.page-home.site-light-page main.home section.home-paths>p .home-action-
 html body.page-home.site-light-page main.home section.home-paths>p .home-action-button:focus-visible,
 html body.page-home.site-light-page main.home section.home-contact-band .home-action-button:hover,
 html body.page-home.site-light-page main.home section.home-contact-band .home-action-button:focus-visible{
-  color:#171715!important;background:transparent!important;box-shadow:none!important;}
+  color:#868279!important;background:transparent!important;box-shadow:none!important;}
 
 html body.page-home.site-light-page main.home section.home-paths>p .home-action-button,
 html body.page-home.site-light-page main.home section.home-paths>p .home-action-button:hover,
 html body.page-home.site-light-page main.home section.home-paths>p .home-action-button:focus-visible{
-  color:#171715!important;
+  color:#868279!important;
 }
 
 html body.page-home.site-light-page main.home section.home-values div.home-values__items article.home-values__item:nth-child(3n+1){

@@ -1,0 +1,245 @@
+name: Exact button typography
+
+on:
+  push:
+    paths:
+      - '.github/workflows/exact-button-typography.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Normalize existing button typography rules
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          CACHE = 'button-typography-exact-20260912-1'
+          NORMAL = '#777777!important'
+          DARK = '#4f4e4b!important'
+
+          target_tokens = (
+              '.home-action-button',
+              '.details-action',
+              '.article-action',
+              '.services-contact-button',
+              '.home-paths__action',
+              '.home-values__all-services',
+              '.article-card>a',
+              '.article-card > a',
+              '.contact-split__form button',
+              '.contact-form button',
+          )
+          symbol_tokens = ('::before','::after','.details-toggle-symbol',' span','>span','> span')
+          interactive_tokens = (':hover', ':focus-visible', ':focus', ':active')
+          typography_props = {
+              'font-family':'var(--font-inter),Arial,sans-serif!important',
+              'font-size':'11px!important',
+              'font-style':'normal!important',
+              'font-weight':'500!important',
+              'line-height':'1.4!important',
+              'letter-spacing':'1.1px!important',
+              'text-transform':'uppercase!important',
+              'text-decoration':'none!important',
+          }
+
+          rule_re = re.compile(r'([^{}]+)\{([^{}]*)\}', re.S)
+
+          def split_selectors(selector):
+              parts, buf, depth = [], [], 0
+              for ch in selector:
+                  if ch == '(':
+                      depth += 1
+                  elif ch == ')':
+                      depth = max(0, depth-1)
+                  if ch == ',' and depth == 0:
+                      part = ''.join(buf).strip()
+                      if part: parts.append(part)
+                      buf = []
+                  else:
+                      buf.append(ch)
+              part = ''.join(buf).strip()
+              if part: parts.append(part)
+              return parts
+
+          def norm(s):
+              return ' '.join(s.split())
+
+          def is_target(s):
+              n = norm(s)
+              return any(t in n for t in target_tokens) or ('button[type="submit"]' in n and ('contact' in n or 'form' in n))
+
+          def is_symbol(s):
+              n = norm(s)
+              return any(t in n for t in symbol_tokens)
+
+          def state(s):
+              n = norm(s).lower()
+              return 'interactive' if any(t in n for t in interactive_tokens) else 'normal'
+
+          def set_prop(body, prop, value, only_if_present=False):
+              pat = re.compile(r'(?<![-\w])' + re.escape(prop) + r'\s*:\s*[^;}]+' , re.I)
+              if pat.search(body):
+                  return pat.sub(f'{prop}:{value}', body)
+              if only_if_present:
+                  return body
+              b = body.rstrip()
+              if b and not b.endswith(';'):
+                  b += ';'
+              return b + f'{prop}:{value};'
+
+          def body_for(body, kind, selector):
+              # Symbols retain their size/position; only neutralise tracking where it already exists.
+              if kind == 'symbol':
+                  body = set_prop(body, 'letter-spacing', '0!important', only_if_present=True)
+                  body = set_prop(body, 'color', 'inherit!important', only_if_present=True)
+                  return body
+
+              has_typography_owner = bool(re.search(r'(?<![-\w])(font-family|font-size|font-weight|line-height|letter-spacing|text-transform)\s*:', body, re.I))
+              if has_typography_owner:
+                  for prop, value in typography_props.items():
+                      body = set_prop(body, prop, value)
+              # Every existing target colour declaration is made consistent.
+              body = set_prop(body, 'color', DARK if kind == 'interactive' else NORMAL, only_if_present=not has_typography_owner)
+              return body
+
+          changed = set()
+          split_count = 0
+          touched_rules = 0
+
+          for path in sorted(Path('assets').glob('*.css')):
+              text = path.read_text()
+              out = []
+              last = 0
+              file_changed = False
+              for m in rule_re.finditer(text):
+                  selector, body = m.group(1), m.group(2)
+                  parts = split_selectors(selector)
+                  if not any(is_target(p) for p in parts):
+                      continue
+
+                  buckets = []
+                  for p in parts:
+                      if not is_target(p):
+                          k = 'other'
+                      elif is_symbol(p):
+                          k = 'symbol'
+                      else:
+                          k = state(p)
+                      nb = body if k == 'other' else body_for(body, k, p)
+                      buckets.append((p, k, nb))
+
+                  # Regroup only selector parts that still share the exact same body.
+                  rendered = []
+                  i = 0
+                  while i < len(buckets):
+                      p, k, b = buckets[i]
+                      sels = [p]
+                      j = i + 1
+                      while j < len(buckets) and buckets[j][2] == b:
+                          sels.append(buckets[j][0])
+                          j += 1
+                      rendered.append(',\n'.join(sels) + '{' + b + '}')
+                      i = j
+                  replacement = '\n'.join(rendered)
+                  if replacement != m.group(0):
+                      if len(rendered) > 1:
+                          split_count += 1
+                      out.append(text[last:m.start()])
+                      out.append(replacement)
+                      last = m.end()
+                      file_changed = True
+                      touched_rules += 1
+
+              if file_changed:
+                  out.append(text[last:])
+                  path.write_text(''.join(out))
+                  changed.add(path)
+
+          if not changed:
+              raise SystemExit('No existing action typography rules were changed')
+
+          # Verify all explicit target text typography now uses the exact requested values.
+          bad = []
+          for path in sorted(Path('assets').glob('*.css')):
+              text = path.read_text()
+              for m in rule_re.finditer(text):
+                  body = m.group(2)
+                  for sel in split_selectors(m.group(1)):
+                      if not is_target(sel) or is_symbol(sel):
+                          continue
+                      k = state(sel)
+                      compact = re.sub(r'\s+', '', body).lower()
+                      checks = {
+                          'font-family':'font-family:var(--font-inter),arial,sans-serif!important',
+                          'font-size':'font-size:11px!important',
+                          'font-weight':'font-weight:500!important',
+                          'line-height':'line-height:1.4!important',
+                          'letter-spacing':'letter-spacing:1.1px!important',
+                          'text-transform':'text-transform:uppercase!important',
+                      }
+                      has_owner = any((key + ':') in compact for key in checks)
+                      if has_owner:
+                          for key, needle in checks.items():
+                              if needle not in compact:
+                                  bad.append((str(path), norm(sel), key))
+                      cm = re.search(r'(?<![-\w])color\s*:\s*([^;}]*)', body, re.I)
+                      if cm:
+                          actual = re.sub(r'\s+','',cm.group(1)).lower()
+                          expected = '#4f4e4b!important' if k == 'interactive' else '#777777!important'
+                          if actual != expected:
+                              bad.append((str(path), norm(sel), 'color=' + actual))
+          if bad:
+              raise SystemExit('Target typography still inconsistent: ' + repr(bad[:30]))
+
+          # Symbols must not inherit button letter spacing if their existing rule defines tracking.
+          bad_symbols = []
+          for path in sorted(Path('assets').glob('*.css')):
+              for m in rule_re.finditer(path.read_text()):
+                  for sel in split_selectors(m.group(1)):
+                      if is_target(sel) and is_symbol(sel):
+                          lm = re.search(r'(?<![-\w])letter-spacing\s*:\s*([^;}]*)', m.group(2), re.I)
+                          if lm and re.sub(r'\s+','',lm.group(1)).lower() != '0!important':
+                              bad_symbols.append((str(path), norm(sel), lm.group(1)))
+          if bad_symbols:
+              raise SystemExit('Button symbols still have non-zero tracking: ' + repr(bad_symbols[:20]))
+
+          base = Path('assets/unified-design-base-20260907.css')
+          unified = Path('assets/unified-design.css')
+          if base in changed:
+              u = unified.read_text()
+              nu = re.sub(r"(@import url\('\./unified-design-base-20260907\.css\?v=)[^']+", r'\1' + CACHE, u, count=1)
+              if nu == u:
+                  raise SystemExit('Could not update base stylesheet import cache token')
+              unified.write_text(nu)
+              changed.add(unified)
+
+          changed_names = {p.name for p in changed}
+          html_changed = 0
+          for page in [p for p in sorted(Path('.').rglob('*.html')) if '.git' not in p.parts]:
+              h = page.read_text(errors='ignore')
+              nh = h
+              for name in changed_names:
+                  nh = re.sub(r'((?:\.\./)*assets/' + re.escape(name) + r'\?v=)[^"\']+', r'\1' + CACHE, nh)
+              if nh != h:
+                  page.write_text(nh)
+                  html_changed += 1
+
+          print('Changed CSS:', [str(p) for p in sorted(changed)])
+          print('Touched existing rules:', touched_rules)
+          print('Existing grouped rules split by state/symbol:', split_count)
+          print('HTML cache tokens updated:', html_changed)
+          PY
+      - name: Commit exact existing-rule cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets '*.html' */*.html */*/*.html || true
+          git diff --cached --quiet && { echo 'No website changes'; exit 1; }
+          git commit -m "Buttontexte: Werte und Farben exakt vereinheitlichen"
+          git push

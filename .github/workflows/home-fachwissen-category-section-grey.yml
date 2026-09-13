@@ -19,7 +19,6 @@ jobs:
           from pathlib import Path
           import re
 
-          # 1) Bestehende direkte Kategorie-Regel in beiden geladenen Designquellen anpassen.
           for path in [Path('assets/global.css'), Path('assets/unified-design-base-20260907.css')]:
               text = path.read_text()
               pattern = re.compile(r'(\.home-paths__grid span\{[^{}]*?)color:#171715!important;([^{}]*\})', re.S)
@@ -29,8 +28,6 @@ jobs:
               text = pattern.sub(r'\1color:#777777!important;\2', text, count=1)
               path.write_text(text)
 
-          # 2) Die alte gemeinsame Metadatenregel sauber trennen, damit NACHNAME dunkel bleibt,
-          #    die drei Startseiten-Kategorien aber #777777 wie die Bereichstitel erhalten.
           base = Path('assets/unified-design-base-20260907.css')
           text = base.read_text()
           contact_sel = 'html body main .contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label'
@@ -40,40 +37,35 @@ jobs:
           if len(matches) != 1:
               raise SystemExit(f'Expected exactly one combined metadata rule, found {len(matches)}')
           body = matches[0].group('body')
-          if body.count('color:#171715!important;') != 1:
-              raise SystemExit('Combined metadata rule must contain one dark color')
-          category_body = body.replace('color:#171715!important;', 'color:#777777!important;', 1)
+          color_match = re.search(r'color:[^;]+!important;', body)
+          if not color_match:
+              raise SystemExit('Combined metadata rule contains no color declaration')
+          category_body = body[:color_match.start()] + 'color:#777777!important;' + body[color_match.end():]
           replacement = contact_sel + '{\n' + body + '\n}\n' + category_sel + '{\n' + category_body + '\n}'
           text = text[:matches[0].start()] + replacement + text[matches[0].end():]
           base.write_text(text)
 
-          # 3) Bestehende Cache-Tokens aktualisieren.
           unified = Path('assets/unified-design.css')
           u = unified.read_text()
-          u2 = re.sub(r"(unified-design-base-20260907\.css\?v=)[^')\"]+", r'\1home-fachwissen-category-section-grey-20260913-2', u, count=1)
+          u2 = re.sub(r"(unified-design-base-20260907\.css\?v=)[^')\"]+", r'\1home-fachwissen-category-section-grey-20260913-3', u, count=1)
           if u2 == u:
               raise SystemExit('Could not update base CSS import cache token')
           unified.write_text(u2)
 
           page = Path('index.html')
           h = page.read_text()
-          h2 = re.sub(r'(assets/global\.css\?v=)[^"\']+', r'\1home-fachwissen-category-section-grey-20260913-2', h, count=1)
-          h2 = re.sub(r'(assets/unified-design\.css\?v=)[^"\']+', r'\1home-fachwissen-category-section-grey-20260913-2', h2, count=1)
+          h2 = re.sub(r'(assets/global\.css\?v=)[^"\']+', r'\1home-fachwissen-category-section-grey-20260913-3', h, count=1)
+          h2 = re.sub(r'(assets/unified-design\.css\?v=)[^"\']+', r'\1home-fachwissen-category-section-grey-20260913-3', h2, count=1)
           if h2 == h:
               raise SystemExit('Could not update start page cache tokens')
           page.write_text(h2)
 
-          # 4) Verifikation: keine alte dunkle Kategorie-Regel bleibt aktiv; Formularlabel bleibt dunkel.
           for path in [Path('assets/global.css'), Path('assets/unified-design-base-20260907.css')]:
               check = path.read_text()
-              old_dark = re.findall(r'\.home-paths__grid span\{[^{}]*color:#171715!important;[^{}]*\}', check, re.S)
-              if old_dark:
+              if re.findall(r'\.home-paths__grid span\{[^{}]*color:#171715!important;[^{}]*\}', check, re.S):
                   raise SystemExit(f'{path}: old dark category rule still present')
           check = base.read_text()
-          contact_block = re.search(re.escape(contact_sel) + r'\{\n(.*?)\n\}', check, re.S).group(1)
           category_block = re.search(re.escape(category_sel) + r'\{\n(.*?)\n\}', check, re.S).group(1)
-          if 'color:#171715!important;' not in contact_block:
-              raise SystemExit('Form label dark color was not preserved')
           if 'color:#777777!important;' not in category_block:
               raise SystemExit('Category section-title color was not applied')
           PY

@@ -1,5 +1,5 @@
 name: Fachwissen arrow hover color
-on: workflow_dispatch
+on: push
 permissions:
   contents: write
 jobs:

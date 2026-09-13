@@ -29,20 +29,24 @@ jobs:
               'page-article-false-accounting',
           ]
           for cls in page_classes:
-              base = f'body.{cls} .article-back{{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}}'
-              if text.count(base) != 1:
-                  raise SystemExit(f'Expected one base article-back rule for {cls}, found {text.count(base)}')
+              pattern = re.compile(rf'(body\.{re.escape(cls)} \.article-back\{{[^}}]*color:#777777!important;?\}})')
+              matches = pattern.findall(text)
+              if len(matches) != 1:
+                  raise SystemExit(f'Expected one base article-back rule for {cls}, found {len(matches)}')
+              base = matches[0]
               hover = f'body.{cls} .article-back:hover,\nbody.{cls} .article-back:focus-visible{{color:#171715!important}}'
               text = text.replace(base, base + '\n    ' + hover, 1)
           unified.write_text(text)
 
           detail = Path('assets/article-detail.css')
           d = detail.read_text()
-          base_detail = '    .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}'
-          if d.count(base_detail) != 1:
-              raise SystemExit(f'Expected one shared article-back rule, found {d.count(base_detail)}')
-          hover_detail = '    .article-back:hover,.article-back:focus-visible{color:#171715!important}'
-          d = d.replace(base_detail, base_detail + '\n' + hover_detail, 1)
+          pattern_detail = re.compile(r'(\s*\.article-back\{[^}]*color:#777777!important;?\})')
+          matches = pattern_detail.findall(d)
+          if len(matches) != 1:
+              raise SystemExit(f'Expected one shared article-back rule, found {len(matches)}')
+          base_detail = matches[0]
+          hover_detail = '\n    .article-back:hover,.article-back:focus-visible{color:#171715!important}'
+          d = d.replace(base_detail, base_detail + hover_detail, 1)
           detail.write_text(d)
 
           unified_pages = [
@@ -72,9 +76,10 @@ jobs:
                   raise SystemExit(f'Could not update article-detail cache token in {p}')
               path.write_text(nh)
 
-          # Verifikation: Basisfarben bleiben unveraendert, Hover ist nur direkt an bestehenden Artikelregeln ergaenzt.
-          if unified.read_text().count('article-back:focus-visible{color:#171715!important}') < 5:
-              raise SystemExit('Not all five page-specific hover states were written')
+          check = unified.read_text()
+          for cls in page_classes:
+              if f'body.{cls} .article-back:hover' not in check or f'body.{cls} .article-back:focus-visible' not in check:
+                  raise SystemExit(f'Hover/focus verification failed for {cls}')
           if '.article-back:hover,.article-back:focus-visible{color:#171715!important}' not in detail.read_text():
               raise SystemExit('Shared article hover state missing')
           PY

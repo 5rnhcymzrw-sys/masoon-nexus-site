@@ -1,7 +1,13 @@
 name: Fachwissen arrow hover color
-on: push
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fachwissen-arrow-hover-color.yml'
+
 permissions:
   contents: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -36,16 +42,19 @@ jobs:
           if text.count(old) != 1:
               raise SystemExit(f'Expected exactly one existing article-action arrow rule, found {text.count(old)}')
           text = text.replace(old, new, 1)
-          if 'html body.page-knowledge.site-light-page main .knowledge-section .article-card .article-action::after' not in text or 'color:inherit!important;' not in text:
-              raise SystemExit('Arrow colour verification failed')
           css.write_text(text)
 
           page = Path('fachwissen/index.html')
-          h = page.read_text()
-          nh = re.sub(r'(\.\./assets/unified-design\.css\?v=)[^"\']+', r'\1fachwissen-arrow-inherit-20260913-1', h)
-          if nh == h:
-              raise SystemExit('Fachwissen cache token was not updated')
-          page.write_text(nh)
+          html = page.read_text()
+          html2 = re.sub(r'(\.\./assets/unified-design\.css\?v=)[^"\']+', r'\1fachwissen-arrow-inherit-20260913-1', html, count=1)
+          if html2 == html:
+              raise SystemExit('Could not update unified-design.css cache token')
+          page.write_text(html2)
+
+          check = css.read_text()
+          if new not in check or old in check:
+              raise SystemExit('Existing arrow rule was not cleanly replaced')
+          print('Existing arrow colour changed from fixed #777777 to inherit; no new CSS rule added')
           PY
       - name: Commit und temporären Workflow entfernen
         run: |

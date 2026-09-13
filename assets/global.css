@@ -64,7 +64,7 @@ html body .contact-split__info h1{letter-spacing:0!important;}
 /* Startseite Fachwissen: Kategorie wieder unter dem Titelstrich */
 .home-paths__grid a{display:flex!important;flex-direction:column!important;}
 .home-paths__grid strong{order:1!important;margin:0!important;}
-.home-paths__grid span{order:2!important;margin:12px 0 0!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:#171715!important;}
+.home-paths__grid span{order:2!important;margin:12px 0 0!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:#777777!important;}
 .home-paths__grid i{display:none!important;}
 .knowledge-section .article-card h2{min-height:110px!important;margin:0 0 18px!important;font-family:var(--font-cormorant)!important;font-size:24px!important;font-weight:600!important;line-height:1.12!important;letter-spacing:0!important;text-transform:none!important;max-width:none!important;}
 .contact-form .form-status{min-height:1.55em;font-family:var(--font-inter)!important;font-size:11px!important;line-height:1.55!important;}

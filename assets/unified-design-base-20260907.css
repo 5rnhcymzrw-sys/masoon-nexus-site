@@ -1127,7 +1127,23 @@ html body main .section-label.section-label.section-label.section-label.section-
   color:#777777!important;
   vertical-align:baseline!important;
 }/* Kleine Metadaten und Aktionsbeschriftungen */
-html body main .contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label,
+html body main .contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-style:normal!important;
+  font-weight:500!important;
+  font-variant:normal!important;
+  font-stretch:normal!important;
+  line-height:1.4!important;
+  letter-spacing:.14em!important;
+  word-spacing:normal!important;
+  text-transform:uppercase!important;
+  text-decoration:none!important;
+  text-shadow:none!important;
+  -webkit-text-stroke:0!important;
+  color:#777777!important;
+  opacity:1!important;
+}
 html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid span{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
@@ -1142,7 +1158,7 @@ html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__g
   text-decoration:none!important;
   text-shadow:none!important;
   -webkit-text-stroke:0!important;
-  color:#171715!important;
+  color:#777777!important;
   opacity:1!important;
 }
 html body main .home-action-button.home-action-button.home-action-button.home-action-button.home-action-button.home-action-button,

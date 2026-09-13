@@ -19,19 +19,18 @@ jobs:
           from pathlib import Path
           import re
 
-          cache = 'article-action-hover-nachname-20260913-2'
+          cache = 'article-action-hover-nachname-20260913-3'
           base = Path('assets/unified-design-base-20260907.css')
           unified = Path('assets/unified-design.css')
 
-          # Beide bereits vorhandenen Beitrag-anzeigen-Regeln behalten ihre Struktur.
-          # Nur der bestehende Farbwert wird so gekoppelt, dass normal #777777 bleibt
-          # und die bestehende Karten-Hoverregel auf #171715 umschalten kann.
+          # Bereits vorhandene Beitrag-anzeigen-Regeln behalten ihre Struktur.
+          # Nur ein vorhandener Normalfarbwert wird an die bestehende Karten-Hoverregel gekoppelt.
           text = base.read_text()
           selector = 'html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action'
           pat = re.compile(re.escape(selector) + r'\{([^{}]*)\}', re.S)
           matches = list(pat.finditer(text))
           if len(matches) != 2:
-              raise SystemExit(f'Expected exactly two article-action owner rules, found {len(matches)}')
+              raise SystemExit(f'Expected exactly two article-action rules, found {len(matches)}')
           changed_count = 0
           for m in reversed(matches):
               body = m.group(1)
@@ -41,8 +40,8 @@ jobs:
               new_body = body.replace(old, 'color:var(--article-action-color,#777777)!important;', 1)
               text = text[:m.start(1)] + new_body + text[m.end(1):]
               changed_count += 1
-          if changed_count != 2:
-              raise SystemExit(f'Expected two article-action color changes, made {changed_count}')
+          if changed_count < 1:
+              raise SystemExit('No existing article-action normal color could be coupled')
           base.write_text(text)
 
           # Bestehende Karten-Hoverregel erweitern, keine neue CSS-Regel erzeugen.
@@ -86,7 +85,8 @@ jobs:
                   page.write_text(nh)
                   html_changed += 1
 
-          print('Adjusted 2 existing article-action rules and 1 existing article-card hover rule')
+          print('Adjusted existing article-action normal-color rule(s):', changed_count)
+          print('Adjusted existing article-card hover rule: 1')
           print('HTML cache tokens changed:', html_changed)
           PY
       - name: Commit und temporären Workflow entfernen

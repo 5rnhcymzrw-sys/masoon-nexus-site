@@ -1,0 +1,58 @@
+name: Fachwissen arrow hover color
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bestehende Pfeilfarbregel anpassen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          css = Path('assets/unified-design.css')
+          text = css.read_text()
+          old = '''html body.page-knowledge.site-light-page main .knowledge-section .article-card .article-action::after{
+  content:"›"!important;
+  display:block!important;
+  font-size:20px!important;
+  font-weight:300!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  color:#777777!important;
+}'''
+          new = '''html body.page-knowledge.site-light-page main .knowledge-section .article-card .article-action::after{
+  content:"›"!important;
+  display:block!important;
+  font-size:20px!important;
+  font-weight:300!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  color:inherit!important;
+}'''
+          if text.count(old) != 1:
+              raise SystemExit(f'Expected exactly one existing article-action arrow rule, found {text.count(old)}')
+          text = text.replace(old, new, 1)
+          if 'html body.page-knowledge.site-light-page main .knowledge-section .article-card .article-action::after' not in text or 'color:inherit!important;' not in text:
+              raise SystemExit('Arrow colour verification failed')
+          css.write_text(text)
+
+          page = Path('fachwissen/index.html')
+          h = page.read_text()
+          nh = re.sub(r'(\.\./assets/unified-design\.css\?v=)[^"\']+', r'\1fachwissen-arrow-inherit-20260913-1', h)
+          if nh == h:
+              raise SystemExit('Fachwissen cache token was not updated')
+          page.write_text(nh)
+          PY
+      - name: Commit und temporären Workflow entfernen
+        run: |
+          rm -f .github/workflows/fachwissen-arrow-hover-color.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo 'No changes'; exit 1; }
+          git commit -m "Fachwissen: Pfeilfarbe an Beitrag anzeigen koppeln"
+          git push

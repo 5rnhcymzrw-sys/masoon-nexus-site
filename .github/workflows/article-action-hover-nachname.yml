@@ -19,28 +19,33 @@ jobs:
           from pathlib import Path
           import re
 
-          cache = 'article-action-hover-nachname-20260913-1'
+          cache = 'article-action-hover-nachname-20260913-2'
           base = Path('assets/unified-design-base-20260907.css')
           unified = Path('assets/unified-design.css')
 
-          # Bestehende Beitrag-anzeigen-Regel: Normalfarbe bleibt #777777,
-          # die Farbe darf nun von der bereits bestehenden Karten-Hoverregel geerbt werden.
+          # Beide bereits vorhandenen Beitrag-anzeigen-Regeln behalten ihre Struktur.
+          # Nur der bestehende Farbwert wird so gekoppelt, dass normal #777777 bleibt
+          # und die bestehende Karten-Hoverregel auf #171715 umschalten kann.
           text = base.read_text()
           selector = 'html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action'
           pat = re.compile(re.escape(selector) + r'\{([^{}]*)\}', re.S)
           matches = list(pat.finditer(text))
-          if len(matches) != 1:
-              raise SystemExit(f'Expected exactly one article-action owner rule, found {len(matches)}')
-          m = matches[0]
-          body = m.group(1)
-          old = 'color:#777777!important;'
-          if old not in body:
-              raise SystemExit('Article action normal color declaration not found')
-          new_body = body.replace(old, 'color:var(--article-action-color,#777777)!important;', 1)
-          text = text[:m.start(1)] + new_body + text[m.end(1):]
+          if len(matches) != 2:
+              raise SystemExit(f'Expected exactly two article-action owner rules, found {len(matches)}')
+          changed_count = 0
+          for m in reversed(matches):
+              body = m.group(1)
+              old = 'color:#777777!important;'
+              if old not in body:
+                  continue
+              new_body = body.replace(old, 'color:var(--article-action-color,#777777)!important;', 1)
+              text = text[:m.start(1)] + new_body + text[m.end(1):]
+              changed_count += 1
+          if changed_count != 2:
+              raise SystemExit(f'Expected two article-action color changes, made {changed_count}')
           base.write_text(text)
 
-          # Bestehende Karten-Hoverregel: nur eine Variable ergänzen, keine neue CSS-Regel.
+          # Bestehende Karten-Hoverregel erweitern, keine neue CSS-Regel erzeugen.
           text = unified.read_text()
           selector = 'html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card:hover'
           pat = re.compile(re.escape(selector) + r'\{([^{}]*)\}', re.S)
@@ -57,7 +62,7 @@ jobs:
           new_body += '\n    --article-action-color:#171715!important;\n  '
           text = text[:m.start(1)] + new_body + text[m.end(1):]
 
-          # Cache-bust existing base import.
+          # Bestehenden Import-Cachewert aktualisieren.
           text2 = re.sub(
               r"(@import url\('\./unified-design-base-20260907\.css\?v=)[^']+",
               r'\1' + cache,
@@ -68,7 +73,7 @@ jobs:
               raise SystemExit('Could not update base import cache token')
           unified.write_text(text2)
 
-          # Cache-bust unified-design on pages already loading it.
+          # Nur vorhandene unified-design Links cache-busten.
           html_changed = 0
           for page in [p for p in sorted(Path('.').rglob('*.html')) if '.git' not in p.parts]:
               h = page.read_text(errors='ignore')
@@ -81,7 +86,7 @@ jobs:
                   page.write_text(nh)
                   html_changed += 1
 
-          print('Adjusted existing article-action owner rule and existing article-card hover rule')
+          print('Adjusted 2 existing article-action rules and 1 existing article-card hover rule')
           print('HTML cache tokens changed:', html_changed)
           PY
       - name: Commit und temporären Workflow entfernen

@@ -1077,12 +1077,6 @@ body.page-article-tax-checklist .article-table-wrap td{padding:12px 14px;text-al
     body.page-article-tax-checklist .article-table-wrap th:last-child,
 body.page-article-tax-checklist .article-table-wrap td:last-child{border-right:0}
     body.page-article-tax-checklist .article-body li strong{font-weight:500;color:#171715}
-    body.page-article-tax-checklist .article-top-back{width:91%;max-width:1227px;margin:0 auto 28px;padding:0 140px;box-sizing:border-box}
-    body.page-article-tax-checklist .article-back--top{margin-top:0!important}
-    body.page-article-tax-checklist .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}
-    body.page-article-tax-checklist .article-back:hover,
-body.page-article-tax-checklist .article-back:focus-visible{color:#171715!important}
-    body.page-article-tax-checklist .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-1px}
     @media(min-width:801px){body.page-article-tax-checklist .article-title{font-size:45px!important}}
 
 
@@ -1091,7 +1085,6 @@ body.page-article-tax-checklist .article-back:focus-visible{color:#171715!import
     html body.page-article-tax-checklist.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;color:#484a4f!important}
     @media(max-width:800px){
       html body.page-article-tax-checklist.site-light-page main.article-main{padding:170px 0 96px!important}
-      body.page-article-tax-checklist .article-top-back{width:91%;padding:0 26px;margin-bottom:24px}
       body.page-article-tax-checklist .article-overline{margin-bottom:24px!important;padding:0 26px!important}
       body.page-article-tax-checklist .article-shell{width:91%!important;padding:52px 26px!important;display:block!important}
       body.page-article-tax-checklist .article-hero{padding-bottom:40px}
@@ -1146,12 +1139,6 @@ body.page-article-employment-termination .article-table-wrap--two-columns td{wid
     body.page-article-employment-termination .article-table-wrap th:last-child,
 body.page-article-employment-termination .article-table-wrap td:last-child{border-right:0}
     body.page-article-employment-termination .article-body li strong{font-weight:500;color:#171715}
-    body.page-article-employment-termination .article-top-back{width:91%;max-width:1227px;margin:0 auto 28px;padding:0 140px;box-sizing:border-box}
-    body.page-article-employment-termination .article-back--top{margin-top:0!important}
-    body.page-article-employment-termination .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}
-    body.page-article-employment-termination .article-back:hover,
-body.page-article-employment-termination .article-back:focus-visible{color:#171715!important}
-    body.page-article-employment-termination .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-1px}
     @media(min-width:801px){body.page-article-employment-termination .article-title{font-size:45px!important}}
 
 
@@ -1160,7 +1147,6 @@ body.page-article-employment-termination .article-back:focus-visible{color:#1717
     html body.page-article-employment-termination.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;color:#484a4f!important}
     @media(max-width:800px){
       html body.page-article-employment-termination.site-light-page main.article-main{padding:170px 0 96px!important}
-      body.page-article-employment-termination .article-top-back{width:91%;padding:0 26px;margin-bottom:24px}
       body.page-article-employment-termination .article-overline{margin-bottom:24px!important;padding:0 26px!important}
       body.page-article-employment-termination .article-shell{width:91%!important;padding:52px 26px!important;display:block!important}
       body.page-article-employment-termination .article-hero{padding-bottom:40px}
@@ -1211,12 +1197,6 @@ body.page-article-company-formation .article-table-wrap td{padding:12px 14px;tex
 body.page-article-company-formation .article-table-wrap td:last-child{border-right:0}
     body.page-article-company-formation .article-body li strong{font-weight:500;color:#171715}
     body.page-article-company-formation .item-label{white-space:nowrap!important}body.page-article-company-formation .item-separator{display:inline-block!important;width:0!important;height:14px!important;margin:0 7px!important;border:0!important;border-left:1px solid #d7d5d1!important;font-size:0!important;line-height:0!important;color:transparent!important;vertical-align:middle!important}
-    body.page-article-company-formation .article-top-back{width:91%;max-width:1227px;margin:0 auto 28px;padding:0 140px;box-sizing:border-box}
-    body.page-article-company-formation .article-back--top{margin-top:0!important}
-    body.page-article-company-formation .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}
-    body.page-article-company-formation .article-back:hover,
-body.page-article-company-formation .article-back:focus-visible{color:#171715!important}
-    body.page-article-company-formation .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-1px}
     @media(min-width:801px){body.page-article-company-formation .article-title{font-size:45px!important}}
 
 
@@ -1225,7 +1205,6 @@ body.page-article-company-formation .article-back:focus-visible{color:#171715!im
     html body.page-article-company-formation.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;color:#484a4f!important}
     @media(max-width:800px){
       html body.page-article-company-formation.site-light-page main.article-main{padding:170px 0 96px!important}
-      body.page-article-company-formation .article-top-back{width:91%;padding:0 26px;margin-bottom:24px}
       body.page-article-company-formation .article-overline{margin-bottom:24px!important;padding:0 26px!important}
       body.page-article-company-formation .article-shell{width:91%!important;padding:52px 26px!important;display:block!important}
       body.page-article-company-formation .article-hero{padding-bottom:40px}
@@ -1278,12 +1257,6 @@ body.page-article-company-forms .article-table-wrap td:not(:first-child){width:c
     body.page-article-company-forms .article-table-wrap th:last-child,
 body.page-article-company-forms .article-table-wrap td:last-child{border-right:0;}
     body.page-article-company-forms .article-body li strong{font-weight:500;color:#171715;}
-    body.page-article-company-forms .article-top-back{width:91%;max-width:1227px;margin:0 auto 28px;padding:0 140px;box-sizing:border-box;}
-    body.page-article-company-forms .article-back--top{margin-top:0!important;}
-    body.page-article-company-forms .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important;}
-    body.page-article-company-forms .article-back:hover,
-body.page-article-company-forms .article-back:focus-visible{color:#171715!important}
-    body.page-article-company-forms .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-1px;}
     @media(min-width:801px){body.page-article-company-forms .article-title{font-size:45px!important;}}
 
 
@@ -1292,7 +1265,6 @@ body.page-article-company-forms .article-back:focus-visible{color:#171715!import
     html body.page-article-company-forms.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:13px!important;font-weight:290!important;line-height:1.65!important;color:#484a4f!important;}
     @media(max-width:800px){
       html body.page-article-company-forms.site-light-page main.article-main{padding:170px 0 96px!important;}
-      body.page-article-company-forms .article-top-back{width:91%;padding:0 26px;margin-bottom:24px;}
       body.page-article-company-forms .article-overline{margin-bottom:24px!important;padding:0 26px!important;}
       body.page-article-company-forms .article-shell{width:91%!important;padding:52px 26px!important;display:block!important;}
       body.page-article-company-forms .article-hero{padding-bottom:40px;}
@@ -1329,12 +1301,6 @@ body.page-article-false-accounting .article-body li{font-family:var(--font-inter
     body.page-article-false-accounting .article-body ul{max-width:none;margin:8px 0 34px;padding:0;list-style:none}
     body.page-article-false-accounting .article-body li{position:relative;margin:0 0 4px;padding-left:23px}
     body.page-article-false-accounting .article-body li::before{content:"";position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279}
-    body.page-article-false-accounting .article-top-back{width:91%;max-width:1227px;margin:0 auto 28px;padding:0 140px;box-sizing:border-box}
-    body.page-article-false-accounting .article-back--top{margin-top:0!important}
-    body.page-article-false-accounting .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}
-    body.page-article-false-accounting .article-back:hover,
-body.page-article-false-accounting .article-back:focus-visible{color:#171715!important}
-    body.page-article-false-accounting .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-1px}
     @media(min-width:801px){body.page-article-false-accounting .article-title{font-size:45px!important}}
 
 
@@ -1343,7 +1309,6 @@ body.page-article-false-accounting .article-back:focus-visible{color:#171715!imp
     html body.page-article-false-accounting.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;color:#484a4f!important}
     @media(max-width:800px){
       html body.page-article-false-accounting.site-light-page main.article-main{padding:170px 0 96px!important}
-      body.page-article-false-accounting .article-top-back{width:91%;padding:0 26px;margin-bottom:24px}
       body.page-article-false-accounting .article-overline{margin-bottom:24px!important;padding:0 26px!important}
       body.page-article-false-accounting .article-shell{width:91%!important;padding:52px 26px!important;display:block!important}
       body.page-article-false-accounting .article-hero{padding-bottom:40px}

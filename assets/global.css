@@ -627,7 +627,7 @@ html body main :is(#mt-body-copy,.mt-body-copy) a{
   color:inherit!important;
 }/* Bereichstitel und weiterführende Links: Typografie der Kopfzeile,
 bestehende Farben. */
-html body main :is(#mt-nav-typography,.mt-nav-typography):not(.section-label):not(.article-card-date):not(.details-action):not(.article-back):not(.article-action):not(.home-action-button):not(.home-values__all-services):not(.services-contact-button):not(.home-paths__action){
+html body main :is(#mt-nav-typography,.mt-nav-typography):not(.section-label):not(.article-card-date):not(.details-action):not(.article-action):not(.home-action-button):not(.home-values__all-services):not(.services-contact-button):not(.home-paths__action){
   font-family:var(--font-inter)!important;
   font-size:11px!important;
   font-weight:500!important;

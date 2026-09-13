@@ -69,14 +69,14 @@
     reveals.forEach(el => observer.observe(el));
   } else reveals.forEach(el => el.classList.add('is-visible'));
 
-  /* Fachwissen: Beim Zurück-Link zur vorherigen Position zurückkehren. */
+  /* Fachwissen: Browser-Zurueck stellt die Position des geoeffneten Beitrags wieder her. */
   const fachwissenPath = /\/fachwissen\/(?:index\.html)?$/;
   if (fachwissenPath.test(location.pathname)) {
-    const pending = sessionStorage.getItem('fachwissenReturnPending');
-    const savedY = Number(sessionStorage.getItem('fachwissenScrollY'));
-    const savedArticle = sessionStorage.getItem('fachwissenArticlePath');
-    if (pending === '1') {
-      sessionStorage.removeItem('fachwissenReturnPending');
+    const restoreFachwissenPosition = () => {
+      const state = history.state || {};
+      const savedY = Number(state.fachwissenScrollY);
+      const savedArticle = state.fachwissenArticlePath;
+      if (!savedArticle && !Number.isFinite(savedY)) return;
       requestAnimationFrame(() => requestAnimationFrame(() => {
         const matchingLink = [...document.querySelectorAll('.knowledge-section .article-card a')].find(link => {
           return new URL(link.href, location.href).pathname === savedArticle;
@@ -85,24 +85,25 @@
         if (card) card.scrollIntoView({ block: 'center', inline: 'nearest' });
         else if (Number.isFinite(savedY)) window.scrollTo(0, savedY);
       }));
-    }
+    };
+
+    const navigationEntry = performance.getEntriesByType('navigation')[0];
+    window.addEventListener('pageshow', event => {
+      if (event.persisted || (navigationEntry && navigationEntry.type === 'back_forward')) {
+        restoreFachwissenPosition();
+      }
+    });
+
     document.querySelectorAll('.knowledge-section .article-card a').forEach(link => {
       link.addEventListener('click', () => {
-        sessionStorage.setItem('fachwissenScrollY', String(window.scrollY));
-        sessionStorage.setItem('fachwissenArticlePath', new URL(link.href, location.href).pathname);
+        history.replaceState({
+          ...(history.state || {}),
+          fachwissenScrollY: window.scrollY,
+          fachwissenArticlePath: new URL(link.href, location.href).pathname
+        }, '');
       });
     });
   }
-
-  document.querySelectorAll('.article-back').forEach(link => {
-    link.addEventListener('click', event => {
-      const savedY = Number(sessionStorage.getItem('fachwissenScrollY'));
-      if (!Number.isFinite(savedY)) return;
-      event.preventDefault();
-      sessionStorage.setItem('fachwissenReturnPending', '1');
-      location.href = link.href;
-    });
-  });
 
   const updateScrollEffects = () => {
     document.querySelectorAll('[data-parallax]').forEach(el => {

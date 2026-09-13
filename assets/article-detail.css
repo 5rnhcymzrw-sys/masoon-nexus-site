@@ -19,11 +19,6 @@ html body.site-light-page main.article-main{padding:234px 0 126px!important}
     .article-body ul{max-width:none;margin:8px 0 34px;padding:0;list-style:none}
     .article-body li{position:relative;margin:0 0 4px;padding-left:23px}
     .article-body li::before{content:"";position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279}
-    .article-top-back{width:91%;max-width:1227px;margin:0 auto 28px;padding:0 140px;box-sizing:border-box}
-    .article-back--top{margin-top:0!important}
-    .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}
-    .article-back:hover,.article-back:focus-visible{color:#171715!important}
-    .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-1px!important}
     @media(min-width:801px){.article-title{font-size:45px!important}}
 
     /* Verbindliche Artikelwerte */
@@ -32,7 +27,6 @@ html body.site-light-page main.article-main{padding:234px 0 126px!important}
     html body.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;color:#484a4f!important}
     @media(max-width:800px){
       html body.site-light-page main.article-main{padding:170px 0 96px!important}
-      .article-top-back{width:91%;padding:0 26px;margin-bottom:24px}
       .article-overline{margin-bottom:24px!important;padding:0 26px!important}
       .article-shell{padding:52px 26px!important;display:block!important}
       .article-hero{padding-bottom:40px}

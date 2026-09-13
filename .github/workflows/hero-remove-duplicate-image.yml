@@ -1,0 +1,60 @@
+name: Hero remove duplicate image
+
+on:
+  push:
+    paths:
+      - '.github/workflows/hero-remove-duplicate-image.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove duplicate hero image from existing CSS rule
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          css_path = Path('assets/global.css')
+          css = css_path.read_text()
+
+          old = '.home-hero{background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url("../Foto-hero.png")!important;background-position:50% 50%,50% 50%,50% 12%!important;background-size:cover!important;background-repeat:no-repeat!important;}'
+          new = '.home-hero{background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d)!important;background-position:50% 50%,50% 50%!important;background-size:cover!important;background-repeat:no-repeat!important;}'
+
+          if css.count(old) != 1:
+              raise SystemExit(f'Expected exactly one old hero rule, found {css.count(old)}')
+          if css.count(new) != 0:
+              raise SystemExit('New hero rule already exists')
+
+          css = css.replace(old, new, 1)
+          css_path.write_text(css)
+
+          index_path = Path('index.html')
+          html = index_path.read_text()
+          html = re.sub(r'(assets/global\.css\?v=)[^"\']+', r'\1hero-single-image-20260913-1', html, count=1)
+          index_path.write_text(html)
+
+          check_css = css_path.read_text()
+          check_html = index_path.read_text()
+          if 'url("../Foto-hero.png")' in check_css:
+              raise SystemExit('Duplicate hero CSS image URL still exists')
+          if check_css.count(new) != 1:
+              raise SystemExit('Updated existing hero rule not found exactly once')
+          if check_html.count('href="Foto-hero.png" fetchpriority="high"') != 1:
+              raise SystemExit('Hero preload missing or duplicated')
+          if check_html.count('class="home-hero__portrait-image" src="Foto-hero.png"') != 1:
+              raise SystemExit('Visible hero image missing or duplicated')
+          PY
+      - name: Commit cleanup
+        run: |
+          rm -f .github/workflows/hero-remove-duplicate-image.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo 'No changes'; exit 1; }
+          git commit -m "Hero: doppelte CSS-Bildquelle entfernen"
+          git push

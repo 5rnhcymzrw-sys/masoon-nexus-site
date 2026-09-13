@@ -22,8 +22,8 @@ jobs:
           page = Path('index.html')
           html = page.read_text()
 
-          # Bestehenden Hero-Preload auf exakt dieselbe Ressourcen-URL wie im CSS bringen
-          # und vor die Stylesheets verschieben.
+          # Bestehenden Preload entfernen und mit exakt derselben URL wie CSS und Hero-img
+          # direkt nach der Description wieder einsetzen.
           preload_re = re.compile(r'\s*<link rel="preload" as="image" href="Foto-hero\.png(?:\?v=[^"]+)?" fetchpriority="high"\s*/>\s*')
           matches = list(preload_re.finditer(html))
           if len(matches) != 1:
@@ -33,31 +33,36 @@ jobs:
           marker = '<meta name="description" content="Treuhand, Buchhaltung, Personaladministration, Jahresabschluss, Steuern und Unternehmensberatung in Luzern." />'
           if html.count(marker) != 1:
               raise SystemExit('Description marker not found exactly once')
-          preload = '\n  <link rel="preload" as="image" href="Foto-hero.png" fetchpriority="high" />'
-          html = html.replace(marker, marker + preload, 1)
+          html = html.replace(marker, marker + '\n  <link rel="preload" as="image" href="Foto-hero.png" fetchpriority="high" />', 1)
 
-          token = 'hero-preload-clean-20260913-1'
+          # Bestehendes Hero-img auf dieselbe URL ohne separaten Query-String umstellen.
+          old_src = 'src="Foto-hero.png?v=20260812-7"'
+          if html.count(old_src) != 1:
+              raise SystemExit(f'Expected exactly one versioned hero image src, found {html.count(old_src)}')
+          html = html.replace(old_src, 'src="Foto-hero.png"', 1)
+
+          # Nur vorhandenen Cache-Token der Startseiten-CSS aktualisieren.
+          token = 'hero-preload-clean-20260913-2'
           html = re.sub(r'(assets/global\.css\?v=)[^"\']+', rf'\1{token}', html, count=1)
           page.write_text(html)
 
-          # Hero-Regel auditieren. Sie existiert aktuell nur einmal in global.css;
-          # deshalb nichts loeschen und keine neue Regel erzeugen.
-          global_css = Path('assets/global.css')
-          base_css = Path('assets/unified-design-base-20260907.css')
-          g = global_css.read_text()
-          b = base_css.read_text()
+          # Bestehende Hero-CSS-Regel auditieren, aber nicht veraendern.
+          global_css = Path('assets/global.css').read_text()
+          base_css = Path('assets/unified-design-base-20260907.css').read_text()
           hero_rule = '.home-hero{background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d),url("../Foto-hero.png")!important;background-position:50% 50%,50% 50%,50% 12%!important;background-size:cover!important;background-repeat:no-repeat!important;}'
-          if g.count(hero_rule) != 1:
-              raise SystemExit(f'global.css: expected exactly one active hero image rule, found {g.count(hero_rule)}')
-          if b.count(hero_rule) != 0:
-              raise SystemExit(f'Unexpected duplicate hero rule in base CSS: {b.count(hero_rule)}')
+          if global_css.count(hero_rule) != 1:
+              raise SystemExit(f'global.css: expected exactly one active hero image rule, found {global_css.count(hero_rule)}')
+          if base_css.count(hero_rule) != 0:
+              raise SystemExit(f'Unexpected duplicate hero rule in base CSS: {base_css.count(hero_rule)}')
 
-          # Verifikation des Preloads.
+          # Verifikation: Preload, CSS und img verwenden nun dieselbe Bild-URL.
           check = page.read_text()
           if check.count('href="Foto-hero.png" fetchpriority="high"') != 1:
               raise SystemExit('Hero preload does not use exact image URL')
+          if check.count('src="Foto-hero.png"') != 1:
+              raise SystemExit('Hero img does not use exact image URL')
           if 'Foto-hero.png?v=' in check:
-              raise SystemExit('Old versioned preload URL still present')
+              raise SystemExit('A versioned hero image URL is still present')
           if check.find('href="Foto-hero.png" fetchpriority="high"') > check.find('assets/index-CZfMKxM_.css'):
               raise SystemExit('Hero preload is still after stylesheet links')
           PY
@@ -68,5 +73,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git diff --cached --quiet && { echo 'No changes'; exit 1; }
-          git commit -m "Hero: Bild-Preload vorziehen und URL angleichen"
+          git commit -m "Hero: Bild-Preload und Bildquelle vereinheitlichen"
           git push

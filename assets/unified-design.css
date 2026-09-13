@@ -956,7 +956,7 @@ html body.page-knowledge.site-light-page main .knowledge-section .article-card .
   font-weight:300!important;
   line-height:1!important;
   letter-spacing:0!important;
-  color:#777777!important;
+  color:inherit!important;
 }
 
 html body.page-knowledge.site-light-page:has(#knowledge-articles){

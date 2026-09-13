@@ -1,0 +1,83 @@
+name: article-title-fullwidth
+
+on:
+  push:
+    paths:
+      - '.github/workflows/article-title-fullwidth.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Widen existing article title rules
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          unified_path = Path('assets/unified-design.css')
+          unified = unified_path.read_text(encoding='utf-8')
+          classes = [
+              'page-article-tax-checklist',
+              'page-article-employment-termination',
+              'page-article-company-formation',
+              'page-article-company-forms',
+              'page-article-false-accounting',
+          ]
+          for cls in classes:
+              old = f'body.{cls} .article-title{{max-width:var(--title-width)!important;'
+              new = f'body.{cls} .article-title{{max-width:100%!important;'
+              count = unified.count(old)
+              if count != 1:
+                  raise SystemExit(f'Unexpected title rule count for {cls}: {count}')
+              unified = unified.replace(old, new)
+          unified_path.write_text(unified, encoding='utf-8')
+
+          detail_path = Path('assets/article-detail.css')
+          detail = detail_path.read_text(encoding='utf-8')
+          old_detail = '.article-title{max-width:var(--title-width)!important;'
+          new_detail = '.article-title{max-width:100%!important;'
+          if detail.count(old_detail) != 1:
+              raise SystemExit(f'Unexpected shared article title rule count: {detail.count(old_detail)}')
+          detail = detail.replace(old_detail, new_detail)
+          detail_path.write_text(detail, encoding='utf-8')
+
+          article_pages = sorted(Path('fachwissen').glob('*/index.html'))
+          if len(article_pages) != 7:
+              raise SystemExit(f'Expected 7 article pages, found {len(article_pages)}')
+
+          token = 'article-title-fullwidth-20260913-1'
+          for path in article_pages:
+              html = path.read_text(encoding='utf-8')
+              html, unified_count = re.subn(
+                  r'unified-design\.css\?v=[^"\']+',
+                  f'unified-design.css?v={token}',
+                  html,
+              )
+              if unified_count != 1:
+                  raise SystemExit(f'Unexpected unified-design reference count in {path}: {unified_count}')
+              html = re.sub(
+                  r'article-detail\.css\?v=[^"\']+',
+                  f'article-detail.css?v={token}',
+                  html,
+              )
+              path.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Commit title width cleanup
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/unified-design.css assets/article-detail.css fachwissen/*/index.html
+          git rm .github/workflows/article-title-fullwidth.yml
+          git commit -m "Fachwissen: Blogtitel auf volle Inhaltsbreite setzen"
+          git push

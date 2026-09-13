@@ -1,0 +1,89 @@
+name: Article back hover dark
+
+on:
+  push:
+    paths:
+      - '.github/workflows/article-back-hover-dark.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bestehende Zurueck-Regeln um Hover erweitern
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          unified = Path('assets/unified-design.css')
+          text = unified.read_text()
+          page_classes = [
+              'page-article-tax-checklist',
+              'page-article-employment-termination',
+              'page-article-company-formation',
+              'page-article-company-forms',
+              'page-article-false-accounting',
+          ]
+          for cls in page_classes:
+              base = f'body.{cls} .article-back{{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}}'
+              if text.count(base) != 1:
+                  raise SystemExit(f'Expected one base article-back rule for {cls}, found {text.count(base)}')
+              hover = f'body.{cls} .article-back:hover,\nbody.{cls} .article-back:focus-visible{{color:#171715!important}}'
+              text = text.replace(base, base + '\n    ' + hover, 1)
+          unified.write_text(text)
+
+          detail = Path('assets/article-detail.css')
+          d = detail.read_text()
+          base_detail = '    .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}'
+          if d.count(base_detail) != 1:
+              raise SystemExit(f'Expected one shared article-back rule, found {d.count(base_detail)}')
+          hover_detail = '    .article-back:hover,.article-back:focus-visible{color:#171715!important}'
+          d = d.replace(base_detail, base_detail + '\n' + hover_detail, 1)
+          detail.write_text(d)
+
+          unified_pages = [
+              'fachwissen/checkliste-steuererklaerung/index.html',
+              'fachwissen/unternehmen-gruenden/index.html',
+              'fachwissen/unternehmensformen/index.html',
+              'fachwissen/kuendigung-arbeitsvertrag/index.html',
+              'fachwissen/unwahre-buchfuehrung/index.html',
+          ]
+          for p in unified_pages:
+              path = Path(p)
+              h = path.read_text()
+              nh = re.sub(r'(\.\./\.\./assets/unified-design\.css\?v=)[^"\']+', r'\1article-back-hover-dark-20260913-1', h, count=1)
+              if nh == h:
+                  raise SystemExit(f'Could not update unified-design cache token in {p}')
+              path.write_text(nh)
+
+          detail_pages = [
+              'fachwissen/gewinnverwendung/index.html',
+              'fachwissen/missbraeuchliche-konkurse/index.html',
+          ]
+          for p in detail_pages:
+              path = Path(p)
+              h = path.read_text()
+              nh = re.sub(r'(\.\./\.\./assets/article-detail\.css\?v=)[^"\']+', r'\1article-back-hover-dark-20260913-1', h, count=1)
+              if nh == h:
+                  raise SystemExit(f'Could not update article-detail cache token in {p}')
+              path.write_text(nh)
+
+          # Verifikation: Basisfarben bleiben unveraendert, Hover ist nur direkt an bestehenden Artikelregeln ergaenzt.
+          if unified.read_text().count('article-back:focus-visible{color:#171715!important}') < 5:
+              raise SystemExit('Not all five page-specific hover states were written')
+          if '.article-back:hover,.article-back:focus-visible{color:#171715!important}' not in detail.read_text():
+              raise SystemExit('Shared article hover state missing')
+          PY
+      - name: Commit und temporaeren Workflow entfernen
+        run: |
+          rm -f .github/workflows/article-back-hover-dark.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo 'No changes'; exit 1; }
+          git commit -m "Blogs: Zurück zu Fachwissen bei Hover dunkel"
+          git push

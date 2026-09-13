@@ -19,55 +19,57 @@ jobs:
           from pathlib import Path
           import re
 
-          repo_files = [Path('assets/global.css'), Path('assets/unified-design-base-20260907.css')]
-          old_rule = '.home-paths__grid span{order:2!important;margin:12px 0 0!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:#171715!important;}'
-          new_rule = old_rule.replace('color:#171715!important;', 'color:#777777!important;')
-          for path in repo_files:
+          # 1) Bestehende direkte Kategorie-Regel in beiden geladenen Designquellen anpassen.
+          for path in [Path('assets/global.css'), Path('assets/unified-design-base-20260907.css')]:
               text = path.read_text()
-              if text.count(old_rule) != 1:
-                  raise SystemExit(f'{path}: expected exactly one existing category rule, found {text.count(old_rule)}')
-              path.write_text(text.replace(old_rule, new_rule, 1))
+              pattern = re.compile(r'(\.home-paths__grid span\{[^{}]*?)color:#171715!important;([^{}]*\})', re.S)
+              matches = list(pattern.finditer(text))
+              if len(matches) != 1:
+                  raise SystemExit(f'{path}: expected exactly one existing dark home-paths category rule, found {len(matches)}')
+              text = pattern.sub(r'\1color:#777777!important;\2', text, count=1)
+              path.write_text(text)
 
+          # 2) Die alte gemeinsame Metadatenregel sauber trennen, damit NACHNAME dunkel bleibt,
+          #    die drei Startseiten-Kategorien aber #777777 wie die Bereichstitel erhalten.
           base = Path('assets/unified-design-base-20260907.css')
           text = base.read_text()
           contact_sel = 'html body main .contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label.contact-split__form-label'
           category_sel = 'html body main .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid span'
-          pattern = re.compile(re.escape(contact_sel + ',\n' + category_sel) + r'\{\n(?P<body>.*?)\n\}', re.S)
-          matches = list(pattern.finditer(text))
+          combined = re.compile(re.escape(contact_sel + ',\n' + category_sel) + r'\{\n(?P<body>.*?)\n\}', re.S)
+          matches = list(combined.finditer(text))
           if len(matches) != 1:
               raise SystemExit(f'Expected exactly one combined metadata rule, found {len(matches)}')
           body = matches[0].group('body')
           if body.count('color:#171715!important;') != 1:
-              raise SystemExit('Combined metadata rule does not contain the expected dark color exactly once')
+              raise SystemExit('Combined metadata rule must contain one dark color')
           category_body = body.replace('color:#171715!important;', 'color:#777777!important;', 1)
           replacement = contact_sel + '{\n' + body + '\n}\n' + category_sel + '{\n' + category_body + '\n}'
           text = text[:matches[0].start()] + replacement + text[matches[0].end():]
           base.write_text(text)
 
-          # Cache-Busting bestehender Stylesheets, ohne neue CSS-Regeln anzuhängen.
+          # 3) Bestehende Cache-Tokens aktualisieren.
           unified = Path('assets/unified-design.css')
           u = unified.read_text()
-          u2 = re.sub(r"(unified-design-base-20260907\.css\?v=)[^')\"]+", r'\1home-fachwissen-category-section-grey-20260913-1', u, count=1)
+          u2 = re.sub(r"(unified-design-base-20260907\.css\?v=)[^')\"]+", r'\1home-fachwissen-category-section-grey-20260913-2', u, count=1)
           if u2 == u:
               raise SystemExit('Could not update base CSS import cache token')
           unified.write_text(u2)
 
           page = Path('index.html')
           h = page.read_text()
-          h2 = re.sub(r'(assets/global\.css\?v=)[^"\']+', r'\1home-fachwissen-category-section-grey-20260913-1', h, count=1)
-          h2 = re.sub(r'(assets/unified-design\.css\?v=)[^"\']+', r'\1home-fachwissen-category-section-grey-20260913-1', h2, count=1)
+          h2 = re.sub(r'(assets/global\.css\?v=)[^"\']+', r'\1home-fachwissen-category-section-grey-20260913-2', h, count=1)
+          h2 = re.sub(r'(assets/unified-design\.css\?v=)[^"\']+', r'\1home-fachwissen-category-section-grey-20260913-2', h2, count=1)
           if h2 == h:
               raise SystemExit('Could not update start page cache tokens')
           page.write_text(h2)
 
-          # Verifikation: Kategorien sind in beiden bestehenden Basisregeln #777777; Formularlabel bleibt #171715.
-          for path in repo_files:
+          # 4) Verifikation: keine alte dunkle Kategorie-Regel bleibt aktiv; Formularlabel bleibt dunkel.
+          for path in [Path('assets/global.css'), Path('assets/unified-design-base-20260907.css')]:
               check = path.read_text()
-              if new_rule not in check:
-                  raise SystemExit(f'{path}: grey category rule missing after update')
+              old_dark = re.findall(r'\.home-paths__grid span\{[^{}]*color:#171715!important;[^{}]*\}', check, re.S)
+              if old_dark:
+                  raise SystemExit(f'{path}: old dark category rule still present')
           check = base.read_text()
-          if contact_sel + '{' not in check or category_sel + '{' not in check:
-              raise SystemExit('Split metadata rules missing')
           contact_block = re.search(re.escape(contact_sel) + r'\{\n(.*?)\n\}', check, re.S).group(1)
           category_block = re.search(re.escape(category_sel) + r'\{\n(.*?)\n\}', check, re.S).group(1)
           if 'color:#171715!important;' not in contact_block:

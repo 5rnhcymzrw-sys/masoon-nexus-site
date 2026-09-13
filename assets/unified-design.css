@@ -309,7 +309,7 @@ html body.page-home.site-light-page main.home section.home-paths .home-paths__gr
 }
 html body.page-home.site-light-page main.home section.home-values .home-action-button::before{opacity:1!important;}
 
-html body.page-home.site-light-page main.home section.home-values .home-action-button{margin-left:20px!important;color:#777777!important;}
+html body.page-home.site-light-page main.home section.home-values .home-action-button{margin-left:20px!important;}
 html body.page-home.site-light-page main.home section.home-values .home-action-button>span{transform:translateY(-1px)!important;}
 
 html body.page-home.site-light-page main.home section.home-paths>p .home-action-button,

@@ -1,0 +1,98 @@
+from pathlib import Path
+import re
+
+article_paths = [
+    Path('fachwissen/checkliste-steuererklaerung/index.html'),
+    Path('fachwissen/unternehmen-gruenden/index.html'),
+    Path('fachwissen/unternehmensformen/index.html'),
+    Path('fachwissen/kuendigung-arbeitsvertrag/index.html'),
+    Path('fachwissen/unwahre-buchfuehrung/index.html'),
+    Path('fachwissen/gewinnverwendung/index.html'),
+    Path('fachwissen/missbraeuchliche-konkurse/index.html'),
+]
+
+for path in article_paths:
+    text = path.read_text(encoding='utf-8')
+    text, top_count = re.subn(r'\s*<div class="article-top-back">.*?</div>\s*', '\n', text, count=1, flags=re.S)
+    text, bottom_count = re.subn(r'\s*<a class="article-back mt-nav-typography" href="\.\./index\.html">.*?</a>\s*', '\n', text, count=1, flags=re.S)
+    if top_count != 1 or bottom_count != 1:
+        raise SystemExit(f'Unexpected back-link count in {path}: top={top_count}, bottom={bottom_count}')
+    text, script_count = re.subn(r'assets/site\.js\?v=[^"\']+', 'assets/site.js?v=20260913-fachwissen-browser-back-1', text)
+    if script_count != 1:
+        raise SystemExit(f'Unexpected site.js count in {path}: {script_count}')
+    path.write_text(text, encoding='utf-8')
+
+main_path = Path('fachwissen/index.html')
+main_text = main_path.read_text(encoding='utf-8')
+main_text, main_script_count = re.subn(r'assets/site\.js\?v=[^"\']+', 'assets/site.js?v=20260913-fachwissen-browser-back-1', main_text)
+if main_script_count != 1:
+    raise SystemExit(f'Unexpected site.js count in Fachwissen index: {main_script_count}')
+main_path.write_text(main_text, encoding='utf-8')
+
+site_path = Path('assets/site.js')
+site = site_path.read_text(encoding='utf-8')
+start_marker = '  /* Fachwissen: Beim Zur\u00fcck-Link zur vorherigen Position zur\u00fcckkehren. */'
+end_marker = '  const updateScrollEffects = () => {'
+start = site.find(start_marker)
+end = site.find(end_marker, start)
+if start < 0 or end < 0:
+    raise SystemExit('Existing Fachwissen return block was not found')
+
+replacement = '''  /* Fachwissen: Browser-Zurueck stellt die Position des geoeffneten Beitrags wieder her. */
+  const fachwissenPath = /\\/fachwissen\\/(?:index\\.html)?$/;
+  if (fachwissenPath.test(location.pathname)) {
+    const restoreFachwissenPosition = () => {
+      const state = history.state || {};
+      const savedY = Number(state.fachwissenScrollY);
+      const savedArticle = state.fachwissenArticlePath;
+      if (!savedArticle && !Number.isFinite(savedY)) return;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        const matchingLink = [...document.querySelectorAll('.knowledge-section .article-card a')].find(link => {
+          return new URL(link.href, location.href).pathname === savedArticle;
+        });
+        const card = matchingLink && matchingLink.closest('.article-card');
+        if (card) card.scrollIntoView({ block: 'center', inline: 'nearest' });
+        else if (Number.isFinite(savedY)) window.scrollTo(0, savedY);
+      }));
+    };
+
+    const navigationEntry = performance.getEntriesByType('navigation')[0];
+    window.addEventListener('pageshow', event => {
+      if (event.persisted || (navigationEntry && navigationEntry.type === 'back_forward')) {
+        restoreFachwissenPosition();
+      }
+    });
+
+    document.querySelectorAll('.knowledge-section .article-card a').forEach(link => {
+      link.addEventListener('click', () => {
+        history.replaceState({
+          ...(history.state || {}),
+          fachwissenScrollY: window.scrollY,
+          fachwissenArticlePath: new URL(link.href, location.href).pathname
+        }, '');
+      });
+    });
+  }
+
+'''
+site = site[:start] + replacement + site[end:]
+if 'fachwissenReturnPending' in site or "document.querySelectorAll('.article-back')" in site:
+    raise SystemExit('Obsolete Fachwissen return code remains in site.js')
+site_path.write_text(site, encoding='utf-8')
+
+for css_path in [Path('assets/unified-design.css'), Path('assets/article-detail.css')]:
+    css = css_path.read_text(encoding='utf-8')
+    lines = css.splitlines()
+    kept = [line for line in lines if 'article-back' not in line and 'article-top-back' not in line]
+    css = '\n'.join(kept) + ('\n' if css.endswith('\n') else '')
+    if 'article-back' in css or 'article-top-back' in css:
+        raise SystemExit(f'Obsolete article back CSS remains in {css_path}')
+    css_path.write_text(css, encoding='utf-8')
+
+global_path = Path('assets/global.css')
+global_css = global_path.read_text(encoding='utf-8')
+count = global_css.count(':not(.article-back)')
+if count != 1:
+    raise SystemExit(f'Unexpected article-back exclusion count in global.css: {count}')
+global_css = global_css.replace(':not(.article-back)', '')
+global_path.write_text(global_css, encoding='utf-8')

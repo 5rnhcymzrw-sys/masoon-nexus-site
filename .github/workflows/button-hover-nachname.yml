@@ -1,0 +1,111 @@
+name: Button hover Nachname
+
+on:
+  push:
+    paths:
+      - '.github/workflows/button-hover-nachname.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bestehende Hover-Farben anpassen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          TARGET = '#171715!important'
+          CACHE = 'button-hover-nachname-20260913-1'
+          target_markers = (
+              '.home-action-button',
+              '.home-paths__action',
+              '.services-contact-button',
+              '.details-action',
+              '.article-action',
+              '.article-back',
+              'button[type="submit"]',
+          )
+          state_markers = (':hover', ':focus-visible', ':focus', ':active')
+          rule_re = re.compile(r'([^{}]+)\{([^{}]*)\}', re.S)
+          color_re = re.compile(r'(?<![-\w])color\s*:\s*[^;}]+' , re.I)
+
+          changed = set()
+          touched_rules = []
+
+          for path in sorted(Path('assets').glob('*.css')):
+              before = path.read_text()
+              text = before
+              out = []
+              last = 0
+              local_changes = 0
+
+              for m in rule_re.finditer(text):
+                  selector = m.group(1)
+                  body = m.group(2)
+                  s = ' '.join(selector.split())
+                  if not any(t in s for t in target_markers):
+                      continue
+                  if not any(st in s for st in state_markers):
+                      continue
+                  if not color_re.search(body):
+                      continue
+
+                  new_body, count = color_re.subn('color:' + TARGET, body)
+                  if not count or new_body == body:
+                      continue
+
+                  out.append(text[last:m.start()])
+                  out.append(selector + '{' + new_body + '}')
+                  last = m.end()
+                  local_changes += count
+                  touched_rules.append((str(path), s, count))
+
+              if local_changes:
+                  out.append(text[last:])
+                  after = ''.join(out)
+                  # Guardrail: only color declarations may differ in CSS content.
+                  strip = lambda x: color_re.sub('color:__COLOR__', x)
+                  if strip(before) != strip(after):
+                      raise SystemExit(f'Unexpected non-colour change in {path}')
+                  path.write_text(after)
+                  changed.add(path)
+
+          if not changed:
+              raise SystemExit('No existing interactive button/action colour declarations were changed')
+
+          # Cache-bust only stylesheets that actually changed.
+          changed_names = {p.name for p in changed}
+          html_changed = 0
+          for page in [p for p in sorted(Path('.').rglob('*.html')) if '.git' not in p.parts]:
+              h = page.read_text(errors='ignore')
+              nh = h
+              for name in changed_names:
+                  nh = re.sub(
+                      r'((?:\.\./)*assets/' + re.escape(name) + r'\?v=)[^"\']+',
+                      r'\1' + CACHE,
+                      nh,
+                  )
+              if nh != h:
+                  page.write_text(nh)
+                  html_changed += 1
+
+          print('Changed CSS:', [str(p) for p in sorted(changed)])
+          print('Changed existing interactive rules:', len(touched_rules))
+          for item in touched_rules:
+              print(item)
+          print('HTML cache tokens changed:', html_changed)
+          PY
+      - name: Commit und temporären Workflow entfernen
+        run: |
+          rm -f .github/workflows/button-hover-nachname.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo 'No changes'; exit 1; }
+          git commit -m "Button-Hover: gleiche Dunkelfarbe wie Nachname"
+          git push

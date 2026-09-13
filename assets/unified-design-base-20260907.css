@@ -1265,7 +1265,7 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
   text-decoration:none!important;
   text-shadow:none!important;
   -webkit-text-stroke:0!important;
-  color:#777777!important;
+  color:var(--article-action-color,#777777)!important;
   opacity:1!important;
 }
 

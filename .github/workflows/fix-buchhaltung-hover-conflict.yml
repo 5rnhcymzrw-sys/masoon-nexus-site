@@ -1,0 +1,53 @@
+name: Fix Buchhaltung hover conflict
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-buchhaltung-hover-conflict.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Alte Buchhaltung-Farbregel entfernen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('assets/global.css')
+          text = path.read_text()
+          old = '.services-section>.services-grid>.service-card:nth-child(2) .details-action{color:#777777!important;}'
+          count = text.count(old)
+          if count != 2:
+              raise SystemExit(f'global.css: expected exactly 2 old Buchhaltung action-colour rules, found {count}')
+          text = text.replace(old, '')
+          if old in text:
+              raise SystemExit('global.css: old Buchhaltung action-colour rule still present')
+          path.write_text(text)
+
+          cache = 'buchhaltung-hover-clean-20260913-1'
+          html_changed = 0
+          for page in [p for p in sorted(Path('.').rglob('*.html')) if '.git' not in p.parts]:
+              h = page.read_text(errors='ignore')
+              nh = re.sub(r'((?:\.\./)*assets/global\.css\?v=)[^"\']+', r'\1' + cache, h)
+              if nh != h:
+                  page.write_text(nh)
+                  html_changed += 1
+
+          print('Removed old Buchhaltung details-action rules:', count)
+          print('Updated global.css cache tokens:', html_changed)
+          PY
+      - name: Commit und temporären Workflow entfernen
+        run: |
+          rm -f .github/workflows/fix-buchhaltung-hover-conflict.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo 'No changes'; exit 1; }
+          git commit -m "Buchhaltung: alte Hover-Farbregel entfernen"
+          git push

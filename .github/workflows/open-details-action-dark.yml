@@ -1,0 +1,53 @@
+name: Open details action dark
+
+on:
+  push:
+    paths:
+      - '.github/workflows/open-details-action-dark.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bestehende Mehr-anzeigen-Regel anpassen
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          css = Path('assets/dienstleistungen.css')
+          text = css.read_text()
+          old = '.services-section .service-card:hover .details-action{display:inline-block!important;color:#171715!important;opacity:1!important;visibility:visible!important;}'
+          new = '.services-section .service-card:hover .details-action,\n.services-section .service-card[open] .details-action{display:inline-block!important;color:#171715!important;opacity:1!important;visibility:visible!important;}'
+          if text.count(old) != 1:
+              raise SystemExit(f'Expected exactly one existing hover rule, found {text.count(old)}')
+          text = text.replace(old, new, 1)
+          css.write_text(text)
+
+          page = Path('dienstleistungen/index.html')
+          html = page.read_text()
+          cache = 'details-open-dark-20260913-1'
+          html2 = re.sub(r'(../assets/dienstleistungen\.css\?v=)[^"\']+', r'\1' + cache, html, count=1)
+          if html2 == html:
+              raise SystemExit('Could not update dienstleistungen.css cache token')
+          page.write_text(html2)
+
+          # Verifikation: keine neue CSS-Regel, nur bestehende Hover-Regel um [open] erweitert.
+          check = css.read_text()
+          if new not in check:
+              raise SystemExit('Adjusted existing state rule not found after write')
+          print('Existing hover rule extended with open state; no new standalone rule added')
+          PY
+      - name: Commit und temporären Workflow entfernen
+        run: |
+          rm -f .github/workflows/open-details-action-dark.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo 'No changes'; exit 1; }
+          git commit -m "Dienstleistungen: Mehr anzeigen im offenen Zustand dunkel"
+          git push

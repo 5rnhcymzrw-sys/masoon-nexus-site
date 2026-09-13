@@ -6,7 +6,8 @@ html body.site-light-page main.article-main{padding:234px 0 126px!important}
 /* Fachbeiträge: einspaltig, linksbündig und mit kontrollierter Textbreite */
 html body.site-light-page main.article-main .article-shell{
   padding:67.5px 72px 53.5px!important;
-  border:1px solid #d7d5d1!important;
+  border:1px solid transparent!important;
+  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
   display:block!important;
   text-align:left!important;
 }

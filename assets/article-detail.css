@@ -38,6 +38,13 @@ html body.site-light-page main.article-main .article-title{
   max-width:100%!important;
   align-self:baseline!important;
   text-align:left!important;
+  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
+  font-weight:400!important;
+  line-height:1.05!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+  font-style:normal!important;
+  -webkit-text-stroke:.25px currentColor!important;
   color:#171715!important;
 }
 html body.site-light-page main.article-main .article-lead{
@@ -79,7 +86,9 @@ html body.site-light-page .article-body h2+p{margin-top:23px!important}
 .article-body ul{max-width:none;margin:8px 0 34px;padding:0;list-style:none}
 .article-body li{position:relative;margin:0 0 4px;padding-left:23px}
 .article-body li::before{content:"";position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279}
-@media(min-width:801px){.article-title{font-size:45px!important}}
+@media(min-width:801px){
+  html body.site-light-page main.article-main .article-title{font-size:50px!important}
+}
 
 /* Verbindliche Artikelwerte */
 html body.site-light-page .article-body h2{font-family:Georgia,"Times New Roman",serif!important;font-size:22px!important;font-weight:700!important;line-height:1.1!important;letter-spacing:-.02em!important;color:#171715!important}

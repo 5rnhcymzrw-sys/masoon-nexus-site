@@ -1,0 +1,88 @@
+name: Article back arrow up
+
+on:
+  push:
+    paths:
+      - '.github/workflows/article-back-arrow-up.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bestehende Zurueck-Pfeil-Regeln 1 Pixel anheben
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          files = [Path('assets/unified-design.css'), Path('assets/article-detail.css')]
+          total = 0
+          for path in files:
+              text = path.read_text()
+              rule_re = re.compile(r'(?P<sel>[^{}]+)\{(?P<body>[^{}]*)\}', re.S)
+              replacements = []
+              changed = 0
+              for m in rule_re.finditer(text):
+                  sel = m.group('sel')
+                  body = m.group('body')
+                  if '.article-back span' not in sel:
+                      continue
+                  if 'vertical-align:-2px' not in body:
+                      continue
+                  new_body = body.replace('vertical-align:-2px', 'vertical-align:-1px')
+                  replacements.append((m.start('body'), m.end('body'), new_body))
+                  changed += 1
+              for a, b, repl in reversed(replacements):
+                  text = text[:a] + repl + text[b:]
+              if changed:
+                  path.write_text(text)
+                  total += changed
+                  print(f'{path}: {changed} bestehende article-back-Pfeil-Regeln von -2px auf -1px geaendert')
+
+          if total < 6:
+              raise SystemExit(f'Zu wenige bestehende article-back-Pfeil-Regeln gefunden: {total}')
+
+          # Verifikation: keine article-back-span-Regel darf noch vertical-align:-2px enthalten.
+          for path in files:
+              text = path.read_text()
+              for m in re.finditer(r'(?P<sel>[^{}]+)\{(?P<body>[^{}]*)\}', text, re.S):
+                  if '.article-back span' in m.group('sel') and 'vertical-align:-2px' in m.group('body'):
+                      raise SystemExit(f'{path}: alte -2px-Regel noch vorhanden')
+
+          token = 'article-back-arrow-up-20260913-1'
+          article_pages = [
+              Path('fachwissen/checkliste-steuererklaerung/index.html'),
+              Path('fachwissen/unternehmen-gruenden/index.html'),
+              Path('fachwissen/unternehmensformen/index.html'),
+              Path('fachwissen/kuendigung-arbeitsvertrag/index.html'),
+              Path('fachwissen/unwahre-buchfuehrung/index.html'),
+              Path('fachwissen/gewinnverwendung/index.html'),
+              Path('fachwissen/missbraeuchliche-konkurse/index.html'),
+          ]
+          for path in article_pages:
+              h = path.read_text()
+              nh = re.sub(r'(\.\./\.\./assets/unified-design\.css\?v=)[^"\']+', rf'\1{token}', h, count=1)
+              if nh == h:
+                  raise SystemExit(f'{path}: unified-design cache token konnte nicht aktualisiert werden')
+              path.write_text(nh)
+
+          for path in [Path('fachwissen/gewinnverwendung/index.html'), Path('fachwissen/missbraeuchliche-konkurse/index.html')]:
+              h = path.read_text()
+              nh = re.sub(r'(\.\./\.\./assets/article-detail\.css\?v=)[^"\']+', rf'\1{token}', h, count=1)
+              if nh == h:
+                  raise SystemExit(f'{path}: article-detail cache token konnte nicht aktualisiert werden')
+              path.write_text(nh)
+          PY
+      - name: Commit und temporaeren Workflow entfernen
+        run: |
+          rm -f .github/workflows/article-back-arrow-up.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo 'No changes'; exit 1; }
+          git commit -m "Blogs: Zurück-Pfeil 1 Pixel anheben"
+          git push

@@ -1082,7 +1082,7 @@ body.page-article-tax-checklist .article-table-wrap td:last-child{border-right:0
     body.page-article-tax-checklist .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}
     body.page-article-tax-checklist .article-back:hover,
 body.page-article-tax-checklist .article-back:focus-visible{color:#171715!important}
-    body.page-article-tax-checklist .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-2px}
+    body.page-article-tax-checklist .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-1px}
     @media(min-width:801px){body.page-article-tax-checklist .article-title{font-size:45px!important}}
 
 
@@ -1151,7 +1151,7 @@ body.page-article-employment-termination .article-table-wrap td:last-child{borde
     body.page-article-employment-termination .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}
     body.page-article-employment-termination .article-back:hover,
 body.page-article-employment-termination .article-back:focus-visible{color:#171715!important}
-    body.page-article-employment-termination .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-2px}
+    body.page-article-employment-termination .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-1px}
     @media(min-width:801px){body.page-article-employment-termination .article-title{font-size:45px!important}}
 
 
@@ -1216,7 +1216,7 @@ body.page-article-company-formation .article-table-wrap td:last-child{border-rig
     body.page-article-company-formation .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}
     body.page-article-company-formation .article-back:hover,
 body.page-article-company-formation .article-back:focus-visible{color:#171715!important}
-    body.page-article-company-formation .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-2px}
+    body.page-article-company-formation .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-1px}
     @media(min-width:801px){body.page-article-company-formation .article-title{font-size:45px!important}}
 
 
@@ -1283,7 +1283,7 @@ body.page-article-company-forms .article-table-wrap td:last-child{border-right:0
     body.page-article-company-forms .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important;}
     body.page-article-company-forms .article-back:hover,
 body.page-article-company-forms .article-back:focus-visible{color:#171715!important}
-    body.page-article-company-forms .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-2px;}
+    body.page-article-company-forms .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-1px;}
     @media(min-width:801px){body.page-article-company-forms .article-title{font-size:45px!important;}}
 
 
@@ -1334,7 +1334,7 @@ body.page-article-false-accounting .article-body li{font-family:var(--font-inter
     body.page-article-false-accounting .article-back{display:inline-block;margin-top:54px;font-family:var(--font-inter),Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:1.1px!important;text-transform:uppercase;text-decoration:none;color:#777777!important}
     body.page-article-false-accounting .article-back:hover,
 body.page-article-false-accounting .article-back:focus-visible{color:#171715!important}
-    body.page-article-false-accounting .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-2px}
+    body.page-article-false-accounting .article-back span{display:inline-block;margin-right:8px;font-size:18px;font-weight:300;line-height:.7;vertical-align:-1px}
     @media(min-width:801px){body.page-article-false-accounting .article-title{font-size:45px!important}}
 
 

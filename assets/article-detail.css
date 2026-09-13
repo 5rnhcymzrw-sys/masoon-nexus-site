@@ -1,37 +1,97 @@
 html body.site-light-page main.article-main{padding:234px 0 126px!important}
-    .article-overline,.article-shell{width:91%!important;max-width:1227px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important}
-     .article-overline{display:block!important;margin-bottom:28px!important;padding:0 140px!important;text-align:left!important}
-    .article-overline .section-label{margin:0 0 18px!important}
-    .article-shell{padding:70px 140px!important;border:1px solid #d7d5d1!important;display:block!important;text-align:left!important}
-    .article-column{margin-left:0!important;margin-right:0!important}
-    .article-column,.article-hero,.article-body{width:100%!important;max-width:none!important;margin:0!important}
-    .article-hero{padding-bottom:48px;border-bottom:1px solid #d7d5d1}
-    .article-hero .section-label{margin-bottom:38px!important}
-    .article-title{max-width:100%!important;margin:0!important;text-align:left!important;padding:0!important;font-size:var(--title-size)!important;color:#171715!important}
-    .article-lead{max-width:none;margin:30px 0 0!important;}
-    .article-body{width:85%!important;margin-left:15%!important;margin-right:0!important;padding:48px 0 0}
-    .article-body h2{position:relative!important;max-width:none;margin:58px 0 0!important;}
-    .article-body h2:first-child{margin-top:0!important}
-    .article-body h2::after{display:none!important;content:none!important}
-    .article-body p,.article-body li{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;letter-spacing:normal!important;color:#484a4f!important}
-    .article-body p{max-width:none;margin:0 0 12px!important}
-    html body.site-light-page .article-body h2+p{margin-top:23px!important}
-    .article-body ul{max-width:none;margin:8px 0 34px;padding:0;list-style:none}
-    .article-body li{position:relative;margin:0 0 4px;padding-left:23px}
-    .article-body li::before{content:"";position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279}
-    @media(min-width:801px){.article-title{font-size:45px!important}}
+.article-overline,.article-shell{width:91%!important;max-width:1227px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important}
+.article-overline{display:block!important;margin-bottom:28px!important;padding:0 72px!important;text-align:left!important}
+.article-overline .section-label{margin:0 0 18px!important}
 
-    /* Verbindliche Artikelwerte */
-    html body.site-light-page .article-hero .article-lead{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;letter-spacing:normal!important;color:#484a4f!important}
-    html body.site-light-page .article-body h2{font-family:Georgia,"Times New Roman",serif!important;font-size:22px!important;font-weight:700!important;line-height:1.1!important;letter-spacing:-.02em!important;color:#171715!important}
-    html body.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;color:#484a4f!important}
-    @media(max-width:800px){
-      html body.site-light-page main.article-main{padding:170px 0 96px!important}
-      .article-overline{margin-bottom:24px!important;padding:0 26px!important}
-      .article-shell{padding:52px 26px!important;display:block!important}
-      .article-hero{padding-bottom:40px}
+/* Fachbeiträge: inneres Raster exakt wie beim Disclaimer */
+html body.site-light-page main.article-main .article-shell{
+  padding:67.5px 72px 53.5px!important;
+  border:1px solid #d7d5d1!important;
+  display:block!important;
+  text-align:left!important;
+}
+html body.site-light-page main.article-main .article-column{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  display:grid!important;
+  grid-template-columns:.7fr 1.3fr!important;
+  column-gap:80px!important;
+  align-items:start!important;
+}
+html body.site-light-page main.article-main .article-hero{
+  grid-column:1 / -1!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0 0 48px!important;
+  display:grid!important;
+  grid-template-columns:.7fr 1.3fr!important;
+  column-gap:80px!important;
+  align-items:baseline!important;
+  border-bottom:1px solid #d7d5d1!important;
+}
+html body.site-light-page main.article-main .article-title{
+  grid-column:1!important;
+  margin:0!important;
+  padding:0!important;
+  max-width:100%!important;
+  align-self:baseline!important;
+  text-align:left!important;
+  color:#171715!important;
+}
+html body.site-light-page main.article-main .article-lead{
+  grid-column:2!important;
+  max-width:none!important;
+  margin:0!important;
+  align-self:baseline!important;
+  position:relative!important;
+  top:-14px!important;
+  transform:none!important;
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:14px!important;
+  font-weight:300!important;
+  line-height:1.65!important;
+  letter-spacing:0!important;
+  color:#242424!important;
+}
+html body.site-light-page main.article-main .article-body{
+  grid-column:2!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:48px 0 0!important;
+}
+.article-body h2{position:relative!important;max-width:none;margin:58px 0 0!important;}
+.article-body h2:first-child{margin-top:0!important}
+.article-body h2::after{display:none!important;content:none!important}
+html body.site-light-page main.article-main .article-body p,
+html body.site-light-page main.article-main .article-body li{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:14px!important;
+  font-weight:300!important;
+  line-height:1.65!important;
+  letter-spacing:0!important;
+  color:#242424!important;
+}
+.article-body p{max-width:none;margin:0 0 12px!important}
+html body.site-light-page .article-body h2+p{margin-top:23px!important}
+.article-body ul{max-width:none;margin:8px 0 34px;padding:0;list-style:none}
+.article-body li{position:relative;margin:0 0 4px;padding-left:23px}
+.article-body li::before{content:"";position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279}
+@media(min-width:801px){.article-title{font-size:45px!important}}
 
+/* Verbindliche Artikelwerte */
+html body.site-light-page .article-body h2{font-family:Georgia,"Times New Roman",serif!important;font-size:22px!important;font-weight:700!important;line-height:1.1!important;letter-spacing:-.02em!important;color:#171715!important}
+html body.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:300!important;line-height:1.65!important;color:#242424!important}
 
-      .article-body{width:100%!important;margin-left:0!important;padding-top:40px}
-      .article-body h2{margin-top:46px;}
-    }
+@media(max-width:800px){
+  html body.site-light-page main.article-main{padding:170px 0 96px!important}
+  .article-overline{margin-bottom:24px!important;padding:0 26px!important}
+  html body.site-light-page main.article-main .article-shell{padding:52px 26px!important;display:block!important}
+  html body.site-light-page main.article-main .article-column{display:block!important}
+  html body.site-light-page main.article-main .article-hero{display:block!important;padding-bottom:40px!important}
+  html body.site-light-page main.article-main .article-lead{margin:30px 0 0!important;top:0!important}
+  html body.site-light-page main.article-main .article-body{width:100%!important;margin-left:0!important;padding-top:40px!important}
+  .article-body h2{margin-top:46px;}
+}

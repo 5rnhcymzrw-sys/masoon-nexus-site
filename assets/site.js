@@ -50,9 +50,9 @@
       el.style.setProperty('font-family', 'Inter, Arial, sans-serif', 'important');
       el.style.setProperty('font-size', '14px', 'important');
       el.style.setProperty('font-weight', '300', 'important');
-      el.style.setProperty('line-height', '1.72', 'important');
+      el.style.setProperty('line-height', '1.65', 'important');
       el.style.setProperty('letter-spacing', '0', 'important');
-      el.style.setProperty('color', '#3d3a37', 'important');
+      el.style.setProperty('color', '#484a4f', 'important');
     });
   };
 

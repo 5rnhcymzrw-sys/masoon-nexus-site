@@ -397,7 +397,6 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__port
   border:0;
   border-radius:0;
   z-index:1;
-
 }
 @media(max-width:1000px) and (min-width:801px){
   html body.page-home.site-light-page main.home section.home-hero h1.global-title{font-size:58px!important;}
@@ -870,16 +869,13 @@ html body.page-disclaimer .disclaimer-card{
   gap:80px!important;
   align-items:baseline!important;
   box-sizing:border-box!important;
-  background:linear-gradient(to right in oklab,rgba(243,232,212,.06) 0%,rgba(232,229,223,.06) 36%,rgba(199,203,211,.06) 68%,rgba(141,150,168,.06) 100%)!important;
-  background-origin:border-box!important;
-  background-size:100% 100%!important;
-  background-repeat:no-repeat!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
   border:1px solid transparent!important;
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
   border-radius:0!important;
   box-shadow:none!important;
-  -webkit-backdrop-filter:blur(32px)!important;
-  backdrop-filter:blur(32px)!important;
 }
 html body.page-disclaimer .disclaimer-card h1{
   margin:0!important;
@@ -903,7 +899,7 @@ html body.page-disclaimer main.page-main section.legal-page .disclaimer-card .pr
 html body.page-disclaimer .disclaimer-card .prose p{
   margin-bottom:12px!important;
   font-weight:300!important;
-  color:#242424!important;
+  color:#484a4f!important;
 }
 @media(min-width:801px){
   html body.page-disclaimer .page-main .legal-page{
@@ -920,29 +916,6 @@ html body.page-disclaimer .disclaimer-card .prose p{
     grid-template-columns:1fr!important;
     gap:34px!important;
   }
-}
-
-
-html body.page-disclaimer.site-light-page:has(.disclaimer-card){
-  background-image:linear-gradient(
-    to right in oklab,
-    rgba(243,232,212,.08) 0%,
-    rgba(232,229,223,.08) 36%,
-    rgba(199,203,211,.08) 68%,
-    rgba(141,150,168,.08) 100%
-  ),linear-gradient(to right,#fff 0%,#fff 36%,rgba(255,255,255,.95) 42%,rgba(255,255,255,.5) 49%,rgba(255,255,255,0) 58%),url("../Hintergrundbild 2.png")!important;
-  background-repeat:no-repeat,no-repeat,repeat-y!important;
-  background-size:100% 100%,100% 100%,cover!important;
-  background-position:center top,center top,center top!important;
-  background-attachment:scroll,scroll,fixed!important;
-}
-@media(max-width:800px){
-  html body.page-disclaimer.site-light-page:has(.disclaimer-card){
-    background-attachment:scroll,scroll,scroll!important;
-  }
-}
-html body.page-disclaimer.site-light-page:has(.disclaimer-card) main.page-main{
-  background:transparent!important;
 }
 
 /* fachwissen/index.html */
@@ -1384,7 +1357,7 @@ html body.page-imprint main.page-main section.legal-page .disclaimer-card .prose
 html body.page-imprint .disclaimer-card .prose p{
   margin-bottom:12px!important;
   font-weight:300!important;
-  color:#242424!important;
+  color:#484a4f!important;
 }
 @media(max-width:800px){
   html body.page-imprint .disclaimer-card{

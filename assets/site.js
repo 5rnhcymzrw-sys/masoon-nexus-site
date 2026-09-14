@@ -32,29 +32,22 @@
     card.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
     card.style.setProperty('backdrop-filter', 'none', 'important');
 
-    // Nur Disclaimer: Typografie wie in der freigegebenen Testversion.
-    if (!document.getElementById('masoon-disclaimer-inter')) {
-      const font = document.createElement('link');
-      font.id = 'masoon-disclaimer-inter';
-      font.rel = 'stylesheet';
-      font.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=PT+Serif:wght@400;700&display=swap';
-      document.head.appendChild(font);
-    }
-
+    // Disclaimer-Typografie exakt wie in der freigegebenen Testversion.
     const title = card.querySelector('h1');
     if (title) {
       title.style.setProperty('font-family', '"PT Serif", Georgia, serif', 'important');
       title.style.setProperty('font-weight', '700', 'important');
-      title.style.setProperty('font-size', '45px', 'important');
       title.style.setProperty('line-height', '1.04', 'important');
       title.style.setProperty('letter-spacing', '0', 'important');
       title.style.setProperty('font-style', 'normal', 'important');
       title.style.setProperty('font-synthesis', 'none', 'important');
-      title.style.setProperty('-webkit-text-stroke', '0', 'important');
+      if (window.matchMedia('(min-width: 801px)').matches) {
+        title.style.setProperty('font-size', '45px', 'important');
+      }
     }
 
     card.querySelectorAll('.prose p').forEach(el => {
-      el.style.setProperty('font-family', '"Inter", Arial, sans-serif', 'important');
+      el.style.setProperty('font-family', 'Inter, Arial, sans-serif', 'important');
       el.style.setProperty('font-size', '14px', 'important');
       el.style.setProperty('font-weight', '300', 'important');
       el.style.setProperty('line-height', '1.72', 'important');

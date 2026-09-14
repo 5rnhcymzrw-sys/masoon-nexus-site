@@ -4,7 +4,7 @@ html body.site-light-page main.article-main{padding:234px 0 126px!important}
   width:91%!important;
   max-width:1227px!important;
   margin:0 auto 28px!important;
-  padding:0 72px 0 108px!important;
+  padding:0 140px!important;
   box-sizing:border-box!important;
   text-align:left!important;
 }
@@ -14,7 +14,7 @@ html body.site-light-page main.article-main{padding:234px 0 126px!important}
   width:91%!important;
   max-width:1227px!important;
   margin:0 auto!important;
-  padding:67.5px 72px 76px!important;
+  padding:67.5px 140px 76px!important;
   box-sizing:border-box!important;
   border:1px solid transparent!important;
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
@@ -31,9 +31,9 @@ html body.site-light-page main.article-main{padding:234px 0 126px!important}
 }
 
 .article-hero{
-  width:min(900px,calc(100% - 36px))!important;
-  max-width:900px!important;
-  margin:0 0 0 36px!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
   padding:0!important;
   display:block!important;
   text-align:left!important;

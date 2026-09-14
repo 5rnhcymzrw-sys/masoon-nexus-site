@@ -86,6 +86,7 @@ p.article-lead{
   max-width:680px!important;
   margin:58px auto 0!important;
   padding:0!important;
+  transform:translateX(18px)!important;
   text-align:left!important;
 }
 
@@ -131,6 +132,6 @@ p.article-lead{
   .article-shell{padding:52px 26px!important}
   html body.site-light-page main.article-main .article-title{font-size:40px!important}
   p.article-lead{margin-top:26px!important;padding-top:28px!important}
-  .article-body{width:100%!important;max-width:none!important;margin:44px 0 0!important}
+  .article-body{width:100%!important;max-width:none!important;margin:44px 0 0!important;transform:none!important}
   .article-body h2{margin-top:40px!important}
 }

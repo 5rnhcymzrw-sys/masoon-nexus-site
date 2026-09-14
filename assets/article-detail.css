@@ -45,7 +45,7 @@ html body.site-light-page main.article-main .article-hero{
 }
 
 html body.site-light-page main.article-main .article-title{
-  margin:0!important;
+  margin:0 0 18px!important;
   padding:0!important;
   width:100%!important;
   max-width:none!important;
@@ -66,7 +66,7 @@ html body.site-light-page main.article-main .article-title{
 html body.site-light-page main.article-main p.article-lead{
   width:100%!important;
   max-width:none!important;
-  margin:30px 0 0!important;
+  margin:12px 0 0!important;
   padding:0!important;
   position:static!important;
   top:auto!important;
@@ -133,8 +133,8 @@ html body.site-light-page main.article-main .article-body li::before{content:""!
   html body.site-light-page main.article-main{padding:170px 0 96px!important}
   html body.site-light-page main.article-main .article-overline{width:91%!important;max-width:none!important;margin-bottom:24px!important;padding:0 26px!important}
   html body.site-light-page main.article-main .article-shell{padding:52px 26px!important}
-  html body.site-light-page main.article-main .article-title{font-size:40px!important}
-  html body.site-light-page main.article-main p.article-lead{margin-top:26px!important;padding:0!important}
+  html body.site-light-page main.article-main .article-title{font-size:40px!important;margin-bottom:14px!important}
+  html body.site-light-page main.article-main p.article-lead{margin-top:12px!important;padding:0!important}
   html body.site-light-page main.article-main .article-hero{padding-bottom:28px!important}
   html body.site-light-page main.article-main .article-body{width:100%!important;max-width:none!important;margin:44px 0 0!important;transform:none!important}
   html body.site-light-page main.article-main .article-body h2{margin-top:40px!important}

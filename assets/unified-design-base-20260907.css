@@ -436,42 +436,6 @@ html body .section-label::after{
   content:""!important;
 }
 
-/* Alle grossen Seitentitel in PT Serif Regular */
-html body .global-title,
-html body .section-heading h1,
-html body .section-heading h2,
-html body .legal-page h1,
-html body .knowledge-note h2,
-html body .home-paths__heading h2,
-html body .home-contact-band h2,
-html body .contact-split__info h1,
-html body .services-closing h2{
-  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
-  font-weight:400!important;
-  -webkit-text-stroke:.25px currentColor!important;
-}
-
-/* Alle grossen Seitentitel auf dem Desktop: 50 Pixel */
-@media(min-width:801px){
-  html body .global-title,
-  html body .section-heading h1,
-  html body .section-heading h2,
-  html body .legal-page h1,
-  html body .knowledge-note h2,
-  html body .home-paths__heading h2,
-  html body .home-contact-band h2,
-  html body .contact-split__info h1,
-  html body .services-closing h2{
-    font-size:50px!important;
-  }
-}
-
-
-
-
-
-
-
 /* Alle Titellinien: oben und unten je 11 Pixel Abstand */
 html body .section-label{
   margin-bottom:11px!important;
@@ -959,24 +923,11 @@ html body.site-light-page .knowledge-section>.knowledge-note{
   }
 }
 
-/* Einordnung: Titel und Fliesstext direkt an MASOON TREUHAND gekoppelt */
-
+/* Einordnung: Layoutwerte des Titels */
 html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
-  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
-  font-size:var(--title-size)!important;
-  font-weight:400!important;
-  line-height:1.05!important;
-  letter-spacing:0!important;
   color:#171715!important;
-  -webkit-text-stroke:.25px currentColor!important;
   margin-bottom:0!important;
   padding-bottom:0!important;
-}
-@media(min-width:801px){
-
-html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
-    font-size:50px!important;
-  }
 }
 html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){
   margin:30px 0 0!important;
@@ -1050,15 +1001,6 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>.detai
   text-decoration:none!important;
   color:#777777!important;
 }
-html body.site-light-page .knowledge-section>.section-heading>h1{
-  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
-  font-weight:400!important;
-  line-height:1.05!important;
-  letter-spacing:0!important;
-  text-transform:none!important;
-  font-style:normal!important;
-  -webkit-text-stroke:.25px currentColor!important;
-}
 html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
   font-family:var(--font-cormorant),Georgia,serif!important;
   font-size:24px!important;
@@ -1068,11 +1010,6 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
   text-transform:none!important;
   color:#171715!important;
   -webkit-text-stroke:0!important;
-}
-@media(min-width:801px){
-  html body.site-light-page .knowledge-section>.section-heading>h1{
-    font-size:50px!important;
-  }
 }
 @media(min-width:1051px){
   html body.site-light-page .knowledge-section .articles-grid>.article-card{

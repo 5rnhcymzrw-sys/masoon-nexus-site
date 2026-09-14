@@ -2,7 +2,7 @@
 @font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2") format("woff2")}
 @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;src:url("_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2") format("woff2")}
 :root{--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:15px;--label-size:11px;--content-width:1320px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
-.article-title{font-family:Georgia,"Times New Roman",serif!important;font-weight:700!important;line-height:1.05!important;letter-spacing:0!important;text-transform:none!important;font-style:normal!important;font-stretch:100%!important;font-variant:normal!important;font-synthesis:none!important;text-shadow:none!important;-webkit-text-stroke:0!important;}
+html body.site-light-page main.article-main .article-title{font-family:"PT Serif",Georgia,serif!important;font-weight:700!important;font-size:46px!important;line-height:1.08!important;letter-spacing:-.018em!important;text-transform:none!important;font-style:normal!important;font-stretch:100%!important;font-variant:normal!important;font-synthesis:none!important;text-shadow:none!important;-webkit-text-stroke:0!important;}
 html,
 body{max-width:100%;overflow-x:hidden;}
 body{font-family:var(--font-inter)!important;font-size:var(--body-size)!important;line-height:1.65!important;}
@@ -66,7 +66,8 @@ html body .contact-split__info h1{letter-spacing:0!important;}
 .home-paths__grid strong{order:1!important;margin:0!important;}
 .home-paths__grid span{order:2!important;margin:12px 0 0!important;font-family:var(--font-inter)!important;font-size:11px!important;font-weight:500!important;line-height:1.4!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:#777777!important;}
 .home-paths__grid i{display:none!important;}
-.knowledge-section .article-card h2{min-height:110px!important;margin:0 0 18px!important;font-family:var(--font-cormorant)!important;font-size:24px!important;font-weight:600!important;line-height:1.12!important;letter-spacing:0!important;text-transform:none!important;max-width:none!important;}
+.knowledge-section .article-card h2,
+html body.site-light-page main.article-main .article-body h2{min-height:0!important;margin:0!important;font-family:"PT Serif",Georgia,serif!important;font-size:24px!important;font-weight:700!important;line-height:1.15!important;letter-spacing:0!important;text-transform:none!important;max-width:none!important;}
 .contact-form .form-status{min-height:1.55em;font-family:var(--font-inter)!important;font-size:11px!important;line-height:1.55!important;}
 .site-header{isolation:isolate!important;}.brand{z-index:100!important;opacity:1!important;filter:none!important;mix-blend-mode:normal!important;}.brand img{position:relative!important;z-index:2!important;opacity:1!important;filter:brightness(0) invert(1)!important;mix-blend-mode:normal!important;}.site-nav a:after{height:1px!important;background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important;}
 .site-footer{background-image:linear-gradient(#0a0a0990,#0a0a0990),url("../Hintergrundbild 1.png")!important;background-position:center,72% 18%!important;background-size:cover!important;color:#fff!important;}

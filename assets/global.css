@@ -42,7 +42,13 @@ body{font-family:var(--font-inter)!important;font-size:var(--body-size)!importan
 .home-paths__heading h2,
 .home-contact-band h2,
 .services-section .section-heading h1,
-.knowledge-section .section-heading h1{font-family:var(--font-cormorant)!important;font-size:var(--title-size)!important;font-weight:400!important;line-height:1.05!important;letter-spacing:0!important;max-width:var(--title-width)!important;margin-top:0!important;}
+.knowledge-section .section-heading h1,
+.contact-split__info h1,
+.services-closing h2,
+.company-section-heading h1,
+.company-collaboration-box h2,
+.home-company h2,
+.article-title{font-family:"PT Serif",Georgia,serif!important;font-size:46px!important;font-weight:700!important;line-height:1.08!important;letter-spacing:-.018em!important;font-style:normal!important;-webkit-text-stroke:0!important;font-synthesis:none!important;text-shadow:none!important;max-width:var(--title-width)!important;margin-top:0!important;}
 html body .services-closing h2,
 html body .contact-split__info h1{letter-spacing:0!important;}
 .home-values__item h3,

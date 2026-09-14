@@ -64,7 +64,7 @@ p.article-lead{
   width:100%!important;
   max-width:none!important;
   margin:30px 0 0!important;
-  padding:0 0 48px!important;
+  padding:0 0 50px!important;
   position:static!important;
   top:auto!important;
   transform:none!important;
@@ -84,7 +84,7 @@ p.article-lead{
 .article-body{
   width:min(calc(50% + 322px),100%)!important;
   max-width:none!important;
-  margin:48px 0 0 auto!important;
+  margin:50px 0 0 auto!important;
   padding:0!important;
   transform:none!important;
   text-align:left!important;

@@ -114,6 +114,24 @@
       }
     `;
     document.head.appendChild(lineStyle);
+
+    document.querySelectorAll('.knowledge-section .article-card').forEach(card => {
+      const link = card.querySelector('a[href]');
+      if (!link) return;
+      card.style.cursor = 'pointer';
+      card.setAttribute('role', 'link');
+      card.tabIndex = 0;
+      card.addEventListener('click', event => {
+        if (event.target.closest('a')) return;
+        link.click();
+      });
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          link.click();
+        }
+      });
+    });
   }
 
   // Align the footer to whole CSS pixels so end-of-page scroll rounding

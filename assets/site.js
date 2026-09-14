@@ -102,50 +102,6 @@
     title.style.setProperty('font-synthesis', 'none', 'important');
   });
 
-  document.querySelectorAll('body.site-light-page main.article-main .article-overline-label').forEach(label => {
-    label.style.setProperty('font-family', 'Inter, Arial, sans-serif', 'important');
-    label.style.setProperty('font-size', '11px', 'important');
-    label.style.setProperty('font-weight', '500', 'important');
-    label.style.setProperty('line-height', '1.4', 'important');
-    label.style.setProperty('text-transform', 'uppercase', 'important');
-    label.style.setProperty('color', '#868279', 'important');
-  });
-
-  document.querySelectorAll('body.site-light-page main.article-main .article-title').forEach(title => {
-    title.style.setProperty('font-family', '"PT Serif", Georgia, serif', 'important');
-    title.style.setProperty('font-weight', '700', 'important');
-    title.style.setProperty('font-size', '46px', 'important');
-    title.style.setProperty('line-height', '1.08', 'important');
-    title.style.setProperty('letter-spacing', '-.018em', 'important');
-    title.style.setProperty('font-style', 'normal', 'important');
-    title.style.setProperty('-webkit-text-stroke', '0', 'important');
-    title.style.setProperty('font-synthesis', 'none', 'important');
-  });
-
-  document.querySelectorAll(
-    'body.site-light-page main.article-main .article-lead, ' +
-    'body.site-light-page main.article-main .article-body p, ' +
-    'body.site-light-page main.article-main .article-body li'
-  ).forEach(text => {
-    text.style.setProperty('font-family', 'Inter, Arial, sans-serif', 'important');
-    text.style.setProperty('font-size', '14px', 'important');
-    text.style.setProperty('font-weight', '290', 'important');
-    text.style.setProperty('line-height', '1.65', 'important');
-    text.style.setProperty('letter-spacing', 'normal', 'important');
-    text.style.setProperty('color', '#484a4f', 'important');
-  });
-
-  document.querySelectorAll('body.site-light-page main.article-main .article-body h2').forEach(title => {
-    title.style.setProperty('font-family', '"PT Serif", Georgia, serif', 'important');
-    title.style.setProperty('font-size', '24px', 'important');
-    title.style.setProperty('font-weight', '700', 'important');
-    title.style.setProperty('line-height', '1.15', 'important');
-    title.style.setProperty('letter-spacing', '0', 'important');
-    title.style.setProperty('font-style', 'normal', 'important');
-    title.style.setProperty('-webkit-text-stroke', '0', 'important');
-    title.style.setProperty('font-synthesis', 'none', 'important');
-  });
-
   if (document.body.classList.contains('page-knowledge')) {
     const lineStyle = document.createElement('style');
     lineStyle.textContent = `

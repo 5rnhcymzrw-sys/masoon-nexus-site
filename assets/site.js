@@ -81,6 +81,11 @@
   window.addEventListener('scroll', updateScrollEffects, { passive: true });
   window.addEventListener('resize', updateScrollEffects);
 
+  const homeContactTitle = document.querySelector('body.page-home .home-contact-band h2.global-title');
+  if (homeContactTitle) {
+    homeContactTitle.innerHTML = 'Verlässliche<br>Treuhandlösungen<br>für Ihr Unternehmen.';
+  }
+
   // Align the footer to whole CSS pixels so end-of-page scroll rounding
   // cannot place otherwise identical footers on different pixel fractions.
   const pixelAlignedFooter = document.querySelector('.site-footer');

@@ -12,16 +12,47 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
+    html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid{
+      gap:18px!important;
+    }
+    html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card{
+      min-height:370px!important;
+      padding:34px 31px 30px!important;
+      box-sizing:border-box!important;
+      display:flex!important;
+      flex-direction:column!important;
+      border:1px solid transparent!important;
+      border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
+      background:#fff!important;
+    }
+    html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card > .article-card-date{
+      margin-bottom:23px!important;
+    }
     html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card > h2{
       font-family:"PT Serif",Georgia,serif!important;
       font-size:24px!important;
       font-weight:700!important;
       line-height:1.15!important;
       letter-spacing:0!important;
-      margin:0 0 19px!important;
+      margin:0!important;
       font-style:normal!important;
       -webkit-text-stroke:0!important;
       font-synthesis:none!important;
+    }
+    html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card > h2::after{
+      content:""!important;
+      display:block!important;
+      width:100%!important;
+      height:1.5px!important;
+      margin:22px 0 0!important;
+      background:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
+      border:0!important;
+    }
+    html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card > p:not(.article-meta){
+      margin:22px 0 0!important;
+    }
+    html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card > .article-action{
+      margin-top:auto!important;
     }
   </style>
   <link rel="preload" as="image" href="../07.09.2026%20white_icon_transparent_background.png"/>

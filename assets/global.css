@@ -2,7 +2,6 @@
 @font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2") format("woff2")}
 @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;src:url("_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2") format("woff2")}
 :root{--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:15px;--label-size:11px;--content-width:1320px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
-html body.site-light-page main.article-main .article-title{font-family:"PT Serif",Georgia,serif!important;font-weight:700!important;font-size:46px!important;line-height:1.08!important;letter-spacing:-.018em!important;text-transform:none!important;font-style:normal!important;font-stretch:100%!important;font-variant:normal!important;font-synthesis:none!important;text-shadow:none!important;-webkit-text-stroke:0!important;}
 html,
 body{max-width:100%;overflow-x:hidden;}
 body{font-family:var(--font-inter)!important;font-size:var(--body-size)!important;line-height:1.65!important;}
@@ -64,8 +63,6 @@ html body.site-light-page main.article-main .article-title,
 .company-collaboration-box h2,
 .home-company h2,
 .article-title{font-family:"PT Serif",Georgia,serif!important;font-size:46px!important;font-weight:700!important;line-height:1.08!important;letter-spacing:-.018em!important;font-style:normal!important;-webkit-text-stroke:0!important;font-synthesis:none!important;text-shadow:none!important;max-width:var(--title-width)!important;margin-top:0!important;}
-html body .services-closing h2,
-html body .contact-split__info h1{letter-spacing:0!important;}
 .home-values__item h3,
 .home-paths__grid strong,
 .services-section .service-card h2{font-family:var(--font-cormorant)!important;font-size:var(--card-title)!important;font-weight:500!important;line-height:1.12!important;letter-spacing:-.01em!important;}
@@ -183,15 +180,6 @@ gleiche Höhe */
   .services-section>.section-heading h1{margin-right:0!important;margin-left:0!important;}
   .services-section>.services-grid{gap:18px!important;background:transparent!important;border:0!important;}
   .services-section>.services-grid>.service-card{border:1px solid rgba(23,23,21,.14);}
-}
-
-/* Startseite: Dienstleistungstitel exakt wie der Fachwissen-Titel */
-html body .home>.home-values .section-heading h2{
-  font-family:"PT Serif Pro","PT Serif",Georgia,serif!important;
-  font-weight:400!important;
-  font-style:normal!important;
-  letter-spacing:0!important;
-  line-height:1.05!important;
 }
 
 /* Einheitliche Kopfzeile wie auf Unternehmen */

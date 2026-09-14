@@ -1,6 +1,6 @@
 html body.site-light-page main.article-main{padding:234px 0 126px!important}
 
-.article-overline{
+html body.site-light-page main.article-main .article-overline{
   width:91%!important;
   max-width:1227px!important;
   margin:0 auto 28px!important;
@@ -8,9 +8,9 @@ html body.site-light-page main.article-main{padding:234px 0 126px!important}
   box-sizing:border-box!important;
   text-align:left!important;
 }
-.article-overline .section-label{margin:0!important;color:#484a4f!important;opacity:1!important}
+html body.site-light-page main.article-main .article-overline .section-label{margin:0!important;color:#484a4f!important;opacity:1!important}
 
-.article-shell{
+html body.site-light-page main.article-main .article-shell{
   width:91%!important;
   max-width:1227px!important;
   margin:0 auto!important;
@@ -22,7 +22,7 @@ html body.site-light-page main.article-main{padding:234px 0 126px!important}
   text-align:left!important;
 }
 
-.article-column{
+html body.site-light-page main.article-main .article-column{
   width:100%!important;
   max-width:none!important;
   margin:0!important;
@@ -30,15 +30,18 @@ html body.site-light-page main.article-main{padding:234px 0 126px!important}
   text-align:left!important;
 }
 
-.article-hero{
+html body.site-light-page main.article-main .article-hero{
   width:100%!important;
   max-width:none!important;
   margin:0!important;
-  padding:0!important;
+  padding:0 0 50px!important;
   display:block!important;
   text-align:left!important;
   border:0!important;
-  background:none!important;
+  background-image:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
+  background-repeat:no-repeat!important;
+  background-position:left bottom!important;
+  background-size:100% 1px!important;
 }
 
 html body.site-light-page main.article-main .article-title{
@@ -60,11 +63,11 @@ html body.site-light-page main.article-main .article-title{
   color:#171715!important;
 }
 
-p.article-lead{
+html body.site-light-page main.article-main p.article-lead{
   width:100%!important;
   max-width:none!important;
   margin:30px 0 0!important;
-  padding:0 0 50px!important;
+  padding:0!important;
   position:static!important;
   top:auto!important;
   transform:none!important;
@@ -75,13 +78,13 @@ p.article-lead{
   line-height:1.65!important;
   letter-spacing:0!important;
   color:#484a4f!important;
-  background-image:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
+  background-image:none!important;
   background-repeat:no-repeat!important;
   background-position:left bottom!important;
   background-size:100% 1px!important;
 }
 
-.article-body{
+html body.site-light-page main.article-main .article-body{
   width:min(calc(50% + 322px),100%)!important;
   max-width:none!important;
   margin:50px 0 0 auto!important;
@@ -90,7 +93,7 @@ p.article-lead{
   text-align:left!important;
 }
 
-.article-body h2{
+html body.site-light-page main.article-main .article-body h2{
   position:relative!important;
   max-width:none!important;
   margin:48px 0 16px!important;
@@ -104,11 +107,11 @@ p.article-lead{
   -webkit-text-stroke:0!important;
   font-synthesis:none!important;
 }
-.article-body h2:first-child{margin-top:0!important}
-.article-body h2::after{display:none!important;content:none!important}
+html body.site-light-page main.article-main .article-body h2:first-child{margin-top:0!important}
+html body.site-light-page main.article-main .article-body h2::after{display:none!important;content:none!important}
 
-.article-body p,
-.article-body li{
+html body.site-light-page main.article-main .article-body p,
+html body.site-light-page main.article-main .article-body li{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:300!important;
@@ -117,21 +120,22 @@ p.article-lead{
   color:#484a4f!important;
   text-align:left!important;
 }
-.article-body p{max-width:none!important;margin:0 0 12px!important}
-.article-body h2+p{margin-top:0!important}
-.article-body ul{max-width:none!important;margin:10px 0 20px!important;padding:0!important;list-style:none!important;text-align:left!important}
-.article-body li{position:relative!important;margin:0 0 5px!important;padding-left:23px!important}
-.article-body li::before{content:""!important;display:block!important;position:absolute!important;left:0!important;top:.825em!important;width:8px!important;height:1px!important;background:#868279!important}
+html body.site-light-page main.article-main .article-body p{max-width:none!important;margin:0 0 12px!important}
+html body.site-light-page main.article-main .article-body h2+p{margin-top:0!important}
+html body.site-light-page main.article-main .article-body ul{max-width:none!important;margin:10px 0 20px!important;padding:0!important;list-style:none!important;text-align:left!important}
+html body.site-light-page main.article-main .article-body li{position:relative!important;margin:0 0 5px!important;padding-left:23px!important}
+html body.site-light-page main.article-main .article-body li::before{content:""!important;display:block!important;position:absolute!important;left:0!important;top:.825em!important;width:8px!important;height:1px!important;background:#868279!important}
 
 .article-table-wrap{margin-left:0!important;margin-right:0!important;text-align:left!important;max-width:none!important}
 .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:300!important;line-height:1.65!important;color:#484a4f!important;text-align:left!important}
 
 @media(max-width:800px){
   html body.site-light-page main.article-main{padding:170px 0 96px!important}
-  .article-overline{width:91%!important;max-width:none!important;margin-bottom:24px!important;padding:0 26px!important}
-  .article-shell{padding:52px 26px!important}
+  html body.site-light-page main.article-main .article-overline{width:91%!important;max-width:none!important;margin-bottom:24px!important;padding:0 26px!important}
+  html body.site-light-page main.article-main .article-shell{padding:52px 26px!important}
   html body.site-light-page main.article-main .article-title{font-size:40px!important}
-  p.article-lead{margin-top:26px!important;padding:0 0 28px!important}
-  .article-body{width:100%!important;max-width:none!important;margin:44px 0 0!important;transform:none!important}
-  .article-body h2{margin-top:40px!important}
+  html body.site-light-page main.article-main p.article-lead{margin-top:26px!important;padding:0!important}
+  html body.site-light-page main.article-main .article-hero{padding-bottom:28px!important}
+  html body.site-light-page main.article-main .article-body{width:100%!important;max-width:none!important;margin:44px 0 0!important;transform:none!important}
+  html body.site-light-page main.article-main .article-body h2{margin-top:40px!important}
 }

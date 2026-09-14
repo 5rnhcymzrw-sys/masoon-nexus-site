@@ -86,7 +86,6 @@ html body.page-home.site-light-page main.home section.home-paths.home-paths .hom
 .home-paths__grid i{display:none!important;}
 .knowledge-section .article-card h2{min-height:0!important;margin:0!important;font-family:"PT Serif",Georgia,serif!important;font-size:24px!important;font-weight:700!important;line-height:1.15!important;letter-spacing:0!important;text-transform:none!important;max-width:none!important;}
 .contact-form .form-status{min-height:1.55em;font-family:var(--font-inter)!important;font-size:11px!important;line-height:1.55!important;}
-.site-header{isolation:isolate!important;}.brand{z-index:100!important;opacity:1!important;filter:none!important;mix-blend-mode:normal!important;}.brand img{position:relative!important;z-index:2!important;opacity:1!important;filter:brightness(0) invert(1)!important;mix-blend-mode:normal!important;}.site-nav a:after{height:1px!important;background:#b8b8b8!important;background-image:none!important;transition:none!important;box-shadow:none!important;filter:none!important;}
 .site-footer{background-image:linear-gradient(#0a0a0990,#0a0a0990),url("../Hintergrundbild 1.png")!important;background-position:center,72% 18%!important;background-size:cover!important;color:#fff!important;}
 @media(max-width:1050px){.services-section .services-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}@media(max-width:800px){:root{--title-size:var(--title-mobile);--section-x:24px;}.section-heading,
 .home-values .section-heading,
@@ -182,81 +181,18 @@ gleiche Höhe */
   .services-section>.services-grid>.service-card{border:1px solid rgba(23,23,21,.14);}
 }
 
-/* Einheitliche Kopfzeile wie auf Unternehmen */
-html body .site-header{
-  height:100px!important;
-  color:#fff!important;
-  background:#000!important;
-  background-color:#000!important;
-  border-bottom:1px solid #ffffff29!important;
-  position:fixed!important;
-  top:0!important;
-  right:0!important;
-  left:0!important;
-  transform:none!important;
-  transition:none!important;
-  backdrop-filter:blur(8px)!important;
-  -webkit-backdrop-filter:blur(8px)!important;
-}
-html body .site-header::before{content:none!important;display:none!important;}
-html body .site-header::after{
-  content:""!important;
-  position:fixed!important;
-  z-index:49!important;
-  top:100px!important;
-  right:0!important;
-  left:0!important;
-  width:100%!important;
-  height:8px!important;
-  background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
-}
-
-html body .home .home-hero{margin-top:0!important;min-height:calc(100svh - 100px)!important;}
+/* Einheitliche Kopfzeile auf allen Seiten */
+html body header.site-header{height:108px!important;min-height:108px!important;color:#fff!important;background:#000!important;background-color:#000!important;background-image:none!important;border-bottom:1px solid #ffffff29!important;position:fixed!important;top:0!important;right:0!important;left:0!important;opacity:1!important;isolation:isolate!important;transform:none!important;transition:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;mix-blend-mode:normal!important}
+html body header.site-header::before{content:none!important;display:none!important}
+html body header.site-header::after{content:""!important;position:fixed!important;z-index:49!important;top:108px!important;right:0!important;left:0!important;width:100%!important;height:8px!important;background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important}
+html body .home .home-hero{margin-top:0!important;min-height:calc(100svh - 100px)!important}
 @media(min-width:801px){
-  html body .site-header .header-inner{
-    position:relative!important;
-    width:min(100% - 64px,1320px)!important;
-    height:100%!important;
-    margin:0 auto!important;
-    padding:0!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:flex-end!important;
-  }
-  html body .site-header .brand{
-    position:absolute!important;
-    top:0!important;
-    right:auto!important;
-    left:0!important;
-    width:244px!important;
-    height:124px!important;
-    margin:0!important;
-    padding:16px 24px 20px!important;
-    transform:none!important;
-    background:linear-gradient(145deg,#262624b8,#06060594)!important;
-    border-radius:0 0 22px 22px!important;
-    box-shadow:0 20px 42px #0003!important;
-    backdrop-filter:blur(16px)!important;
-    -webkit-backdrop-filter:blur(16px)!important;
-  }
-  html body .site-header .brand img{
-    width:216px!important;
-    height:auto!important;
-    max-height:none!important;
-    object-fit:contain!important;
-    filter:none!important;
-    transform:translateY(-14px)!important;
-  }
-  html body .site-header .site-nav{
-
-    width:auto!important;
-    margin-left:auto!important;
-    padding:0!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:flex-end!important;
-
-  }
+html body header.site-header .header-inner{position:relative!important;width:min(100% - 64px,1320px)!important;height:108px!important;min-height:108px!important;margin:0 auto!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important}
+html body header.site-header .header-inner .home-text-logo{position:absolute!important;z-index:100!important;top:0!important;right:auto!important;left:calc(max(0px,(100% - 1227px)/2) - 7.9872px)!important;width:240px!important;height:108px!important;margin:0!important;padding:0!important;display:flex!important;align-items:center!important;opacity:1!important;filter:none!important;mix-blend-mode:normal!important;background:transparent!important;background-color:transparent!important;background-image:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transform:none!important;overflow:visible!important}
+html body header.site-header .header-inner .home-text-logo img{height:auto!important;max-height:none!important;object-fit:contain!important;filter:none!important;mix-blend-mode:normal!important}
+html body header.site-header .header-inner .home-text-logo .home-logo-icon{position:absolute!important;z-index:1!important;top:50%!important;left:50%!important;width:165.517241px!important;height:auto!important;opacity:.18!important;pointer-events:none!important;transform:translate(-50%,-50%)!important}
+html body header.site-header .header-inner .home-text-logo .home-logo-text{position:relative!important;z-index:2!important;width:240px!important;height:auto!important;max-height:none!important;opacity:1!important;transform:translateY(11px)!important}
+html body header.site-header .site-nav{position:absolute!important;left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - 1320px)/2))!important;width:auto!important;margin:0!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;transform:none!important}
 }
 
 /* Einheitliche schlichte Fusszeile wie die Kopfzeile */
@@ -352,17 +288,6 @@ html body.site-light-page footer.site-footer .footer-simple>a{
   -webkit-text-fill-color:currentColor!important;
 }
 
-/* Kopfzeilenbalken vollständig deckend */
-html body header.site-header{
-  opacity:1!important;
-  background:#000!important;
-  background-color:#000!important;
-  background-image:none!important;
-  backdrop-filter:none!important;
-  -webkit-backdrop-filter:none!important;
-  mix-blend-mode:normal!important;
-}
-
 /* Mittige Punkte zwischen den Navigationstiteln */
 @media(min-width:801px){
   html body .site-header .site-nav a+a::before{
@@ -385,19 +310,8 @@ html body .home .home-values__item p{
   margin-top:12px!important;
 }
 
-/* Startseite: Logo-Kasten direkt unter der Farbverlaufslinie im Hero */
-@media(min-width:801px){
-  html body .site-header.home-page-header .brand{
-    top:108px!important;
-    right:auto!important;
-    left:50%!important;
-    transform:translateX(-50%)!important;
-  }
-}
-
 /* Gesamte Website: einheitliche Inhaltsbreite und seitlicher Leerraum */
 @media(min-width:801px){
-  html body .header-inner,
   html body .home-hero__content,
   html body .home-values__inner,
   html body .home-paths,
@@ -463,23 +377,7 @@ html body .home .home-values__item p{
   }
 }
 
-/* Startseite Hero-Linie: Farbverlauf wie Kontaktbutton */
-html body header.site-header.home-page-header::after{
-  background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
-}
-
-/* Einheitliche Kopf- und Fusszeile auf allen Seiten */
-html body header.site-header{
-  height:108px!important;
-  min-height:108px!important;
-}
-html body header.site-header::after{
-  top:108px!important;
-}
-html body header.site-header .header-inner{
-  height:108px!important;
-  min-height:108px!important;
-}
+/* Einheitliche Seitenabstände und Fusszeile */
 html body .page-main,
 html body main.home{
   padding-top:108px!important;
@@ -496,52 +394,6 @@ html body .site-footer .footer-simple{
   padding-bottom:0!important;
   box-sizing:border-box!important;
   align-items:center!important;
-}
-
-/* Einheitliches Textlogo mit Schlüssel in sämtlichen Kopfzeilen */
-@media(min-width:801px){
-  html body header.site-header .header-inner .home-text-logo{
-    position:absolute!important;
-    z-index:3!important;
-    top:0!important;
-    right:auto!important;
-    left:calc(max(0px,(100% - 1227px)/2) - 7.9872px)!important;
-    width:240px!important;
-    height:108px!important;
-    margin:0!important;
-    padding:0!important;
-    display:flex!important;
-    align-items:center!important;
-    background:transparent!important;
-    background-color:transparent!important;
-    background-image:none!important;
-    border:0!important;
-    border-radius:0!important;
-    box-shadow:none!important;
-    backdrop-filter:none!important;
-    -webkit-backdrop-filter:none!important;
-    transform:none!important;
-    overflow:visible!important;
-  }
-  html body header.site-header .header-inner .home-text-logo .home-logo-icon{
-    position:absolute!important;
-    z-index:1!important;
-    top:50%!important;
-    left:50%!important;
-    width:88px!important;
-    height:auto!important;
-    opacity:.18!important;
-    pointer-events:none!important;
-    transform:translate(-50%,-50%)!important;
-  }
-  html body header.site-header .header-inner .home-text-logo .home-logo-text{
-    position:relative!important;
-    z-index:2!important;
-    width:240px!important;
-    height:auto!important;
-    max-height:none!important;
-    transform:translateY(11px)!important;
-  }
 }
 
 /* Kleine Übertitel: verbindlich ohne dekorative Linien und Punkte */

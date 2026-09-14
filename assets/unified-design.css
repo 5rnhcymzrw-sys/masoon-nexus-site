@@ -90,7 +90,6 @@ html body.site-light-page main.services-main .services-section .services-grid>.s
 }
 
 /* Seitenspezifische Regeln, aus dem HTML konsolidiert. */
-html body header.site-header .header-inner .home-text-logo .home-logo-icon{width:165.517241px!important;}
 body.page-home .home-hero__services{margin-top:30px;}
 body.page-home .home-copy-spaced{margin-top:2.2rem;}
 body.page-knowledge [data-reveal-delay="0"]{--reveal-delay:0ms;}
@@ -483,9 +482,6 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__port
 
 
 
-html body.page-home.site-light-page:has(main.home){
-  background:#fff url("../Hintergrundbild 2.png") center top / cover no-repeat fixed!important;
-}
 html body.page-home.site-light-page:has(main.home) main.home>section.home-values.home-values,
 html body.page-home.site-light-page:has(main.home) main.home>section.home-paths.home-paths{
   background:transparent!important;
@@ -518,7 +514,6 @@ html body.page-home.site-light-page:has(main.home) main.home>section.home-contac
   backdrop-filter:blur(32px)!important;
 }
 @media(max-width:800px){
-  html body.page-home.site-light-page:has(main.home){background-attachment:scroll!important;background-size:auto 100svh!important;background-repeat:repeat-y!important;}
   html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item,
 html body.page-home.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid.home-paths__grid.home-paths__grid>a{background-size:100% 100%!important;}
 }
@@ -935,18 +930,6 @@ html body.page-knowledge.site-light-page main .knowledge-section .article-card .
   color:inherit!important;
 }
 
-html body.page-knowledge.site-light-page:has(#knowledge-articles){
-  background-image:linear-gradient(to right,#fff 0%,#fff 36%,rgba(255,255,255,.95) 42%,rgba(255,255,255,.5) 49%,rgba(255,255,255,0) 58%),url("../Hintergrundbild 2.png")!important;
-  background-repeat:no-repeat,repeat-y!important;
-  background-size:100% 100%,cover!important;
-  background-position:center top,center top!important;
-  background-attachment:scroll,fixed!important;
-}
-@media(max-width:800px){
-  html body.page-knowledge.site-light-page:has(#knowledge-articles){
-    background-attachment:scroll,scroll!important;
-  }
-}
 html body.page-knowledge.site-light-page:has(#knowledge-articles) main.page-main{
   background:transparent!important;
 }

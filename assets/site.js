@@ -86,6 +86,15 @@
     homeContactTitle.innerHTML = 'Verlässliche<br>Treuhandlösungen<br>für Ihr Unternehmen.';
   }
 
+  document.querySelectorAll(
+    'body.page-home main.home h1.global-title, ' +
+    'body.page-home main.home .home-values .section-heading h2.global-title, ' +
+    'body.page-home main.home .home-paths__heading h2.global-title, ' +
+    'body.page-home main.home .home-contact-band h2.global-title'
+  ).forEach(title => {
+    title.style.setProperty('font-size', '43px', 'important');
+  });
+
   // Align the footer to whole CSS pixels so end-of-page scroll rounding
   // cannot place otherwise identical footers on different pixel fractions.
   const pixelAlignedFooter = document.querySelector('.site-footer');

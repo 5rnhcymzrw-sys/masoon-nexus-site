@@ -84,7 +84,7 @@ html body.site-light-page main.article-main p.article-lead{
   background-size:100% 1px!important;
 }
 
-html body.site-light-page main.article-main .article-body{
+html body.site-light-page:not(.page-article-company-forms) main.article-main .article-body{
   width:min(calc(50% + 322px),100%)!important;
   max-width:none!important;
   margin:50px 0 0 auto!important;

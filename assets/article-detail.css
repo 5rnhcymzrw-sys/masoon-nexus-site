@@ -72,9 +72,9 @@ html body.site-light-page main.article-main .article-title{
   font-family:"Inter",Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:300!important;
-  line-height:1.72!important;
+  line-height:1.7!important;
   letter-spacing:0!important;
-  color:#3d3a37!important;
+  color:#3d3b38!important;
   background-image:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
   background-repeat:no-repeat!important;
   background-position:left top!important;
@@ -92,7 +92,7 @@ html body.site-light-page main.article-main .article-title{
 .article-body h2{
   position:relative!important;
   max-width:none!important;
-  margin:46px 0 18px!important;
+  margin:48px 0 20px!important;
   text-align:left!important;
   font-family:"PT Serif",Georgia,serif!important;
   font-size:22px!important;
@@ -111,9 +111,9 @@ html body.site-light-page main.article-main .article-title{
   font-family:"Inter",Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:300!important;
-  line-height:1.72!important;
+  line-height:1.75!important;
   letter-spacing:0!important;
-  color:#3d3a37!important;
+  color:#3c3a37!important;
   text-align:left!important;
 }
 .article-body p{max-width:none!important;margin:0 0 15px!important}
@@ -123,7 +123,7 @@ html body.site-light-page main.article-main .article-title{
 .article-body li::before{content:none!important;display:none!important}
 
 .article-table-wrap{margin-left:0!important;margin-right:0!important;text-align:left!important;max-width:none!important}
-.article-table-wrap table{font-family:"Inter",Arial,sans-serif!important;font-size:14px!important;font-weight:300!important;line-height:1.72!important;color:#3d3a37!important;text-align:left!important}
+.article-table-wrap table{font-family:"Inter",Arial,sans-serif!important;font-size:14px!important;font-weight:300!important;line-height:1.75!important;color:#3c3a37!important;text-align:left!important}
 
 @media(max-width:800px){
   html body.site-light-page main.article-main{padding:170px 0 96px!important}

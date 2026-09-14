@@ -78,7 +78,7 @@ p.article-lead{
   background-image:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
   background-repeat:no-repeat!important;
   background-position:left top!important;
-  background-size:108px 1px!important;
+  background-size:108px 8px!important;
 }
 
 .article-body{

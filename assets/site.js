@@ -95,6 +95,17 @@
     title.style.setProperty('font-size', '43px', 'important');
   });
 
+  document.querySelectorAll('body.site-light-page main.article-main .article-title').forEach(title => {
+    title.style.setProperty('font-family', '"PT Serif", Georgia, serif', 'important');
+    title.style.setProperty('font-weight', '700', 'important');
+    title.style.setProperty('font-size', '46px', 'important');
+    title.style.setProperty('line-height', '1.08', 'important');
+    title.style.setProperty('letter-spacing', '-.018em', 'important');
+    title.style.setProperty('font-style', 'normal', 'important');
+    title.style.setProperty('-webkit-text-stroke', '0', 'important');
+    title.style.setProperty('font-synthesis', 'none', 'important');
+  });
+
   if (document.body.classList.contains('page-knowledge')) {
     const lineStyle = document.createElement('style');
     lineStyle.textContent = `

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>MASOON TREUHAND | Testseite besprochene Änderungen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --ink:#171715;
+      --text:#32312f;
+      --muted:#8b8984;
+      --paper:#fbfaf7;
+      --beige:#f3e8d4;
+      --stone:#e8e5df;
+      --blue1:#c7cbd3;
+      --blue2:#8d96a8;
+      --blue3:#7f899c;
+      --gradient:linear-gradient(110deg,var(--beige) 0%,var(--stone) 38%,var(--blue1) 66%,var(--blue3) 100%);
+      --max:1220px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#fff;color:var(--ink);font-family:"Inter",Arial,sans-serif;font-weight:300;line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    h1,h2,h3{font-family:"PT Serif",Georgia,serif;color:var(--ink)}
+    .testbar{background:#171715;color:#fff;text-align:center;padding:7px 16px;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+    .site-header{background:#fff;border-bottom:1.5px solid transparent;border-image:var(--gradient) 1;position:relative;z-index:10}
+    .header-inner{width:min(92%,var(--max));min-height:106px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px}
+    .brand img{width:185px;height:auto}
+    .nav{display:flex;gap:30px;align-items:center;font-size:12px}
+    .nav a{position:relative;padding:8px 0}
+    .nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:var(--gradient);transition:right .24s ease}
+    .nav a:hover::after{right:0}
+    .page{position:relative;overflow:hidden}
+    .keymark{position:absolute;right:-55px;bottom:-70px;width:310px;opacity:.065;filter:grayscale(1) brightness(.7);pointer-events:none}
+    .section{width:min(92%,var(--max));margin:0 auto 118px;position:relative}
+    .section-label{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#6d6a65;margin:0 0 17px;font-weight:400}
+    .section-title{font-size:42px;line-height:1.07;margin:0;font-weight:700;letter-spacing:-.018em}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:60px;margin-bottom:43px}
+    .section-head p:last-child{max-width:430px;margin:0;font-size:14px;color:#4e4b47}
+    .hero{width:min(92%,var(--max));margin:44px auto 118px;display:grid;grid-template-columns:1.02fr .98fr;min-height:620px;position:relative;overflow:hidden;background:linear-gradient(100deg,#f5ecdc 0%,#ece8e1 43%,#ced3dd 70%,#96a1b4 100%)}
+    .hero-copy{padding:88px 60px 74px 72px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+    .hero h1{font-size:58px;line-height:1.01;letter-spacing:-.025em;margin:0;max-width:610px}
+    .hero p{max-width:550px;margin:28px 0 0;font-size:15px;color:#302f2d}
+    .hero-photo{min-height:620px;position:relative;overflow:hidden}
+    .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:saturate(.9) contrast(.98)}
+    .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(226,222,215,.16),rgba(128,145,172,.30));pointer-events:none}
+    .actions{display:flex;gap:12px;align-items:center;margin-top:34px}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:0 20px;border:1px solid #242422;background:#171715;color:#fff;font-size:11px;letter-spacing:.05em;text-transform:uppercase;transition:transform .24s ease,background .28s ease,color .28s ease,border-color .28s ease}
+    .button:hover{transform:translateY(-2px);background:var(--gradient);color:#171715;border-color:transparent}
+    .button.secondary{background:transparent;color:#171715;border-color:#8e8a84}
+    .button.secondary:hover{background:linear-gradient(110deg,#f6ede0,#d8dbe2,#98a3b6)}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid transparent;border-image:var(--gradient) 1}
+    details.service{position:relative;padding:31px 28px 29px 0;border-bottom:1.5px solid transparent;border-image:var(--gradient) 1;min-height:260px;transition:background .24s ease,transform .24s ease}
+    details.service:nth-child(3n+2),details.service:nth-child(3n+3){padding-left:28px;border-left:1px solid #eceae6}
+    details.service:hover{background:linear-gradient(120deg,rgba(243,232,212,.18),rgba(199,203,211,.18));transform:translateY(-2px)}
+    details.service summary{list-style:none;cursor:pointer;position:relative;padding-right:40px}
+    details.service summary::-webkit-details-marker{display:none}
+    .num{display:block;font-size:13px;letter-spacing:.08em;color:#a9a7a2;font-weight:400;margin-bottom:26px}
+    .service h3{font-size:24px;line-height:1.12;margin:0 0 16px;font-weight:700}
+    .service p{font-size:13px;color:#55524f;margin:0;max-width:310px}
+    .plus{position:absolute;right:0;bottom:0;font-size:24px;font-weight:300;color:#696661;line-height:1}
+    details[open] .plus::before{content:"−"}.plus::before{content:"+"}
+    .service ul{margin:24px 0 0;padding:18px 0 0;border-top:1px solid #e4e2de;list-style:none}
+    .service li{font-size:12.5px;color:#4c4945;margin:5px 0}
+    .color-band{margin:0 0 118px;background:linear-gradient(103deg,#efe3d0 0%,#e4e1dd 45%,#c0c7d3 72%,#94a0b3 100%);position:relative;overflow:hidden}
+    .color-band-inner{width:min(92%,var(--max));margin:0 auto;min-height:260px;display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:80px;padding:58px 0}
+    .color-band h2{font-size:38px;line-height:1.08;margin:0}
+    .color-band p{font-size:14px;color:#3e3c39;margin:0;max-width:480px}
+    .knowledge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .knowledge-card{min-height:345px;padding:31px 29px 28px;border:1px solid transparent;border-image:var(--gradient) 1;display:flex;flex-direction:column;background:#fff;transition:transform .26s ease,box-shadow .26s ease}
+    .knowledge-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(30,30,28,.055)}
+    .meta{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#85827d;margin-bottom:20px}
+    .knowledge-card h3{font-size:24px;line-height:1.15;margin:0 0 18px}
+    .cardline{height:1.5px;background:var(--gradient);width:100%;margin:0 0 22px}
+    .knowledge-card p{font-size:13px;color:#55524f;margin:0}
+    .arrow{margin-top:auto;align-self:flex-end;font-size:18px;transition:transform .24s ease}
+    .knowledge-card:hover .arrow{transform:translate(3px,-2px)}
+    .knowledge-note{margin-top:42px;padding:42px 46px;background:linear-gradient(110deg,rgba(243,232,212,.88),rgba(232,229,223,.84),rgba(199,203,211,.86));display:grid;grid-template-columns:180px 1fr;gap:50px;align-items:start}
+    .knowledge-note h3{font-size:28px;margin:0 0 12px}
+    .knowledge-note p{font-size:13px;color:#4e4b47;margin:0;max-width:650px}
+    .article-stage{width:min(92%,var(--max));margin:0 auto 118px;border:1px solid transparent;border-image:var(--gradient) 1;padding:68px 72px 76px;position:relative;background:#fff}
+    .article-top{width:min(760px,100%);margin:0 auto;text-align:left}
+    .article-kicker{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#77746f;margin:0 0 18px}
+    .article-title{font-size:45px;line-height:1.04;margin:0;letter-spacing:-.02em}
+    .title-line{width:108px;height:4px;background:var(--gradient);margin:24px 0 27px}
+    .article-lead{font-size:14px;line-height:1.7;color:#3e3b38;margin:0}
+    .article-body{width:min(600px,100%);margin:58px auto 0;text-align:left}
+    .article-body h3{font-size:22px;line-height:1.12;margin:46px 0 18px}.article-body h3:first-child{margin-top:0}
+    .article-body p,.article-body li{font-size:14px;line-height:1.72;color:#3d3a37}
+    .article-body p{margin:0 0 15px}.article-body ul{padding-left:20px;margin:10px 0 20px}
+    .article-endline{height:1px;background:var(--gradient);width:100%;margin-top:54px}
+    .article-nav{display:flex;justify-content:space-between;margin-top:17px;font-size:11px;color:#625f5b}
+    .contact{width:min(92%,var(--max));margin:0 auto 100px;padding:42px 0;border-top:1.5px solid transparent;border-bottom:1.5px solid transparent;border-image:var(--gradient) 1;display:flex;align-items:center;justify-content:space-between;gap:40px}
+    .contact h2{font-size:34px;line-height:1.08;margin:0}.contact p{font-size:13px;color:#5d5a56;margin:8px 0 0}
+    footer{background:#171715;color:#fff}.footer-inner{width:min(92%,var(--max));margin:0 auto;min-height:120px;display:flex;align-items:center;justify-content:space-between;gap:30px;font-size:11px;color:#d8d8d5}.footer-links{display:flex;gap:22px}
+    @media(max-width:900px){
+      .nav{display:none}.hero{grid-template-columns:1fr}.hero-copy{padding:60px 34px}.hero h1{font-size:44px}.hero-photo{min-height:460px}.services-grid,.knowledge-grid{grid-template-columns:1fr}.service:nth-child(n){padding-left:0;border-left:0}.section-head{display:block}.section-head p:last-child{margin-top:20px}.color-band-inner{grid-template-columns:1fr;gap:25px}.knowledge-note{grid-template-columns:1fr;gap:10px}.article-stage{padding:48px 28px}.contact{display:block}.contact .button{margin-top:24px}.footer-inner{flex-direction:column;justify-content:center;padding:30px 0}.footer-links{flex-wrap:wrap;justify-content:center}
+    }
+  </style>
+</head>
+<body>
+  <div class="testbar">Testseite · nur die besprochenen Änderungen · Originalinhalte</div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="MASOON TREUHAND Startseite"><img src="../07.09.2026%20logo_basic%20(3).png" alt="MASOON TREUHAND" /></a>
+      <nav class="nav" aria-label="Testnavigation">
+        <a href="#start">Startseite</a><a href="#dienstleistungen">Dienstleistungen</a><a href="#fachwissen">Fachwissen</a><a href="#artikel">Artikel</a><a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero page" id="start">
+      <div class="hero-copy">
+        <p class="section-label">Treuhand · Beratung · Klarheit</p>
+        <h1>Treuhand mit<br />Struktur und<br />Anspruch.</h1>
+        <p>Auf der Basis von Diskretion, Präzision und Vertrauen begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch durch alle Phasen Ihres Geschäftslebens.</p>
+        <div class="actions"><a class="button" href="#kontakt">Kontakt aufnehmen ↗</a><a class="button secondary" href="#dienstleistungen">Alle Dienstleistungen ansehen ↗</a></div>
+      </div>
+      <div class="hero-photo"><img src="../Foto-hero.webp" alt="Porträt von Gety Galena Masoon" /></div>
+    </section>
+
+    <section class="section page" id="dienstleistungen">
+      <div class="section-head">
+        <div><p class="section-label">Dienstleistungen</p><h2 class="section-title">Treuhandlösungen für Ihren Geschäftsalltag.</h2></div>
+        <p>Die bestehende Struktur bleibt erhalten. Geändert sind nur die einheitlich grauen Zahlen, grössere Titel, + / − statt «Mehr anzeigen», farbige Trennlinien und ein dezenter Hover.</p>
+      </div>
+      <div class="services-grid">
+        <details class="service"><summary><span class="num">01</span><h3>Administration</h3><p>Wir entlasten Sie bei administrativen Arbeiten im Geschäftsalltag und unterstützen bei der Geschäftskorrespondenz, dem Mahn- und Inkassowesen, dem Offert- und Rechnungswesen sowie der Terminverwaltung.</p><span class="plus" aria-hidden="true"></span></summary><ul><li>Allgemeine Administration</li><li>Postadministration</li><li>Geschäftskorrespondenz</li><li>Mahn- und Inkassowesen</li><li>Offert- und Rechnungswesen</li><li>Zahlungsverkehr</li><li>Dokumentenmanagement</li><li>Terminverwaltung</li></ul></details>
+        <details class="service"><summary><span class="num">02</span><h3>Buchhaltung</h3><p>Die laufende Buchhaltung wird zuverlässig betreut und verständlich aufbereitet. Finanzbuchhaltung, Debitoren- und Kreditorenbuchhaltung sowie Mehrwertsteuerabrechnungen schaffen eine klare Grundlage für Zahlen, Auswertungen und Entscheidungen.</p><span class="plus" aria-hidden="true"></span></summary><ul><li>Finanzbuchhaltung</li><li>Debitorenbuchhaltung</li><li>Kreditorenbuchhaltung</li><li>Zahlungsverkehr</li><li>Mehrwertsteuerberatung</li><li>Mehrwertsteuerabrechnungen</li><li>Umsatzabstimmungen</li><li>Digitale Buchhaltungsprozesse</li></ul></details>
+        <details class="service"><summary><span class="num">03</span><h3>Personaladministration</h3><p>Bei der Personaladministration unterstützen wir Sie bei Arbeitsverträgen, Personalmutationen, Lohnabrechnungen und Sozialversicherungen. Die Verarbeitung erfolgt korrekt, termingerecht und mit Blick auf die Arbeitgeberpflichten.</p><span class="plus" aria-hidden="true"></span></summary><ul><li>Arbeitsverträge</li><li>Personalmutationen</li><li>Lohnabrechnungen</li><li>Lohnbuchhaltung</li><li>Lohnausweise</li><li>Quellensteuerabrechnungen</li><li>Sozialversicherungen</li><li>Behördenmeldungen</li><li>Arbeitgeberkontrollen</li></ul></details>
+        <details class="service"><summary><span class="num">04</span><h3>Jahresabschluss</h3><p>Zwischen- und Jahresabschlüsse werden fachgerecht erstellt und sauber dokumentiert. Bilanz und Erfolgsrechnung, Kontenabstimmungen sowie Abschlussberatung schaffen eine verlässliche Grundlage für Steuern, Auswertungen und weitere Entscheidungen.</p><span class="plus" aria-hidden="true"></span></summary><ul><li>Zwischenabschlüsse</li><li>Jahresabschlüsse</li><li>Bilanz und Erfolgsrechnung</li><li>Anhang und Revisionsunterlagen</li><li>Kontenabstimmungen</li><li>Abschlussberatung</li></ul></details>
+        <details class="service"><summary><span class="num">05</span><h3>Steuererklärung</h3><p>Steuerliche Arbeiten verlangen eine sorgfältige Prüfung und korrekte Deklaration. Wir unterstützen Sie bei Steuererklärungen für natürliche und juristische Personen, Veranlagungskontrollen, Einspracheverfahren und Steueroptimierungen.</p><span class="plus" aria-hidden="true"></span></summary><ul><li>Steuererklärungen natürliche Personen</li><li>Steuererklärungen juristische Personen</li><li>Veranlagungskontrolle</li><li>Einspracheverfahren</li><li>Steueroptimierung</li><li>Steuerberatung</li><li>Steuervertretung</li></ul></details>
+        <details class="service"><summary><span class="num">06</span><h3>Unternehmensberatung</h3><p>Unternehmerische Schritte werden fachlich beurteilt und sorgfältig vorbereitet. Rechtsformwahl, Gründungsberatungen, Gesellschaftsgründungen und Umstrukturierungen werden klar eingeordnet und zielgerichtet begleitet.</p><span class="plus" aria-hidden="true"></span></summary><ul><li>Rechtsformwahl</li><li>Gründungsberatung</li><li>Gesellschaftsgründungen</li><li>Umstrukturierungen</li><li>Umwandlungen</li><li>Liquidationen</li></ul></details>
+      </div>
+      <img class="keymark" src="../07.09.2026%20logo_basic%20(3).png" alt="" aria-hidden="true" />
+    </section>
+
+    <section class="color-band page">
+      <div class="color-band-inner">
+        <h2>Fachliche Orientierung für den Geschäftsalltag.</h2>
+        <p>Unsere Beiträge vermitteln allgemeine Informationen zu ausgewählten Themen aus dem Treuhandbereich. Sie dienen der Orientierung und ersetzen keine Beurteilung des Einzelfalls.</p>
+      </div>
+      <img class="keymark" src="../07.09.2026%20logo_basic%20(3).png" alt="" aria-hidden="true" />
+    </section>
+
+    <section class="section page" id="fachwissen">
+      <div class="section-head">
+        <div><p class="section-label">Fachwissen</p><h2 class="section-title">Fachbeiträge zu ausgewählten Themen.</h2></div>
+        <p>Die komplette Kachel ist anklickbar. «Beitrag anzeigen» entfällt. Die farbige Linie wird auf Startseite und Fachwissen identisch eingesetzt.</p>
+      </div>
+      <div class="knowledge-grid">
+        <a class="knowledge-card" href="../fachwissen/checkliste-steuererklaerung/"><span class="meta">07.2026 · Steuern</span><h3>Checkliste für die Steuererklärung</h3><span class="cardline"></span><p>Eine vollständige Übersicht der wichtigsten Unterlagen für eine korrekt vorbereitete Steuererklärung.</p><span class="arrow">↗</span></a>
+        <a class="knowledge-card" href="../fachwissen/unternehmen-gruenden/"><span class="meta">06.2026 · Gesellschaftsrecht</span><h3>Unternehmen gründen in der Schweiz: Welche Rechtsform passt?</h3><span class="cardline"></span><p>Die Wahl der Rechtsform beeinflusst Haftung, Kapitalbedarf, Steuern und die Führung eines Unternehmens.</p><span class="arrow">↗</span></a>
+        <a class="knowledge-card" href="../fachwissen/unternehmensformen/"><span class="meta">05.2026 · Gesellschaftsrecht</span><h3>Unternehmensformen im Überblick</h3><span class="cardline"></span><p>Die gängigsten Unternehmensformen der Schweiz werden anhand ihrer rechtlichen und finanziellen Merkmale miteinander verglichen.</p><span class="arrow">↗</span></a>
+        <a class="knowledge-card" href="../fachwissen/kuendigung-arbeitsvertrag/"><span class="meta">04.2026 · Arbeitsrecht</span><h3>Kündigung des Arbeitsvertrags: Fristen, Form und Sperrfristen</h3><span class="cardline"></span><p>Eine Kündigung muss korrekt vorbereitet werden, damit Fristen, Formvorschriften und Sperrfristen eingehalten werden.</p><span class="arrow">↗</span></a>
+        <a class="knowledge-card" href="../fachwissen/unwahre-buchfuehrung/"><span class="meta">03.2026 · Buchführung</span><h3>Unwahre Buchführung: Rechtliche Bedeutung korrekter Buchhaltung</h3><span class="cardline"></span><p>Eine saubere Buchhaltung ist Grundlage für Jahresabschluss, Steuern, MWST, Löhne und unternehmerische Entscheidungen.</p><span class="arrow">↗</span></a>
+        <a class="knowledge-card" href="../fachwissen/gewinnverwendung/"><span class="meta">02.2026 · Rechnungslegung</span><h3>Gewinnverwendung, Reserven und Verlustvortrag</h3><span class="cardline"></span><p>Gewinnverwendung, Reserven und Verlustvortrag sind vor einer Ausschüttung sorgfältig zu beurteilen.</p><span class="arrow">↗</span></a>
+      </div>
+      <div class="knowledge-note"><p class="section-label">Einordnung</p><div><h3>Fachliche Orientierung für den Geschäftsalltag.</h3><p>Unsere Beiträge vermitteln allgemeine Informationen zu ausgewählten Themen aus dem Treuhandbereich. Sie dienen der Orientierung und ersetzen keine Beurteilung des Einzelfalls.</p></div></div>
+      <img class="keymark" src="../07.09.2026%20logo_basic%20(3).png" alt="" aria-hidden="true" />
+    </section>
+
+    <section class="article-stage page" id="artikel">
+      <div class="article-top">
+        <p class="article-kicker">01.2026 · Konkursrecht</p>
+        <h2 class="article-title">Missbräuchliche Konkurse: Was die Regeln seit 01.01.2025 für Unternehmen bedeuten</h2>
+        <div class="title-line"></div>
+        <p class="article-lead">Seit 01.01.2025 gelten in der Schweiz schärfere Massnahmen gegen missbräuchliche Konkurse. Ziel ist, zu verhindern, dass Unternehmen ihre finanziellen Verpflichtungen durch wiederholte oder gezielt herbeigeführte Konkurse umgehen. Die Änderungen betreffen unter anderem das Obligationenrecht, das Schuldbetreibungs- und Konkursgesetz, das Strafrecht, das Handelsregisterrecht und das Steuerrecht.</p>
+      </div>
+      <article class="article-body">
+        <h3>Worum es bei missbräuchlichen Konkursen geht</h3>
+        <p>Ein Konkurs ist nicht automatisch missbräuchlich. Unternehmen können aus wirtschaftlichen Gründen scheitern. Problematisch sind Fälle, in denen Gesellschaften aufgebaut, verschuldet und anschliessend fallengelassen werden, während Verantwortliche mit einer neuen Gesellschaft weitermachen.</p>
+        <p>Die Gesetzesänderungen sollen solche Muster erschweren. Gleichzeitig erhöhen sie den Druck auf Unternehmen, offene öffentlich rechtliche Forderungen, Handelsregisterpflichten, Revisionsthemen und finanzielle Warnsignale ernst zu nehmen.</p>
+        <h3>Öffentlich rechtliche Forderungen werden konsequenter betrieben</h3>
+        <p>Eine zentrale Änderung betrifft öffentlich rechtliche Forderungen. Dazu können zum Beispiel Steuern, Abgaben, Bussen, Gebühren oder bestimmte Sozialversicherungsforderungen gehören.</p>
+        <p>Für Unternehmen bedeutet das: Offene Steuerrechnungen, MWST Beträge oder Sozialversicherungsbeiträge sind nicht mehr nur ein administratives Problem.</p>
+        <h3>Was Unternehmen konkret beachten sollten</h3>
+        <ul><li>Steuern, MWST und Sozialversicherungen laufend überwachen</li><li>Buchhaltung zeitnah führen und Bankkonten regelmässig abstimmen</li><li>Zahlungsunfähigkeit, Kapitalverlust und Überschuldung früh erkennen</li><li>Handelsregistereinträge aktuell halten</li></ul>
+        <div class="article-endline"></div>
+        <div class="article-nav"><span>← Zurück zur Übersicht</span><span>Nächster Beitrag →</span></div>
+      </article>
+      <img class="keymark" src="../07.09.2026%20logo_basic%20(3).png" alt="" aria-hidden="true" />
+    </section>
+
+    <section class="contact page" id="kontakt">
+      <div><p class="section-label">Kontakt</p><h2>Verlässliche Treuhandlösungen<br />für Ihr Unternehmen.</h2><p>Persönlich, strukturiert und mit klarer fachlicher Einordnung.</p></div>
+      <a class="button" href="../kontakt/index.html">Kontakt aufnehmen ↗</a>
+      <img class="keymark" src="../07.09.2026%20logo_basic%20(3).png" alt="" aria-hidden="true" />
+    </section>
+  </main>
+
+  <footer><div class="footer-inner"><span>© 2026 MASOON TREUHAND</span><div class="footer-links"><a href="../disclaimer/index.html">Disclaimer</a><a href="../impressum/index.html">Impressum</a><a href="../datenschutz/index.html">Datenschutz</a><a href="../kontakt/index.html">Kontakt</a></div></div></footer>
+</body>
+</html>

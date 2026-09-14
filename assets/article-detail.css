@@ -64,7 +64,7 @@ p.article-lead{
   width:100%!important;
   max-width:none!important;
   margin:30px 0 0!important;
-  padding:31px 0 0!important;
+  padding:31px 0!important;
   position:static!important;
   top:auto!important;
   transform:none!important;
@@ -75,10 +75,10 @@ p.article-lead{
   line-height:1.65!important;
   letter-spacing:0!important;
   color:#484a4f!important;
-  background-image:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
-  background-repeat:no-repeat!important;
-  background-position:left top!important;
-  background-size:108px 2px!important;
+  background-image:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%),linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
+  background-repeat:no-repeat,no-repeat!important;
+  background-position:left top,left bottom!important;
+  background-size:108px 1px,100% 1px!important;
 }
 
 .article-body{
@@ -131,7 +131,7 @@ p.article-lead{
   .article-overline{width:91%!important;max-width:none!important;margin-bottom:24px!important;padding:0 26px!important}
   .article-shell{padding:52px 26px!important}
   html body.site-light-page main.article-main .article-title{font-size:40px!important}
-  p.article-lead{margin-top:26px!important;padding-top:28px!important}
+  p.article-lead{margin-top:26px!important;padding:28px 0!important}
   .article-body{width:100%!important;max-width:none!important;margin:44px 0 0!important;transform:none!important}
   .article-body h2{margin-top:40px!important}
 }

@@ -4,7 +4,7 @@ html body.site-light-page main.article-main{padding:234px 0 126px!important}
   width:91%!important;
   max-width:1227px!important;
   margin:0 auto 28px!important;
-  padding:0 72px!important;
+  padding:0 72px 0 108px!important;
   box-sizing:border-box!important;
   text-align:left!important;
 }
@@ -31,9 +31,9 @@ html body.site-light-page main.article-main{padding:234px 0 126px!important}
 }
 
 .article-hero{
-  width:min(760px,100%)!important;
-  max-width:760px!important;
-  margin:0!important;
+  width:min(900px,calc(100% - 36px))!important;
+  max-width:900px!important;
+  margin:0 0 0 36px!important;
   padding:0!important;
   display:block!important;
   text-align:left!important;

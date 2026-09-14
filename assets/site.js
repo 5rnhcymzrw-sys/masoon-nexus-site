@@ -32,7 +32,7 @@
     card.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
     card.style.setProperty('backdrop-filter', 'none', 'important');
 
-    // Disclaimer-Typografie exakt wie in der freigegebenen Testversion.
+    // Disclaimer-Typografie wie in der Testversion.
     const title = card.querySelector('h1');
     if (title) {
       title.style.setProperty('font-family', '"PT Serif", Georgia, serif', 'important');
@@ -176,41 +176,6 @@
   }
 
   // Die Logoausrichtung erfolgt bereits beim ersten Rendern in global.css.
-})();
-
-/* Grosse Titel: PT Serif Bold wie in der freigegebenen Testversion. */
-(() => {
-  const applyMajorTitleTypography = () => {
-    if (document.getElementById('masoon-major-title-typography')) return;
-    const style = document.createElement('style');
-    style.id = 'masoon-major-title-typography';
-    style.textContent = `
-      html body .global-title,
-      html body .section-heading h1,
-      html body .section-heading h2,
-      html body .legal-page h1,
-      html body .knowledge-note h2,
-      html body .home-paths__heading h2,
-      html body .home-contact-band h2,
-      html body .contact-split__info h1,
-      html body .services-closing h2,
-      html body .article-title {
-        font-family: "PT Serif", Georgia, serif !important;
-        font-weight: 700 !important;
-        line-height: 1.04 !important;
-        letter-spacing: 0 !important;
-        font-style: normal !important;
-        font-synthesis: none !important;
-      }
-    `;
-    document.head.appendChild(style);
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', applyMajorTitleTypography, { once: true });
-  } else {
-    applyMajorTitleTypography();
-  }
 })();
 
 /* Impressum: Fliesstextfarbe wie Datenschutz. */

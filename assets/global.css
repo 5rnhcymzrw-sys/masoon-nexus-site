@@ -127,7 +127,7 @@ html body .contact-split__info h1{letter-spacing:0!important;}
 
 /* Dienstleistungen: Nummer und Titel */
 @media(min-width:801px){
-  .services-section>.services-grid>.service-card summary{display:grid!important;grid-template-columns:70px minmax(0,1fr) auto!important;grid-template-rows:auto minmax(0,1fr) auto!important;column-gap:20px!important;align-content:start!important;}
+  .services-section>.services-grid>.service-card summary{display:grid!important;grid-template-columns:70px minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr) auto!important;column-gap:20px!important;align-content:start!important;}
   .services-section>.services-grid>.service-card .card-number{grid-column:1;grid-row:1;align-self:start;margin:0!important;color:#9a948b!important;font-family:var(--font-cormorant)!important;font-size:46px!important;font-weight:500!important;line-height:.9!important;letter-spacing:-.04em!important;}
   .services-section>.services-grid>.service-card:first-child .card-number{color:#171715!important;}
   .services-section>.services-grid>.service-card h2{grid-column:2;grid-row:1;align-self:center;margin:0!important;font-size:22px!important;line-height:1.08!important;}

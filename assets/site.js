@@ -95,6 +95,27 @@
     title.style.setProperty('font-size', '43px', 'important');
   });
 
+  if (document.body.classList.contains('page-knowledge')) {
+    const lineStyle = document.createElement('style');
+    lineStyle.textContent = `
+      html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card > h2 {
+        align-self: stretch !important;
+        width: 100% !important;
+        max-width: none !important;
+        padding-bottom: 22px !important;
+        background-image: linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) !important;
+        background-repeat: no-repeat !important;
+        background-position: left bottom !important;
+        background-size: 100% 1px !important;
+      }
+      html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card > h2::after {
+        content: none !important;
+        display: none !important;
+      }
+    `;
+    document.head.appendChild(lineStyle);
+  }
+
   // Align the footer to whole CSS pixels so end-of-page scroll rounding
   // cannot place otherwise identical footers on different pixel fractions.
   const pixelAlignedFooter = document.querySelector('.site-footer');

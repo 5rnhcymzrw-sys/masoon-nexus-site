@@ -58,11 +58,6 @@
   max-width: 520px !important;
   margin: 0 0 34px !important;
   color: #171715 !important;
-  font-family: var(--font-cormorant) !important;
-  font-size: var(--title-size) !important;
-  font-weight: 400 !important;
-  line-height: 1.05 !important;
-  letter-spacing: -.02em !important;
 }
 
 .contact-split__info .contact-split__intro{

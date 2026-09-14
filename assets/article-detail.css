@@ -82,11 +82,11 @@ p.article-lead{
 }
 
 .article-body{
-  width:min(680px,100%)!important;
-  max-width:680px!important;
-  margin:58px auto 0!important;
+  width:min(calc(50% + 322px),100%)!important;
+  max-width:none!important;
+  margin:58px 0 0 auto!important;
   padding:0!important;
-  transform:translateX(18px)!important;
+  transform:none!important;
   text-align:left!important;
 }
 

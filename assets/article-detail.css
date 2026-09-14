@@ -1,35 +1,49 @@
 html body.site-light-page main.article-main{padding:234px 0 126px!important}
-.article-overline,.article-shell{width:91%!important;max-width:1227px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important}
-.article-overline{display:block!important;width:760px!important;max-width:calc(91% - 144px)!important;margin-bottom:28px!important;padding:0!important;text-align:left!important}
-.article-overline .section-label{margin:0 0 18px!important}
 
-/* Fachbeiträge: durchgehend linksbündig mit ruhiger Lesespalte */
-html body.site-light-page main.article-main .article-shell{
-  padding:67.5px 72px 53.5px!important;
+.article-overline{
+  width:min(760px,91%)!important;
+  max-width:760px!important;
+  margin:0 auto 28px!important;
+  padding:0!important;
+  box-sizing:border-box!important;
+  text-align:left!important;
+}
+.article-overline .section-label{margin:0!important}
+
+.article-shell{
+  width:91%!important;
+  max-width:1227px!important;
+  margin:0 auto!important;
+  padding:67.5px 72px 76px!important;
+  box-sizing:border-box!important;
   border:1px solid transparent!important;
   border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
   display:block!important;
   text-align:left!important;
 }
-html body.site-light-page main.article-main .article-column{
+
+.article-column{
   width:100%!important;
   max-width:none!important;
   margin:0!important;
   display:block!important;
   text-align:left!important;
 }
-html body.site-light-page main.article-main .article-hero{
-  width:760px!important;
-  max-width:100%!important;
+
+.article-hero{
+  width:min(760px,100%)!important;
+  max-width:760px!important;
   margin:0 auto!important;
   padding:0!important;
   display:block!important;
   text-align:left!important;
-  border-bottom:0!important;
+  border:0!important;
+  background:none!important;
 }
-html body.site-light-page main.article-main .article-title{
+
+.article-title{
   margin:0!important;
-  padding:0 0 28px!important;
+  padding:0!important;
   width:100%!important;
   max-width:none!important;
   text-align:left!important;
@@ -43,15 +57,13 @@ html body.site-light-page main.article-main .article-title{
   -webkit-text-stroke:0!important;
   font-synthesis:none!important;
   color:#171715!important;
-  background-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
-  background-size:108px 4px!important;
-  background-position:left bottom!important;
-  background-repeat:no-repeat!important;
 }
-html body.site-light-page main.article-main .article-lead{
+
+.article-lead{
   width:100%!important;
   max-width:none!important;
   margin:30px 0 0!important;
+  padding:31px 0 0!important;
   position:static!important;
   top:auto!important;
   transform:none!important;
@@ -62,19 +74,39 @@ html body.site-light-page main.article-main .article-lead{
   line-height:1.72!important;
   letter-spacing:0!important;
   color:#3d3a37!important;
+  background-image:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
+  background-repeat:no-repeat!important;
+  background-position:left top!important;
+  background-size:108px 4px!important;
 }
-html body.site-light-page main.article-main .article-body{
-  width:600px!important;
-  max-width:100%!important;
+
+.article-body{
+  width:min(600px,100%)!important;
+  max-width:600px!important;
   margin:58px auto 0!important;
   padding:0!important;
   text-align:left!important;
 }
-.article-body h2{position:relative!important;max-width:none;margin:46px 0 18px!important;text-align:left!important;}
+
+.article-body h2{
+  position:relative!important;
+  max-width:none!important;
+  margin:46px 0 18px!important;
+  text-align:left!important;
+  font-family:"PT Serif",Georgia,serif!important;
+  font-size:22px!important;
+  font-weight:700!important;
+  line-height:1.12!important;
+  letter-spacing:0!important;
+  color:#171715!important;
+  -webkit-text-stroke:0!important;
+  font-synthesis:none!important;
+}
 .article-body h2:first-child{margin-top:0!important}
 .article-body h2::after{display:none!important;content:none!important}
-html body.site-light-page main.article-main .article-body p,
-html body.site-light-page main.article-main .article-body li{
+
+.article-body p,
+.article-body li{
   font-family:"Inter",Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:300!important;
@@ -83,24 +115,21 @@ html body.site-light-page main.article-main .article-body li{
   color:#3d3a37!important;
   text-align:left!important;
 }
-.article-body p{max-width:none;margin:0 0 15px!important}
-html body.site-light-page .article-body h2+p{margin-top:0!important}
-.article-body ul{max-width:none;margin:10px 0 20px;padding-left:20px;list-style:disc;text-align:left!important}
-.article-body li{position:relative;margin:0 0 4px;padding-left:0}
-.article-body li::before{content:none}
+.article-body p{max-width:none!important;margin:0 0 15px!important}
+.article-body h2+p{margin-top:0!important}
+.article-body ul{max-width:none!important;margin:10px 0 20px!important;padding-left:20px!important;text-align:left!important}
+.article-body li{margin:0 0 5px!important;padding-left:0!important}
+.article-body li::before{content:none!important;display:none!important}
 
-/* Verbindliche Artikelwerte */
-html body.site-light-page .article-body h2{font-family:"PT Serif",Georgia,serif!important;font-size:22px!important;font-weight:700!important;line-height:1.12!important;letter-spacing:0!important;color:#171715!important;-webkit-text-stroke:0!important;font-synthesis:none!important}
-html body.site-light-page .article-table-wrap{margin-left:0!important;margin-right:0!important;text-align:left!important;max-width:none!important}
-html body.site-light-page .article-table-wrap table{font-family:"Inter",Arial,sans-serif!important;font-size:14px!important;font-weight:300!important;line-height:1.72!important;color:#3d3a37!important;text-align:left!important}
+.article-table-wrap{margin-left:0!important;margin-right:0!important;text-align:left!important;max-width:none!important}
+.article-table-wrap table{font-family:"Inter",Arial,sans-serif!important;font-size:14px!important;font-weight:300!important;line-height:1.72!important;color:#3d3a37!important;text-align:left!important}
 
 @media(max-width:800px){
   html body.site-light-page main.article-main{padding:170px 0 96px!important}
   .article-overline{width:91%!important;max-width:none!important;margin-bottom:24px!important;padding:0 26px!important}
-  html body.site-light-page main.article-main .article-shell{padding:52px 26px!important;display:block!important}
-  html body.site-light-page main.article-main .article-hero{width:100%!important;max-width:none!important;padding-bottom:0!important}
-  html body.site-light-page main.article-main .article-title{padding-bottom:24px!important;background-size:96px 4px!important}
-  html body.site-light-page main.article-main .article-lead{margin:26px 0 0!important}
-  html body.site-light-page main.article-main .article-body{width:100%!important;max-width:none!important;margin:48px 0 0!important;padding:0!important}
-  .article-body h2{margin-top:42px!important;}
+  .article-shell{padding:52px 26px!important}
+  .article-title{font-size:40px!important}
+  .article-lead{margin-top:26px!important;padding-top:28px!important}
+  .article-body{width:100%!important;max-width:none!important;margin:44px 0 0!important}
+  .article-body h2{margin-top:40px!important}
 }

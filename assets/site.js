@@ -1,68 +1,3 @@
-/* Disclaimer: Hintergrund wie Datenschutz, ohne Flächenverläufe oder Weichzeichnung.
-   Nur diese Seite erhält die Anpassung; Verlaufsrahmen und Layout bleiben erhalten. */
-(() => {
-  if (!/\/disclaimer(?:\/(?:index\.html)?)?$/i.test(location.pathname)) return;
-
-  const applyDisclaimerAppearance = () => {
-    const card = document.querySelector('.disclaimer-card');
-    if (!card) return;
-
-    // Die lokalen Seiten-Overrides freigeben, damit dieselbe zentrale
-    // Hintergrundgestaltung wie auf Datenschutz verwendet wird.
-    const pageSelector = 'html body.site-light-page:has(.disclaimer-card)';
-    const backgroundProperties = [
-      'background', 'background-color', 'background-image', 'background-repeat',
-      'background-size', 'background-position', 'background-attachment'
-    ];
-    const cleanPageRules = rules => {
-      Array.from(rules).forEach(rule => {
-        if (rule.selectorText === pageSelector) {
-          backgroundProperties.forEach(property => rule.style.removeProperty(property));
-        }
-        if (rule.cssRules) cleanPageRules(rule.cssRules);
-      });
-    };
-    document.querySelectorAll('head style').forEach(element => {
-      if (element.sheet) cleanPageRules(element.sheet.cssRules);
-    });
-
-    // Transparenter Kasten: Das vorhandene Hintergrundbild bleibt sichtbar.
-    card.style.setProperty('background', 'transparent', 'important');
-    card.style.setProperty('background-image', 'none', 'important');
-    card.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
-    card.style.setProperty('backdrop-filter', 'none', 'important');
-
-    // Disclaimer-Typografie wie in der Testversion.
-    const title = card.querySelector('h1');
-    if (title) {
-      title.style.setProperty('font-family', '"PT Serif", Georgia, serif', 'important');
-      title.style.setProperty('font-weight', '700', 'important');
-      title.style.setProperty('line-height', '1.04', 'important');
-      title.style.setProperty('letter-spacing', '0', 'important');
-      title.style.setProperty('font-style', 'normal', 'important');
-      title.style.setProperty('font-synthesis', 'none', 'important');
-      if (window.matchMedia('(min-width: 801px)').matches) {
-        title.style.setProperty('font-size', '45px', 'important');
-      }
-    }
-
-    card.querySelectorAll('.prose p').forEach(el => {
-      el.style.setProperty('font-family', 'Inter, Arial, sans-serif', 'important');
-      el.style.setProperty('font-size', '14px', 'important');
-      el.style.setProperty('font-weight', '300', 'important');
-      el.style.setProperty('line-height', '1.65', 'important');
-      el.style.setProperty('letter-spacing', '0', 'important');
-      el.style.setProperty('color', '#484a4f', 'important');
-    });
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', applyDisclaimerAppearance, { once: true });
-  } else {
-    applyDisclaimerAppearance();
-  }
-})();
-
 (() => {
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
@@ -176,19 +111,4 @@
   }
 
   // Die Logoausrichtung erfolgt bereits beim ersten Rendern in global.css.
-})();
-
-/* Impressum: Fliesstextfarbe wie Datenschutz. */
-(() => {
-  if (!/\/impressum(?:\/(?:index\.html)?)?$/i.test(location.pathname)) return;
-  const apply = () => {
-    document.querySelectorAll('.disclaimer-card .prose p').forEach(el => {
-      el.style.setProperty('color', '#484a4f', 'important');
-    });
-  };
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', apply, { once: true });
-  } else {
-    apply();
-  }
 })();

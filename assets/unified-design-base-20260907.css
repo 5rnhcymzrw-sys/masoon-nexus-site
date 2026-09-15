@@ -54,44 +54,6 @@ zwei Reihen */
   }
 }
 
-/* Einheitliche kurze Linien zwischen kleinen Titeln und nachfolgendem Text */
-html body .home-values__item h3::after,
-html body .home-paths__grid strong::after,
-html body .knowledge-section .article-card h2::after{
-  content:""!important;
-  display:block!important;
-  margin-top:11px!important;
-  background:#868279!important;
-  border:0!important;
-}
-
-/* Alle Titellinien: oben und unten je 11 Pixel Abstand */
-html body .section-label{
-  margin-bottom:11px!important;
-}
-
-html body .home-values__item h3::after,
-html body .home-paths__grid strong::after,
-html body .knowledge-section .article-card h2::after{
-  width:48px!important;
-  max-width:48px!important;
-  height:1px!important;
-  margin:11px 0 0!important;
-}
-
-html body .home-values__item h3,
-html body .knowledge-section .article-card h2{
-  margin-bottom:11px!important;
-}
-
-html body .home-values__item p,
-html body .knowledge-section .article-card>p:not(.article-meta){
-  margin-top:0!important;}
-
-html body .home-paths__grid strong+span{
-  margin-top:11px!important;
-}
-
 /* Kleine Bereichstitel: ursprüngliche Abstände wiederherstellen */
 html body .section-label{
   margin:0 0 30px!important;

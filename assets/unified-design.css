@@ -95,7 +95,6 @@ body.page-knowledge [data-reveal-delay="0"]{--reveal-delay:0ms;}
 body.page-knowledge [data-reveal-delay="70"]{--reveal-delay:70ms;}
 body.page-knowledge [data-reveal-delay="140"]{--reveal-delay:140ms;}
 body.page-knowledge [data-reveal-delay="210"]{--reveal-delay:210ms;}
-body.page-knowledge .article-card-date{color:#868279!important;}
 
 /* index.html */
 html:has(body.page-home) { scroll-behavior: auto !important; }
@@ -1554,23 +1553,6 @@ html body.page-knowledge.site-light-page main .knowledge-section#knowledge-artic
   filter:none!important;
   backdrop-filter:none!important;
   -webkit-backdrop-filter:none!important;
-}
-
-/* Fachwissen-Kacheln: Datum und Kategorie exakt wie im geöffneten Fachbeitrag. */
-html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>.article-card-date{
-  font-family:var(--font-inter)!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  line-height:15.4px!important;
-  letter-spacing:1.1px!important;
-  text-transform:uppercase!important;
-  font-style:normal!important;
-  font-synthesis:none!important;
-  color:#777777!important;
-  opacity:1!important;
-  -webkit-font-smoothing:antialiased!important;
-  -moz-osx-font-smoothing:grayscale!important;
-  text-rendering:geometricPrecision!important;
 }
 
 /* Startseite Kontakt: innen vollständig transparent, ursprünglicher Rahmenverlauf bleibt erhalten. */

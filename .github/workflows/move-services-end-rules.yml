@@ -1,0 +1,39 @@
+name: Move services end rules
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/move-services-end-rules.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move service page rules
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          u=Path('assets/unified-design.css')
+          d=Path('assets/dienstleistungen.css')
+          s=u.read_text(encoding='utf-8')
+          start=s.index('/* dienstleistungen/index.html */')
+          end=s.index('/* disclaimer/index.html */', start)
+          block=s[start:end]
+          block=block.replace('width:min(100% - 36px,1227px)!important','width:min(100% - var(--page-gutter-mobile),var(--content-width))!important')
+          block=block.replace('padding:126px 72px!important','padding:var(--section-y) 72px!important')
+          s=s[:start]+s[end:]
+          u.write_text(s,encoding='utf-8')
+          ds=d.read_text(encoding='utf-8').rstrip()+"\n\n"+block.strip()+"\n"
+          d.write_text(ds,encoding='utf-8')
+          assert 'page-services' not in s
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/unified-design.css assets/dienstleistungen.css
+          git commit -m "Dienstleistungs-Endregeln zentralisieren"
+          git rm .github/workflows/move-services-end-rules.yml
+          git commit -m "Temporären Dienstleistungs-Workflow entfernen"
+          git push

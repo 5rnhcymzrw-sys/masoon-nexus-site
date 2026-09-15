@@ -1,0 +1,61 @@
+name: Unify knowledge cards v3
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/unify-knowledge-cards-v3.yml
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch final legacy rule into cleanup script
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('scripts/unify-knowledge-cards.py')
+          s=p.read_text(encoding='utf-8')
+          needle="g = g[:gs] + shared + g[ge:]\n"
+          insertion='''g = g[:gs] + shared + g[ge:]
+legacy_transition = """/* Startseite Fachwissen: finale globale Übergangsgeschwindigkeit */
+html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a{
+  transition:transform .49s ease,border-color .49s ease,box-shadow .49s ease,background-color .49s ease!important;
+}
+
+"""
+if legacy_transition in g:
+    g = g.replace(legacy_transition, '', 1)
+'''
+          assert needle in s
+          s=s.replace(needle,insertion,1)
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Apply shared knowledge card component
+        run: python3 scripts/unify-knowledge-cards.py
+      - name: Verify single source
+        run: |
+          echo '=== HOME ARTICLE CARDS ==='
+          grep -n 'home-paths__grid articles-grid' index.html
+          echo '=== INLINE STYLE CHECK ==='
+          if grep -n '<style>' fachwissen/index.html; then exit 1; fi
+          echo '=== OLD HOME CARD CSS CHECK ==='
+          if grep -nE 'home-path-date|home-path-copy|page-home\.site-light-page main\.home section\.home-paths \.home-paths__grid>a' assets/global.css; then exit 1; fi
+          echo '=== OLD KNOWLEDGE CARD CSS CHECK ==='
+          if grep -nE 'knowledge-section.*article-card' assets/global.css; then exit 1; fi
+          if grep -nE 'page-knowledge.*article-card' assets/unified-design.css; then exit 1; fi
+          echo '=== SHARED COMPONENT ==='
+          grep -n -A35 'Fachwissen-Karten: gemeinsame globale Komponente' assets/global.css
+          echo '=== JS CHECK ==='
+          if grep -n 'lineStyle' assets/site.js; then exit 1; fi
+          grep -n "document.querySelectorAll('.article-card')" assets/site.js
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html fachwissen/index.html assets/global.css assets/unified-design.css assets/site.js
+          git commit -m "Fachwissen-Karten global vereinheitlichen"
+          git rm scripts/unify-knowledge-cards.py .github/workflows/unify-knowledge-cards.yml .github/workflows/unify-knowledge-cards-v2.yml .github/workflows/unify-knowledge-cards-v3.yml
+          git commit -m "Temporäre Karten-Bereinigung entfernen"
+          git push

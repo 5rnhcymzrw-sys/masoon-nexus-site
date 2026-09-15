@@ -326,11 +326,11 @@ html body.site-light-page .collaboration-legal-section{
 
 /* Unternehmen: Porträtbereich */
 html body.site-light-page .company-legal-section,
-html body.site-light-page .company-legal-section .company-legal-card{overflow:visible!important;}
+html body.site-light-page .company-legal-section .company-legal-card{overflow:visible;}
 html body.site-light-page .company-legal-section .company-legal-card{
-  width:100%!important;
-  height:auto!important;
-  min-height:0!important;
+  width:100%;
+  height:auto;
+  min-height:0;
   max-height:none!important;
   padding:67.5px 72px 53.5px!important;
   display:grid!important;
@@ -343,40 +343,40 @@ html body.site-light-page .company-legal-section .company-legal-card{
   background-image:none!important;
   border:1px solid rgba(23,23,21,.16)!important;
   border-radius:0!important;
-  box-shadow:none!important;
+  box-shadow:none;
 }
 html body.site-light-page .company-legal-card .home-company__image{
-  width:100%!important;
-  min-height:0!important;
-  margin:0!important;
-  align-self:center!important;
+  width:100%;
+  min-height:0;
+  margin:0;
+  align-self:center;
 }
-html body.site-light-page .company-legal-card .home-company__image::after{content:none!important;display:none!important;}
+html body.site-light-page .company-legal-card .home-company__image::after{content:none;display:none;}
 html body.site-light-page .company-legal-card .home-company__image-primary{
-  width:100%!important;
-  height:auto!important;
-  display:block!important;
+  width:100%;
+  height:auto;
+  display:block;
 }
 @media(min-width:801px){
   html body.site-light-page .company-legal-section{padding-bottom:15.12px!important;}
   html body.site-light-page .company-legal-section .company-legal-card{padding:32.34px 72px 54.372px!important;}
   html body.site-light-page .company-legal-card .home-company__image{
-    width:440px!important;
-    height:565px!important;
-    min-height:565px!important;
-    position:relative!important;
-    transform:translateY(20.25px) scale(.972)!important;
-    transform-origin:center center!important;
+    width:440px;
+    height:565px;
+    min-height:565px;
+    position:relative;
+    transform:translateY(20.25px) scale(.972);
+    transform-origin:center center;
   }
   html body.site-light-page .company-legal-card .home-company__image-primary{
-    width:92%!important;
-    height:92%!important;
-    position:absolute!important;
-    top:0!important;
-    right:0!important;
-    object-fit:cover!important;
-    object-position:center 18%!important;
-    box-shadow:none!important;
+    width:92%;
+    height:92%;
+    position:absolute;
+    top:0;
+    right:0;
+    object-fit:cover;
+    object-position:center 18%;
+    box-shadow:none;
   }
 }
 @media(max-width:800px){

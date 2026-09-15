@@ -19,17 +19,18 @@ jobs:
         run: |
           grep -n 'home-paths__grid articles-grid' index.html
           if grep -n '<style>' fachwissen/index.html; then exit 1; fi
-          if grep -nE 'home-path-date|home-path-copy|page-home\.site-light-page main\.home section\.home-paths \.home-paths__grid>a' assets/global.css; then exit 1; fi
-          if grep -nE 'knowledge-section.*article-card' assets/global.css; then exit 1; fi
-          if grep -nE 'page-knowledge.*article-card' assets/unified-design.css; then exit 1; fi
-          grep -n -A35 'Fachwissen-Karten: gemeinsame globale Komponente' assets/global.css
+          if grep -nE 'home-path-date|home-path-copy|home-paths__grid|knowledge-section.*article-card' assets/global.css; then exit 1; fi
+          if grep -nE 'page-knowledge.*article-card|knowledge-section.*article-card|main \.article-card>a' assets/unified-design.css; then exit 1; fi
+          if grep -nE '\.home-paths__grid|\.articles-grid|\.article-card' assets/index-CZfMKxM_.css; then exit 1; fi
+          test "$(grep -c 'Fachwissen-Karten: gemeinsame globale Komponente' assets/global.css)" -eq 1
+          grep -n -A80 'Fachwissen-Karten: gemeinsame globale Komponente' assets/global.css
           if grep -n 'lineStyle' assets/site.js; then exit 1; fi
           grep -n "document.querySelectorAll('.article-card')" assets/site.js
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html fachwissen/index.html assets/global.css assets/unified-design.css assets/site.js
+          git add index.html fachwissen/index.html assets/global.css assets/unified-design.css assets/index-CZfMKxM_.css assets/site.js
           git commit -m "Fachwissen-Karten global vereinheitlichen"
           git rm scripts/unify-knowledge-cards.py scripts/patch-unify-knowledge-cards.py .github/workflows/unify-knowledge-cards.yml .github/workflows/unify-knowledge-cards-v2.yml .github/workflows/unify-knowledge-cards-v3.yml .github/workflows/unify-knowledge-cards-v4.yml
           git commit -m "Temporäre Karten-Bereinigung entfernen"

@@ -24,3 +24,4 @@ jobs:
           git diff --cached --quiet && exit 1
           git commit -m "Button-Schriften global vereinheitlichen"
           git push origin main
+# generic button class included

@@ -227,12 +227,6 @@ html body.page-home.site-light-page main.home section.home-paths{padding-top:82p
 }
 
 
-html body.page-home.site-light-page main.home>.home-values .section-heading>.section-label,
-html body.page-home.site-light-page main.home>.home-paths .home-paths__heading>.section-label{
-  display:flex!important;
-}
-
-
 html body.page-home.site-light-page main.home>section.home-contact-band>div{gap:54px!important}
 html body.page-home.site-light-page main.home>section.home-contact-band>div>a.home-action-button{margin-top:0!important}
 
@@ -273,13 +267,7 @@ html body.page-home .home-contact-band .home-action-button{display:inline-flex!i
 
 html body.page-home .home>.home-values .section-heading>.section-label,
 html body.page-home .home>.home-paths .home-paths__heading>.section-label,
-html body.page-home .home>.home-contact-band>.section-label{position:relative!important;display:inline-flex!important;align-items:center!important;width:max-content!important;padding:0!important;gap:10px!important;}
-html body.page-home .home>.home-values .section-heading>.section-label::before,
-html body.page-home .home>.home-paths .home-paths__heading>.section-label::before,
-html body.page-home .home>.home-contact-band>.section-label::before{content:"·"!important;display:inline-block!important;position:static!important;width:auto!important;height:auto!important;flex:0 0 auto!important;margin:0!important;background:none!important;color:currentColor!important;font:inherit!important;line-height:1!important;}
-html body.page-home .home>.home-values .section-heading>.section-label::after,
-html body.page-home .home>.home-paths .home-paths__heading>.section-label::after,
-html body.page-home .home>.home-contact-band>.section-label::after{content:none!important;display:none!important;}
+html body.page-home .home>.home-contact-band>.section-label{position:relative!important;width:max-content!important;padding:0!important;}
 
 @media(min-width:801px){
   html body.page-home main.home{
@@ -1472,8 +1460,7 @@ html body.page-contact.site-light-page main .contact-split__form .contact-succes
 }
 
 /* unternehmen/index.html */
-html body.page-company.site-light-page main.page-main .company-legal-section .company-legal-card{border:0!important}html body.page-company.site-light-page main.page-main .company-section-heading{width:100%!important;margin:0 0 64px!important;text-align:left!important}html body.page-company.site-light-page main.page-main .company-section-heading .section-label{justify-content:flex-start!important;margin-bottom:30px!important}html body.page-company.site-light-page main.page-main .company-section-heading .section-label::before,
-html body.page-company.site-light-page main.page-main .company-section-heading .section-label::after{display:none!important;content:none!important}html body.page-company.site-light-page main.page-main .company-section-heading h1{margin:0!important;text-align:left!important}html body.page-company.site-light-page main.page-main .company-section-heading .prose{width:min(100%,650px)!important;max-width:650px!important;margin:30px 0 0!important;text-align:left!important}html body.page-company.site-light-page main.page-main .company-section-heading h1 span{display:inline!important}@media(min-width:801px){html body.page-company.site-light-page main.page-main .company-legal-section{padding-top:134px!important}html body.page-company.site-light-page main.page-main .company-section-heading{width:calc(100% - 503.5px)!important;max-width:none!important;margin-left:503.5px!important}html body.page-company.site-light-page main.page-main .company-legal-section .company-legal-card{margin-top:-522.707px!important;padding-top:0!important;padding-right:0!important;column-gap:87.5px!important}html body.page-company.site-light-page main.page-main .company-legal-card .home-company__image{transform:translate(-41.436px,9.137px) scale(.972)!important}}
+html body.page-company.site-light-page main.page-main .company-legal-section .company-legal-card{border:0!important}html body.page-company.site-light-page main.page-main .company-section-heading{width:100%!important;margin:0 0 64px!important;text-align:left!important}html body.page-company.site-light-page main.page-main .company-section-heading .section-label{justify-content:flex-start!important;margin-bottom:30px!important}html body.page-company.site-light-page main.page-main .company-section-heading h1{margin:0!important;text-align:left!important}html body.page-company.site-light-page main.page-main .company-section-heading .prose{width:min(100%,650px)!important;max-width:650px!important;margin:30px 0 0!important;text-align:left!important}html body.page-company.site-light-page main.page-main .company-section-heading h1 span{display:inline!important}@media(min-width:801px){html body.page-company.site-light-page main.page-main .company-legal-section{padding-top:134px!important}html body.page-company.site-light-page main.page-main .company-section-heading{width:calc(100% - 503.5px)!important;max-width:none!important;margin-left:503.5px!important}html body.page-company.site-light-page main.page-main .company-legal-section .company-legal-card{margin-top:-522.707px!important;padding-top:0!important;padding-right:0!important;column-gap:87.5px!important}html body.page-company.site-light-page main.page-main .company-legal-card .home-company__image{transform:translate(-41.436px,9.137px) scale(.972)!important}}
 
 html body.page-company.site-light-page main.page-main>.company-collaboration-box{
   position:relative!important;box-sizing:border-box!important;

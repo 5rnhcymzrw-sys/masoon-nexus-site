@@ -5,24 +5,17 @@
 html,
 body{max-width:100%;overflow-x:hidden;}
 body{font-family:var(--font-inter)!important;}
-.section-label,
 .card-number,
 .details-action{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}.card-number{letter-spacing:.14em!important;}
-.details-action{letter-spacing:1.1px!important;}.section-label{margin:0 0 30px!important;display:flex!important;align-items:center!important;gap:16px!important;}.section-label:before{content:""!important;display:block!important;width:30px!important;flex:0 0 30px!important;height:1px!important;background:currentColor!important;}body p.section-label{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}
+.details-action{letter-spacing:1.1px!important;}.section-label{margin:0 0 30px!important;}
 .home>.home-values>.home-values__inner>.section-heading:first-child>.section-label:first-child,
 .services-section>.section-heading:first-child>.section-label:first-child,
 .knowledge-section>.section-heading:first-child>.section-label:first-child,
-.legal-page>.section-label:first-child{position:relative!important;width:max-content!important;}.home>.home-values>.home-values__inner>.section-heading:first-child>.section-label:first-child::after,
-.services-section>.section-heading:first-child>.section-label:first-child::after,
-.knowledge-section>.section-heading:first-child>.section-label:first-child::after,
-.legal-page>.section-label:first-child::after{content:""!important;position:absolute!important;top:27px!important;left:0!important;display:block!important;width:38px!important;height:1px!important;margin:0!important;background:#9a948b!important;}
+.legal-page>.section-label:first-child{position:relative!important;width:max-content!important;}
 .home-paths>.home-paths__heading>.section-label:first-child,
 .home-contact-band>.section-label:first-child,
 .page-main>.home-values>.home-values__inner>.section-heading>.section-label:first-child,
-.knowledge-note>.section-label:first-child{position:relative!important;width:max-content!important;}.home-paths>.home-paths__heading>.section-label:first-child::after,
-.home-contact-band>.section-label:first-child::after,
-.page-main>.home-values>.home-values__inner>.section-heading>.section-label:first-child::after,
-.knowledge-note>.section-label:first-child::after{content:""!important;position:absolute!important;top:27px!important;left:0!important;display:block!important;width:38px!important;height:1px!important;margin:0!important;background:#9a948b!important;}
+.knowledge-note>.section-label:first-child{position:relative!important;width:max-content!important;}
 .knowledge-note>.section-label:first-child{align-self:center!important;}
 @media(min-width:801px){.home>.home-values,
 .services-main>.services-section,
@@ -32,6 +25,35 @@ body{font-family:var(--font-inter)!important;}
 .home-contact-band,
 .page-main>.home-values,
 .knowledge-note{padding-top:126px!important;padding-bottom:126px!important;}}
+/* Einheitliche kleine Bereichstitel */
+html body.site-light-page main .section-label,
+html body.site-light-page main p.section-label{
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-style:normal!important;
+  font-weight:500!important;
+  line-height:1.4!important;
+  letter-spacing:1.1px!important;
+  text-transform:uppercase!important;
+  font-synthesis:none!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:16px!important;
+}
+html body.site-light-page main .section-label::before{
+  content:""!important;
+  display:block!important;
+  width:30px!important;
+  flex:0 0 30px!important;
+  height:1px!important;
+  background:currentColor!important;
+  border:0!important;
+}
+html body.site-light-page main .section-label::after{
+  content:none!important;
+  display:none!important;
+}
+
 html body.page-home.site-light-page main.home section.home-hero h1.global-title,
 html body.page-home.site-light-page main.home section.home-values .section-heading h2.global-title,
 html body.page-home.site-light-page main.home section.home-paths .home-paths__heading h2.global-title,
@@ -398,11 +420,6 @@ html body .page-main,
 html body main.home{
   padding-top:108px!important;
 }
-
-/* Kleine Übertitel: verbindlich ohne dekorative Linien und Punkte */
-html body :is(#title-decoration-disabled,.section-label)::before,
-html body :is(#title-decoration-disabled,.section-label)::after,
-html body :is(#title-decoration-disabled,.section-label)::marker,
 html body :is(#title-decoration-disabled,.contact-split__form-label)::before,
 html body :is(#title-decoration-disabled,.contact-split__form-label)::after,
 html body :is(#title-decoration-disabled,.contact-split__form-label)::marker{

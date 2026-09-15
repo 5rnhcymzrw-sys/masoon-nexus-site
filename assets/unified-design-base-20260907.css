@@ -379,43 +379,9 @@ html body .knowledge-section .article-card h2::after{
   border:0!important;
 }
 
-/* Bereichstitel: gemeinsame Abstände */
-html body .section-label{
-  gap:10px!important;
-}
-html body .section-label::before{
-  width:28px!important;
-  height:1px!important;
-  flex:0 0 28px!important;
-  background:currentColor!important;
-  border:0!important;
-  line-height:1!important;
-}
-
-/* Bereichstitel: Gedankenstrich wieder entfernen */
-html body .section-label::before{
-  content:none!important;
-  display:none!important;
-}
-
-/* Bereichstitel: Inhalt des Nachfolgeelements */
-html body .section-label::after{
-  content:""!important;
-}
-
 /* Alle Titellinien: oben und unten je 11 Pixel Abstand */
 html body .section-label{
   margin-bottom:11px!important;
-}
-html body .section-label::after{
-  top:auto!important;
-  right:auto!important;
-  bottom:auto!important;
-  left:auto!important;
-  display:block!important;
-  width:48px!important;
-  max-width:48px!important;
-  height:1px!important;
 }
 
 html body .home-values__item h3::after,
@@ -442,17 +408,7 @@ html body .home-paths__grid strong+span{
 
 /* Kleine Bereichstitel: ursprüngliche Abstände wiederherstellen */
 html body .section-label{
-  display:flex!important;
-  align-items:center!important;
   margin:0 0 30px!important;
-}
-html body .section-label::after{
-  position:absolute!important;
-  top:calc(1.4em + 13px)!important;
-  right:auto!important;
-  bottom:auto!important;
-  left:0!important;
-  margin:0!important;
 }
 
 /* Startseite Dienstleistungen: Zahl und Titel optisch ausrichten */
@@ -511,13 +467,6 @@ html body .knowledge-section .article-card h2{
 /* Startseite Dienstleistungen: Titel-Text-Abstand wie bei Fachwissen */
 html body main.home .home-values .home-values__inner .home-values__items .home-values__item p{
   margin-top:12px!important;}
-
-/* Startseite Dienstleistungen: Punkt und Kachel-Unterlinien entfernen */
-html body main.home>.home-values .section-heading>.section-label::before,
-html body main.home>.home-values .section-heading>.section-label::marker{
-  content:none!important;
-  display:none!important;
-}
 html body main.home>.home-values .home-values__item h3::after{
   content:none!important;
   display:none!important;
@@ -540,18 +489,7 @@ html body.site-light-page main.home>.home-contact-band>.section-label{
   place-self:center start!important;
   margin:0!important;
   padding:0!important;
-  display:block!important;
   position:static!important;
-  gap:0!important;
-}
-html body.site-light-page .knowledge-note>.section-label::before,
-html body.site-light-page .knowledge-note>.section-label::after,
-html body.site-light-page .services-closing>.section-label::before,
-html body.site-light-page .services-closing>.section-label::after,
-html body.site-light-page main.home>.home-contact-band>.section-label::before,
-html body.site-light-page main.home>.home-contact-band>.section-label::after{
-  content:none!important;
-  display:none!important;
 }
 
 /* Abschlusskästen: alle kleinen Titel exakt auf der senkrechten Kastenmitte */
@@ -982,13 +920,6 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
 
 /* Bereichstitel: verbindliche Typografie von EINORDNUNG */
 html body main .section-label.section-label.section-label.section-label.section-label.section-label{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-style:normal!important;
-  font-weight:500!important;
-  line-height:1.4!important;
-  letter-spacing:1.1px!important;
-  text-transform:uppercase!important;
   color:#777777!important;
   vertical-align:baseline!important;
 }/* Kleine Metadaten und Aktionsbeschriftungen */

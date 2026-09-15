@@ -1,0 +1,36 @@
+name: CSS zero debt audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/css-zero-debt-audit.yml
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit CSS debt
+        run: |
+          echo '=== repeated selectors ==='
+          grep -nE '\.([A-Za-z0-9_-]+)(\.\1){1,}' assets/*.css || true
+          echo '=== wrong ownership in unified ==='
+          grep -nE 'page-article-|page-contact|page-services' assets/unified-design.css || true
+          echo '=== exact layout token candidates ==='
+          grep -nE '1227px|width:min\(100% - 64px|width:min\(100% - 36px|padding:126px 72px|padding:82px 0|margin-bottom:126px|padding-bottom:126px' assets/*.css || true
+          echo '=== suspicious malformed selectors ==='
+          grep -nE ' n +\.|\*\*\*|undefined|null;' assets/*.css || true
+          echo '=== important counts ==='
+          for f in assets/global.css assets/unified-design.css assets/dienstleistungen.css assets/contact.css assets/article-detail.css; do printf '%s ' "$f"; grep -o '!important' "$f" | wc -l; done
+          echo '=== empty legacy comments ==='
+          grep -nE '/\* .*index\.html|FINAL:|ursprüng|alte|Alt|verbleib|wieder ' assets/*.css || true
+          echo '=== page classes in unified ==='
+          grep -oE 'page-[A-Za-z0-9_-]+' assets/unified-design.css | sort | uniq -c || true
+      - name: Remove workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/css-zero-debt-audit.yml
+          git commit -m "Temporären Zero-Debt-Audit entfernen"
+          git push

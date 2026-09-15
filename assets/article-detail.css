@@ -107,3 +107,28 @@ html body.site-light-page main.article-main .article-body li::before{content:""!
   html body.site-light-page main.article-main .article-body{width:100%!important;max-width:none!important;margin:44px 0 0!important;transform:none!important}
   html body.site-light-page main.article-main .article-body h2{margin-top:40px!important}
 }
+
+/* Fachartikel-Tabellen – gemeinsame Basis */
+html body.site-light-page main.article-main .article-table-wrap{
+  margin:24px 0 36px!important;
+  overflow-x:auto!important;
+  border:var(--mt-gradient-frame-width) solid #d7d5d1!important;
+  box-sizing:border-box!important;
+}
+html body.site-light-page main.article-main .article-table-wrap table{
+  width:100%!important;
+  border-collapse:collapse!important;
+}
+html body.site-light-page main.article-main .article-table-wrap th,
+html body.site-light-page main.article-main .article-table-wrap td{
+  padding:12px 14px;
+  text-align:left;
+  vertical-align:top;
+  border-right:var(--mt-gradient-frame-width) solid #d7d5d1;
+  border-bottom:var(--mt-gradient-frame-width) solid #d7d5d1;
+}
+html body.site-light-page main.article-main .article-table-wrap th{font-weight:500;color:#171715}
+html body.site-light-page main.article-main .article-table-wrap tr:last-child td{border-bottom:0}
+html body.site-light-page main.article-main .article-table-wrap th:last-child,
+html body.site-light-page main.article-main .article-table-wrap td:last-child{border-right:0}
+

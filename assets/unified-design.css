@@ -23,9 +23,6 @@ html body.site-light-page main.home>section.home-paths.home-paths>*{
 }
 
 /* Nur die drei Fachwissen-Karten zusätzlich leicht einfärben */
-html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1):not(:hover):not(:active){background-image:none!important;--home-path-date:"07.2026  ";--home-path-copy:"Welche Unterlagen für die Steuererklärung benötigt werden und wie eine vollständige Vorbereitung gelingt.";}
-html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2):not(:hover):not(:active){background-image:none!important;--home-path-date:"05.2026  ";--home-path-copy:"Welche Unterschiede zwischen den Rechtsformen bestehen und welche Faktoren bei der Wahl zu berücksichtigen sind.";}
-html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3):not(:hover):not(:active){background-image:none!important;--home-path-date:"03.2026  ";--home-path-copy:"Warum eine korrekt geführte Buchhaltung für Jahresabschluss, Steuern und finanzielle Entscheidungen wesentlich ist.";}
 
 /* Kontaktbereich: kein Verlauf über die volle Browserbreite; Rahmen und Inhalt bleiben unverändert */
 html body.site-light-page main.home>section.home-contact-band.home-contact-band{
@@ -87,8 +84,7 @@ body.page-knowledge [data-reveal-delay="210"]{--reveal-delay:210ms;}
 html:has(body.page-home) { scroll-behavior: auto !important; }
 
 @media (min-width:801px){
-      html body.page-home .home>.home-values .home-values__item,
-html body.page-home .home>.home-paths .home-paths__grid a{padding-left:42px!important;padding-right:42px!important}
+      html body.page-home .home>.home-values .home-values__item{padding-left:42px!important;padding-right:42px!important}
     }
     body.page-home .home-values__item{border-left:8px solid #99989c!important;background:#fff!important;background-color:#fff!important;background-image:none!important;min-height:285px!important;padding:42px 36px!important;justify-content:flex-start!important;display:grid!important;grid-template-columns:58px minmax(0,1fr)!important;grid-template-rows:auto auto!important;column-gap:18px!important;row-gap:30px!important;align-content:start!important;align-items:start!important}
     body.page-home .home-values__item:nth-child(1),

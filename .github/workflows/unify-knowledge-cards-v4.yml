@@ -35,4 +35,4 @@ jobs:
           git rm scripts/unify-knowledge-cards.py scripts/patch-unify-knowledge-cards.py .github/workflows/unify-knowledge-cards.yml .github/workflows/unify-knowledge-cards-v2.yml .github/workflows/unify-knowledge-cards-v3.yml .github/workflows/unify-knowledge-cards-v4.yml
           git commit -m "Temporäre Karten-Bereinigung entfernen"
           git push
-# retry with corrected legacy block boundary
+# marker independent cleanup

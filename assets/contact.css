@@ -280,10 +280,3 @@
     max-width: 100% !important;
   }
 }
-
-/* Kontaktseite: Fusszeile deckend schwarz ohne Farbstich */
-.site-footer{
-  background:#0b0b0b!important;
-  background-color:#0b0b0b!important;
-
-}

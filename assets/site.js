@@ -125,34 +125,5 @@
     });
   }
 
-  // Align the footer to whole CSS pixels so end-of-page scroll rounding
-  // cannot place otherwise identical footers on different pixel fractions.
-  const pixelAlignedFooter = document.querySelector('.site-footer');
-  if (pixelAlignedFooter && document.querySelector('main.home, .company-legal-section, [data-align-footer]')) {
-    let footerFrame = 0;
-    let footerAdjustment = 0;
-    const alignFooter = () => {
-      footerFrame = 0;
-      const top = pixelAlignedFooter.getBoundingClientRect().top + window.scrollY;
-      const baseTop = top - footerAdjustment;
-      const adjustment = Math.ceil(baseTop - 0.0001) - baseTop;
-      if (Math.abs(adjustment - footerAdjustment) < 0.001) return;
-      pixelAlignedFooter.style.setProperty('top', adjustment + 'px', 'important');
-      pixelAlignedFooter.style.setProperty('margin-bottom', adjustment + 'px', 'important');
-      footerAdjustment = parseFloat(getComputedStyle(pixelAlignedFooter).top) || 0;
-    };
-    const scheduleFooterAlignment = () => {
-      if (!footerFrame) footerFrame = requestAnimationFrame(alignFooter);
-    };
-    scheduleFooterAlignment();
-    window.addEventListener('load', scheduleFooterAlignment, { once: true });
-    window.addEventListener('resize', scheduleFooterAlignment, { passive: true });
-    if (document.fonts) document.fonts.ready.then(scheduleFooterAlignment);
-    if (typeof ResizeObserver !== 'undefined') {
-      const footerLayoutObserver = new ResizeObserver(scheduleFooterAlignment);
-      footerLayoutObserver.observe(document.body);
-    }
-  }
-
   // Die Logoausrichtung erfolgt bereits beim ersten Rendern in global.css.
 })();

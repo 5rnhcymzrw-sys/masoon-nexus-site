@@ -29,15 +29,6 @@
   --mt-surface-open:rgba(255,255,255,.88);
 }
 
-/* Fusszeile */
-.site-footer{
-  background:var(--mt-black)!important;
-  background-color:var(--mt-black)!important;
-  background-image:none!important;
-  backdrop-filter:none!important;
-  -webkit-backdrop-filter:none!important;
-}
-
 body.site-light-page,
 body.site-light-page .page-main,
 body.site-light-page .home{
@@ -1231,14 +1222,6 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card.a
   transform:translateY(calc(-50% - 1px))!important;
 }
 
-/* Endgültige Footer-Geometrie ohne nachträgliche JS-Messung */
-@media(min-width:801px){
-  html body .site-footer .footer-simple{
-    box-sizing:border-box!important;
-    justify-content:flex-start!important;
-    padding-left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - 1320px)/2))!important;
-  }
-}
 
 /* Nur Fachbeitragskarten dürfen beim Scrollen eingeblendet werden. */
 html body .scroll-reveal:not(.article-card){

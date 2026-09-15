@@ -81,7 +81,6 @@ html body.page-home.site-light-page main.home section.home-paths.home-paths .hom
 .home-paths__grid i{display:none!important;}
 .knowledge-section .article-card h2{min-height:0!important;margin:0!important;font-family:"PT Serif",Georgia,serif!important;font-size:24px!important;font-weight:700!important;line-height:1.15!important;letter-spacing:0!important;text-transform:none!important;max-width:none!important;}
 .contact-form .form-status{min-height:1.55em;font-family:var(--font-inter)!important;font-size:11px!important;line-height:1.55!important;}
-.site-footer{background-image:linear-gradient(#0a0a0990,#0a0a0990),url("../Hintergrundbild 1.png")!important;background-position:center,72% 18%!important;background-size:cover!important;color:#fff!important;}
 @media(max-width:1050px){.services-section .services-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}@media(max-width:800px){:root{--title-size:var(--title-mobile);--section-x:24px;}.section-heading,
 .home-values .section-heading,
 .home-paths__heading,
@@ -190,16 +189,21 @@ html body header.site-header .header-inner .home-text-logo .home-logo-text{posit
 html body header.site-header .site-nav{position:absolute!important;left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - 1320px)/2))!important;width:auto!important;margin:0!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;transform:none!important}
 }
 
-/* Einheitliche schlichte Fusszeile wie die Kopfzeile */
-html body .site-footer{
+/* Einheitliche Fusszeile auf allen Seiten */
+html body footer.site-footer{
   position:relative!important;
+  height:80px!important;
+  min-height:80px!important;
   margin:0!important;
+  padding:0!important;
   color:#fff!important;
   background:#000!important;
   background-color:#000!important;
   background-image:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
 }
-html body .site-footer::before{
+html body footer.site-footer::before{
   content:""!important;
   position:absolute!important;
   z-index:1!important;
@@ -210,22 +214,42 @@ html body .site-footer::before{
   height:8px!important;
   background:linear-gradient(110deg,#8d96a8 0%,#c7cbd3 34%,#e8e5df 62%,#f3e8d4 100%)!important;
 }
-html body .site-footer::after{content:none!important;display:none!important;}
-html body .site-footer .footer-simple{
+html body footer.site-footer::after{content:none!important;display:none!important;}
+html body footer.site-footer .footer-simple{
   position:relative!important;
   z-index:2!important;
   width:min(100% - 64px,1320px)!important;
+  height:80px!important;
+  min-height:80px!important;
   margin:0 auto!important;
+  padding:0!important;
+  box-sizing:border-box!important;
   display:flex!important;
+  align-items:center!important;
   justify-content:center!important;
   gap:clamp(18px,2.2vw,34px)!important;
-  color:#fff!important;
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:12px!important;
+  font-weight:500!important;
+  line-height:1.65!important;
+  letter-spacing:1.1px!important;
+  text-transform:uppercase!important;
+  font-style:normal!important;
+  font-synthesis:none!important;
+  -webkit-font-smoothing:antialiased!important;
+  -moz-osx-font-smoothing:grayscale!important;
+  text-rendering:geometricPrecision!important;
+  color:#797c82!important;
+  -webkit-text-fill-color:currentColor!important;
 }
-html body .site-footer .footer-simple a{color:#fff!important;text-decoration:none!important;}
-html body .site-footer .footer-simple>*{
-  position:relative!important;
+html body footer.site-footer .footer-simple>a{
+  color:inherit!important;
+  -webkit-text-fill-color:currentColor!important;
+  font:inherit!important;
+  text-decoration:none!important;
 }
-html body .site-footer .footer-simple>*+*::before{
+html body footer.site-footer .footer-simple>*{position:relative!important;}
+html body footer.site-footer .footer-simple>*+*::before{
   content:"·"!important;
   display:block!important;
   position:absolute!important;
@@ -236,10 +260,15 @@ html body .site-footer .footer-simple>*+*::before{
   line-height:1!important;
   transform:translate(-50%,-50%)!important;
 }
+@media(min-width:801px){
+  html body footer.site-footer .footer-simple{
+    justify-content:flex-start!important;
+    padding-left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - 1320px)/2))!important;
+  }
+}
 @media(max-width:800px){
-  html body .site-footer .footer-simple{
+  html body footer.site-footer .footer-simple{
     width:min(100% - 36px,1320px)!important;
-    padding:24px 0!important;
     flex-wrap:wrap!important;
     justify-content:center!important;
     row-gap:8px!important;
@@ -265,24 +294,6 @@ html body .site-header .site-nav a{
   letter-spacing:1.1px!important;
 
 }
-/* Gemeinsame Fusszeilenwerte auf allen Seiten. */
-html body.site-light-page footer.site-footer .footer-simple,
-html body.site-light-page footer.site-footer .footer-simple>a{
-  font-family:var(--font-inter)!important;
-  font-size:12px!important;
-  font-weight:500!important;
-  line-height:1.65!important;
-  letter-spacing:1.1px!important;
-  text-transform:uppercase!important;
-  font-style:normal!important;
-  font-synthesis:none!important;
-  -webkit-font-smoothing:antialiased!important;
-  -moz-osx-font-smoothing:grayscale!important;
-  text-rendering:geometricPrecision!important;
-  color:#797c82!important;
-  -webkit-text-fill-color:currentColor!important;
-}
-
 /* Mittige Punkte zwischen den Navigationstiteln */
 @media(min-width:801px){
   html body .site-header .site-nav a+a::before{
@@ -371,23 +382,10 @@ html body .home .home-values__item p{
   }
 }
 
-/* Einheitliche Seitenabstände und Fusszeile */
+/* Einheitliche Seitenabstände */
 html body .page-main,
 html body main.home{
   padding-top:108px!important;
-}
-html body .site-footer{
-  height:80px!important;
-  min-height:80px!important;
-  padding:0!important;
-}
-html body .site-footer .footer-simple{
-  height:80px!important;
-  min-height:80px!important;
-  padding-top:0!important;
-  padding-bottom:0!important;
-  box-sizing:border-box!important;
-  align-items:center!important;
 }
 
 /* Kleine Übertitel: verbindlich ohne dekorative Linien und Punkte */
@@ -404,12 +402,6 @@ html body :is(#title-decoration-disabled,.contact-split__form-label)::marker{
   margin:0!important;
   background:none!important;
   border:0!important;
-}
-
-/* Fusszeilentext: auf allen Seiten exakt wie Kopfzeilennavigation gewichtet */
-html body footer.site-footer .footer-simple,
-html body footer.site-footer .footer-simple *{
-  font-weight:500!important;
 }
 
 /* Kopfzeile: Links ohne zusätzliche Rahmen oder Schatten */

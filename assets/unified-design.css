@@ -44,31 +44,23 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>h2+p{
     background-image:none!important;
   }
 }
-html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
-  margin-top:0!important;
-}
-@media(min-width:801px){
-  html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
-    transform:translateY(-3px)!important;
-  }
-}
 
 /* Fachwissen Einordnung: Abmessungen 1:1 wie der grosse DL-Kasten */
 html body.site-light-page .knowledge-section>.knowledge-note{
   box-sizing:border-box!important;
-  width:min(calc(100vw - 64px),1227px)!important;
+  width:min(calc(100vw - var(--page-gutter)),var(--content-width))!important;
   height:463px!important;
   min-height:463px!important;
   max-height:463px!important;
   margin-left:auto!important;
   margin-right:auto!important;
-  padding:126px 72px!important;
+  padding:var(--section-y) 72px!important;
   grid-template-columns:.7fr 1.3fr!important;
   gap:80px!important;
 }
 @media(max-width:800px){
   html body.site-light-page .knowledge-section>.knowledge-note{
-    width:min(calc(100vw - 36px),1227px)!important;
+    width:min(calc(100vw - var(--page-gutter-mobile)),var(--content-width))!important;
     padding:62px 26px!important;
     grid-template-columns:1fr!important;
     gap:52px!important;
@@ -84,33 +76,6 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>h2{
 html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-label){
   margin:30px 0 0!important;
   padding-top:0!important;}/* Kleine Metadaten und Textaktionen: Typografie wie die Kopfzeilen-Navigation. */
-html body main .contact-split__form-label,
-html body main .home-paths__grid span{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  line-height:1.65!important;
-  letter-spacing:.1em!important;
-  text-transform:uppercase!important;
-  color:#868279!important;
-}
-html body main .article-card>a{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-style:normal!important;
-  font-weight:500!important;
-  line-height:1.4!important;
-  letter-spacing:1.1px!important;
-  text-transform:uppercase!important;
-  text-decoration:none!important;
-  color:#777777!important;
-}
-html body main .details-action,
-html body main .home-values__all-services{
-  text-decoration:none!important;
-  color:#777777!important;
-}
-
 /* Rechteseiten und bestehende Spezialtexte bleiben unverändert */
 html body main .legal-page p:not(.section-label):not(.article-meta):not(.home-hero__intro){
   text-decoration:none!important;
@@ -141,14 +106,6 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
   }
 }
 
-/* Fachwissen Hauptseite: nur der Pfeil-Link auf derselben Linie wie Mehr anzeigen */
-html body.site-light-page .knowledge-section .articles-grid>.article-card>.article-action{
-  align-self:flex-start!important;
-  margin-top:24px!important;
-  padding-bottom:4px!important;
-  transform:translateY(-3px)!important;
-}
-
 /* Fachwissen Hauptseite: Abstand Beitragstitel zu Fliesstext exakt wie DL Kacheln */
 html body.site-light-page .knowledge-section .articles-grid>.article-card>h2{
   position:relative!important;
@@ -162,12 +119,6 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>h2::af
 }
 html body.site-light-page .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
   margin-top:23px!important;}
-
-/* Fachwissen Hauptseite: Beitrag anzeigen exakt wie Mehr anzeigen */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action{
-
-  padding-bottom:4px!important;
-}
 
 /* Bereichstitel: verbindliche Typografie von EINORDNUNG */
 html body main .section-label.section-label.section-label.section-label.section-label.section-label{
@@ -238,7 +189,7 @@ html body main .services-contact-button.services-contact-button.services-contact
 /* Fachwissen-Kaesten: exakt gleiche Aussenmasse wie DL-Hauptseite */
 @media(min-width:1051px){
   html body.site-light-page .knowledge-section{
-    width:min(100% - 64px,1227px)!important;
+    width:min(100% - var(--page-gutter),var(--content-width))!important;
   }
   html body.site-light-page .knowledge-section .articles-grid{
     display:grid!important;
@@ -249,7 +200,7 @@ html body main .services-contact-button.services-contact-button.services-contact
 }
 @media(min-width:801px) and (max-width:1050px){
   html body.site-light-page .knowledge-section{
-    width:min(100% - 64px,1227px)!important;
+    width:min(100% - var(--page-gutter),var(--content-width))!important;
   }
   html body.site-light-page .knowledge-section .articles-grid{
     display:grid!important;
@@ -912,7 +863,7 @@ html body.page-home.site-light-page main.home section.home-hero{
 }
 html body.page-home.site-light-page main.home section.home-hero .home-hero__content{
   display:block!important;
-  width:min(100% - 64px,1227px)!important;
+  width:min(100% - var(--page-gutter),var(--content-width))!important;
   margin:0 auto!important;
   padding:104px 0!important;
   position:relative!important;
@@ -1240,7 +1191,7 @@ html body.page-home.site-light-page main.home>section.home-contact-band.home-con
 
 @media(min-width:801px){
   html body.page-home.site-light-page main.home>section.home-contact-band.home-contact-band{
-    padding:126px 72px!important;
+    padding:var(--section-y) 72px!important;
   }
 }
 @media(max-width:800px){
@@ -1876,7 +1827,7 @@ html body.page-company.site-light-page main.page-main>.company-collaboration-box
   position:relative!important;box-sizing:border-box!important;
   width:min(calc(100% - var(--page-gutter)),var(--content-width))!important;
   min-height:463px!important;height:463px!important;max-height:none!important;
-  margin:118px auto var(--section-y)!important;padding:126px 72px!important;
+  margin:118px auto var(--section-y)!important;padding:var(--section-y) 72px!important;
   display:grid!important;grid-template-columns:.7fr 1.3fr!important;gap:80px!important;
   align-items:start!important;background:transparent!important;
 }

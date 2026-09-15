@@ -193,15 +193,6 @@ Fliesstext direkt darunter */
   }
 }
 
-/* Desktop: Fachwissen Kacheln auf der Startseite gleich hoch wie Werte */
-@media(min-width:801px){
-  html body .home>.home-paths .home-paths__grid a{
-    box-sizing:border-box!important;
-    height:285px!important;
-    min-height:285px!important;
-  }
-}
-
 /* Desktop Dienstleistungsseite: Abstände exakt wie bei Dienstleistungen auf der Startseite */
 @media(min-width:801px){
   html body.site-light-page .services-main .services-section .services-grid>.service-card>summary{
@@ -280,23 +271,6 @@ html body.site-light-page .services-main>.services-section{
     margin-bottom:64px!important;
   }
 }
-
-/* Fachwissen: einheitliche Titellinie und Fliesstext */
-html body .knowledge-section .articles-grid>.article-card h2{
-  min-height:0!important;
-  margin:0 0 11px!important;
-}
-html body .knowledge-section .articles-grid>.article-card h2::after{
-  content:""!important;
-  display:block!important;
-  width:48px!important;
-  height:1px!important;
-  margin-top:11px!important;
-  background:#868279!important;
-  border:0!important;
-}
-html body .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
-  margin-top:0!important;}
 
 /* Einheitliche kurze Linien zwischen kleinen Titeln und nachfolgendem Text */
 html body .home-values__item h3::after,

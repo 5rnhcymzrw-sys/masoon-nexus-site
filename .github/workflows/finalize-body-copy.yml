@@ -1,0 +1,46 @@
+name: Finalize body copy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/finalize-body-copy.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move remaining body copy typography to global CSS
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          g = Path('assets/global.css')
+          s = g.read_text(encoding='utf-8')
+          old = '''html body.site-light-page main .contact-split__intro,
+          html body.site-light-page main .article-lead{'''.replace('          ', '')
+          new = '''html body.site-light-page main .contact-split__intro,
+          html body.site-light-page main .article-lead,
+          html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a strong::after{'''.replace('          ', '')
+          if s.count(old) != 1:
+              raise SystemExit(f'global selector match count: {s.count(old)}')
+          g.write_text(s.replace(old, new, 1), encoding='utf-8')
+
+          u = Path('assets/unified-design.css')
+          s = u.read_text(encoding='utf-8')
+          old = 'font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:300!important;line-height:1.65!important;letter-spacing:0!important;color:#484a4f!important;'
+          if s.count(old) != 1:
+              raise SystemExit(f'unified body typography match count: {s.count(old)}')
+          u.write_text(s.replace(old, '', 1), encoding='utf-8')
+          PY
+      - name: Commit cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/global.css assets/unified-design.css
+          git commit -m "Verbleibenden Fliesstext globalisieren"
+          git push

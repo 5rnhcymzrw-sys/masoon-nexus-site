@@ -599,7 +599,7 @@ body.site-light-page .home-values__item{
 }
 body.site-light-page .home-values__item h3::after,
 body.site-light-page .home-paths__grid strong::after{
-  background:#868279!important;
+  background:var(--short-line-color)!important;
 }
 
 /* Einheitlicher Seitenhintergrund */
@@ -665,9 +665,9 @@ html body.page-home.site-light-page main.home section.home-paths .home-paths__gr
 }
 html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a>.home-paths__action>span{
   display:inline-block!important;
-  margin-left:10px!important;
-  font-size:20px!important;
-  font-weight:300!important;
+  margin-left:var(--action-arrow-gap)!important;
+  font-size:var(--action-arrow-size)!important;
+  font-weight:var(--action-arrow-weight)!important;
   line-height:.7!important;
   letter-spacing:0!important;
   transform:translateY(-1px)!important;
@@ -731,7 +731,7 @@ html body.page-home.site-light-page main.home section.home-paths .home-paths__gr
 
 /* fachwissen/index.html */
 @media(min-width:801px){html body.page-knowledge .page-main>.knowledge-section{padding-bottom:126px!important}html body.page-knowledge .page-main>.knowledge-section>.knowledge-note{padding-bottom:126px!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{padding-top:100px!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>.article-card-date{top:40px!important}}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>h2{font-family:Georgia,'Times New Roman',serif!important;font-size:24px!important;font-weight:700!important;line-height:1.1!important;letter-spacing:-.02em!important;-webkit-text-stroke:0!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>h2,
-html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>p{transform:translateY(8px)!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>h2::after{width:48px!important;height:1px!important;background:#d7d5d1!important;background-color:#d7d5d1!important;border:0!important}
+html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>p{transform:translateY(8px)!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>h2::after{width:var(--short-line-width)!important;height:1px!important;background:#d7d5d1!important;background-color:#d7d5d1!important;border:0!important}
 
 html body.page-knowledge.site-light-page main .knowledge-section .article-card .article-action::after{
   content:"›"!important;
@@ -871,10 +871,10 @@ html body .knowledge-section .articles-grid>.article-card h2{
 html body .knowledge-section .articles-grid>.article-card h2::after{
   content:""!important;
   display:block!important;
-  width:48px!important;
+  width:var(--short-line-width)!important;
   height:1px!important;
-  margin-top:11px!important;
-  background:#868279!important;
+  margin-top:var(--short-line-gap)!important;
+  background:var(--short-line-color)!important;
   border:0!important;
 }
 html body .knowledge-section .articles-grid>.article-card>p:not(.article-meta){

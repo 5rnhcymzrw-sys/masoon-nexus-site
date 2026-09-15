@@ -69,19 +69,6 @@ html body.site-light-page:has(#knowledge-articles) main.page-main>#knowledge-art
   }
 }
 
-/* Nur die vier grossen Abschlusskästen: ohne Farbverlauf und Weichzeichnung. */
-html body.site-light-page main .knowledge-section>.knowledge-note,
-html body.site-light-page main.services-main>.services-closing,
-html body.site-light-page main.page-main>.company-collaboration-box,
-html body.site-light-page main.home>.home-contact-band{
-  background-image:none!important;
- border-color:transparent!important;
-border-image:var(--mt-gradient-frame) 1!important;
-  box-shadow:none!important;
-  filter:none!important;
-  backdrop-filter:none!important;
-  -webkit-backdrop-filter:none!important;
-}
 
 /* Dienstleistungen Hauptseite: Silbentrennung nur im Fliesstext der Kästen. */
 html body.site-light-page main.services-main .services-section .services-grid>.service-card>summary>p:not(.section-label){

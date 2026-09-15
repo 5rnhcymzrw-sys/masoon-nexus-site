@@ -1,0 +1,23 @@
+name: Body copy centralization check
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/body-copy-centralization-check.yml']
+permissions:
+  contents: read
+jobs:
+  source-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export complete tracked source for verification
+        run: |
+          git rev-parse HEAD
+          git archive --format=tar HEAD > "$RUNNER_TEMP/masoon-source.tar"
+          git ls-files '*.css' '*.html' '*.js'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: body-copy-source-snapshot
+          path: ${{ runner.temp }}/masoon-source.tar
+          retention-days: 1

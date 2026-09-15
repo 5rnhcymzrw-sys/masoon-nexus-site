@@ -1,0 +1,46 @@
+name: Move safe base rules global v2
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/move-safe-base-rules-global-v2.yml']
+permissions:
+  contents: write
+jobs:
+  move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move shared base rules by markers
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          base=Path('assets/unified-design-base-20260907.css')
+          glob=Path('assets/global.css')
+          b=base.read_text(encoding='utf-8')
+          g=glob.read_text(encoding='utf-8')
+          ranges=[
+            ('body.site-light-page .page-main,','/* Kontaktseite: heller Seitenhintergrund mit dunklem Formular */'),
+            ('/* Leerer früherer Bildtrenner wird nicht mehr als eigener Stilbruch gezeigt */','/* Desktop Zusammenarbeit: drei Spalten,'),
+            ('/* Dienstleistungs Hauptseite: linker Startpunkt wie auf der Startseite */','/* Einheitliche kurze Linien zwischen kleinen Titeln und nachfolgendem Text */')
+          ]
+          moved=[]
+          for start,end in ranges:
+            i=b.find(start)
+            j=b.find(end,i)
+            if i<0 or j<0:
+              raise SystemExit(f'marker missing: {start} -> {end}')
+            moved.append(b[i:j].rstrip()+"\n")
+            b=b[:i]+b[j:]
+          g += '\n/* Weitere globale Regeln aus unified-design-base zentralisiert */\n' + '\n'.join(moved)
+          base.write_text(b,encoding='utf-8')
+          glob.write_text(g,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/global.css assets/unified-design-base-20260907.css
+          git commit -m "Weitere globale Basisregeln nach global.css verschieben"
+          git rm .github/workflows/move-safe-base-rules-global-v2.yml
+          git commit -m "Temporären Basisregel-Workflow entfernen"
+          git push

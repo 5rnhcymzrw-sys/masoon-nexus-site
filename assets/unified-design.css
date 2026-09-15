@@ -1,4 +1,4 @@
-@import url('./unified-design-base-20260907.css?v=action-letterspacing-1-1-clean-20260913-1');
+@import url('./unified-design-base-20260907.css?v=body-global-20260915-1');
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
 /* Startseite – keine grossflächigen Seitenverläufe */
 html body.site-light-page main.home>section.home-values.home-values{
@@ -961,7 +961,7 @@ body.page-article-tax-checklist .article-body{width:100%!important;max-width:non
     body.page-article-tax-checklist .article-body li{position:relative;margin:0 0 4px;padding-left:23px}
     body.page-article-tax-checklist .article-body li::before{content:"";position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279}
     body.page-article-tax-checklist .article-table-wrap{width:100%;margin:24px 0 36px;overflow-x:auto;border:1px solid #d7d5d1}
-    body.page-article-tax-checklist .article-table-wrap table{width:100%;border-collapse:collapse;font-family:var(--font-inter),Arial,sans-serif;font-size:14px;font-weight:290;line-height:1.5;color:#484a4f}
+    body.page-article-tax-checklist .article-table-wrap table{width:100%;border-collapse:collapse}
     body.page-article-tax-checklist .article-table-wrap th,
 body.page-article-tax-checklist .article-table-wrap td{padding:12px 14px;text-align:left;vertical-align:top;border-right:1px solid #d7d5d1;border-bottom:1px solid #d7d5d1}
     body.page-article-tax-checklist .article-table-wrap th{font-weight:500;color:#171715}
@@ -969,7 +969,6 @@ body.page-article-tax-checklist .article-table-wrap td{padding:12px 14px;text-al
     body.page-article-tax-checklist .article-table-wrap th:last-child,
 body.page-article-tax-checklist .article-table-wrap td:last-child{border-right:0}
     html body.page-article-tax-checklist.site-light-page .article-body h2{color:#171715!important}
-    html body.page-article-tax-checklist.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;color:#484a4f!important}
     @media(max-width:800px){
       html body.page-article-tax-checklist.site-light-page main.article-main{padding:170px 0 96px!important}
       body.page-article-tax-checklist .article-overline{margin-bottom:24px!important;padding:0 26px!important}
@@ -1008,7 +1007,7 @@ body.page-article-employment-termination .article-body{width:100%!important;max-
     body.page-article-employment-termination .article-body li{position:relative;margin:0 0 4px;padding-left:23px}
     body.page-article-employment-termination .article-body li::before{content:"";position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279}
     body.page-article-employment-termination .article-table-wrap{width:540px;max-width:100%;margin:24px 0 36px;overflow-x:auto;border:1px solid #d7d5d1;box-sizing:border-box}
-    body.page-article-employment-termination .article-table-wrap table{width:100%;table-layout:fixed;border-collapse:collapse;font-family:var(--font-inter),Arial,sans-serif;font-size:14px;font-weight:290;line-height:1.5;color:#484a4f}
+    body.page-article-employment-termination .article-table-wrap table{width:100%;table-layout:fixed;border-collapse:collapse}
     body.page-article-employment-termination .article-table-wrap th,
 body.page-article-employment-termination .article-table-wrap td{padding:12px 14px;text-align:left;vertical-align:top;border-right:1px solid #d7d5d1;border-bottom:1px solid #d7d5d1}
     body.page-article-employment-termination .article-table-wrap th,
@@ -1021,7 +1020,6 @@ body.page-article-employment-termination .article-table-wrap--two-columns td{wid
     body.page-article-employment-termination .article-table-wrap th:last-child,
 body.page-article-employment-termination .article-table-wrap td:last-child{border-right:0}
     html body.page-article-employment-termination.site-light-page .article-body h2{color:#171715!important}
-    html body.page-article-employment-termination.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;color:#484a4f!important}
     @media(max-width:800px){
       html body.page-article-employment-termination.site-light-page main.article-main{padding:170px 0 96px!important}
       body.page-article-employment-termination .article-overline{margin-bottom:24px!important;padding:0 26px!important}
@@ -1060,7 +1058,7 @@ body.page-article-company-formation .article-body{width:100%!important;max-width
     body.page-article-company-formation .article-body li{position:relative;margin:0 0 12px;padding-left:23px}body.page-article-company-formation n    .article-body li:last-child{margin-bottom:0}
     body.page-article-company-formation .article-body li::before{content:"";position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279}
     body.page-article-company-formation .article-table-wrap{width:100%;margin:24px 0 36px;overflow-x:auto;border:1px solid #d7d5d1}
-    body.page-article-company-formation .article-table-wrap table{width:100%;border-collapse:collapse;font-family:var(--font-inter),Arial,sans-serif;font-size:14px;font-weight:290;line-height:1.5;color:#484a4f}
+    body.page-article-company-formation .article-table-wrap table{width:100%;border-collapse:collapse}
     body.page-article-company-formation .article-table-wrap th,
 body.page-article-company-formation .article-table-wrap td{padding:12px 14px;text-align:left;vertical-align:top;border-right:1px solid #d7d5d1;border-bottom:1px solid #d7d5d1}
     body.page-article-company-formation .article-table-wrap th{font-weight:500;color:#171715}
@@ -1069,7 +1067,6 @@ body.page-article-company-formation .article-table-wrap td{padding:12px 14px;tex
 body.page-article-company-formation .article-table-wrap td:last-child{border-right:0}
     body.page-article-company-formation .item-label{white-space:nowrap!important}body.page-article-company-formation .item-separator{display:inline-block!important;width:0!important;height:14px!important;margin:0 7px!important;border:0!important;border-left:1px solid #d7d5d1!important;font-size:0!important;line-height:0!important;color:transparent!important;vertical-align:middle!important}
     html body.page-article-company-formation.site-light-page .article-body h2{color:#171715!important}
-    html body.page-article-company-formation.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;color:#484a4f!important}
     @media(max-width:800px){
       html body.page-article-company-formation.site-light-page main.article-main{padding:170px 0 96px!important}
       body.page-article-company-formation .article-overline{margin-bottom:24px!important;padding:0 26px!important}
@@ -1106,7 +1103,7 @@ body.page-article-company-forms .article-body{width:100%!important;max-width:non
     body.page-article-company-forms .article-body li{position:relative;margin:0 0 4px;padding-left:23px;}
     body.page-article-company-forms .article-body li::before{content:"";position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279;}
     body.page-article-company-forms .article-table-wrap{width:100%;margin:24px 0 36px;overflow-x:auto;border:1px solid #d7d5d1;}
-    body.page-article-company-forms .article-table-wrap table{width:100%;table-layout:fixed;border-collapse:collapse;font-family:var(--font-inter),Arial,sans-serif;font-size:14px;font-weight:290;line-height:1.5;color:#484a4f;}
+    body.page-article-company-forms .article-table-wrap table{width:100%;table-layout:fixed;border-collapse:collapse;}
     body.page-article-company-forms .article-table-wrap th,
 body.page-article-company-forms .article-table-wrap td{padding:12px 14px;text-align:left;vertical-align:top;border-right:1px solid #d7d5d1;border-bottom:1px solid #d7d5d1;}
     body.page-article-company-forms .article-table-wrap th:first-child,
@@ -1120,7 +1117,6 @@ body.page-article-company-forms .article-table-wrap td:not(:first-child){width:c
     body.page-article-company-forms .article-table-wrap th:last-child,
 body.page-article-company-forms .article-table-wrap td:last-child{border-right:0;}
     html body.page-article-company-forms.site-light-page .article-body h2{color:#171715!important;}
-    html body.page-article-company-forms.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:13px!important;font-weight:290!important;line-height:1.65!important;color:#484a4f!important;}
     @media(max-width:800px){
       html body.page-article-company-forms.site-light-page main.article-main{padding:170px 0 96px!important;}
       body.page-article-company-forms .article-overline{margin-bottom:24px!important;padding:0 26px!important;}
@@ -1156,7 +1152,6 @@ body.page-article-false-accounting .article-body{width:100%!important;max-width:
     body.page-article-false-accounting .article-body li{position:relative;margin:0 0 4px;padding-left:23px}
     body.page-article-false-accounting .article-body li::before{content:"";position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279}
     html body.page-article-false-accounting.site-light-page .article-body h2{color:#171715!important}
-    html body.page-article-false-accounting.site-light-page .article-table-wrap table{font-family:var(--font-inter),Arial,sans-serif!important;font-size:14px!important;font-weight:290!important;line-height:1.65!important;color:#484a4f!important}
     @media(max-width:800px){
       html body.page-article-false-accounting.site-light-page main.article-main{padding:170px 0 96px!important}
       body.page-article-false-accounting .article-overline{margin-bottom:24px!important;padding:0 26px!important}
@@ -1423,7 +1418,6 @@ html body.page-contact.site-light-page main .contact-split__form .contact-succes
   background:linear-gradient(#fff,#fff) padding-box,
     linear-gradient(110deg,#c8bfb2 0%,#b9b8b5 38%,#aab0b8 66%,#8d9fb4 100%) border-box;
   border-image:none;
-  text-transform:none;
   animation:contact-success-appear 280ms ease-out both;
 }
 html body.page-contact.site-light-page main .contact-split__form .contact-success__message strong{

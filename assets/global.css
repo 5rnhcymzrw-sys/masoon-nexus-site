@@ -1,7 +1,7 @@
 /* MASOON TREUHAND – zentrale Designquelle */
 @font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2") format("woff2")}
 @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;src:url("_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2") format("woff2")}
-:root{--mt-gradient-frame:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-line:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-width:1px;--mt-gradient-line-width:1px;--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:14px;--label-size:11px;--content-width:1320px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
+:root{--mt-gradient-frame:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-line:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-width:1px;--mt-gradient-line-width:1px;--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:14px;--body-font:var(--font-inter),Arial,sans-serif;--body-weight:300;--body-line-height:1.65;--body-letter-spacing:0;--body-color:#484a4f;--label-size:11px;--content-width:1320px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
 html,
 body{max-width:100%;overflow-x:hidden;}
 body{font-family:var(--font-inter)!important;}
@@ -166,9 +166,7 @@ html body.page-home.site-light-page main.home section.home-paths.home-paths .hom
   .services-section>.services-grid>.service-card ul{padding:0 38px 36px!important;}
   .services-section>.services-grid>.service-card:nth-child(2){z-index:2;background:#111113!important;color:#fff!important;transform:translateY(-24px);}
   .services-section>.services-grid>.service-card:nth-child(2)[open]{background:#111113!important;}.services-section>.services-grid>.service-card:nth-child(2) .card-number,
-.services-section>.services-grid>.service-card:nth-child(2) h2,
-.services-section>.services-grid>.service-card:nth-child(2) summary p,
-.services-section>.services-grid>.service-card:nth-child(2) li{color:rgba(255,255,255,.88)!important;}
+.services-section>.services-grid>.service-card:nth-child(2) h2{color:rgba(255,255,255,.88)!important;}
 
   .services-section>.services-grid>.service-card:nth-child(2) li{border-top-color:rgba(255,255,255,.18)!important;}
 }
@@ -195,9 +193,7 @@ html body.page-home.site-light-page main.home section.home-paths.home-paths .hom
   .services-section>.services-grid>.service-card ul{padding:0 26px 32px!important;}
   .services-section>.services-grid>.service-card:nth-child(2),
 .services-section>.services-grid>.service-card:nth-child(2)[open]{background:#111113!important;color:#fff!important;transform:none!important;box-shadow:none!important;}.services-section>.services-grid>.service-card:nth-child(2) .card-number,
-.services-section>.services-grid>.service-card:nth-child(2) h2,
-.services-section>.services-grid>.service-card:nth-child(2) summary p,
-.services-section>.services-grid>.service-card:nth-child(2) li{color:rgba(255,255,255,.88)!important;}
+.services-section>.services-grid>.service-card:nth-child(2) h2{color:rgba(255,255,255,.88)!important;}
 
   .services-section>.services-grid>.service-card:nth-child(2) li{border-top-color:rgba(255,255,255,.18)!important;}
 }
@@ -516,17 +512,21 @@ html body .site-header .site-nav a[aria-current="page"]{
   animation:none!important;
 }
 
-/* Bestätigte Fliesstextwerte von Disclaimer und Impressum. */
-html body main :is(#mt-body-copy,.mt-body-copy),
+/* Einheitlicher Fliesstext: Referenz 01.2026 Konkursrecht. Werte zentral in :root; Layout und Spezialtypografie bleiben separat. */
+html body main .mt-body-copy,
 html body main p:not(.section-label):not(.article-meta):not(.article-card-date):not(.details-action):not(.home-action-button):not(.home-values__all-services):not(.services-contact-button):not(.home-paths__action),
 html body main .article-body li,
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a strong::after{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14px!important;
-  font-weight:300!important;
-  line-height:1.65!important;
-  letter-spacing:0!important;
-  color:#484a4f!important;
+html body main .service-card li,
+html body main .article-table-wrap table,
+html body main .home-paths__grid>a strong::after{
+  font-family:var(--body-font)!important;
+  font-size:var(--body-size)!important;
+  font-weight:var(--body-weight)!important;
+  line-height:var(--body-line-height)!important;
+  letter-spacing:var(--body-letter-spacing)!important;
+  color:var(--body-color)!important;
+  font-style:normal !important;
+  text-transform:none !important;
 }
 html body main p:is(#mt-body-copy,.mt-body-copy){margin-bottom:12px!important;}
 html body main :is(#mt-body-copy,.mt-body-copy) a{
@@ -578,8 +578,3 @@ body.site-light-page{
     background-attachment:scroll!important;
   }
 }
-
-/* Einheitlicher Fliesstext auf allen Seiten */
-html body.site-light-page main p:not(.section-label):not(.article-meta):not(.article-card-date):not(.form-status),
-html body.site-light-page main li,
-html body.site-light-page main .home-hero__services,

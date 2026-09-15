@@ -859,15 +859,7 @@ html body main .home-values__all-services{
 
 /* Rechteseiten und bestehende Spezialtexte bleiben unverändert */
 html body main .legal-page p:not(.section-label):not(.article-meta):not(.home-hero__intro){
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-style:normal!important;
-  font-weight:500!important;
-  line-height:1.4!important;
-  letter-spacing:1.1px!important;
-  text-transform:uppercase!important;
   text-decoration:none!important;
-  color:#777777!important;
 }
 
 html body.site-light-page .knowledge-section .articles-grid>.article-card>.details-action{

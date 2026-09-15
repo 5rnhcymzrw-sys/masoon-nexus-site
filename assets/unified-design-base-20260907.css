@@ -20,19 +20,6 @@
   font-display:swap;
   src:url("https://fonts.gstatic.com/s/sourceserif4/v14/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjiiVqrhw.ttf") format("truetype");
 }
-/* Kontaktseite: heller Seitenhintergrund mit dunklem Formular */
-body.site-light-page .contact-split-page,
-body.site-light-page .contact-split{
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
-}
-body.site-light-page .contact-split__form{
-  background:var(--mt-black)!important;
-  background-color:var(--mt-black)!important;
-  background-image:none!important;
-}
-
 /* Desktop Zusammenarbeit: drei Spalten,
 zwei Reihen */
 

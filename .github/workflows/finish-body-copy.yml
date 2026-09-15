@@ -1,0 +1,40 @@
+name: Finish body copy cleanup
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/finish-body-copy.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove remaining duplicate body-copy rule
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('assets/global.css')
+          s=p.read_text(encoding='utf-8')
+          old='html body main .article-body li{'
+          new='''html body main .article-body li,
+          html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a strong::after{'''
+          if s.count(old)!=1:
+              raise SystemExit(f'central selector expected 1, found {s.count(old)}')
+          s=s.replace(old,new,1)
+          pattern=re.compile(r'''html body\.site-light-page main \.contact-split__intro,\nhtml body\.site-light-page main \.article-lead,\nhtml body\.page-home\.site-light-page main\.home section\.home-paths \.home-paths__grid>a strong::after\{\n  font-family:var\(--font-inter\),Arial,sans-serif!important;\n  font-size:14px!important;\n  font-weight:300!important;\n  line-height:1\.65!important;\n  letter-spacing:0!important;\n  color:#484a4f!important;\n\}\n''')
+          s,n=pattern.subn('',s,count=1)
+          if n!=1:
+              raise SystemExit(f'duplicate body-copy rule expected 1, found {n}')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/global.css
+          git diff --cached --check
+          git commit -m "Verbleibende doppelte Fliesstextregel entfernen"
+          git push origin main

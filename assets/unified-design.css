@@ -736,9 +736,8 @@ html body.page-disclaimer .disclaimer-card .prose p{
 /* fachwissen/gewinnverwendung/index.html */
 
 /* fachwissen/kuendigung-arbeitsvertrag/index.html */
-html body.page-article-employment-termination.site-light-page main.article-main{padding:234px 0 126px!important}
-    body.page-article-employment-termination .article-overline,
-body.page-article-employment-termination .article-shell{width:91%!important;max-width:1227px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important}
+
+    
      body.page-article-employment-termination .article-overline{display:block!important;margin-bottom:28px!important;padding:0 140px!important;text-align:left!important}
     body.page-article-employment-termination .article-overline .section-label{margin:0 0 18px!important}
     body.page-article-employment-termination .article-shell{padding:70px 140px!important;border:1px solid #d7d5d1!important;display:block!important;text-align:left!important}
@@ -776,8 +775,8 @@ body.page-article-employment-termination .article-table-wrap--two-columns td{wid
 body.page-article-employment-termination .article-table-wrap td:last-child{border-right:0}
     html body.page-article-employment-termination.site-light-page .article-body h2{color:#171715!important}
     @media(max-width:800px){
-      html body.page-article-employment-termination.site-light-page main.article-main{padding:170px 0 96px!important}
-      body.page-article-employment-termination .article-overline{margin-bottom:24px!important;padding:0 26px!important}
+      
+      
       body.page-article-employment-termination .article-shell{width:91%!important;padding:52px 26px!important;display:block!important}
       body.page-article-employment-termination .article-hero{padding-bottom:40px}
       body.page-article-employment-termination .article-body{width:100%!important;margin-left:0!important;padding-top:40px}
@@ -788,9 +787,8 @@ body.page-article-employment-termination .article-table-wrap td:last-child{borde
 /* fachwissen/missbraeuchliche-konkurse/index.html */
 
 /* fachwissen/unternehmen-gruenden/index.html */
-html body.page-article-company-formation.site-light-page main.article-main{padding:234px 0 126px!important}
-    body.page-article-company-formation .article-overline,
-body.page-article-company-formation .article-shell{width:91%!important;max-width:1227px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important}
+
+    
      body.page-article-company-formation .article-overline{display:block!important;margin-bottom:28px!important;padding:0 140px!important;text-align:left!important}
     body.page-article-company-formation .article-overline .section-label{margin:0 0 18px!important}
     body.page-article-company-formation .article-shell{padding:70px 140px!important;border:1px solid #d7d5d1!important;display:block!important;text-align:left!important}
@@ -823,8 +821,8 @@ body.page-article-company-formation .article-table-wrap td:last-child{border-rig
     body.page-article-company-formation .item-label{white-space:nowrap!important}body.page-article-company-formation .item-separator{display:inline-block!important;width:0!important;height:14px!important;margin:0 7px!important;border:0!important;border-left:1px solid #d7d5d1!important;font-size:0!important;line-height:0!important;color:transparent!important;vertical-align:middle!important}
     html body.page-article-company-formation.site-light-page .article-body h2{color:#171715!important}
     @media(max-width:800px){
-      html body.page-article-company-formation.site-light-page main.article-main{padding:170px 0 96px!important}
-      body.page-article-company-formation .article-overline{margin-bottom:24px!important;padding:0 26px!important}
+      
+      
       body.page-article-company-formation .article-shell{width:91%!important;padding:52px 26px!important;display:block!important}
       body.page-article-company-formation .article-hero{padding-bottom:40px}
       body.page-article-company-formation .article-body{width:100%!important;margin-left:0!important;padding-top:40px}
@@ -832,9 +830,8 @@ body.page-article-company-formation .article-table-wrap td:last-child{border-rig
     }
 
 /* fachwissen/unternehmensformen/index.html */
-html body.page-article-company-forms.site-light-page main.article-main{padding:234px 0 126px!important;}
-    body.page-article-company-forms .article-overline,
-body.page-article-company-forms .article-shell{width:91%!important;max-width:1227px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important;}
+
+    
      body.page-article-company-forms .article-overline{display:block!important;margin-bottom:28px!important;padding:0 140px!important;text-align:left!important;}
     body.page-article-company-forms .article-overline .section-label{margin:0 0 18px!important;}
     body.page-article-company-forms .article-shell{padding:70px 140px!important;border:1px solid #d7d5d1!important;display:block!important;text-align:left!important;}
@@ -873,8 +870,8 @@ body.page-article-company-forms .article-table-wrap td:not(:first-child){width:c
 body.page-article-company-forms .article-table-wrap td:last-child{border-right:0;}
     html body.page-article-company-forms.site-light-page .article-body h2{color:#171715!important;}
     @media(max-width:800px){
-      html body.page-article-company-forms.site-light-page main.article-main{padding:170px 0 96px!important;}
-      body.page-article-company-forms .article-overline{margin-bottom:24px!important;padding:0 26px!important;}
+      
+      
       body.page-article-company-forms .article-shell{width:91%!important;padding:52px 26px!important;display:block!important;}
       body.page-article-company-forms .article-hero{padding-bottom:40px;}
       body.page-article-company-forms .article-body{width:100%!important;margin-left:0!important;margin-right:0!important;padding-top:40px;}

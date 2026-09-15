@@ -214,7 +214,7 @@ html body.site-light-page main .knowledge-section .article-card .article-action:
   left:calc(100% + 10px)!important;
   top:50%!important;
   margin:0!important;
-  transform:translateY(-50%)!important;
+  transform:translateY(calc(-50% - 1px))!important;
 }
 /* Dienstleistungen Hauptseite: Aktionsposition */
 html body.site-light-page main .services-section .service-card .details-action{
@@ -260,11 +260,6 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card:n
 html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3)>h2::after{
   background:#c2c1c4!important;
   background-color:#c2c1c4!important;
-}
-
-/* Fachwissen: Pfeil bei Beitrag anzeigen optisch 1 Pixel hoeher */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action::after{
-  transform:translateY(calc(-50% - 1px))!important;
 }
 
 

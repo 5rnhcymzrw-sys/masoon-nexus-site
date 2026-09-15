@@ -79,8 +79,8 @@ html body.site-light-page main.article-main .article-body h2{
   position:relative!important;
   max-width:none!important;
   margin:48px 0 16px!important;
-  text-align:left!important;;;
-  color:#171715!important;;
+  text-align:left!important;
+  color:#171715!important;
 }
 html body.site-light-page main.article-main .article-body h2:first-child{margin-top:0!important}
 html body.site-light-page main.article-main .article-body h2::after{display:none!important;content:none!important}

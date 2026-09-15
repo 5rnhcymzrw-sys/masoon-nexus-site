@@ -1,0 +1,55 @@
+name: Final CSS polish
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/final-css-polish.yml
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply final polish
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          g=Path('assets/global.css')
+          s=g.read_text(encoding='utf-8')
+          s=s.replace('.home-paths__grid.home-paths__grid','.home-paths__grid')
+          s=s.replace('padding:126px 72px!important','padding:var(--section-y) 72px!important')
+          assert '.home-paths__grid.home-paths__grid' not in s
+          g.write_text(s,encoding='utf-8')
+
+          u=Path('assets/unified-design.css')
+          s=u.read_text(encoding='utf-8')
+          for old in [
+              '/* index.html */\n',
+              '/* unternehmen/index.html */\n',
+              '/* fachwissen/index.html */\n',
+              '/* Startseite Hero: separater Akzent ist in der bestehenden .home-hero__soft-gradient-Regel definiert. */\n',
+          ]:
+              s=s.replace(old,'')
+          s=s.replace('/* FINAL: Verlaufrahmen der grossen Kästen */','/* Verlaufrahmen der grossen Kästen */')
+          s=s.replace('/* FINAL: Fachwissen-Kacheln – identischer Verlauf und mittlere Hover-Geschwindigkeit */','/* Fachwissen-Kacheln: Verlauf und Hover */')
+          s=s.replace('/* Fachwissen: sieben Beitragskästen in DL-Höhe; ursprüngliche Inhaltsanordnung leicht angehoben. */','/* Fachwissen: Beitragskästen in Dienstleistungshöhe */')
+          s=s.replace('/* Startseite Kontakt: innen vollständig transparent, ursprünglicher Rahmenverlauf bleibt erhalten. */','/* Startseite Kontakt: transparenter Inhalt mit Verlaufrahmen */')
+          u.write_text(s,encoding='utf-8')
+
+          d=Path('assets/dienstleistungen.css')
+          s=d.read_text(encoding='utf-8')
+          s=s.replace('/* Dienstleistungen Hauptseite: ursprünglicher horizontaler Innenabstand */','/* Dienstleistungen Hauptseite: horizontaler Innenabstand */')
+          s=s.replace('/* dienstleistungen/index.html */\n','')
+          d.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/global.css assets/unified-design.css assets/dienstleistungen.css
+          git commit -m "Letzte CSS Altlasten bereinigen"
+          git rm .github/workflows/final-css-polish.yml
+          git commit -m "Temporären CSS-Polish-Workflow entfernen"
+          git push

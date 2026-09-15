@@ -528,7 +528,8 @@ html body.site-light-page main p:not(.section-label):not(.article-meta):not(.art
 html body.site-light-page main li,
 html body.site-light-page main .home-hero__services,
 html body.site-light-page main .contact-split__intro,
-html body.site-light-page main .article-lead{
+html body.site-light-page main .article-lead,
+html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a strong::after{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:300!important;

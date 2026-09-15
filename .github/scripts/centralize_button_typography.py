@@ -5,6 +5,7 @@ RULE = re.compile(r'(?P<selector>[^{}]+)\{(?P<body>[^{}]*)\}', re.S)
 STYLE = re.compile(r'(<style\b[^>]*>)(?P<css>.*?)(</style>)', re.I | re.S)
 
 TARGET_CLASSES = (
+    'button',
     'home-action-button',
     'home-values__all-services',
     'services-contact-button',
@@ -54,11 +55,9 @@ def strip_pseudos_and_attrs(part):
 
 def is_target(part):
     s = strip_pseudos_and_attrs(part)
-    # Known CTA/action classes must be the final styled element, not a child icon/span.
     for cls in TARGET_CLASSES:
         if re.search(r'\.' + re.escape(cls) + r'(?:\.[A-Za-z0-9_-]+|#[A-Za-z0-9_-]+)*\s*$', s):
             return True
-    # Any actual button inside main content is a button label target. Header menu is outside main.
     if re.search(r'(?:^|[\s>+~])button(?:\.[A-Za-z0-9_-]+|#[A-Za-z0-9_-]+)*\s*$', s):
         return True
     if re.search(r'(?:^|[\s>+~])input\s*$', s) and re.search(r'\[type\s*=\s*["\']?(?:submit|button)["\']?\]', part, re.I):
@@ -94,6 +93,17 @@ def transform_css(css):
         return ''.join(blocks)
     return RULE.sub(repl, css), changed
 
+# Remove the previous canonical rule first so this script can be safely rerun.
+p=Path('assets/global.css')
+s=p.read_text(encoding='utf-8')
+s,ncanon=re.subn(
+    r'\n?/\* Einheitliche Button-Typografie \*/\nhtml body\.site-light-page main :is\([^{}]+\)\{[^{}]*\}\n?',
+    '\n', s, count=1, flags=re.S
+)
+if ncanon not in (0,1):
+    raise SystemExit(f'unexpected canonical button-rule count: {ncanon}')
+p.write_text(s,encoding='utf-8')
+
 # Clean all CSS files.
 counts={}
 for path in sorted(Path('assets').glob('*.css')):
@@ -106,27 +116,21 @@ for path in sorted(Path('assets').glob('*.css')):
 # Clean button typography from page-local <style> blocks as well.
 for path in sorted(Path('.').rglob('*.html')):
     text=path.read_text(encoding='utf-8')
-    total=0
+    holder=[0]
     def style_repl(m):
-        nonlocal_dummy = None
         css,n=transform_css(m.group('css'))
-        nonlocal_holder[0] += n
+        holder[0]+=n
         return m.group(1)+css+m.group(3)
-    nonlocal_holder=[0]
     new=STYLE.sub(style_repl,text)
-    total=nonlocal_holder[0]
-    if total:
-        counts[str(path)]=counts.get(str(path),0)+total
+    if holder[0]:
+        counts[str(path)]=counts.get(str(path),0)+holder[0]
         path.write_text(new,encoding='utf-8')
 
-# Add exactly one canonical rule to global.css, after the section-label rule area.
+# Add one canonical rule to global.css using the exact section-label values.
 p=Path('assets/global.css')
 s=p.read_text(encoding='utf-8')
-marker='/* Einheitliche Button-Typografie */'
-if marker in s:
-    raise SystemExit('canonical button typography rule already exists')
 canonical='''\n/* Einheitliche Button-Typografie */
-html body.site-light-page main :is(button,.home-action-button,.home-values__all-services,.services-contact-button,.details-action,.article-action,.home-paths__action,input[type="submit"],input[type="button"]){
+html body.site-light-page main :is(button,.button,.home-action-button,.home-values__all-services,.services-contact-button,.details-action,.article-action,.home-paths__action,input[type="submit"],input[type="button"]){
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-style:normal!important;
@@ -150,7 +154,7 @@ for path in sorted(Path('assets').glob('*.css')):
     for m in RULE.finditer(css):
         if not any(is_target(p) for p in split_selectors(m.group('selector'))):
             continue
-        if path.name=='global.css' and 'html body.site-light-page main :is(button,.home-action-button' in m.group('selector'):
+        if path.name=='global.css' and 'html body.site-light-page main :is(button,.button,.home-action-button' in m.group('selector'):
             continue
         if prop_check.search(m.group('body')):
             raise SystemExit(f'old button typography remains in {path}: {m.group("selector")[-160:]}')
@@ -166,6 +170,7 @@ for path in sorted(Path('.').rglob('*.html')):
 g=Path('assets/global.css').read_text(encoding='utf-8')
 for item in [
     '/* Einheitliche Button-Typografie */',
+    'html body.site-light-page main :is(button,.button,.home-action-button',
     'font-family:var(--font-inter),Arial,sans-serif!important',
     'font-size:11px!important',
     'font-style:normal!important',

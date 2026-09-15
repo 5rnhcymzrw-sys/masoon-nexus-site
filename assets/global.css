@@ -154,51 +154,6 @@ html body.page-home.site-light-page main.home section.home-paths.home-paths .hom
 .services-section .section-heading,
 .legal-page .section-heading{margin-bottom:48px!important;}.services-section{width:min(100% - var(--page-gutter-mobile),var(--content-width))!important;padding-top:var(--section-y-mobile)!important;padding-bottom:24px!important;}}@media(max-width:560px){.services-section .services-grid{grid-template-columns:1fr;}}
 
-/* Dienstleistungen: Editoriales Kartenraster nach Referenz */
-@media(min-width:801px){
-  .services-section{position:relative!important;padding-right:0!important;padding-left:0!important;background:#f8f7f4!important;box-shadow:0 24px 54px rgba(23,23,21,.12);box-sizing:border-box!important;}
-  .services-section::after{content:"";position:absolute;bottom:60px;left:50%;width:6px;height:6px;background:#171715;border-radius:50%;transform:translateX(-50%);}
-
-  .services-section>.section-heading h1{max-width:820px!important;}
-  .services-section>.services-grid{border:1px solid rgba(23,23,21,.12);align-items:stretch!important;}
-  .services-section>.services-grid>.service-card{z-index:1;min-height:390px!important;background:#fff!important;box-shadow:none!important;transition:none!important;}
-  .services-section>.services-grid>.service-card[open]{background:#f1efea!important;}
-  .services-section>.services-grid>.service-card summary{min-height:390px!important;padding:36px 38px!important;}
-  .services-section>.services-grid>.service-card ul{padding:0 38px 36px!important;}
-  .services-section>.services-grid>.service-card:nth-child(2){z-index:2;background:#111113!important;color:#fff!important;transform:translateY(-24px);}
-  .services-section>.services-grid>.service-card:nth-child(2)[open]{background:#111113!important;}.services-section>.services-grid>.service-card:nth-child(2) .card-number,
-.services-section>.services-grid>.service-card:nth-child(2) h2{color:rgba(255,255,255,.88)!important;}
-
-  .services-section>.services-grid>.service-card:nth-child(2) li{border-top-color:rgba(255,255,255,.18)!important;}
-}
-
-@media(min-width:1051px){
-  .services-section>.services-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;}
-}
-
-@media(min-width:801px) and (max-width:1050px){
-  .services-section{padding-right:38px!important;padding-left:38px!important;}
-  .services-section>.services-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
-  .services-section>.services-grid>.service-card:nth-child(2){transform:none;}
-}
-
-@media(max-width:800px){
-  .services-section{position:relative!important;background:#f8f7f4!important;box-shadow:none!important;}
-  .services-section::after{content:none!important;}
-  .services-section>.section-heading{max-width:none!important;}
-
-  .services-section>.services-grid{grid-template-columns:1fr!important;border:1px solid rgba(23,23,21,.12);}
-  .services-section>.services-grid>.service-card{min-height:0!important;background:#fff!important;transition:none!important;}
-  .services-section>.services-grid>.service-card[open]{background:#f1efea!important;}
-  .services-section>.services-grid>.service-card summary{min-height:340px!important;padding:32px 26px!important;}
-  .services-section>.services-grid>.service-card ul{padding:0 26px 32px!important;}
-  .services-section>.services-grid>.service-card:nth-child(2),
-.services-section>.services-grid>.service-card:nth-child(2)[open]{background:#111113!important;color:#fff!important;transform:none!important;box-shadow:none!important;}.services-section>.services-grid>.service-card:nth-child(2) .card-number,
-.services-section>.services-grid>.service-card:nth-child(2) h2{color:rgba(255,255,255,.88)!important;}
-
-  .services-section>.services-grid>.service-card:nth-child(2) li{border-top-color:rgba(255,255,255,.18)!important;}
-}
-
 /* Dienstleistungen: Nummer und Titel */
 @media(min-width:801px){
   .services-section>.services-grid>.service-card summary{display:grid!important;grid-template-columns:70px minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr) auto!important;column-gap:20px!important;align-content:start!important;}

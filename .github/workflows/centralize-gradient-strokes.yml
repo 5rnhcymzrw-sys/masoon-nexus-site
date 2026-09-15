@@ -24,3 +24,4 @@ jobs:
           git diff --cached --quiet && exit 1
           git commit -m "Verlaufslinien und Rahmenstärken global vereinheitlichen"
           git push origin main
+# retry after primary-root correction

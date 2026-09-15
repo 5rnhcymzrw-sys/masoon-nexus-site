@@ -304,54 +304,6 @@ html body .site-header .site-nav a{
 
 
 
-/* Dienstleistungen: Abschlusskasten-Grösse an Fachwissen angepasst */
-@media(min-width:801px){
-  html body .services-closing{
-    height:463.25px!important;
-    min-height:463.25px!important;
-    max-height:463.25px!important;
-    box-sizing:border-box!important;
-  }
-}
-
-/* Startseite Kontakt: Abschlusskasten wie Fachwissen und Dienstleistungen */
-@media(min-width:801px){
-  html body main.home>.home-contact-band{
-    width:min(100% - var(--page-gutter),var(--content-width))!important;
-    height:463.25px!important;
-    min-height:463.25px!important;
-    max-height:463.25px!important;
-    margin:118px auto 126px!important;
-    padding:var(--section-y) 72px!important;
-    display:grid!important;
-    grid-template-columns:.7fr 1.3fr!important;
-    gap:80px!important;
-    box-sizing:border-box!important;
-    background:var(--mt-surface)!important;
-    background-color:var(--mt-surface)!important;
-    background-image:none!important;
-    border:var(--mt-gradient-frame-width) solid var(--mt-line)!important;
-    box-shadow:none!important;
-  }
-}
-@media(max-width:800px){
-  html body main.home>.home-contact-band{
-    width:min(100% - var(--page-gutter-mobile),var(--content-width))!important;
-    height:auto!important;
-    margin:82px auto 126px!important;
-    padding:62px 26px!important;
-    display:grid!important;
-    grid-template-columns:1fr!important;
-    gap:52px!important;
-    box-sizing:border-box!important;
-    background:var(--mt-surface)!important;
-    background-color:var(--mt-surface)!important;
-    background-image:none!important;
-    border:var(--mt-gradient-frame-width) solid var(--mt-line)!important;
-    box-shadow:none!important;
-  }
-}
-
 /* Einheitliche Seitenabstände */
 html body .page-main,
 html body main.home{
@@ -479,7 +431,6 @@ body.site-light-page .home{
   color:var(--mt-ink)!important;
 }
 html body.site-light-page .article-card,
-html body.site-light-page .knowledge-note,
 html body.site-light-page .services-main .services-section .services-grid>.service-card,
 html body.site-light-page .services-main .services-section .services-grid>.service-card:hover{
   background:var(--mt-surface)!important;
@@ -658,19 +609,63 @@ html body .knowledge-section .articles-grid>.article-card h2::after{
 html body .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
   margin-top:0!important;}
 
-/* Abschlusskästen – globale Grundkomponente */
-/* Nur die vier grossen Abschlusskästen: ohne Farbverlauf und Weichzeichnung. */
-html body.site-light-page main .knowledge-section>.knowledge-note,
-html body.site-light-page main.services-main>.services-closing,
-html body.site-light-page main.page-main>.company-collaboration-box,
-html body.site-light-page main.home>.home-contact-band{
+/* Grosse Abschlusskästen: einzige globale Komponente */
+html body.site-light-page main :is(.knowledge-note,.services-closing,.company-collaboration-box,.home-contact-band){
+  box-sizing:border-box!important;
+  width:min(calc(100vw - var(--page-gutter)),var(--content-width))!important;
+  height:463px!important;
+  min-height:463px!important;
+  max-height:463px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding:var(--section-y) 72px!important;
+  display:grid!important;
+  grid-template-columns:.7fr 1.3fr!important;
+  gap:80px!important;
+  position:relative!important;
+  background:transparent!important;
+  background-color:transparent!important;
   background-image:none!important;
- border-color:transparent!important;
-border-image:var(--mt-gradient-frame) 1!important;
+  border:var(--mt-gradient-frame-width) solid transparent!important;
+  border-image:var(--mt-gradient-frame) 1!important;
+  border-radius:0!important;
   box-shadow:none!important;
   filter:none!important;
   backdrop-filter:none!important;
   -webkit-backdrop-filter:none!important;
+}
+html body.site-light-page main :is(.knowledge-note,.services-closing,.company-collaboration-box,.home-contact-band)>div{
+  grid-column:2!important;
+  min-width:0!important;
+  min-height:0!important;
+}
+html body.site-light-page main :is(.knowledge-note,.services-closing,.company-collaboration-box,.home-contact-band)>.section-label{
+  position:absolute!important;
+  top:50%!important;
+  left:72px!important;
+  margin:0!important;
+  padding:0!important;
+  height:15.4px!important;
+  transform:translateY(-50%)!important;
+}
+@media(max-width:800px){
+  html body.site-light-page main :is(.knowledge-note,.services-closing,.company-collaboration-box,.home-contact-band){
+    width:min(calc(100vw - var(--page-gutter-mobile)),var(--content-width))!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    padding:62px 26px!important;
+    grid-template-columns:1fr!important;
+    gap:52px!important;
+  }
+  html body.site-light-page main :is(.knowledge-note,.services-closing,.company-collaboration-box,.home-contact-band)>div{
+    grid-column:1!important;
+  }
+  html body.site-light-page main :is(.knowledge-note,.services-closing,.company-collaboration-box,.home-contact-band)>.section-label{
+    position:static!important;
+    height:auto!important;
+    transform:none!important;
+  }
 }
 
 /* Dienstleistungskacheln – zentrale globale Komponente */
@@ -942,9 +937,7 @@ body.site-light-page .home-values__inner,
 body.site-light-page .services-section,
 body.site-light-page .knowledge-section,
 body.site-light-page .home-paths,
-body.site-light-page .home-paths::before,
-body.site-light-page .home-contact-band,
-body.site-light-page .services-closing{
+body.site-light-page .home-paths::before{
   background:transparent!important;
   background-color:transparent!important;
   background-image:none!important;
@@ -1019,51 +1012,4 @@ html body .knowledge-section .article-card>p:not(.article-meta){
 
 html body .home-paths__grid strong+span{
   margin-top:var(--short-line-gap)!important;
-}
-
-/* Abschlusskästen – gemeinsame Positionierung global */
-/* Abschlusskästen: transparent,
-kleine Titel mittig und ohne Zeichen */
-html body.site-light-page .knowledge-note,
-html body.site-light-page .services-closing,
-html body.site-light-page main.home>.home-contact-band{
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
-}
-html body.site-light-page .knowledge-note>.section-label,
-html body.site-light-page .services-closing>.section-label,
-html body.site-light-page main.home>.home-contact-band>.section-label{
-  align-self:center!important;
-  justify-self:start!important;
-  place-self:center start!important;
-  margin:0!important;
-  padding:0!important;
-  position:static!important;
-}
-
-/* Abschlusskästen: alle kleinen Titel exakt auf der senkrechten Kastenmitte */
-@media(min-width:801px){
-  html body.site-light-page .knowledge-note,
-  html body.site-light-page .services-closing,
-  html body.site-light-page main.home>.home-contact-band{
-    position:relative!important;
-  }
-  html body.site-light-page .knowledge-note>div,
-  html body.site-light-page .services-closing>.services-closing__inner,
-  html body.site-light-page main.home>.home-contact-band>div{
-    grid-column:2!important;
-  }
-  html body.site-light-page .knowledge-note>.section-label,
-  html body.site-light-page .services-closing>.section-label,
-  html body.site-light-page main.home>.home-contact-band>.section-label{
-    position:absolute!important;
-    top:50%!important;
-    left:72px!important;
-    margin:0!important;
-    padding:0!important;
-    height:15.4px!important;
-    align-self:start!important;
-    transform:translateY(-50%)!important;
-  }
 }

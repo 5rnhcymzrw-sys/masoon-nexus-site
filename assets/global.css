@@ -35,6 +35,8 @@ html body.site-light-page main p.section-label{
   letter-spacing:var(--button-letter-spacing)!important;
   text-transform:var(--button-text-transform)!important;
   font-synthesis:none!important;
+  color:#777777!important;
+  vertical-align:baseline!important;
   display:flex!important;
   align-items:center!important;
   gap:16px!important;

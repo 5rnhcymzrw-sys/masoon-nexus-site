@@ -59,12 +59,6 @@ html body .services-main .services-section .service-card h2::after{
 html body .services-main .services-section .service-card>summary>p{
   margin-top:23px!important;}
 
-/* Dienstleistungen Hauptseite: kleine Bereichstitel wie Unternehmen */
-html body.site-light-page .services-main .services-section>.section-heading>.section-label,
-html body.site-light-page .services-main>.services-closing>.section-label{
-  color:#868279!important;
-}
-
 /* Dienstleistungen Hauptseite: Kartentypografie wie Werte */
 html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
   font-family:var(--font-cormorant),Georgia,serif!important;

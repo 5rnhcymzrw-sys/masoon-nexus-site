@@ -64,11 +64,7 @@ html body.site-light-page .knowledge-section .articles-grid>.article-card>h2::af
 html body.site-light-page .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
   margin-top:23px!important;}
 
-/* Bereichstitel: verbindliche Typografie von EINORDNUNG */
-html body main .section-label{
-  color:#777777!important;
-  vertical-align:baseline!important;
-}/* Kleine Metadaten und Aktionsbeschriftungen */
+/* Kleine Metadaten und Aktionsbeschriftungen */
 html body main .contact-split__form-label{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
@@ -250,12 +246,6 @@ html body.site-light-page main .company-values-grid>.company-value-card:nth-chil
   background-position:right top!important;
 }
 
-
-/* Unternehmen: kleine Bereichstitel farblich vereinheitlichen */
-
-html body.site-light-page .home-values .section-heading > .section-label{
-  color:#868279!important;
-}
 
 /* Unternehmen: Zusammenarbeit im Stil des Datenschutz-Kastens */
 html body.site-light-page .collaboration-legal-section{

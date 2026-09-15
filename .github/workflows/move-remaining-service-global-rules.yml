@@ -1,0 +1,37 @@
+name: Move remaining service global rules
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/move-remaining-service-global-rules.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move remaining service rules
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          g=Path('assets/global.css')
+          d=Path('assets/dienstleistungen.css')
+          gs=g.read_text(encoding='utf-8')
+          ds=d.read_text(encoding='utf-8')
+          start=gs.index('/* Dienstleistungen: Nummer und Titel */')
+          end=gs.index('/* Einheitliche Kopfzeile auf allen Seiten */', start)
+          block=gs[start:end].rstrip()+"\n\n"
+          gs=gs[:start]+gs[end:]
+          ds=ds.rstrip()+"\n\n"+block
+          g.write_text(gs,encoding='utf-8')
+          d.write_text(ds,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/global.css assets/dienstleistungen.css
+          git commit -m "Verbleibende Dienstleistungsregeln nach dienstleistungen.css verschieben"
+          git rm .github/workflows/move-remaining-service-global-rules.yml
+          git commit -m "Temporären Dienstleistungs-Migrationsworkflow entfernen"
+          git push

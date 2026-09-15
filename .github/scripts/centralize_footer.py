@@ -195,7 +195,7 @@ s = sub_once(
 )
 if '.site-footer' in s or '.footer-simple' in s:
     raise SystemExit('contact: footer styling remains')
-p.write_text(s, encoding="utf-8")
+p.write_text(s.rstrip() + '\n', encoding="utf-8")
 
 # Compiled legacy CSS: remove old footer declarations.
 p = Path("assets/index-CZfMKxM_.css")

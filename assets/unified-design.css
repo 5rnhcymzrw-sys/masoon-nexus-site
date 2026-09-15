@@ -249,7 +249,7 @@ html body.site-light-page main .knowledge-section .article-card .article-action:
 }
 
 /* Endgültiger Vorrang: beide Aktionsbeschriftungen exakt gleich */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action{
   display:inline-block!important;
   position:relative!important;
   height:auto!important;
@@ -269,55 +269,55 @@ html body.site-light-page main .knowledge-section .articles-grid>.article-card>.
 }
 
 /* Gemessener Positionsausgleich: Beitrag anzeigen auf gleicher Hoehe */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action.article-action{
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action{
   transform:translateY(-3px)!important;
 }
 
 /* Fachwissen Hauptseite: Kacheltitel 2 Pixel kleiner,
 oberer Abstand 88 Pixel */
 @media(min-width:801px){
-  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card{
     padding-top:88px!important;
   }
 }
 
 /* Fachwissen: Daten in der Typografie der DL-Kartenzahlen 01–06 */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
+html body.site-light-page main .knowledge-section .articles-grid>.article-card{
   position:relative!important;
 }
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-card-date{
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-card-date{
   position:absolute!important;
   top:28px!important;
   left:42px!important;
   margin:0!important;
 }
 @media(max-width:800px){
-  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card{
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card{
     padding-top:78px!important;
   }
-  html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-card-date{
+  html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-card-date{
     top:28px!important;
     left:26px!important;
   }
 }
 
 /* Fachwissen: Aktion wie Fliesstext; Titellinien wie Datumsfarben */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>h2::after{
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>h2::after{
   background:#99989c!important;
   background-color:#99989c!important;
 }
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(1)>h2::after,
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(5)>h2::after{
+html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(1)>h2::after,
+html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(5)>h2::after{
   background:#19191b!important;
   background-color:#19191b!important;
 }
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card:nth-child(3)>h2::after{
+html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3)>h2::after{
   background:#c2c1c4!important;
   background-color:#c2c1c4!important;
 }
 
 /* Fachwissen: Pfeil bei Beitrag anzeigen optisch 1 Pixel hoeher */
-html body.site-light-page main .knowledge-section .articles-grid>.article-card.article-card>.article-action.article-action::after{
+html body.site-light-page main .knowledge-section .articles-grid>.article-card>.article-action::after{
   transform:translateY(calc(-50% - 1px))!important;
 }
 
@@ -1889,7 +1889,7 @@ html body.page-company.site-light-page .company-legal-card .home-company__image:
 
 /* Fachwissen: sieben Beitragskästen in DL-Höhe; ursprüngliche Inhaltsanordnung leicht angehoben. */
 @media(min-width:801px){
-  html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{
+  html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card{
     box-sizing:border-box!important;
     width:100%!important;
     height:341px!important;
@@ -1946,6 +1946,6 @@ html body.page-company.site-light-page main.page-main > .company-collaboration-b
 }
 
 /* FINAL: Fachwissen-Kacheln – identischer Verlauf und mittlere Hover-Geschwindigkeit */
-html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card {
+html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card {
   transition: transform .49s ease, border-color .49s ease, box-shadow .49s ease, background-color .49s ease !important;
 }

@@ -1,0 +1,28 @@
+name: Globalize section labels v2
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/globalize-section-labels-v2.yml
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch verification
+        run: python3 scripts/patch-globalize-section-labels.py
+      - name: Apply global section label rule
+        run: python3 scripts/globalize-section-labels.py
+      - name: Verify one authoritative color rule
+        run: python3 scripts/verify-global-section-labels.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/global.css assets/contact.css assets/dienstleistungen.css assets/unified-design.css assets/index-CZfMKxM_.css index.html unternehmen dienstleistungen fachwissen kontakt disclaimer impressum datenschutz
+          git commit -m "Bereichstitel global vereinheitlichen"
+          git rm scripts/globalize-section-labels.py scripts/patch-globalize-section-labels.py scripts/verify-global-section-labels.py .github/workflows/globalize-section-labels.yml .github/workflows/globalize-section-labels-v2.yml
+          git commit -m "Temporäre Bereichstitel-Bereinigung entfernen"
+          git push

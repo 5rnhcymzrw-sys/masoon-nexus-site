@@ -873,9 +873,9 @@ body.page-article-company-forms .article-table-wrap td:not(:first-child){width:c
     }
 
 /* fachwissen/unwahre-buchfuehrung/index.html */
-html body.page-article-false-accounting.site-light-page main.article-main{padding:234px 0 126px!important}
+html body.page-article-false-accounting.site-light-page main.article-main{padding:234px 0 var(--section-y)!important}
     body.page-article-false-accounting .article-overline,
-body.page-article-false-accounting .article-shell{width:91%!important;max-width:1227px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important}
+body.page-article-false-accounting .article-shell{width:91%!important;max-width:var(--content-width)!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important}
      body.page-article-false-accounting .article-overline{display:block!important;margin-bottom:28px!important;padding:0 140px!important;text-align:left!important}
     body.page-article-false-accounting .article-overline .section-label{margin:0 0 18px!important}
     body.page-article-false-accounting .article-shell{padding:70px 140px!important;border:1px solid #d7d5d1!important;display:block!important;text-align:left!important}

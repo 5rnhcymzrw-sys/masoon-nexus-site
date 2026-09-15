@@ -775,7 +775,7 @@ body.page-article-employment-termination .article-table-wrap--two-columns td{wid
     @media(max-width:800px){
       
       
-      body.page-article-employment-termination .article-shell{width:91%!important;padding:52px 26px!important;display:block!important}
+      
       body.page-article-employment-termination .article-hero{padding-bottom:40px}
       body.page-article-employment-termination .article-body{width:100%!important;margin-left:0!important;padding-top:40px}
       body.page-article-employment-termination .article-table-wrap{width:100%;max-width:none}
@@ -819,7 +819,7 @@ body.page-article-company-formation .article-body{width:100%!important;max-width
     @media(max-width:800px){
       
       
-      body.page-article-company-formation .article-shell{width:91%!important;padding:52px 26px!important;display:block!important}
+      
       body.page-article-company-formation .article-hero{padding-bottom:40px}
       body.page-article-company-formation .article-body{width:100%!important;margin-left:0!important;padding-top:40px}
       body.page-article-company-formation .article-body h2{margin-top:46px;}
@@ -866,7 +866,7 @@ body.page-article-company-forms .article-table-wrap td:not(:first-child){width:c
     @media(max-width:800px){
       
       
-      body.page-article-company-forms .article-shell{width:91%!important;padding:52px 26px!important;display:block!important;}
+      
       body.page-article-company-forms .article-hero{padding-bottom:40px;}
       body.page-article-company-forms .article-body{width:100%!important;margin-left:0!important;margin-right:0!important;padding-top:40px;}
       body.page-article-company-forms .article-body h2{margin-top:46px;}
@@ -899,9 +899,8 @@ body.page-article-false-accounting .article-body{width:100%!important;max-width:
     body.page-article-false-accounting .article-body li::before{content:"";position:absolute;left:0;top:.825em;width:8px;height:1px;background:#868279}
     html body.page-article-false-accounting.site-light-page .article-body h2{color:#171715!important}
     @media(max-width:800px){
-      html body.page-article-false-accounting.site-light-page main.article-main{padding:170px 0 96px!important}
-      body.page-article-false-accounting .article-overline{margin-bottom:24px!important;padding:0 26px!important}
-      body.page-article-false-accounting .article-shell{width:91%!important;padding:52px 26px!important;display:block!important}
+      
+      
       body.page-article-false-accounting .article-hero{padding-bottom:40px}
       body.page-article-false-accounting .article-body{width:100%!important;margin-left:0!important;padding-top:40px}
       body.page-article-false-accounting .article-body h2{margin-top:46px;}

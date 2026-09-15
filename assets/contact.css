@@ -58,13 +58,7 @@
 
 .contact-split__info .contact-split__intro{
   max-width: 430px !important;
-  margin: 0 !important;
-  color: #373733 !important;
-  font-family: var(--font-inter) !important;
-  font-size: 15px !important;
-  font-weight: 400 !important;
-  line-height: 1.7 !important;
-}
+  margin: 0 !important;}
 
 .contact-split__facts{
   display: grid !important;
@@ -113,13 +107,7 @@
 }
 
 .contact-fact p{
-  margin: 0 !important;
-  color: #373733 !important;
-  font-family: var(--font-inter) !important;
-  font-size: 13px !important;
-  font-weight: 400 !important;
-  line-height: 1.6 !important;
-}
+  margin: 0 !important;}
 
 .contact-fact a{
   color: inherit !important;
@@ -270,10 +258,6 @@
 
   .contact-split__info{
     padding: 82px 0 58px !important;
-  }
-
-  .contact-split__intro{
-    font-size: 15px !important;
   }
 
   .contact-fact{

@@ -1,7 +1,7 @@
 /* MASOON TREUHAND – zentrale Designquelle */
 @font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2") format("woff2")}
 @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;src:url("_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2") format("woff2")}
-:root{--mt-gradient-frame:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-line:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-width:1px;--mt-gradient-line-width:1px;--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:14px;--body-font:var(--font-inter),Arial,sans-serif;--body-weight:300;--body-line-height:1.65;--body-letter-spacing:0;--body-color:#484a4f;--label-size:11px;--content-width:1320px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
+:root{--mt-gradient-frame:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-reverse:var(--mt-gradient-frame-reverse);--mt-gradient-line:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-width:1px;--mt-gradient-line-width:1px;--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:14px;--body-font:var(--font-inter),Arial,sans-serif;--body-weight:300;--body-line-height:1.65;--body-letter-spacing:0;--body-color:#484a4f;--label-size:11px;--button-font:var(--font-inter),Arial,sans-serif;--button-size:11px;--button-weight:500;--button-line-height:1.4;--button-letter-spacing:1.1px;--button-text-transform:uppercase;--content-width:1320px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
 html,
 body{max-width:100%;overflow-x:hidden;}
 body{font-family:var(--font-inter)!important;}
@@ -26,13 +26,13 @@ body{font-family:var(--font-inter)!important;}
 /* Einheitliche kleine Bereichstitel */
 html body.site-light-page main .section-label,
 html body.site-light-page main p.section-label{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
+  font-family:var(--button-font)!important;
+  font-size:var(--button-size)!important;
   font-style:normal!important;
-  font-weight:500!important;
-  line-height:1.4!important;
-  letter-spacing:1.1px!important;
-  text-transform:uppercase!important;
+  font-weight:var(--button-weight)!important;
+  line-height:var(--button-line-height)!important;
+  letter-spacing:var(--button-letter-spacing)!important;
+  text-transform:var(--button-text-transform)!important;
   font-synthesis:none!important;
   display:flex!important;
   align-items:center!important;
@@ -240,7 +240,7 @@ gleiche Höhe */
 /* Einheitliche Kopfzeile auf allen Seiten */
 html body header.site-header{height:108px!important;min-height:108px!important;color:#fff!important;background:#000!important;background-color:#000!important;background-image:none!important;border-bottom:1px solid #ffffff29!important;position:fixed!important;top:0!important;right:0!important;left:0!important;opacity:1!important;isolation:isolate!important;transform:none!important;transition:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;mix-blend-mode:normal!important}
 html body header.site-header::before{content:none!important;display:none!important}
-html body header.site-header::after{content:""!important;position:fixed!important;z-index:49!important;top:108px!important;right:0!important;left:0!important;width:100%!important;height:8px!important;background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important}
+html body header.site-header::after{content:""!important;position:fixed!important;z-index:49!important;top:108px!important;right:0!important;left:0!important;width:100%!important;height:8px!important;background:var(--mt-gradient-frame)!important}
 html body .home .home-hero{margin-top:0!important;min-height:calc(100svh - 100px)!important}
 @media(min-width:801px){
 html body header.site-header .header-inner{position:relative!important;width:min(100% - 64px,1320px)!important;height:108px!important;min-height:108px!important;margin:0 auto!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important}
@@ -274,7 +274,7 @@ html body footer.site-footer::before{
   left:0!important;
   width:100%!important;
   height:8px!important;
-  background:linear-gradient(110deg,#8d96a8 0%,#c7cbd3 34%,#e8e5df 62%,#f3e8d4 100%)!important;
+  background:var(--mt-gradient-frame-reverse)!important;
 }
 html body footer.site-footer::after{content:none!important;display:none!important;}
 html body footer.site-footer .footer-simple{
@@ -481,7 +481,7 @@ html body .site-header .site-nav a::after{
   bottom:18px!important;
   width:0!important;
   height:2px!important;
-  background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
+  background:var(--mt-gradient-frame)!important;
   opacity:1;
   transition:width .4s ease!important;
   pointer-events:none;

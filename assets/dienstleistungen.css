@@ -1,2 +1,26 @@
 /* Abschluss der Dienstleistungsseite */
-.services-closing{width:min(100% - 64px,var(--content-width));margin:0 auto;padding:126px 0;}.services-closing__inner{max-width:760px;}.services-closing h2{margin:0 0 30px;color:#171715;}.services-closing p:not(.section-label){margin:0;}.services-closing__links{display:flex;gap:34px;align-items:center;margin-top:40px;}@media(max-width:800px){.services-closing{width:min(100% - 36px,var(--content-width));padding:82px 0;}.services-closing__links{flex-direction:column;align-items:flex-start;gap:18px;}}
+.services-closing{
+  width:min(100% - var(--page-gutter),var(--content-width));
+  margin:0 auto;
+  padding:var(--section-y) 0;
+}
+.services-closing__inner{max-width:760px;}
+.services-closing h2{margin:0 0 30px;color:#171715;}
+.services-closing p:not(.section-label){margin:0;}
+.services-closing__links{
+  display:flex;
+  gap:34px;
+  align-items:center;
+  margin-top:40px;
+}
+@media(max-width:800px){
+  .services-closing{
+    width:min(100% - var(--page-gutter-mobile),var(--content-width));
+    padding:var(--section-y-mobile) 0;
+  }
+  .services-closing__links{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px;
+  }
+}

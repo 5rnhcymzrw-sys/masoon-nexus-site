@@ -688,6 +688,7 @@ html body.page-home.site-light-page main.home section.home-values .home-values__
   background:transparent!important;
 }
 html body.page-home.site-light-page main.home section.home-values .home-values__item .service-number{
+  display:block!important;
   margin:0!important;
   font-family:var(--font-cormorant),Georgia,serif!important;
   font-size:44px!important;

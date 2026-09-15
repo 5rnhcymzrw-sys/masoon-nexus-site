@@ -666,12 +666,6 @@ html body:is(.page-privacy,.page-disclaimer,.page-imprint) .disclaimer-card .pro
   transform:none!important;
 }
 html body:is(.page-privacy,.page-disclaimer,.page-imprint) .disclaimer-card .prose p{margin-bottom:12px!important;}
-html body:is(.page-privacy,.page-imprint) .disclaimer-card .prose h2{
-  display:block!important;
-  color:#171715!important;
-  margin-bottom:7px!important;
-}
-html body:is(.page-privacy,.page-imprint) .disclaimer-card .prose h2:first-child{margin-top:0!important;}
 @media(min-width:801px){
   html body.page-disclaimer .page-main .legal-page{
     min-height:calc(100svh - 188px)!important;

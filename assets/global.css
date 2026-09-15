@@ -121,15 +121,25 @@ html body.site-light-page main.article-main .article-title,
 .company-collaboration-box h2,
 .home-company h2,
 .article-title{font-family:"PT Serif",Georgia,serif!important;font-size:46px!important;font-weight:700!important;line-height:1.04!important;letter-spacing:0!important;font-style:normal!important;-webkit-text-stroke:0!important;font-synthesis:none!important;text-shadow:none!important;}
-/* Einheitliche Zwischentitel auf allen Seiten */
-html body.site-light-page main .article-body h2,
-html body.site-light-page main .prose h2{
+/* Globale Zwischentitel – Referenz 01.2026 Konkursrecht */
+html body.site-light-page main :is(.article-body,.prose)>h2{
+  position:relative!important;
+  max-width:none!important;
+  margin:48px 0 16px!important;
   font-family:"PT Serif",Georgia,serif!important;
   font-size:22px!important;
   font-weight:700!important;
   line-height:1.12!important;
   letter-spacing:0!important;
   font-synthesis:none!important;
+  text-align:left!important;
+  color:#171715!important;
+}
+html body.site-light-page main :is(.article-body,.prose)>h2:first-child{margin-top:0!important;}
+html body.site-light-page main :is(.article-body,.prose)>h2::after{content:none!important;display:none!important;}
+html body.site-light-page main :is(.article-body,.prose)>h2+p{margin-top:0!important;}
+@media(max-width:800px){
+  html body.site-light-page main :is(.article-body,.prose)>h2:not(:first-child){margin-top:40px!important;}
 }
 
 .services-section .service-card h2{font-family:var(--font-cormorant)!important;font-size:var(--card-title)!important;font-weight:var(--card-title-weight)!important;line-height:var(--card-title-line-height)!important;letter-spacing:var(--card-title-letter-spacing)!important;}

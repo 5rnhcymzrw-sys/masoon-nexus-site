@@ -1,0 +1,28 @@
+name: Report article legacy blocks
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/report-article-blocks.yml']
+permissions:
+  contents: write
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Report article block markers
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          s=Path('assets/global.css').read_text(encoding='utf-8')
+          for line in s.splitlines():
+              if 'fachwissen/' in line and 'index.html' in line:
+                  print(line)
+          PY
+      - name: Remove workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/report-article-blocks.yml
+          git commit -m "Temporären Artikelreport-Workflow entfernen"
+          git push

@@ -181,13 +181,6 @@
   background: #fff !important;
   box-shadow: none !important;
   color:#777777!important;
-  font-family: var(--font-inter),Arial,sans-serif !important;
-  font-size: 11px !important;
-  font-style: normal !important;
-  font-weight: 500 !important;
-  line-height: 1.4 !important;
-  letter-spacing:1.1px!important;
-  text-transform: uppercase !important;
   cursor: pointer !important;
 }
 

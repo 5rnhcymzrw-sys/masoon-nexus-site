@@ -5,9 +5,7 @@
 html,
 body{max-width:100%;overflow-x:hidden;}
 body{font-family:var(--font-inter)!important;}
-.card-number,
-.details-action{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}.card-number{letter-spacing:.14em!important;}
-.details-action{letter-spacing:1.1px!important;}.section-label{margin:0 0 30px!important;}
+.card-number{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}.card-number{letter-spacing:.14em!important;}.section-label{margin:0 0 30px!important;}
 .home>.home-values>.home-values__inner>.section-heading:first-child>.section-label:first-child,
 .services-section>.section-heading:first-child>.section-label:first-child,
 .knowledge-section>.section-heading:first-child>.section-label:first-child,
@@ -52,6 +50,18 @@ html body.site-light-page main .section-label::before{
 html body.site-light-page main .section-label::after{
   content:none!important;
   display:none!important;
+}
+
+/* Einheitliche Button-Typografie */
+html body.site-light-page main :is(button,.home-action-button,.home-values__all-services,.services-contact-button,.details-action,.article-action,.home-paths__action,input[type="submit"],input[type="button"]){
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-style:normal!important;
+  font-weight:500!important;
+  line-height:1.4!important;
+  letter-spacing:1.1px!important;
+  text-transform:uppercase!important;
+  font-synthesis:none!important;
 }
 
 /* Einheitliche Fachbeitrag Metatitel */

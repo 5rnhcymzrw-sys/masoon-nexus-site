@@ -63,6 +63,17 @@ html body.site-light-page main.article-main .article-title,
 .company-collaboration-box h2,
 .home-company h2,
 .article-title{font-family:"PT Serif",Georgia,serif!important;font-size:46px!important;font-weight:700!important;line-height:1.04!important;letter-spacing:0!important;font-style:normal!important;-webkit-text-stroke:0!important;font-synthesis:none!important;text-shadow:none!important;}
+/* Einheitliche Zwischentitel auf allen Seiten */
+html body.site-light-page main .article-body h2,
+html body.site-light-page main .prose h2{
+  font-family:"PT Serif",Georgia,serif!important;
+  font-size:22px!important;
+  font-weight:700!important;
+  line-height:1.12!important;
+  letter-spacing:0!important;
+  font-synthesis:none!important;
+}
+
 .home-values__item h3,
 .home-paths__grid strong,
 .services-section .service-card h2{font-family:var(--font-cormorant)!important;font-size:var(--card-title)!important;font-weight:500!important;line-height:1.12!important;letter-spacing:-.01em!important;}

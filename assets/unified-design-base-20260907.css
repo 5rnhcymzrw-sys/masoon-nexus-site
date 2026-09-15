@@ -506,9 +506,7 @@ html body .home-paths__grid strong,
 html body .services-section .service-card h2,
 html body .knowledge-section .article-card h2,
 html body .legal-page .prose h2,
-html body .article-body h2{
-  line-height:1.12!important;
-}
+html body .article-body h2{}
 
 /* Startseite Dienstleistungen: Titel-Text-Abstand wie bei Fachwissen */
 html body main.home .home-values .home-values__inner .home-values__items .home-values__item p{

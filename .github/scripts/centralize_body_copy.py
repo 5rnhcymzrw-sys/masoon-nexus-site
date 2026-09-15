@@ -23,16 +23,14 @@ EXCLUDED_TOKENS = (
     '.contact-split__form-label', '.details-action', '.home-action-button',
     '.home-values__all-services', '.services-contact-button', '.home-paths__action',
     '.site-nav', '.site-footer', '.card-number', '.service-number',
-    'button', 'input', 'textarea', 'label', ' h1', ' h2', ' h3', ' h4', ' h5', ' h6',
+    'button', 'input', 'textarea', 'label',
 )
 
 KNOWN_BODY_CLASSES = (
     '.mt-body-copy', '.home-hero__services', '.contact-split__intro',
+    '.article-lead', '.article-body',
 )
 
-PROP_PATTERN = re.compile(
-    r'(?im)(?P<prefix>(?:^|[;\n\r])\s*)(?P<prop>-?[a-zA-Z][\w-]*)\s*:\s*(?P<value>[^;{}]*)(?P<semi>;?)'
-)
 LEAF_PATTERN = re.compile(r'([^{}]+)\{([^{}]*)\}', re.S)
 
 
@@ -40,12 +38,30 @@ def clean_selector_text(selector: str) -> str:
     return re.sub(r'/\*.*?\*/', '', selector, flags=re.S).strip()
 
 
+def positive_selector(selector: str) -> str:
+    s = re.sub(r':not\([^)]*\)', '', selector)
+    return s
+
+
+def has_heading_element(selector: str) -> bool:
+    return bool(re.search(r'(^|[\s>+~])h[1-6](?=[\s>+~.#:\[]|$)', selector))
+
+
 def is_body_part(part: str) -> bool:
-    s = clean_selector_text(part)
-    if not s:
+    raw = clean_selector_text(part)
+    if not raw:
         return False
+    if any(pseudo in raw for pseudo in ('::before', '::after', '::marker')):
+        return False
+    if '.article-table-wrap' in raw:
+        return False
+
+    s = positive_selector(raw)
     if any(token in s for token in EXCLUDED_TOKENS):
         return False
+    if has_heading_element(s):
+        return False
+
     if re.search(r'(^|[\s>+~])p(?=[\s>+~.#:\[]|$)', s):
         return True
     if re.search(r'(^|[\s>+~])li(?=[\s>+~.#:\[]|$)', s):
@@ -55,6 +71,33 @@ def is_body_part(part: str) -> bool:
     if re.search(r'(^|[\s>+~])\.prose(?=[\s>+~.#:\[]|$)', s):
         return True
     return False
+
+
+def strip_declarations(body: str):
+    removed = 0
+    had_trailing_semicolon = body.rstrip().endswith(';')
+    kept = []
+
+    for segment in body.split(';'):
+        stripped = segment.strip()
+        if not stripped:
+            continue
+        if ':' not in stripped:
+            kept.append(segment)
+            continue
+        prop = stripped.split(':', 1)[0].strip().lower()
+        if prop in TYPO_PROPS:
+            removed += 1
+            continue
+        kept.append(segment)
+
+    if not kept:
+        return '', removed
+
+    new_body = ';'.join(kept)
+    if had_trailing_semicolon:
+        new_body += ';'
+    return new_body, removed
 
 
 def strip_typography_from_body_rules(text: str):
@@ -71,19 +114,9 @@ def strip_typography_from_body_rules(text: str):
         if not parts or not all(is_body_part(part) for part in parts):
             return match.group(0)
 
-        def decl_repl(dm):
-            nonlocal removed
-            prop = dm.group('prop').lower()
-            if prop in TYPO_PROPS:
-                removed += 1
-                return ''
-            return dm.group(0)
-
-        new_body = PROP_PATTERN.sub(decl_repl, body)
-        new_body = re.sub(r';\s*;', ';', new_body)
-        new_body = re.sub(r'^\s*;\s*', '', new_body)
-        new_body = re.sub(r'\s+;', ';', new_body)
-        if not re.sub(r'[;\s]', '', new_body):
+        new_body, count = strip_declarations(body)
+        removed += count
+        if not new_body.strip():
             return ''
         return selector + '{' + new_body + '}'
 
@@ -109,7 +142,8 @@ def update_global(text: str) -> str:
 html body.site-light-page main p:not(.section-label):not(.article-meta):not(.article-card-date):not(.form-status),
 html body.site-light-page main li,
 html body.site-light-page main .home-hero__services,
-html body.site-light-page main .contact-split__intro{
+html body.site-light-page main .contact-split__intro,
+html body.site-light-page main .article-lead{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:300!important;

@@ -288,10 +288,6 @@ html body .site-header .site-nav a{
   }
 }
 
-/* Startseite Dienstleistungen: Titel-Text-Abstand wie bei Fachwissen */
-html body .home .home-values__item p{
-  margin-top:12px!important;}
-
 /* Gesamte Website: einheitliche Inhaltsbreite und seitlicher Leerraum */
 @media(min-width:801px){
   html body .home-hero__content,
@@ -485,7 +481,6 @@ body.site-light-page .page-main,
 body.site-light-page .home{
   color:var(--mt-ink)!important;
 }
-html body.site-light-page .home-values__item,
 html body.site-light-page .article-card,
 html body.site-light-page .knowledge-note,
 html body.site-light-page .services-main .services-section .services-grid>.service-card,
@@ -499,7 +494,6 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   backdrop-filter:none!important;
   -webkit-backdrop-filter:none!important;
 }
-body.site-light-page .home-values__items,
 body.site-light-page .home-paths__grid,
 body.site-light-page .articles-grid,
 body.site-light-page .services-grid{
@@ -509,10 +503,6 @@ body.site-light-page .services-grid{
   background:transparent!important;
   border:0!important;
 }
-body.site-light-page .home-values__item{
-  border-left:var(--mt-gradient-frame-width) solid var(--mt-line)!important;
-}
-body.site-light-page .home-values__item h3::after,
 body.site-light-page .home-paths__grid strong::after{
   background:var(--short-line-color)!important;
 }

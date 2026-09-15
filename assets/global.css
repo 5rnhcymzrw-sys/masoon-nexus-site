@@ -137,7 +137,7 @@ html body.site-light-page main .prose h2{
 .home-paths__heading,
 .services-section .section-heading,
 .legal-page .section-heading{max-width:var(--title-width)!important;margin-bottom:64px!important;}
-.services-main{min-height:100vh;}.services-section{width:min(100% - 64px,var(--content-width))!important;margin:0 auto!important;padding-top:118px!important;padding-bottom:36px!important;}.services-section .section-heading{max-width:760px!important;}.services-section .services-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;}.services-section .service-card h2{margin:0 0 14px!important;}.services-section .service-card summary p{margin:0!important;}
+.services-main{min-height:100vh;}.services-section{width:min(100% - var(--page-gutter),var(--content-width))!important;margin:0 auto!important;padding-top:118px!important;padding-bottom:36px!important;}.services-section .section-heading{max-width:760px!important;}.services-section .services-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;}.services-section .service-card h2{margin:0 0 14px!important;}.services-section .service-card summary p{margin:0!important;}
 .home-hero{background-image:linear-gradient(90deg,#060605f7 0%,#060605e3 24%,#06060594 49%,#06060514 75%,#06060505 100%),linear-gradient(#05050500,#0505054d)!important;background-position:50% 50%,50% 50%!important;background-size:cover!important;background-repeat:no-repeat!important;}.home-hero__content{display:block!important;}.home-values__item{min-height:285px!important;padding:34px 36px!important;text-align:left!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important;}.home-values__item .service-number{display:none!important;}.home-values__item h3{margin:0 0 14px!important;}.home-values__item h3::after,
 html body.page-home.site-light-page main.home section.home-paths.home-paths .home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid>a>strong::after{content:""!important;display:block!important;width:100%!important;height:var(--mt-gradient-line-width)!important;margin-top:22px!important;background:var(--mt-gradient-line)!important;border:0!important;}
 /* Startseite Fachwissen: Kategorie wieder unter dem Titelstrich */
@@ -151,7 +151,7 @@ html body.page-home.site-light-page main.home section.home-paths.home-paths .hom
 .home-values .section-heading,
 .home-paths__heading,
 .services-section .section-heading,
-.legal-page .section-heading{margin-bottom:48px!important;}.services-section{width:min(100% - 36px,var(--content-width))!important;padding-top:82px!important;padding-bottom:24px!important;}}@media(max-width:560px){.services-section .services-grid{grid-template-columns:1fr;}}
+.legal-page .section-heading{margin-bottom:48px!important;}.services-section{width:min(100% - var(--page-gutter-mobile),var(--content-width))!important;padding-top:82px!important;padding-bottom:24px!important;}}@media(max-width:560px){.services-section .services-grid{grid-template-columns:1fr;}}
 
 /* Dienstleistungen: Editoriales Kartenraster nach Referenz */
 @media(min-width:801px){
@@ -422,7 +422,7 @@ html body .home .home-values__item p{
     background:var(--mt-surface)!important;
     background-color:var(--mt-surface)!important;
     background-image:none!important;
-    border:1px solid var(--mt-line)!important;
+    border:var(--mt-gradient-frame-width) solid var(--mt-line)!important;
     box-shadow:none!important;
   }
 }
@@ -439,7 +439,7 @@ html body .home .home-values__item p{
     background:var(--mt-surface)!important;
     background-color:var(--mt-surface)!important;
     background-image:none!important;
-    border:1px solid var(--mt-line)!important;
+    border:var(--mt-gradient-frame-width) solid var(--mt-line)!important;
     box-shadow:none!important;
   }
 }
@@ -578,7 +578,7 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   background:var(--mt-surface)!important;
   background-color:var(--mt-surface)!important;
   background-image:none!important;
-  border:1px solid var(--mt-line)!important;
+  border:var(--mt-gradient-frame-width) solid var(--mt-line)!important;
   border-radius:0!important;
   box-shadow:none!important;
   backdrop-filter:none!important;
@@ -595,7 +595,7 @@ body.site-light-page .services-grid{
   border:0!important;
 }
 body.site-light-page .home-values__item{
-  border-left:1px solid var(--mt-line)!important;
+  border-left:var(--mt-gradient-frame-width) solid var(--mt-line)!important;
 }
 body.site-light-page .home-values__item h3::after,
 body.site-light-page .home-paths__grid strong::after{

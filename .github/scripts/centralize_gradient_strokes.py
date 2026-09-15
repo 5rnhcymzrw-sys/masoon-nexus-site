@@ -50,17 +50,17 @@ for path in files:
 
     css = rule_re.sub(rewrite_rule, css)
 
-    # Add the canonical values once to the existing :root in global.css.
-    if path.name == 'global.css':
-        if '--mt-gradient-frame:' not in css:
-            old = ':root{'
-            insert = (':root{--mt-gradient-frame:' + FRAME + ';'
-                      '--mt-gradient-line:' + LINE + ';'
-                      '--mt-gradient-frame-width:1px;'
-                      '--mt-gradient-line-width:1px;')
-            if css.count(old) != 1:
-                raise SystemExit(f'global.css: expected exactly one :root block, found {css.count(old)}')
-            css = css.replace(old, insert, 1)
+    # Add the canonical values once to the primary existing :root in global.css.
+    if path.name == 'global.css' and '--mt-gradient-frame:' not in css:
+        needle = ':root{--font-inter:'
+        if css.count(needle) != 1:
+            raise SystemExit(f'global.css: primary :root insertion point expected once, found {css.count(needle)}')
+        insert = (':root{--mt-gradient-frame:' + FRAME + ';'
+                  '--mt-gradient-line:' + LINE + ';'
+                  '--mt-gradient-frame-width:1px;'
+                  '--mt-gradient-line-width:1px;'
+                  '--font-inter:')
+        css = css.replace(needle, insert, 1)
 
     if css != original:
         counts[str(path)] = 1

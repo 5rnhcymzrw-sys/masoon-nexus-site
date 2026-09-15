@@ -1,0 +1,43 @@
+name: Spacing frame cleanup
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/spacing-frame-cleanup.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply safe spacing and frame tokens
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          p = Path('assets/global.css')
+          s = p.read_text(encoding='utf-8')
+
+          replacements = {
+              'width:min(100% - 64px,var(--content-width))!important;': 'width:min(100% - var(--page-gutter),var(--content-width))!important;',
+              'width:min(100% - 36px,var(--content-width))!important;': 'width:min(100% - var(--page-gutter-mobile),var(--content-width))!important;',
+              'border:1px solid var(--mt-line)!important;': 'border:var(--mt-gradient-frame-width) solid var(--mt-line)!important;',
+              'border-left:1px solid var(--mt-line)!important;': 'border-left:var(--mt-gradient-frame-width) solid var(--mt-line)!important;',
+          }
+          changed = 0
+          for old, new in replacements.items():
+              count = s.count(old)
+              if count:
+                  s = s.replace(old, new)
+                  changed += count
+
+          assert changed > 0, 'Keine sicheren Standardwerte gefunden'
+          p.write_text(s, encoding='utf-8')
+          print(f'{changed} sichere Standardwerte zentralisiert')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/global.css
+          git commit -m "Standardränder und Rahmen über globale Tokens steuern"
+          git rm .github/workflows/spacing-frame-cleanup.yml
+          git commit -m "Temporären Abstands-Rahmen-Workflow entfernen"
+          git push

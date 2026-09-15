@@ -1,0 +1,59 @@
+name: Finalize home paths global
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/finalize-homepaths-global.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Finalize home knowledge card centralization
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          u = Path('assets/unified-design.css')
+          g = Path('assets/global.css')
+          us = u.read_text(encoding='utf-8')
+          gs = g.read_text(encoding='utf-8')
+
+          old1 = '''html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item:nth-child(3n+2),\nhtml body.page-home.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid.home-paths__grid.home-paths__grid>a:nth-child(3n+2){\n  background-position:center top!important;\n}\nhtml body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item:nth-child(3n),\nhtml body.page-home.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid.home-paths__grid.home-paths__grid>a:nth-child(3n){\n  background-position:right top!important;\n}'''
+          new1 = '''html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item:nth-child(3n+2){\n  background-position:center top!important;\n}\nhtml body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item:nth-child(3n){\n  background-position:right top!important;\n}'''
+          assert old1 in us, 'desktop combined background-position block missing'
+          us = us.replace(old1,new1,1)
+
+          old2 = '''@media(max-width:800px){\n  html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item,\nhtml body.page-home.site-light-page:has(main.home) main.home>section.home-paths .home-paths__grid.home-paths__grid.home-paths__grid>a{background-size:100% 100%!important;}\n}'''
+          new2 = '''@media(max-width:800px){\n  html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item{background-size:100% 100%!important;}\n}'''
+          assert old2 in us, 'mobile combined background-size block missing'
+          us = us.replace(old2,new2,1)
+
+          old3 = '''html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid > a,\nhtml body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card {\n  transition: transform .49s ease, border-color .49s ease, box-shadow .49s ease, background-color .49s ease !important;\n}'''
+          new3 = '''html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card {\n  transition: transform .49s ease, border-color .49s ease, box-shadow .49s ease, background-color .49s ease !important;\n}'''
+          assert old3 in us, 'final shared transition block missing'
+          us = us.replace(old3,new3,1)
+
+          # Preserve the existing .49s home card transition in global.css.
+          global_transition = '''\n/* Startseite Fachwissen: finale globale Übergangsgeschwindigkeit */\nhtml body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a{\n  transition:transform .49s ease,border-color .49s ease,box-shadow .49s ease,background-color .49s ease!important;\n}\n'''
+          assert 'Startseite Fachwissen: finale globale Übergangsgeschwindigkeit' not in gs
+          gs = gs.rstrip() + '\n' + global_transition
+
+          repeated = '.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid.home-paths__grid'
+          simple = '.home-paths__grid'
+          assert repeated in gs, 'over-specific selector not found in global.css'
+          gs = gs.replace(repeated, simple)
+
+          u.write_text(us, encoding='utf-8')
+          g.write_text(gs, encoding='utf-8')
+          assert repeated not in g.read_text(encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/global.css assets/unified-design.css
+          git commit -m "Startseiten-Fachwissen vollständig globalisieren"
+          git rm .github/workflows/finalize-homepaths-global.yml
+          git commit -m "Temporären Fachwissen-Finalworkflow entfernen"
+          git push

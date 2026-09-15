@@ -154,7 +154,7 @@ html body.site-light-page .home-values .section-heading > .section-label{
 
 /* Unternehmen: Zusammenarbeit im Stil des Datenschutz-Kastens */
 html body.site-light-page .collaboration-legal-section{
-  width:min(100% - 64px,1227px)!important;
+  width:min(100% - var(--page-gutter),var(--content-width))!important;
   margin:0 auto!important;
   padding-top:var(--section-y)!important;
   padding-bottom:var(--section-y)!important;
@@ -162,7 +162,7 @@ html body.site-light-page .collaboration-legal-section{
 }
 @media(max-width:800px){
   html body.site-light-page .collaboration-legal-section{
-    width:calc(100% - 36px)!important;
+    width:calc(100% - var(--page-gutter-mobile))!important;
     padding-top:var(--section-y-mobile)!important;
     padding-bottom:var(--section-y-mobile)!important;
   }

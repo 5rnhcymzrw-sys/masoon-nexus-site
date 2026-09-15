@@ -10,7 +10,7 @@ TYPO_PROPS = (
     '-moz-osx-font-smoothing', 'text-rendering', '-webkit-text-fill-color'
 )
 PROP = re.compile(
-    r'(?i)(?P<prefix>^|;)\s*(?:' + '|'.join(re.escape(x) for x in TYPO_PROPS) + r')\s*:[^;{}]*(?:;|$)'
+    r'(?i)(?P<prefix>^|;)\s*(?:' + '|'.join(re.escape(x) for x in TYPO_PROPS) + r')\s*:[^;{}]*(?=;|$)'
 )
 
 
@@ -25,7 +25,6 @@ def strip_target_typography(css):
         new_body, n = PROP.subn(lambda m: m.group('prefix'), body)
         if n:
             changed += n
-            # Clean repeated semicolons and whitespace only; keep all layout declarations.
             new_body = re.sub(r';\s*;', ';', new_body)
             if new_body.strip() == ';':
                 new_body = ''

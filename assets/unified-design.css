@@ -33,7 +33,7 @@ html body.site-light-page .knowledge-section>.knowledge-note>div>p:not(.section-
   }
 }
 
-/* Rechteseiten und bestehende Spezialtexte bleiben unverändert */
+/* Gemeinsame Rechteseiten und Spezialtexte */
 html body main .legal-page p:not(.section-label):not(.article-meta):not(.home-hero__intro){
   text-decoration:none!important;
 }
@@ -387,7 +387,7 @@ html body.site-light-page:has(#knowledge-articles) main.page-main>#knowledge-art
   background-image:none!important;
 }
 
-/* Startseite: Kontakt wieder an der ursprünglichen linken Position. */
+/* Startseite Kontakt: Position des Bereichslabels */
 @media(min-width:801px){
   html body.site-light-page main.home>section.home-contact-band>p.section-label{
     position:absolute!important;

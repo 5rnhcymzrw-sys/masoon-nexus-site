@@ -52,8 +52,9 @@ html body.site-light-page main .section-label::after{
   display:none!important;
 }
 
+
 /* Einheitliche Button-Typografie */
-html body.site-light-page main :is(button,.home-action-button,.home-values__all-services,.services-contact-button,.details-action,.article-action,.home-paths__action,input[type="submit"],input[type="button"]){
+html body.site-light-page main :is(button,.button,.home-action-button,.home-values__all-services,.services-contact-button,.details-action,.article-action,.home-paths__action,input[type="submit"],input[type="button"]){
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:11px!important;
   font-style:normal!important;

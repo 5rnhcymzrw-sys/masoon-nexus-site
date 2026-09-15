@@ -8,7 +8,7 @@
 
 .contact-split{
   position: relative !important;
-  width: min(calc(100% - 64px), 1320px) !important;
+  width: min(calc(100% - 64px), var(--content-width)) !important;
   min-height: 760px !important;
   margin: 0 auto !important;
   overflow: hidden !important;
@@ -203,7 +203,7 @@
   }
 
   .contact-split{
-    width: min(calc(100% - 36px), 1320px) !important;
+    width: min(calc(100% - 36px), var(--content-width)) !important;
     min-height: 0 !important;
   }
 
@@ -229,7 +229,7 @@
 
 @media (max-width: 560px){
   .contact-split{
-    width: min(calc(100% - 24px), 1320px) !important;
+    width: min(calc(100% - 24px), var(--content-width)) !important;
   }
 
   .contact-split__info{

@@ -1,7 +1,7 @@
 /* MASOON TREUHAND – zentrale Designquelle */
 @font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2") format("woff2")}
 @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;src:url("_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2") format("woff2")}
-:root{--mt-gradient-frame:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-reverse:var(--mt-gradient-frame-reverse);--mt-gradient-line:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-width:1px;--mt-gradient-line-width:1px;--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:14px;--body-font:var(--font-inter),Arial,sans-serif;--body-weight:300;--body-line-height:1.65;--body-letter-spacing:0;--body-color:#484a4f;--label-size:11px;--button-font:var(--font-inter),Arial,sans-serif;--button-size:11px;--button-weight:500;--button-line-height:1.4;--button-letter-spacing:1.1px;--button-text-transform:uppercase;--content-width:1320px;--content-width-narrow:1227px;--page-gutter:64px;--page-gutter-mobile:36px;--section-y:126px;--section-y-mobile:82px;--header-height:108px;--accent-bar-height:8px;--mt-black:#0b0b0b;--mt-ink:#171715;--mt-text:#4f4e4b;--mt-line:rgba(23,23,21,.14);--mt-surface:rgba(255,255,255,.78);--mt-surface-open:rgba(255,255,255,.88);--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
+:root{--mt-gradient-frame:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-reverse:var(--mt-gradient-frame-reverse);--mt-gradient-line:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-width:1px;--mt-gradient-line-width:1px;--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:14px;--body-font:var(--font-inter),Arial,sans-serif;--body-weight:300;--body-line-height:1.65;--body-letter-spacing:0;--body-color:#484a4f;--label-size:11px;--button-font:var(--font-inter),Arial,sans-serif;--button-size:11px;--button-weight:500;--button-line-height:1.4;--button-letter-spacing:1.1px;--button-text-transform:uppercase;--content-width:1227px;--page-gutter:64px;--page-gutter-mobile:36px;--section-y:126px;--section-y-mobile:82px;--header-height:108px;--accent-bar-height:8px;--mt-black:#0b0b0b;--mt-ink:#171715;--mt-text:#4f4e4b;--mt-line:rgba(23,23,21,.14);--mt-surface:rgba(255,255,255,.78);--mt-surface-open:rgba(255,255,255,.88);--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
 html,
 body{max-width:100%;overflow-x:hidden;}
 body{font-family:var(--font-inter)!important;}
@@ -248,7 +248,7 @@ html body header.site-header .header-inner .home-text-logo{position:absolute!imp
 html body header.site-header .header-inner .home-text-logo img{height:auto!important;max-height:none!important;object-fit:contain!important;filter:none!important;mix-blend-mode:normal!important}
 html body header.site-header .header-inner .home-text-logo .home-logo-icon{position:absolute!important;z-index:1!important;top:50%!important;left:50%!important;width:165.517241px!important;height:auto!important;opacity:.18!important;pointer-events:none!important;transform:translate(-50%,-50%)!important}
 html body header.site-header .header-inner .home-text-logo .home-logo-text{position:relative!important;z-index:2!important;width:240px!important;height:auto!important;max-height:none!important;opacity:1!important;transform:translateY(11px)!important}
-html body header.site-header .site-nav{position:absolute!important;left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - 1320px)/2))!important;width:auto!important;margin:0!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;transform:none!important}
+html body header.site-header .site-nav{position:absolute!important;left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - var(--content-width))/2))!important;width:auto!important;margin:0!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;transform:none!important}
 }
 
 /* Einheitliche Fusszeile auf allen Seiten */
@@ -325,7 +325,7 @@ html body footer.site-footer .footer-simple>*+*::before{
 @media(min-width:801px){
   html body footer.site-footer .footer-simple{
     justify-content:flex-start!important;
-    padding-left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - 1320px)/2))!important;
+    padding-left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - var(--content-width))/2))!important;
   }
 }
 @media(max-width:800px){
@@ -386,7 +386,7 @@ html body .home .home-values__item p{
   html body .services-closing,
   html body .contact-split,
   html body .legal-page{
-    width:min(100% - var(--page-gutter),var(--content-width-narrow))!important;
+    width:min(100% - var(--page-gutter),var(--content-width))!important;
   }
   html body .home-contact-band{
     padding-right:max(32px,calc((100% - 1227px)/2))!important;
@@ -409,7 +409,7 @@ html body .home .home-values__item p{
 /* Startseite Kontakt: Abschlusskasten wie Fachwissen und Dienstleistungen */
 @media(min-width:801px){
   html body main.home>.home-contact-band{
-    width:min(100% - var(--page-gutter),var(--content-width-narrow))!important;
+    width:min(100% - var(--page-gutter),var(--content-width))!important;
     height:463.25px!important;
     min-height:463.25px!important;
     max-height:463.25px!important;
@@ -428,7 +428,7 @@ html body .home .home-values__item p{
 }
 @media(max-width:800px){
   html body main.home>.home-contact-band{
-    width:min(100% - var(--page-gutter-mobile),var(--content-width-narrow))!important;
+    width:min(100% - var(--page-gutter-mobile),var(--content-width))!important;
     height:auto!important;
     margin:82px auto 126px!important;
     padding:62px 26px!important;

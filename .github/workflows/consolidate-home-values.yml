@@ -1,0 +1,42 @@
+name: Consolidate home values
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/consolidate-home-values.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Consolidate home values rules
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('assets/unified-design.css')
+          s=p.read_text(encoding='utf-8')
+          start=s.index('@media (min-width:801px){\n      html body.page-home .home>.home-values .home-values__item')
+          end_marker='    body.page-home .home-values__item p{grid-column:1 / -1!important;grid-row:2!important;margin:0!important}\n'
+          end=s.index(end_marker,start)+len(end_marker)
+          s=s[:start]+s[end:]
+          # Remove obsolete top-of-file home-values patches now superseded by the final component block.
+          obsolete='''/* Startseite Dienstleistungen: Zahl und Titel optisch ausrichten */\nhtml body .home>.home-values .home-values__item .service-number,\nhtml body .home>.home-values .home-values__item h3{\n  align-self:center!important;\n}\nhtml body .home>.home-values .home-values__item h3{\n  top:7px!important;\n}\n\n\n\n/* Startseite Dienstleistungen: Titel-Text-Abstand wie bei Fachwissen */\nhtml body main.home .home-values .home-values__inner .home-values__items .home-values__item p{\n  margin-top:12px!important;}\nhtml body main.home>.home-values .home-values__item h3::after{\n  content:none!important;\n  display:none!important;\n}\n\n'''
+          assert obsolete in s
+          s=s.replace(obsolete,'',1)
+          # Keep the effective final values, but group the final component into one readable block.
+          old='''html body.page-home .home-values .section-heading{width:820px!important;max-width:820px!important;margin-bottom:64px!important;text-align:left!important;}html body.page-home .home-values .section-label{margin-bottom:30px!important;}html body.page-home .home-values .home-values__items{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:22px!important;}html body.page-home .home-values .home-values__item{box-sizing:border-box!important;display:grid!important;grid-template-columns:32.078px minmax(0,1fr)!important;grid-template-rows:auto auto!important;align-content:center!important;column-gap:20px!important;width:100%!important;height:220px!important;min-height:220px!important;padding:42px!important;text-align:left!important;border:1px solid rgba(23,23,21,.14)!important;background:transparent!important;}html body.page-home .home-values .home-values__item .service-number{font-family:var(--font-cormorant),Georgia,serif!important;color:#171715!important;font-size:44px!important;font-weight:500!important;line-height:39.6px!important;letter-spacing:-1.76px!important;margin:0!important;}html body.page-home .home-values .home-values__item:nth-child(n+2) .service-number{color:#c9c7c5!important;}html body.page-home .home-values .home-values__item h3{align-self:center!important;transform:translateY(3px)!important;font-family:var(--font-cormorant),Georgia,serif!important;font-size:22px!important;font-weight:600!important;line-height:23.76px!important;letter-spacing:-.22px!important;margin:0!important;}html body.page-home .home-values .home-values__item p{grid-column:1/-1!important;margin:12px 0 0!important;text-align:left!important;}@media(max-width:800px){html body.page-home .home-values .section-heading{width:100%!important;max-width:100%!important;}html body.page-home .home-values .home-values__items{grid-template-columns:1fr!important;}html body.page-home .home-values .home-values__item{height:220px!important;min-height:220px!important;}}\n@media(min-width:801px){html body.page-home.site-light-page main.home section.home-values{padding-top:var(--section-y)!important;}html body.page-home.site-light-page main.home section.home-paths{padding-top:118px!important;}}html body.page-home.site-light-page main.home section.home-values div.home-values__items article.home-values__item{height:220px!important;min-height:220px!important;display:grid!important;grid-template-columns:32.078px minmax(0,1fr)!important;grid-template-rows:auto auto!important;align-content:center!important;column-gap:20px!important;padding:42px!important;background:transparent!important;border:1px solid transparent!important;}html body.page-home.site-light-page main.home section.home-values article.home-values__item .service-number{font-size:44px!important;line-height:39.6px!important;letter-spacing:-1.76px!important;}html body.page-home.site-light-page main.home section.home-values article.home-values__item h3{font-size:22px!important;line-height:23.76px!important;letter-spacing:-.22px!important;}\nhtml body.page-home.site-light-page main.home section.home-values article.home-values__item h3{top:0!important;}\n'''
+          assert old in s
+          new='''/* Startseite: Dienstleistungskacheln */\nhtml body.page-home .home-values .section-heading{\n  width:820px!important;\n  max-width:820px!important;\n  margin-bottom:64px!important;\n  text-align:left!important;\n}\nhtml body.page-home .home-values .section-label{margin-bottom:30px!important;}\nhtml body.page-home .home-values .home-values__items{\n  grid-template-columns:repeat(3,minmax(0,1fr))!important;\n  gap:22px!important;\n}\nhtml body.page-home.site-light-page main.home section.home-values .home-values__item{\n  box-sizing:border-box!important;\n  display:grid!important;\n  grid-template-columns:32.078px minmax(0,1fr)!important;\n  grid-template-rows:auto auto!important;\n  align-content:center!important;\n  column-gap:20px!important;\n  width:100%!important;\n  height:220px!important;\n  min-height:220px!important;\n  padding:42px!important;\n  text-align:left!important;\n  border:1px solid transparent!important;\n  background:transparent!important;\n}\nhtml body.page-home.site-light-page main.home section.home-values .home-values__item .service-number{\n  margin:0!important;\n  font-family:var(--font-cormorant),Georgia,serif!important;\n  font-size:44px!important;\n  font-weight:500!important;\n  line-height:39.6px!important;\n  letter-spacing:-1.76px!important;\n  color:#171715!important;\n}\nhtml body.page-home.site-light-page main.home section.home-values .home-values__item:nth-child(n+2) .service-number{color:#c9c7c5!important;}\nhtml body.page-home.site-light-page main.home section.home-values .home-values__item h3{\n  position:relative!important;\n  top:0!important;\n  align-self:center!important;\n  margin:0!important;\n  transform:translateY(3px)!important;\n  font-family:var(--font-cormorant),Georgia,serif!important;\n  font-size:22px!important;\n  font-weight:600!important;\n  line-height:23.76px!important;\n  letter-spacing:-.22px!important;\n}\nhtml body.page-home.site-light-page main.home section.home-values .home-values__item h3::after{content:none!important;display:none!important;}\nhtml body.page-home.site-light-page main.home section.home-values .home-values__item p{\n  grid-column:1/-1!important;\n  margin:12px 0 0!important;\n  text-align:left!important;\n}\n@media(min-width:801px){\n  html body.page-home.site-light-page main.home section.home-values{padding-top:var(--section-y)!important;}\n  html body.page-home.site-light-page main.home section.home-paths{padding-top:118px!important;}\n}\n@media(max-width:800px){\n  html body.page-home .home-values .section-heading{width:100%!important;max-width:100%!important;}\n  html body.page-home .home-values .home-values__items{grid-template-columns:1fr!important;}\n}\n'''
+          s=s.replace(old,new,1)
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/unified-design.css
+          git commit -m "Startseiten-Dienstleistungskacheln konsolidieren"
+          git rm .github/workflows/consolidate-home-values.yml
+          git commit -m "Temporären Home-Values-Workflow entfernen"
+          git push

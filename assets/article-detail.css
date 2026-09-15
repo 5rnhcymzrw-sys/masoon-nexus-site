@@ -16,8 +16,8 @@ html body.site-light-page main.article-main .article-shell{
   margin:0 auto!important;
   padding:67.5px 140px 76px!important;
   box-sizing:border-box!important;
-  border:1px solid transparent!important;
-  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
+  border:var(--mt-gradient-frame-width) solid transparent!important;
+  border-image:var(--mt-gradient-frame) 1!important;
   display:block!important;
   text-align:left!important;
 }
@@ -38,10 +38,10 @@ html body.site-light-page main.article-main .article-hero{
   display:block!important;
   text-align:left!important;
   border:0!important;
-  background-image:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)!important;
+  background-image:var(--mt-gradient-line)!important;
   background-repeat:no-repeat!important;
   background-position:left bottom!important;
-  background-size:100% 1px!important;
+  background-size:100% var(--mt-gradient-line-width)!important;
 }
 
 html body.site-light-page main.article-main .article-title{

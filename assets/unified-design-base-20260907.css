@@ -1241,9 +1241,9 @@ html body.site-light-page main.services-main>.services-closing,
 html body.site-light-page main .knowledge-note,
 html body.site-light-page main .company-legal-section .company-legal-card,
 html body.site-light-page main .article-shell{
-  border-width:1px!important;
+  border-width:var(--mt-gradient-frame-width)!important;
   border-color:transparent!important;
-  border-image:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) 1!important;
+  border-image:var(--mt-gradient-frame) 1!important;
 }
 html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+1),
 html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n/**/+1),

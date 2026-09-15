@@ -1719,7 +1719,7 @@ html body.page-knowledge.site-light-page main .knowledge-section#knowledge-artic
     --article-action-color:#171715!important;
   }
 }
-@media(min-width:561px) and (max-width:1050px){
+@media(min-width:561px) and (max-width:800px){
   html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card{
     background-size:calc(200% + 16px) 100%!important;
     background-position:left top!important;
@@ -1731,6 +1731,10 @@ html body.page-knowledge.site-light-page main .knowledge-section#knowledge-artic
 @media(min-width:801px) and (max-width:1050px){
   html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card{
     background-size:calc(200% + 22px) 100%!important;
+    background-position:left top!important;
+  }
+  html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card:nth-child(2n){
+    background-position:right top!important;
   }
 }
 @media(min-width:1051px){

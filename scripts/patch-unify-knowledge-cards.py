@@ -2,6 +2,7 @@ from pathlib import Path
 
 p = Path('scripts/unify-knowledge-cards.py')
 s = p.read_text(encoding='utf-8')
+s = s.replace("end_marker = '/* Abschlusskästen – globale Grundkomponente */'", "end_marker = '/* Grosse Abschlusskästen: einzige globale Komponente */'")
 needle = "g = g[:gs] + shared + g[ge:]\n"
 assert needle in s
 

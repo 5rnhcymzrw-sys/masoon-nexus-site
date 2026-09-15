@@ -151,7 +151,7 @@ html body.page-home.site-light-page main.home section.home-paths.home-paths .hom
 .home-values .section-heading,
 .home-paths__heading,
 .services-section .section-heading,
-.legal-page .section-heading{margin-bottom:48px!important;}.services-section{width:min(100% - var(--page-gutter-mobile),var(--content-width))!important;padding-top:82px!important;padding-bottom:24px!important;}}@media(max-width:560px){.services-section .services-grid{grid-template-columns:1fr;}}
+.legal-page .section-heading{margin-bottom:48px!important;}.services-section{width:min(100% - var(--page-gutter-mobile),var(--content-width))!important;padding-top:var(--section-y-mobile)!important;padding-bottom:24px!important;}}@media(max-width:560px){.services-section .services-grid{grid-template-columns:1fr;}}
 
 /* Dienstleistungen: Editoriales Kartenraster nach Referenz */
 @media(min-width:801px){
@@ -730,7 +730,7 @@ html body.page-home.site-light-page main.home section.home-paths .home-paths__gr
 }
 
 /* fachwissen/index.html */
-@media(min-width:801px){html body.page-knowledge .page-main>.knowledge-section{padding-bottom:126px!important}html body.page-knowledge .page-main>.knowledge-section>.knowledge-note{padding-bottom:126px!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{padding-top:100px!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>.article-card-date{top:40px!important}}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>h2{font-family:Georgia,'Times New Roman',serif!important;font-size:24px!important;font-weight:700!important;line-height:1.1!important;letter-spacing:-.02em!important;-webkit-text-stroke:0!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>h2,
+@media(min-width:801px){html body.page-knowledge .page-main>.knowledge-section{padding-bottom:var(--section-y)!important}html body.page-knowledge .page-main>.knowledge-section>.knowledge-note{padding-bottom:var(--section-y)!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card{padding-top:100px!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>.article-card-date{top:40px!important}}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>h2{font-family:Georgia,'Times New Roman',serif!important;font-size:24px!important;font-weight:700!important;line-height:1.1!important;letter-spacing:-.02em!important;-webkit-text-stroke:0!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>h2,
 html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>p{transform:translateY(8px)!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card.article-card>h2::after{width:var(--short-line-width)!important;height:1px!important;background:#d7d5d1!important;background-color:#d7d5d1!important;border:0!important}
 
 html body.page-knowledge.site-light-page main .knowledge-section .article-card .article-action::after{

@@ -412,15 +412,15 @@ html body.site-light-page .home-values .section-heading > .section-label{
 html body.site-light-page .collaboration-legal-section{
   width:min(100% - 64px,1227px)!important;
   margin:0 auto!important;
-  padding-top:126px!important;
-  padding-bottom:126px!important;
+  padding-top:var(--section-y)!important;
+  padding-bottom:var(--section-y)!important;
   box-sizing:border-box!important;
 }
 @media(max-width:800px){
   html body.site-light-page .collaboration-legal-section{
     width:calc(100% - 36px)!important;
-    padding-top:82px!important;
-    padding-bottom:82px!important;
+    padding-top:var(--section-y-mobile)!important;
+    padding-bottom:var(--section-y-mobile)!important;
   }
 }
 

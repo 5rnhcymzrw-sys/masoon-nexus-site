@@ -282,19 +282,6 @@ html body.site-light-page main .company-values-grid>.company-value-card:nth-chil
 }
 
 /* Seitenspezifische Altregeln aus unified-design-base konsolidiert */
-/* Unternehmen Desktop: Porträt ausgewogen zur Höhe des Textbereichs */
-@media(min-width:801px){
-  html body .home-company__image{
-    width:440px!important;
-    height:565px!important;
-    min-height:565px!important;
-  }
-  html body .home-company__image-primary{
-    width:92%!important;
-    height:92%!important;
-  }
-}
-
 /* Dienstleistungs Hauptseite: kurze Linien wie auf der Startseite */
 html body .services-main .services-section .service-card h2::after{
   content:""!important;
@@ -337,7 +324,9 @@ html body.site-light-page .collaboration-legal-section{
 /* Werte mobil: gemessene 7-Pixel-Abweichung zur Navigationslinie korrigieren */
 
 
-/* Unternehmen: Porträtbereich im einheitlichen Kastensystem */
+/* Unternehmen: Porträtbereich */
+html body.site-light-page .company-legal-section,
+html body.site-light-page .company-legal-section .company-legal-card{overflow:visible!important;}
 html body.site-light-page .company-legal-section .company-legal-card{
   width:100%!important;
   height:auto!important;
@@ -347,6 +336,7 @@ html body.site-light-page .company-legal-section .company-legal-card{
   display:grid!important;
   grid-template-columns:351px minmax(0,1fr)!important;
   gap:80px!important;
+  align-items:center!important;
   box-sizing:border-box!important;
   background:transparent!important;
   background-color:transparent!important;
@@ -359,45 +349,24 @@ html body.site-light-page .company-legal-card .home-company__image{
   width:100%!important;
   min-height:0!important;
   margin:0!important;
+  align-self:center!important;
 }
-html body.site-light-page .company-legal-card .home-company__image::after{
-  content:none!important;
-  display:none!important;
-}
+html body.site-light-page .company-legal-card .home-company__image::after{content:none!important;display:none!important;}
 html body.site-light-page .company-legal-card .home-company__image-primary{
   width:100%!important;
   height:auto!important;
   display:block!important;
 }
-@media(max-width:800px){
-  html body.site-light-page .company-legal-section .company-legal-card{
-    padding:62px 26px!important;
-    grid-template-columns:1fr!important;
-    gap:34px!important;
-  }
-}
-
-
-
-/* Unternehmen: Porträt exakt zur Mitte des gesamten Textblocks */
-html body.site-light-page .company-legal-section,
-html body.site-light-page .company-legal-section .company-legal-card{
-  overflow:visible!important;
-}
-html body.site-light-page .company-legal-section .company-legal-card{
-  align-items:center!important;
-}
-html body.site-light-page .company-legal-card .home-company__image{
-  align-self:center!important;
-}
-
-/* Unternehmen Desktop: Porträtblock exakt in der ursprünglichen Hochformat-Komposition */
 @media(min-width:801px){
+  html body.site-light-page .company-legal-section{padding-bottom:15.12px!important;}
+  html body.site-light-page .company-legal-section .company-legal-card{padding:32.34px 72px 54.372px!important;}
   html body.site-light-page .company-legal-card .home-company__image{
     width:440px!important;
     height:565px!important;
     min-height:565px!important;
     position:relative!important;
+    transform:translateY(20.25px) scale(.972)!important;
+    transform-origin:center center!important;
   }
   html body.site-light-page .company-legal-card .home-company__image-primary{
     width:92%!important;
@@ -407,35 +376,16 @@ html body.site-light-page .company-legal-card .home-company__image{
     right:0!important;
     object-fit:cover!important;
     object-position:center 18%!important;
-  }
-}
-
-/* Unternehmen Desktop: aktueller Porträtblock exakt 8 Prozent vergrössert */
-@media(min-width:801px){
-  html body.site-light-page .company-legal-card .home-company__image{
-    transform:translateY(20.25px) scale(.972)!important;
-    transform-origin:center center!important;
-  }
-  html body.site-light-page .company-legal-card .home-company__image-primary{
     box-shadow:none!important;
   }
 }
-
-/* Unternehmen: Leerraum nach dem MASOON-TREUHAND-Kasten insgesamt 44 Prozent kleiner */
-@media(min-width:801px){
-  html body.site-light-page .company-legal-section{
-    padding-bottom:15.12px!important;
-  }
-}
-
-/* Unternehmen Desktop: sichtbarer Innenraum entspricht oben und unten exakt den 60.5 Pixeln des Werte-Kastens */
-@media(min-width:801px){
+@media(max-width:800px){
   html body.site-light-page .company-legal-section .company-legal-card{
-    padding:32.34px 72px 54.372px!important;
+    padding:62px 26px!important;
+    grid-template-columns:1fr!important;
+    gap:34px!important;
   }
 }
-
-/* Unternehmen: Abstand nach dem Werte-Kasten exakt wie nach MASOON TREUHAND */
 
 /* Dienstleistungen Hauptseite: kleine Bereichstitel wie Unternehmen */
 html body.site-light-page .services-main .services-section>.section-heading>.section-label,

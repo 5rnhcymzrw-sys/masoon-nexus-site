@@ -409,7 +409,6 @@ body.page-knowledge [data-reveal-delay="70"]{--reveal-delay:70ms;}
 body.page-knowledge [data-reveal-delay="140"]{--reveal-delay:140ms;}
 body.page-knowledge [data-reveal-delay="210"]{--reveal-delay:210ms;}
 
-/* index.html */
 html:has(body.page-home) { scroll-behavior: auto !important; }
 
 
@@ -895,7 +894,6 @@ html body:is(.page-privacy,.page-imprint) .disclaimer-card .prose h2:first-child
   }
 }
 
-/* unternehmen/index.html */
 html body.page-company.site-light-page main.page-main .company-legal-section .company-legal-card{border:0!important}html body.page-company.site-light-page main.page-main .company-section-heading{width:100%!important;margin:0 0 64px!important;text-align:left!important}html body.page-company.site-light-page main.page-main .company-section-heading .section-label{justify-content:flex-start!important;margin-bottom:30px!important}html body.page-company.site-light-page main.page-main .company-section-heading h1{margin:0!important;text-align:left!important}html body.page-company.site-light-page main.page-main .company-section-heading .prose{width:min(100%,650px)!important;max-width:650px!important;margin:30px 0 0!important;text-align:left!important}html body.page-company.site-light-page main.page-main .company-section-heading h1 span{display:inline!important}@media(min-width:801px){html body.page-company.site-light-page main.page-main .company-legal-section{padding-top:134px!important}html body.page-company.site-light-page main.page-main .company-section-heading{width:calc(100% - 503.5px)!important;max-width:none!important;margin-left:503.5px!important}html body.page-company.site-light-page main.page-main .company-legal-section .company-legal-card{margin-top:-522.707px!important;padding-top:0!important;padding-right:0!important;column-gap:87.5px!important}html body.page-company.site-light-page main.page-main .company-legal-card .home-company__image{transform:translate(-41.436px,9.137px) scale(.972)!important}}
 
 html body.page-company.site-light-page main.page-main>.company-collaboration-box{
@@ -952,7 +950,7 @@ html body.page-company.site-light-page .company-legal-card .home-company__image:
   }
 }
 
-/* Fachwissen: sieben Beitragskästen in DL-Höhe; ursprüngliche Inhaltsanordnung leicht angehoben. */
+/* Fachwissen: Beitragskästen in Dienstleistungshöhe */
 @media(min-width:801px){
   html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card{
     box-sizing:border-box!important;
@@ -980,7 +978,7 @@ html body.page-knowledge.site-light-page main .knowledge-section#knowledge-artic
   -webkit-backdrop-filter:none!important;
 }
 
-/* Startseite Kontakt: innen vollständig transparent, ursprünglicher Rahmenverlauf bleibt erhalten. */
+/* Startseite Kontakt: transparenter Inhalt mit Verlaufrahmen */
 html body.page-home.site-light-page:has(main.home) main.home>section.home-contact-band{
   background:transparent!important;
   background-color:transparent!important;
@@ -993,9 +991,8 @@ html body.page-home.site-light-page:has(main.home) main.home>section.home-contac
   -webkit-backdrop-filter:none!important;
 }
 
-/* Startseite Hero: separater Akzent ist in der bestehenden .home-hero__soft-gradient-Regel definiert. */
 
-/* FINAL: Verlaufrahmen der grossen Kästen */
+/* Verlaufrahmen der grossen Kästen */
 html body.page-home.site-light-page main.home > section.home-contact-band,
 html body.page-knowledge.site-light-page main.page-main .knowledge-section#knowledge-articles > .knowledge-note,
 html body.page-company.site-light-page main.page-main > .company-collaboration-box {
@@ -1003,13 +1000,12 @@ html body.page-company.site-light-page main.page-main > .company-collaboration-b
   border-image:var(--mt-gradient-frame) 1!important;
 }
 
-/* FINAL: Fachwissen-Kacheln – identischer Verlauf und mittlere Hover-Geschwindigkeit */
+/* Fachwissen-Kacheln: Verlauf und Hover */
 html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card {
   transition: transform .49s ease, border-color .49s ease, box-shadow .49s ease, background-color .49s ease !important;
 }
 
 /* Fachwissen Hauptseite: seitenspezifische Endregeln */
-/* fachwissen/index.html */
 @media(min-width:801px){html body.page-knowledge .page-main>.knowledge-section{padding-bottom:var(--section-y)!important}html body.page-knowledge .page-main>.knowledge-section>.knowledge-note{padding-bottom:var(--section-y)!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card{padding-top:100px!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card>.article-card-date{top:40px!important}}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card>h2{font-family:Georgia,'Times New Roman',serif!important;font-size:24px!important;font-weight:700!important;line-height:1.1!important;letter-spacing:-.02em!important;-webkit-text-stroke:0!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card>h2,
 html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card>p{transform:translateY(8px)!important}html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card>h2::after{width:var(--short-line-width)!important;height:1px!important;background:#d7d5d1!important;background-color:#d7d5d1!important;border:0!important}
 

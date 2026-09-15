@@ -320,7 +320,7 @@ html body .site-header .site-nav a{
     min-height:463.25px!important;
     max-height:463.25px!important;
     margin:118px auto 126px!important;
-    padding:126px 72px!important;
+    padding:var(--section-y) 72px!important;
     display:grid!important;
     grid-template-columns:.7fr 1.3fr!important;
     gap:80px!important;
@@ -518,7 +518,7 @@ body.site-light-page{
 }
 
 /* Fachwissen-Kacheln – zentrale globale Komponente */
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a{
+html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a{
   position:relative!important;
   cursor:pointer!important;
   border:var(--mt-gradient-frame-width) solid transparent!important;
@@ -533,19 +533,19 @@ html body.page-home.site-light-page main.home section.home-paths .home-paths__gr
   box-shadow:0 14px 32px rgba(35,35,33,.055)!important;
   transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background-color .22s ease!important;
 }
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(1){
+html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:nth-child(1){
   border-image:var(--mt-gradient-frame) 1!important;
   background-position:left top!important;
   --home-path-date:"07.2026  ";
   --home-path-copy:"Welche Unterlagen für die Steuererklärung benötigt werden und wie eine vollständige Vorbereitung gelingt.";
 }
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(2){
+html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:nth-child(2){
   border-image:var(--mt-gradient-frame) 1!important;
   background-position:center top!important;
   --home-path-date:"05.2026  ";
   --home-path-copy:"Welche Unterschiede zwischen den Rechtsformen bestehen und welche Faktoren bei der Wahl zu berücksichtigen sind.";
 }
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid.home-paths__grid>a:nth-child(3){
+html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:nth-child(3){
   border-image:var(--mt-gradient-frame) 1!important;
   background-position:right top!important;
   --home-path-date:"03.2026  ";

@@ -1,0 +1,233 @@
+from pathlib import Path
+import re
+
+
+def sub_once(text, pattern, repl, label, flags=0):
+    out, n = re.subn(pattern, repl, text, count=1, flags=flags)
+    if n != 1:
+        raise SystemExit(f"{label}: expected 1 match, found {n}")
+    return out
+
+
+def replace_once(text, old, new, label):
+    n = text.count(old)
+    if n != 1:
+        raise SystemExit(f"{label}: expected 1 match, found {n}")
+    return text.replace(old, new, 1)
+
+
+canonical = '''/* Einheitliche Fusszeile auf allen Seiten */
+html body footer.site-footer{
+  position:relative!important;
+  height:80px!important;
+  min-height:80px!important;
+  margin:0!important;
+  padding:0!important;
+  color:#fff!important;
+  background:#000!important;
+  background-color:#000!important;
+  background-image:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+html body footer.site-footer::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:1!important;
+  top:-8px!important;
+  right:0!important;
+  left:0!important;
+  width:100%!important;
+  height:8px!important;
+  background:linear-gradient(110deg,#8d96a8 0%,#c7cbd3 34%,#e8e5df 62%,#f3e8d4 100%)!important;
+}
+html body footer.site-footer::after{content:none!important;display:none!important;}
+html body footer.site-footer .footer-simple{
+  position:relative!important;
+  z-index:2!important;
+  width:min(100% - 64px,1320px)!important;
+  height:80px!important;
+  min-height:80px!important;
+  margin:0 auto!important;
+  padding:0!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:clamp(18px,2.2vw,34px)!important;
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:12px!important;
+  font-weight:500!important;
+  line-height:1.65!important;
+  letter-spacing:1.1px!important;
+  text-transform:uppercase!important;
+  font-style:normal!important;
+  font-synthesis:none!important;
+  -webkit-font-smoothing:antialiased!important;
+  -moz-osx-font-smoothing:grayscale!important;
+  text-rendering:geometricPrecision!important;
+  color:#797c82!important;
+  -webkit-text-fill-color:currentColor!important;
+}
+html body footer.site-footer .footer-simple>a{
+  color:inherit!important;
+  -webkit-text-fill-color:currentColor!important;
+  font:inherit!important;
+  text-decoration:none!important;
+}
+html body footer.site-footer .footer-simple>*{position:relative!important;}
+html body footer.site-footer .footer-simple>*+*::before{
+  content:"·"!important;
+  display:block!important;
+  position:absolute!important;
+  top:50%!important;
+  left:calc(-1 * clamp(18px,2.2vw,34px) / 2)!important;
+  color:#000!important;
+  font:inherit!important;
+  line-height:1!important;
+  transform:translate(-50%,-50%)!important;
+}
+@media(min-width:801px){
+  html body footer.site-footer .footer-simple{
+    justify-content:flex-start!important;
+    padding-left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - 1320px)/2))!important;
+  }
+}
+@media(max-width:800px){
+  html body footer.site-footer .footer-simple{
+    width:min(100% - 36px,1320px)!important;
+    flex-wrap:wrap!important;
+    justify-content:center!important;
+    row-gap:8px!important;
+  }
+}
+
+'''
+
+# global.css: one footer source only.
+p = Path("assets/global.css")
+s = p.read_text(encoding="utf-8")
+s = sub_once(
+    s,
+    r'\.site-footer\{background-image:linear-gradient\(#0a0a0990,#0a0a0990\),url\("\.\./Hintergrundbild 1\.png"\)!important;background-position:center,72% 18%!important;background-size:cover!important;color:#fff!important;\}\n',
+    '',
+    'global legacy image footer',
+)
+s = sub_once(
+    s,
+    r'/\* Einheitliche schlichte Fusszeile wie die Kopfzeile \*/.*?(?=/\* Typografie der Hauptnavigation \*/)',
+    canonical,
+    'global main footer block',
+    re.S,
+)
+s = sub_once(
+    s,
+    r'/\* Gemeinsame Fusszeilenwerte auf allen Seiten\. \*/.*?(?=/\* Mittige Punkte zwischen den Navigationstiteln \*/)',
+    '',
+    'global duplicate footer typography',
+    re.S,
+)
+old_spacing = '''/* Einheitliche Seitenabstände und Fusszeile */
+html body .page-main,
+html body main.home{
+  padding-top:108px!important;
+}
+html body .site-footer{
+  height:80px!important;
+  min-height:80px!important;
+  padding:0!important;
+}
+html body .site-footer .footer-simple{
+  height:80px!important;
+  min-height:80px!important;
+  padding-top:0!important;
+  padding-bottom:0!important;
+  box-sizing:border-box!important;
+  align-items:center!important;
+}
+'''
+new_spacing = '''/* Einheitliche Seitenabstände */
+html body .page-main,
+html body main.home{
+  padding-top:108px!important;
+}
+'''
+s = replace_once(s, old_spacing, new_spacing, 'global duplicate footer dimensions')
+s = sub_once(
+    s,
+    r'/\* Fusszeilentext: auf allen Seiten exakt wie Kopfzeilennavigation gewichtet \*/\nhtml body footer\.site-footer \.footer-simple,\nhtml body footer\.site-footer \.footer-simple \*\{\n  font-weight:500!important;\n\}\n\n',
+    '',
+    'global duplicate footer weight',
+)
+p.write_text(s, encoding="utf-8")
+
+# Legacy base: remove all footer styling.
+p = Path("assets/unified-design-base-20260907.css")
+s = p.read_text(encoding="utf-8")
+s = sub_once(s, r'/\* Fusszeile \*/\n\.site-footer\{.*?\n\}\n\n', '', 'base footer background', re.S)
+s = sub_once(
+    s,
+    r'/\* Endgültige Footer-Geometrie ohne nachträgliche JS-Messung \*/\n@media\(min-width:801px\)\{\n  html body \.site-footer \.footer-simple\{.*?\n  \}\n\}\n?',
+    '',
+    'base footer geometry',
+    re.S,
+)
+if '.site-footer' in s or '.footer-simple' in s:
+    raise SystemExit('base: footer styling remains')
+p.write_text(s, encoding="utf-8")
+
+# unified-design.css: remove company-only footer override.
+p = Path("assets/unified-design.css")
+s = p.read_text(encoding="utf-8")
+s = replace_once(s, 'html body.page-company .site-footer::before{background:#fff}', '', 'company footer override')
+if '.site-footer' in s or '.footer-simple' in s:
+    raise SystemExit('unified-design: footer styling remains')
+p.write_text(s, encoding="utf-8")
+
+# contact.css: remove page-specific footer background.
+p = Path("assets/contact.css")
+s = p.read_text(encoding="utf-8")
+s = sub_once(
+    s,
+    r'\n/\* Kontaktseite: Fusszeile deckend schwarz ohne Farbstich \*/\n\.site-footer\{\n  background:#0b0b0b!important;\n  background-color:#0b0b0b!important;\n\n\}\n?',
+    '\n',
+    'contact footer override',
+)
+if '.site-footer' in s or '.footer-simple' in s:
+    raise SystemExit('contact: footer styling remains')
+p.write_text(s, encoding="utf-8")
+
+# Compiled legacy CSS: remove old footer declarations.
+p = Path("assets/index-CZfMKxM_.css")
+s = p.read_text(encoding="utf-8")
+s = sub_once(
+    s,
+    r'\.site-footer\{background-position:center, 72% calc\(18% \+ var\(--parallax-background-y,0px\)\);color:var\(--white\);-webkit-backdrop-filter:blur\(8px\);backdrop-filter:blur\(8px\);background-attachment:fixed;\}',
+    '',
+    'compiled footer rule',
+)
+s = replace_once(
+    s,
+    '.home-values,\n.site-footer{background-attachment:scroll;}',
+    '.home-values{background-attachment:scroll;}',
+    'compiled mobile footer rule',
+)
+if '.site-footer' in s or '.footer-simple' in s:
+    raise SystemExit('compiled CSS: footer styling remains')
+p.write_text(s, encoding="utf-8")
+
+# JS footer pixel adjustment is no longer needed.
+p = Path("assets/site.js")
+s = p.read_text(encoding="utf-8")
+s = sub_once(
+    s,
+    r'\n  // Align the footer to whole CSS pixels so end-of-page scroll rounding.*?\n  \}\n\n  // Die Logoausrichtung',
+    '\n  // Die Logoausrichtung',
+    'footer JS alignment',
+    re.S,
+)
+if '.site-footer' in s or 'pixelAlignedFooter' in s:
+    raise SystemExit('site.js: footer logic remains')
+p.write_text(s, encoding="utf-8")
+
+print("footer centralized")

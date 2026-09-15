@@ -1,0 +1,41 @@
+name: Contact ownership cleanup
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/contact-ownership-cleanup.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Clean contact ownership
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          contact=Path('assets/contact.css')
+          base=Path('assets/unified-design-base-20260907.css')
+          c=contact.read_text(encoding='utf-8')
+          b=base.read_text(encoding='utf-8')
+          c=c.replace('background: #fff !important;','background: transparent !important;',2)
+          c=c.replace('width: min(calc(100% - 64px), var(--content-width)) !important;','width: min(calc(100% - var(--page-gutter)), var(--content-width)) !important;',1)
+          c=c.replace('background: #0b0b0b !important;','background: var(--mt-black) !important;',1)
+          c=c.replace('width: min(calc(100% - 36px), var(--content-width)) !important;','width: min(calc(100% - var(--page-gutter-mobile)), var(--content-width)) !important;',1)
+          start='/* Kontaktseite: heller Seitenhintergrund mit dunklem Formular */'
+          end='/* Desktop Zusammenarbeit: drei Spalten,'
+          i=b.find(start); j=b.find(end,i)
+          if i<0 or j<0: raise SystemExit('contact base block markers missing')
+          b=b[:i]+b[j:]
+          contact.write_text(c,encoding='utf-8')
+          base.write_text(b,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/contact.css assets/unified-design-base-20260907.css
+          git commit -m "Kontaktregeln sauber in contact.css bündeln"
+          git rm .github/workflows/contact-ownership-cleanup.yml
+          git commit -m "Temporären Kontakt-Workflow entfernen"
+          git push

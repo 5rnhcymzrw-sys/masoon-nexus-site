@@ -1,0 +1,68 @@
+name: Article table base cleanup
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/article-table-base-cleanup.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Centralize common article table base
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          detail=Path('assets/article-detail.css')
+          unified=Path('assets/unified-design.css')
+          d=detail.read_text(encoding='utf-8')
+          u=unified.read_text(encoding='utf-8')
+          marker='/* Fachartikel-Tabellen – gemeinsame Basis */'
+          assert marker not in d
+          block='''\n\n/* Fachartikel-Tabellen – gemeinsame Basis */\nhtml body.site-light-page main.article-main .article-table-wrap{\n  margin:24px 0 36px!important;\n  overflow-x:auto!important;\n  border:var(--mt-gradient-frame-width) solid #d7d5d1!important;\n  box-sizing:border-box!important;\n}\nhtml body.site-light-page main.article-main .article-table-wrap table{\n  width:100%!important;\n  border-collapse:collapse!important;\n}\nhtml body.site-light-page main.article-main .article-table-wrap th,\nhtml body.site-light-page main.article-main .article-table-wrap td{\n  padding:12px 14px;\n  text-align:left;\n  vertical-align:top;\n  border-right:var(--mt-gradient-frame-width) solid #d7d5d1;\n  border-bottom:var(--mt-gradient-frame-width) solid #d7d5d1;\n}\nhtml body.site-light-page main.article-main .article-table-wrap th{font-weight:500;color:#171715}\nhtml body.site-light-page main.article-main .article-table-wrap tr:last-child td{border-bottom:0}\nhtml body.site-light-page main.article-main .article-table-wrap th:last-child,\nhtml body.site-light-page main.article-main .article-table-wrap td:last-child{border-right:0}\n'''
+          detail.write_text(d.rstrip()+block+'\n',encoding='utf-8')
+
+          classes=['page-article-employment-termination','page-article-company-formation','page-article-company-forms']
+          common_patterns=[]
+          for c in classes:
+              common_patterns += [
+                f'body.{c} .article-table-wrap{{width:100%;margin:24px 0 36px;overflow-x:auto;border:1px solid #d7d5d1}}',
+                f'body.{c} .article-table-wrap{{width:100%;margin:24px 0 36px;overflow-x:auto;border:1px solid #d7d5d1;}}',
+                f'body.{c} .article-table-wrap table{{width:100%;border-collapse:collapse}}',
+                f'body.{c} .article-table-wrap table{{width:100%;border-collapse:collapse;}}',
+                f'body.{c} .article-table-wrap th,\nbody.{c} .article-table-wrap td{{padding:12px 14px;text-align:left;vertical-align:top;border-right:1px solid #d7d5d1;border-bottom:1px solid #d7d5d1}}',
+                f'body.{c} .article-table-wrap th,\nbody.{c} .article-table-wrap td{{padding:12px 14px;text-align:left;vertical-align:top;border-right:1px solid #d7d5d1;border-bottom:1px solid #d7d5d1;}}',
+                f'body.{c} .article-table-wrap th{{font-weight:500;color:#171715}}',
+                f'body.{c} .article-table-wrap th{{font-weight:500;color:#171715;}}',
+                f'body.{c} .article-table-wrap tr:last-child td{{border-bottom:0}}',
+                f'body.{c} .article-table-wrap tr:last-child td{{border-bottom:0;}}',
+                f'body.{c} .article-table-wrap th:last-child,\nbody.{c} .article-table-wrap td:last-child{{border-right:0}}',
+                f'body.{c} .article-table-wrap th:last-child,\nbody.{c} .article-table-wrap td:last-child{{border-right:0;}}',
+              ]
+          removed=0
+          for pat in common_patterns:
+              if pat in u:
+                  u=u.replace(pat,'',1); removed+=1
+          # Employment table has a specific 540px width; strip only the shared tail.
+          old='body.page-article-employment-termination .article-table-wrap{width:540px;max-width:100%;margin:24px 0 36px;overflow-x:auto;border:1px solid #d7d5d1;box-sizing:border-box}'
+          if old in u:
+              u=u.replace(old,'body.page-article-employment-termination .article-table-wrap{width:540px;max-width:100%}',1); removed+=1
+          # Company forms uses fixed layout; retain only that special property.
+          old='body.page-article-company-forms .article-table-wrap table{width:100%;table-layout:fixed;border-collapse:collapse;}'
+          if old in u:
+              u=u.replace(old,'body.page-article-company-forms .article-table-wrap table{table-layout:fixed;}',1); removed+=1
+          # Employment uses fixed layout too.
+          old='body.page-article-employment-termination .article-table-wrap table{width:100%;table-layout:fixed;border-collapse:collapse}'
+          if old in u:
+              u=u.replace(old,'body.page-article-employment-termination .article-table-wrap table{table-layout:fixed}',1); removed+=1
+          assert removed >= 10, f'Zu wenige gemeinsame Tabellenregeln entfernt: {removed}'
+          unified.write_text(u,encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/article-detail.css assets/unified-design.css
+          git commit -m "Fachartikel-Tabellenbasis zentralisieren"
+          git rm .github/workflows/article-table-base-cleanup.yml
+          git commit -m "Temporären Tabellenbasis-Workflow entfernen"
+          git push

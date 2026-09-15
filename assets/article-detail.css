@@ -1,3 +1,4 @@
+/* FACHARTIKEL: Gemeinsames Layout aller Artikel-Detailseiten. */
 html body.site-light-page main.article-main{padding:234px 0 var(--section-y)!important}
 
 html body.site-light-page main.article-main .article-overline{

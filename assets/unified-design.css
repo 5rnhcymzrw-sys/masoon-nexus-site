@@ -1,3 +1,4 @@
+/* SEITENKOMPOSITION: Startseite, Unternehmen, Fachwissen und gemeinsame Seitenregeln. */
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
 
 /* Fachwissen Hauptseite: Einordnungskasten */
@@ -182,22 +183,6 @@ html body.site-light-page main .knowledge-section .article-card .article-action:
   margin:0!important;
   transform:translateY(calc(-50% - 1px))!important;
 }
-/* Dienstleistungen Hauptseite: Aktionsposition */
-html body.site-light-page main .services-section .service-card .details-action{
-  display:inline-block!important;
-  position:relative!important;
-  height:auto!important;
-  min-height:0!important;
-  margin-bottom:0!important;
-  padding:0!important;
-  border:0!important;
-  text-decoration:none!important;
-  text-shadow:none!important;
-  -webkit-text-stroke:0!important;
-  opacity:1!important;
-  transform:translateY(-3px)!important;
-}
-
 /* Fachwissen: Daten in der Typografie der DL-Kartenzahlen 01–06 */
 html body.site-light-page main .knowledge-section .articles-grid>.article-card{
   position:relative!important;
@@ -238,7 +223,6 @@ html body .scroll-reveal:not(.article-card){
 }
 
 /* Einheitliche Farbverläufe für bestehende Kachel- und Bereichsrahmen */
-html body.site-light-page main.services-main .services-section .services-grid>.service-card,
 html body.site-light-page main .knowledge-section .articles-grid>.article-card,
 html body.site-light-page main .company-values-grid>.company-value-card,
 html body.site-light-page main.home>.home-contact-band,
@@ -250,42 +234,22 @@ html body.site-light-page main .article-shell{
   border-color:transparent!important;
   border-image:var(--mt-gradient-frame) 1!important;
 }
-html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+1),
 html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n/**/+1),
 html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n/**/+1){
   border-image:var(--mt-gradient-frame-left) 1!important;
   background-position:left top!important;
 }
-html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+2),
 html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n/**/+2),
 html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n/**/+2){
   border-image:var(--mt-gradient-frame-middle) 1!important;
   background-position:center top!important;
 }
-html body.site-light-page main.services-main .services-section .services-grid>.service-card:nth-child(3n/**/+3),
 html body.site-light-page main .knowledge-section .articles-grid>.article-card:nth-child(3n/**/+3),
 html body.site-light-page main .company-values-grid>.company-value-card:nth-child(3n/**/+3){
   border-image:var(--mt-gradient-frame-right) 1!important;
   background-position:right top!important;
 }
 
-
-/* Dienstleistungs Hauptseite: kurze Linien wie auf der Startseite */
-html body .services-main .services-section .service-card h2::after{
-  content:""!important;
-  display:block!important;
-  position:absolute!important;
-  top:calc(100% + var(--short-line-gap))!important;
-  left:0!important;
-  width:var(--short-line-width)!important;
-  max-width:var(--short-line-width)!important;
-  height:1px!important;
-  margin:0!important;
-  background:var(--short-line-color)!important;
-  border:0!important;
-}
-html body .services-main .services-section .service-card>summary>p{
-  margin-top:23px!important;}
 
 /* Unternehmen: kleine Bereichstitel farblich vereinheitlichen */
 
@@ -372,130 +336,6 @@ html body.site-light-page .company-legal-card .home-company__image-primary{
   }
 }
 
-/* Dienstleistungen Hauptseite: kleine Bereichstitel wie Unternehmen */
-html body.site-light-page .services-main .services-section>.section-heading>.section-label,
-html body.site-light-page .services-main>.services-closing>.section-label{
-  color:#868279!important;
-}
-
-/* Dienstleistungen Hauptseite: Kartentypografie wie Werte */
-html body.site-light-page .services-main .services-section .services-grid>.service-card h2{
-  font-family:var(--font-cormorant),Georgia,serif!important;
-  font-size:22px!important;
-  font-weight:600!important;
-  line-height:1.08!important;
-  letter-spacing:-.01em!important;
-  text-transform:none!important;
-  color:#171715!important;
-}
-@media(min-width:801px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
-    font-size:44px!important;
-  }
-}
-@media(max-width:800px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card .card-number{
-    font-size:36px!important;
-  }
-}
-
-/* Dienstleistungen Hauptseite: Abstand Aktion zu Tätigkeiten */
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
-  position:relative!important;
-  top:-9px!important;
-  margin-top:0!important;
-}
-
-/* Dienstleistungen Hauptseite: Tätigkeitsabstand 1 Pixel kleiner */
-html body.site-light-page .services-main .services-section .services-grid>.service-card li{
-  margin-bottom:4px!important;}
-html body.site-light-page .services-main .services-section .services-grid>.service-card li:last-child{
-  margin-bottom:0!important;}
-
-/* Dienstleistungen Hauptseite: geschlossene Karten 10 Prozent kleiner */
-@media(min-width:1051px){
-  html body.site-light-page .services-main .services-section .services-grid{
-    align-items:start!important;
-  }
-  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open]){
-    height:351px!important;
-    min-height:351px!important;
-    max-height:351px!important;
-    box-sizing:border-box!important;
-  }
-  html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
-  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
-    height:351px!important;
-    min-height:351px!important;
-    max-height:351px!important;
-    box-sizing:border-box!important;
-  }
-}
-
-/* Dienstleistungen Hauptseite: geöffnete Karten auf Höhe von Kasten 03 */
-@media(min-width:1051px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
-    height:625px!important;
-    min-height:625px!important;
-    max-height:625px!important;
-    box-sizing:border-box!important;
-    overflow:hidden!important;
-  }
-}
-
-/* Dienstleistungen Hauptseite: Karten wie Startseite Dienstleistungen */
-html body.site-light-page .services-main .services-section .services-grid>.service-card,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]{
-  background:var(--mt-gradient-card-glass)!important;
-  background-size:calc(300% + 44px) 100%!important;
-  background-position:left top!important;
-  background-repeat:no-repeat!important;
-  background-origin:border-box!important;
-  border:0!important;
-  border-image:none!important;
-  -webkit-backdrop-filter:blur(32px)!important;
-  backdrop-filter:blur(32px)!important;
-}
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary,
-html body.site-light-page .services-main .services-section .services-grid>.service-card>ul,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover>ul,
-html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
-}
-
-/* Dienstleistungen Hauptseite: gesamter Karteninhalt 3 Pixel höher */
-html body.site-light-page .services-main .services-section .services-grid>.service-card>summary>*{
-  transform:translateY(-3px)!important;
-}
-
-/* Dienstleistungen Hauptseite: ursprünglicher horizontaler Innenabstand */
-@media(min-width:1051px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card:not([open])>summary,
-  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>summary{
-    padding-left:42px!important;
-    padding-right:42px!important;
-  }
-}
-
-/* Dienstleistungen Hauptseite: Aufzählungsstrich bündig mit den übrigen Texten */
-@media(min-width:801px){
-  html body.site-light-page .services-main .services-section .services-grid>.service-card>ul,
-  html body.site-light-page .services-main .services-section .services-grid>.service-card[open]>ul{
-    padding-left:42px!important;
-    padding-right:42px!important;
-  }
-}
-
-/* Dienstleistungen Hauptseite: Aufzählungsstriche mittig zur ersten Textzeile */
-html body.site-light-page .services-main .services-section .services-grid>.service-card li::before{
-  top:.825em!important;
-}
-
 /* Startseite – keine grossflächigen Seitenverläufe */
 html body.site-light-page main.home>section.home-values.home-values{
   background:transparent!important;
@@ -560,11 +400,6 @@ html body.site-light-page:has(#knowledge-articles) main.page-main>#knowledge-art
   }
 }
 
-
-/* Dienstleistungen Hauptseite: Silbentrennung nur im Fliesstext der Kästen. */
-html body.site-light-page main.services-main .services-section .services-grid>.service-card>summary>p:not(.section-label){
-  -webkit-hyphens:auto!important;
-  hyphens:auto!important;}
 
 /* Seitenspezifische Regeln, aus dem HTML konsolidiert. */
 body.page-home .home-hero__services{margin-top:30px;}

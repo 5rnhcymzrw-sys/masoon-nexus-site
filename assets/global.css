@@ -4,7 +4,7 @@
 :root{--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:14px;--label-size:11px;--content-width:1320px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
 html,
 body{max-width:100%;overflow-x:hidden;}
-body{font-family:var(--font-inter)!important;font-size:var(--body-size)!important;line-height:1.65!important;}
+body{font-family:var(--font-inter)!important;}
 .section-label,
 .card-number,
 .details-action{font-family:var(--font-inter)!important;font-size:var(--label-size)!important;font-weight:500!important;line-height:1.4!important;text-transform:uppercase!important;}.card-number{letter-spacing:.14em!important;}
@@ -464,7 +464,9 @@ html body .site-header .site-nav a[aria-current="page"]{
 }
 
 /* Bestätigte Fliesstextwerte von Disclaimer und Impressum. */
-html body main :is(#mt-body-copy,.mt-body-copy){
+html body main :is(#mt-body-copy,.mt-body-copy),
+html body main p:not(.section-label):not(.article-meta):not(.article-card-date):not(.details-action):not(.home-action-button):not(.home-values__all-services):not(.services-contact-button):not(.home-paths__action),
+html body main .article-body li{
   font-family:var(--font-inter),Arial,sans-serif!important;
   font-size:14px!important;
   font-weight:300!important;

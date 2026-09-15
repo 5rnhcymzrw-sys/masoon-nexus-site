@@ -2,7 +2,27 @@ from pathlib import Path
 
 p = Path('scripts/unify-knowledge-cards.py')
 s = p.read_text(encoding='utf-8')
+
+# Aktuelle Marker im bereits weiter konsolidierten Stand verwenden.
 s = s.replace("end_marker = '/* Abschlusskästen – globale Grundkomponente */'", "end_marker = '/* Grosse Abschlusskästen: einzige globale Komponente */'")
+s = s.replace("b = u.index('/* Bereichstitel: verbindliche Typografie von EINORDNUNG */', a)", "b = u.index('/* Kleine Metadaten und Aktionsbeschriftungen */', a)")
+
+# Späte Altblöcke sind im aktuellen Stand teilweise bereits entfernt. Nur löschen, wenn sie noch existieren.
+old_late = """# Späte, heute durch das Inline-CSS übersteuerte Kartenstände entfernen.\na = u.index('/* Fachwissen: Beitragskästen in Dienstleistungshöhe */')\nb = u.index('/* Nur Startseite-Kontakt und Fachwissen-Einordnung:', a)\nu = u[:a] + u[b:]\n\na = u.index('/* Fachwissen-Kacheln: Verlauf und Hover */')\nb = u.index('/* Fachwissen Hauptseite: seitenspezifische Endregeln */', a)\nu = u[:a] + u[b:]\n"""
+new_late = """# Späte, heute durch das Inline-CSS übersteuerte Kartenstände entfernen, falls noch vorhanden.\nmarker_a = '/* Fachwissen: Beitragskästen in Dienstleistungshöhe */'\nmarker_b = '/* Nur Startseite-Kontakt und Fachwissen-Einordnung:'\nif marker_a in u:\n    a = u.index(marker_a)\n    b = u.index(marker_b, a)\n    u = u[:a] + u[b:]\n\nmarker_a = '/* Fachwissen-Kacheln: Verlauf und Hover */'\nmarker_b = '/* Fachwissen Hauptseite: seitenspezifische Endregeln */'\nif marker_a in u:\n    a = u.index(marker_a)\n    b = u.index(marker_b, a)\n    u = u[:a] + u[b:]\n"""
+if old_late in s:
+    s = s.replace(old_late, new_late, 1)
+
+old_end = """# Seitenspezifische Endregeln auf reine Seitenabstände reduzieren.\na = u.index('/* Fachwissen Hauptseite: seitenspezifische Endregeln */')\nb = u.index('html body.page-knowledge.site-light-page:has(#knowledge-articles) main.page-main{', a)\nend_rules = '''/* Fachwissen Hauptseite: seitenspezifische Endregeln */\n@media(min-width:801px){\n  html body.page-knowledge .page-main>.knowledge-section{padding-bottom:var(--section-y)!important;}\n  html body.page-knowledge .page-main>.knowledge-section>.knowledge-note{padding-bottom:var(--section-y)!important;}\n}\n\n'''\nu = u[:a] + end_rules + u[b:]\n"""
+new_end = """# Seitenspezifische Endregeln auf reine Seitenabstände reduzieren, falls der alte Block noch vorhanden ist.\nend_marker_old = '/* Fachwissen Hauptseite: seitenspezifische Endregeln */'\nnext_marker = 'html body.page-knowledge.site-light-page:has(#knowledge-articles) main.page-main{'\nif end_marker_old in u:\n    a = u.index(end_marker_old)\n    b = u.index(next_marker, a)\n    end_rules = '''/* Fachwissen Hauptseite: seitenspezifische Endregeln */\n@media(min-width:801px){\n  html body.page-knowledge .page-main>.knowledge-section{padding-bottom:var(--section-y)!important;}\n  html body.page-knowledge .page-main>.knowledge-section>.knowledge-note{padding-bottom:var(--section-y)!important;}\n}\n\n'''\n    u = u[:a] + end_rules + u[b:]\n"""
+if old_end in s:
+    s = s.replace(old_end, new_end, 1)
+
+old_glass = """# Glasverlauf und Breakpoint-Positionen der Karten entfernen. Die Karte ist nun global weiss mit Verlaufrahmen.\na = u.index('html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card{')\nb = u.index('html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles>.knowledge-note{', a)\nu = u[:a] + u[b:]\n"""
+new_glass = """# Glasverlauf und Breakpoint-Positionen der Karten entfernen, falls noch vorhanden.\nlate_card = 'html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card{'\nlate_note = 'html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles>.knowledge-note{'\nif late_card in u:\n    a = u.index(late_card)\n    b = u.index(late_note, a)\n    u = u[:a] + u[b:]\n"""
+if old_glass in s:
+    s = s.replace(old_glass, new_glass, 1)
+
 needle = "g = g[:gs] + shared + g[ge:]\n"
 assert needle in s
 
@@ -62,7 +82,7 @@ replacements = [
     ('.home-paths__grid{grid-template-columns:1fr;}', ''),
     ('.home-paths__grid a{border:0;min-height:170px;}', ''),
     ('.home-paths__grid a{padding:28px 24px;}', ''),
-    ('.home-paths__grid strong,\n.service-card h2,\n.article-card h2{font-family:var(--font-cormorant), Georgia, serif;letter-spacing:-.02em;font-size:31px;font-weight:700;line-height:1.1;}', '.service-card h2{font-family:var(--font-cormorant), Georgia, serif;letter-spacing:-.02em;font-size:31px;font-weight:700;line-height:1.1;}'),
+    ('.home-paths__grid strong,\n.service-card h2,\n.article-card h2{font-family:var(--font-cormorant), Georgia, serif;letter-spacing:-.02em;font-size:31px;font-weight:700;line-height:1.1;}', '.service-card h2{font-family:var(--font-cormorant), Georgia,serif;letter-spacing:-.02em;font-size:31px;font-weight:700;line-height:1.1;}'),
     ('.home-paths__grid strong,\n.services-section .service-card h2{font-family:Georgia,Times New Roman,serif;font-size:25px;}', '.services-section .service-card h2{font-family:Georgia,Times New Roman,serif;font-size:25px;}'),
 ]
 for old, new in replacements:

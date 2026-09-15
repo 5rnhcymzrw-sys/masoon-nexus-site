@@ -858,7 +858,7 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__copy
 
 
 html body.page-home.site-light-page:has(main.home) main.home>section.home-values .home-values__items>.home-values__item.home-values__item.home-values__item.home-values__item{
- background:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;
+ background:var(--mt-gradient-card-glass-strong)!important;
  background-size:calc(300% + 44px) 100%!important;background-position:0% 0!important;background-repeat:no-repeat!important;background-origin:border-box!important;border:0!important;
  border-image:none!important;
  box-shadow:none!important;-webkit-backdrop-filter:blur(32px)!important;backdrop-filter:blur(32px)!important;
@@ -943,7 +943,7 @@ html body.page-home.site-light-page main.home section.home-hero .home-hero__copy
   pointer-events:none;
   box-sizing:border-box;
   background-color:#fff;
-  background-image:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%);
+  background-image:var(--mt-gradient-card-glass-strong);
   background-size:100% 100%;
   background-position:0 0;
   background-repeat:no-repeat;
@@ -1697,9 +1697,8 @@ html body.page-knowledge.site-light-page main .knowledge-section#knowledge-artic
   background:transparent!important;
 }
 html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card{
-  background:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;
   background-color:transparent!important;
-  background-image:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;
+  background-image:var(--mt-gradient-card-glass-strong)!important;
   background-origin:border-box!important;
   background-size:100% 100%!important;
   background-repeat:no-repeat!important;
@@ -1711,7 +1710,7 @@ html body.page-knowledge.site-light-page main .knowledge-section#knowledge-artic
 @media(hover:hover){
   html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid>.article-card:hover{
     transform:translateY(-3px)!important;
-    background-image:linear-gradient(to right in oklab,rgba(244,228,201,.24) 0%,rgba(232,227,218,.24) 36%,rgba(193,199,214,.24) 68%,rgba(158,165,184,.24) 100%)!important;
+    background-image:var(--mt-gradient-card-glass-strong)!important;
     background-repeat:no-repeat!important;
     background-origin:border-box!important;
     -webkit-backdrop-filter:blur(32px)!important;

@@ -1,0 +1,32 @@
+name: Article remaining token cleanup
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/article-remaining-token-cleanup.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace remaining shared article values
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('assets/unified-design.css')
+          s = p.read_text(encoding='utf-8')
+          before = s
+          s = s.replace('max-width:1227px!important', 'max-width:var(--content-width)!important')
+          s = s.replace('padding:234px 0 126px!important', 'padding:234px 0 var(--section-y)!important')
+          if s == before:
+              raise SystemExit('Keine passenden Artikel-Altwerte gefunden')
+          p.write_text(s, encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/unified-design.css
+          git commit -m "Restliche Artikelbreiten global tokenisieren"
+          git rm .github/workflows/article-remaining-token-cleanup.yml
+          git commit -m "Temporären Artikel-Token-Workflow entfernen"
+          git push

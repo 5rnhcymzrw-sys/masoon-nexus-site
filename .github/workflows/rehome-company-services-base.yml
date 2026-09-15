@@ -1,0 +1,55 @@
+name: Rehome company and services base rules
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/rehome-company-services-base.yml']
+permissions:
+  contents: write
+jobs:
+  move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move page specific blocks out of old base
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          base=Path('assets/unified-design-base-20260907.css')
+          uni=Path('assets/unified-design.css')
+          b=base.read_text(encoding='utf-8')
+          u=uni.read_text(encoding='utf-8')
+          chunks=[]
+          def cut(start,end):
+              global b
+              i=b.find(start); j=b.find(end,i)
+              if i<0 or j<0: raise SystemExit('marker missing: '+start)
+              chunk=b[i:j].strip()
+              b=b[:i]+b[j:]
+              chunks.append(chunk)
+          cut('/* Unternehmen Desktop: Porträt ausgewogen zur Höhe des Textbereichs */','/* Startseite Dienstleistungen: Zahl und Titel optisch ausrichten */')
+          cut('/* Dienstleistungs Hauptseite: kurze Linien wie auf der Startseite */','/* Startseite Dienstleistungen: Titel-Text-Abstand wie bei Fachwissen */')
+          cut('/* Unternehmen: kleine Bereichstitel farblich vereinheitlichen */','/* Dienstleistungen Hauptseite: kleine Bereichstitel wie Unternehmen */')
+          service_start='/* Dienstleistungen Hauptseite: kleine Bereichstitel wie Unternehmen */'
+          service_end='/* Fachwissen Hauptseite:'
+          i=b.find(service_start); j=b.find(service_end,i)
+          if i<0 or j<0: raise SystemExit('services block marker missing')
+          chunks.append(b[i:j].strip())
+          b=b[:i]+b[j:]
+          lines=u.splitlines(True)
+          pos=0
+          while pos < len(lines) and lines[pos].lstrip().startswith('@import'):
+              pos+=1
+          insert='\n/* Seitenspezifische Altregeln aus unified-design-base konsolidiert */\n'+'\n\n'.join(chunks)+'\n\n'
+          u=''.join(lines[:pos])+insert+''.join(lines[pos:])
+          base.write_text(b,encoding='utf-8')
+          uni.write_text(u,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/unified-design.css assets/unified-design-base-20260907.css
+          git commit -m "Unternehmens- und Dienstleistungsregeln aus Altbasis lösen"
+          git rm .github/workflows/rehome-company-services-base.yml
+          git commit -m "Temporären Seitenregel-Workflow entfernen"
+          git push

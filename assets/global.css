@@ -132,7 +132,6 @@ html body.site-light-page main .prose h2{
   font-synthesis:none!important;
 }
 
-.home-paths__grid strong,
 .services-section .service-card h2{font-family:var(--font-cormorant)!important;font-size:var(--card-title)!important;font-weight:var(--card-title-weight)!important;line-height:var(--card-title-line-height)!important;letter-spacing:var(--card-title-letter-spacing)!important;}
 .section-heading,
 .home-values .section-heading,
@@ -140,8 +139,6 @@ html body.site-light-page main .prose h2{
 .services-section .section-heading,
 .legal-page .section-heading{max-width:var(--title-width)!important;margin-bottom:64px!important;}
 .services-main{min-height:100vh;}.services-section{width:min(100% - var(--page-gutter),var(--content-width))!important;margin:0 auto!important;padding-top:118px!important;padding-bottom:36px!important;}.services-section .section-heading{max-width:760px!important;}.services-section .services-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;}.services-section .service-card h2{margin:0 0 14px!important;}.services-section .service-card summary p{margin:0!important;}
-.home-paths__grid i{display:none!important;}
-.knowledge-section .article-card h2{min-height:0!important;margin:0!important;font-family:"PT Serif",Georgia,serif!important;font-size:24px!important;font-weight:700!important;line-height:1.15!important;letter-spacing:0!important;text-transform:none!important;max-width:none!important;}
 .contact-form .form-status{min-height:1.55em;font-family:var(--font-inter)!important;font-size:11px!important;line-height:1.55!important;}
 @media(max-width:1050px){.services-section .services-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}@media(max-width:800px){:root{--title-size:var(--title-mobile);--section-x:24px;}.section-heading,
 .home-values .section-heading,
@@ -377,8 +374,7 @@ html body main .mt-body-copy,
 html body main p:not(.section-label):not(.article-meta):not(.article-card-date):not(.details-action):not(.home-action-button):not(.home-values__all-services):not(.services-contact-button):not(.home-paths__action),
 html body main .article-body li,
 html body main .service-card li,
-html body main .article-table-wrap table,
-html body main .home-paths__grid>a strong::after{
+html body main .article-table-wrap table{
   font-family:var(--body-font)!important;
   font-size:var(--body-size)!important;
   font-weight:var(--body-weight)!important;
@@ -430,7 +426,6 @@ body.site-light-page .page-main,
 body.site-light-page .home{
   color:var(--mt-ink)!important;
 }
-html body.site-light-page .article-card,
 html body.site-light-page .services-main .services-section .services-grid>.service-card,
 html body.site-light-page .services-main .services-section .services-grid>.service-card:hover{
   background:var(--mt-surface)!important;
@@ -442,17 +437,12 @@ html body.site-light-page .services-main .services-section .services-grid>.servi
   backdrop-filter:none!important;
   -webkit-backdrop-filter:none!important;
 }
-body.site-light-page .home-paths__grid,
-body.site-light-page .articles-grid,
 body.site-light-page .services-grid{
   gap:22px!important;
 }
 body.site-light-page .services-grid{
   background:transparent!important;
   border:0!important;
-}
-body.site-light-page .home-paths__grid strong::after{
-  background:var(--short-line-color)!important;
 }
 
 /* Einheitlicher Seitenhintergrund */
@@ -470,144 +460,94 @@ body.site-light-page{
   }
 }
 
-/* Fachwissen-Kacheln – zentrale globale Komponente */
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a{
+/* Fachwissen-Karten: gemeinsame globale Komponente */
+html body.site-light-page .articles-grid{
+  display:grid!important;
+  width:100%!important;
+  gap:18px!important;
+}
+@media(min-width:1051px){
+  html body.site-light-page .articles-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;}
+}
+@media(min-width:801px) and (max-width:1050px){
+  html body.site-light-page .articles-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media(max-width:800px){
+  html body.site-light-page .articles-grid{grid-template-columns:1fr!important;gap:16px!important;}
+}
+html body.site-light-page .articles-grid>.article-card{
   position:relative!important;
   cursor:pointer!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:360px!important;
+  min-height:360px!important;
+  max-height:360px!important;
+  padding:34px 42px 36px!important;
+  display:flex!important;
+  flex-direction:column!important;
   border:var(--mt-gradient-frame-width) solid transparent!important;
-  border-color:transparent!important;
   border-image:var(--mt-gradient-frame) 1!important;
-  background-color:#fff!important;
-  background-size:100% 100%!important;
-  background-repeat:no-repeat!important;
-  background-origin:border-box!important;
+  background:#fff!important;
+  background-image:none!important;
+  box-shadow:none!important;
   -webkit-backdrop-filter:none!important;
   backdrop-filter:none!important;
-  box-shadow:0 14px 32px rgba(35,35,33,.055)!important;
-  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background-color .22s ease!important;
+  transition:transform .28s ease,box-shadow .28s ease!important;
 }
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:nth-child(1){
-  border-image:var(--mt-gradient-frame) 1!important;
-  background-position:left top!important;
-  --home-path-date:"07.2026  ";
-  --home-path-copy:"Welche Unterlagen für die Steuererklärung benötigt werden und wie eine vollständige Vorbereitung gelingt.";
+html body.site-light-page .articles-grid>.article-card>.article-card-date{
+  position:static!important;
+  top:auto!important;
+  left:auto!important;
+  display:block!important;
+  margin:0 0 38px!important;
+  transform:none!important;
 }
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:nth-child(2){
-  border-image:var(--mt-gradient-frame) 1!important;
-  background-position:center top!important;
-  --home-path-date:"05.2026  ";
-  --home-path-copy:"Welche Unterschiede zwischen den Rechtsformen bestehen und welche Faktoren bei der Wahl zu berücksichtigen sind.";
-}
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:nth-child(3){
-  border-image:var(--mt-gradient-frame) 1!important;
-  background-position:right top!important;
-  --home-path-date:"03.2026  ";
-  --home-path-copy:"Warum eine korrekt geführte Buchhaltung für Jahresabschluss, Steuern und finanzielle Entscheidungen wesentlich ist.";
-}
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a>.home-paths__action{
-  position:absolute!important;
-  right:28px!important;
-  bottom:24px!important;
-  display:inline-flex!important;
-  align-items:center!important;
+html body.site-light-page .articles-grid>.article-card>h2{
+  align-self:stretch!important;
+  width:100%!important;
+  max-width:none!important;
   margin:0!important;
-  color:#777777!important;
-  opacity:0!important;
-  transform:translateY(4px)!important;
-  transition:opacity .22s ease,transform .22s ease,color .22s ease!important;
-}
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a>.home-paths__action>span{
-  display:inline-block!important;
-  margin-left:var(--action-arrow-gap)!important;
-  font-size:var(--action-arrow-size)!important;
-  font-weight:var(--action-arrow-weight)!important;
-  line-height:.7!important;
+  padding:0 0 22px!important;
+  font-family:"PT Serif",Georgia,serif!important;
+  font-size:24px!important;
+  font-style:normal!important;
+  font-weight:700!important;
+  line-height:1.15!important;
   letter-spacing:0!important;
-  transform:translateY(-1px)!important;
+  text-transform:none!important;
+  color:#171715!important;
+  -webkit-text-stroke:0!important;
+  font-synthesis:none!important;
+  transform:none!important;
+  background-image:var(--mt-gradient-line)!important;
+  background-repeat:no-repeat!important;
+  background-position:left bottom!important;
+  background-size:100% var(--mt-gradient-line-width)!important;
+}
+html body.site-light-page .articles-grid>.article-card>h2::after{
+  content:none!important;
+  display:none!important;
+}
+html body.site-light-page .articles-grid>.article-card>p:not(.article-meta){
+  margin:22px 0 0!important;
+  transform:none!important;
+}
+html body.site-light-page .articles-grid>.article-card>.article-action{
+  display:none!important;
 }
 @media(hover:hover){
-  html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:hover,
-  html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:active{
+  html body.site-light-page .articles-grid>.article-card:hover{
     transform:translateY(-3px)!important;
-    border:var(--mt-gradient-frame-width) solid transparent!important;
-    border-color:transparent!important;
-    border-image:var(--mt-gradient-frame) 1!important;
+    box-shadow:0 14px 32px rgba(35,35,33,.055)!important;
+    background:#fff!important;
     background-image:none!important;
-    background-size:100% 100%!important;
-    background-repeat:no-repeat!important;
-    background-origin:border-box!important;
+    border:var(--mt-gradient-frame-width) solid transparent!important;
+    border-image:var(--mt-gradient-frame) 1!important;
     -webkit-backdrop-filter:none!important;
     backdrop-filter:none!important;
-    box-shadow:0 14px 32px rgba(35,35,33,.055)!important;
-  }
-  html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:hover>.home-paths__action{
-    opacity:1!important;
-    transform:translateY(0)!important;
-    color:#171715!important;
   }
 }
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:focus-visible{
-  transform:translateY(-3px)!important;
-  border:var(--mt-gradient-frame-width) solid transparent!important;
-  border-color:transparent!important;
-  border-image:var(--mt-gradient-frame) 1!important;
-  box-shadow:0 10px 26px rgba(23,23,21,.08)!important;
-  outline:1px solid #868279!important;
-  outline-offset:3px!important;
-}
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a:focus-visible>.home-paths__action{
-  opacity:1!important;
-  transform:translateY(0)!important;
-  color:#171715!important;
-}
-
-
-
-
-
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a{justify-content:flex-start!important;align-items:stretch!important;text-align:left!important;}html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a strong::after{content:var(--home-path-copy)!important;display:block!important;width:100%!important;height:auto!important;margin-top:22px!important;padding-top:22px!important;background:var(--mt-gradient-line) left top/100% var(--mt-gradient-line-width) no-repeat!important;border:0!important;}
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a strong{order:2!important;width:100%!important;max-width:none!important;margin:0!important;font-family:"PT Serif",Georgia,serif!important;font-size:24px!important;font-weight:700!important;line-height:1.15!important;letter-spacing:0!important;color:#171715!important;}
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a{box-sizing:border-box!important;width:100%!important;height:360px!important;min-height:360px!important;max-height:360px!important;padding:34px 42px 36px!important;border:var(--mt-gradient-frame-width) solid transparent!important;border-image:var(--mt-gradient-frame) 1!important;}html body.page-home.site-light-page main.home section.home-paths .home-paths__grid{gap:22px!important;}
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a>span{order:1!important;display:list-item!important;list-style-position:inside!important;list-style-type:var(--home-path-date)!important;margin:0 0 38px!important;font-family:var(--font-inter),Arial,sans-serif!important;font-size:11px!important;font-style:normal!important;font-weight:500!important;line-height:1.4!important;letter-spacing:1.1px!important;text-transform:uppercase!important;color:#999999!important;}
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a>span.home-paths__category{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  font-variation-settings:"wght" 500!important;
-  font-optical-sizing:none!important;
-  font-kerning:none!important;
-  font-variant-ligatures:none!important;
-  font-feature-settings:"kern" 0,"liga" 0,"calt" 0!important;
-  text-transform:uppercase!important;
-  text-rendering:auto!important;
-}
-
-/* Desktop: Fachwissen Kacheln auf der Startseite gleich hoch wie Werte */
-@media(min-width:801px){
-  html body .home>.home-paths .home-paths__grid a{
-    box-sizing:border-box!important;
-    height:285px!important;
-    min-height:285px!important;
-  }
-}
-
-
-/* Fachwissen: einheitliche Titellinie und Fliesstext */
-html body .knowledge-section .articles-grid>.article-card h2{
-  min-height:0!important;
-  margin:0 0 11px!important;
-}
-html body .knowledge-section .articles-grid>.article-card h2::after{
-  content:""!important;
-  display:block!important;
-  width:var(--short-line-width)!important;
-  height:1px!important;
-  margin-top:var(--short-line-gap)!important;
-  background:var(--short-line-color)!important;
-  border:0!important;
-}
-html body .knowledge-section .articles-grid>.article-card>p:not(.article-meta){
-  margin-top:0!important;}
 
 /* Grosse Abschlusskästen: einzige globale Komponente */
 html body.site-light-page main :is(.knowledge-note,.services-closing,.company-collaboration-box,.home-contact-band){
@@ -924,11 +864,6 @@ Fliesstext direkt darunter */
     margin:18px 0 0!important;}
 }
 
-/* Startseite Fachwissen: finale globale Übergangsgeschwindigkeit */
-html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a{
-  transition:transform .49s ease,border-color .49s ease,box-shadow .49s ease,background-color .49s ease!important;
-}
-
 /* Weitere globale Regeln aus unified-design-base zentralisiert */
 body.site-light-page .page-main,
 body.site-light-page .home,
@@ -950,8 +885,6 @@ body.site-light-page .home-architecture-banner{
 
 @media(max-width:800px){
   body.site-light-page .home-values__items,
-body.site-light-page .home-paths__grid,
-body.site-light-page .articles-grid,
 body.site-light-page .services-grid{
     gap:16px!important;
   }
@@ -982,9 +915,7 @@ html body.site-light-page .services-main>.services-section{
 
 /* Einheitliche Kurzlinien – global */
 /* Einheitliche kurze Linien zwischen kleinen Titeln und nachfolgendem Text */
-html body .home-values__item h3::after,
-html body .home-paths__grid strong::after,
-html body .knowledge-section .article-card h2::after{
+html body .home-values__item h3::after{
   content:""!important;
   display:block!important;
   margin-top:var(--short-line-gap)!important;
@@ -992,24 +923,17 @@ html body .knowledge-section .article-card h2::after{
   border:0!important;
 }
 
-html body .home-values__item h3::after,
-html body .home-paths__grid strong::after,
-html body .knowledge-section .article-card h2::after{
+html body .home-values__item h3::after{
   width:var(--short-line-width)!important;
   max-width:var(--short-line-width)!important;
   height:1px!important;
   margin:var(--short-line-gap) 0 0!important;
 }
 
-html body .home-values__item h3,
-html body .knowledge-section .article-card h2{
+html body .home-values__item h3{
   margin-bottom:11px!important;
 }
 
-html body .home-values__item p,
-html body .knowledge-section .article-card>p:not(.article-meta){
+html body .home-values__item p{
   margin-top:0!important;}
 
-html body .home-paths__grid strong+span{
-  margin-top:var(--short-line-gap)!important;
-}

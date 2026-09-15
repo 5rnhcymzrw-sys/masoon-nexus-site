@@ -86,44 +86,24 @@
     homeContactTitle.innerHTML = 'Verlässliche<br>Treuhandlösungen<br>für Ihr Unternehmen.';
   }
 
-  if (document.body.classList.contains('page-knowledge')) {
-    const lineStyle = document.createElement('style');
-    lineStyle.textContent = `
-      html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card > h2 {
-        align-self: stretch !important;
-        width: 100% !important;
-        max-width: none !important;
-        padding-bottom: 22px !important;
-        background-image: linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%) !important;
-        background-repeat: no-repeat !important;
-        background-position: left bottom !important;
-        background-size: 100% 1px !important;
-      }
-      html body.page-knowledge.site-light-page main .knowledge-section#knowledge-articles .articles-grid > .article-card.article-card > h2::after {
-        content: none !important;
-        display: none !important;
-      }
-    `;
-    document.head.appendChild(lineStyle);
-
-    document.querySelectorAll('.knowledge-section .article-card').forEach(card => {
-      const link = card.querySelector('a[href]');
-      if (!link) return;
-      card.style.cursor = 'pointer';
-      card.setAttribute('role', 'link');
-      card.tabIndex = 0;
-      card.addEventListener('click', event => {
-        if (event.target.closest('a')) return;
-        link.click();
-      });
-      card.addEventListener('keydown', event => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          link.click();
-        }
-      });
+  /* Fachwissen-Karten: gemeinsame Klicklogik auf allen Seiten. */
+  document.querySelectorAll('.article-card').forEach(card => {
+    const link = card.querySelector('a[href]');
+    if (!link) return;
+    card.style.cursor = 'pointer';
+    card.setAttribute('role', 'link');
+    card.tabIndex = 0;
+    card.addEventListener('click', event => {
+      if (event.target.closest('a')) return;
+      link.click();
     });
-  }
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        link.click();
+      }
+    });
+  });
 
   // Die Logoausrichtung erfolgt bereits beim ersten Rendern in global.css.
 })();

@@ -24,4 +24,4 @@ jobs:
           git diff --cached --quiet && exit 1
           git commit -m "Zwischentitel zentral in global.css vereinheitlichen"
           git push origin main
-# retry after script correction
+# grouped selectors preserved

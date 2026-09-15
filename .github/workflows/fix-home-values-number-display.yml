@@ -1,0 +1,33 @@
+name: Fix home values number display
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/fix-home-values-number-display.yml']
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore explicit number display
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('assets/unified-design.css')
+          s=p.read_text(encoding='utf-8')
+          needle='''html body.page-home.site-light-page main.home section.home-values .home-values__item .service-number{\n  margin:0!important;\n'''
+          repl='''html body.page-home.site-light-page main.home section.home-values .home-values__item .service-number{\n  display:block!important;\n  margin:0!important;\n'''
+          assert needle in s
+          s=s.replace(needle,repl,1)
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/unified-design.css
+          git commit -m "Dienstleistungsnummern sichtbar halten"
+          git rm .github/workflows/fix-home-values-number-display.yml
+          git commit -m "Temporären Nummern-Fix-Workflow entfernen"
+          git push

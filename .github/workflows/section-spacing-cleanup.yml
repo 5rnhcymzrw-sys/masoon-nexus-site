@@ -1,0 +1,47 @@
+name: Section spacing cleanup
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/section-spacing-cleanup.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace standard vertical spacing with tokens
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          files = list(Path('assets').glob('*.css'))
+          replacements = {
+              'padding-top:126px': 'padding-top:var(--section-y)',
+              'padding-bottom:126px': 'padding-bottom:var(--section-y)',
+              'margin-top:126px': 'margin-top:var(--section-y)',
+              'margin-bottom:126px': 'margin-bottom:var(--section-y)',
+              'padding-top:82px': 'padding-top:var(--section-y-mobile)',
+              'padding-bottom:82px': 'padding-bottom:var(--section-y-mobile)',
+              'margin-top:82px': 'margin-top:var(--section-y-mobile)',
+              'margin-bottom:82px': 'margin-bottom:var(--section-y-mobile)',
+          }
+          changed = []
+          for path in files:
+              s = path.read_text(encoding='utf-8')
+              old = s
+              for a, b in replacements.items():
+                  s = s.replace(a, b)
+              if s != old:
+                  path.write_text(s, encoding='utf-8')
+                  changed.append(str(path))
+          if not changed:
+              raise SystemExit('Keine passenden Standard-Abstände gefunden')
+          print('\n'.join(changed))
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/*.css
+          git commit -m "Standard-Abschnittsabstände global tokenisieren"
+          git rm .github/workflows/section-spacing-cleanup.yml
+          git commit -m "Temporären Abschnittsabstands-Workflow entfernen"
+          git push

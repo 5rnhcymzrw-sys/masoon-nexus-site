@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MASOON TREUHAND | Hero integriert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:"Inter",Arial,sans-serif;color:#484a4f;background:#fff url("https://raw.githubusercontent.com/5rnhcymzrw-sys/masoon-treuhand-v2/main/assets/images/backgrounds/background-2.png") center top/cover no-repeat}
+    a{color:inherit;text-decoration:none}.container{width:min(calc(100% - 64px),1227px);margin:0 auto}
+    .site-header{height:108px;background:#fff;color:#000;position:relative}.site-header::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:8px;background:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%)}
+    .header-inner{height:100%;display:flex;align-items:center;position:relative}.brand{position:relative;width:200px;height:108px;display:flex;align-items:center}.brand-icon{position:absolute;top:50%;left:50%;width:40%;opacity:.18;transform:translate(-50%,-50%)}.brand-text{position:relative;width:100%;z-index:1}.nav{position:absolute;left:41%;display:flex;gap:34px}.nav a{font-size:11px;font-weight:500;letter-spacing:1.1px;text-transform:uppercase;color:#000}
+    .hero{min-height:calc(100vh - 108px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);align-items:center;gap:72px;padding:78px max(32px,calc((100vw - 1227px)/2)) 82px}
+    .hero-copy{max-width:610px}.hero h1{margin:0;font-family:"PT Serif",Georgia,serif;font-size:clamp(52px,5vw,66px);line-height:.96;color:#171715}.hero p{max-width:390px;margin:26px 0 0;font-size:14px;font-weight:300;line-height:1.65}.action{display:inline-block;margin-top:38px;font-size:11px;font-weight:500;letter-spacing:1.1px;text-transform:uppercase;color:#777}.action::after{content:" ↗︎";font-family:Arial,sans-serif;font-size:1.2em;position:relative;top:-2px}
+    .photo-wrap{width:min(100%,500px);height:min(64vh,610px);justify-self:end;align-self:center;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(23,23,21,.06)}
+    .photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:67% 48%;display:block;filter:brightness(1.05) contrast(.96)}
+    @media(max-width:900px){.nav{display:none}.hero{grid-template-columns:1fr;gap:42px;padding:72px 24px}.photo-wrap{justify-self:start;width:100%;height:56vh}.brand{width:190px}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="MASOON TREUHAND Startseite">
+        <img class="brand-icon" src="https://raw.githubusercontent.com/5rnhcymzrw-sys/masoon-treuhand-v2/main/assets/images/logo/icon-black.png" alt="" aria-hidden="true">
+        <img class="brand-text" src="https://raw.githubusercontent.com/5rnhcymzrw-sys/masoon-treuhand-v2/main/assets/images/logo/textlogo-black.png" alt="MASOON TREUHAND">
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation"><a href="#">Startseite</a><a href="#">Unternehmen</a><a href="#">Dienstleistungen</a><a href="#">Fachwissen</a><a href="#">Kontakt</a></nav>
+    </div>
+  </header>
+  <main class="hero">
+    <div class="hero-copy">
+      <h1>Treuhand mit<br>Struktur und<br>Anspruch.</h1>
+      <p>Auf der Basis von Diskretion, Präzision und Vertrauen begleiten wir Sie mit fachlicher Klarheit und hohem Anspruch durch alle Phasen Ihres Geschäftslebens.</p>
+      <a class="action" href="#">Kontakt aufnehmen</a>
+    </div>
+    <div class="photo-wrap">
+      <img src="https://raw.githubusercontent.com/5rnhcymzrw-sys/masoon-treuhand-v2/main/assets/images/photos/hero.png" alt="MASOON TREUHAND">
+    </div>
+  </main>
+</body>
+</html>

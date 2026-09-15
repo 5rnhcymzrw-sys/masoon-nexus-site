@@ -458,11 +458,11 @@ body.site-light-page .home-paths__grid strong::after{
 /* Einheitlicher Seitenhintergrund */
 body.site-light-page{
   background-color:#fff!important;
-  background-image:url("../Hintergrundbild 2.png")!important;
+  background-image:url("../Hintergrundbild 2.webp")!important;
   background-size:cover!important;
   background-position:center top!important;
   background-repeat:repeat-y!important;
-  background-attachment:fixed!important;
+  background-attachment:scroll!important;
 }
 @media(max-width:800px){
   body.site-light-page{

@@ -1,0 +1,60 @@
+name: Move card system to global
+on:
+  push:
+    paths:
+      - '.github/workflows/move-card-system-global.yml'
+permissions:
+  contents: write
+jobs:
+  centralize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Move shared card system into global.css
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          g = Path('assets/global.css')
+          b = Path('assets/unified-design-base-20260907.css')
+          gs = g.read_text()
+          bs = b.read_text()
+
+          # Extend the existing global root with the remaining shared design colours.
+          anchor = '--accent-bar-height:8px;--title-width:650px;'
+          repl = '--accent-bar-height:8px;--mt-black:#0b0b0b;--mt-ink:#171715;--mt-text:#4f4e4b;--mt-line:rgba(23,23,21,.14);--mt-surface:rgba(255,255,255,.78);--mt-surface-open:rgba(255,255,255,.88);--title-width:650px;'
+          if anchor not in gs:
+              raise SystemExit('Global root anchor missing')
+          gs = gs.replace(anchor, repl, 1)
+
+          root_block = ''':root{\n  --mt-black:#0b0b0b;\n  --mt-ink:#171715;\n  --mt-text:#4f4e4b;\n  --mt-line:rgba(23,23,21,.14);\n  --mt-surface:rgba(255,255,255,.78);\n  --mt-surface-open:rgba(255,255,255,.88);\n}\n\n'''
+          if root_block not in bs:
+              raise SystemExit('Legacy colour root block missing')
+          bs = bs.replace(root_block, '', 1)
+
+          colour_block = '''body.site-light-page,\nbody.site-light-page .page-main,\nbody.site-light-page .home{\n  color:var(--mt-ink)!important;\n}\n'''
+          if colour_block not in bs:
+              raise SystemExit('Legacy global colour block missing')
+          bs = bs.replace(colour_block, '', 1)
+
+          cards_block = '''/* Einheitliche Kacheln */\nhtml body.site-light-page .home-values__item,\nhtml body.site-light-page .article-card,\nhtml body.site-light-page .knowledge-note,\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card,\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card:hover{\n  background:var(--mt-surface)!important;\n  background-color:var(--mt-surface)!important;\n  background-image:none!important;\n  border:1px solid var(--mt-line)!important;\n  border-radius:0!important;\n  box-shadow:none!important;\n  backdrop-filter:none!important;\n  -webkit-backdrop-filter:none!important;\n}\n\n/* Einheitliche Linien und Kartenabstände */\nbody.site-light-page .home-values__items,\nbody.site-light-page .home-paths__grid,\nbody.site-light-page .articles-grid{\n  gap:22px!important;\n}\nbody.site-light-page .services-grid{\n  gap:22px!important;\n  background:transparent!important;\n  border:0!important;\n}\nbody.site-light-page .home-values__item{\n  border-left:1px solid var(--mt-line)!important;\n}\nbody.site-light-page .home-values__item h3::after,\nbody.site-light-page .home-paths__grid strong::after{\n  background:#868279!important;\n}\n\n'''
+          if cards_block not in bs:
+              raise SystemExit('Legacy card system block missing')
+          bs = bs.replace(cards_block, '', 1)
+
+          insert = '''\n/* Globale Farb- und Kachelgrundlagen */\nbody.site-light-page,\nbody.site-light-page .page-main,\nbody.site-light-page .home{\n  color:var(--mt-ink)!important;\n}\nhtml body.site-light-page .home-values__item,\nhtml body.site-light-page .article-card,\nhtml body.site-light-page .knowledge-note,\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card,\nhtml body.site-light-page .services-main .services-section .services-grid>.service-card:hover{\n  background:var(--mt-surface)!important;\n  background-color:var(--mt-surface)!important;\n  background-image:none!important;\n  border:1px solid var(--mt-line)!important;\n  border-radius:0!important;\n  box-shadow:none!important;\n  backdrop-filter:none!important;\n  -webkit-backdrop-filter:none!important;\n}\nbody.site-light-page .home-values__items,\nbody.site-light-page .home-paths__grid,\nbody.site-light-page .articles-grid,\nbody.site-light-page .services-grid{\n  gap:22px!important;\n}\nbody.site-light-page .services-grid{\n  background:transparent!important;\n  border:0!important;\n}\nbody.site-light-page .home-values__item{\n  border-left:1px solid var(--mt-line)!important;\n}\nbody.site-light-page .home-values__item h3::after,\nbody.site-light-page .home-paths__grid strong::after{\n  background:#868279!important;\n}\n'''
+          marker = '\n/* Einheitlicher Seitenhintergrund */'
+          if marker not in gs:
+              raise SystemExit('Global insertion marker missing')
+          gs = gs.replace(marker, insert + marker, 1)
+
+          g.write_text(gs)
+          b.write_text(bs)
+          PY
+          rm -f .github/workflows/move-card-system-global.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/global.css assets/unified-design-base-20260907.css .github/workflows/move-card-system-global.yml
+          git commit -m 'Kachelgrundsystem nach global.css verschieben'
+          git push

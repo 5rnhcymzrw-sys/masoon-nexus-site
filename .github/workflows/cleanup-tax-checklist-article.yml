@@ -1,0 +1,35 @@
+name: Cleanup tax checklist article legacy CSS
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/cleanup-tax-checklist-article.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove obsolete tax checklist layout copy
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('assets/global.css')
+          s=p.read_text(encoding='utf-8')
+          start=s.index('/* fachwissen/checkliste-steuererklaerung/index.html */')
+          end=s.index('/* Desktop: Fachwissen Kacheln auf der Startseite gleich hoch wie Werte */', start)
+          block=s[start:end]
+          assert 'body.page-article-tax-checklist .item-label' in block
+          keep='''/* Steuercheckliste: echte Seitensonderregeln */\nbody.page-article-tax-checklist .item-label{white-space:nowrap!important}\nbody.page-article-tax-checklist .item-separator{display:inline-block!important;width:0!important;height:14px!important;margin:0 7px!important;border:0!important;border-left:1px solid #d7d5d1!important;background:transparent!important;font-size:0!important;line-height:0!important;color:transparent!important;vertical-align:middle!important}\n\n'''
+          s=s[:start]+keep+s[end:]
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/global.css
+          git commit -m "Steuerchecklisten-Artikelblock auf Sonderregeln reduzieren"
+          git rm .github/workflows/cleanup-tax-checklist-article.yml
+          git commit -m "Temporären Steuerchecklisten-Workflow entfernen"
+          git push

@@ -1,0 +1,24 @@
+name: Line and arrow token cleanup
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/line-arrow-token-cleanup.yml'
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply token cleanup
+        run: python3 -c "from pathlib import Path; p=Path('assets/global.css'); s=p.read_text(); s=s.replace('width:48px!important;','width:var(--short-line-width)!important;').replace('max-width:48px!important;','max-width:var(--short-line-width)!important;').replace('background:#868279!important;','background:var(--short-line-color)!important;').replace('margin-top:11px!important;','margin-top:var(--short-line-gap)!important;').replace('margin-left:10px!important;font-size:20px!important;font-weight:300!important;','margin-left:var(--action-arrow-gap)!important;font-size:var(--action-arrow-size)!important;font-weight:var(--action-arrow-weight)!important;').replace('margin-left:10px!important;\n  font-size:20px!important;\n  font-weight:300!important;','margin-left:var(--action-arrow-gap)!important;\n  font-size:var(--action-arrow-size)!important;\n  font-weight:var(--action-arrow-weight)!important;'); p.write_text(s)"
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/global.css
+          git commit -m 'Pfeil- und Kurzlinienwerte global zentralisieren'
+          git rm .github/workflows/line-arrow-token-cleanup.yml
+          git commit -m 'Temporären Pfeil-Linien-Workflow entfernen'
+          git push

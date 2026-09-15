@@ -1,8 +1,8 @@
-html body.site-light-page main.article-main{padding:234px 0 126px!important}
+html body.site-light-page main.article-main{padding:234px 0 var(--section-y)!important}
 
 html body.site-light-page main.article-main .article-overline{
   width:91%!important;
-  max-width:1227px!important;
+  max-width:var(--content-width)!important;
   margin:0 auto 28px!important;
   padding:0 140px!important;
   box-sizing:border-box!important;
@@ -12,7 +12,7 @@ html body.site-light-page main.article-main .article-overline .section-label{mar
 
 html body.site-light-page main.article-main .article-shell{
   width:91%!important;
-  max-width:1227px!important;
+  max-width:var(--content-width)!important;
   margin:0 auto!important;
   padding:67.5px 140px 76px!important;
   box-sizing:border-box!important;

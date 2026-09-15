@@ -706,10 +706,6 @@ html body.page-knowledge.site-light-page main .knowledge-section#knowledge-artic
   backdrop-filter:blur(32px)!important;
 }
 
-/* Steuercheckliste: echte Seitensonderregeln */
-body.page-article-tax-checklist .item-label{white-space:nowrap!important}
-body.page-article-tax-checklist .item-separator{display:inline-block!important;width:0!important;height:14px!important;margin:0 7px!important;border:0!important;border-left:1px solid #d7d5d1!important;background:transparent!important;font-size:0!important;line-height:0!important;color:transparent!important;vertical-align:middle!important}
-
 /* Desktop: Fachwissen Kacheln auf der Startseite gleich hoch wie Werte */
 @media(min-width:801px){
   html body .home>.home-paths .home-paths__grid a{

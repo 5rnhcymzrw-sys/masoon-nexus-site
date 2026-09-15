@@ -17,33 +17,143 @@ jobs:
         run: |
           git fetch origin main
           test "$(git rev-parse origin/main)" = "${{ github.sha }}"
-      - name: Apply the exact locally verified changes
+      - name: Install the verified CSS parser outside the repository
+        run: npm install --prefix "$RUNNER_TEMP/body-copy-tools" --ignore-scripts --no-audit --no-fund postcss@8.5.6
+      - name: Apply and verify body typography only
         shell: bash
         run: |
-          python - <<'PY'
-          import base64, hashlib, json, pathlib, subprocess, zlib
-          patch = zlib.decompress(base64.b64decode("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"))
-          guards = json.loads(zlib.decompress(base64.b64decode("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")))
-          for name, hashes in guards.items():
-              actual = hashlib.sha256(pathlib.Path(name).read_bytes()).hexdigest()
-              if actual != hashes["before"]:
-                  raise SystemExit("Source changed since verification: " + name)
-          subprocess.run(["git", "apply", "--check", "-"], input=patch, check=True)
-          subprocess.run(["git", "apply", "-"], input=patch, check=True)
-          for name, hashes in guards.items():
-              actual = hashlib.sha256(pathlib.Path(name).read_bytes()).hexdigest()
-              if actual != hashes["after"]:
-                  raise SystemExit("Output differs from verified result: " + name)
-          changed = set(subprocess.check_output(["git", "diff", "--name-only"], text=True).splitlines())
-          if changed != set(guards):
-              raise SystemExit("Unexpected changed files")
-          subprocess.run(["git", "diff", "--check"], check=True)
-          subprocess.run(["git", "add", "--", *sorted(guards)], check=True)
-          subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
-          subprocess.run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], check=True)
-          subprocess.run(["git", "commit", "-m", "Fliesstext in global.css vollständig zentralisieren"], check=True)
-          subprocess.run(["git", "push", "origin", "HEAD:main"], check=True)
-          print("Verified body-copy centralization committed:")
-          subprocess.run(["git", "rev-parse", "HEAD"], check=True)
-          print("Changed CSS: 5; HTML stylesheet cache references refreshed: 15 pages.")
-          PY
+          NODE_PATH="$RUNNER_TEMP/body-copy-tools/node_modules" node <<'JS'
+          const fs=require('fs');
+          const path=require('path');
+          const crypto=require('crypto');
+          const postcss=require('postcss');
+          const {execFileSync}=require('child_process');
+          const root=process.cwd();
+          const guards=[
+          ['assets/article-detail.css','1d66e12aa2db09e5d4ef780b4ee31b8b153343af73cfd600fb3690806f5a64ad','e53f166ec0253c188662f1c22d62c5b6c61d76d14bdc1fdcd90f3fd71cb0c6ce'],
+          ['assets/dienstleistungen.css','942b1289df0719994a8931e8dc4a4084e03babf7edabf81a74ae7d6cabd7793f','7b0b592447b796ad16e2f1ce850459008911fe19adaf6c8118629679721c11a8'],
+          ['assets/global.css','306ea916b89f74d76abdd8fb791711d258a92b082945c258250de8ede3b02c70','c8f2b7b614b8dc065654564e4a7564199130714c2d0ecdffbd4073088b33358b'],
+          ['assets/unified-design-base-20260907.css','6a6a7b72967fcde9f506726991b288e97733adbebf932eeb3aeccaf428c896ba','6c99b2a89a446d6b32b9479c4dae2c1ceae5d0b6315eda968f63adfe40762b2c'],
+          ['assets/unified-design.css','b59c4f657ea898b977c35fb1cc3996229c1fe630e9dc2ddc8c5865f23d6a0311','507017df607f520351d3a3c81e72e0894382d6c6a7903223d71056921e2068ce'],
+          ['datenschutz/index.html','b7cd95194e852e6c306c03c46a4de6848e912fae808175d494a33bccc2fb01d0','c9ed428a500430c4121ae381588b8b76520df8bbb3462e72455c65691a81b5ea'],
+          ['dienstleistungen/index.html','0f235ee168f980392b77a8cddfc44eec931346918068544d97e8ec26c2fd483c','38541c689d59be4022530b1e06ddab569dc53701b4378137dd255cd1d8e64c90'],
+          ['disclaimer/index.html','13dcf87e48670dc4e068fa34ab8443df9cf915e0ede551a1a4f58cf5b7edcb49','1bfcafc7c0da84fb427d574188f1b3332e566aee76cf1e9a014a3fd5c69a1a11'],
+          ['fachwissen/checkliste-steuererklaerung/index.html','ef8647f2c549fce20c11e85625423e2f10a8e88bd8465b108efd29d222fdb443','ddf325b16e4c1bcfb13c04449a988da09f39b824cefd6bae948b29c1d454c1a6'],
+          ['fachwissen/gewinnverwendung/index.html','03ae3b2a439f3ac91a6d282af68ca173ff1a9b1a3cb14b57ba824138c7caf4a1','1cd995f96ff0cce3cf4c00f160c6afcc720252f7de5896c596f5a72c6225dcd1'],
+          ['fachwissen/index.html','04aa041c10e3367ef0a9de81670a75d85f180b26c9149ec4adff1a88fea094f3','f81668a69121d1d76ca13d4390d9c8cbd3b9cae4a80ba8e5d751ba16ade0bdda'],
+          ['fachwissen/kuendigung-arbeitsvertrag/index.html','c2a322e25e50b1117e697620d2934b612209b791947cd808a5be462a18bbe3a1','dee7a2b1e62dfbc1892516b1cbf28ceb362f417ad7105c87dd2716a8e2bacad2'],
+          ['fachwissen/missbraeuchliche-konkurse/index.html','d0dd28e92380a88ae52f727305d4667cb6a51389002b3f9658f270c7932d6108','0d13d4f6e345f1e14b04ca13d69e9039a3b571a15e68608b186fb0dbe290ddcb'],
+          ['fachwissen/unternehmen-gruenden/index.html','23bf2765c718db9dbe421a643f9c2ae966f971b778ed2d2c4e9e2447114592bd','5743f41ca0135babbadeb240ca074c99712e02d5e39dd1b0ecb6457c4805148c'],
+          ['fachwissen/unternehmensformen/index.html','49d52b583e7bcb4b6e392445208a3486062a303aa513565c0a6ffc16744d1070','718ac7641951571956d16f18b237c2a9e444db89648d5fb4fe17be879b1296ef'],
+          ['fachwissen/unwahre-buchfuehrung/index.html','6ca9b38170c31069d4650958baf6d0dff32a40451a2d97dd58b229bb6b3ce249','6fee852a377c571292056eae7bdf5f79b65a7598521e3a9b626d69d3055ae265'],
+          ['impressum/index.html','fa38ea4b7230fd3a605bbd908cd93ec644ba443f92c19f41b254cd19ff9f8a82','cf9c1da5c2edea973e0951f0d4b67114db7a52d71a584deb9a11955bcc75f8a1'],
+          ['index.html','80766ce7c7559586be44d33a1a903478b2859110e2b1a7b2aa8cdb315ea6002e','99403d1db6636ef5296a3ed13d6bc4fc8d30e34f708a486f71b77d13f3c50cff'],
+          ['kontakt/index.html','7657e2905c2c9966fe0bccf8f8e9d4796ed3d0f628099a961967bae70e636cc1','f05de63bf9316d74307f29728ea9ca94d053f8e947901cfd7e883342a46273b8'],
+          ['unternehmen/index.html','59a92798820ba0ed61be9f36a39a4eecece0fc1d9f1a67b3ddb435bff5aa0ea5','f778dd374bc407c2b16765d8af6cf985dcb7aa1efc769cd38df876dec4819d3d']
+          ];
+          const digest=file=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex');
+          for(const [file,before] of guards){if(digest(file)!==before)throw Error('Source changed since verification: '+file);}
+          const files=['assets/global.css','assets/article-detail.css','assets/unified-design.css','assets/unified-design-base-20260907.css','assets/dienstleistungen.css'];
+          const props=new Set(['font-family','font-size','font-weight','line-height','letter-spacing','color','font-style','text-transform']);
+          const marker='/* Einheitlicher Fliesstext auf allen Seiten */';
+          const oldBody='html body main :is(#mt-body-copy,.mt-body-copy)';
+          let counts={};
+          for(const file of files){
+           const filePath=path.join(root,file);
+           const before=fs.readFileSync(filePath,'utf8');
+           let text=before;
+           if(file==='assets/global.css'){
+            const at=text.lastIndexOf(marker);
+            if(at<0 || text.slice(at).includes('{'))throw Error('Unexpected global.css tail; refusing to edit');
+            if(!text.slice(at).trim().endsWith('html body.site-light-page main .home-hero__services,'))throw Error('Unexpected dangling body rule');
+            text=text.slice(0,at).trimEnd()+'\n';
+           }
+           const tree=postcss.parse(text,{from:filePath});
+           let removed=0;
+           if(file==='assets/global.css'){
+            const tokens=tree.nodes.find(n=>n.type==='rule'&&n.selector===':root');
+            const size=tokens.nodes.find(d=>d.prop==='--body-size');
+            if(!size||size.value!=='14px')throw Error('Unexpected body-size');
+            const definitions=[['--body-font','var(--font-inter),Arial,sans-serif'],['--body-weight','300'],['--body-line-height','1.65'],['--body-letter-spacing','0'],['--body-color','#484a4f']];
+            let anchor=size;
+            for(const [prop,value] of definitions){
+             if(tokens.nodes.some(n=>n.prop===prop))throw Error('Duplicate token '+prop);
+             const d=postcss.decl({prop,value,raws:{before:'',between:':'}});tokens.insertAfter(anchor,d);anchor=d;
+            }
+           }
+           tree.walkRules(rule=>{
+            if(file==='assets/global.css'&&rule.selector.startsWith(oldBody+',')){
+             if(rule.prev()?.type==='comment')rule.prev().text='Einheitlicher Fliesstext: Referenz 01.2026 Konkursrecht. Werte zentral in :root; Layout und Spezialtypografie bleiben separat.';
+             rule.selector='html body main .mt-body-copy,\nhtml body main p:not(.section-label):not(.article-meta):not(.article-card-date):not(.details-action):not(.home-action-button):not(.home-values__all-services):not(.services-contact-button):not(.home-paths__action),\nhtml body main .article-body li,\nhtml body main .service-card li,\nhtml body main .article-table-wrap table,\nhtml body main .home-paths__grid>a strong::after';
+             const values={'font-family':'var(--body-font)','font-size':'var(--body-size)','font-weight':'var(--body-weight)','line-height':'var(--body-line-height)','letter-spacing':'var(--body-letter-spacing)','color':'var(--body-color)'};
+             for(const decl of rule.nodes){if(decl.type==='decl'&&values[decl.prop])decl.value=values[decl.prop];}
+             rule.append({prop:'font-style',value:'normal',important:true,raws:{before:'\n  ',between:':'}});
+             rule.append({prop:'text-transform',value:'none',important:true,raws:{before:'\n  ',between:':'}});
+             counts.bodyRules=(counts.bodyRules||0)+1;
+             return;
+            }
+            const selectors=postcss.list.comma(rule.selector);
+            const isBody=s=>{
+             if(/\.article-table-wrap\s+table$/.test(s))return true;
+             if(s==='html body main .legal-page p:not(.section-label):not(.article-meta):not(.home-hero__intro)')return true;
+             if(s==='html body.page-contact.site-light-page main .contact-split__form .contact-success__message')return true;
+             // Only direct body text, never titles, numbers, list markers, buttons or labels.
+             return /(?:\.services-section|\.service-card)/.test(s)&&/\s(?:p|li)$/.test(s)&&!s.includes('::');
+            };
+            const body=selectors.filter(isBody);
+            if(!body.length)return;
+            const ds=rule.nodes.filter(n=>n.type==='decl'&&props.has(n.prop));
+            if(!ds.length)return;
+            const other=selectors.filter(s=>!isBody(s));
+            if(other.length){
+             const shared=rule.nodes.filter(n=>n.type==='decl'&&!props.has(n.prop));
+             if(shared.length){
+              const bodyRule=rule.clone({selector:body.join(',\n')});
+              bodyRule.walkDecls(d=>{if(props.has(d.prop))d.remove();});
+              rule.parent.insertAfter(rule,bodyRule);
+             }
+             rule.selector=other.join(',\n');
+             removed+=ds.length;
+            }else{
+             ds.forEach(d=>{d.remove();removed++;});
+             if(!rule.nodes.some(n=>n.type==='decl'))rule.remove();
+            }
+           });
+           if(file==='assets/global.css'&&counts.bodyRules!==1)throw Error('Expected exactly one body rule');
+           const after=tree.toString();
+           postcss.parse(after,{from:filePath});
+           fs.writeFileSync(filePath,after);
+           counts[file]={removedDeclarations:removed,beforeBytes:Buffer.byteLength(before),afterBytes:Buffer.byteLength(after),sha256:crypto.createHash('sha256').update(after).digest('hex')};
+          }
+          console.log(JSON.stringify(counts,null,2));
+          const changedCss=new Set(files.map(file=>path.basename(file)));
+          let cacheUpdates=0;
+          for(const [file] of guards.filter(([file])=>file.endsWith('.html'))){
+           const full=path.join(root,file);
+           const before=fs.readFileSync(full,'utf8');
+           const after=before.replace(/(href=["'])([^"']+\.css(?:\?[^"']*)?)(["'])/g,(all,open,uri,close)=>{
+            const base=uri.split('?')[0];
+            if(!changedCss.has(base.split('/').pop()))return all;
+            cacheUpdates++;
+            return open+base+'?v=body-global-20260915-1'+close;
+           });
+           fs.writeFileSync(full,after);
+          }
+          const unified=path.join(root,'assets/unified-design.css');
+          const unifiedText=fs.readFileSync(unified,'utf8');
+          fs.writeFileSync(unified,unifiedText.replace('./unified-design-base-20260907.css?v=action-letterspacing-1-1-clean-20260913-1','./unified-design-base-20260907.css?v=body-global-20260915-1'));
+          if(cacheUpdates!==38)throw Error('Unexpected stylesheet reference count: '+cacheUpdates);
+          for(const [file,before,after] of guards){if(digest(file)!==after)throw Error('Output differs from locally verified result: '+file);}
+          const git=(...args)=>execFileSync('git',args,{encoding:'utf8'});
+          const changed=git('diff','--name-only').trim().split('\n').sort();
+          const allowed=guards.map(([file])=>file).sort();
+          if(JSON.stringify(changed)!==JSON.stringify(allowed))throw Error('Unexpected changed files');
+          git('diff','--check');
+          git('add','--',...allowed);
+          git('config','user.name','github-actions[bot]');
+          git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com');
+          console.log(git('commit','-m','Fliesstext in global.css vollständig zentralisieren'));
+          console.log(git('push','origin','HEAD:main'));
+          console.log('Verified body-copy commit: '+git('rev-parse','HEAD').trim());
+          console.log('5 CSS files centralized; only stylesheet cache references changed in 15 HTML pages.');
+          JS

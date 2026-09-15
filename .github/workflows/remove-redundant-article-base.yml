@@ -1,0 +1,52 @@
+name: Remove redundant article base
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/remove-redundant-article-base.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove known redundant article base rules
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          p = Path('assets/unified-design.css')
+          s = p.read_text(encoding='utf-8')
+          pages = [
+              'page-article-tax-checklist',
+              'page-article-employment-termination',
+              'page-article-company-formation',
+              'page-article-company-forms',
+          ]
+          removed = 0
+          for page in pages:
+              snippets = [
+                  f'html body.{page}.site-light-page main.article-main{{padding:234px 0 126px!important}}',
+                  f'html body.{page}.site-light-page main.article-main{{padding:234px 0 126px!important;}}',
+                  f'body.{page} .article-overline,\nbody.{page} .article-shell{{width:91%!important;max-width:1227px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important}}',
+                  f'body.{page} .article-overline,\nbody.{page} .article-shell{{width:91%!important;max-width:1227px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important;}}',
+                  f'html body.{page}.site-light-page main.article-main{{padding:170px 0 96px!important}}',
+                  f'html body.{page}.site-light-page main.article-main{{padding:170px 0 96px!important;}}',
+                  f'body.{page} .article-overline{{margin-bottom:24px!important;padding:0 26px!important}}',
+                  f'body.{page} .article-overline{{margin-bottom:24px!important;padding:0 26px!important;}}',
+              ]
+              for old in snippets:
+                  if old in s:
+                      s = s.replace(old, '', 1)
+                      removed += 1
+          if removed < 6:
+              raise SystemExit(f'Nur {removed} sichere Dubletten gefunden')
+          p.write_text(s, encoding='utf-8')
+          print('removed', removed)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/unified-design.css
+          git commit -m "Redundante Artikelbasis aus unified-design entfernen"
+          git rm .github/workflows/remove-redundant-article-base.yml
+          git commit -m "Temporären Artikelbereinigungs-Workflow entfernen"
+          git push

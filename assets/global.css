@@ -154,11 +154,11 @@ html body header.site-header::after{content:""!important;position:fixed!importan
 html body .home .home-hero{margin-top:0!important;min-height:calc(100svh - 100px)!important}
 @media(min-width:801px){
 html body header.site-header .header-inner{position:relative!important;width:min(100% - var(--page-gutter),var(--content-width))!important;height:var(--header-height)!important;min-height:var(--header-height)!important;margin:0 auto!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important}
-html body header.site-header .header-inner .home-text-logo{position:absolute!important;z-index:100!important;top:0!important;right:auto!important;left:calc(max(0px,(100% - 1227px)/2) - 7.9872px)!important;width:240px!important;height:108px!important;margin:0!important;padding:0!important;display:flex!important;align-items:center!important;opacity:1!important;filter:none!important;mix-blend-mode:normal!important;background:transparent!important;background-color:transparent!important;background-image:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transform:none!important;overflow:visible!important}
+html body header.site-header .header-inner .home-text-logo{position:absolute!important;z-index:100!important;top:0!important;right:auto!important;left:calc(max(0px,(100% - var(--content-width))/2) - 7.9872px)!important;width:240px!important;height:var(--header-height)!important;margin:0!important;padding:0!important;display:flex!important;align-items:center!important;opacity:1!important;filter:none!important;mix-blend-mode:normal!important;background:transparent!important;background-color:transparent!important;background-image:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transform:none!important;overflow:visible!important}
 html body header.site-header .header-inner .home-text-logo img{height:auto!important;max-height:none!important;object-fit:contain!important;filter:none!important;mix-blend-mode:normal!important}
 html body header.site-header .header-inner .home-text-logo .home-logo-icon{position:absolute!important;z-index:1!important;top:50%!important;left:50%!important;width:165.517241px!important;height:auto!important;opacity:.18!important;pointer-events:none!important;transform:translate(-50%,-50%)!important}
 html body header.site-header .header-inner .home-text-logo .home-logo-text{position:relative!important;z-index:2!important;width:240px!important;height:auto!important;max-height:none!important;opacity:1!important;transform:translateY(11px)!important}
-html body header.site-header .site-nav{position:absolute!important;left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - var(--content-width))/2))!important;width:auto!important;margin:0!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;transform:none!important}
+html body header.site-header .site-nav{position:absolute!important;left:calc(max(32px,(100vw - var(--content-width))/2) + 503px - max(32px,(100vw - var(--content-width))/2))!important;width:auto!important;margin:0!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;transform:none!important}
 }
 
 /* Einheitliche Fusszeile auf allen Seiten */
@@ -235,7 +235,7 @@ html body footer.site-footer .footer-simple>*+*::before{
 @media(min-width:801px){
   html body footer.site-footer .footer-simple{
     justify-content:flex-start!important;
-    padding-left:calc(max(32px,(100vw - 1227px)/2) + 503px - max(32px,(100vw - var(--content-width))/2))!important;
+    padding-left:calc(max(32px,(100vw - var(--content-width))/2) + 503px - max(32px,(100vw - var(--content-width))/2))!important;
   }
 }
 @media(max-width:800px){
@@ -295,8 +295,8 @@ html body .site-header .site-nav a{
     width:min(100% - var(--page-gutter),var(--content-width))!important;
   }
   html body .home-contact-band{
-    padding-right:max(32px,calc((100% - 1227px)/2))!important;
-    padding-left:max(32px,calc((100% - 1227px)/2))!important;
+    padding-right:max(32px,calc((100% - var(--content-width))/2))!important;
+    padding-left:max(32px,calc((100% - var(--content-width))/2))!important;
   }
 }
 

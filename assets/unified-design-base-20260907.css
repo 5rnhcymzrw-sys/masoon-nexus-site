@@ -20,20 +20,6 @@
   font-display:swap;
   src:url("https://fonts.gstatic.com/s/sourceserif4/v14/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjiiVqrhw.ttf") format("truetype");
 }
-:root{
-  --mt-black:#0b0b0b;
-  --mt-ink:#171715;
-  --mt-text:#4f4e4b;
-  --mt-line:rgba(23,23,21,.14);
-  --mt-surface:rgba(255,255,255,.78);
-  --mt-surface-open:rgba(255,255,255,.88);
-}
-
-body.site-light-page,
-body.site-light-page .page-main,
-body.site-light-page .home{
-  color:var(--mt-ink)!important;
-}
 body.site-light-page .page-main,
 body.site-light-page .home,
 body.site-light-page .home-values,
@@ -47,41 +33,6 @@ body.site-light-page .services-closing{
   background:transparent!important;
   background-color:transparent!important;
   background-image:none!important;
-}
-
-/* Einheitliche Kacheln */
-html body.site-light-page .home-values__item,
-html body.site-light-page .article-card,
-html body.site-light-page .knowledge-note,
-html body.site-light-page .services-main .services-section .services-grid>.service-card,
-html body.site-light-page .services-main .services-section .services-grid>.service-card:hover{
-  background:var(--mt-surface)!important;
-  background-color:var(--mt-surface)!important;
-  background-image:none!important;
-  border:1px solid var(--mt-line)!important;
-  border-radius:0!important;
-  box-shadow:none!important;
-  backdrop-filter:none!important;
-  -webkit-backdrop-filter:none!important;
-}
-
-/* Einheitliche Linien und Kartenabstände */
-body.site-light-page .home-values__items,
-body.site-light-page .home-paths__grid,
-body.site-light-page .articles-grid{
-  gap:22px!important;
-}
-body.site-light-page .services-grid{
-  gap:22px!important;
-  background:transparent!important;
-  border:0!important;
-}
-body.site-light-page .home-values__item{
-  border-left:1px solid var(--mt-line)!important;
-}
-body.site-light-page .home-values__item h3::after,
-body.site-light-page .home-paths__grid strong::after{
-  background:#868279!important;
 }
 
 /* Kontaktseite: heller Seitenhintergrund mit dunklem Formular */

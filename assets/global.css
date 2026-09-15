@@ -1,7 +1,7 @@
 /* MASOON TREUHAND – zentrale Designquelle */
 @font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2") format("woff2")}
 @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;src:url("_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2") format("woff2")}
-:root{--mt-gradient-frame:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-reverse:var(--mt-gradient-frame-reverse);--mt-gradient-line:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-width:1px;--mt-gradient-line-width:1px;--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:14px;--body-font:var(--font-inter),Arial,sans-serif;--body-weight:300;--body-line-height:1.65;--body-letter-spacing:0;--body-color:#484a4f;--label-size:11px;--button-font:var(--font-inter),Arial,sans-serif;--button-size:11px;--button-weight:500;--button-line-height:1.4;--button-letter-spacing:1.1px;--button-text-transform:uppercase;--content-width:1320px;--content-width-narrow:1227px;--page-gutter:64px;--page-gutter-mobile:36px;--section-y:126px;--section-y-mobile:82px;--header-height:108px;--accent-bar-height:8px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
+:root{--mt-gradient-frame:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-reverse:var(--mt-gradient-frame-reverse);--mt-gradient-line:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-width:1px;--mt-gradient-line-width:1px;--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:14px;--body-font:var(--font-inter),Arial,sans-serif;--body-weight:300;--body-line-height:1.65;--body-letter-spacing:0;--body-color:#484a4f;--label-size:11px;--button-font:var(--font-inter),Arial,sans-serif;--button-size:11px;--button-weight:500;--button-line-height:1.4;--button-letter-spacing:1.1px;--button-text-transform:uppercase;--content-width:1320px;--content-width-narrow:1227px;--page-gutter:64px;--page-gutter-mobile:36px;--section-y:126px;--section-y-mobile:82px;--header-height:108px;--accent-bar-height:8px;--mt-black:#0b0b0b;--mt-ink:#171715;--mt-text:#4f4e4b;--mt-line:rgba(23,23,21,.14);--mt-surface:rgba(255,255,255,.78);--mt-surface-open:rgba(255,255,255,.88);--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
 html,
 body{max-width:100%;overflow-x:hidden;}
 body{font-family:var(--font-inter)!important;}
@@ -562,6 +562,44 @@ html body header.site-header .header-inner .home-text-logo,
 html body header.site-header .header-inner .home-text-logo img{
   transition:none!important;
   animation:none!important;
+}
+
+/* Globale Farb- und Kachelgrundlagen */
+body.site-light-page,
+body.site-light-page .page-main,
+body.site-light-page .home{
+  color:var(--mt-ink)!important;
+}
+html body.site-light-page .home-values__item,
+html body.site-light-page .article-card,
+html body.site-light-page .knowledge-note,
+html body.site-light-page .services-main .services-section .services-grid>.service-card,
+html body.site-light-page .services-main .services-section .services-grid>.service-card:hover{
+  background:var(--mt-surface)!important;
+  background-color:var(--mt-surface)!important;
+  background-image:none!important;
+  border:1px solid var(--mt-line)!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+body.site-light-page .home-values__items,
+body.site-light-page .home-paths__grid,
+body.site-light-page .articles-grid,
+body.site-light-page .services-grid{
+  gap:22px!important;
+}
+body.site-light-page .services-grid{
+  background:transparent!important;
+  border:0!important;
+}
+body.site-light-page .home-values__item{
+  border-left:1px solid var(--mt-line)!important;
+}
+body.site-light-page .home-values__item h3::after,
+body.site-light-page .home-paths__grid strong::after{
+  background:#868279!important;
 }
 
 /* Einheitlicher Seitenhintergrund */

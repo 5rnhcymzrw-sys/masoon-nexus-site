@@ -8,7 +8,7 @@ html body.site-light-page main.article-main .article-overline{
   box-sizing:border-box!important;
   text-align:left!important;
 }
-html body.site-light-page main.article-main .article-overline .section-label{margin:0!important;color:#484a4f!important;opacity:1!important}
+html body.site-light-page main.article-main .article-overline .section-label{margin:0!important}
 
 html body.site-light-page main.article-main .article-shell{
   width:91%!important;

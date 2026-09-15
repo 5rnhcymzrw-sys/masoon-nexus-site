@@ -25,28 +25,6 @@ body{font-family:var(--font-inter)!important;}
 .home-contact-band,
 .page-main>.home-values,
 .knowledge-note{padding-top:126px!important;padding-bottom:126px!important;}}
-/* Einheitliche Fachbeitrag Metatitel */
-html body.site-light-page main :is(.article-card-date,.article-overline-label){
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:11px!important;
-  font-weight:500!important;
-  line-height:15.4px!important;
-  letter-spacing:1.1px!important;
-  text-transform:uppercase!important;
-  font-style:normal!important;
-  font-synthesis:none!important;
-  color:#777777!important;
-  opacity:1!important;
-  -webkit-font-smoothing:antialiased!important;
-  -moz-osx-font-smoothing:grayscale!important;
-  text-rendering:geometricPrecision!important;
-}
-html body.site-light-page main .article-overline-label::before,
-html body.site-light-page main .article-overline-label::after{
-  content:none!important;
-  display:none!important;
-}
-
 /* Einheitliche kleine Bereichstitel */
 html body.site-light-page main .section-label,
 html body.site-light-page main p.section-label{
@@ -72,6 +50,28 @@ html body.site-light-page main .section-label::before{
   border:0!important;
 }
 html body.site-light-page main .section-label::after{
+  content:none!important;
+  display:none!important;
+}
+
+/* Einheitliche Fachbeitrag Metatitel */
+html body.site-light-page main :is(.article-card-date,.article-overline-label){
+  font-family:var(--font-inter),Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:15.4px!important;
+  letter-spacing:1.1px!important;
+  text-transform:uppercase!important;
+  font-style:normal!important;
+  font-synthesis:none!important;
+  color:#777777!important;
+  opacity:1!important;
+  -webkit-font-smoothing:antialiased!important;
+  -moz-osx-font-smoothing:grayscale!important;
+  text-rendering:geometricPrecision!important;
+}
+html body.site-light-page main .article-overline-label::before,
+html body.site-light-page main .article-overline-label::after{
   content:none!important;
   display:none!important;
 }
@@ -507,6 +507,7 @@ html body .site-header .site-nav a[aria-current="page"]{
 
 /* Bestätigte Fliesstextwerte von Disclaimer und Impressum. */
 html body main :is(#mt-body-copy,.mt-body-copy),
+html body main p:not(.section-label):not(.article-meta):not(.article-card-date):not(.details-action):not(.home-action-button):not(.home-values__all-services):not(.services-contact-button):not(.home-paths__action),
 html body main .article-body li,
 html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a strong::after{
   font-family:var(--font-inter),Arial,sans-serif!important;
@@ -524,7 +525,9 @@ html body main :is(#mt-body-copy,.mt-body-copy) a{
   line-height:inherit!important;
   letter-spacing:inherit!important;
   color:inherit!important;
-}/* Bereichstitel und weiterführende Links: Typografie der Kopfzeile{
+}/* Bereichstitel und weiterführende Links: Typografie der Kopfzeile,
+bestehende Farben. */
+html body main :is(#mt-nav-typography,.mt-nav-typography):not(.section-label):not(.article-card-date):not(.details-action):not(.article-action):not(.home-action-button):not(.home-values__all-services):not(.services-contact-button):not(.home-paths__action){
   font-family:var(--font-inter)!important;
   font-size:11px!important;
   font-weight:500!important;

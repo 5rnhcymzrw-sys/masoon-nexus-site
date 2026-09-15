@@ -1,0 +1,34 @@
+name: Centralize closing boxes
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/centralize-closing-boxes.yml']
+permissions:
+  contents: write
+jobs:
+  centralize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Centralize shared closing box rule
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          source = Path('assets/unified-design.css')
+          target = Path('assets/global.css')
+          old = "/* Nur die vier grossen Abschlusskästen: ohne Farbverlauf und Weichzeichnung. */\nhtml body.site-light-page main .knowledge-section>.knowledge-note,\nhtml body.site-light-page main.services-main>.services-closing,\nhtml body.site-light-page main.page-main>.company-collaboration-box,\nhtml body.site-light-page main.home>.home-contact-band{\n  background-image:none!important;\n border-color:transparent!important;\nborder-image:var(--mt-gradient-frame) 1!important;\n  box-shadow:none!important;\n  filter:none!important;\n  backdrop-filter:none!important;\n  -webkit-backdrop-filter:none!important;\n}\n"
+          s = source.read_text(encoding='utf-8')
+          g = target.read_text(encoding='utf-8')
+          assert old in s, 'shared closing-box block not found'
+          source.write_text(s.replace(old, '', 1), encoding='utf-8')
+          target.write_text(g.rstrip() + '\n\n/* Abschlusskästen – globale Grundkomponente */\n' + old + '\n', encoding='utf-8')
+          PY
+      - name: Commit migration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/global.css assets/unified-design.css
+          git commit -m "Abschlusskasten-Grundstil global zentralisieren"
+          git rm .github/workflows/centralize-closing-boxes.yml
+          git commit -m "Temporären Abschlusskasten-Workflow entfernen"
+          git push

@@ -1,7 +1,7 @@
 /* MASOON TREUHAND – zentrale Designquelle */
 @font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2") format("woff2")}
 @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;src:url("_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2") format("woff2")}
-:root{--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:14px;--label-size:11px;--content-width:1320px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
+:root{--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:15px;--label-size:11px;--content-width:1320px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
 html,
 body{max-width:100%;overflow-x:hidden;}
 body{font-family:var(--font-inter)!important;font-size:var(--body-size)!important;line-height:1.65!important;}
@@ -66,6 +66,11 @@ html body.site-light-page main.article-main .article-title,
 .home-values__item h3,
 .home-paths__grid strong,
 .services-section .service-card h2{font-family:var(--font-cormorant)!important;font-size:var(--card-title)!important;font-weight:500!important;line-height:1.12!important;letter-spacing:-.01em!important;}
+.page-main p,
+.home-values__item p,
+.services-section .service-card summary p,
+.legal-page p{font-family:var(--font-inter)!important;font-size:var(--body-size)!important;font-weight:290!important;line-height:1.65!important;letter-spacing:normal!important;color:#484a4f!important;}
+.services-section .service-card li{font-family:var(--font-inter)!important;font-size:14px!important;font-weight:400!important;line-height:1.55!important;letter-spacing:normal!important;}
 .section-heading,
 .home-values .section-heading,
 .home-paths__heading,
@@ -522,17 +527,4 @@ body.site-light-page{
   body.site-light-page{
     background-attachment:scroll!important;
   }
-}
-
-/* Einheitlicher Fliesstext auf allen Seiten */
-html body.site-light-page main p:not(.section-label):not(.article-meta):not(.article-card-date):not(.form-status),
-html body.site-light-page main li,
-html body.site-light-page main .home-hero__services,
-html body.site-light-page main .contact-split__intro{
-  font-family:var(--font-inter),Arial,sans-serif!important;
-  font-size:14px!important;
-  font-weight:300!important;
-  line-height:1.65!important;
-  letter-spacing:0!important;
-  color:#484a4f!important;
 }

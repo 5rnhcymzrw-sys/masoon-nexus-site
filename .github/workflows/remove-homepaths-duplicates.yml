@@ -1,0 +1,44 @@
+name: Remove home paths duplicates
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/remove-homepaths-duplicates.yml']
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove exact duplicated home knowledge rules
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('assets/unified-design.css')
+          s = p.read_text(encoding='utf-8')
+
+          # These three content/date definitions already exist in global.css.
+          for n in (1,2,3):
+            marker = f'html body.site-light-page main.home>section.home-paths.home-paths .home-paths__grid.home-paths__grid>a:nth-child({n}):not(:hover):not(:active)'
+            start = s.find(marker)
+            assert start >= 0, f'missing nth-child {n}'
+            end = s.find('\n', start)
+            s = s[:start] + s[end+1:]
+
+          # Keep home-values desktop padding rule, remove duplicated home-path selector from the selector list.
+          old = '''@media (min-width:801px){\n      html body.page-home .home>.home-values .home-values__item,\nhtml body.page-home .home>.home-paths .home-paths__grid a{padding-left:42px!important;padding-right:42px!important}\n    }'''
+          new = '''@media (min-width:801px){\n      html body.page-home .home>.home-values .home-values__item{padding-left:42px!important;padding-right:42px!important}\n    }'''
+          assert old in s, 'shared desktop padding block missing'
+          s = s.replace(old,new,1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/unified-design.css
+          git commit -m "Doppelte Startseiten-Fachwissenregeln entfernen"
+          git rm .github/workflows/remove-homepaths-duplicates.yml
+          git commit -m "Temporären Fachwissen-Doppelregel-Workflow entfernen"
+          git push

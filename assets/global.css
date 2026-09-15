@@ -1155,3 +1155,56 @@ Fliesstext direkt darunter */
 html body.page-home.site-light-page main.home section.home-paths .home-paths__grid>a{
   transition:transform .49s ease,border-color .49s ease,box-shadow .49s ease,background-color .49s ease!important;
 }
+
+/* Weitere globale Regeln aus unified-design-base zentralisiert */
+body.site-light-page .page-main,
+body.site-light-page .home,
+body.site-light-page .home-values,
+body.site-light-page .home-values__inner,
+body.site-light-page .services-section,
+body.site-light-page .knowledge-section,
+body.site-light-page .home-paths,
+body.site-light-page .home-paths::before,
+body.site-light-page .home-contact-band,
+body.site-light-page .services-closing{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}
+
+/* Leerer früherer Bildtrenner wird nicht mehr als eigener Stilbruch gezeigt */
+body.site-light-page .home-architecture-banner{
+  display:none!important;
+}
+
+@media(max-width:800px){
+  body.site-light-page .home-values__items,
+body.site-light-page .home-paths__grid,
+body.site-light-page .articles-grid,
+body.site-light-page .services-grid{
+    gap:16px!important;
+  }
+}
+
+/* Dienstleistungs Hauptseite: linker Startpunkt wie auf der Startseite */
+@media(min-width:801px){
+  html body .services-main>.services-section{
+    padding-left:0!important;
+    padding-right:0!important;
+  }
+}
+
+/* Dienstleistungs Hauptseite: grosse weisse Bereichsfläche entfernen */
+html body.site-light-page .services-main>.services-section{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+
+/* Dienstleistungs Hauptseite: Titelabstand wie Startseite und Fachwissen */
+@media(min-width:801px){
+  html body .services-main>.services-section>.section-heading{
+    margin-bottom:64px!important;
+  }
+}

@@ -1,7 +1,7 @@
 /* MASOON TREUHAND – zentrale Designquelle */
 @font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("_vinext_fonts/inter-9df0d028785c/inter-1ab1ad55.woff2") format("woff2")}
 @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;src:url("_vinext_fonts/cormorant-garamond-ff0b6567a197/cormorant-garamond-e99b45a2.woff2") format("woff2")}
-:root{--mt-gradient-frame:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-reverse:var(--mt-gradient-frame-reverse);--mt-gradient-line:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-width:1px;--mt-gradient-line-width:1px;--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:14px;--body-font:var(--font-inter),Arial,sans-serif;--body-weight:300;--body-line-height:1.65;--body-letter-spacing:0;--body-color:#484a4f;--label-size:11px;--button-font:var(--font-inter),Arial,sans-serif;--button-size:11px;--button-weight:500;--button-line-height:1.4;--button-letter-spacing:1.1px;--button-text-transform:uppercase;--content-width:1320px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
+:root{--mt-gradient-frame:linear-gradient(110deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-reverse:var(--mt-gradient-frame-reverse);--mt-gradient-line:linear-gradient(90deg,#f3e8d4 0%,#e8e5df 38%,#c7cbd3 66%,#8d96a8 100%);--mt-gradient-frame-width:1px;--mt-gradient-line-width:1px;--font-inter:"Inter",Arial,sans-serif;--font-cormorant:"Cormorant Garamond",Georgia,serif;--title-size:clamp(40px,4vw,60px);--title-mobile:clamp(40px,10vw,48px);--card-title:24px;--body-size:14px;--body-font:var(--font-inter),Arial,sans-serif;--body-weight:300;--body-line-height:1.65;--body-letter-spacing:0;--body-color:#484a4f;--label-size:11px;--button-font:var(--font-inter),Arial,sans-serif;--button-size:11px;--button-weight:500;--button-line-height:1.4;--button-letter-spacing:1.1px;--button-text-transform:uppercase;--content-width:1320px;--content-width-narrow:1227px;--page-gutter:64px;--page-gutter-mobile:36px;--section-y:126px;--section-y-mobile:82px;--header-height:108px;--accent-bar-height:8px;--title-width:650px;--section-x:max(32px,calc((100vw - var(--content-width))/2));}
 html,
 body{max-width:100%;overflow-x:hidden;}
 body{font-family:var(--font-inter)!important;}
@@ -22,7 +22,7 @@ body{font-family:var(--font-inter)!important;}
 .home>.home-paths,
 .home-contact-band,
 .page-main>.home-values,
-.knowledge-note{padding-top:126px!important;padding-bottom:126px!important;}}
+.knowledge-note{padding-top:var(--section-y)!important;padding-bottom:var(--section-y)!important;}}
 /* Einheitliche kleine Bereichstitel */
 html body.site-light-page main .section-label,
 html body.site-light-page main p.section-label{
@@ -238,12 +238,12 @@ gleiche Höhe */
 }
 
 /* Einheitliche Kopfzeile auf allen Seiten */
-html body header.site-header{height:108px!important;min-height:108px!important;color:#fff!important;background:#000!important;background-color:#000!important;background-image:none!important;border-bottom:1px solid #ffffff29!important;position:fixed!important;top:0!important;right:0!important;left:0!important;opacity:1!important;isolation:isolate!important;transform:none!important;transition:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;mix-blend-mode:normal!important}
+html body header.site-header{height:var(--header-height)!important;min-height:var(--header-height)!important;color:#fff!important;background:#000!important;background-color:#000!important;background-image:none!important;border-bottom:1px solid #ffffff29!important;position:fixed!important;top:0!important;right:0!important;left:0!important;opacity:1!important;isolation:isolate!important;transform:none!important;transition:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;mix-blend-mode:normal!important}
 html body header.site-header::before{content:none!important;display:none!important}
-html body header.site-header::after{content:""!important;position:fixed!important;z-index:49!important;top:108px!important;right:0!important;left:0!important;width:100%!important;height:8px!important;background:var(--mt-gradient-frame)!important}
+html body header.site-header::after{content:""!important;position:fixed!important;z-index:49!important;top:var(--header-height)!important;right:0!important;left:0!important;width:100%!important;height:var(--accent-bar-height)!important;background:var(--mt-gradient-frame)!important}
 html body .home .home-hero{margin-top:0!important;min-height:calc(100svh - 100px)!important}
 @media(min-width:801px){
-html body header.site-header .header-inner{position:relative!important;width:min(100% - 64px,1320px)!important;height:108px!important;min-height:108px!important;margin:0 auto!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important}
+html body header.site-header .header-inner{position:relative!important;width:min(100% - var(--page-gutter),var(--content-width))!important;height:var(--header-height)!important;min-height:var(--header-height)!important;margin:0 auto!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important}
 html body header.site-header .header-inner .home-text-logo{position:absolute!important;z-index:100!important;top:0!important;right:auto!important;left:calc(max(0px,(100% - 1227px)/2) - 7.9872px)!important;width:240px!important;height:108px!important;margin:0!important;padding:0!important;display:flex!important;align-items:center!important;opacity:1!important;filter:none!important;mix-blend-mode:normal!important;background:transparent!important;background-color:transparent!important;background-image:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transform:none!important;overflow:visible!important}
 html body header.site-header .header-inner .home-text-logo img{height:auto!important;max-height:none!important;object-fit:contain!important;filter:none!important;mix-blend-mode:normal!important}
 html body header.site-header .header-inner .home-text-logo .home-logo-icon{position:absolute!important;z-index:1!important;top:50%!important;left:50%!important;width:165.517241px!important;height:auto!important;opacity:.18!important;pointer-events:none!important;transform:translate(-50%,-50%)!important}
@@ -269,18 +269,18 @@ html body footer.site-footer::before{
   content:""!important;
   position:absolute!important;
   z-index:1!important;
-  top:-8px!important;
+  top:calc(-1 * var(--accent-bar-height))!important;
   right:0!important;
   left:0!important;
   width:100%!important;
-  height:8px!important;
+  height:var(--accent-bar-height)!important;
   background:var(--mt-gradient-frame-reverse)!important;
 }
 html body footer.site-footer::after{content:none!important;display:none!important;}
 html body footer.site-footer .footer-simple{
   position:relative!important;
   z-index:2!important;
-  width:min(100% - 64px,1320px)!important;
+  width:min(100% - var(--page-gutter),var(--content-width))!important;
   height:80px!important;
   min-height:80px!important;
   margin:0 auto!important;
@@ -330,7 +330,7 @@ html body footer.site-footer .footer-simple>*+*::before{
 }
 @media(max-width:800px){
   html body footer.site-footer .footer-simple{
-    width:min(100% - 36px,1320px)!important;
+    width:min(100% - var(--page-gutter-mobile),var(--content-width))!important;
     flex-wrap:wrap!important;
     justify-content:center!important;
     row-gap:8px!important;
@@ -386,7 +386,7 @@ html body .home .home-values__item p{
   html body .services-closing,
   html body .contact-split,
   html body .legal-page{
-    width:min(100% - 64px,1227px)!important;
+    width:min(100% - var(--page-gutter),var(--content-width-narrow))!important;
   }
   html body .home-contact-band{
     padding-right:max(32px,calc((100% - 1227px)/2))!important;
@@ -409,7 +409,7 @@ html body .home .home-values__item p{
 /* Startseite Kontakt: Abschlusskasten wie Fachwissen und Dienstleistungen */
 @media(min-width:801px){
   html body main.home>.home-contact-band{
-    width:min(100% - 64px,1227px)!important;
+    width:min(100% - var(--page-gutter),var(--content-width-narrow))!important;
     height:463.25px!important;
     min-height:463.25px!important;
     max-height:463.25px!important;
@@ -428,7 +428,7 @@ html body .home .home-values__item p{
 }
 @media(max-width:800px){
   html body main.home>.home-contact-band{
-    width:min(100% - 36px,1227px)!important;
+    width:min(100% - var(--page-gutter-mobile),var(--content-width-narrow))!important;
     height:auto!important;
     margin:82px auto 126px!important;
     padding:62px 26px!important;
@@ -447,7 +447,7 @@ html body .home .home-values__item p{
 /* Einheitliche Seitenabstände */
 html body .page-main,
 html body main.home{
-  padding-top:108px!important;
+  padding-top:var(--header-height)!important;
 }
 html body :is(#title-decoration-disabled,.contact-split__form-label)::before,
 html body :is(#title-decoration-disabled,.contact-split__form-label)::after,

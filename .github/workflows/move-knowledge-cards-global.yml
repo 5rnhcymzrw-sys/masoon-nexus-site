@@ -1,0 +1,92 @@
+name: Move knowledge cards to global
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/move-knowledge-cards-global.yml']
+permissions:
+  contents: write
+jobs:
+  move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move all Fachwissen card rules into global.css
+        run: |
+          python -m pip install --quiet tinycss2
+          python <<'PY'
+          from pathlib import Path
+          import tinycss2
+
+          GLOBAL = Path('assets/global.css')
+          SOURCES = [Path('assets/unified-design.css'), Path('assets/unified-design-base-20260907.css')]
+          MARKER = '/* Fachwissen-Kacheln – zentrale globale Komponente */'
+
+          def text(tokens):
+              return tinycss2.serialize(tokens)
+
+          def is_knowledge_selector(selector):
+              s = selector
+              return any(k in s for k in (
+                  '.home-paths__grid',
+                  '.article-card',
+                  '.articles-grid'
+              ))
+
+          def split_rules(rules):
+              kept = []
+              moved = []
+              for rule in rules:
+                  if rule.type == 'qualified-rule':
+                      sel = text(rule.prelude)
+                      if is_knowledge_selector(sel):
+                          moved.append(tinycss2.serialize([rule]))
+                      else:
+                          kept.append(rule)
+                  elif rule.type == 'at-rule' and rule.content is not None:
+                      nested = tinycss2.parse_rule_list(rule.content, skip_whitespace=False, skip_comments=False)
+                      k_nested, m_nested = split_rules(nested)
+                      if k_nested:
+                          rule.content = tinycss2.parse_component_value_list(tinycss2.serialize(k_nested))
+                          kept.append(rule)
+                      if m_nested:
+                          prelude = text(rule.prelude)
+                          moved.append(f'@{rule.at_keyword}{prelude}{{' + ''.join(m_nested) + '}')
+                  else:
+                      kept.append(rule)
+              return kept, moved
+
+          all_moved = []
+          for path in SOURCES:
+              css = path.read_text()
+              rules = tinycss2.parse_stylesheet(css, skip_whitespace=False, skip_comments=False)
+              kept, moved = split_rules(rules)
+              path.write_text(tinycss2.serialize(kept))
+              all_moved.extend(moved)
+
+          assert all_moved, 'Keine Fachwissen-Kachelregeln gefunden'
+          g = GLOBAL.read_text()
+          assert MARKER not in g, 'Marker existiert bereits'
+          block = '\n\n' + MARKER + '\n' + '\n'.join(all_moved) + '\n'
+          GLOBAL.write_text(g.rstrip() + block)
+
+          # Prüfung: In den alten Design-Dateien dürfen keine Kachelselektoren mehr verbleiben.
+          for path in SOURCES:
+              s = path.read_text()
+              leftovers = [k for k in ('.home-paths__grid', '.article-card', '.articles-grid') if k in s]
+              assert not leftovers, f'{path}: verbliebene Fachwissen-Selektoren {leftovers}'
+
+          # global.css muss beide Kacheltypen enthalten.
+          g2 = GLOBAL.read_text()
+          assert '.home-paths__grid' in g2
+          assert '.article-card' in g2
+          assert '.articles-grid' in g2
+          PY
+      - name: Commit migration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/global.css assets/unified-design.css assets/unified-design-base-20260907.css
+          git commit -m "Alle Fachwissen-Kacheln global zentralisieren"
+          git rm .github/workflows/move-knowledge-cards-global.yml
+          git commit -m "Temporären Fachwissen-Kachel-Workflow entfernen"
+          git push

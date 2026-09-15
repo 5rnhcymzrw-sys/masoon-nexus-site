@@ -1,0 +1,26 @@
+name: Report section label rules
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/report-section-label-rules.yml
+permissions:
+  contents: write
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Report section label rules
+        run: |
+          echo '=== CSS ==='
+          grep -Rni -B2 -A6 --include='*.css' 'section-label' assets || true
+          echo '=== INLINE STYLE ==='
+          grep -Rni -B2 -A6 --include='*.html' 'section-label.*color\|color.*section-label' . --exclude-dir=.git || true
+      - name: Remove workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/report-section-label-rules.yml
+          git commit -m "Temporären Bereichstitel-Report entfernen"
+          git push

@@ -81,13 +81,6 @@ html body.site-light-page .home>.home-values .home-values__item .service-number{
   }
 }
 
-/* Einheitliche Grösse für sämtliche Kacheltitel */
-html body .home-values__item h3,
-html body .home-paths__grid strong,
-html body .article-card h2,
-html body .services-section .service-card h2{
-  font-size:24px!important;
-}
 
 /* Zahlen und danebenstehende Kacheltitel optisch mittig ausrichten */
 html body .home>.home-values .home-values__item .service-number,
@@ -242,21 +235,7 @@ Fliesstext direkt darunter */
     margin:18px 0 0!important;}
 }
 
-/* Kacheltitel auf allen Seiten etwas kräftiger */
-html body .home-values__item h3,
-html body .home-paths__grid strong,
-html body .article-card h2,
-html body .services-section .service-card h2{
-  font-weight:600!important;
-}
 
-/* Schriftstärke 600 gegen ältere spezifische Kachelregeln durchsetzen */
-html body .home>.home-values .home-values__item h3,
-html body.site-light-page .services-main .services-section .services-grid>.service-card h2,
-html body .home>.home-paths .home-paths__grid strong,
-html body .knowledge-section .articles-grid>.article-card h2{
-  font-weight:600!important;
-}
 
 /* Desktop Zusammenarbeit: drei Spalten,
 zwei Reihen */
@@ -371,24 +350,7 @@ html body .home>.home-values .home-values__item h3{
   top:7px!important;
 }
 
-/* Kleine Titel: neutraler Buchstabenabstand für bessere Lesbarkeit */
-html body .home>.home-values .home-values__item h3,
-html body .home>.home-paths .home-paths__grid strong,
-html body .page-main>.home-values .home-values__item h3,
-html body .services-main .services-section .service-card h2{
-  letter-spacing:0!important;
-}
 
-/* Gemeinsame Typografie der Kacheltitel */
-html body .home>.home-values .home-values__item h3,
-html body .home>.home-paths .home-paths__grid strong,
-html body .page-main>.home-values .home-values__item h3,
-html body .services-main .services-section .service-card h2{
-  font-family:var(--font-cormorant),Georgia,serif!important;
-  font-size:24px!important;
-  font-weight:600!important;
-  -webkit-text-stroke:0!important;
-}
 
 /* Dienstleistungs Hauptseite: kurze Linien wie auf der Startseite */
 html body .services-main .services-section .service-card h2::after{
@@ -407,13 +369,6 @@ html body .services-main .services-section .service-card h2::after{
 html body .services-main .services-section .service-card>summary>p{
   margin-top:23px!important;}
 
-/* Alle kleinen Titel: einheitlicher Zeilenabstand 1.12 */
-html body .home-values__item h3,
-html body .home-paths__grid strong,
-html body .services-section .service-card h2,
-html body .knowledge-section .article-card h2{
-  line-height:1.12!important;
-}
 
 /* Startseite Dienstleistungen: Titel-Text-Abstand wie bei Fachwissen */
 html body main.home .home-values .home-values__inner .home-values__items .home-values__item p{
